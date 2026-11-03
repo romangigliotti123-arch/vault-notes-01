@@ -26,6 +26,11 @@ Job-based router for AI agents (generated 2026-11-03 from the claude-library; do
   - [[Combined-Brain]] (note) `Mentor/Combined-Brain.md` - section Creator cards (trust label and strongest themes per creator)
 - **get vault suggestions injected automatically on every prompt (opt-in)**
   - tool: install the kit with -WithHooks (Windows) or --with-hooks (macOS/Linux); script claude-kit/tools/mentor-hook.py, mute with ~/.claude/state/mentor-hook.off
+- **find a fix, gotcha or corrected assumption that agents already verified (curated learned notes)**
+  - [[README]] (note) `learned/README.md` - index of curated findings by topic (community-contributed reference data with confirmation counts)
+  - tool: python vault-find.py "<problem>" --type learned
+- **record something non-obvious I just verified so every agent benefits (self-improving vault)**
+  - `/vault-learn` (slash command, claude-kit) - Record a verified, non-obvious finding so every agent that uses the vault can benefit (self-improving vault).
 
 ## Roblox skill pack: 300+ focused skills, loaded only when you ask (/rbx)
 
@@ -359,7 +364,7 @@ Start at [[Manager-README]] (`Manager/Manager-README.md`), then [[PROPOSALS]]. T
 
 [[AI-Creators]] (`Creators/AI-Creators.md`) lists the built items that live here; the full video notes, hubs and idea catalogue are in the AI Library Vault (`Creators/`).
 
-## Slash commands installed by the claude-kit (60)
+## Slash commands installed by the claude-kit (62)
 
 - `/clarify-before-build` - Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops unti...
 - `/deep-topic-research` - Use when the user gives a topic and wants it researched deeply across GitHub, YouTube, Reddit, blogs, docs and papers: find the b...
@@ -418,6 +423,8 @@ Start at [[Manager-README]] (`Manager/Manager-README.md`), then [[PROPOSALS]]. T
 - `/use-the-ai-library` - How any Claude finds and uses a skill, agent or research note from the AI Library Vault (10,000+ general AI skills and agents, pl...
 - `/use-the-vault` - How any Claude should use the claudes-vault Obsidian vault (about 17,000 generated notes: Roblox knowledge base, 11,000 skill/age...
 - `/vault-contribute` - Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can offer it to the va...
+- `/vault-curate` - Owner/maintainer only, on demand: curate the public vault-learnings inbox into vault notes.
+- `/vault-learn` - Record a verified, non-obvious finding so every agent that uses the vault can benefit (self-improving vault).
 - `/vault-mentor` - Start the vault mentor: a co-pilot with the combined knowledge of every creator in the Roblox Dev Mastery Vault and the AI Librar...
 - `/vault-update` - Update the claudes-vault (and the companion AI Library Vault) on this computer on demand: self-healing git update (fetch + fast-f...
 - `/vault-update-clean` - Make this computer's claudes-vault an EXACT copy of the main vault (Roman's), removing stray or changed files, while keeping Game...
