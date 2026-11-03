@@ -470,7 +470,7 @@ def gh_login():
 
 
 def git_cmd(use_gh):
-    base = ["git", "-c", "core.autocrlf=false", "-c", "core.longpaths=true", "-c", "user.name=vault-learn", "-c", "user.email=[email]", "-c", "commit.gpgsign=false"]
+    base = ["git", "-c", "core.autocrlf=false", "-c", "core.longpaths=true", "-c", "user.name=vault-learn", "-c", "user.email=vault-learn" + "@users.noreply.github.com", "-c", "commit.gpgsign=false"]
     if use_gh:
         base += ["-c", "credential.helper=", "-c", "credential.helper=!gh auth git-credential"]
     return base
