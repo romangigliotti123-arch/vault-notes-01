@@ -134,17 +134,19 @@ Expected last line: `claude-kit: installed N new, updated N, unchanged N, kept-y
 
 ## Step 5. Download the assets (zip files, sha256-verified, extracted atomically)
 
-Preferred: one command. The kit's `assets-sync.py` (Python 3 standard library only) reads `https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/repos.json` (the list of asset sources; today `https://vault-hhmi60uo.netlify.app/assets/`), compares each zip's sha256 with what it extracted last time, downloads only changed zips (follows redirects, HTTP Range resume), verifies sha256 against the source's `SHA256SUMS`, extracts into a temp folder inside `<vault>/Assets` and swaps it in as `<vault>/Assets/<type>/`. It never writes or deletes anything outside `<vault>/Assets`. The first run downloads about 1.0 GB and can take several minutes: run it as a background job if your tool has a time limit and keep checking its output until it prints `website mode done`: do not send your final message while it is still running. Run it again any time (it is quiet when nothing changed); the source is remembered in `<vault>/Assets/.assets-sync-zip-state.json`.
+Both commands are needed (the first prints nothing unless `repos.json` lists more than one notes repository: the vault grows in numbered repositories `vault-notes-01`, `-02`, ... and `vault-shards.py` overlays the later ones onto the same vault folder; adding one needs no action from the user). For the assets: the kit's `assets-sync.py` (Python 3 standard library only) reads `https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/repos.json` (the list of asset sources; today `https://vault-hhmi60uo.netlify.app/assets/`), compares each zip's sha256 with what it extracted last time, downloads only changed zips (follows redirects, HTTP Range resume), verifies sha256 against the source's `SHA256SUMS`, extracts into a temp folder inside `<vault>/Assets` and swaps it in as `<vault>/Assets/<type>/`. It never writes or deletes anything outside `<vault>/Assets`. The first run downloads about 1.0 GB and can take several minutes: run it as a background job if your tool has a time limit and keep checking its output until it prints `website mode done`: do not send your final message while it is still running. Run it again any time (it is quiet when nothing changed); the source is remembered in `<vault>/Assets/.assets-sync-zip-state.json`.
 
 [bash]
 ```bash
 RAW=https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main; V="$HOME/Obsidian/claudes-vault"; PY=$(for p in python3 python; do command -v $p >/dev/null && $p -c "import sys" 2>/dev/null && { echo $p; break; }; done)
+"$PY" -I "$HOME/.claude/claude-kit/tools/vault-shards.py" --vault "$V" --base "$RAW"
 "$PY" -I "$HOME/.claude/claude-kit/tools/assets-sync.py" --vault "$V" --base "$RAW"; du -sh "$V/Assets"
 ```
 [PowerShell]
 ```powershell
 $RAW="https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main"; $V="$env:USERPROFILE\Obsidian\claudes-vault"; $py=@('python','python3','py') | ForEach-Object { Get-Command $_ -ErrorAction SilentlyContinue } | Where-Object { & $_.Source -c "import sys" *> $null; $LASTEXITCODE -eq 0 } | Select-Object -First 1
-$pre = if ($py.Name -eq 'py.exe') { @('-3') } else { @() }; & $py.Source @pre -I "$env:USERPROFILE\.claude\claude-kit\tools\assets-sync.py" --vault $V --base $RAW
+$pre = if ($py.Name -eq 'py.exe') { @('-3') } else { @() }; & $py.Source @pre -I "$env:USERPROFILE\.claude\claude-kit\tools\vault-shards.py" --vault $V --base $RAW
+& $py.Source @pre -I "$env:USERPROFILE\.claude\claude-kit\tools\assets-sync.py" --vault $V --base $RAW
 "{0:N1} GB in $V\Assets" -f ((Get-ChildItem "$V\Assets" -Recurse -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum/1GB)
 ```
 Useful options: `--only catalog,audio` (just those types), `--dry-run` (report only). Exit code 1 means a zip failed: run it once more (it resumes). Expected output: `assets-sync: website mode ...: N zip(s) to fetch: ...` then one `ok` line per type.
