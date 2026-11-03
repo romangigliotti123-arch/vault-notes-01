@@ -6,6 +6,8 @@
 #    Quiet unless something changed; skips with one line when the share is unreachable (Tailscale off). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools/refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>/claude-kit/roblox-reference and
 #    writes <claude config dir>/claude-kit/reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
+# 4) tools/learn.py flush --quiet: sends the notes queued by /vault-learn to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write
+#    access (the notes then stay queued). Env CLAUDE_LEARN_SKIP=1 skips this part.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller.
 {
 D="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
@@ -31,6 +33,11 @@ if [ "$DO_ASSETS" = 1 ] || [ "$DO_REFS" = 1 ]; then
     [ "$DO_REFS" = 1 ] && "$PY" -I "$D/tools/refs-sync.py" 2>&1   # reference screenshots (vault-refs-NN) + reference-path.txt; silent when offline or unchanged
     [ "$DO_ASSETS" = 1 ] && "$PY" -I "$D/tools/assets-sync.py" --vault "$(dirname "$D")" 2>&1   # streams its own progress lines (first sync); prints nothing when nothing changed
   fi
+fi
+if [ "${CLAUDE_LEARN_SKIP:-0}" != 1 ] && [ -f "$D/tools/learn.py" ]; then
+  for p in python3 python; do
+    if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then "$p" -I "$D/tools/learn.py" flush --quiet >/dev/null 2>&1; break; fi
+  done
 fi
 exit 0
 }

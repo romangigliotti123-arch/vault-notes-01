@@ -50,3 +50,7 @@ At most 8 bullets. Every number or rule has a link and a flag (official | indie 
 - [ ] Every number cites a source link and flag.
 - [ ] Conflicts and age (over 12 months) surfaced.
 - [ ] No more than about 4 kbq calls unless the question is broad.
+
+## Learn
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/vault-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

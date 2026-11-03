@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """vault-find - ranked search over the notes of BOTH vaults (Roblox Dev Mastery Vault + AI Library Vault). Stdlib only.
 
-  python vault-find.py "<what you need>" [-n 10] [--type skill|agent|creator|video|manager|kb|brain|game|reusable|system|skillpack|any] [--side ai|roblox|both]
+  python vault-find.py "<what you need>" [-n 10] [--type skill|agent|creator|video|manager|kb|brain|game|reusable|system|skillpack|learned|any] [--side ai|roblox|both]
                        [--vault PATH ...] [--paths] [--json] [--reindex] [--all]
 
 Searches note titles (item names), frontmatter descriptions and tags (skills, agents, creator hubs/videos, Manager topics,
@@ -159,6 +159,7 @@ def scan(side, v, include_all):
     walk("Manager", lambda r, f: "manager" if (f.startswith("topic-") or f in ("Manager-README.md", "PROPOSALS.md")) else None, read_n=3000)
     walk("Roblox/roblox-kb", lambda r, f: "kb" if r.count("/") <= 3 and not f.startswith("case-studies-") else ("kb" if f.startswith("case-studies-") else None), read_n=2500)
     walk("Roblox/blender", lambda r, f: "kb" if r.count("/") <= 2 else None, read_n=2500)   # Blender research moved out of roblox-kb (vault polish O2)
+    walk("learned", lambda r, f: "learned" if f != "README.md" else None, read_n=2500)   # curated community findings (learned/<topic>/<slug>.md)
     if include_all:
         walk("Imported", lambda r, f: "imported", title_only=True, read_n=600)
     return recs
@@ -336,6 +337,8 @@ def rank(recs, query, picks):
             sc *= 1.3   # the user's own tested building blocks: use first
         elif r["type"] == "system":
             sc *= 1.2   # kit systems: after the user's own reusable items, before building
+        elif r["type"] == "learned":
+            sc *= 1.15   # curated findings from earlier work: check before researching again
         elif r["type"] == "skillpack":
             sc *= 1.1 if r.get("built") else 0.9   # pack skills: built ones first
         if r["type"] in ("video", "imported"):
@@ -351,7 +354,7 @@ def main():
     ap = argparse.ArgumentParser(description="ranked search over both vaults")
     ap.add_argument("query", nargs="+")
     ap.add_argument("-n", type=int, default=10)
-    ap.add_argument("--type", default="any", choices=["any", "skill", "agent", "creator", "video", "manager", "kb", "brain", "imported", "game", "reusable", "system", "skillpack"])
+    ap.add_argument("--type", default="any", choices=["any", "skill", "agent", "creator", "video", "manager", "kb", "brain", "imported", "game", "reusable", "system", "skillpack", "learned"])
     ap.add_argument("--side", default="both", choices=["both", "ai", "roblox"])
     ap.add_argument("--vault", action="append", default=[])
     ap.add_argument("--paths", action="store_true", help="print only vault-relative paths")

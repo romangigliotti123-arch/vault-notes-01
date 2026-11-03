@@ -5,6 +5,8 @@
 #    Quiet unless something changed; skips with one line when the share is unreachable (Tailscale off). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools\refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>\claude-kit\roblox-reference and
 #    writes <claude config dir>\claude-kit\reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
+# 4) tools\learn.py flush --quiet: sends the notes queued by /vault-learn to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write
+#    access (the notes then stay queued). Env CLAUDE_LEARN_SKIP=1 skips this part.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller. Env CLAUDE_KIT_HOME is honoured by install.ps1.
 $ErrorActionPreference = 'Continue'
 $env:CLAUDE_KIT_NOFOOTER = '1'
@@ -46,5 +48,17 @@ if ($doAssets -or $doRefs) {
       if ($doAssets) { & $py @($pyPre + @('-I', $sync, '--vault', $vault)) }   # streams its own progress lines (first sync); prints nothing when nothing changed
     } catch { Write-Output ("{0} assets-sync: failed (non-fatal): {1}" -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), $_.Exception.Message) }
   }
+}
+$learn = Join-Path $d 'tools\learn.py'
+if (($env:CLAUDE_LEARN_SKIP -ne '1') -and (Test-Path -LiteralPath $learn)) {
+  try {
+    foreach ($c in @(@('python'), @('python3'), @('py', '-3'))) {
+      $exe = (Get-Command $c[0] -ErrorAction SilentlyContinue | Select-Object -First 1)
+      if (-not $exe) { continue }
+      $pre = @(); if ($c.Count -gt 1) { $pre = $c[1..($c.Count - 1)] }
+      & $exe.Source @pre -c "import sys" *> $null
+      if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $learn, 'flush', '--quiet')) *> $null; break }
+    }
+  } catch { }
 }
 exit 0

@@ -48,3 +48,7 @@ Evidence from this mode is "checked, not run": say so.
 
 ## Honesty
 This host (and many clients) cannot sign in to Studio for the user, so live-Studio behaviour of the kit's code is `untested` until the user runs it. Say that plainly; never describe a Studio run that did not happen.
+
+## Learn
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/vault-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

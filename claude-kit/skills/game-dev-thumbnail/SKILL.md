@@ -33,3 +33,7 @@ Report: model used and how it was found, files written, which checklist items pa
 
 ## Rules
 Never hard-code a model name, price or spec in outputs without this run's source. Never read the key's value, never write it anywhere, never put it in a command line argument (the script reads the environment). No real people, brand logos, other games' art or characters, or copyrighted references. All-ages content only.
+
+## Learn
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/vault-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

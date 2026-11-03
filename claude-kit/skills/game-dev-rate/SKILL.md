@@ -26,3 +26,7 @@ Cite a note path or link for every number. Patterns only: never rate or recommen
 
 ## Calibration
 `references/calibration.md` shows three sample ideas scoring 7.49, 4.75 and 3.00. If your outputs for different ideas cluster within one point, re-score against the anchors.
+
+## Learn
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/vault-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

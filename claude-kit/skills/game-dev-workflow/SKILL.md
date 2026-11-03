@@ -65,3 +65,7 @@ At the end (all jobs verified or reported failed): run `game-dev-visual-qa` (up 
 
 ## Guardrails
 Stay inside the PROJECT folder; do not edit the user's other projects. Keep tool output small (grep with `-m`, `head`, kbq with `-n`); never load a whole topic file (50-450 KB). If the vault, python, or a tool is missing, say so in one line and use the fallback in the stage text. Leave the user with a plan file even when the build is not run.
+
+## Learn
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/vault-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

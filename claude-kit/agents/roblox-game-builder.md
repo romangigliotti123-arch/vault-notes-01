@@ -81,3 +81,5 @@ UNTESTED: everything that was not run (Studio playtest, real purchases, real Dat
 ASSUMPTIONS: the list from GDD section 0.
 NEXT 3 TASKS: three concrete tasks in order (for example: playtest M1 and fix the top 3 bugs; create the passes/products in Creator Hub and paste their ids into Config; thumbnail and icon from the ad plan).
 EVIDENCE: kbq calls and note paths used (count), checks run with their result lines, third-party libraries with licenses.
+
+Learning loop: after you VERIFY something non-obvious (a fix, a gotcha, a corrected assumption), record it once with `python -I ~/.claude/claude-kit/tools/learn.py add ...` (see skill vault-learn; facts only, no secrets or personal data). Check the curated `learned/` notes first when you hit a problem (`vault-find.py "<problem>" --type learned`).

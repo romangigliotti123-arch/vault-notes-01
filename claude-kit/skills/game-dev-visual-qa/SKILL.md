@@ -32,3 +32,7 @@ Why this exists: a game that runs and follows its design was repeatedly declared
 - Layout findings from `ui_overlap` are leads, not verdicts; explain every one you keep. Safe areas other than the top bar are not emulated: check them with the Device Emulator or `safe-area-checker`.
 - No publishing, spending or posting; do not edit anything outside the PROJECT folder and `Games/<slug>/visual-qa/`.
 - Scripts: `scripts/Overlap.luau` (pure, tested with Lune), `scripts/ui_overlap.luau` (generated single file for `execute_luau`; rebuild with `python scripts/build_inline.py`), `scripts/visual_gate.py` (gate maths). Source of the rules: `Roblox/roblox-kb/ui-ux-design.md`, `building-art-and-assets.md`, `vfx-and-particles.md`.
+
+## Learn
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/vault-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

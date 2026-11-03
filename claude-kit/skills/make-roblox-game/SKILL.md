@@ -19,3 +19,7 @@ One sentence from the user is enough. Do not ask the user anything.
 
 ## Guardrails
 Never publish to Roblox, spend Robux or money, or post anything. Never write into the vault. Never invent Roblox asset, pass or product ids.
+
+## Learn
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/vault-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
