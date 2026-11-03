@@ -8,7 +8,7 @@ description: "Given a Roblox dev need (low-poly trees, datastore wrapper, UI fra
 Use when someone needs a ready-made model, texture, sound, code module, framework or example game for Roblox. Search local first; never download until the local index misses.
 
 ## Where things live
-ASSETS = env `ROBLOX_ASSETS`, else `<vault>/Assets`, else `~/roblox-assets` (Windows `%USERPROFILE%\roblox-assets`). `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/kbq.py where` prints it (empty = not synced on this computer, run /vault-update: say so, do not invent paths).
+ASSETS = env `ROBLOX_ASSETS`, else `<vault>/Assets`, else `~/roblox-assets` (Windows `%USERPROFILE%\roblox-assets`). `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/kbq.py where` prints it (empty = not synced on this computer, run /update-rbxdev-vault: say so, do not invent paths).
 - `$ASSETS/INDEX.md`: table of every pack and library (what, license, size, path, import/use, tags). Per-item notes in `$ASSETS/catalog/` (`code-*`, `pack-*`, `ref-*`).
   - `code/<name>/` library checkouts (ProfileStore, Lyra, Knit, Fusion, Vide, ByteNet, Zap, Janitor, GoodSignal, Promise, ZonePlus, Cmdr, Rojo, Wally, example games `game-*`, studio MCP server).
   - `3d-models/` Kenney and Quaternius CC0 kits (FBX/OBJ/glTF), `textures/` Poly Haven + ambientCG 1K PBR, `hdris/`, `audio/` Kenney sound packs.

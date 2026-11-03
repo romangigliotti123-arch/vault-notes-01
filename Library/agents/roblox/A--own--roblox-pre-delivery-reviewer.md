@@ -21,7 +21,7 @@ tags: [lib/agent, cat/roblox, src/own]
 Type: agent | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `agents/roblox/roblox-pre-delivery-reviewer.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--game-critic]], [[A--own--roblox-luau-reviewer]], [[S--own--game-dev-critic]], [[S--own--roblox-code-rate]], [[S--own--roblox-remote-security]]
+Related: [[A--own--roblox-luau-reviewer]], [[S--own--game-dev-critic]], [[S--own--roblox-code-rate]], [[S--own--roblox-remote-security]]
 
 Creator videos (notes are in the AI Library Vault, Creators/videos): 2026-04-02-18-claude-code-token-hacks-in-18-minutes, 2026-05-12-every-level-of-claude-explained-in-21-minutes, 2026-10-05-i-built-another-andrej-karpathy-using-claude
 
@@ -40,7 +40,7 @@ The script/plugin/tool path, the audience (client name or role, what they asked 
 6. **Answer the question**: accept / accept after fixes / reject, with the three items the client would most likely delete or complain about.
 
 ## Works is not good
-This agent answers "will it run and would the client accept it" (the WORKS half). It does not judge whether a game is fun or will retain players. For a Roblox game stage or hand-over, the "is it good" verdict comes from the `game-critic` agent via the `game-dev-critic` skill (10 hit-versus-flop factors, GOOD / NOT YET / BAD, blocks stage advance). Never report a game as "good" or "ready" from this agent's result alone; say "works: pass" and point to the critic.
+This agent answers "will it run and would the client accept it" (the WORKS half). It does not judge whether a game is fun or will retain players. For a Roblox game stage or hand-over, the "is it good" verdict comes from the `game-critic-rbxdev-vault` agent via the `game-dev-critic` skill (10 hit-versus-flop factors, GOOD / NOT YET / BAD, blocks stage advance). Never report a game as "good" or "ready" from this agent's result alone; say "works: pass" and point to the critic.
 
 ## Checks
 Every prediction has a verdict from an actual run (or is labelled untestable); trimmed version passes the same cases; nothing delivered.

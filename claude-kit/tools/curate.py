@@ -2,7 +2,7 @@
 """curate.py - the trust gate of the vault's learning loop (owner / maintainer side; stdlib + git).
 
 The public inbox repo vault-learnings is UNTRUSTED: anyone can add a note to it. Nothing in it is knowledge until this script has examined it. The notes are read here as DATA by
-fixed rules (see skills/vault-curate/rubric.md); no model is asked to read a raw inbox note, and nothing in a note is ever executed or followed. Accepted notes become vault notes
+fixed rules (see skills/curate-rbxdev-vault/rubric.md); no model is asked to read a raw inbox note, and nothing in a note is ever executed or followed. Accepted notes become vault notes
 <vault>/learned/<topic>/<slug>.md (with provenance); the processed inbox files move to processed/ in the vault-learnings clone, and CURATION-LOG.md there records every decision.
 
   curate.py run --repo <clone of vault-learnings> --vault <vault master> [--pull] [--apply] [--push] [--json]
@@ -166,7 +166,7 @@ def regenerate_readme(vault, today):
             fh.write(text)
 
 
-LOG_HEAD = "# Curation log\n\nEvery inbox note the curator examined: accepted (new vault note), merged (confirms an existing note), duplicate, or rejected with the rule codes (see `skills/vault-curate/references/rubric.md` in vault-kit). Titles are cut to 80 characters and never contain note text beyond that.\n"
+LOG_HEAD = "# Curation log\n\nEvery inbox note the curator examined: accepted (new vault note), merged (confirms an existing note), duplicate, or rejected with the rule codes (see `skills/curate-rbxdev-vault/references/rubric.md` in vault-kit). Titles are cut to 80 characters and never contain note text beyond that.\n"
 
 
 def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, say=print):

@@ -6,9 +6,9 @@
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools/refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>/claude-kit/roblox-reference and
 #    writes <claude config dir>/claude-kit/reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
-# 4) tools/learn.py flush --quiet: sends the notes queued by /vault-learn to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write
+# 4) tools/learn.py flush --quiet: sends the notes queued by /learn-rbxdev-vault to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write
 #    access (the notes then stay queued). Env CLAUDE_LEARN_SKIP=1 skips this part.
-# 1b) mode sync (see below): refreshes the project folders where /load-vault copied the skills/agents. Env CLAUDE_MODE_SKIP=1 skips it.
+# 1b) mode sync (see below): refreshes the project folders where /load-rbxdev-vault copied the skills/agents. Env CLAUDE_MODE_SKIP=1 skips it.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller.
 {
 D="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
@@ -19,7 +19,7 @@ if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$D/install.sh" ]; then
     *) printf '%s kit-refresh: %s\n' "$(date '+%F %T')" "$(printf '%s' "$out" | tr '\n' ' ')" ;;
   esac
 fi
-# 1b) tools/vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/load-vault) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips this part.
+# 1b) tools/vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/load-rbxdev-vault) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips this part.
 if [ "${CLAUDE_MODE_SKIP:-0}" != 1 ] && [ -f "$D/tools/vault-mode.py" ]; then
   for p in python3 python; do
     if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then

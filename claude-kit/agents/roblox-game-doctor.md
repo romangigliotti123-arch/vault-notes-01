@@ -63,4 +63,4 @@ NEEDS: decisions or approvals the user must give (or "none")
 NEXT: sensible follow-up steps, including which other Roblox specialist should run next
 ARTIFACTS: absolute paths of files produced (or "none")
 
-Learning loop: after you VERIFY something non-obvious (a fix, a gotcha, a corrected assumption), record it once with `python -I ~/.claude/claude-kit/tools/learn.py add ...` (see skill vault-learn; facts only, no secrets or personal data). Check the curated `learned/` notes first when you hit a problem (`vault-find.py "<problem>" --type learned`).
+Learning loop: after you VERIFY something non-obvious (a fix, a gotcha, a corrected assumption), record it once with `python -I ~/.claude/claude-kit/tools/learn.py add ...` (see skill learn-rbxdev-vault; facts only, no secrets or personal data). Check the curated `learned/` notes first when you hit a problem (`vault-find.py "<problem>" --type learned`).

@@ -4,12 +4,12 @@ description: "Write the brief an AI worker (a subagent or a headless claude sess
 category: workflow
 tags: brief, prompt, worker, delegate, subagent, done when, scope, report format, instructions
 kb: Manager/topic-brief-prompt-engineering.md, Manager/topic-report-formats-and-verification.md, Manager/topic-anthropic-agent-guidance.md, Manager/topic-managing-ai-agents-for-roblox-game-dev.md, Mentor/Combined-Brain.md, Roblox/roblox-kb/ai-and-tools.md
-related: task-breaker, worker-verifier, usage-budgeter, clarify-before-build, game-dev-workflow, session-handoff
+related: task-breaker, worker-verifier, usage-budgeter, clarify-before-build-rbxdev-vault, game-dev-workflow, session-handoff
 ---
 
 # ai-brief-writer
 
-`game-dev-workflow` ships `templates/brief.md`; this skill is how to fill it well and prove it is well formed before spending a worker run. It writes the brief only; splitting the job is `task-breaker`, checking the answer is `worker-verifier`, choosing the model is `usage-budgeter`, and asking the user clarifying questions is `clarify-before-build`.
+`game-dev-workflow` ships `templates/brief.md`; this skill is how to fill it well and prove it is well formed before spending a worker run. It writes the brief only; splitting the job is `task-breaker`, checking the answer is `worker-verifier`, choosing the model is `usage-budgeter`, and asking the user clarifying questions is `clarify-before-build-rbxdev-vault`.
 
 ## When to use
 Any time you delegate Roblox work to a subagent, a headless `claude -p` run or a future session. Not for: a one-line lookup you will do yourself, or prompts for Roblox's own Assistant.
@@ -50,4 +50,4 @@ Fill the template by hand; briefcheck.py runs without any tool. Without a way to
 "Based on your findings, fix it" (understanding delegated). A strict output format with no way to say "could not". Briefs that paste whole files instead of paths. Long prompts for small models, which stop early. Copying one brief across model tiers without re-testing.
 
 ## Related
-`task-breaker`, `worker-verifier`, `usage-budgeter`, `clarify-before-build`, `game-dev-workflow`.
+`task-breaker`, `worker-verifier`, `usage-budgeter`, `clarify-before-build-rbxdev-vault`, `game-dev-workflow`.

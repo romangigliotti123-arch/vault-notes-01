@@ -55,7 +55,7 @@ Anchors: 1-2 = broken or dangerous; 5 = works but with notable gaps; 8 = solid w
 - Rating generated code the same as hand-written: rate what is there.
 
 ## Related
-roblox-luau-reviewer, roblox-remote-security, roblox-datastore-safe-save, roblox-luau-style, roblox-performance-pass, game-dev-rate, rate-anything-1-10, roblox-audit-fanout.
+roblox-luau-reviewer, roblox-remote-security, roblox-datastore-safe-save, roblox-luau-style, roblox-performance-pass, game-dev-rate, rate-anything-1-10-rbxdev-vault, roblox-audit-fanout.
 
 ## Sources
 Idea from AI-creator research (catalogue ideas idea-0071). Credit and where it appears:

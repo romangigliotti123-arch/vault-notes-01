@@ -1,5 +1,5 @@
 # win-sync-setup.ps1 - keeps the Obsidian vault "claudes-vault" fresh on this Windows PC: clone, kit install, asset sync, and a task that updates at every logon
-# (NO 15-minute polling). On demand: vault-update.ps1 in the vault folder, or /vault-update in Claude.
+# (NO 15-minute polling). On demand: vault-update.ps1 in the vault folder, or /update-rbxdev-vault in Claude.
 # User-level only: no admin needed, no window shown. Safe to run again. Pull-only: never commits or pushes.
 # Usage:  powershell -NoProfile -ExecutionPolicy Bypass -File win-sync-setup.ps1 [-Dest <folder>] [-Uninstall] [-SkipKit] [-SkipAssets]
 # Assets (about 2.7 GB the first time) are synced into <vault>\Assets from the host PC's Tailscale share, never from GitHub.
@@ -99,16 +99,16 @@ function Heal-Vault {
   try {
     & $git -C $vault config core.autocrlf false 2>$null | Out-Null
     & $git -C $vault config core.safecrlf false 2>$null | Out-Null
-    if ($script:PublicNotesGit) { $ou = (& $git -C $vault remote get-url origin 2>$null); if ("$ou" -match '\.netlify\.app/vault\.git') { & $git -C $vault remote set-url origin $script:PublicNotesGit 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $script:originMoved = "vault-update: origin moved to $($script:PublicNotesGit)" } } }
+    if ($script:PublicNotesGit) { $ou = (& $git -C $vault remote get-url origin 2>$null); if ("$ou" -match '\.netlify\.app/vault\.git') { & $git -C $vault remote set-url origin $script:PublicNotesGit 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $script:originMoved = "update-rbxdev-vault: origin moved to $($script:PublicNotesGit)" } } }
     & $git -C $vault config core.longpaths true 2>$null | Out-Null
     $prot = @(Protect-Vault $git $vault)
     & $git -C $vault fetch -q origin 2>$null | Out-Null
-    if ($LASTEXITCODE -ne 0) { $msg = 'vault-update: fetch failed (offline?), vault left as it is' }
+    if ($LASTEXITCODE -ne 0) { $msg = 'update-rbxdev-vault: fetch failed (offline?), vault left as it is' }
     else {
       $t = 'origin/main'
       & $git -C $vault rev-parse -q --verify $t 2>$null | Out-Null
       if ($LASTEXITCODE -ne 0) { $t = '@{u}'; & $git -C $vault rev-parse -q --verify $t 2>$null | Out-Null; if ($LASTEXITCODE -ne 0) { $t = $null } }
-      if (-not $t) { $msg = 'vault-update: no upstream branch, vault left as it is' }
+      if (-not $t) { $msg = 'update-rbxdev-vault: no upstream branch, vault left as it is' }
       else {
         # full view: if app.json differs from the repo's only by the userIgnoreFilters rewrite, put the repo version back first so it is not a "local change"
         if (Test-Path -LiteralPath $marker) {
@@ -150,14 +150,14 @@ function Heal-Vault {
             Get-ChildItem -LiteralPath $state -Filter $pat -ErrorAction SilentlyContinue | Sort-Object Name -Descending | Select-Object -Skip 5 | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
           }
           & $git -C $vault reset --hard -q $t 2>$null | Out-Null
-          if ($LASTEXITCODE -ne 0) { $msg = 'vault-update: could not reset the vault to the latest (left as it is)' }
-          elseif ($saved) { $msg = "vault-update: local changes saved to $patch; vault reset to the latest" }
+          if ($LASTEXITCODE -ne 0) { $msg = 'update-rbxdev-vault: could not reset the vault to the latest (left as it is)' }
+          elseif ($saved) { $msg = "update-rbxdev-vault: local changes saved to $patch; vault reset to the latest" }
         }
       }
     }
-  } catch { $msg = ('vault-update: heal failed (' + $_.Exception.Message + '), continuing') }
+  } catch { $msg = ('update-rbxdev-vault: heal failed (' + $_.Exception.Message + '), continuing') }
   try { if (Test-Path -LiteralPath $marker) { Set-FullViewConfig $vault } } catch { }
-  try { $n = Get-OwnFileCount $git $vault $prot; if ($n -gt 0) { $kept = "vault-update: $n of your own files kept (My Research, Games and your other files are never removed by /vault-update)" } } catch { }
+  try { $n = Get-OwnFileCount $git $vault $prot; if ($n -gt 0) { $kept = "update-rbxdev-vault: $n of your own files kept (My Research, Games and your other files are never removed by /update-rbxdev-vault)" } } catch { }
   return @(@($script:originMoved, $msg, $kept) | Where-Object { $_ })
 }
 #endregion
@@ -262,11 +262,11 @@ try {
 try { $chk = Join-Path $Dest 'claude-kit\tools\setup-check.py'; if (-not $SkipKit -and (Test-Path $chk)) { foreach ($n in 'python3', 'python', 'py') { $c = Get-Command $n -ErrorAction SilentlyContinue; if ($c -and $c.Source -notmatch 'WindowsApps') { Write-Output ''; & $c.Source -I $chk; break } } } } catch { }
 Write-Output ''
 Write-Output "Done. Task '$TaskName' updates $Dest (vault pull, kit refresh, assets) at every logon, 2 minutes after you sign in; it does NOT poll (log: $log)."
-Write-Output "Update now, any time: powershell -NoProfile -ExecutionPolicy Bypass -File `"$Dest\vault-update.ps1`"   (or run /vault-update in Claude). Assets are in $Dest\Assets."
+Write-Output "Update now, any time: powershell -NoProfile -ExecutionPolicy Bypass -File `"$Dest\vault-update.ps1`"   (or run /update-rbxdev-vault in Claude). Assets are in $Dest\Assets."
 Write-Output "Next: open Obsidian > Open folder as vault > choose $Dest"
 Write-Output 'Do not edit notes here (the update saves any local changes to a patch and resets to the latest). Remove the sync: win-sync-setup.ps1 -Uninstall'
 $kitHome = if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } else { $env:USERPROFILE }
-if (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\game-dev-workflow\SKILL.md')) { Write-Output 'The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /load-vault: that session enters Roblox dev mode (the vault skills, agents, art-direction and visual-QA rules, reference images, learn step) and /unload-vault turns it off again. Always available: /load-vault /unload-vault /vault-update /update-check /uninstall. After /load-vault: /game-idea (one fresh idea) or /game-dev-workflow (idea, rating, plan, build); /make-roblox-game; judgement and your games (kept in the vault under Games/, never overwritten by updates): /game-dev-critic /game-dev-weekly /game-dev-launch-kit /game-dev-harvest /vault-contribute; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; looks (a game is never called done without it): /game-dev-art-direction /game-dev-visual-qa; mentor: /vault-mentor; research: /deep-topic-research; manager: /manager-mode; vault: /vault-update-clean /setup-check /light-mode-on /light-mode-off /kit-list; usage: /low-usage-mode. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)' }
-elseif (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\agents\roblox-game-builder.md')) { Write-Output 'Kit installed (off by default): type /load-vault in your Roblox project folder, then say "make me a Roblox game: <your idea>" to Claude.' }
-if (-not $SkipKit -and (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\game-dev-workflow\SKILL.md'))) { Write-Output ''; Write-Output '>>> Type /load-vault in a Roblox project folder to use the kit (then /kit-list shows everything it contains).' }
+if (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\game-dev-workflow\SKILL.md')) { Write-Output 'The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /load-rbxdev-vault: that session enters Roblox dev mode (the vault skills, agents, art-direction and visual-QA rules, reference images, learn step) and /unload-rbxdev-vault turns it off again. Always available: /load-rbxdev-vault /unload-rbxdev-vault /update-rbxdev-vault /update-check-rbxdev-vault /uninstall-rbxdev-vault. After /load-rbxdev-vault: /game-idea-rbxdev-vault (one fresh idea) or /game-dev-workflow (idea, rating, plan, build); /make-roblox-game; judgement and your games (kept in the vault under Games/, never overwritten by updates): /game-dev-critic /game-dev-weekly /game-dev-launch-kit /game-dev-harvest /contribute-rbxdev-vault; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; looks (a game is never called done without it): /game-dev-art-direction /game-dev-visual-qa; mentor: /mentor-rbxdev-vault; research: /deep-topic-research-rbxdev-vault; manager: /manager-mode-rbxdev-vault; vault: /update-clean-rbxdev-vault /setup-check-rbxdev-vault /light-mode-on-rbxdev-vault /light-mode-off-rbxdev-vault /list-rbxdev-vault; usage: /low-usage-mode-rbxdev-vault. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)' }
+elseif (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\agents\roblox-game-builder.md')) { Write-Output 'Kit installed (off by default): type /load-rbxdev-vault in your Roblox project folder, then say "make me a Roblox game: <your idea>" to Claude.' }
+if (-not $SkipKit -and (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\game-dev-workflow\SKILL.md'))) { Write-Output ''; Write-Output '>>> Type /load-rbxdev-vault in a Roblox project folder to use the kit (then /list-rbxdev-vault shows everything it contains).' }
 exit 0

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """games.py - the per-game community helper for /game-dev-workflow. Stdlib only. Never touches anything outside Games/ (and the PROJECT folder, read-only).
 
-Games/ lives in the vault root and is PROTECTED: /vault-update and /vault-update-clean never overwrite or remove it, origin never ships it.
+Games/ lives in the vault root and is PROTECTED: /update-rbxdev-vault and /update-clean-rbxdev-vault never overwrite or remove it, origin never ships it.
 Layout:  Games/README.md (hub)  Games/_profile.json (onboarding answers)  Games/<slug>/{GAME,design,decisions,systems}.md + playtests/ weekly/ critic/  Games/_Reusable/<name>/README.md + code
 
   games.py where                                       print the Games root that will be used
@@ -16,7 +16,7 @@ Layout:  Games/README.md (hub)  Games/_profile.json (onboarding answers)  Games/
   games.py advance <slug> --to STAGE [--project DIR]   move GAME.md to STAGE only if the critic's latest verdict for the CURRENT stage is GOOD (and, from prototype on, its file says visual: pass) and the evidence supports it
   games.py reusable add <name> --src PATH --what TXT [--from-game SLUG] [--tested y|n] [--rating N] [--tags TXT]    save a reusable building block
   games.py reusable list
-  games.py contribute <name>                           zip a reusable item into ~/vault-contribute/ for the owner (never uploads anything)
+  games.py contribute <name>                           zip a reusable item into ~/contribute-rbxdev-vault/ for the owner (never uploads anything)
 Games root: --games DIR, else env GAMES_ROOT, else <vault>/Games (vault = env CLAUDES_VAULT, else ~/Obsidian/claudes-vault).
 """
 import argparse, datetime, glob, json, os, re, shutil, sys, zipfile
@@ -44,7 +44,7 @@ def games_root(a):
         return os.path.abspath(os.environ["GAMES_ROOT"])
     v = vault_root()
     if not v:
-        sys.exit("games.py: vault not found. Set CLAUDES_VAULT, pass --games DIR, or run /vault-update first.")
+        sys.exit("games.py: vault not found. Set CLAUDES_VAULT, pass --games DIR, or run /update-rbxdev-vault first.")
     return os.path.join(v, "Games")
 
 
@@ -115,7 +115,7 @@ def rebuild_hub(root):
     items = sorted(d for d in os.listdir(re_dir) if os.path.isfile(os.path.join(re_dir, d, "README.md"))) if os.path.isdir(re_dir) else []
     lines = ["---", "type: games-hub", "updated: %s" % today(), "---", "# Games (your protected game communities)", "",
              "Each game below is its own cluster in Obsidian's graph (GAME.md hub with design, decisions, systems, playtests, weekly reports, critic verdicts, linked into the Roblox KB). "
-             "`/vault-update` and `/vault-update-clean` never touch this folder. Start with `/game-dev-workflow`.", "", "## Games", ""]
+             "`/update-rbxdev-vault` and `/update-clean-rbxdev-vault` never touch this folder. Start with `/game-dev-workflow`.", "", "## Games", ""]
     for g in games:
         f = fm_of(read(os.path.join(root, g, "GAME.md")))
         lines.append("- [[%s/GAME|%s]] - stage **%s** - %s" % (g, g, f.get("stage", "?"), f.get("pitch", "")))
@@ -469,7 +469,7 @@ def cmd_contribute(a):
     src = os.path.join(root, "_Reusable", a.name)
     if not os.path.isdir(src):
         sys.exit("games.py: no such reusable item %r" % a.name)
-    out_dir = os.path.join(os.path.expanduser("~"), "vault-contribute")
+    out_dir = os.path.join(os.path.expanduser("~"), "contribute-rbxdev-vault")
     os.makedirs(out_dir, exist_ok=True)
     zp = os.path.join(out_dir, "%s-%s.zip" % (a.name, today()))
     with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:

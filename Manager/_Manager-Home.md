@@ -4,14 +4,14 @@ description: "Hub of the Manager folder: entry points, trust-weighted creator li
 ---
 # Manager knowledge
 
-Read-only mirror of the manager research (475 notes, synced 2026-11-03): how to run, brief, verify and budget AI agents. Generated; do not edit here.
+Read-only mirror of the manager research (475 notes, synced 2026-11-04): how to run, brief, verify and budget AI agents. Generated; do not edit here.
 
 ## Start here
 
 - [[Manager-README]]: topic index, conventions, status.
 - [[PROPOSALS]]: ranked proposals for improving the manager.
 - [[kb-conventions]]: how the notes are written.
-- Mentor entry point: `/vault-mentor`, job sections in [[Combined-Brain]].
+- Mentor entry point: `/mentor-rbxdev-vault`, job sections in [[Combined-Brain]].
 
 ## Topics
 

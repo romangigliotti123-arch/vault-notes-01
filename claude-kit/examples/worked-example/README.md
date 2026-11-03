@@ -2,12 +2,12 @@
 
 One game, "Cozy Cat Cafe", followed through every stage. The idea, critic, build, weekly, harvest and mentor steps below were **really run** in headless Claude sessions on a clean copy of this vault (quotes are exact short excerpts). Steps marked **(not run in the test)** need things a test machine cannot have (Roblox Studio signed in, a published game, real players); they show what Claude does and what you do. Nothing here is a real game's data: the weekly numbers are made-up sample values, labelled SAMPLE in the files.
 
-You do not need to remember any of this: type `/game-dev-workflow` any time and it works out where you are (it reads the real files and numbers, not just what `GAME.md` claims) and does the next step. `/vault-mentor` can sit beside any job and suggest the right skill or note.
+You do not need to remember any of this: type `/game-dev-workflow` any time and it works out where you are (it reads the real files and numbers, not just what `GAME.md` claims) and does the next step. `/mentor-rbxdev-vault` can sit beside any job and suggest the right skill or note.
 
 ## Where everything lives
 | What | Where |
 |---|---|
-| The game's community (hub `GAME.md`, design, decisions, systems, critic verdicts, playtests, weekly plans) | `Games/<game>/` in your vault. Protected: `/vault-update` and `/vault-update-clean` never overwrite or remove it. It is yours and is never shipped. |
+| The game's community (hub `GAME.md`, design, decisions, systems, critic verdicts, playtests, weekly plans) | `Games/<game>/` in your vault. Protected: `/update-rbxdev-vault` and `/update-clean-rbxdev-vault` never overwrite or remove it. It is yours and is never shipped. |
 | The game's code (Rojo project) | `Games/<game>/project/` by default (also protected). Set `ROBLOX_PROJECTS` to keep projects elsewhere; then `GAME.md` records the path in `project:`. Never the vault root and never `~/.claude`. |
 | Things worth reusing in the next game | `Games/_Reusable/<name>/` (code + notes), searched first by `vault-find.py` |
 | Tested drop-in systems from the kit | `~/.claude/claude-kit/systems/` (PlayerData, Shop, DailyRewards, Analytics, Admin), added with `games.py system add` |
@@ -21,7 +21,7 @@ You do not need to remember any of this: type `/game-dev-workflow` any time and 
 ## Stage 1: idea (elaborate, rate, plan, critic)
 - **You type:** nothing more; the same command continues.
 - **Claude does:** searches the vault for the best core loop, first 30 seconds, progression, monetisation (prices from the vault) and risks; rates the idea 1.00-10.00 on 12 weighted criteria with an evidence line each; fixes the weakest points once; writes `game-plan.md` (systems, milestones with pass/fail tests, which skill and agent per job, budget). Interactive runs end with one question, "Ready to build?". Unattended runs stop there and say how to resume.
-- **Critic (independent `game-critic` agent):** judges WORKS (no bugs) separately from GOOD (fun, retains, pays fairly) on 10 factors, compared with hit games in the vault. The real result for this idea, twice:
+- **Critic (independent `game-critic-rbxdev-vault` agent):** judges WORKS (no bugs) separately from GOOD (fun, retains, pays fairly) on 10 factors, compared with hit games in the vault. The real result for this idea, twice:
   - round 1: `NOT YET`, mean 5.73, core loop and scope under their minimum of 6;
   - Claude fixed its own design (counter slots so order choice matters, a smaller first proof, a 3-person playtest before shop and saving); round 2: `NOT YET`, mean 6.14, all critical factors at 6 or more, but GOOD needs 7.00.
   - Its output reads e.g. "Mean from verdict.py ... = 67.5 / 11 = 6.14. ... Not met: mean 7.00." and lists what top hits have that this lacks ("Friends in the loop from minute one").
@@ -59,10 +59,10 @@ Same flow, with push-back. A generic 50-stage obby ("no hook, skip the rating an
 - **You type:** `/game-dev-harvest generic-obby` (it also runs at the end of a build).
 - **Claude does:** copies the tested, reusable part to `Games/_Reusable/obby-course-generator/` with a README (what, how to use, which game, tested or not, rating): front matter `tested: y`, `rating: 6.8`, `from_game: generic-obby`. It listed the block's known gaps rather than hiding them.
 - **Found again:** a later new-game prompt, `vault-find.py "I want to make a new obby with generated stages"`, returns `1. [roblox:reusable] obby-course-generator (reusable, 6.8)` before the game's own notes. A different prompt (cozy cafe with daily rewards) returns the cafe game first, so it is relevance, not a fixed boost.
-- Want it in the shared vault for everyone? `/vault-contribute` prepares it for review; nothing is sent without your say-so.
+- Want it in the shared vault for everyone? `/contribute-rbxdev-vault` prepares it for review; nothing is sent without your say-so.
 
 ## Mentor beside any job (real run)
-- **You type:** `/vault-mentor` and the job ("next job is a first-time-player tutorial and a daily reward screen").
+- **You type:** `/mentor-rbxdev-vault` and the job ("next job is a first-time-player tutorial and a daily reward screen").
 - **Claude does:** gives at most three `Suggestion:` lines with real paths: `Roblox/roblox-kb/first-session-onboarding.md` (contextual, short, skippable tutorials), the kit's `DailyRewards` system README (only the UI is missing), `Analytics` for tutorial-step events. Ask "what would 5uphi do about the first 30 seconds?" and it answers only from the notes: it says the notes do not cover it (his channel is scripting, not design), cites the credibility note, and points to the creators who do cover tutorials. It does not invent an opinion.
 
 ## Rules that held throughout

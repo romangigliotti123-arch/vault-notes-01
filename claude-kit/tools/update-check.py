@@ -3,7 +3,7 @@
 It runs `git fetch` (updates only the remote-tracking refs; no merge, no checkout, no file in the vault changes),
 compares local HEAD with the remote, and compares the installed kit (manifest shas) with the vault's claude-kit.
 Usage: update-check.py [--vault DIR] [--config DIR] [--remote NAME] [--no-fetch]
-Prints: UP TO DATE, or N new commits (subjects, max 10), the kit skills/agents that changed, and the offer to run /vault-update.
+Prints: UP TO DATE, or N new commits (subjects, max 10), the kit skills/agents that changed, and the offer to run /update-rbxdev-vault.
 Exit: 0 up to date, 10 updates available, 3 cannot check."""
 import argparse, hashlib, os, subprocess, sys
 
@@ -42,7 +42,7 @@ def kit_stale(vault, config):
             inst[p[0]] = p[1]
     kit = os.path.join(vault, "claude-kit")
     differ, new, names = 0, 0, set()
-    ao = ["load-vault", "unload-vault", "vault-update", "update-check", "uninstall"]
+    ao = ["load-rbxdev-vault", "unload-rbxdev-vault", "update-rbxdev-vault", "update-check-rbxdev-vault", "uninstall-rbxdev-vault"]
     try:
         ao = [x.strip() for x in open(os.path.join(kit, "mode", "always-on.txt"), encoding="utf-8") if x.strip() and not x.startswith("#")] or ao
     except OSError:
@@ -96,18 +96,18 @@ def main():
     a = ap.parse_args()
     vault = find_vault(a.vault)
     if not vault:
-        print("update-check: no vault clone found (set CLAUDES_VAULT or pass --vault). Run the vault setup first.")
+        print("update-check-rbxdev-vault: no vault clone found (set CLAUDES_VAULT or pass --vault). Run the vault setup first.")
         return 3
     config = a.config or os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.path.expanduser("~"), ".claude")
     rc, url, _ = git(vault, "remote", "get-url", a.remote)
     if rc != 0:
-        print("update-check: vault has no remote '%s'." % a.remote)
+        print("update-check-rbxdev-vault: vault has no remote '%s'." % a.remote)
         return 3
     print("vault: %s\nremote: %s" % (vault, url))
     if not a.no_fetch:
         rc, _, err = git(vault, "fetch", "--quiet", a.remote)
         if rc != 0:
-            print("update-check: cannot reach the remote (%s). No network? Nothing was changed." % (err.splitlines()[-1] if err else "fetch failed"))
+            print("update-check-rbxdev-vault: cannot reach the remote (%s). No network? Nothing was changed." % (err.splitlines()[-1] if err else "fetch failed"))
             return 3
     rc, up, _ = git(vault, "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}")
     if rc != 0:
@@ -115,7 +115,7 @@ def main():
         up = "%s/%s" % (a.remote, head if rc == 0 else "main")
     rc, behind, err = git(vault, "rev-list", "--count", "HEAD..%s" % up)
     if rc != 0:
-        print("update-check: cannot compare with %s (%s)." % (up, err))
+        print("update-check-rbxdev-vault: cannot compare with %s (%s)." % (up, err))
         return 3
     behind = int(behind)
     _, ahead, _ = git(vault, "rev-list", "--count", "%s..HEAD" % up)
@@ -145,7 +145,7 @@ def main():
         else:
             print("\nInstalled kit matches the vault's claude-kit.")
     if behind or kit_note:
-        print("\nUPDATES AVAILABLE. Nothing was changed. Run /vault-update (safe, keeps your files) or /vault-update-clean (exact copy of the main vault) only if you say yes.")
+        print("\nUPDATES AVAILABLE. Nothing was changed. Run /update-rbxdev-vault (safe, keeps your files) or /update-clean-rbxdev-vault (exact copy of the main vault) only if you say yes.")
         return 10
     print("\nUP TO DATE (vault and installed kit). Nothing was changed.")
     return 0

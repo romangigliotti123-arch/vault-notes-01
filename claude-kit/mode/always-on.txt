@@ -1,5 +1,5 @@
-load-vault
-unload-vault
-vault-update
-update-check
-uninstall
+load-rbxdev-vault
+unload-rbxdev-vault
+update-rbxdev-vault
+update-check-rbxdev-vault
+uninstall-rbxdev-vault

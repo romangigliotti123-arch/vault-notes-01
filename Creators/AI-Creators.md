@@ -7,7 +7,7 @@ Research on 4 AI creators (Nate Herk, RoboNuggets, Andrej Karpathy, Theo (t3.gg)
 
 ## Their methods in one place
 
-The combined brain ([[Combined-Brain]], `Mentor/Combined-Brain.md`) merges what these three and the Roblox creators teach, by job, with trust labels and the points where they disagree. Start there, or run `/vault-mentor` (claude-kit) to work with it.
+The combined brain ([[Combined-Brain]], `Mentor/Combined-Brain.md`) merges what these three and the Roblox creators teach, by job, with trust labels and the points where they disagree. Start there, or run `/mentor-rbxdev-vault` (claude-kit) to work with it.
 
 - **Nate Herk** (366 videos): start with the simplest layer that works, wireframe before building, add one sentence to the prompt per observed error, context engineering as the main lever, verification loops with checkable goals, human approval on risky actions, sell outcomes not agents.
 - **RoboNuggets**: you are the CEO of an agency of agents; A.G.E.N.T. prompt framework (Ask, Guidelines/Goal, Examples, Notation/Negations, Tools); direct model access through aggregators; thin CLAUDE.md router with progressive disclosure; reuse proven formats. Income claims in his videos are marketing, not evidence.

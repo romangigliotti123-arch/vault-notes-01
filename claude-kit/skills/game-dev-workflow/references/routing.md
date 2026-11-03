@@ -4,20 +4,20 @@ Pack skills are opened by a general worker (Agent tool) whose master brief says 
 
 | stage / job | pack skill(s) | kit agent / system | model | mode |
 |---|---|---|---|---|
-| idea: validate, one sentence, scope | idea-validator, one-sentence-pitch, scope-cutter, mvp-definer | game-dev-rate, game-critic | sonnet | serial |
+| idea: validate, one sentence, scope | idea-validator, one-sentence-pitch, scope-cutter, mvp-definer | game-dev-rate, game-critic-rbxdev-vault | sonnet | serial |
 | design: loop, first minute, progression, rewards | core-loop-designer, first-minute-designer, progression-curve-designer, reward-schedule-designer | roblox-game-designer | sonnet | parallel, no project edits (each writes only its own `docs/audits/` report file) |
 | economy | (money: `find "economy sink"`) | roblox-economy-designer | sonnet, high | serial |
 | scaffold and loop code | (scripting/systems: `find "<system>"`) | roblox-builder, roblox-luau-engineer; systems/PlayerData, Shop, DailyRewards | sonnet | serial per owned folder |
 | art direction (J00, before any UI/world/effect job) | art-bible-writer, palette-picker, font-and-color-picker, lighting-preset-picker, game-feel-polisher | skill game-dev-art-direction (StyleKit) | sonnet | serial, first |
 | UI | mobile-ui-audit, shop-ui-planner, hud-layout-planner, ui-kit-consistency-checker | roblox-builder (StyleKit components only) | sonnet | parallel with non-UI writers |
 | models, world, lighting, effects | model-rebuild, prop-set-planner, part-to-mesh-planner, lighting-preset-picker, particle-effect-planner | roblox-builder; Studio MCP search_asset / insert_asset / generate_mesh | sonnet | serial (MCP) |
-| visual gate and polish rounds | ui-kit-consistency-checker, safe-area-checker, game-feel-polisher | skill game-dev-visual-qa; fresh game-critic re-scores | sonnet | serial, after the last feature job |
+| visual gate and polish rounds | ui-kit-consistency-checker, safe-area-checker, game-feel-polisher | skill game-dev-visual-qa; fresh game-critic-rbxdev-vault re-scores | sonnet | serial, after the last feature job |
 | after prototype | playtest-bot-writer, lag-hunter, exploit-audit | roblox-tester, roblox-playtest-runner, roblox-luau-reviewer (read-only) | sonnet; haiku for sweeps | parallel, no project edits (own `docs/audits/` report file each) |
 | fixes | skill of the finding (dupe-exploit-hunter, texture-budget-checker, model-cleaner ...) | roblox-luau-engineer | sonnet | serial |
-| gate | game-dev-critic | game-critic, roblox-pre-delivery-reviewer | sonnet, fresh context | after every milestone |
+| gate | game-dev-critic | game-critic-rbxdev-vault, roblox-pre-delivery-reviewer | sonnet, fresh context | after every milestone |
 | launch | thumbnail-maker, game-icon-maker, thumbnail-guideline-checker; ads/launch by find | game-dev-launch-kit, roblox-launch-marketing-manager | sonnet | parallel (disjoint docs) |
 | growth / live-ops | patch-notes-writer, update-announcement-writer; analytics by find | game-dev-weekly, game-dev-update, roblox-analytics-reviewer, roblox-liveops-planner | sonnet | serial |
-| vault facts for a brief | - | agent vault-mentor; skills use-the-vault, roblox-kb-answer | haiku | any |
+| vault facts for a brief | - | agent mentor-rbxdev-vault; skills use-rbxdev-vault, roblox-kb-answer | haiku | any |
 
 Rule: read-only auditors run in parallel; anything that writes the same folder runs one after another.
 
@@ -26,7 +26,7 @@ Models: haiku = lookups, listing, simple verification; sonnet = default. Writers
 
 | job | skill / agent | model | effort | mode | typical budget |
 |---|---|---|---|---|---|
-| Vault facts for a job (kbq, grep, price lookups) | `use-the-vault`, `roblox-kb-answer` | haiku | low | parallel | 1 run, 10 turns |
+| Vault facts for a job (kbq, grep, price lookups) | `use-rbxdev-vault`, `roblox-kb-answer` | haiku | low | parallel | 1 run, 10 turns |
 | Asset search in <vault>/Assets | `roblox-asset-finder` | haiku | low | parallel | 1 run, 10 turns |
 | GDD and balance of design | `roblox-game-designer`, `roblox-gdd-template` | sonnet | medium | serial | 1 run, 30 turns |
 | Economy numbers and simulation | `roblox-economy-designer`, `game-economy-simulation` | sonnet | high | serial | 1 run, 30 turns |

@@ -5,7 +5,7 @@
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools\refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>\claude-kit\roblox-reference and
 #    writes <claude config dir>\claude-kit\reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
-# 4) tools\learn.py flush --quiet: sends the notes queued by /vault-learn to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write
+# 4) tools\learn.py flush --quiet: sends the notes queued by /learn-rbxdev-vault to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write
 #    access (the notes then stay queued). Env CLAUDE_LEARN_SKIP=1 skips this part.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller. Env CLAUDE_KIT_HOME is honoured by install.ps1.
 $ErrorActionPreference = 'Continue'
@@ -22,7 +22,7 @@ if ($env:CLAUDE_KIT_SKIP -ne '1') {
     }
   }
 }
-# 1b) tools\vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/load-vault) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips it.
+# 1b) tools\vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/load-rbxdev-vault) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips it.
 $vmode = if ($env:CLAUDE_CONFIG_DIR) { Join-Path $env:CLAUDE_CONFIG_DIR 'claude-kit\tools\vault-mode.py' } elseif ($env:CLAUDE_KIT_HOME) { Join-Path $env:CLAUDE_KIT_HOME '.claude\claude-kit\tools\vault-mode.py' } else { Join-Path $env:USERPROFILE '.claude\claude-kit\tools\vault-mode.py' }
 if (($env:CLAUDE_MODE_SKIP -ne '1') -and (Test-Path -LiteralPath $vmode)) {
   try {

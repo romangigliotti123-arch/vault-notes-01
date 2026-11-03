@@ -4,7 +4,7 @@ description: "The vault's combined brain: working principles, methods, decision 
 ---
 # Combined brain
 
-Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) plus rules extracted from the Roblox knowledge base and the AI-creators research by `tools/mentor_brain.py`. Do not edit here. Used by the `vault-mentor` agent and the `/vault-mentor` skill.
+Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) plus rules extracted from the Roblox knowledge base and the AI-creators research by `tools/mentor_brain.py`. Do not edit here. Used by the `mentor-rbxdev-vault` agent and the `/mentor-rbxdev-vault` skill.
 
 ## How to read this note (cheap order)
 
@@ -31,10 +31,10 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 | Live-ops | Job: live-ops | `/game-dev-update`, `/roblox-leaderboards-and-events`, agent `roblox-liveops-planner` |
 | 3D models and Blender | Job: 3D models and Blender | `/rbx model-rebuild`, `/rbx accessory-fitting-guide`, `/rbx rig-checker` |
 | Running a game project | Job: running a game project | `/game-dev-plan`, `/game-dev-playtest`, `/roblox-launch-checklist` |
-| Using agents and skills | Job: using agents and skills | `/use-the-ai-library`, `/manager-mode`, `/clarify-before-build` |
-| Coding with AI | Job: coding with AI | `/karpathy-coding-guidelines`, agent `claim-verifier`, `/rate-anything-1-10` |
-| Research | Job: research | `/deep-topic-research`, `/roblox-trend-research`, agent `claim-verifier` |
-| Running a project with agents | Job: running a project with agents | `/manager-mode`, `/low-usage-mode`, `/clarify-before-build` |
+| Using agents and skills | Job: using agents and skills | `/use-ai-library-rbxdev-vault`, `/manager-mode-rbxdev-vault`, `/clarify-before-build-rbxdev-vault` |
+| Coding with AI | Job: coding with AI | `/karpathy-coding-guidelines-rbxdev-vault`, agent `claim-verifier-rbxdev-vault`, `/rate-anything-1-10-rbxdev-vault` |
+| Research | Job: research | `/deep-topic-research-rbxdev-vault`, `/roblox-trend-research`, agent `claim-verifier-rbxdev-vault` |
+| Running a project with agents | Job: running a project with agents | `/manager-mode-rbxdev-vault`, `/low-usage-mode-rbxdev-vault`, `/clarify-before-build-rbxdev-vault` |
 | "What would <creator> do?" | Creator cards | the cards at the end of this note |
 
 ## Job: designing a game
@@ -245,7 +245,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Hardcode stable lookups into the skill; delegate searching.
 - Find a ready-made skill or agent before writing one: `vault-find`, then read the one note and follow it.
 
-**Use:** `/use-the-ai-library`, `/use-the-vault`, `/manager-mode`, `/clarify-before-build`; notes: [[topic-orchestration-patterns]], [[topic-context-engineering]], [[topic-claude-code-features]], hubs `nate-herk`, `robonuggets`, `andrej-karpathy`.
+**Use:** `/use-ai-library-rbxdev-vault`, `/use-rbxdev-vault`, `/manager-mode-rbxdev-vault`, `/clarify-before-build-rbxdev-vault`; notes: [[topic-orchestration-patterns]], [[topic-context-engineering]], [[topic-claude-code-features]], hubs `nate-herk`, `robonuggets`, `andrej-karpathy`.
 
 **Evidence (AI creators; tag = how the creator backed it; sources are the video notes):**
 
@@ -274,7 +274,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Loops stop on a measurable metric plus an iteration cap, never "until satisfied". Add an instruction-file line only for a repeated mistake, after trying to fix the code or add a check (Nate Herk, RoboNuggets; Theo MIXED + Anthropic docs).
 - Reset context when the topic changes; long context costs more and lowers accuracy.
 
-**Use:** `/karpathy-coding-guidelines`, `/clarify-before-build`, `/rate-anything-1-10`; agents `claim-verifier`, `self-verifying-game-builder`, `roblox-luau-reviewer`. Notes: [[ai-and-tools]], [[topic-llm-judge-and-adversarial-verification]], [[topic-brief-prompt-engineering]].
+**Use:** `/karpathy-coding-guidelines-rbxdev-vault`, `/clarify-before-build-rbxdev-vault`, `/rate-anything-1-10-rbxdev-vault`; agents `claim-verifier-rbxdev-vault`, `self-verifying-game-builder-rbxdev-vault`, `roblox-luau-reviewer`. Notes: [[ai-and-tools]], [[topic-llm-judge-and-adversarial-verification]], [[topic-brief-prompt-engineering]].
 
 **Evidence (AI creators; tag = how the creator backed it; sources are the video notes):**
 
@@ -296,7 +296,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Verify a recommendation with a second independent source before it drives a decision (MIXED creators need this; TRUSTED creators still defer to official docs on numbers).
 - Roblox market research: use trend research with current data; study transferable patterns, never copy content.
 
-**Use:** `/deep-topic-research`, `/roblox-trend-research`, `/roblox-kb-answer`; agent `claim-verifier`; search: `vault-find`, `kbq`. Notes: [[creator-credibility]], [[trend-research-and-validation]], [[topic-report-formats-and-verification]].
+**Use:** `/deep-topic-research-rbxdev-vault`, `/roblox-trend-research`, `/roblox-kb-answer`; agent `claim-verifier-rbxdev-vault`; search: `vault-find`, `kbq`. Notes: [[creator-credibility]], [[trend-research-and-validation]], [[topic-report-formats-and-verification]].
 
 ## Job: running a project with agents
 
@@ -304,10 +304,10 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Plan, then execute; brief the lead as a project manager (do not execute, delegate to cheaper sub-agents, parallelise independent work, log progress, flag open issues).
 - Verification loops and independent verifiers beat self-reported success. Ask for evidence, not claims.
 - Permissions and guardrails matter more as autonomy grows; keep a human in the loop for irreversible actions.
-- Control cost: cheapest model that fits, one subagent at a time when usage is tight, short outputs, `/low-usage-mode`.
+- Control cost: cheapest model that fits, one subagent at a time when usage is tight, short outputs, `/low-usage-mode-rbxdev-vault`.
 - Failure handling: read the error, fix the script, retest, then update the workflow so it does not repeat.
 
-**Use:** `/manager-mode`, `/low-usage-mode`, `/clarify-before-build`; agents `claim-verifier`, `roblox-audit-fanout`. Notes: [[Manager-README]], [[topic-orchestration-patterns]], [[topic-model-effort-routing-cost]], [[topic-agent-security]], [[topic-long-running-always-on-agents]].
+**Use:** `/manager-mode-rbxdev-vault`, `/low-usage-mode-rbxdev-vault`, `/clarify-before-build-rbxdev-vault`; agents `claim-verifier-rbxdev-vault`, `roblox-audit-fanout`. Notes: [[Manager-README]], [[topic-orchestration-patterns]], [[topic-model-effort-routing-cost]], [[topic-agent-security]], [[topic-long-running-always-on-agents]].
 
 **Evidence (AI creators; tag = how the creator backed it; sources are the video notes):**
 

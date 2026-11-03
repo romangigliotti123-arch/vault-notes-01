@@ -4,12 +4,12 @@ description: "Find the right vault evidence fast and cheaply for a question: rou
 category: workflow
 tags: vault, kb, lookup, search, evidence, kbq, vault-find, mentor, sources, trust, citation
 kb: Manager/topic-knowledge-management-rag.md, Manager/topic-skill-library-retrieval.md, Mentor/Combined-Brain.md, Roblox/roblox-kb/master-playbook.md, Roblox/roblox-kb/creator-credibility.md, Manager/topic-context-window-management.md
-related: vault-mentor, use-the-vault, roblox-kb-answer, decision-log-writer, ai-brief-writer, use-the-ai-library, game-dev-workflow
+related: mentor-rbxdev-vault, use-rbxdev-vault, roblox-kb-answer, decision-log-writer, ai-brief-writer, use-ai-library-rbxdev-vault, game-dev-workflow
 ---
 
 # kb-lookup-routine
 
-The vault is large (the Roblox KB topic files run 50-450 KB each); loading one whole is the common mistake. `vault-mentor` is the interactive co-pilot that suggests things as you work and `roblox-kb-answer` answers a question from the KB; this routine is the repeatable lookup procedure behind them, used when you need citations for a decision log, a brief or another skill.
+The vault is large (the Roblox KB topic files run 50-450 KB each); loading one whole is the common mistake. `mentor-rbxdev-vault` is the interactive co-pilot that suggests things as you work and `roblox-kb-answer` answers a question from the KB; this routine is the repeatable lookup procedure behind them, used when you need citations for a decision log, a brief or another skill.
 
 ## When to use
 You need evidence for a design, tooling or process choice; a worker needs KB paths in its brief; you must check a claim against the vault before stating it. Not for: general chat, or facts that are live-check items (prices, limits, menu paths), which need the current official docs.
@@ -49,4 +49,4 @@ If the scripts or Python are missing, use `rg -n -m 5 "<term>" "<vault>/Roblox/r
 Quoting one indie creator as a benchmark. Reading a whole topic file for one fact. Treating a search hit's snippet as the source. Citing a path from memory without opening it.
 
 ## Related
-`vault-mentor`, `use-the-vault`, `roblox-kb-answer`, `decision-log-writer`, `ai-brief-writer`.
+`mentor-rbxdev-vault`, `use-rbxdev-vault`, `roblox-kb-answer`, `decision-log-writer`, `ai-brief-writer`.

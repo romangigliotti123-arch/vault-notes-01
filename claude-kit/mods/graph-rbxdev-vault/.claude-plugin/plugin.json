@@ -1,0 +1,8 @@
+{
+  "name": "graph-rbxdev-vault",
+  "version": "0.1.0",
+  "author": { "name": "Roman" },
+  "license": "MIT",
+  "description": "/graph-rbxdev-vault opens a side pane with a link graph of the Obsidian vault: the selected note in the centre, its links in and out around it, search, preview and a link to the full graph site.",
+  "types": "./types/index.d.ts"
+}

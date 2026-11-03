@@ -1,6 +1,6 @@
 #!/bin/bash
 # linux-sync-setup.sh - keeps the Obsidian vault "claudes-vault" fresh on this Linux machine: clone, kit install, asset sync, and an update shortly after boot/login
-# (systemd user timer with OnStartupSec only, NO 15-minute polling; cron fallback uses @reboot). On demand: bash vault-update.sh in the vault folder, or /vault-update in Claude.
+# (systemd user timer with OnStartupSec only, NO 15-minute polling; cron fallback uses @reboot). On demand: bash vault-update.sh in the vault folder, or /update-rbxdev-vault in Claude.
 # Assets (about 2.7 GB the first time) are synced into <vault>/Assets from the host PC's Tailscale share, never from GitHub.
 # User-level only: no sudo. Uses a systemd user timer; falls back to cron if systemd --user is unavailable. Safe to run again.
 # Pull-only: never commits or pushes. Usage: bash linux-sync-setup.sh [--uninstall]
@@ -106,7 +106,7 @@ PUBLIC_NOTES_GIT="https://github.com/romangigliotti123-arch/vault-notes-01.git" 
 vault_migrate_origin() { # $1=git $2=vault ; an origin on the old *.netlify.app/vault.git (the website only redirects now) is moved to the GitHub repo once
   [ -n "$PUBLIC_NOTES_GIT" ] || return 0
   case "$("$1" -C "$2" remote get-url origin 2>/dev/null)" in
-    *.netlify.app/vault.git*) "$1" -C "$2" remote set-url origin "$PUBLIC_NOTES_GIT" 2>/dev/null && echo "vault-update: origin moved to $PUBLIC_NOTES_GIT";;
+    *.netlify.app/vault.git*) "$1" -C "$2" remote set-url origin "$PUBLIC_NOTES_GIT" 2>/dev/null && echo "update-rbxdev-vault: origin moved to $PUBLIC_NOTES_GIT";;
   esac
   return 0
 }
@@ -115,11 +115,11 @@ vault_heal() { # $1=git $2=vault $3=state dir ; echoes one line when something n
   "$G" -C "$V" config core.autocrlf false 2>/dev/null; "$G" -C "$V" config core.safecrlf false 2>/dev/null
   vault_migrate_origin "$G" "$V"
   vault_protect "$G" "$V"
-  if ! "$G" -C "$V" fetch -q origin >/dev/null 2>&1; then MSG="vault-update: fetch failed (offline?), vault left as it is"
+  if ! "$G" -C "$V" fetch -q origin >/dev/null 2>&1; then MSG="update-rbxdev-vault: fetch failed (offline?), vault left as it is"
   else
     T=origin/main
     "$G" -C "$V" rev-parse -q --verify "$T" >/dev/null 2>&1 || { T='@{u}'; "$G" -C "$V" rev-parse -q --verify "$T" >/dev/null 2>&1 || T=""; }
-    if [ -z "$T" ]; then MSG="vault-update: no upstream branch, vault left as it is"
+    if [ -z "$T" ]; then MSG="update-rbxdev-vault: no upstream branch, vault left as it is"
     else
       if [ -f "$V/.full-view" ] && [ -f "$V/.obsidian/app.json" ]; then
         CUR="$(vault_json strip < "$V/.obsidian/app.json" 2>/dev/null)"; HEAD="$("$G" -C "$V" show HEAD:.obsidian/app.json 2>/dev/null | vault_json strip 2>/dev/null)"
@@ -144,15 +144,15 @@ vault_heal() { # $1=git $2=vault $3=state dir ; echoes one line when something n
         ls -1d "$S"/collision-backup-* 2>/dev/null | sort -r | tail -n +6 | while IFS= read -r f; do rm -rf "$f"; done
         ls -1 "$S"/local-changes-*.patch 2>/dev/null | sort -r | tail -n +6 | while IFS= read -r f; do rm -f "$f"; done
         ls -1 "$S"/local-changes-*.untracked.txt 2>/dev/null | sort -r | tail -n +6 | while IFS= read -r f; do rm -f "$f"; done
-        if ! "$G" -C "$V" reset --hard -q "$T" >/dev/null 2>&1; then MSG="vault-update: could not reset the vault to the latest (left as it is)"
-        elif [ "$SAVED" = 1 ]; then MSG="vault-update: local changes saved to $P; vault reset to the latest"; fi
+        if ! "$G" -C "$V" reset --hard -q "$T" >/dev/null 2>&1; then MSG="update-rbxdev-vault: could not reset the vault to the latest (left as it is)"
+        elif [ "$SAVED" = 1 ]; then MSG="update-rbxdev-vault: local changes saved to $P; vault reset to the latest"; fi
       fi
     fi
   fi
   vault_fullview_apply "$V"
   [ -n "$MSG" ] && echo "$MSG"
   OWN="$(vault_own_count "$G" "$V" 2>/dev/null)"
-  [ "${OWN:-0}" -gt 0 ] 2>/dev/null && echo "vault-update: $OWN of your own files kept (My Research, Games and your other files are never removed by /vault-update)"
+  [ "${OWN:-0}" -gt 0 ] 2>/dev/null && echo "update-rbxdev-vault: $OWN of your own files kept (My Research, Games and your other files are never removed by /update-rbxdev-vault)"
   return 0
 }
 # --- end vault-heal ---
@@ -254,9 +254,9 @@ echo
 # Software check (read-only table: what is installed, what is missing, install commands per OS; installs nothing). Non-fatal.
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$DEST/claude-kit/tools/setup-check.py" ]; then for p in python3 python; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then echo; "$p" -I "$DEST/claude-kit/tools/setup-check.py" || true; break; fi; done; fi
 echo "Done. The vault (pull, kit, assets) updates shortly after boot/login, not on a timer."
-echo "Update now, any time: bash \"$DEST/vault-update.sh\"   (or /vault-update in Claude). Assets are in $DEST/Assets."
+echo "Update now, any time: bash \"$DEST/vault-update.sh\"   (or /update-rbxdev-vault in Claude). Assets are in $DEST/Assets."
 echo "Next: open Obsidian > Open folder as vault > choose $DEST"
 echo "Do not edit notes here (pull is fast-forward only). Remove the sync: bash linux-sync-setup.sh --uninstall"
-if [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/game-dev-workflow/SKILL.md" ]; then echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /load-vault: that session enters Roblox dev mode (the vault skills, agents, art-direction and visual-QA rules, reference images, learn step) and /unload-vault turns it off again. Always available: /load-vault /unload-vault /vault-update /update-check /uninstall. After /load-vault: /game-idea (one fresh idea) or /game-dev-workflow (idea, rating, plan, build); /make-roblox-game; judgement and your games (kept in the vault under Games/, never overwritten by updates): /game-dev-critic /game-dev-weekly /game-dev-launch-kit /game-dev-harvest /vault-contribute; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; looks (a game is never called done without it): /game-dev-art-direction /game-dev-visual-qa; mentor: /vault-mentor; research: /deep-topic-research; manager: /manager-mode; vault: /vault-update-clean /setup-check /light-mode-on /light-mode-off /kit-list; usage: /low-usage-mode. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"; fi
-if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/game-dev-workflow/SKILL.md" ]; then echo; echo ">>> Type /load-vault in a Roblox project folder to use the kit (then /kit-list shows everything it contains)."; fi
+if [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/game-dev-workflow/SKILL.md" ]; then echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /load-rbxdev-vault: that session enters Roblox dev mode (the vault skills, agents, art-direction and visual-QA rules, reference images, learn step) and /unload-rbxdev-vault turns it off again. Always available: /load-rbxdev-vault /unload-rbxdev-vault /update-rbxdev-vault /update-check-rbxdev-vault /uninstall-rbxdev-vault. After /load-rbxdev-vault: /game-idea-rbxdev-vault (one fresh idea) or /game-dev-workflow (idea, rating, plan, build); /make-roblox-game; judgement and your games (kept in the vault under Games/, never overwritten by updates): /game-dev-critic /game-dev-weekly /game-dev-launch-kit /game-dev-harvest /contribute-rbxdev-vault; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; looks (a game is never called done without it): /game-dev-art-direction /game-dev-visual-qa; mentor: /mentor-rbxdev-vault; research: /deep-topic-research-rbxdev-vault; manager: /manager-mode-rbxdev-vault; vault: /update-clean-rbxdev-vault /setup-check-rbxdev-vault /light-mode-on-rbxdev-vault /light-mode-off-rbxdev-vault /list-rbxdev-vault; usage: /low-usage-mode-rbxdev-vault. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"; fi
+if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/game-dev-workflow/SKILL.md" ]; then echo; echo ">>> Type /load-rbxdev-vault in a Roblox project folder to use the kit (then /list-rbxdev-vault shows everything it contains)."; fi
 exit 0

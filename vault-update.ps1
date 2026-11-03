@@ -2,8 +2,8 @@
 # Same steps the logon task runs (the task passes -Quiet). Nothing else runs on a timer: the vault is NOT polled every 15 minutes any more.
 # Usage: powershell -NoProfile -ExecutionPolicy Bypass -File vault-update.ps1 [-Quiet] [-NoKit] [-NoAssets] [-NoAiVault] [-FullView on|off]
 #        The companion AI Library Vault (next to this vault, folder ai-library-vault) is updated together with this vault by ai-vault-sync.ps1; -NoAiVault skips it.
-#        vault-update.ps1 -SetView light|full   (switch only, no update, works offline; what /light-mode-on and /light-mode-off run)
-#        vault-update.ps1 -Clean [-Yes] [-IncludeMine]   (what /vault-update-clean runs: exact copy of the main vault; without -Yes it only prints the dry run)
+#        vault-update.ps1 -SetView light|full   (switch only, no update, works offline; what /light-mode-on-rbxdev-vault and /light-mode-off-rbxdev-vault run)
+#        vault-update.ps1 -Clean [-Yes] [-IncludeMine]   (what /update-clean-rbxdev-vault runs: exact copy of the main vault; without -Yes it only prints the dry run)
 # YOUR DATA IS KEPT: <vault>\My Research\, <vault>\Games\ (your per-game notes and Games\_Reusable) and any folder holding PROTECTED-RESEARCH.md are protected (git-excluded, never in a patch, never reset or cleaned). The normal update never deletes untracked files.
 # Self-healing: the vault clone is READ-ONLY. If local changes or divergence block the fast-forward, the real changes are saved to
 # %LOCALAPPDATA%\claudes-vault-sync\local-changes-<timestamp>.patch (newest 5 kept) and the vault is reset to origin/main. CRLF-only noise is dropped silently.
@@ -18,7 +18,7 @@ $env:GIT_TERMINAL_PROMPT = '0'
 $env:Path = $env:Path + ';' + [Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [Environment]::GetEnvironmentVariable('Path', 'User')
 $git = (Get-Command git.exe -ErrorAction SilentlyContinue | Select-Object -First 1).Source
 if (-not $git -and (Test-Path 'C:\Program Files\Git\cmd\git.exe')) { $git = 'C:\Program Files\Git\cmd\git.exe' }
-if (-not $git) { Write-Output 'vault-update: git not found (winget install --id Git.Git -e --silent)'; exit 1 }
+if (-not $git) { Write-Output 'update-rbxdev-vault: git not found (winget install --id Git.Git -e --silent)'; exit 1 }
 
 #region vault-heal (same block in vault-update.ps1 and win-sync-setup.ps1)
 # Self-healing update of the READ-ONLY vault clone. Never throws, never runs git clean. Returns lines to print (or $null when nothing special happened).
@@ -89,16 +89,16 @@ function Heal-Vault {
   try {
     & $git -C $vault config core.autocrlf false 2>$null | Out-Null
     & $git -C $vault config core.safecrlf false 2>$null | Out-Null
-    if ($script:PublicNotesGit) { $ou = (& $git -C $vault remote get-url origin 2>$null); if ("$ou" -match '\.netlify\.app/vault\.git') { & $git -C $vault remote set-url origin $script:PublicNotesGit 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $script:originMoved = "vault-update: origin moved to $($script:PublicNotesGit)" } } }
+    if ($script:PublicNotesGit) { $ou = (& $git -C $vault remote get-url origin 2>$null); if ("$ou" -match '\.netlify\.app/vault\.git') { & $git -C $vault remote set-url origin $script:PublicNotesGit 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $script:originMoved = "update-rbxdev-vault: origin moved to $($script:PublicNotesGit)" } } }
     & $git -C $vault config core.longpaths true 2>$null | Out-Null
     $prot = @(Protect-Vault $git $vault)
     & $git -C $vault fetch -q origin 2>$null | Out-Null
-    if ($LASTEXITCODE -ne 0) { $msg = 'vault-update: fetch failed (offline?), vault left as it is' }
+    if ($LASTEXITCODE -ne 0) { $msg = 'update-rbxdev-vault: fetch failed (offline?), vault left as it is' }
     else {
       $t = 'origin/main'
       & $git -C $vault rev-parse -q --verify $t 2>$null | Out-Null
       if ($LASTEXITCODE -ne 0) { $t = '@{u}'; & $git -C $vault rev-parse -q --verify $t 2>$null | Out-Null; if ($LASTEXITCODE -ne 0) { $t = $null } }
-      if (-not $t) { $msg = 'vault-update: no upstream branch, vault left as it is' }
+      if (-not $t) { $msg = 'update-rbxdev-vault: no upstream branch, vault left as it is' }
       else {
         # full view: if app.json differs from the repo's only by the userIgnoreFilters rewrite, put the repo version back first so it is not a "local change"
         if (Test-Path -LiteralPath $marker) {
@@ -140,19 +140,19 @@ function Heal-Vault {
             Get-ChildItem -LiteralPath $state -Filter $pat -ErrorAction SilentlyContinue | Sort-Object Name -Descending | Select-Object -Skip 5 | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
           }
           & $git -C $vault reset --hard -q $t 2>$null | Out-Null
-          if ($LASTEXITCODE -ne 0) { $msg = 'vault-update: could not reset the vault to the latest (left as it is)' }
-          elseif ($saved) { $msg = "vault-update: local changes saved to $patch; vault reset to the latest" }
+          if ($LASTEXITCODE -ne 0) { $msg = 'update-rbxdev-vault: could not reset the vault to the latest (left as it is)' }
+          elseif ($saved) { $msg = "update-rbxdev-vault: local changes saved to $patch; vault reset to the latest" }
         }
       }
     }
-  } catch { $msg = ('vault-update: heal failed (' + $_.Exception.Message + '), continuing') }
+  } catch { $msg = ('update-rbxdev-vault: heal failed (' + $_.Exception.Message + '), continuing') }
   try { if (Test-Path -LiteralPath $marker) { Set-FullViewConfig $vault } } catch { }
-  try { $n = Get-OwnFileCount $git $vault $prot; if ($n -gt 0) { $kept = "vault-update: $n of your own files kept (My Research, Games and your other files are never removed by /vault-update)" } } catch { }
+  try { $n = Get-OwnFileCount $git $vault $prot; if ($n -gt 0) { $kept = "update-rbxdev-vault: $n of your own files kept (My Research, Games and your other files are never removed by /update-rbxdev-vault)" } } catch { }
   return @(@($script:originMoved, $msg, $kept) | Where-Object { $_ })
 }
 #endregion
 
-#region vault-clean (only in vault-update.ps1; logic for /vault-update-clean)
+#region vault-clean (only in vault-update.ps1; logic for /update-clean-rbxdev-vault)
 # -Clean: make the vault an EXACT copy of origin/main: fetch, reset --hard, git clean -fd (never -x) with explicit excludes for everything protected
 # (My Research/, every folder holding PROTECTED-RESEARCH.md, .full-view, Assets/, .obsidian/workspace*). DESTRUCTIVE: prints a dry run first and applies only with -Yes
 # (or after an interactive "yes"). Before deleting it saves a patch of your tracked edits + a list (clean-removed-<ts>.patch/.list.txt, newest 5) and copies the untracked
@@ -180,7 +180,7 @@ function Write-Capped([string]$head, $lines, [int]$max) {
 function Invoke-CleanVault {
   param([string]$git, [string]$vault, [string]$state, [bool]$yes, [bool]$includeMine)
   $ErrorActionPreference = 'Continue'
-  $tag = 'vault-update-clean'
+  $tag = 'update-clean-rbxdev-vault'
   $script:CleanApplied = $false
   & $git -C $vault config core.autocrlf false 2>$null | Out-Null
   & $git -C $vault config core.safecrlf false 2>$null | Out-Null
@@ -265,10 +265,10 @@ function Invoke-CleanVault {
 #endregion
 
 $marker = Join-Path $vault '.full-view'
-# -SetView light|full: switch-only (/light-mode-on, /light-mode-off). No fetch, no update, no kit, no assets; works offline. Same marker logic as -FullView.
+# -SetView light|full: switch-only (/light-mode-on-rbxdev-vault, /light-mode-off-rbxdev-vault). No fetch, no update, no kit, no assets; works offline. Same marker logic as -FullView.
 if ($SetView) {
   if ($SetView -eq 'full') {
-    try { Add-GitExclude $vault '/.full-view'; Set-Content -LiteralPath $marker -Value 'full view on (vault-update -SetView light to undo)' -Encoding ASCII; Set-FullViewConfig $vault } catch { }
+    try { Add-GitExclude $vault '/.full-view'; Set-Content -LiteralPath $marker -Value 'full view on (update-rbxdev-vault -SetView light to undo)' -Encoding ASCII; Set-FullViewConfig $vault } catch { }
     Write-Output 'Light mode off (full view): everything except Assets visible. Slower. Reopen Obsidian.'
     if (-not $NoAiVault) { $aiS = Join-Path $vault 'ai-vault-sync.ps1'; if (Test-Path -LiteralPath $aiS) { try { & powershell -NoProfile -ExecutionPolicy Bypass -File $aiS -SetView full } catch { } } }
   } else {
@@ -278,10 +278,10 @@ if ($SetView) {
   }
   exit 0
 }
-if ($FullView -eq 'on') { try { Add-GitExclude $vault '/.full-view'; Set-Content -LiteralPath $marker -Value 'full view on (vault-update -FullView off to undo)' -Encoding ASCII } catch { } }
+if ($FullView -eq 'on') { try { Add-GitExclude $vault '/.full-view'; Set-Content -LiteralPath $marker -Value 'full view on (update-rbxdev-vault -FullView off to undo)' -Encoding ASCII } catch { } }
 elseif ($FullView -eq 'off') { try { Remove-Item -LiteralPath $marker -Force -ErrorAction SilentlyContinue; & $git -C $vault checkout -q -- .obsidian/app.json 2>$null | Out-Null } catch { } }
 $before = (& $git -C $vault rev-parse --short HEAD 2>$null)
-if ($IncludeMine -and -not $Clean) { Write-Output 'vault-update: -IncludeMine only works together with -Clean, ignored' }
+if ($IncludeMine -and -not $Clean) { Write-Output 'update-rbxdev-vault: -IncludeMine only works together with -Clean, ignored' }
 if ($Clean) {
   Invoke-CleanVault $git $vault $state ([bool]$Yes) ([bool]$IncludeMine)
   if (-not $script:CleanApplied) { exit 0 }
@@ -289,10 +289,10 @@ if ($Clean) {
 } else { $m = Heal-Vault $git $vault $state }
 $after = (& $git -C $vault rev-parse --short HEAD 2>$null)
 if ($m) { Write-Output $m }
-if ($before -ne $after) { Write-Output "vault-update: vault updated $before -> $after" }
-elseif (-not $Quiet) { Write-Output "vault-update: vault already up to date ($after)" }
-if (Test-Path -LiteralPath $marker) { Write-Output 'vault-update: full view ON (Obsidian indexes everything except Assets/; slower). Switch back: vault-update.ps1 -FullView off' }
-else { Write-Output 'vault-update: light mode (default; Imported/, Library/ and Assets/ are not indexed by Obsidian). Full view: vault-update.ps1 -FullView on' }
+if ($before -ne $after) { Write-Output "update-rbxdev-vault: vault updated $before -> $after" }
+elseif (-not $Quiet) { Write-Output "update-rbxdev-vault: vault already up to date ($after)" }
+if (Test-Path -LiteralPath $marker) { Write-Output 'update-rbxdev-vault: full view ON (Obsidian indexes everything except Assets/; slower). Switch back: vault-update.ps1 -FullView off' }
+else { Write-Output 'update-rbxdev-vault: light mode (default; Imported/, Library/ and Assets/ are not indexed by Obsidian). Full view: vault-update.ps1 -FullView on' }
 $kr = Join-Path $vault 'claude-kit\kit-refresh.ps1'
 if (Test-Path -LiteralPath $kr) {
   if ($NoKit) { $env:CLAUDE_KIT_SKIP = '1' }
@@ -308,8 +308,8 @@ if (-not $NoAiVault) {
       if ($Quiet) { $aiArgs += '-Quiet' }
       if ($FullView) { $aiArgs += @('-FullView', $FullView) }
       & powershell @aiArgs
-    } catch { Write-Output ('vault-update: AI Library Vault step failed (non-fatal): ' + $_.Exception.Message) }
+    } catch { Write-Output ('update-rbxdev-vault: AI Library Vault step failed (non-fatal): ' + $_.Exception.Message) }
   }
 }
-if (-not $Quiet) { Write-Output 'vault-update: done' }
+if (-not $Quiet) { Write-Output 'update-rbxdev-vault: done' }
 exit 0

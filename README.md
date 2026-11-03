@@ -6,24 +6,24 @@ Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
 ## Install
 
-Paste this to Claude: Set up the Roblox Dev Mastery Vault on my computer: fetch https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/SETUP-FOR-CLAUDE.md with curl and follow it exactly. The agent follows SETUP-FOR-CLAUDE.md: clone this repository, install the Claude kit (https://github.com/romangigliotti123-arch/vault-kit-01), assets, light mode. Update later with /vault-update. Website (viewer): https://vault-hhmi60uo.netlify.app
+Paste this to Claude: Set up the Roblox Dev Mastery Vault on my computer: fetch https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/SETUP-FOR-CLAUDE.md with curl and follow it exactly. The agent follows SETUP-FOR-CLAUDE.md: clone this repository, install the Claude kit (https://github.com/romangigliotti123-arch/vault-kit-01), assets, light mode. Update later with /update-rbxdev-vault. Website (viewer): https://vault-hhmi60uo.netlify.app
 
 ## Start here: making a game
 
-In your Roblox project folder type `/load-vault` (the vault kit is OFF in every other Claude session), then `/game-dev-workflow`. To see it end to end first, read `Guides/Worked-Example-Idea-To-Live-Ops.md` (also at `claude-kit/examples/worked-example/README.md`): one game from idea to live-ops, with what you type, what Claude does, the critic's verdicts and the files created at each stage.
+In your Roblox project folder type `/load-rbxdev-vault` (the vault kit is OFF in every other Claude session), then `/game-dev-workflow`. To see it end to end first, read `Guides/Worked-Example-Idea-To-Live-Ops.md` (also at `claude-kit/examples/worked-example/README.md`): one game from idea to live-ops, with what you type, what Claude does, the critic's verdicts and the files created at each stage.
 
 ## For agents: start at CAPABILITIES.md
 
 - `CAPABILITIES.md` (vault root) is a job router: "I need to review code / rate something 1-10 / research a topic / run agents ..." -> the item to use, its type and path (kit commands, Roblox knowledge base, Manager research, library picks).
-- **Entry point: the vault mentor.** `/vault-mentor` (or the agent `vault-mentor`) works alongside you on any job and suggests the right skill, agent, note or creator method at each step. It reads `CAPABILITIES.md` and `Mentor/Combined-Brain.md` first: the principles, methods and disagreements of every creator in both vaults, by job, with trust labels (creators weighted by the credibility audit; weak or unaudited creators never count as authorities). Optional hook that suggests vault matches on every prompt: `bash claude-kit/install.sh --with-hooks` / `install.ps1 -WithHooks`.
-- Search both vaults by words: `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/vault-find.py "<what you need>"` (skills `use-the-vault`, `use-the-ai-library`). Read the one note you chose and follow it.
+- **Entry point: the vault mentor.** `/mentor-rbxdev-vault` (or the agent `mentor-rbxdev-vault`) works alongside you on any job and suggests the right skill, agent, note or creator method at each step. It reads `CAPABILITIES.md` and `Mentor/Combined-Brain.md` first: the principles, methods and disagreements of every creator in both vaults, by job, with trust labels (creators weighted by the credibility audit; weak or unaudited creators never count as authorities). Optional hook that suggests vault matches on every prompt: `bash claude-kit/install.sh --with-hooks` / `install.ps1 -WithHooks`.
+- Search both vaults by words: `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/vault-find.py "<what you need>"` (skills `use-rbxdev-vault`, `use-ai-library-rbxdev-vault`). Read the one note you chose and follow it.
 
 ## What it is
 
 The Roblox Dev Mastery Vault is an Obsidian vault built only for Roblox: one place where you learn what makes Roblox games succeed, and where AI agents use that knowledge to make games for you. It has two halves:
 
 1. A Roblox knowledge base (about 4,550 notes) built from official Roblox docs and from the transcripts of about 100 Roblox creators: playbooks, decision rules, benchmark numbers, 90 case studies of real games, ads, monetisation, retention, thumbnails, security and Luau.
-2. A manager toolkit (the `claude-kit/`, installed into `~/.claude/claude-kit` but switched OFF by default; `/load-vault` turns it on for one project folder, `/unload-vault` off): a flagship `/game-dev-workflow`, side skills, 24 Roblox skills and 15 Roblox agents that design, build, rate, market, playtest and update a game, with you acting as the manager.
+2. A manager toolkit (the `claude-kit/`, installed into `~/.claude/claude-kit` but switched OFF by default; `/load-rbxdev-vault` turns it on for one project folder, `/unload-rbxdev-vault` off): a flagship `/game-dev-workflow`, side skills, 24 Roblox skills and 15 Roblox agents that design, build, rate, market, playtest and update a game, with you acting as the manager.
 
 Who it is for: someone who wants to make or run Roblox games and manage the work with AI, with or without writing Luau themselves. Apart from the setup, nothing in it is general-purpose.
 
@@ -35,20 +35,20 @@ Who it is for: someone who wants to make or run Roblox games and manage the work
 | Creator and official sources | `Roblox/` (about 4,500 notes in total; about 87 creator folders grouped by trust in `creators/` (trusted, mixed, unaudited), plus `docs/`, `devforum/`, `RobloxCreators/`, `must-watch/`) | The source notes behind the playbooks: video notes with timestamps, Roblox Creator Docs and DevForum pages. |
 | Creator credibility | `Roblox/roblox-kb/creator-credibility.md` | Which creators and claims to trust and why. Indie revenue and CCU figures are self-reported; prefer official sources for platform mechanics. |
 | Blender for Roblox | `Roblox/blender/` (about 1,250 notes; hidden in light mode) | Research on modelling, rigging, animation and exporting from Blender to Roblox. |
-| The manager method | `Manager/` (about 475 notes) | Research on how to manage AI agents: delegation, model choice, verification, cost control. It powers `/manager-mode` and the head-manager step of the workflow. |
+| The manager method | `Manager/` (about 475 notes) | Research on how to manage AI agents: delegation, model choice, verification, cost control. It powers `/manager-mode-rbxdev-vault` and the head-manager step of the workflow. |
 | Supporting material | `Library/` (about 850 notes), `Imported/` (about 1,700 notes) | `Library/` is one note per Roblox, game-dev, manager or research skill or agent (plus everything the kit uses) collected from open-source projects; `Imported/` holds other people's vaults and guides about Roblox and game dev (Roblox Creator Docs copy, Luau, game mechanics, awesome lists), licensed as listed under Licence. They are supporting reference, not the core. The general (non-Roblox) library is the companion AI Library Vault. |
 | Assets | `Assets/` (about 2.7 GB, not in git) | Models, audio, textures, HDRIs and code libraries for Roblox, synced from the host PC's Tailscale share. |
 
-Light mode (the default) hides the big supporting folders (`Library/`, `Imported/`, `Assets/`) from Obsidian so it opens fast, leaving the Roblox knowledge base and the Manager notes visible. The files stay on disk and Claude still searches them. See `LIGHT-MODE.md`; `/light-mode-off` shows everything.
+Light mode (the default) hides the big supporting folders (`Library/`, `Imported/`, `Assets/`) from Obsidian so it opens fast, leaving the Roblox knowledge base and the Manager notes visible. The files stay on disk and Claude still searches them. See `LIGHT-MODE.md`; `/light-mode-off-rbxdev-vault` shows everything.
 
 ## How it works
 
-1. In your Roblox project folder run `/load-vault`, then `/game-dev-workflow` with your idea (or none).
+1. In your Roblox project folder run `/load-rbxdev-vault`, then `/game-dev-workflow` with your idea (or none).
 2. Claude elaborates the idea from the vault: core loop, first 30 seconds, progression, monetisation, social hooks, each fact tied to a vault note.
 3. It rates the idea 1.00-10.00 on 12 weighted criteria and checks what is hot now.
 4. It plans the build with agents, models and a budget (`game-plan.md`).
 5. It asks one question, "Ready to build?". On yes, a head manager runs the Roblox agents, builds a Rojo/Luau project, checks it and ends with a playtest report.
-6. Side skills work alone at any point: `/game-dev-ads`, `/game-dev-update`, `/game-dev-playtest`, `/game-dev-thumbnail`, `/game-dev-rate`, `/game-dev-plan`, `/game-dev-art-direction`, `/game-dev-visual-qa` (the visual gate), plus `/deep-topic-research`, `/manager-mode` and the vault commands `/vault-update`, `/vault-update-clean`, `/light-mode-on`, `/light-mode-off`.
+6. Side skills work alone at any point: `/game-dev-ads`, `/game-dev-update`, `/game-dev-playtest`, `/game-dev-thumbnail`, `/game-dev-rate`, `/game-dev-plan`, `/game-dev-art-direction`, `/game-dev-visual-qa` (the visual gate), plus `/deep-topic-research-rbxdev-vault`, `/manager-mode-rbxdev-vault` and the vault commands `/update-rbxdev-vault`, `/update-clean-rbxdev-vault`, `/light-mode-on-rbxdev-vault`, `/light-mode-off-rbxdev-vault`.
 
 Limits: it does not publish to Roblox or spend Robux; Studio playtests run only when the Roblox Studio MCP is connected, otherwise results are files marked untested. The notes are AI-compiled research from public sources: check numbers against the linked sources.
 

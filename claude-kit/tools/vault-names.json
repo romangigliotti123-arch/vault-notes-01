@@ -1,0 +1,43 @@
+{
+ "_comment": "Single source of truth for the vault slug and for every vault-owned skill/agent/plugin name. Pattern: <verb>-<slug>-vault (verb first). Read by kit-rename.py (migration of old installs), by the site tooling (netlify-site/vault_config.py: docs, build checks) and by tests. A future topic vault changes 'slug' here and runs netlify-site/tools/vault_rename.py retag. Entries in 'renamed' are the PREVIOUS names; the migration removes them from user machines. Tool file names under claude-kit/tools (vault-find.py, kbq.py, ...) are namespaced by the claude-kit folder and keep their names.",
+ "slug": "rbxdev",
+ "pattern": "<verb>-<slug>-vault",
+ "mode_name": "Roblox dev mode",
+ "renamed": [
+  {"old": "vault-update", "new": "update-rbxdev-vault", "kind": "skill", "always_on": true},
+  {"old": "update-check", "new": "update-check-rbxdev-vault", "kind": "skill", "always_on": true},
+  {"old": "load-vault", "new": "load-rbxdev-vault", "kind": "skill", "always_on": true},
+  {"old": "unload-vault", "new": "unload-rbxdev-vault", "kind": "skill", "always_on": true},
+  {"old": "uninstall", "new": "uninstall-rbxdev-vault", "kind": "skill", "always_on": true},
+  {"old": "vault-update-clean", "new": "update-clean-rbxdev-vault", "kind": "skill"},
+  {"old": "light-mode-on", "new": "light-mode-on-rbxdev-vault", "kind": "skill"},
+  {"old": "light-mode-off", "new": "light-mode-off-rbxdev-vault", "kind": "skill"},
+  {"old": "setup-check", "new": "setup-check-rbxdev-vault", "kind": "skill"},
+  {"old": "kit-list", "new": "list-rbxdev-vault", "kind": "skill"},
+  {"old": "vault-learn", "new": "learn-rbxdev-vault", "kind": "skill"},
+  {"old": "vault-curate", "new": "curate-rbxdev-vault", "kind": "skill"},
+  {"old": "vault-contribute", "new": "contribute-rbxdev-vault", "kind": "skill"},
+  {"old": "vault-mentor", "new": "mentor-rbxdev-vault", "kind": "skill"},
+  {"old": "use-the-vault", "new": "use-rbxdev-vault", "kind": "skill"},
+  {"old": "use-the-ai-library", "new": "use-ai-library-rbxdev-vault", "kind": "skill"},
+  {"old": "clarify-before-build", "new": "clarify-before-build-rbxdev-vault", "kind": "skill"},
+  {"old": "deep-topic-research", "new": "deep-topic-research-rbxdev-vault", "kind": "skill"},
+  {"old": "karpathy-coding-guidelines", "new": "karpathy-coding-guidelines-rbxdev-vault", "kind": "skill"},
+  {"old": "low-usage-mode", "new": "low-usage-mode-rbxdev-vault", "kind": "skill"},
+  {"old": "manager-mode", "new": "manager-mode-rbxdev-vault", "kind": "skill"},
+  {"old": "rate-anything-1-10", "new": "rate-anything-1-10-rbxdev-vault", "kind": "skill"},
+  {"old": "game-idea", "new": "game-idea-rbxdev-vault", "kind": "skill"},
+  {"old": "vault-mentor", "new": "mentor-rbxdev-vault", "kind": "agent"},
+  {"old": "claim-verifier", "new": "claim-verifier-rbxdev-vault", "kind": "agent"},
+  {"old": "game-critic", "new": "game-critic-rbxdev-vault", "kind": "agent"},
+  {"old": "self-verifying-game-builder", "new": "self-verifying-game-builder-rbxdev-vault", "kind": "agent"},
+  {"old": "workflow-hud", "new": "hud-rbxdev-vault", "kind": "plugin", "command_old": "hud", "command_new": "hud-rbxdev-vault"},
+  {"old": "vault-graph", "new": "graph-rbxdev-vault", "kind": "plugin", "command_old": "graph", "command_new": "graph-rbxdev-vault"}
+ ],
+ "kept": [
+  "rbx", "make-roblox-game", "game-dev-* (all)", "roblox-* (all skills and agents)",
+  "tool files in claude-kit/tools (vault-find.py, kbq.py, learn.py, ...): namespaced by the claude-kit folder, not slash commands or ~/.claude entries",
+  "vault-update.sh/.ps1, win-sync-setup.ps1, mac/linux-sync-setup.sh at the vault root: file names inside the vault folder; the logon task calls vault-update.ps1 by path",
+  "plugin marketplace name roblox-vault-kit-mods (already vault specific)"
+ ]
+}

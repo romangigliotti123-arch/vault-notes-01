@@ -1,0 +1,16 @@
+#!/bin/sh
+# lum <run [mode] | hook EVENT | on | off | status | install-hooks | uninstall-hooks>
+# Launcher: first working Python 3 runs lum.py; if none, the PowerShell fallback lum.ps1 handles hook/on/off/status.
+# `hook` costs nothing (a file test) while the mode is off.
+D="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+S="$(cd "$(dirname "$0")" 2>/dev/null && { pwd -W 2>/dev/null || pwd; })"   # pwd -W = native C:/ path under Git Bash; plain pwd elsewhere
+if [ "$1" = hook ] && [ ! -f "$D/state/low-usage-mode-rbxdev-vault.on" ]; then exit 0; fi
+for p in python3 python py; do
+  if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then exec "$p" -I "$S/lum.py" "$@"; fi
+done
+for ps in powershell.exe pwsh powershell; do
+  if command -v "$ps" >/dev/null 2>&1; then exec "$ps" -NoProfile -ExecutionPolicy Bypass -File "$S/lum.ps1" "$@"; fi
+done
+[ "$1" = hook ] && exit 0
+echo "lum: no working python3/python/py and no powershell found" >&2
+exit 1

@@ -1,6 +1,6 @@
 # critic-checks: pass/fail checks the critic runs per factor
 
-Read by `game-critic` only for the factors the stage scores. Each line is a check with a number or a gotcha; DR = `Roblox/roblox-kb/_tools/DECISION-RULES.md` (topic in brackets). Trust: official or mixed (official and creators agree) only. A failed check with no cited exception caps that factor at 5; a pass is evidence for 7+. Re-check fast-moving numbers with `kbq.py` before quoting. Patterns only, never copy a game.
+Read by `game-critic-rbxdev-vault` only for the factors the stage scores. Each line is a check with a number or a gotcha; DR = `Roblox/roblox-kb/_tools/DECISION-RULES.md` (topic in brackets). Trust: official or mixed (official and creators agree) only. A failed check with no cited exception caps that factor at 5; a pass is evidence for 7+. Re-check fast-moving numbers with `kbq.py` before quoting. Patterns only, never copy a game.
 Run a check only where the stage's evidence can show it. At the idea stage a detail the plan has not had to decide yet (pixel sizes, API names, texture caps) is a "to specify" note, not a cap; a plan that contradicts a check (for example a pay-to-win pass or paid randomness aimed at kids) is a fail. "Rescue from loss" means a loss the design engineers in order to sell the fix (spiked difficulty, a pressure timer, a lost-gear ransom); cheap optional revives in a fair game that free players can finish are a note for F7, not a cap.
 
 ## F1 first 30 seconds

@@ -4,7 +4,7 @@
 install.sh used to spawn about seven processes per kit file (sha256sum twice, awk, dirname, mkdir, cp, ...): about 4 minutes for ~1000 files on Git Bash
 (process creation is slow there). This does the same work in-process: same layout, same decisions, same backups, same installed.tsv.
 
-  kit-install-files.py --kit KITDIR --config CONFIGDIR --always-on "load-vault unload-vault ..." [--dry-run]
+  kit-install-files.py --kit KITDIR --config CONFIGDIR --always-on "load-rbxdev-vault unload-rbxdev-vault ..." [--dry-run]
 
 Layout (relative to CONFIGDIR = ~/.claude):
   tools|systems|skillpack/<r>   -> claude-kit/<sub>/<r>
@@ -78,7 +78,7 @@ def main(argv):
     ap = argparse.ArgumentParser()
     ap.add_argument("--kit", required=True)
     ap.add_argument("--config", required=True)
-    ap.add_argument("--always-on", default="load-vault unload-vault vault-update update-check uninstall")
+    ap.add_argument("--always-on", default="load-rbxdev-vault unload-rbxdev-vault update-rbxdev-vault update-check-rbxdev-vault uninstall-rbxdev-vault")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
     kit, c = os.path.abspath(a.kit), os.path.abspath(a.config)
