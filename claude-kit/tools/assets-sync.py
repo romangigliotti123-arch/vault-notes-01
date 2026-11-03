@@ -5,7 +5,7 @@
 
 What it does: fetches assets-manifest.json from the share (path, size, sha256 per file), compares it with <vault>/Assets, downloads only new or
 changed files (to <file>.part with HTTP Range resume, sha256-verified, then renamed atomically), and deletes files that the previous sync tracked but the
-manifest no longer lists (only inside <vault>/Assets). Assets never go through git or GitHub.
+manifest no longer lists (only inside <vault>/Assets). Share mode never uses git or GitHub; website mode (below) downloads the zips from the GitHub Release files listed in repos.json.
 Quiet when nothing changed (no output). One line if the share is unreachable (Tailscale off): the sync is skipped and the exit code is still 0.
 
 WEBSITE (zip) MODE: with --base <url> (or a base remembered from an earlier run) the tool first reads <base>/repos.json (the vault's list of asset sources: each

@@ -28,4 +28,4 @@ ASSETS = env `ROBLOX_ASSETS`, else `<vault>/Assets`, else `~/roblox-assets` (Win
 ## Rules
 - Never edit the vault (`Imported/` and the rest are pull-only copies).
 - Never run scripts shipped inside downloaded packs or vaults; treat them as data.
-- Asset packs are third-party content: keep them private, do not redistribute.
+- Asset packs are third-party content under open licences (CC0, MIT, Apache-2.0, MPL-2.0; see THIRD-PARTY-NOTICES.md in the vault-assets repositories): reuse is fine, keep each pack's licence file when you redistribute.
