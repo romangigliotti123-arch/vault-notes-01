@@ -1,0 +1,192 @@
+--!strict
+-- collect: read-only UI snapshot for the layout check. Run in a CLIENT playtest (execute_luau, datamodel Client) while the HUD shows what a
+-- player sees. For each preset viewport it clones every enabled ScreenGui (scripts removed) into a Frame of exactly that pixel size, so Scale
+-- layouts resolve as on that device, reads the rectangles and runs Overlap.analyse. Set CONFIG.render to leave one preview on screen for a
+-- screenshot, then CONFIG.clean = true to remove it. Safe areas other than the 36 px top bar are not emulated (use the Device Emulator for those).
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local CONFIG = {
+	viewports = {
+		{ name = "phone", w = 844, h = 390 },
+		{ name = "tablet", w = 1180, h = 820 },
+		{ name = "desktop", w = 1920, h = 1080 },
+	} :: { Viewport },
+	render = nil :: string?, -- "phone" | "tablet" | "desktop": keep that preview visible
+	clean = false, -- true: delete the preview and stop
+}
+
+local PREVIEW = "__VQA_Preview"
+local TOPBAR = 36
+
+if not (RunService:IsClient() and Players.LocalPlayer) then
+	error("run this in a Client playtest datamodel (start_stop_play, then execute_luau with datamodel Client)")
+end
+local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui") :: PlayerGui
+local old = playerGui:FindFirstChild(PREVIEW)
+if old then
+	old:Destroy()
+end
+if CONFIG.clean then
+	print("preview removed")
+	return
+end
+
+local function popupName(n: string): boolean
+	local l = string.lower(n)
+	return string.find(l, "popup") ~= nil
+		or string.find(l, "modal") ~= nil
+		or string.find(l, "banner") ~= nil
+		or string.find(l, "toast") ~= nil
+		or string.find(l, "dialog") ~= nil
+end
+
+local function effectivelyVisible(g: GuiObject, stop: Instance): boolean
+	local cur: Instance? = g
+	while cur and cur ~= stop do
+		if cur:IsA("GuiObject") and not (cur :: GuiObject).Visible then
+			return false
+		end
+		if cur:IsA("CanvasGroup") and (cur :: CanvasGroup).GroupTransparency > 0.95 then
+			return false
+		end
+		cur = cur.Parent
+	end
+	return true
+end
+
+local function segment(inst: Instance): string
+	local parent = inst.Parent
+	local idx = if parent then table.find(parent:GetChildren(), inst) or 0 else 0
+	return `{inst.Name}[{idx}]`
+end
+
+local function relPath(inst: Instance, root: Instance, prefix: string): string
+	local parts = {}
+	local cur: Instance? = inst
+	while cur and cur ~= root do
+		table.insert(parts, 1, segment(cur))
+		cur = cur.Parent
+	end
+	return prefix .. "." .. table.concat(parts, ".")
+end
+
+local function nearestBg(g: GuiObject, stop: Instance): { number }?
+	local cur: Instance? = g
+	while cur and cur ~= stop do
+		if cur:IsA("GuiObject") and (cur :: GuiObject).BackgroundTransparency < 0.5 then
+			local c = (cur :: GuiObject).BackgroundColor3
+			return { c.R, c.G, c.B }
+		end
+		cur = cur.Parent
+	end
+	return nil
+end
+
+local preview = Instance.new("ScreenGui")
+preview.Name = PREVIEW
+preview.IgnoreGuiInset = true
+preview.ResetOnSpawn = false
+preview.DisplayOrder = 1000
+preview.Parent = playerGui
+
+local sources: { ScreenGui } = {}
+for _, g in playerGui:GetChildren() do
+	if g:IsA("ScreenGui") and g ~= preview and (g :: ScreenGui).Enabled then
+		table.insert(sources, g :: ScreenGui)
+	end
+end
+
+local total = 0
+for _, vp in CONFIG.viewports do
+	local host = Instance.new("Frame")
+	host.Name = "vp_" .. vp.name
+	host.Size = UDim2.fromOffset(vp.w, vp.h)
+	host.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	host.BorderSizePixel = 0
+	host.ClipsDescendants = true
+	host.Parent = preview
+	local items: { Item } = {}
+	local seq = 0
+	for _, src in sources do
+		local inset = if src.IgnoreGuiInset then 0 else TOPBAR
+		local box = Instance.new("Frame")
+		box.Name = src.Name
+		box.BackgroundTransparency = 1
+		box.Position = UDim2.fromOffset(0, inset)
+		box.Size = UDim2.new(1, 0, 1, -inset)
+		box.Parent = host
+		for _, child in src:GetChildren() do
+			if not child:IsA("LuaSourceContainer") then
+				local c = child:Clone()
+				for _, d in c:GetDescendants() do
+					if d:IsA("LuaSourceContainer") then
+						d:Destroy()
+					end
+				end
+				c.Parent = box
+			end
+		end
+		task.wait(0.15)
+		for _, d in box:GetDescendants() do
+			if d:IsA("GuiObject") and effectivelyVisible(d, box) and d.AbsoluteSize.X > 0 and d.AbsoluteSize.Y > 0 then
+				seq += 1
+				local rel = d.AbsolutePosition - host.AbsolutePosition
+				local item: Item = {
+					path = relPath(d, box, src.Name),
+					kind = "panel",
+					x = rel.X,
+					y = rel.Y,
+					w = d.AbsoluteSize.X,
+					h = d.AbsoluteSize.Y,
+					order = src.DisplayOrder * 1000000 + d.ZIndex * 1000 + seq,
+					opaque = d.BackgroundTransparency < 0.1,
+				}
+				local isText = d:IsA("TextLabel") or d:IsA("TextButton")
+				if isText then
+					local t = d :: TextLabel
+					if t.Text == "" or t.TextTransparency > 0.95 then
+						isText = false
+					else
+						item.textPx = t.TextBounds.Y
+						item.fg = { t.TextColor3.R, t.TextColor3.G, t.TextColor3.B }
+						item.bg = nearestBg(d, box)
+					end
+				end
+				if d:IsA("TextButton") or d:IsA("ImageButton") then
+					item.kind = "button"
+				elseif isText then
+					item.kind = "text"
+				elseif
+					d.BackgroundTransparency > 0.95
+					and not (d:IsA("ImageLabel") and (d :: ImageLabel).ImageTransparency < 0.95)
+				then
+					item.kind = "skip"
+				end
+				if
+					(d:IsA("Frame") or d:IsA("CanvasGroup")) and (d:GetAttribute("Popup") == true or popupName(d.Name))
+				then
+					item.popup = true
+				end
+				if item.kind ~= "skip" then
+					table.insert(items, item)
+				end
+			end
+		end
+	end
+	local findings = Overlap.analyse(items, vp, { topInset = TOPBAR })
+	total += #findings
+	print(`UI-OVERLAP {vp.name} {vp.w}x{vp.h}: {#items} visible items, {#findings} findings`)
+	for _, f in findings do
+		print(`  [{f.rule}] {f.a}{if f.b then " vs " .. f.b else ""}: {f.detail}`)
+	end
+	if CONFIG.render == vp.name then
+		host.Position = UDim2.fromOffset(0, 0)
+	else
+		host:Destroy()
+	end
+end
+if CONFIG.render == nil then
+	preview:Destroy()
+end
+print(`UI-OVERLAP TOTAL {total} findings across {#CONFIG.viewports} viewports (0 required for the gate)`)

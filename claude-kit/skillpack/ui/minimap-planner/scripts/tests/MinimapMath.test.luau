@@ -1,0 +1,47 @@
+--!nocheck
+-- Run: lune run MinimapMath.test.luau   (from the kit's systems folder, see check-scripts.sh)
+local t = require("../../../../../systems/_check/harness")
+local M = require("../MinimapMath")
+
+local function near(a, b)
+	t.truthy(math.abs(a - b) < 1e-6, `expected ~{b}, got {a}`)
+end
+
+t.test("static map scales world bounds to pixels and flags outside points", function()
+	local b = { minX = -100, maxX = 100, minZ = -100, maxZ = 100 }
+	local p = M.fromBounds({ x = 0, z = 50 }, b, 200)
+	near(p.x, 100)
+	near(p.y, 150)
+	t.truthy(p.inside)
+	t.falsy(M.fromBounds({ x = 500, z = 0 }, b, 200).inside)
+end)
+t.test("radar without rotation: east is right, north (-Z) is up", function()
+	local east = M.radar({ x = 50, z = 0 }, { x = 0, z = 0 }, 0, 100, 100, false)
+	near(east.x, 150)
+	near(east.y, 100)
+	local north = M.radar({ x = 0, z = -50 }, { x = 0, z = 0 }, 0, 100, 100, false)
+	near(north.x, 100)
+	near(north.y, 50)
+end)
+t.test("rotating radar puts the thing in front of the player at the top", function()
+	-- player yawed 90 degrees; what is directly ahead must still draw at the top of the map
+	local yaw = math.pi / 2
+	local ahead = { x = -math.sin(yaw) * 50, z = -math.cos(yaw) * 50 } -- forward vector for yaw, 50 studs out
+	local p = M.radar(ahead, { x = 0, z = 0 }, yaw, 100, 100, true)
+	near(p.x, 100)
+	near(p.y, 50)
+end)
+t.test("out of range is not inside and clampToRim pins it on the same bearing", function()
+	local far = M.radar({ x = 300, z = 0 }, { x = 0, z = 0 }, 0, 100, 100, false)
+	t.falsy(far.inside)
+	local pinned = M.clampToRim(far, 100, 10)
+	near(pinned.x, 190)
+	near(pinned.y, 100)
+	local near_pt = M.radar({ x = 10, z = 0 }, { x = 0, z = 0 }, 0, 100, 100, false)
+	t.eq(M.clampToRim(near_pt, 100), near_pt)
+end)
+t.test("clutter ceiling", function()
+	t.falsy(M.cluttered(12))
+	t.truthy(M.cluttered(13))
+end)
+t.done()

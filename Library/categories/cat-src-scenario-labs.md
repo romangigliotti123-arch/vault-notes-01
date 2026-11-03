@@ -1,0 +1,104 @@
+---
+tags: [moc]
+---
+# Category: src-scenario-labs
+
+97 items. Back: [[_Home]]
+
+- [s] [[S--scenario-labs--scenario-3d|scenario-labs/scenario-3d]] - Use when generating or handling 3D assets through the Scenario MCP server, including text-to-3D or image-to-3D
+- [s] [[S--scenario-labs--scenario-blender|scenario-labs/scenario-blender]] - Use when an agent works in an open Blender scene through the Scenario for Blender extension's local MCP server
+- [s] [[S--scenario-labs--scenario-blender-2d-animation|scenario-labs/scenario-blender-2d-animation]] - Use when a 2D side-scroller shot, platformer cutscene, game trailer or parallax animation has to be built in B
+- [s] [[S--scenario-labs--scenario-blender-animation|scenario-labs/scenario-blender-animation]] - Use when animating characters or objects in Blender through Python, a bouncing ball, walk or run cycle, jump, 
+- [s] [[S--scenario-labs--scenario-blender-blockout|scenario-labs/scenario-blender-blockout]] - Use when a text brief or a reference image must become a Blender blockout whose playblast guides a render-to-r
+- [s] [[S--scenario-labs--scenario-blender-expert|scenario-labs/scenario-blender-expert]] - Use when doing any 3D work in Blender through Python or an MCP bridge, headless or in a live session: modeling
+- [s] [[S--scenario-labs--scenario-blender-export|scenario-labs/scenario-blender-export]] - Use when exporting a model, character or animation from Blender to a game engine, the web or a 3D printer: FBX
+- [s] [[S--scenario-labs--scenario-blender-geometry-nodes|scenario-labs/scenario-blender-geometry-nodes]] - Use when building or debugging Geometry Nodes, headless or live: procedural modeling, scattering objects on a 
+- [s] [[S--scenario-labs--scenario-blender-grease-pencil|scenario-labs/scenario-blender-grease-pencil]] - Use when drawing or animating with Grease Pencil in Blender 5.x from Python: 2D or 2.5D illustration, frame-by
+- [s] [[S--scenario-labs--scenario-blender-hair|scenario-labs/scenario-blender-hair]] - Use when grooming hair or fur in Blender with hair curves, such as a character hairstyle, animal fur, procedur
+- [s] [[S--scenario-labs--scenario-blender-hard-surface|scenario-labs/scenario-blender-hard-surface]] - Use when modeling hard-surface objects in Blender (sci-fi panels, props, weapons, vehicles, robots, machined o
+- [s] [[S--scenario-labs--scenario-blender-lighting-rendering|scenario-labs/scenario-blender-lighting-rendering]] - Use when lighting, rendering or compositing in Blender: light a character, product or hero shot, interior at d
+- [s] [[S--scenario-labs--scenario-blender-previs-storyboard|scenario-labs/scenario-blender-previs-storyboard]] - Use when turning a script or story into previs, layout, storyboards or an animatic in Blender: beats to shot l
+- [s] [[S--scenario-labs--scenario-blender-retopology|scenario-labs/scenario-blender-retopology]] - Use when turning a dense sculpt, scan or AI-generated mesh into clean topology in Blender, for animation, subd
+- [s] [[S--scenario-labs--scenario-blender-rigging|scenario-labs/scenario-blender-rigging]] - Use when rigging a character, creature or prop in Blender through Python: "rig this character", Rigify metarig
+- [s] [[S--scenario-labs--scenario-blender-sculpting|scenario-labs/scenario-blender-sculpting]] - Use when sculpting in Blender through Python: sculpt a head, face or bust, a stylized or cartoon character, a 
+- [s] [[S--scenario-labs--scenario-blender-texturing-shading|scenario-labs/scenario-blender-texturing-shading]] - Use when texturing, shading or look-developing in Blender: building a PBR material from a texture set, displac
+- [s] [[S--scenario-labs--scenario-blender-uv-baking|scenario-labs/scenario-blender-uv-baking]] - Use when UV unwrapping, placing seams, straightening or packing UVs, setting texel density, laying out UDIMs o
+- [s] [[S--scenario-labs--scenario-game-assets|scenario-labs/scenario-game-assets]] - Use when creating game art through Scenario MCP: sprites, sprite sheets, icons, props, loot, tilesets and auto
+- [s] [[S--scenario-labs--scenario-godot-2d|scenario-labs/scenario-godot-2d]] - Use when building a 2D game in Godot 4.7: make a platformer or top-down controller that feels right (coyote ti
+- [s] [[S--scenario-labs--scenario-godot-3d-world|scenario-labs/scenario-godot-3d-world]] - Use when building 3D levels and worlds in Godot 4.7: third-person or FPS controller, player stuck on stairs, s
+- [s] [[S--scenario-labs--scenario-godot-animation|scenario-labs/scenario-godot-animation]] - Use when animating characters or scenes in Godot 4.7: AnimationPlayer clips and RESET, AnimationTree state mac
+- [s] [[S--scenario-labs--scenario-godot-architecture|scenario-labs/scenario-godot-architecture]] - Use when structuring Godot 4.7 game code: folders, scenes and nodes, signals or an event bus autoload, custom 
+- [s] [[S--scenario-labs--scenario-godot-audio|scenario-labs/scenario-godot-audio]] - Use when adding or fixing sound in Godot 4.7: audio buses and effects, volume sliders, 'too many sounds', comb
+- [s] [[S--scenario-labs--scenario-godot-expert|scenario-labs/scenario-godot-expert]] - Use when an agent drives Godot 4.7 on macOS or Windows for any task: headless --script jobs, --import, --check
+- [s] [[S--scenario-labs--scenario-godot-gameplay|scenario-labs/scenario-godot-gameplay]] - Use when building gameplay systems in Godot 4.7: enemy AI that patrols, chases and attacks, state machines, be
+- [s] [[S--scenario-labs--scenario-godot-multiplayer|scenario-labs/scenario-godot-multiplayer]] - Use when a Godot 4 game goes online or co-op: host and join with ENet, WebSocket for a web build, RPCs (@rpc, 
+- [s] [[S--scenario-labs--scenario-godot-performance-export|scenario-labs/scenario-godot-performance-export]] - Use when a Godot game stutters, drops frames, hitches when entering new areas, overheats a phone, or must ship
+- [s] [[S--scenario-labs--scenario-godot-pipeline-automation|scenario-labs/scenario-godot-pipeline-automation]] - Use when Godot 4.7 work must run without a mouse or at scale: batch import of hundreds of GLB props or an AI i
+- [s] [[S--scenario-labs--scenario-godot-rendering-lighting|scenario-labs/scenario-godot-rendering-lighting]] - Use when lighting or rendering a Godot 4.7 3D scene: pick a renderer (Forward+, Mobile, Compatibility), choose
+- [s] [[S--scenario-labs--scenario-godot-shaders|scenario-labs/scenario-godot-shaders]] - Use when writing or fixing Godot 4.7 shaders: .gdshader code (spatial, canvas_item, particles, sky, fog), Visu
+- [s] [[S--scenario-labs--scenario-godot-ui|scenario-labs/scenario-godot-ui]] - Use when building or fixing game UI in Godot 4.7: main menu, settings screen, HUD (health bar, ammo, minimap f
+- [s] [[S--scenario-labs--scenario-godot-vfx|scenario-labs/scenario-godot-vfx]] - Use when making or fixing particle effects and game feel in Godot 4.7: GPUParticles3D or GPUParticles2D explos
+- [s] [[S--scenario-labs--scenario-maya-animation|scenario-labs/scenario-maya-animation]] - Use when animating a character or prop in Maya through Python: a walk or run cycle, a jump or landing, a heavy
+- [s] [[S--scenario-labs--scenario-maya-deformation|scenario-labs/scenario-maya-deformation]] - Use when skinning a character in Maya ("bind skin", "fix the weights", weight painting, Skin Tools or ngSkinTo
+- [s] [[S--scenario-labs--scenario-maya-expert|scenario-labs/scenario-maya-expert]] - Use when doing any Autodesk Maya task through Python or a bridge, headless or live: maya.cmds or OpenMaya 2.0 
+- [s] [[S--scenario-labs--scenario-maya-fx|scenario-labs/scenario-maya-fx]] - Use when a Maya task involves simulation or procedural effects: nCloth or Nucleus (a cape, skirt, flag or garm
+- [s] [[S--scenario-labs--scenario-maya-groom|scenario-labs/scenario-maya-groom]] - Use when grooming hair or fur in Maya with XGen (Interactive Groom splines or legacy descriptions): scalp hair
+- [s] [[S--scenario-labs--scenario-maya-lighting-rendering|scenario-labs/scenario-maya-lighting-rendering]] - Use when lighting or rendering in Maya with Arnold: a product hero shot, a character close-up or a sequence (m
+- [s] [[S--scenario-labs--scenario-maya-lookdev|scenario-labs/scenario-maya-lookdev]] - Use when shading an asset in Maya with Arnold: OpenPBR or aiStandardSurface materials, hooking up Substance Pa
+- [s] [[S--scenario-labs--scenario-maya-modeling|scenario-labs/scenario-maya-modeling]] - Use when modeling in Autodesk Maya, such as hard-surface props, weapons, vehicles, a sci-fi crate, a game-read
+- [s] [[S--scenario-labs--scenario-maya-pipeline-scripting|scenario-labs/scenario-maya-pipeline-scripting]] - Use when writing or fixing Maya pipeline code in Python: mayapy batch jobs over many scenes, validating and au
+- [s] [[S--scenario-labs--scenario-maya-retopology-uv|scenario-labs/scenario-maya-retopology-uv]] - Use when turning a dense sculpt, scan, ZBrush export or AI-generated mesh into animation-ready or game-ready t
+- [s] [[S--scenario-labs--scenario-maya-rigging|scenario-labs/scenario-maya-rigging]] - Use when rigging a character, creature or prop in Maya: "rig this character", placing or orienting joints, Ori
+- [s] [[S--scenario-labs--scenario-patina-retexture|scenario-labs/scenario-patina-retexture]] - Use when retexturing an existing 3D asset with PATINA PBR materials through the Scenario MCP server: a GLB or 
+- [s] [[S--scenario-labs--scenario-roblox-animation|scenario-labs/scenario-roblox-animation]] - Use when animating Roblox characters, NPCs or creatures: animation not playing, wrong animation wins, animatio
+- [s] [[S--scenario-labs--scenario-roblox-architecture|scenario-labs/scenario-roblox-architecture]] - Use when structuring Roblox game code: where scripts go (ServerScriptService, ReplicatedStorage, StarterPlayer
+- [s] [[S--scenario-labs--scenario-roblox-assets|scenario-labs/scenario-roblox-assets]] - Use when bringing 3D assets into Roblox Studio or preparing avatar items: import from Blender, GLB, FBX or OBJ
+- [s] [[S--scenario-labs--scenario-roblox-data|scenario-labs/scenario-roblox-data]] - Use when a Roblox game saves or loads player data, or when players report data not saving, lost progress, roll
+- [s] [[S--scenario-labs--scenario-roblox-environment|scenario-labs/scenario-roblox-environment]] - Use when building or lighting a Roblox map: graybox or blockout, level layout, landmarks, doors and walls, par
+- [s] [[S--scenario-labs--scenario-roblox-expert|scenario-labs/scenario-roblox-expert]] - Use when an agent builds, fixes or tests anything in Roblox Studio: \"make a Roblox game\", \"Roblox Studio\",
+- [s] [[S--scenario-labs--scenario-roblox-gameplay|scenario-labs/scenario-roblox-gameplay]] - Use when building Roblox gameplay systems: NPC or enemy AI that patrols, chases and attacks, state machines or
+- [s] [[S--scenario-labs--scenario-roblox-luau|scenario-labs/scenario-roblox-luau]] - Use when writing, reviewing or debugging Luau in a Roblox experience: task.spawn vs task.defer vs task.wait, r
+- [s] [[S--scenario-labs--scenario-roblox-monetization|scenario-labs/scenario-roblox-monetization]] - Use when a Roblox game sells something or plans live ops: Developer Products, game passes, experience subscrip
+- [s] [[S--scenario-labs--scenario-roblox-networking|scenario-labs/scenario-roblox-networking]] - Use when securing a Roblox experience against exploiters or designing its networking: RemoteEvent, RemoteFunct
+- [s] [[S--scenario-labs--scenario-roblox-performance|scenario-labs/scenario-roblox-performance]] - Use when a Roblox experience is slow, laggy, stuttering, crashing or out of memory, or before shipping or upda
+- [s] [[S--scenario-labs--scenario-roblox-tooling|scenario-labs/scenario-roblox-tooling]] - Use when setting up or repairing a Roblox team project outside Studio: Rojo or Script Sync, Wally packages, Ro
+- [s] [[S--scenario-labs--scenario-roblox-ui|scenario-labs/scenario-roblox-ui]] - Use when building or fixing Roblox game UI or input: HUD (health bar, currency, ability cooldowns), main menu,
+- [s] [[S--scenario-labs--scenario-roblox-vfx-audio|scenario-labs/scenario-roblox-vfx-audio]] - Use when making or fixing Roblox visual effects or game audio: ParticleEmitter, Beam, Trail, flipbook sprite s
+- [s] [[S--scenario-labs--scenario-side-view-game-kit|scenario-labs/scenario-side-view-game-kit]] - Use when making the art for a side-scroller or 2D platformer: side-view pixel-art sprite sheets for a hero and
+- [s] [[S--scenario-labs--scenario-skyboxes|scenario-labs/scenario-skyboxes]] - Use when a task involves generating or iterating on skyboxes, 360 panoramas, equirectangular images, environme
+- [s] [[S--scenario-labs--scenario-sprite-animation|scenario-labs/scenario-sprite-animation]] - Use when animating 2D game art with Scenario: walk, idle or attack cycles in 4 or 8 directions, isometric spri
+- [s] [[S--scenario-labs--scenario-textures|scenario-labs/scenario-textures]] - Use when a task involves game textures or materials through the Scenario MCP: seamless or tileable textures, t
+- [s] [[S--scenario-labs--scenario-unity-2d|scenario-labs/scenario-unity-2d]] - Use when building a 2D game in Unity 6.3 URP: pixel-art or HD sprite import and PPU, sprite atlases, Tilemaps,
+- [s] [[S--scenario-labs--scenario-unity-animation|scenario-labs/scenario-unity-animation]] - Use when a Unity 6.3 task involves character animation or cameras: Mixamo or mocap humanoid import and retarge
+- [s] [[S--scenario-labs--scenario-unity-architecture|scenario-labs/scenario-unity-architecture]] - Use when structuring Unity 6.3 C# code: ScriptableObject data vs runtime state, events and services, inventory
+- [s] [[S--scenario-labs--scenario-unity-expert|scenario-labs/scenario-unity-expert]] - Use when an agent drives Unity 6.3 (6000.3) on a Mac for any task: batch mode and -executeMethod jobs, a runni
+- [s] [[S--scenario-labs--scenario-unity-gameplay|scenario-labs/scenario-unity-gameplay]] - Use when building or debugging Unity gameplay systems: enemy AI that patrols, chases and attacks, NavMesh baki
+- [s] [[S--scenario-labs--scenario-unity-mobile|scenario-labs/scenario-unity-mobile]] - Use when a Unity 6.3 game targets Android or iOS: phone frame budget, overheating after 20 minutes, 'my game s
+- [s] [[S--scenario-labs--scenario-unity-performance|scenario-labs/scenario-unity-performance]] - Use when a Unity 6.3 game is slow or stutters: low fps, frame spikes, hitches when entering areas or on first 
+- [s] [[S--scenario-labs--scenario-unity-pipeline-automation|scenario-labs/scenario-unity-pipeline-automation]] - Use when automating a Unity 6.3 content pipeline or build: importing an art drop (FBX, PNG) with AssetPostproc
+- [s] [[S--scenario-labs--scenario-unity-rendering-lighting|scenario-labs/scenario-unity-rendering-lighting]] - Use when setting up URP (or choosing URP vs HDRP), configuring URP assets and quality tiers for PC and phones,
+- [s] [[S--scenario-labs--scenario-unity-shaders|scenario-labs/scenario-unity-shaders]] - Use when a Unity 6.3 URP task involves shaders: hand-written HLSL, Shader Graph water, toon, dissolve or outli
+- [s] [[S--scenario-labs--scenario-unity-ui|scenario-labs/scenario-unity-ui]] - Use when building or fixing game UI in Unity 6.3: main menu, settings screen (resolution, quality, volume, key
+- [s] [[S--scenario-labs--scenario-unity-vfx|scenario-labs/scenario-unity-vfx]] - Use when making or fixing real-time VFX in Unity 6.3: explosions, fireballs, projectiles with muzzle, trail an
+- [s] [[S--scenario-labs--scenario-unity-web|scenario-labs/scenario-unity-web]] - Use when a Unity 6.3 game must run in a browser: 'export to WebGL', Web build settings or Build Profiles, gzip
+- [s] [[S--scenario-labs--scenario-unity-world-building|scenario-labs/scenario-unity-world-building]] - Use when building a Unity 6.3 level or open world: terrain from code or heightmaps, procedural islands, erosio
+- [s] [[S--scenario-labs--scenario-unreal-animation|scenario-labs/scenario-unreal-animation]] - Use when a UE5 task involves characters in motion: "import FBX from Maya" with a skeleton, "retarget animation
+- [s] [[S--scenario-labs--scenario-unreal-cinematics|scenario-labs/scenario-unreal-cinematics]] - Use when making a trailer, cutscene, cinematic or short film in Unreal Engine 5.8 with Sequencer: shot lists, 
+- [s] [[S--scenario-labs--scenario-unreal-expert|scenario-labs/scenario-unreal-expert]] - Use when an agent drives Unreal Engine 5.8 on a Mac for any task: Editor Python (the unreal module), headless 
+- [s] [[S--scenario-labs--scenario-unreal-gameplay|scenario-labs/scenario-unreal-gameplay]] - Use when building or debugging UE5 gameplay: a character with double jump or dash, abilities with cooldowns, e
+- [s] [[S--scenario-labs--scenario-unreal-lighting-rendering|scenario-labs/scenario-unreal-lighting-rendering]] - Use when lighting or rendering in Unreal Engine 5.8: physical light units and exposure (EV100, lux, lumens), L
+- [s] [[S--scenario-labs--scenario-unreal-materials|scenario-labs/scenario-unreal-materials]] - Use when a UE5 task involves materials or textures: a master material and instances for a kit, Substrate or le
+- [s] [[S--scenario-labs--scenario-unreal-performance|scenario-labs/scenario-unreal-performance]] - Use when an Unreal Engine 5.8 project misses its frame rate or stutters: "optimize to 60 fps", "we run at 38 f
+- [s] [[S--scenario-labs--scenario-unreal-pipeline-automation|scenario-labs/scenario-unreal-pipeline-automation]] - Use when importing FBX, USD, OBJ or glTF from Maya, ZBrush or Blender into Unreal Engine 5.8 in bulk or reimpo
+- [s] [[S--scenario-labs--scenario-unreal-vfx|scenario-labs/scenario-unreal-vfx]] - Use when a UE5 task involves Niagara or Chaos destruction: a Niagara fireball, projectile trail, impact explos
+- [s] [[S--scenario-labs--scenario-unreal-world-building|scenario-labs/scenario-unreal-world-building]] - Use when building or fixing an Unreal Engine 5 level or open world: World Partition, OFPA, Data Layers, Level 
+- [s] [[S--scenario-labs--scenario-video-to-motion|scenario-labs/scenario-video-to-motion]] - Use when turning a reference video into 3D character animation through the Scenario MCP: markerless motion cap
+- [s] [[S--scenario-labs--scenario-zbrush-automation|scenario-labs/scenario-zbrush-automation]] - Use when automating ZBrush 2026: batch processing a folder of OBJ or ZTL files, a ZBrush Python script or ZScr
+- [s] [[S--scenario-labs--scenario-zbrush-character-creature|scenario-labs/scenario-zbrush-character-creature]] - Use when sculpting a realistic head, face, portrait, body or creature in ZBrush (anatomy, landmarks, proportio
+- [s] [[S--scenario-labs--scenario-zbrush-expert|scenario-labs/scenario-zbrush-expert]] - Use when an agent drives Maxon ZBrush 2026 for any task (sculpt in ZBrush, DynaMesh, ZRemesher, UVs, export, p
+- [s] [[S--scenario-labs--scenario-zbrush-hard-surface|scenario-labs/scenario-zbrush-hard-surface]] - Use when modeling hard surface in ZBrush 2026 (sci-fi helmet, weapon, prop, armor plates, mechanical parts, ki
+- [s] [[S--scenario-labs--scenario-zbrush-paint-render|scenario-labs/scenario-zbrush-paint-render]] - Use when polypainting in ZBrush (skin color zones, fills, cavity or AO passes, Spotlight), baking polypaint to
+- [s] [[S--scenario-labs--scenario-zbrush-pose-print|scenario-labs/scenario-zbrush-pose-print]] - Use when posing a sculpt or preparing it for 3D printing in ZBrush: "pose this character", Transpose Master, T
+- [s] [[S--scenario-labs--scenario-zbrush-retopology-export|scenario-labs/scenario-zbrush-retopology-export]] - Use when a ZBrush sculpt, scan or AI-generated mesh must become production topology and files (ZRemesher and g
+- [s] [[S--scenario-labs--scenario-zbrush-sculpting|scenario-labs/scenario-zbrush-sculpting]] - Use when an agent sculpts organic forms in ZBrush 2026 (sculpt a head, bust or creature in ZBrush from a spher
+- [s] [[S--scenario-labs--scenario-zbrush-stylized|scenario-labs/scenario-zbrush-stylized]] - Use when sculpting a stylized or cartoon character, bust, collectible or toy in ZBrush (Overwatch, Fortnite, D

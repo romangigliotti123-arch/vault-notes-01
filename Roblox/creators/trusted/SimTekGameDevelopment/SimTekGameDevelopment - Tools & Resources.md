@@ -1,0 +1,97 @@
+---
+title: SimTekGameDevelopment - Tools & Resources
+tags: [roblox, simtekgamedevelopment]
+creator_trust: TRUSTED
+creator_score: 8.2
+---
+
+> [!note] Trust: TRUSTED (credibility audit score 8.2): usable as a primary source; official Roblox docs still win on numbers and limits. See [[creator-credibility]].
+
+# SimTekGameDevelopment: Tools & Resources
+
+## Tools mentioned
+- **Roblox Studio**: [[2023-02-03 - Knockback Vector Force and Angular Force Roblox Studio 2023|Knockback: Vector Force and Angular Force | Roblox]], [[2025-05-17 - Datastore - Save Your Leaderboard!|Datastore - Save Your Leaderboard!]], [[2025-06-24 - NPC AI - How to Create a Finite State Machine for AI|NPC AI - How to Create a Finite State Machine for ]], [[2023-09-30 - Roblox Studio Tutorial How to Make Elevators with Linear Velocity & Al|Roblox Studio Tutorial: How to Make Elevators with]], [[2020-12-11 - How to Make an Inventory System in Roblox (Part 1)|How to Make an Inventory System in Roblox (Part 1)]], [[2025-07-28 - Zombie AI and Finite State Machines with Transition Hooks|Zombie AI and Finite State Machines with Transitio]], [[2023-09-22 - LinearVelocity vs. VectorForce vs. AssemblyLinearVelocity in Roblox|LinearVelocity vs. VectorForce vs. AssemblyLinearV]], [[2022-12-04 - Gun with Ray Casting - How to filter out a player's accessories if bei|Gun with Ray Casting - How to filter out a player']], [[2025-07-07 - NPC Attack Mode using Finite State Machines|NPC Attack Mode using Finite State Machines]], [[2024-03-09 - How To Use the Text Chat Service in Roblox Studio 2024|How To Use the Text Chat Service in Roblox Studio ]], [[2025-05-25 - Object Oriented Programming in Roblox Studio|Object Oriented Programming in Roblox Studio]], [[2023-08-18 - How to Make a Game Pass|How to Make a Game Pass]], [[2021-02-15 - Roblox Weapons System - Add Creator Tags for Kills!|Roblox Weapons System - Add Creator Tags for Kills]], [[2020-12-29 - How to Save Your Inventory in Roblox|How to Save Your Inventory in Roblox]], [[2022-12-25 - Background Sound for Regions (GetPartBoundsInBox)|Background Sound for Regions (GetPartBoundsInBox)]], [[2023-12-30 - Raycasting Fundamentals in Roblox Studio Essential Tips & Techniques|Raycasting Fundamentals in Roblox Studio: Essentia]], [[2024-10-12 - How to Create PVP and PVE Environments in Roblox Studio|How to Create PVP and PVE Environments in Roblox S]], [[2021-07-04 - Path Finding For NPCs - Handling Blocked Paths In Roblox|Path Finding For NPCs - Handling Blocked Paths In ]], [[2022-12-10 - Find Terrain Height with Ray Casting Roblox Studio|Find Terrain Height with Ray Casting | Roblox Stud]], [[2024-02-19 - Metadata and Metamethod Fundamentals in Roblox Studio (Lua)|Metadata and Metamethod Fundamentals in Roblox Stu]], [[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]], [[2023-01-07 - Simple Message Queue for Server to Client Messages|Simple Message Queue for Server to Client Messages]]
+- **Luau**: [[2025-05-17 - Datastore - Save Your Leaderboard!|Datastore - Save Your Leaderboard!]], [[2025-06-24 - NPC AI - How to Create a Finite State Machine for AI|NPC AI - How to Create a Finite State Machine for ]], [[2023-09-22 - LinearVelocity vs. VectorForce vs. AssemblyLinearVelocity in Roblox|LinearVelocity vs. VectorForce vs. AssemblyLinearV]], [[2025-05-25 - Object Oriented Programming in Roblox Studio|Object Oriented Programming in Roblox Studio]], [[2024-10-12 - How to Create PVP and PVE Environments in Roblox Studio|How to Create PVP and PVE Environments in Roblox S]], [[2021-07-04 - Path Finding For NPCs - Handling Blocked Paths In Roblox|Path Finding For NPCs - Handling Blocked Paths In ]], [[2024-02-19 - Metadata and Metamethod Fundamentals in Roblox Studio (Lua)|Metadata and Metamethod Fundamentals in Roblox Stu]], [[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]]
+- **RemoteEvent**: [[2020-12-11 - How to Make an Inventory System in Roblox (Part 1)|How to Make an Inventory System in Roblox (Part 1)]], [[2024-03-09 - How To Use the Text Chat Service in Roblox Studio 2024|How To Use the Text Chat Service in Roblox Studio ]], [[2021-07-18 - Use the HTTP Service in Roblox to Connect Your Game to External Data S|Use the HTTP Service in Roblox to Connect Your Gam]], [[2024-10-12 - How to Create PVP and PVE Environments in Roblox Studio|How to Create PVP and PVE Environments in Roblox S]], [[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]], [[2023-01-07 - Simple Message Queue for Server to Client Messages|Simple Message Queue for Server to Client Messages]]
+- **Output window**: [[2025-06-24 - NPC AI - How to Create a Finite State Machine for AI|NPC AI - How to Create a Finite State Machine for ]], [[2020-12-11 - How to Make an Inventory System in Roblox (Part 1)|How to Make an Inventory System in Roblox (Part 1)]], [[2025-07-07 - NPC Attack Mode using Finite State Machines|NPC Attack Mode using Finite State Machines]], [[2025-05-25 - Object Oriented Programming in Roblox Studio|Object Oriented Programming in Roblox Studio]], [[2021-07-04 - Path Finding For NPCs - Handling Blocked Paths In Roblox|Path Finding For NPCs - Handling Blocked Paths In ]]
+- **CollectionService**: [[2025-07-28 - Zombie AI and Finite State Machines with Transition Hooks|Zombie AI and Finite State Machines with Transitio]], [[2023-12-30 - Raycasting Fundamentals in Roblox Studio Essential Tips & Techniques|Raycasting Fundamentals in Roblox Studio: Essentia]], [[2024-10-12 - How to Create PVP and PVE Environments in Roblox Studio|How to Create PVP and PVE Environments in Roblox S]], [[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]]
+- **RaycastParams**: [[2025-07-28 - Zombie AI and Finite State Machines with Transition Hooks|Zombie AI and Finite State Machines with Transitio]], [[2022-12-04 - Gun with Ray Casting - How to filter out a player's accessories if bei|Gun with Ray Casting - How to filter out a player']], [[2023-12-30 - Raycasting Fundamentals in Roblox Studio Essential Tips & Techniques|Raycasting Fundamentals in Roblox Studio: Essentia]]
+- **Debris service**: [[2023-02-03 - Knockback Vector Force and Angular Force Roblox Studio 2023|Knockback: Vector Force and Angular Force | Roblox]], [[2023-09-22 - LinearVelocity vs. VectorForce vs. AssemblyLinearVelocity in Roblox|LinearVelocity vs. VectorForce vs. AssemblyLinearV]], [[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]]
+- **DataStoreService**: [[2025-05-17 - Datastore - Save Your Leaderboard!|Datastore - Save Your Leaderboard!]], [[2020-12-29 - How to Save Your Inventory in Roblox|How to Save Your Inventory in Roblox]]
+- **Toolbox**: [[2025-07-07 - NPC Attack Mode using Finite State Machines|NPC Attack Mode using Finite State Machines]], [[2021-02-15 - Roblox Weapons System - Add Creator Tags for Kills!|Roblox Weapons System - Add Creator Tags for Kills]]
+- **Explorer**: [[2025-06-24 - NPC AI - How to Create a Finite State Machine for AI|NPC AI - How to Create a Finite State Machine for ]], [[2021-02-15 - Roblox Weapons System - Add Creator Tags for Kills!|Roblox Weapons System - Add Creator Tags for Kills]]
+- **PathfindingService**: [[2021-07-04 - Path Finding For NPCs - Handling Blocked Paths In Roblox|Path Finding For NPCs - Handling Blocked Paths In ]], [[2023-01-28 - NPC AI Advanced PathFinding - Run, Climb, Swim|NPC AI: Advanced PathFinding - Run, Climb, Swim]]
+- **HttpService**: [[2021-07-18 - Use the HTTP Service in Roblox to Connect Your Game to External Data S|Use the HTTP Service in Roblox to Connect Your Gam]], [[2024-02-10 - Roblox API Tutorial|Roblox API Tutorial]]
+- **Workspace:Raycast**: [[2022-12-04 - Gun with Ray Casting - How to filter out a player's accessories if bei|Gun with Ray Casting - How to filter out a player']], [[2023-12-30 - Raycasting Fundamentals in Roblox Studio Essential Tips & Techniques|Raycasting Fundamentals in Roblox Studio: Essentia]]
+- **Toolbox audio**: [[2022-12-25 - Background Sound for Regions (GetPartBoundsInBox)|Background Sound for Regions (GetPartBoundsInBox)]], [[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]]
+- **VectorForce**: [[2023-02-03 - Knockback Vector Force and Angular Force Roblox Studio 2023|Knockback: Vector Force and Angular Force | Roblox]], [[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]]
+- **AngularVelocity**: [[2023-02-03 - Knockback Vector Force and Angular Force Roblox Studio 2023|Knockback: Vector Force and Angular Force | Roblox]], [[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]]
+- **Attachment**: [[2023-02-03 - Knockback Vector Force and Angular Force Roblox Studio 2023|Knockback: Vector Force and Angular Force | Roblox]], [[2023-12-30 - Raycasting Fundamentals in Roblox Studio Essential Tips & Techniques|Raycasting Fundamentals in Roblox Studio: Essentia]]
+- **LinearVelocity constraint**: [[2023-09-30 - Roblox Studio Tutorial How to Make Elevators with Linear Velocity & Al|Roblox Studio Tutorial: How to Make Elevators with]], [[2023-09-22 - LinearVelocity vs. VectorForce vs. AssemblyLinearVelocity in Roblox|LinearVelocity vs. VectorForce vs. AssemblyLinearV]]
+- **Tag Editor**: [[2025-07-28 - Zombie AI and Finite State Machines with Transition Hooks|Zombie AI and Finite State Machines with Transitio]], [[2023-12-30 - Raycasting Fundamentals in Roblox Studio Essential Tips & Techniques|Raycasting Fundamentals in Roblox Studio: Essentia]]
+- **UIGridLayout**: [[2020-12-11 - How to Make an Inventory System in Roblox (Part 1)|How to Make an Inventory System in Roblox (Part 1)]]
+- **ModuleScript**: [[2020-12-11 - How to Make an Inventory System in Roblox (Part 1)|How to Make an Inventory System in Roblox (Part 1)]]
+- **Ctrl+Shift+F find in files**: [[2021-02-15 - Roblox Weapons System - Add Creator Tags for Kills!|Roblox Weapons System - Add Creator Tags for Kills]]
+- **TextLabel**: [[2021-07-18 - Use the HTTP Service in Roblox to Connect Your Game to External Data S|Use the HTTP Service in Roblox to Connect Your Gam]]
+- **LocalScript**: [[2021-07-18 - Use the HTTP Service in Roblox to Connect Your Game to External Data S|Use the HTTP Service in Roblox to Connect Your Gam]]
+- **Script**: [[2021-07-18 - Use the HTTP Service in Roblox to Connect Your Game to External Data S|Use the HTTP Service in Roblox to Connect Your Gam]]
+- **JSONDecode**: [[2021-07-18 - Use the HTTP Service in Roblox to Connect Your Game to External Data S|Use the HTTP Service in Roblox to Connect Your Gam]]
+- **Toolbox simple gun**: [[2022-12-04 - Gun with Ray Casting - How to filter out a player's accessories if bei|Gun with Ray Casting - How to filter out a player']]
+- **workspace:Raycast**: [[2022-12-10 - Find Terrain Height with Ray Casting Roblox Studio|Find Terrain Height with Ray Casting | Roblox Stud]]
+- **Random.new**: [[2022-12-10 - Find Terrain Height with Ray Casting Roblox Studio|Find Terrain Height with Ray Casting | Roblox Stud]]
+- **ServerStorage**: [[2022-12-10 - Find Terrain Height with Ray Casting Roblox Studio|Find Terrain Height with Ray Casting | Roblox Stud]]
+- **ServerScriptService**: [[2022-12-10 - Find Terrain Height with Ray Casting Roblox Studio|Find Terrain Height with Ray Casting | Roblox Stud]]
+- **table.insert / table.remove**: [[2023-01-07 - Simple Message Queue for Server to Client Messages|Simple Message Queue for Server to Client Messages]]
+- **TweenService**: [[2023-01-07 - Simple Message Queue for Server to Client Messages|Simple Message Queue for Server to Client Messages]]
+- **TweenInfo**: [[2023-01-07 - Simple Message Queue for Server to Client Messages|Simple Message Queue for Server to Client Messages]]
+- **PathfindingLink**: [[2023-01-28 - NPC AI Advanced PathFinding - Run, Climb, Swim|NPC AI: Advanced PathFinding - Run, Climb, Swim]]
+- **Animate script**: [[2023-01-28 - NPC AI Advanced PathFinding - Run, Climb, Swim|NPC AI: Advanced PathFinding - Run, Climb, Swim]]
+- **Avatar Rig Builder**: [[2023-01-28 - NPC AI Advanced PathFinding - Run, Climb, Swim|NPC AI: Advanced PathFinding - Run, Climb, Swim]]
+- **Roblox Studio toolbox**: [[2023-01-28 - NPC AI Advanced PathFinding - Run, Climb, Swim|NPC AI: Advanced PathFinding - Run, Climb, Swim]]
+- **Humanoid.PlatformStand**: [[2023-02-03 - Knockback Vector Force and Angular Force Roblox Studio 2023|Knockback: Vector Force and Angular Force | Roblox]]
+- **Roblox Creator Dashboard**: [[2023-08-18 - How to Make a Game Pass|How to Make a Game Pass]]
+- **MarketplaceService**: [[2023-08-18 - How to Make a Game Pass|How to Make a Game Pass]]
+- **Players service**: [[2023-08-18 - How to Make a Game Pass|How to Make a Game Pass]]
+- **Roblox Player (F9 developer console)**: [[2023-08-18 - How to Make a Game Pass|How to Make a Game Pass]]
+- **VectorForce constraint**: [[2023-09-22 - LinearVelocity vs. VectorForce vs. AssemblyLinearVelocity in Roblox|LinearVelocity vs. VectorForce vs. AssemblyLinearV]]
+- **AssemblyLinearVelocity property**: [[2023-09-22 - LinearVelocity vs. VectorForce vs. AssemblyLinearVelocity in Roblox|LinearVelocity vs. VectorForce vs. AssemblyLinearV]]
+- **AlignOrientation constraint**: [[2023-09-30 - Roblox Studio Tutorial How to Make Elevators with Linear Velocity & Al|Roblox Studio Tutorial: How to Make Elevators with]]
+- **Attachments**: [[2023-09-30 - Roblox Studio Tutorial How to Make Elevators with Linear Velocity & Al|Roblox Studio Tutorial: How to Make Elevators with]]
+- **Beam**: [[2023-12-30 - Raycasting Fundamentals in Roblox Studio Essential Tips & Techniques|Raycasting Fundamentals in Roblox Studio: Essentia]]
+- **WeldConstraint**: [[2023-12-30 - Raycasting Fundamentals in Roblox Studio Essential Tips & Techniques|Raycasting Fundamentals in Roblox Studio: Essentia]]
+- **Roblox Swagger UI (games API v1/v2)**: [[2024-02-10 - Roblox API Tutorial|Roblox API Tutorial]]
+- **curl**: [[2024-02-10 - Roblox API Tutorial|Roblox API Tutorial]]
+- **Python with requests (for external proxy testing)**: [[2024-02-10 - Roblox API Tutorial|Roblox API Tutorial]]
+- **Notepad**: [[2024-02-10 - Roblox API Tutorial|Roblox API Tutorial]]
+- **TextChatService**: [[2024-03-09 - How To Use the Text Chat Service in Roblox Studio 2024|How To Use the Text Chat Service in Roblox Studio ]]
+- **Rich text markup**: [[2024-03-09 - How To Use the Text Chat Service in Roblox Studio 2024|How To Use the Text Chat Service in Roblox Studio ]]
+- **BillboardGui**: [[2024-10-12 - How to Create PVP and PVE Environments in Roblox Studio|How to Create PVP and PVE Environments in Roblox S]]
+- **Creator Store toolbox**: [[2024-10-12 - How to Create PVP and PVE Environments in Roblox Studio|How to Create PVP and PVE Environments in Roblox S]]
+- **Global search (Ctrl+Shift+F)**: [[2025-06-24 - NPC AI - How to Create a Finite State Machine for AI|NPC AI - How to Create a Finite State Machine for ]]
+- **Tag Editor plugin**: [[2025-07-07 - NPC Attack Mode using Finite State Machines|NPC Attack Mode using Finite State Machines]]
+- **Animation Editor**: [[2025-07-28 - Zombie AI and Finite State Machines with Transition Hooks|Zombie AI and Finite State Machines with Transitio]]
+- **Luau ModuleScript**: [[2025-07-28 - Zombie AI and Finite State Machines with Transition Hooks|Zombie AI and Finite State Machines with Transitio]]
+- **PathfindingService (mentioned, not used)**: [[2025-07-28 - Zombie AI and Finite State Machines with Transition Hooks|Zombie AI and Finite State Machines with Transitio]]
+
+## Points viewers to (candidates for further study)
+- Creator tag / kills and deaths leaderboard video (same channel) ([[2021-02-15 - Roblox Weapons System - Add Creator Tags for Kills!|Roblox Weapons System - Add Creator Tags for Kills]])
+- Roblox PathfindingService documentation (implied via Blocked and MoveToFinished events) ([[2021-07-04 - Path Finding For NPCs - Handling Blocked Paths In Roblox|Path Finding For NPCs - Handling Blocked Paths In ]])
+- epiphany.free apis (free API directory) ([[2021-07-18 - Use the HTTP Service in Roblox to Connect Your Game to External Data S|Use the HTTP Service in Roblox to Connect Your Gam]])
+- catfact.ninja API ([[2021-07-18 - Use the HTTP Service in Roblox to Connect Your Game to External Data S|Use the HTTP Service in Roblox to Connect Your Gam]])
+- Simple gun model from Toolbox (linked in description) ([[2022-12-04 - Gun with Ray Casting - How to filter out a player's accessories if bei|Gun with Ray Casting - How to filter out a player']])
+- Roblox PlatformStand documentation (linked in video description) ([[2023-02-03 - Knockback Vector Force and Angular Force Roblox Studio 2023|Knockback: Vector Force and Angular Force | Roblox]])
+- Simple pistol gun model from Toolbox (linked in description) ([[2023-02-03 - Knockback Vector Force and Angular Force Roblox Studio 2023|Knockback: Vector Force and Angular Force | Roblox]])
+- Roblox games API Swagger UI (URL in video description) ([[2024-02-10 - Roblox API Tutorial|Roblox API Tutorial]])
+- RoProxy (third-party proxy mentioned, not endorsed) ([[2024-02-10 - Roblox API Tutorial|Roblox API Tutorial]])
+- Lua.org metatables and metamethods reference ([[2024-02-19 - Metadata and Metamethod Fundamentals in Roblox Studio (Lua)|Metadata and Metamethod Fundamentals in Roblox Stu]])
+- OatMeal (GitHub) cheat sheet write-up on metatables ([[2024-02-19 - Metadata and Metamethod Fundamentals in Roblox Studio (Lua)|Metadata and Metamethod Fundamentals in Roblox Stu]])
+- Roblox TextChatService documentation (linked in description) ([[2024-03-09 - How To Use the Text Chat Service in Roblox Studio 2024|How To Use the Text Chat Service in Roblox Studio ]])
+- TextChatMessage documentation ([[2024-03-09 - How To Use the Text Chat Service in Roblox Studio 2024|How To Use the Text Chat Service in Roblox Studio ]])
+- Roblox rich text markup reference ([[2024-03-09 - How To Use the Text Chat Service in Roblox Studio 2024|How To Use the Text Chat Service in Roblox Studio ]])
+- Simple pistol weapon (linked in video description) ([[2024-10-12 - How to Create PVP and PVE Environments in Roblox Studio|How to Create PVP and PVE Environments in Roblox S]])
+- Roblox developer docs for VectorForce (linked in video description) ([[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]])
+- Roblox developer docs for AngularVelocity (linked in video description) ([[2024-11-02 - How to Add Knockback to Walls for Players|How to Add Knockback to Walls for Players]])
+- Lua documentation on metatables and metamethods (linked in video description) ([[2025-05-25 - Object Oriented Programming in Roblox Studio|Object Oriented Programming in Roblox Studio]])
+- Previous videos in NPC series (base NPC, social NPC) ([[2025-06-24 - NPC AI - How to Create a Finite State Machine for AI|NPC AI - How to Create a Finite State Machine for ]])
+- Creator tag / assists video by the same creator (linked, not named) ([[2025-07-07 - NPC Attack Mode using Finite State Machines|NPC Attack Mode using Finite State Machines]])
+- Earlier finite state machine and NPC videos by the same creator ([[2025-07-28 - Zombie AI and Finite State Machines with Transition Hooks|Zombie AI and Finite State Machines with Transitio]])

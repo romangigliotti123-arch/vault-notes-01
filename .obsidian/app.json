@@ -1,0 +1,9 @@
+{
+  "userIgnoreFilters": [
+    "Imported/",
+    "Library/",
+    "Assets/",
+    "Roblox/blender/",
+    "/^Manager\\/src-/"
+  ]
+}

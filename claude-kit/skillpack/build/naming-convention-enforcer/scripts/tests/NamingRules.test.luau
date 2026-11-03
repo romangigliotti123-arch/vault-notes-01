@@ -1,0 +1,42 @@
+--!nocheck
+-- Run: lune run NamingRules.test.luau   (from the kit's systems folder, see check-scripts.sh)
+local t = require("../../../../../systems/_check/harness")
+local N = require("../NamingRules")
+
+t.test("default engine names are detected, with numbers", function()
+	t.truthy(N.isDefault("Part"))
+	t.truthy(N.isDefault("Part12"))
+	t.truthy(N.isDefault("MeshPart_3"))
+	t.falsy(N.isDefault("PartyHat"))
+end)
+
+t.test("PascalCase and segmented checks", function()
+	t.truthy(N.isPascal("EnemySpawner"))
+	t.falsy(N.isPascal("enemy_spawner"))
+	t.truthy(N.isSegmented("Wall_North_02"))
+	t.falsy(N.isSegmented("wall_north"))
+	t.falsy(N.isSegmented("Wall__North"))
+	t.falsy(N.isSegmented("_Wall"))
+end)
+
+t.test("suggestions keep the words and fix the casing", function()
+	t.eq(N.suggest("enemy spawner", false), "EnemySpawner")
+	t.eq(N.suggest("wall north 02", true), "Wall_North_02")
+	t.eq(N.suggest("  door ", false), "Door")
+end)
+
+t.test("check reports kind and suggestion per class group", function()
+	local i = N.check("enemy spawner", "Model")
+	t.eq(i[1].kind, "convention")
+	t.eq(i[1].suggestion, "EnemySpawner")
+	t.eq(N.check("Wall_North", "BasePart"), {})
+	t.eq(N.check("Part3", "BasePart")[1].kind, "default-name")
+	t.eq(N.check("Part3", "BasePart")[1].suggestion, nil)
+	t.eq(N.check(" Door", "BasePart")[1].kind, "whitespace")
+end)
+
+t.test("duplicates lists each repeated name once", function()
+	t.eq(N.duplicates({ "A", "B", "A", "A", "B", "C" }), { "A", "B" })
+end)
+
+t.done()

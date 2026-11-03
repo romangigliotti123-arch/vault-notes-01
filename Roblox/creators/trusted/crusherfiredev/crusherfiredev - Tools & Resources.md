@@ -1,0 +1,128 @@
+---
+title: crusherfiredev - Tools & Resources
+tags: [roblox, crusherfiredev]
+creator_trust: TRUSTED
+creator_score: 8.7
+---
+
+> [!note] Trust: TRUSTED (credibility audit score 8.7): usable as a primary source; official Roblox docs still win on numbers and limits. See [[creator-credibility]].
+
+# crusherfiredev: Tools & Resources
+
+## Tools mentioned
+- **Roblox Studio**: [[2025-03-22 - The GREATEST API EXPLAINED - Roblox Task Library|The GREATEST API EXPLAINED - Roblox Task Library]], [[2024-01-20 - the COOLEST game feature YOU'RE NOT USING! - Roblox Volumetric Audio|the COOLEST game feature YOU'RE NOT USING! - Roblo]], [[2025-12-13 - Roblox Devs, Stop Rewriting Code (Do THIS Instead)|Roblox Devs, Stop Rewriting Code (Do THIS Instead)]], [[2024-01-18 - Roblox Devs, stop misusing WaitForChild()!|Roblox Devs, stop misusing :WaitForChild()!]], [[2024-02-21 - Object-Oriented Programming in Roblox Studio!|Object-Oriented Programming in Roblox Studio!]], [[2024-10-18 - Roblox WEAK tables & how to use them|Roblox WEAK tables & how to use them]], [[2025-05-24 - Programming Patterns YOU'RE NOT USING!|Programming Patterns YOU'RE NOT USING!]], [[2024-05-18 - how to use OCTREES in your Roblox Game|how to use OCTREES in your Roblox Game]], [[2024-03-27 - earn ROBUX from GAMEPASSES!|earn ROBUX from GAMEPASSES!]], [[2024-01-29 - METATABLES - What are they and how can we use them|METATABLES - What are they and how can we use them]], [[2025-06-14 - Closures in Roblox Studio!|Closures in Roblox Studio!]], [[2024-03-09 - Functional Programming in Roblox Studio!|Functional Programming in Roblox Studio!]], [[2024-01-23 - Roblox Deferred Engine Events - How Are Signals Impacted|Roblox Deferred Engine Events - How Are Signals Im]], [[2025-01-17 - This Bug Plagues EVERY Roblox Signal Module|This Bug Plagues EVERY Roblox Signal Module...]]
+- **CollectionService**: [[2024-02-11 - Roblox Script Organization Explained|Roblox Script Organization Explained]], [[2025-12-13 - Roblox Devs, Stop Rewriting Code (Do THIS Instead)|Roblox Devs, Stop Rewriting Code (Do THIS Instead)]], [[2024-05-18 - how to use OCTREES in your Roblox Game|how to use OCTREES in your Roblox Game]], [[2025-08-10 - I built my own Module Loader! (it's epic)|I built my own Module Loader! (it's epic)]]
+- **Luau**: [[2024-01-29 - METATABLES - What are they and how can we use them|METATABLES - What are they and how can we use them]], [[2024-03-09 - Functional Programming in Roblox Studio!|Functional Programming in Roblox Studio!]]
+- **ModuleScript**: [[2024-02-21 - Object-Oriented Programming in Roblox Studio!|Object-Oriented Programming in Roblox Studio!]], [[2024-03-09 - Functional Programming in Roblox Studio!|Functional Programming in Roblox Studio!]]
+- **Lemon Signal**: [[2025-06-14 - Closures in Roblox Studio!|Closures in Roblox Studio!]], [[2025-01-17 - This Bug Plagues EVERY Roblox Signal Module|This Bug Plagues EVERY Roblox Signal Module...]]
+- **View > Network panel (Studio)**: [[2024-01-18 - Roblox Devs, stop misusing WaitForChild()!|Roblox Devs, stop misusing :WaitForChild()!]]
+- **SoundService**: [[2024-01-20 - the COOLEST game feature YOU'RE NOT USING! - Roblox Volumetric Audio|the COOLEST game feature YOU'RE NOT USING! - Roblo]]
+- **RBXScriptSignal / BindableEvent**: [[2024-01-23 - Roblox Deferred Engine Events - How Are Signals Impacted|Roblox Deferred Engine Events - How Are Signals Im]]
+- **Workspace.SignalBehavior property**: [[2024-01-23 - Roblox Deferred Engine Events - How Are Signals Impacted|Roblox Deferred Engine Events - How Are Signals Im]]
+- **Micro Profiler (Ctrl+Alt+F6)**: [[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]]
+- **debug.profilebegin / debug.profileend**: [[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]]
+- **Actor instance**: [[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]]
+- **task.synchronize / task.desynchronize**: [[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]]
+- **Signal:ConnectParallel**: [[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]]
+- **Actor:SendMessage / Actor:BindToMessage**: [[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]]
+- **BindableEvent**: [[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]]
+- **Trove (module by Suphi Kaner / 'snik')**: [[2024-02-11 - Roblox Script Organization Explained|Roblox Script Organization Explained]]
+- **Luau metatables**: [[2024-02-21 - Object-Oriented Programming in Roblox Studio!|Object-Oriented Programming in Roblox Studio!]]
+- **Roblox Studio script analysis (strict mode, non-strict beta setting)**: [[2024-03-24 - Type Annotation in Roblox Studio!|Type Annotation in Roblox Studio!]]
+- **Luau type checker / linter**: [[2024-03-24 - Type Annotation in Roblox Studio!|Type Annotation in Roblox Studio!]]
+- **Creator Hub**: [[2024-03-27 - earn ROBUX from GAMEPASSES!|earn ROBUX from GAMEPASSES!]]
+- **MarketplaceService**: [[2024-03-27 - earn ROBUX from GAMEPASSES!|earn ROBUX from GAMEPASSES!]]
+- **Players service**: [[2024-03-27 - earn ROBUX from GAMEPASSES!|earn ROBUX from GAMEPASSES!]]
+- **GoodSignal (by Stant)**: [[2024-04-20 - this guy is a GENIUS! - Roblox GoodSignal|this guy is a GENIUS! - Roblox GoodSignal]]
+- **require-autocomplete plugin**: [[2024-04-20 - this guy is a GENIUS! - Roblox GoodSignal|this guy is a GENIUS! - Roblox GoodSignal]]
+- **Roblox Studio debugger**: [[2024-04-28 - how to DEBUG the PROPER way - ROBLOX Studio|how to DEBUG the PROPER way - ROBLOX Studio]]
+- **Breakpoints window (View tab)**: [[2024-04-28 - how to DEBUG the PROPER way - ROBLOX Studio|how to DEBUG the PROPER way - ROBLOX Studio]]
+- **Watch window (View tab)**: [[2024-04-28 - how to DEBUG the PROPER way - ROBLOX Studio|how to DEBUG the PROPER way - ROBLOX Studio]]
+- **Call Stack window (View tab)**: [[2024-04-28 - how to DEBUG the PROPER way - ROBLOX Studio|how to DEBUG the PROPER way - ROBLOX Studio]]
+- **Script Analysis window (linter)**: [[2024-04-28 - how to DEBUG the PROPER way - ROBLOX Studio|how to DEBUG the PROPER way - ROBLOX Studio]]
+- **Quenty's octree module (Roblox)**: [[2024-05-18 - how to use OCTREES in your Roblox Game|how to use OCTREES in your Roblox Game]]
+- **Luau metatables (setmetatable, __mode)**: [[2024-10-18 - Roblox WEAK tables & how to use them|Roblox WEAK tables & how to use them]]
+- **Good Signal**: [[2025-01-17 - This Bug Plagues EVERY Roblox Signal Module|This Bug Plagues EVERY Roblox Signal Module...]]
+- **Fast Signal**: [[2025-01-17 - This Bug Plagues EVERY Roblox Signal Module|This Bug Plagues EVERY Roblox Signal Module...]]
+- **task library**: [[2025-01-17 - This Bug Plagues EVERY Roblox Signal Module|This Bug Plagues EVERY Roblox Signal Module...]]
+- **Micro Profiler (ctrl+F6)**: [[2025-03-22 - The GREATEST API EXPLAINED - Roblox Task Library|The GREATEST API EXPLAINED - Roblox Task Library]]
+- **debug.profilebegin/profileend**: [[2025-03-22 - The GREATEST API EXPLAINED - Roblox Task Library|The GREATEST API EXPLAINED - Roblox Task Library]]
+- **os.clock**: [[2025-03-22 - The GREATEST API EXPLAINED - Roblox Task Library|The GREATEST API EXPLAINED - Roblox Task Library]]
+- **Run service**: [[2025-03-22 - The GREATEST API EXPLAINED - Roblox Task Library|The GREATEST API EXPLAINED - Roblox Task Library]]
+- **Buffer library (Luau)**: [[2025-04-19 - Serialization with Roblox's Buffer Library|Serialization with Roblox's Buffer Library]]
+- **Packet Profiler plugin**: [[2025-04-19 - Serialization with Roblox's Buffer Library|Serialization with Roblox's Buffer Library]]
+- **Sera module by Loleris**: [[2025-04-19 - Serialization with Roblox's Buffer Library|Serialization with Roblox's Buffer Library]]
+- **Developer Console network stats**: [[2025-04-19 - Serialization with Roblox's Buffer Library|Serialization with Roblox's Buffer Library]]
+- **Sleitnick observer module**: [[2025-05-24 - Programming Patterns YOU'RE NOT USING!|Programming Patterns YOU'RE NOT USING!]]
+- **Sleitnick Trove**: [[2025-05-24 - Programming Patterns YOU'RE NOT USING!|Programming Patterns YOU'RE NOT USING!]]
+- **T runtime type-checking library**: [[2025-05-24 - Programming Patterns YOU'RE NOT USING!|Programming Patterns YOU'RE NOT USING!]]
+- **Future**: [[2025-06-14 - Closures in Roblox Studio!|Closures in Roblox Studio!]]
+- **Roblox Studio Lua heap snapshot (F9 console)**: [[2025-06-14 - Closures in Roblox Studio!|Closures in Roblox Studio!]]
+- **Roblox Studio F9 Developer Console**: [[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]]
+- **Studio Statistics (Ctrl+Shift+F2)**: [[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]]
+- **MicroProfiler**: [[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]]
+- **Explorer search (collision fidelity, render fidelity)**: [[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]]
+- **Settings collision fidelity visualizer**: [[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]]
+- **Roblox documentation**: [[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]]
+- **Module Loader (Roblox Marketplace, single-script architecture)**: [[2025-08-10 - I built my own Module Loader! (it's epic)|I built my own Module Loader! (it's epic)]]
+- **Actors (parallel Luau)**: [[2025-08-10 - I built my own Module Loader! (it's epic)|I built my own Module Loader! (it's epic)]]
+- **Roblox Studio Output**: [[2025-08-10 - I built my own Module Loader! (it's epic)|I built my own Module Loader! (it's epic)]]
+- **Roblox Developer Console (F9) Lua Heap / Luau VM memory profiler**: [[2025-10-06 - These Tiny Mistakes Destroy Roblox Games (Memory Leaks)|These Tiny Mistakes Destroy Roblox Games (Memory L]]
+- **Performance tab memory by age chart**: [[2025-10-06 - These Tiny Mistakes Destroy Roblox Games (Memory Leaks)|These Tiny Mistakes Destroy Roblox Games (Memory L]]
+- **Studio playtest**: [[2025-10-06 - These Tiny Mistakes Destroy Roblox Games (Memory Leaks)|These Tiny Mistakes Destroy Roblox Games (Memory L]]
+- **Trove (cleanup utility)**: [[2025-10-06 - These Tiny Mistakes Destroy Roblox Games (Memory Leaks)|These Tiny Mistakes Destroy Roblox Games (Memory L]]
+- **Zone module (third-party)**: [[2025-10-06 - These Tiny Mistakes Destroy Roblox Games (Memory Leaks)|These Tiny Mistakes Destroy Roblox Games (Memory L]]
+- **State machine class module (third-party, modified)**: [[2025-10-06 - These Tiny Mistakes Destroy Roblox Games (Memory Leaks)|These Tiny Mistakes Destroy Roblox Games (Memory L]]
+- **Node.js**: [[2025-11-22 - 10x Your Roblox Studio Productivity - Claude Code & OpenAI Codex Integ|10x Your Roblox Studio Productivity - Claude Code ]]
+- **npm**: [[2025-11-22 - 10x Your Roblox Studio Productivity - Claude Code & OpenAI Codex Integ|10x Your Roblox Studio Productivity - Claude Code ]]
+- **Git**: [[2025-11-22 - 10x Your Roblox Studio Productivity - Claude Code & OpenAI Codex Integ|10x Your Roblox Studio Productivity - Claude Code ]]
+- **Windows Terminal**: [[2025-11-22 - 10x Your Roblox Studio Productivity - Claude Code & OpenAI Codex Integ|10x Your Roblox Studio Productivity - Claude Code ]]
+- **Claude Code**: [[2025-11-22 - 10x Your Roblox Studio Productivity - Claude Code & OpenAI Codex Integ|10x Your Roblox Studio Productivity - Claude Code ]]
+- **OpenAI Codex CLI**: [[2025-11-22 - 10x Your Roblox Studio Productivity - Claude Code & OpenAI Codex Integ|10x Your Roblox Studio Productivity - Claude Code ]]
+- **Roblox Studio MCP server (open source)**: [[2025-11-22 - 10x Your Roblox Studio Productivity - Claude Code & OpenAI Codex Integ|10x Your Roblox Studio Productivity - Claude Code ]]
+- **Creator's module loader (tag-based loading, attribute-driven relocation)**: [[2025-12-13 - Roblox Devs, Stop Rewriting Code (Do THIS Instead)|Roblox Devs, Stop Rewriting Code (Do THIS Instead)]]
+- **Typed remotes wrapper (from module util)**: [[2025-12-13 - Roblox Devs, Stop Rewriting Code (Do THIS Instead)|Roblox Devs, Stop Rewriting Code (Do THIS Instead)]]
+- **Luau type check mode setting (Workspace > Scripting)**: [[2025-12-13 - Roblox Devs, Stop Rewriting Code (Do THIS Instead)|Roblox Devs, Stop Rewriting Code (Do THIS Instead)]]
+- **Claude Opus 5.5**: [[2026-10-24 - Is Roblox Game Development Cooked|Is Roblox Game Development Cooked?]]
+- **AI skills (reusable instruction files)**: [[2026-10-24 - Is Roblox Game Development Cooked|Is Roblox Game Development Cooked?]]
+- **Claude plugins and hooks**: [[2026-10-24 - Is Roblox Game Development Cooked|Is Roblox Game Development Cooked?]]
+- **isaiprofitable.com**: [[2026-10-24 - Is Roblox Game Development Cooked|Is Roblox Game Development Cooked?]]
+
+## Points viewers to (candidates for further study)
+- Roblox Dev Forum post: Volumetric sounds public release (July 2022) ([[2024-01-20 - the COOLEST game feature YOU'RE NOT USING! - Roblox Volumetric Audio|the COOLEST game feature YOU'RE NOT USING! - Roblo]])
+- Roblox DevForum post: Deferred Engine Events rollout update ([[2024-01-23 - Roblox Deferred Engine Events - How Are Signals Impacted|Roblox Deferred Engine Events - How Are Signals Im]])
+- Roblox documentation (metamethods list) ([[2024-01-29 - METATABLES - What are they and how can we use them|METATABLES - What are they and how can we use them]])
+- Luau documentation (string interpolation) ([[2024-01-29 - METATABLES - What are they and how can we use them|METATABLES - What are they and how can we use them]])
+- C++ const correctness ([[2024-01-29 - METATABLES - What are they and how can we use them|METATABLES - What are they and how can we use them]])
+- Roblox Parallel Luau documentation ([[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]])
+- Roblox API thread safety table ([[2024-02-01 - MULTI-THREADING on ROBLOX! - Parallel Luau|MULTI-THREADING on ROBLOX?! - Parallel Luau]])
+- Trove module by snik ([[2024-02-11 - Roblox Script Organization Explained|Roblox Script Organization Explained]])
+- Creator's earlier video on metatables (linked in description) ([[2024-02-21 - Object-Oriented Programming in Roblox Studio!|Object-Oriented Programming in Roblox Studio!]])
+- Creator's Luau type annotation course (mentioned, not linked) ([[2024-03-24 - Type Annotation in Roblox Studio!|Type Annotation in Roblox Studio!]])
+- Creator's functional programming video ([[2024-03-24 - Type Annotation in Roblox Studio!|Type Annotation in Roblox Studio!]])
+- GoodSignal module by Stant (linked in description) ([[2024-04-20 - this guy is a GENIUS! - Roblox GoodSignal|this guy is a GENIUS! - Roblox GoodSignal]])
+- require-autocomplete plugin (linked in description) ([[2024-04-20 - this guy is a GENIUS! - Roblox GoodSignal|this guy is a GENIUS! - Roblox GoodSignal]])
+- Quenty's octree module (linked in video description) ([[2024-05-18 - how to use OCTREES in your Roblox Game|how to use OCTREES in your Roblox Game]])
+- Video on quadtrees for 2D games (linked in description) ([[2024-05-18 - how to use OCTREES in your Roblox Game|how to use OCTREES in your Roblox Game]])
+- Roblox developer forum thread on weak tables and instances (2018 post) ([[2024-10-18 - Roblox WEAK tables & how to use them|Roblox WEAK tables & how to use them]])
+- Roblox documentation: metatables, __mode ([[2024-10-18 - Roblox WEAK tables & how to use them|Roblox WEAK tables & how to use them]])
+- Roblox task scheduler documentation ([[2025-03-22 - The GREATEST API EXPLAINED - Roblox Task Library|The GREATEST API EXPLAINED - Roblox Task Library]])
+- Roblox Run service documentation ([[2025-03-22 - The GREATEST API EXPLAINED - Roblox Task Library|The GREATEST API EXPLAINED - Roblox Task Library]])
+- Roblox Parallel Luau (creator's prior video) ([[2025-03-22 - The GREATEST API EXPLAINED - Roblox Task Library|The GREATEST API EXPLAINED - Roblox Task Library]])
+- Loleris Sera module DevForum post ([[2025-04-19 - Serialization with Roblox's Buffer Library|Serialization with Roblox's Buffer Library]])
+- Roblox buffer library documentation ([[2025-04-19 - Serialization with Roblox's Buffer Library|Serialization with Roblox's Buffer Library]])
+- Sleitnick observer video (linked in description) ([[2025-05-24 - Programming Patterns YOU'RE NOT USING!|Programming Patterns YOU'RE NOT USING!]])
+- T library (linked from Roblox documentation) ([[2025-05-24 - Programming Patterns YOU'RE NOT USING!|Programming Patterns YOU'RE NOT USING!]])
+- Trove module by Sleitnick ([[2025-05-24 - Programming Patterns YOU'RE NOT USING!|Programming Patterns YOU'RE NOT USING!]])
+- Lua creators' article on closure caching and optimized upvalue storage ([[2025-06-14 - Closures in Roblox Studio!|Closures in Roblox Studio!]])
+- Stravant (Roblox developer) DevForum response on RBXScriptSignal closures ([[2025-06-14 - Closures in Roblox Studio!|Closures in Roblox Studio!]])
+- DevForum proposal for variadic args on RBXScriptSignal:Connect ([[2025-06-14 - Closures in Roblox Studio!|Closures in Roblox Studio!]])
+- Mr. Chicken Rocket (Roblox performance recommendations) ([[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]])
+- Roblox DevForum post on 60x bandwidth reduction ([[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]])
+- Roblox documentation on StreamingEnabled and meshes ([[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]])
+- Creator's client fidelity service video (self-reference) ([[2025-07-25 - Your Roblox Game LAGS (and how to fix it)|Your Roblox Game LAGS (and how to fix it)]])
+- Module Loader on Roblox Marketplace (linked in video description) ([[2025-08-10 - I built my own Module Loader! (it's epic)|I built my own Module Loader! (it's epic)]])
+- Creator's video on task.defer ([[2025-08-10 - I built my own Module Loader! (it's epic)|I built my own Module Loader! (it's epic)]])
+- Open-source Roblox Studio MCP server GitHub repository (linked in description) ([[2025-11-22 - 10x Your Roblox Studio Productivity - Claude Code & OpenAI Codex Integ|10x Your Roblox Studio Productivity - Claude Code ]])
+- Top Bar Plus (open-source, game-agnostic drag-and-drop module) ([[2025-12-13 - Roblox Devs, Stop Rewriting Code (Do THIS Instead)|Roblox Devs, Stop Rewriting Code (Do THIS Instead)]])
+- isaiprofitable.com ([[2026-10-24 - Is Roblox Game Development Cooked|Is Roblox Game Development Cooked?]])

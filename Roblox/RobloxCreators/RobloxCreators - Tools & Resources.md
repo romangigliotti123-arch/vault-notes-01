@@ -1,0 +1,214 @@
+---
+title: RobloxCreators - Tools & Resources
+tags: [roblox, robloxcreators]
+---
+
+# RobloxCreators: Tools & Resources
+
+## Tools mentioned
+- **Roblox Studio**: [[2024-08-07 - (English) What We Wish We Knew When Developing Rift Hunters by Brave T|(English) What We Wish We Knew When Developing Rif]], [[2025-08-29 - Learn more about rewarded video ads|Learn more about rewarded video ads]], [[2025-08-01 - UGC Expert Feedback 2 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 2: feat. Reverse_Polarity and ]], [[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]], [[2021-12-01 - The Fundamentals Of User Experience RDC 2021|The Fundamentals Of User Experience | RDC 2021]], [[2021-10-21 - Introduction to Quests, Achievements & Dailies with BreakfastCandy|Introduction to Quests, Achievements & Dailies wit]], [[2021-08-26 - Narrative and Game Design with MiniToon|Narrative and Game Design with MiniToon]], [[2022-06-16 - Designing Educational Experiences with Boatbomber, CollyPark, & Sigm_n|Designing Educational Experiences with Boatbomber,]], [[2026-04-17 - How to sell assets on the Creator Store|How to sell assets on the Creator Store]], [[2025-08-12 - UGC Expert Feedback 3 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 3: feat. Reverse_Polarity and ]]
+- **Discord**: [[2024-08-07 - (English) What We Wish We Knew When Developing Rift Hunters by Brave T|(English) What We Wish We Knew When Developing Rif]], [[2021-08-12 - Supporting Game Expansions with Dspav|Supporting Game Expansions with Dspav]], [[2022-05-19 - Clip! Social Media Marketing with KreekCraft, WonderWorksZach & JoshWW|Clip! Social Media Marketing with KreekCraft, Wond]], [[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]], [[2021-08-26 - Narrative and Game Design with MiniToon|Narrative and Game Design with MiniToon]], [[2021-11-18 - Finding the Fun with Jandel and Foryxe|Finding the Fun with Jandel and Foryxe]], [[2023-01-26 - Monetizing a Roblox Experience Q&A with MrFergie, Shawnyg and Erythia|Monetizing a Roblox Experience Q&A with MrFergie, ]], [[2021-12-01 - How to Manage Your Community RDC 2021|How to Manage Your Community | RDC 2021]]
+- **Twitter**: [[2021-08-12 - Supporting Game Expansions with Dspav|Supporting Game Expansions with Dspav]], [[2022-05-19 - Clip! Social Media Marketing with KreekCraft, WonderWorksZach & JoshWW|Clip! Social Media Marketing with KreekCraft, Wond]], [[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]], [[2021-08-26 - Narrative and Game Design with MiniToon|Narrative and Game Design with MiniToon]], [[2023-01-26 - Monetizing a Roblox Experience Q&A with MrFergie, Shawnyg and Erythia|Monetizing a Roblox Experience Q&A with MrFergie, ]]
+- **Blender**: [[2025-08-01 - UGC Expert Feedback 2 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 2: feat. Reverse_Polarity and ]], [[2025-04-17 - UGC Insights (feat. Reverse_Polarity and Madison_Hatter2)|UGC Insights (feat. Reverse_Polarity and Madison_H]], [[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]], [[2025-07-09 - UGC Expert Feedback 1 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 1: feat. Reverse_Polarity and ]], [[2025-08-12 - UGC Expert Feedback 3 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 3: feat. Reverse_Polarity and ]]
+- **Creator Hub**: [[2025-08-01 - UGC Expert Feedback 2 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 2: feat. Reverse_Polarity and ]], [[2026-04-10 - What's the Creator Store|What's the Creator Store?]], [[2025-11-13 - Learn more about Video Previews on Roblox|Learn more about Video Previews on Roblox]], [[2026-04-17 - How to sell assets on the Creator Store|How to sell assets on the Creator Store]]
+- **Photoshop**: [[2025-08-01 - UGC Expert Feedback 2 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 2: feat. Reverse_Polarity and ]], [[2021-12-01 - The Fundamentals Of User Experience RDC 2021|The Fundamentals Of User Experience | RDC 2021]], [[2025-08-12 - UGC Expert Feedback 3 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 3: feat. Reverse_Polarity and ]]
+- **Twitter/X**: [[2025-04-17 - UGC Insights (feat. Reverse_Polarity and Madison_Hatter2)|UGC Insights (feat. Reverse_Polarity and Madison_H]], [[2023-04-27 - Clip! Marketing New Games on Roblox with KreekCraft & WonderWorksZach|Clip! Marketing New Games on Roblox with KreekCraf]], [[2021-12-01 - How to Manage Your Community RDC 2021|How to Manage Your Community | RDC 2021]]
+- **Trello**: [[2021-07-29 - Producing Game Expansions with Dspav|Producing Game Expansions with Dspav]], [[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]]
+- **Google Docs**: [[2021-07-29 - Producing Game Expansions with Dspav|Producing Game Expansions with Dspav]], [[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]]
+- **PlayFab**: [[2021-08-26 - Narrative and Game Design with MiniToon|Narrative and Game Design with MiniToon]], [[2021-11-18 - Finding the Fun with Jandel and Foryxe|Finding the Fun with Jandel and Foryxe]]
+- **Roblox group**: [[2021-11-18 - Finding the Fun with Jandel and Foryxe|Finding the Fun with Jandel and Foryxe]], [[2021-12-01 - How to Manage Your Community RDC 2021|How to Manage Your Community | RDC 2021]]
+- **TikTok**: [[2025-04-17 - UGC Insights (feat. Reverse_Polarity and Madison_Hatter2)|UGC Insights (feat. Reverse_Polarity and Madison_H]], [[2021-11-18 - Finding the Fun with Jandel and Foryxe|Finding the Fun with Jandel and Foryxe]]
+- **Instagram**: [[2025-04-17 - UGC Insights (feat. Reverse_Polarity and Madison_Hatter2)|UGC Insights (feat. Reverse_Polarity and Madison_H]], [[2021-12-01 - How to Manage Your Community RDC 2021|How to Manage Your Community | RDC 2021]]
+- **Guilded**: [[2022-05-19 - Clip! Social Media Marketing with KreekCraft, WonderWorksZach & JoshWW|Clip! Social Media Marketing with KreekCraft, Wond]], [[2023-01-26 - Monetizing a Roblox Experience Q&A with MrFergie, Shawnyg and Erythia|Monetizing a Roblox Experience Q&A with MrFergie, ]]
+- **UIAspectRatioConstraint**: [[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]], [[2023-03-02 - Mobile UIUX for Roblox Q&A with Cindering and UndoneBuilder|Mobile UI/UX for Roblox Q&A with Cindering and Und]]
+- **UIGridLayout**: [[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]], [[2023-03-02 - Mobile UIUX for Roblox Q&A with Cindering and UndoneBuilder|Mobile UI/UX for Roblox Q&A with Cindering and Und]]
+- **Jira**: [[2021-07-29 - Producing Game Expansions with Dspav|Producing Game Expansions with Dspav]]
+- **Hack and Plan**: [[2021-07-29 - Producing Game Expansions with Dspav|Producing Game Expansions with Dspav]]
+- **Confluence**: [[2021-07-29 - Producing Game Expansions with Dspav|Producing Game Expansions with Dspav]]
+- **Miro**: [[2021-07-29 - Producing Game Expansions with Dspav|Producing Game Expansions with Dspav]]
+- **Slido**: [[2021-08-12 - Supporting Game Expansions with Dspav|Supporting Game Expansions with Dspav]]
+- **Production management software**: [[2021-08-12 - Supporting Game Expansions with Dspav|Supporting Game Expansions with Dspav]]
+- **MS Paint**: [[2021-08-26 - Narrative and Game Design with MiniToon|Narrative and Game Design with MiniToon]]
+- **Spreadsheet (roadmap, colour-coded sprints, data validation dropdowns)**: [[2021-09-02 - Content Updates for Live Games|Content Updates for Live Games]]
+- **Calendar**: [[2021-09-02 - Content Updates for Live Games|Content Updates for Live Games]]
+- **Task tracker app**: [[2021-09-02 - Content Updates for Live Games|Content Updates for Live Games]]
+- **Social media templates**: [[2021-09-02 - Content Updates for Live Games|Content Updates for Live Games]]
+- **Roblox Studio (mockups, device emulator)**: [[2021-09-09 - UIUX Design with GodzGalaxy, theloudscream & Repotted|UI/UX Design with GodzGalaxy, theloudscream & Repo]]
+- **MS Paint (mockups)**: [[2021-09-09 - UIUX Design with GodzGalaxy, theloudscream & Repotted|UI/UX Design with GodzGalaxy, theloudscream & Repo]]
+- **Tween service (camera animation)**: [[2021-09-09 - UIUX Design with GodzGalaxy, theloudscream & Repotted|UI/UX Design with GodzGalaxy, theloudscream & Repo]]
+- **Slido (Q&A)**: [[2021-09-09 - UIUX Design with GodzGalaxy, theloudscream & Repotted|UI/UX Design with GodzGalaxy, theloudscream & Repo]]
+- **Roblox Talent Hub**: [[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]]
+- **Google Forms**: [[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]]
+- **Spreadsheet (roadmap and quest string templates)**: [[2021-10-21 - Introduction to Quests, Achievements & Dailies with BreakfastCandy|Introduction to Quests, Achievements & Dailies wit]]
+- **GameAnalytics**: [[2021-11-18 - Finding the Fun with Jandel and Foryxe|Finding the Fun with Jandel and Foryxe]]
+- **YouTube**: [[2021-11-18 - Finding the Fun with Jandel and Foryxe|Finding the Fun with Jandel and Foryxe]]
+- **Illustrator**: [[2021-12-01 - The Fundamentals Of User Experience RDC 2021|The Fundamentals Of User Experience | RDC 2021]]
+- **Sponsored Experiences ad system (Roblox)**: [[2021-12-01 - Driving Discovery on Roblox RDC 2021|Driving Discovery on Roblox | RDC 2021]]
+- **Sponsored Experience Ad Creation UI**: [[2021-12-01 - Driving Discovery on Roblox RDC 2021|Driving Discovery on Roblox | RDC 2021]]
+- **Sponsored Experience Ads reporting dashboard**: [[2021-12-01 - Driving Discovery on Roblox RDC 2021|Driving Discovery on Roblox | RDC 2021]]
+- **Discover page sponsored sort**: [[2021-12-01 - Driving Discovery on Roblox RDC 2021|Driving Discovery on Roblox | RDC 2021]]
+- **ToggleTrack (time tracking, free)**: [[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]]
+- **Unity Asset Store**: [[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]]
+- **RoDev Market**: [[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]]
+- **game-icons.net**: [[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]]
+- **Zapsplat**: [[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]]
+- **Fiverr**: [[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]]
+- **LinkedIn**: [[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]]
+- **Kiva (charity)**: [[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]]
+- **Roblox cloud automatic translation**: [[2021-12-01 - Tailoring Dynamic Content Localization and Suitability RDC 2021|Tailoring Dynamic Content: Localization and Suitab]]
+- **Roblox machine translation service**: [[2021-12-01 - Tailoring Dynamic Content Localization and Suitability RDC 2021|Tailoring Dynamic Content: Localization and Suitab]]
+- **Developer portal collaborator tools**: [[2021-12-01 - Tailoring Dynamic Content Localization and Suitability RDC 2021|Tailoring Dynamic Content: Localization and Suitab]]
+- **Policy API (RobloxPolicyService)**: [[2021-12-01 - Tailoring Dynamic Content Localization and Suitability RDC 2021|Tailoring Dynamic Content: Localization and Suitab]]
+- **Experience guidelines questionnaire**: [[2021-12-01 - Tailoring Dynamic Content Localization and Suitability RDC 2021|Tailoring Dynamic Content: Localization and Suitab]]
+- **Paper prototyping (physical props, paper, Legos, dice)**: [[2022-02-03 - Prototyping Essentials|Prototyping Essentials]]
+- **Roblox Studio (studio prototypes)**: [[2022-02-03 - Prototyping Essentials|Prototyping Essentials]]
+- **Roblox MessagingService**: [[2022-02-17 - Social Features ft. Block Evolution|Social Features ft. Block Evolution]]
+- **Roblox MemoryStore**: [[2022-02-17 - Social Features ft. Block Evolution|Social Features ft. Block Evolution]]
+- **Roblox private servers**: [[2022-02-17 - Social Features ft. Block Evolution|Social Features ft. Block Evolution]]
+- **Roblox A/B testing (team's own process)**: [[2022-02-17 - Social Features ft. Block Evolution|Social Features ft. Block Evolution]]
+- **Notion**: [[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]]
+- **PureRef**: [[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]]
+- **Roblox Studio terrain tools**: [[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]]
+- **Luau**: [[2022-06-16 - Designing Educational Experiences with Boatbomber, CollyPark, & Sigm_n|Designing Educational Experiences with Boatbomber,]]
+- **In-game code editor (Lua Learning)**: [[2022-06-16 - Designing Educational Experiences with Boatbomber, CollyPark, & Sigm_n|Designing Educational Experiences with Boatbomber,]]
+- **Roblox content ratings**: [[2022-12-01 - Designing for Older Players Q&A with Bluay, MidnightKrystal, Looty_Hag|Designing for Older Players Q&A with Bluay, Midnig]]
+- **Roblox groups feature**: [[2022-12-01 - Designing for Older Players Q&A with Bluay, MidnightKrystal, Looty_Hag|Designing for Older Players Q&A with Bluay, Midnig]]
+- **Roblox developer free cam**: [[2022-12-08 - Clip! Making Streamer Friendly Games|Clip! Making Streamer Friendly Games]]
+- **DevForum**: [[2023-01-26 - Monetizing a Roblox Experience Q&A with MrFergie, Shawnyg and Erythia|Monetizing a Roblox Experience Q&A with MrFergie, ]]
+- **DevForum Talent Hub**: [[2023-01-26 - Monetizing a Roblox Experience Q&A with MrFergie, Shawnyg and Erythia|Monetizing a Roblox Experience Q&A with MrFergie, ]]
+- **Roblox Studio device emulator**: [[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]]
+- **UDim2 Scale/Offset**: [[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]]
+- **UIListLayout**: [[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]]
+- **UIScale**: [[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]]
+- **UISizeConstraint**: [[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]]
+- **Badges (as click analytics)**: [[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]]
+- **ScrollFrame**: [[2023-03-02 - Mobile UIUX for Roblox Q&A with Cindering and UndoneBuilder|Mobile UI/UX for Roblox Q&A with Cindering and Und]]
+- **Device emulator**: [[2023-03-02 - Mobile UIUX for Roblox Q&A with Cindering and UndoneBuilder|Mobile UI/UX for Roblox Q&A with Cindering and Und]]
+- **Virtual cursor (Roblox gamepad)**: [[2023-03-02 - Mobile UIUX for Roblox Q&A with Cindering and UndoneBuilder|Mobile UI/UX for Roblox Q&A with Cindering and Und]]
+- **Adobe Color (contrast suggestions)**: [[2023-04-13 - Clip! Color Contrast Best Practices with BitwiseAndrea, ControlCoreAng|Clip! Color Contrast Best Practices with BitwiseAn]]
+- **WCAG contrast guidelines and online contrast calculators**: [[2023-04-13 - Clip! Color Contrast Best Practices with BitwiseAndrea, ControlCoreAng|Clip! Color Contrast Best Practices with BitwiseAn]]
+- **Grayscale/monochrome check**: [[2023-04-13 - Clip! Color Contrast Best Practices with BitwiseAndrea, ControlCoreAng|Clip! Color Contrast Best Practices with BitwiseAn]]
+- **Shift+P / Ctrl+P (Roblox gameplay capture)**: [[2023-04-27 - Clip! Marketing New Games on Roblox with KreekCraft & WonderWorksZach|Clip! Marketing New Games on Roblox with KreekCraf]]
+- **Roblox Sound Groups**: [[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]]
+- **Roblox controller/keyboard UI navigation keybind**: [[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]]
+- **Game Accessibility Guidelines website**: [[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]]
+- **Adobe Color contrast picker**: [[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]]
+- **WCAG guidelines**: [[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]]
+- **Proximity prompts**: [[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]]
+- **Billboard GUIs**: [[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]]
+- **Rich text**: [[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]]
+- **TextScaled**: [[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]]
+- **Font face property**: [[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]]
+- **UI scaling**: [[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]]
+- **Roblox Experience guidelines (age rating questionnaire)**: [[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]]
+- **Figma-style flowcharts (generic, not named)**: [[2023-08-25 - UIUX Essentials|UI/UX Essentials]]
+- **Fresh Cut (UGC app used for event items)**: [[2024-08-07 - (English) What We Wish We Knew When Developing Rift Hunters by Brave T|(English) What We Wish We Knew When Developing Rif]]
+- **RemoteEvent**: [[2024-11-13 - What's Roblox's Referral System|What's Roblox's Referral System?]]
+- **ReplicatedStorage**: [[2024-11-13 - What's Roblox's Referral System|What's Roblox's Referral System?]]
+- **PlayerAdded**: [[2024-11-13 - What's Roblox's Referral System|What's Roblox's Referral System?]]
+- **ReferredByPlayerID**: [[2024-11-13 - What's Roblox's Referral System|What's Roblox's Referral System?]]
+- **Roblox Marketplace search and sort filters**: [[2025-04-17 - UGC Insights (feat. Reverse_Polarity and Madison_Hatter2)|UGC Insights (feat. Reverse_Polarity and Madison_H]]
+- **Extra Objects add-on (diamond/heart modeling)**: [[2025-08-01 - UGC Expert Feedback 2 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 2: feat. Reverse_Polarity and ]]
+- **Accessory Fitting Tool**: [[2025-08-12 - UGC Expert Feedback 3 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 3: feat. Reverse_Polarity and ]]
+- **Substance Painter**: [[2025-08-12 - UGC Expert Feedback 3 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 3: feat. Reverse_Polarity and ]]
+- **online normal map generator**: [[2025-08-12 - UGC Expert Feedback 3 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 3: feat. Reverse_Polarity and ]]
+- **FBX export**: [[2025-08-12 - UGC Expert Feedback 3 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 3: feat. Reverse_Polarity and ]]
+- **Roblox Creator Dashboard analytics**: [[2025-08-15 - So you wanna do UGC as a business (feat. Rush Bogin)|So you wanna do UGC as a business? (feat. Rush Bog]]
+- **Most Popular Past Week marketplace filter**: [[2025-08-15 - So you wanna do UGC as a business (feat. Rush Bogin)|So you wanna do UGC as a business? (feat. Rush Bog]]
+- **Pinterest (trend research)**: [[2025-08-15 - So you wanna do UGC as a business (feat. Rush Bogin)|So you wanna do UGC as a business? (feat. Rush Bog]]
+- **Creator Hub (ads analytics)**: [[2025-08-29 - Learn more about rewarded video ads|Learn more about rewarded video ads]]
+- **Rewarded Video Developer API (GetAdAvailability, Eligibility API)**: [[2025-08-29 - Learn more about rewarded video ads|Learn more about rewarded video ads]]
+- **Roblox Studio Creator Store tab**: [[2026-04-10 - What's the Creator Store|What's the Creator Store?]]
+- **Stripe**: [[2026-04-10 - What's the Creator Store|What's the Creator Store?]]
+- **Creator Dashboard**: [[2026-04-17 - How to sell assets on the Creator Store|How to sell assets on the Creator Store]]
+- **Roblox creator analytics**: [[2026-05-20 - How to do video ads the right way on Roblox|How to do video ads the right way on Roblox]]
+- **Rewarded video ad reporting (opt-in rate, frequency, EPM, reward rate)**: [[2026-05-20 - How to do video ads the right way on Roblox|How to do video ads the right way on Roblox]]
+- **Roblox ad cost-out forecast tool**: [[2026-05-20 - How to do video ads the right way on Roblox|How to do video ads the right way on Roblox]]
+
+## Points viewers to (candidates for further study)
+- Red Manta (term 'update debt' coined) ([[2021-07-22 - What are Game Expansions with Dspav|What are Game Expansions? with Dspav]])
+- Slido (Q&A tool used in talk) ([[2021-07-22 - What are Game Expansions with Dspav|What are Game Expansions? with Dspav]])
+- Red Manta roundtable (referenced for processes and playtesting) ([[2021-07-29 - Producing Game Expansions with Dspav|Producing Game Expansions with Dspav]])
+- Roblox QA Discord communities ([[2021-07-29 - Producing Game Expansions with Dspav|Producing Game Expansions with Dspav]])
+- Red Manta (mentioned for closed beta testing and analytics approach) ([[2021-08-05 - Balancing Game Expansions with Dspav|Balancing Game Expansions with Dspav]])
+- Red Manta (feature funnels mention) ([[2021-08-12 - Supporting Game Expansions with Dspav|Supporting Game Expansions with Dspav]])
+- Level Up Roundtable (Roblox) ([[2021-08-26 - Narrative and Game Design with MiniToon|Narrative and Game Design with MiniToon]])
+- Piggy (Book Two) ([[2021-08-26 - Narrative and Game Design with MiniToon|Narrative and Game Design with MiniToon]])
+- AAA studios publishing public roadmaps ([[2021-09-02 - Content Updates for Live Games|Content Updates for Live Games]])
+- Roblox DevForum (example of poorly designed plugin UI) ([[2021-09-09 - UIUX Design with GodzGalaxy, theloudscream & Repotted|UI/UX Design with GodzGalaxy, theloudscream & Repo]])
+- Finding Nemo (warm, cozy underwater tone) ([[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]])
+- Sea of Thieves (environment style) ([[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]])
+- Livetopia (content-rich open world) ([[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]])
+- Royale High (fashion roleplay audience) ([[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]])
+- Azure (Steam underwater game) ([[2021-09-30 - Roleplay Design and Worldbuilding with Myzta|Roleplay Design and Worldbuilding with Myzta]])
+- Level Up Content Cadence Workshop ([[2021-10-21 - Introduction to Quests, Achievements & Dailies with BreakfastCandy|Introduction to Quests, Achievements & Dailies wit]])
+- Level Up Workshop on Season Pass Feature Balance hosted by Dspav (spreadsheet and formulas for balancing) ([[2021-10-28 - Designing Quests, Achievements & Dailies with BreakfastCandy|Designing Quests, Achievements & Dailies with Brea]])
+- Part three of the Level Up Workshop: writing quest text (upcoming) ([[2021-10-28 - Designing Quests, Achievements & Dailies with BreakfastCandy|Designing Quests, Achievements & Dailies with Brea]])
+- Metaverse Champions (event referenced) ([[2021-10-28 - Designing Quests, Achievements & Dailies with BreakfastCandy|Designing Quests, Achievements & Dailies with Brea]])
+- Level Up Workshop parts one and two (quests, achievements, dailies) ([[2021-11-11 - Writing Quests, Achievements & Dailies with BreakfastCandy|Writing Quests, Achievements & Dailies with Breakf]])
+- Quest content spreadsheet from part one ([[2021-11-11 - Writing Quests, Achievements & Dailies with BreakfastCandy|Writing Quests, Achievements & Dailies with Breakf]])
+- epicdrew (UI example creator) ([[2021-12-01 - The Fundamentals Of User Experience RDC 2021|The Fundamentals Of User Experience | RDC 2021]])
+- Adam (Roblox employee, Dragon Riders UI) ([[2021-12-01 - The Fundamentals Of User Experience RDC 2021|The Fundamentals Of User Experience | RDC 2021]])
+- Loud Scream / Bella (Twitter feedback) ([[2021-12-01 - The Fundamentals Of User Experience RDC 2021|The Fundamentals Of User Experience | RDC 2021]])
+- Ux honeycomb (usability, accessibility, desirability, etc.) ([[2021-12-01 - The Fundamentals Of User Experience RDC 2021|The Fundamentals Of User Experience | RDC 2021]])
+- Roblox DevForum discovery articles ([[2021-12-01 - Driving Discovery on Roblox RDC 2021|Driving Discovery on Roblox | RDC 2021]])
+- Anne Shoemaker RDC talk on team management (last year's RDC) ([[2021-12-01 - Tips For Scaling Up A Company on Roblox RDC 2021|Tips For Scaling Up A Company on Roblox | RDC 2021]])
+- Roblox developer forum announcements (promised) ([[2021-12-01 - Tailoring Dynamic Content Localization and Suitability RDC 2021|Tailoring Dynamic Content: Localization and Suitab]])
+- Roblox policy API documentation ([[2021-12-01 - Tailoring Dynamic Content Localization and Suitability RDC 2021|Tailoring Dynamic Content: Localization and Suitab]])
+- Level Up shorts series ([[2022-02-03 - Prototyping Essentials|Prototyping Essentials]])
+- Roblox Developer Relations Level Up channel ([[2022-02-17 - Social Features ft. Block Evolution|Social Features ft. Block Evolution]])
+- Blockface Steve and Blockface Bob (Block Evolution) ([[2022-02-17 - Social Features ft. Block Evolution|Social Features ft. Block Evolution]])
+- Twitter/Instagram (Block Evolution) ([[2022-02-17 - Social Features ft. Block Evolution|Social Features ft. Block Evolution]])
+- Kowloon Walled City (real-world reference for Riot Fall Rooftops) ([[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]])
+- Alaska (reference for Riot Fall snow map water tower) ([[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]])
+- Theme park landscaping concept ([[2022-03-17 - Level Design ft. MiniToon, Erythia, Cullen & Tohb|Level Design  ft. MiniToon, Erythia, Cullen & Tohb]])
+- Awareness and affinity survey data (brand research tools mentioned, unnamed) ([[2022-05-12 - Brand Partnerships and IP Games Roundtable|Brand Partnerships and IP Games Roundtable]])
+- Honey the Unicorn (YouTuber) ([[2022-05-19 - Clip! Social Media Marketing with KreekCraft, WonderWorksZach & JoshWW|Clip! Social Media Marketing with KreekCraft, Wond]])
+- Ready Player Two cross-promotion event ([[2022-06-02 - Clip! The Value of Roblox Events with ruddev_ethan and x_o|Clip! The Value of Roblox Events with ruddev_ethan]])
+- Wild Arc (conservation non-profit partner) ([[2022-06-16 - Designing Educational Experiences with Boatbomber, CollyPark, & Sigm_n|Designing Educational Experiences with Boatbomber,]])
+- FIRST Robotics ([[2022-06-16 - Designing Educational Experiences with Boatbomber, CollyPark, & Sigm_n|Designing Educational Experiences with Boatbomber,]])
+- Team Fortress 2 ([[2022-11-17 - Clip! Avoiding Pay to Win with Bluay and MidnightKrystal|Clip! Avoiding "Pay to Win" with Bluay and Midnigh]])
+- Jean Piaget (developmental stages and balancing-scale experiment) ([[2022-11-22 - Designing for Older Players with Bluay, MidnightKrystal, Looty_Haga, c|Designing for Older Players with Bluay, MidnightKr]])
+- Roblox Level Up YouTube channel part two audience Q&A ([[2022-11-22 - Designing for Older Players with Bluay, MidnightKrystal, Looty_Haga, c|Designing for Older Players with Bluay, MidnightKr]])
+- Path of Exile engagement and release cadence article by Grinding Gear Games ([[2022-12-01 - Designing for Older Players Q&A with Bluay, MidnightKrystal, Looty_Hag|Designing for Older Players Q&A with Bluay, Midnig]])
+- Roblox developer relations channel Level Up series ([[2022-12-01 - Designing for Older Players Q&A with Bluay, MidnightKrystal, Looty_Hag|Designing for Older Players Q&A with Bluay, Midnig]])
+- RDC (Roblox Developers Conference) analytics improvements mentioned ([[2023-01-12 - Clip! In-Game Currencies with Mrfergie, Shawnyg, Erythia & Dspav|Clip! In-Game Currencies with Mrfergie, Shawnyg, E]])
+- Roblox Level Up Guilded server ([[2023-01-26 - Monetizing a Roblox Experience Q&A with MrFergie, Shawnyg and Erythia|Monetizing a Roblox Experience Q&A with MrFergie, ]])
+- DevForum Talent Hub ([[2023-01-26 - Monetizing a Roblox Experience Q&A with MrFergie, Shawnyg and Erythia|Monetizing a Roblox Experience Q&A with MrFergie, ]])
+- Level Up YouTube channel ([[2023-02-23 - Mobile UIUX for Roblox with Cindering and UndoneBuilder|Mobile UI/UX for Roblox with Cindering and UndoneB]])
+- Roblox Level Up YouTube channel ([[2023-03-02 - Mobile UIUX for Roblox Q&A with Cindering and UndoneBuilder|Mobile UI/UX for Roblox Q&A with Cindering and Und]])
+- Roblox Level Up Guilded server ([[2023-03-02 - Mobile UIUX for Roblox Q&A with Cindering and UndoneBuilder|Mobile UI/UX for Roblox Q&A with Cindering and Und]])
+- WCAG accessibility guidelines ([[2023-04-13 - Clip! Color Contrast Best Practices with BitwiseAndrea, ControlCoreAng|Clip! Color Contrast Best Practices with BitwiseAn]])
+- Adobe color picker/contrast tool ([[2023-04-13 - Clip! Color Contrast Best Practices with BitwiseAndrea, ControlCoreAng|Clip! Color Contrast Best Practices with BitwiseAn]])
+- Game Accessibility Guidelines (gameaccessibilityguidelines.com) ([[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]])
+- Adobe Color contrast picker ([[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]])
+- WCAG web accessibility guidelines ([[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]])
+- Roblox DevForum accessibility feature requests ([[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]])
+- Roblox Accessibility & Localization Bootcamp ([[2023-05-18 - Designing for Accessibility with BitwiseAndrea, WooleyWool, and Contro|Designing for Accessibility with BitwiseAndrea, Wo]])
+- Roblox Experience guidelines team ([[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]])
+- Roblox accessibility documentation site ([[2023-05-25 - Designing for Accessibility Q&A with WooleyWool, ControlCoreAngel, & B|Designing for Accessibility Q&A with WooleyWool, C]])
+- Level Up video on core loops (linked in description) ([[2023-08-02 - Onboarding Essentials|Onboarding Essentials]])
+- Level Up upcoming FTUE workshop ([[2023-08-02 - Onboarding Essentials|Onboarding Essentials]])
+- Level Up (Level Up Game channel) ([[2023-08-25 - UIUX Essentials|UI/UX Essentials]])
+- Roblox game design resources (Creator Hub) ([[2023-09-06 - What's good game design on Roblox|What's good game design on Roblox?]])
+- Roblox Dev Relations team ([[2024-08-07 - (English) What We Wish We Knew When Developing Rift Hunters by Brave T|(English) What We Wish We Knew When Developing Rif]])
+- YouTube Roblox Creator event (announced for Aug 16) ([[2024-08-07 - (English) What We Wish We Knew When Developing Rift Hunters by Brave T|(English) What We Wish We Knew When Developing Rif]])
+- Uncopylocked sample experience (rewards diamond currency with DataStore), linked in video description ([[2024-11-13 - What's Roblox's Referral System|What's Roblox's Referral System?]])
+- Roblox documentation on preventing multiple uses of the same referral ([[2024-11-13 - What's Roblox's Referral System|What's Roblox's Referral System?]])
+- Roblox UGC publishing advance documentation page (referenced, not named) ([[2025-04-17 - UGC Insights (feat. Reverse_Polarity and Madison_Hatter2)|UGC Insights (feat. Reverse_Polarity and Madison_H]])
+- Reverse_Polarity ([[2025-08-01 - UGC Expert Feedback 2 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 2: feat. Reverse_Polarity and ]])
+- Madison_Hatter2 ([[2025-08-01 - UGC Expert Feedback 2 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 2: feat. Reverse_Polarity and ]])
+- Vogueburnett (vlog series) ([[2025-08-01 - UGC Expert Feedback 2 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 2: feat. Reverse_Polarity and ]])
+- Roblox official layered clothing tutorial ([[2025-08-12 - UGC Expert Feedback 3 feat. Reverse_Polarity and Madison_Hatter2|UGC Expert Feedback 3: feat. Reverse_Polarity and ]])
+- Roblox Developer Conference (RDC) ([[2025-08-15 - So you wanna do UGC as a business (feat. Rush Bogin)|So you wanna do UGC as a business? (feat. Rush Bog]])
+- Roblox Brand Partnerships team ([[2025-08-15 - So you wanna do UGC as a business (feat. Rush Bogin)|So you wanna do UGC as a business? (feat. Rush Bog]])
+- Roblox Learn ([[2025-08-29 - Learn more about rewarded video ads|Learn more about rewarded video ads]])
+- Roblox help center rewarded video documentation ([[2025-08-29 - Learn more about rewarded video ads|Learn more about rewarded video ads]])
+- Roblox dev forum post on rewarded video ([[2025-08-29 - Learn more about rewarded video ads|Learn more about rewarded video ads]])
+- Roblox Creator Hub ([[2025-11-13 - Learn more about Video Previews on Roblox|Learn more about Video Previews on Roblox]])
+- Creator Store documentation page (linked in video) ([[2026-04-10 - What's the Creator Store|What's the Creator Store?]])
+- Currency minimum payout table (linked in video) ([[2026-04-10 - What's the Creator Store|What's the Creator Store?]])
+- Creator Hub ([[2026-04-17 - How to sell assets on the Creator Store|How to sell assets on the Creator Store]])
+- Roblox DevForum ([[2026-04-17 - How to sell assets on the Creator Store|How to sell assets on the Creator Store]])
+- Barry's Prison Run (Platinum Falls) ([[2026-05-20 - How to do video ads the right way on Roblox|How to do video ads the right way on Roblox]])
+- Repo (Steam game, YouTube channel) ([[2026-07-30 - (Italian) How to Build a Community for Roblox Games (ft. Stef2317) Ins|(Italian) How to Build a Community for Roblox Game]])

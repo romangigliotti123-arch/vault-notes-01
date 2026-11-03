@@ -1,0 +1,101 @@
+{
+  "_note": "Curated from the Roblox KB (kbq.py num ...) on 2026-10-29. Bands are [lo, hi) in the metric unit. higher_is_better controls the verdict direction. flag follows the KB: official | indie | mixed | devforum | none. Review when _tools/BENCHMARKS.md changes; compare.py always prints the sources.",
+  "metrics": {
+    "d1": {
+      "label": "D1 retention", "unit": "%", "higher_is_better": true,
+      "bands": [[0, 6, "broken"], [6, 10, "weak"], [10, 16, "typical (indie)"], [16, 100, "strong (at or above the 90th percentile for same-genre per an official talk)"]],
+      "flag": "mixed",
+      "note": "Official method: compare with your own Creator Hub Similar Experience Benchmarks (50th-90th percentile; DevForum example 12.4-24.1%). Genre changes the answer. About 6-8% was 'broken' for one indie live game.",
+      "sources": ["[Roblox 2023-09 9:31](https://youtu.be/Z-ZKqBPdl44?t=571)", "[MoseyTube 2026-08 2:44](https://youtu.be/xIBc5He_sy4?t=164)", "[Roblox DevForum 2023-03](https://devforum.roblox.com/t/analytics-similar-experience-benchmarks-broader-access/2210285)", "[Tizzy 2026-10 12:44](https://youtu.be/_JyiKfNNqls?t=764)"]
+    },
+    "d7": {
+      "label": "D7 retention", "unit": "%", "higher_is_better": true,
+      "bands": [[0, 1.5, "weak"], [1.5, 2, "below typical"], [2, 4, "typical (indie)"], [4, 100, "strong"]],
+      "flag": "indie",
+      "note": "Indie self-reported: 2-3% typical; one game at 1.45% expected about 4% once populated. The 2019 DevForum example 2.68% is historical. Prefer your Creator Hub similar-experience benchmark.",
+      "sources": ["[MoseyTube 2026-08 2:44](https://youtu.be/xIBc5He_sy4?t=164)", "[Tizzy 2026-07 0:10](https://youtu.be/EZzztgpSaTU?t=10)"]
+    },
+    "d30": {
+      "label": "D30 retention", "unit": "%", "higher_is_better": true, "bands": [], "flag": "none",
+      "note": "KB GAP: no numeric D30 benchmark. Official: low D30 means a missing endgame; compare with the Creator Hub similar-experience benchmark. RFY scores returns across D1, D2-7, D8-28.",
+      "sources": ["[Roblox Creators 2026-06 7:07](https://youtu.be/B3R1ybI3yzs?t=427)"]
+    },
+    "session": {
+      "label": "Average session length", "unit": "min", "higher_is_better": true,
+      "bands": [[0, 5, "really bad (DevForum author)"], [5, 7, "average"], [7, 9, "good"], [9, 15, "excellent"], [15, 1000, "very strong"]],
+      "flag": "mixed",
+      "note": "Bands are a DevForum author's rough scale (not hard data). Official talk: social games 10+ min; 15-20 min strong and 12 decent for large games; younger mobile about 8.5 min. Indie ad-phase target above 10 min. Average session = total time / number of sessions.",
+      "sources": ["[Roblox DevForum 2024-08](https://devforum.roblox.com/t/how-to-actually-make-a-popular-game/3115791)", "[Roblox Creators 2022-02 58:50](https://youtu.be/BkQL2_DY9Mc?t=3530)", "[MoseyTube 2026-08 2:00](https://youtu.be/xIBc5He_sy4?t=120)"]
+    },
+    "ptr": {
+      "kb_check_comment": "Rechecked 2026-10-29: bands kept. KB ad-campaign play-through (plays/impressions) is lower: 1-1.5% good, 2% very good (VuukStudios 2025-11 14:16, https://youtu.be/AbjI7ygMnao?t=856). Bands here are for in-experience PTR/QPTR, not ad PTR.",
+      "label": "Play-through rate (PTR/QPTR)", "unit": "%", "higher_is_better": true,
+      "bands": [[0, 2, "low"], [2, 3, "okay"], [3, 100, "healthy (indie about 3%; official sample 3.5% qPTR)"]],
+      "flag": "mixed",
+      "note": "2026 official update: RFY uses PTR plus first-play bounce (QPTR removed); older QPTR advice is superseded where it conflicts. Compare against your Creator Hub numbers.",
+      "sources": ["[Roblox 2024-09 4:25](https://youtu.be/QC6XWgJRJEM?t=265)", "[Roblox Creators 2025-10 5:54](https://youtu.be/tUz_OekIIiU?t=354)", "[Roblox Creator Docs 2026-10](https://create.roblox.com/docs/discovery-faq)"]
+    },
+    "ctr": {
+      "kb_check_comment": "Rechecked 2026-10-29 with kbq.py num: bands kept. KB also holds a conflicting single-creator warning level, about 1.9% CTR means replace creative (janisjanis01 2026-05 9:19, https://youtu.be/BLOToGi2Qt4?t=559); treat 1.5-2.5 as at-risk.",
+      "label": "Ad / thumbnail CTR", "unit": "%", "higher_is_better": true,
+      "bands": [[0, 1, "replace the creative"], [1, 1.5, "poor"], [1.5, 2.5, "below average"], [2.5, 3.5, "average to good"], [3.5, 100, "exceptional"]],
+      "flag": "indie",
+      "note": "Self-reported by indie creators (kra_DeZ, MoseyTube). KB rule: below 1% replace the creative, target 2.5-3%+. CTR near 0.5% = packaging problem.",
+      "sources": ["[kra_DeZ 2026-10 3:31](https://youtu.be/lrubtajkaeI?t=211)", "[MoseyTube 2026-10 3:32](https://youtu.be/tao925_ypVg?t=212)"]
+    },
+    "conv": {
+      "label": "Payer conversion", "unit": "%", "higher_is_better": true,
+      "bands": [[0, 1, "low"], [1, 2, "okay (official sample 1.63%)"], [2, 3, "healthy (indie 2-3%)"], [3, 100, "strong"]],
+      "flag": "mixed",
+      "note": "Official talk sample: payer conversion 1.63%. Indie healthy 2-3% (self-reported). A pet-egg example went 0.3% to 0.75% after a teaser change. Genre and audience age change this a lot.",
+      "sources": ["[Roblox 2024-09 4:25](https://youtu.be/QC6XWgJRJEM?t=265)"]
+    },
+    "arppu": {
+      "label": "ARPPU", "unit": "Robux", "higher_is_better": true,
+      "bands": [], "flag": "official",
+      "note": "Only one KB data point: official talk sample ARPPU 573 Robux (April example). No band; use your Creator Hub similar-experience benchmark.",
+      "sources": ["[Roblox 2024-09 4:25](https://youtu.be/QC6XWgJRJEM?t=265)"]
+    },
+    "join": {
+      "label": "Median join time", "unit": "s", "higher_is_better": false,
+      "bands": [[0, 5, "good"], [5, 10, "okay"], [10, 1000, "not great, fix"]],
+      "flag": "official",
+      "note": "Official 2018 talk: median about 5 s good; over 10 s not great. Join time = click play to world rendered and player can move (docs 2026-10).",
+      "sources": ["[Roblox 2018-07 3:14](https://youtu.be/rBrILsiVdtQ?t=194)"]
+    },
+    "fs5": {
+      "label": "First-session retention at 5 minutes", "unit": "%", "higher_is_better": true,
+      "bands": [[0, 30, "weak (others 20-30%)"], [30, 65, "middling"], [65, 100, "healthy (one indie example 65%)"]],
+      "flag": "indie",
+      "note": "Single indie example (self-reported): 95% at 30 s, 87% at 1 min, 65% at 5 min; others 20-30%. Use the New User First Session Retention chart to find the steepest drop.",
+      "sources": ["[Tizzy 2026-10 10:42](https://youtu.be/_JyiKfNNqls?t=642)", "[Roblox Creator Docs 2026-10](https://create.roblox.com/docs/production/analytics/get-started)"]
+    },
+    "bounce": {
+      "label": "First-play bounce", "unit": "%", "higher_is_better": false, "bands": [], "flag": "none",
+      "note": "KB GAP: no numeric benchmark. Official: leaving within 60 s or 61-180 s counts as negative. One indie game cut bounce from 22% to 15-16% by fixing a post-cutscene drop. Lower is better; compare with Creator Hub.",
+      "sources": ["[Roblox Creators 2026-06 8:28](https://youtu.be/B3R1ybI3yzs?t=508)", "[Tizzy 2026-07 19:04](https://youtu.be/LZOohZHsJus?t=1144)"]
+    },
+    "cpp": {
+      "kb_check_comment": "Rechecked 2026-10-29: bands kept. KB units differ across sources (62 Robux/play in 2023; 0.04 credits ~ 11 Robux, ~2c on a saturated game: Quez 2025-03 1:09); verify unit before comparing.",
+      "label": "Ad cost per play", "unit": "USD", "higher_is_better": false,
+      "bands": [[0, 0.008, "at or better than indie day-one target"], [0.008, 0.013, "typical indie (about 1.3c down to under 1c)"], [0.013, 1000, "expensive: fix creative and CTR first"]],
+      "flag": "mixed",
+      "note": "Indie target about $0.008 per play on day one (self-reported). Roblox claims as low as 1 cent cold start and under 1 cent per visit (2025). Median cost to acquire a highly engaged player under 50 cents (official 2026).",
+      "sources": ["[MoseyTube 2026-06 2:41](https://youtu.be/d9UxSCiz3us?t=161)", "[Roblox 2025-09 6:07](https://youtu.be/cUxgt4asjFU?t=367)", "[Roblox 2026-09 15:30](https://youtu.be/53dj7AG3foA?t=930)"]
+    },
+    "optin": {
+      "label": "Rewarded-video opt-in rate", "unit": "%", "higher_is_better": true,
+      "bands": [[0, 13, "below official floor"], [13, 15, "meets floor"], [15, 30, "genre average range (15-25%)"], [30, 100, "best in class"]],
+      "flag": "official",
+      "note": "Official docs: opt-in 13%+/15%+, genre average 15-25%, best 30%+; frequency 2.5+/3+, best 4+ views per user per day.",
+      "sources": ["[Roblox Creator Docs 2026-10](https://create.roblox.com/docs/production/promotion/rewarded-video-playbooks/incremental-sim)"]
+    },
+    "fps": {
+      "label": "Client frame rate", "unit": "FPS", "higher_is_better": true,
+      "bands": [[0, 30, "poor on mobile"], [30, 60, "below target"], [60, 1000, "target met"]],
+      "flag": "official",
+      "note": "Default target 60 FPS (16.67 ms per frame); under 16 ms CPU per frame. Quest VR target 72 FPS.",
+      "sources": ["[Roblox Creator Docs 2026-10](https://create.roblox.com/docs/production/analytics/performance)"]
+    }
+  }
+}

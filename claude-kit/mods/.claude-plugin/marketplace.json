@@ -1,0 +1,25 @@
+{
+  "name": "roblox-vault-kit-mods",
+  "owner": {
+    "name": "Roman"
+  },
+  "description": "Claude Code mods shipped with the Roblox vault kit.",
+  "plugins": [
+    {
+      "name": "workflow-hud",
+      "source": "./workflow-hud",
+      "description": "Side pane tree of the master agent and its spawned agents with a progress bar.",
+      "author": {
+        "name": "Roman"
+      }
+    },
+    {
+      "name": "vault-graph",
+      "source": "./vault-graph",
+      "description": "/graph opens a side pane with the link graph of the vault: centre note, links in and out, search, preview.",
+      "author": {
+        "name": "Roman"
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+#!/bin/sh
+# pyrun <script.py> [args...]: run a Python script with the first python that really works.
+# Skips the Windows Store "python3" stub (it exists on PATH but only prints an install hint).
+for p in python3 python py; do
+  if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then exec "$p" "$@"; fi
+done
+echo "pyrun: no working python (python3/python/py). Use grep/rg on the vault instead of kbq." >&2
+exit 127

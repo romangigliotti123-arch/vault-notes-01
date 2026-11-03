@@ -1,0 +1,76 @@
+---
+tags: [moc]
+---
+# Category: src-godotprompter
+
+69 items. Back: [[_Home]]
+
+- [a] [[A--godotprompter--godot-animator|godotprompter/godot-animator]] - Use this agent when the user needs to design or implement animation systems in Godot 4.x — AnimationPlayer vs 
+- [a] [[A--godotprompter--godot-code-reviewer|godotprompter/godot-code-reviewer]] - Use this agent when the user wants their Godot GDScript or C# code reviewed for best practices, anti-patterns,
+- [a] [[A--godotprompter--godot-csharp-engineer|godotprompter/godot-csharp-engineer]] - Use this agent for C#-first Godot 4.x development — writing idiomatic C# (not GDScript translations), managing
+- [a] [[A--godotprompter--godot-game-architect|godotprompter/godot-game-architect]] - Use this agent when the user needs help with Godot 4.x game development architecture, GDScript or C# system de
+- [a] [[A--godotprompter--godot-game-dev|godotprompter/godot-game-dev]] - Use this agent when the user needs help implementing Godot Engine features, including GDScript or C# coding, s
+- [a] [[A--godotprompter--godot-performance-profiler|godotprompter/godot-performance-profiler]] - Use this agent when the user reports lag, stutter, frame drops, draw call spikes, GC pauses (C#), physics slow
+- [a] [[A--godotprompter--godot-shader-author|godotprompter/godot-shader-author]] - Use this agent when the user needs to write a custom Godot shader, post-processing effect, screen-space effect
+- [a] [[A--godotprompter--godot-tools-engineer|godotprompter/godot-tools-engineer]] - Use this agent for Godot 4.x editor-side tooling — EditorPlugin, EditorInspectorPlugin, EditorImportPlugin, cu
+- [a] [[A--godotprompter--godot-ui-designer|godotprompter/godot-ui-designer]] - Use this agent when the user needs to build or refactor user interfaces in Godot 4.x — settings menus, HUDs, i
+- [s] [[S--godotprompter--2d-essentials|godotprompter/2d-essentials]] - Use when working with 2D-specific systems — TileMaps, parallax scrolling, 2D lights and shadows, canvas layers
+- [s] [[S--godotprompter--3d-essentials|godotprompter/3d-essentials]] - Use when working with 3D-specific systems — materials, lighting, shadows, environment, global illumination, fo
+- [s] [[S--godotprompter--ability-system|godotprompter/ability-system]] - Use when building character abilities — Resource-based abilities with cost/cooldown/cast, buffs/debuffs, stat 
+- [s] [[S--godotprompter--addon-development|godotprompter/addon-development]] - Use when creating Godot editor plugins — EditorPlugin, @tool scripts, custom inspectors, and dock panels
+- [s] [[S--godotprompter--ai-navigation|godotprompter/ai-navigation]] - Use when implementing AI movement — NavigationAgent2D/3D, steering behaviors, behavior trees, and patrol patte
+- [s] [[S--godotprompter--animation-system|godotprompter/animation-system]] - Use when implementing animations — AnimationPlayer, AnimationTree, blend trees, state machines, sprite animati
+- [s] [[S--godotprompter--assets-pipeline|godotprompter/assets-pipeline]] - Use when importing and managing assets — image compression, 3D scene import, audio formats, resource formats, 
+- [s] [[S--godotprompter--audio-system|godotprompter/audio-system]] - Use when implementing audio — audio buses, AudioStreamPlayer, spatial audio, music management, SFX pooling, an
+- [s] [[S--godotprompter--authoring-godot-prompter-skills|godotprompter/authoring-godot-prompter-skills]] - Use when writing or editing a SKILL.md, a skill's references/*.md, or an agent definition in this repo — requi
+- [s] [[S--godotprompter--beehave|godotprompter/beehave]] - Use when using the Beehave addon — pure-GDScript behavior trees with composites, decorators, leaves, a blackbo
+- [s] [[S--godotprompter--camera-system|godotprompter/camera-system]] - Use when implementing cameras — smooth follow, screen shake, camera zones, and transitions for 2D and 3D
+- [s] [[S--godotprompter--component-system|godotprompter/component-system]] - Use when building reusable node components — composition patterns, component communication, and interface desi
+- [s] [[S--godotprompter--csharp-godot|godotprompter/csharp-godot]] - Use when working with C# in Godot — conventions, GodotSharp API differences from GDScript, project setup, and 
+- [s] [[S--godotprompter--csharp-signals|godotprompter/csharp-signals]] - Use when implementing signals in C# — [Signal] delegates, EmitSignal patterns, async signal awaiting, and even
+- [s] [[S--godotprompter--dedicated-server|godotprompter/dedicated-server]] - Use when building dedicated servers — headless export, server architecture, lobby management, and deployment
+- [s] [[S--godotprompter--dependency-injection|godotprompter/dependency-injection]] - Use when managing dependencies between systems — autoloads, service locators, @export injection, and scene inj
+- [s] [[S--godotprompter--dialogue-manager|godotprompter/dialogue-manager]] - Use when using the Dialogue Manager addon — .dialogue files with titles, responses, conditions and mutations, 
+- [s] [[S--godotprompter--dialogue-system|godotprompter/dialogue-system]] - Use when implementing dialogue — data structures for branching dialogue, conditions, and UI presentation
+- [s] [[S--godotprompter--event-bus|godotprompter/event-bus]] - Use when implementing decoupled communication between nodes — global EventBus autoload with typed signals
+- [s] [[S--godotprompter--export-pipeline|godotprompter/export-pipeline]] - Use when exporting and distributing Godot games — export presets, platform settings, CI/CD with GitHub Actions
+- [s] [[S--godotprompter--gdextension|godotprompter/gdextension]] - Use when building native extensions for Godot — godot-cpp (C++) or gdext (Rust), binding classes, building, an
+- [s] [[S--godotprompter--gdscript-advanced|godotprompter/gdscript-advanced]] - Use when writing production-grade GDScript — performance idioms, metaprogramming, @tool lifecycle, async pitfa
+- [s] [[S--godotprompter--gdscript-patterns|godotprompter/gdscript-patterns]] - Use when writing GDScript — static typing, await/coroutines, lambdas, match patterns, export annotations, inne
+- [s] [[S--godotprompter--godot-brainstorming|godotprompter/godot-brainstorming]] - Use when designing a new Godot feature or system — guides scene tree planning, node type selection, and archit
+- [s] [[S--godotprompter--godot-code-review|godotprompter/godot-code-review]] - Use when reviewing GDScript or C# Godot code — checklist of best practices, common anti-patterns, and Godot-sp
+- [s] [[S--godotprompter--godot-debugging|godotprompter/godot-debugging]] - Use when debugging Godot projects — remote debugger, print techniques, signal tracing, common error patterns a
+- [s] [[S--godotprompter--godot-grill|godotprompter/godot-grill]] - Use when a new Godot system or feature has open design decisions — interrogates them in batched rounds, scope 
+- [s] [[S--godotprompter--godot-mentor|godotprompter/godot-mentor]] - Use when the user wants to learn Godot while building — teaching mode that explains the concept, the editor se
+- [s] [[S--godotprompter--godot-optimization|godotprompter/godot-optimization]] - Use when optimizing Godot games — profiler, draw calls, physics tuning, memory management, and common bottlene
+- [s] [[S--godotprompter--godot-project-setup|godotprompter/godot-project-setup]] - Use when creating a new Godot 4.x project — scaffolds recommended directory structure, project settings, autol
+- [s] [[S--godotprompter--godot-testing|godotprompter/godot-testing]] - Use when writing tests for Godot projects — TDD workflow with GUT and gdUnit4, covers both GDScript and C#
+- [s] [[S--godotprompter--hud-system|godotprompter/hud-system]] - Use when building in-game HUDs — health bars, score displays, minimap, notifications, and damage numbers
+- [s] [[S--godotprompter--input-handling|godotprompter/input-handling]] - Use when implementing input — InputEvent system, Input Map actions, controllers/gamepads, mouse/touch, action 
+- [s] [[S--godotprompter--inventory-system|godotprompter/inventory-system]] - Use when building inventory systems — Resource-based items, slot management, stacking, and UI binding
+- [s] [[S--godotprompter--limboai|godotprompter/limboai]] - Use when using the LimboAI addon — behavior trees and hierarchical state machines (C++ GDExtension) with a vis
+- [s] [[S--godotprompter--localization|godotprompter/localization]] - Use when implementing localization (i18n/l10n) — TranslationServer, CSV/PO translation files, locale switching
+- [s] [[S--godotprompter--math-essentials|godotprompter/math-essentials]] - Use when implementing game math — vectors, transforms, interpolation, curves, random number generation, and co
+- [s] [[S--godotprompter--mobile-development|godotprompter/mobile-development]] - Use when targeting Android/iOS — export and signing, permissions, plugins, in-app purchases, ads, app lifecycl
+- [s] [[S--godotprompter--multiplayer-basics|godotprompter/multiplayer-basics]] - Use when implementing multiplayer — MultiplayerAPI, ENet/WebSocket peers, RPCs, and authority model
+- [s] [[S--godotprompter--multiplayer-sync|godotprompter/multiplayer-sync]] - Use when synchronizing multiplayer state — MultiplayerSynchronizer, interpolation, prediction, and lag compens
+- [s] [[S--godotprompter--multithreading|godotprompter/multithreading]] - Use when running work off the main thread — WorkerThreadPool, Thread/Mutex/Semaphore, call_deferred, thread-sa
+- [s] [[S--godotprompter--particles-vfx|godotprompter/particles-vfx]] - Use when implementing particle effects — GPUParticles2D/3D, ParticleProcessMaterial, emission shapes, subemitt
+- [s] [[S--godotprompter--phantom-camera|godotprompter/phantom-camera]] - Use when using the Phantom Camera addon — PhantomCamera2D/3D with priority-based switching, follow and look-at
+- [s] [[S--godotprompter--physics-system|godotprompter/physics-system]] - Use when working with physics bodies, collision shapes, raycasting, areas, rigid bodies, ragdolls, soft bodies
+- [s] [[S--godotprompter--player-controller|godotprompter/player-controller]] - Use when implementing player movement — CharacterBody2D/3D patterns, input handling, physics, common movement 
+- [s] [[S--godotprompter--popochiu|godotprompter/popochiu]] - Use when using the Popochiu addon — point-and-click adventure framework with rooms, characters, props/hotspots
+- [s] [[S--godotprompter--procedural-generation|godotprompter/procedural-generation]] - Use when implementing procedural generation — noise-based terrain, BSP dungeons, cellular automata caves, wave
+- [s] [[S--godotprompter--releasing-godot-prompter|godotprompter/releasing-godot-prompter]] - Use when cutting a GodotPrompter release or bumping its version — the version-bump sequence, tag-triggered wor
+- [s] [[S--godotprompter--rendering-pipeline|godotprompter/rendering-pipeline]] - Use when choosing a renderer or planning a project's look and frame budget — renderer per platform, lighting s
+- [s] [[S--godotprompter--resource-pattern|godotprompter/resource-pattern]] - Use when creating data containers in Godot — custom Resources for configuration, items, stats, and editor inte
+- [s] [[S--godotprompter--responsive-ui|godotprompter/responsive-ui]] - Use when handling multiple resolutions — stretch modes, aspect ratios, DPI scaling, and mobile/desktop adaptat
+- [s] [[S--godotprompter--save-load|godotprompter/save-load]] - Use when implementing save/load systems — ConfigFile, JSON, Resource serialization, save game architecture
+- [s] [[S--godotprompter--scene-organization|godotprompter/scene-organization]] - Use when designing scene tree structure — composition vs inheritance, when to split scenes, node hierarchy pat
+- [s] [[S--godotprompter--shader-basics|godotprompter/shader-basics]] - Use when implementing shaders — Godot shader language, visual shaders, common visual recipes, and post-process
+- [s] [[S--godotprompter--state-machine|godotprompter/state-machine]] - Use when implementing state machines in Godot — enum-based, node-based, and resource-based FSM patterns with t
+- [s] [[S--godotprompter--tween-animation|godotprompter/tween-animation]] - Use when implementing tweens — property animation, method tweening, chaining, parallel sequences, easing, and 
+- [s] [[S--godotprompter--using-godot-prompter|godotprompter/using-godot-prompter]] - Bootstrap skill — establishes how to find and use GodotPrompter skills, with platform-specific tool mapping
+- [s] [[S--godotprompter--web-export|godotprompter/web-export]] - Use when shipping a Godot game to the browser — Web export preset options, threads vs no-threads and COOP/COEP
+- [s] [[S--godotprompter--web-services|godotprompter/web-services]] - Use when calling web APIs or backends from Godot — HTTPRequest, REST/JSON clients, auth headers, downloads, TL
+- [s] [[S--godotprompter--xr-development|godotprompter/xr-development]] - Use when building VR/AR/XR applications — OpenXR setup, XROrigin3D, hand tracking, controllers, passthrough, a

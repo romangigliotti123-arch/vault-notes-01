@@ -1,0 +1,10 @@
+#!/bin/sh
+# mentor-hook <hook | suggest "<prompt>" | install-hooks | uninstall-hooks | status>: launcher for mentor-hook.py (first working Python 3).
+# `hook` stays silent and costs nothing when no Python works, so it can never block a prompt.
+S="$(cd "$(dirname "$0")" 2>/dev/null && { pwd -W 2>/dev/null || pwd; })"
+for p in python3 python py; do
+  if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then exec "$p" -I "$S/mentor-hook.py" "$@"; fi
+done
+[ "$1" = hook ] && exit 0
+echo "mentor-hook: no working python3/python/py found" >&2
+exit 1

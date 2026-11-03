@@ -1,0 +1,53 @@
+---
+title: leads - Game Ideas
+creator: leads
+tags: [roblox, leads, theme]
+---
+
+# leads: Game Ideas
+
+All leads tips on this theme, grouped by topic, oldest first. Cross-creator synthesis: see [[README]] in roblox-kb.
+
+## [[game-ideas-and-genres]]
+- 2018-07-24 [15:01](https://youtu.be/EDY-8V943IE?t=901) Make games you personally love playing; small-detail execution depends on genuine enthusiasm for the genre. ([[2018-07-24 - Roblox Developer Conference 2018 - Keynote Kristian Segerstrale|Roblox Developer Conference 2018 - Keynote: Kristi]])
+
+## [[trend-research-and-validation]]
+- 2026-10-23 [0:42](https://youtu.be/OfObWnrucRY?t=42) Research trending genres first; the speaker chose RPG/grind games (Blox Fruits, Gacha Run-style) because they perform well, then tried to simplify the grind. ([[2026-10-23 - Building a Viral Roblox Game with AI FULL PROCESS|Building a Viral Roblox Game with AI [FULL PROCESS]])
+
+## [[core-loops-and-game-design]]
+- 2022-02-01 [37:50](https://youtu.be/WGRpglQ87XE?t=2270) When missions feel repetitive or stall, add varied ways to play such as daily goals and rotating limited-time events, so players always have something meaningful to do. ([[2022-02-01 - Research Methods to Improve Live Game Retention, D1 to D100|Research Methods to Improve Live Game Retention, D]])
+- 2022-02-01 [55:25](https://youtu.be/WGRpglQ87XE?t=3325) If a feature is confusing, give it a real gameplay effect. Cooking Dash's pets were cosmetic, so they were changed to auto-serve food. ([[2022-02-01 - Research Methods to Improve Live Game Retention, D1 to D100|Research Methods to Improve Live Game Retention, D]])
+- 2022-04-25 [0:44](https://youtu.be/Zrf1cou_yVo?t=44) Design economy entities deliberately: taps create resources, inventories store them, converters spend them, drains remove them, traders trade them. Map your loop against these. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [1:54](https://youtu.be/Zrf1cou_yVo?t=114) Use taps to incentivise behaviour: put loot on enemies to encourage fighting, unique materials per biome to encourage exploration. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [3:04](https://youtu.be/Zrf1cou_yVo?t=184) Set inventory upper limits to force meaningful choices and stop players hoarding resources they never use. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [4:29](https://youtu.be/Zrf1cou_yVo?t=269) Control progression pace by tuning converter costs or tap output; XP cost vs. XP per kill tells you roughly how many kills before a power-up. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [5:13](https://youtu.be/Zrf1cou_yVo?t=313) Fewer currencies or shared crafting materials create harder decisions; separate per-upgrade materials remove decisions. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [6:45](https://youtu.be/Zrf1cou_yVo?t=405) Positive power-creep loops are addictive but become grind; add a negative feedback loop or puzzle depth to avoid tedium. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [8:58](https://youtu.be/Zrf1cou_yVo?t=538) Scale conversion cost with level (Elden Ring rune curve) so farming trivial enemies is ineffective and players explore harder areas. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [9:49](https://youtu.be/Zrf1cou_yVo?t=589) Add drains (breakage, upkeep, spoilage, ammo use) to slow power growth and force players to re-engage with the economy. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [12:09](https://youtu.be/Zrf1cou_yVo?t=729) Add trader NPCs with their own stock and prices by location so players profit from arbitrage, creating trade-route puzzles. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [12:53](https://youtu.be/Zrf1cou_yVo?t=773) Model supply and demand (Moonlighter: flooding a market drops price) so repeated sales cannot be farmed infinitely. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-04-25 [13:37](https://youtu.be/Zrf1cou_yVo?t=817) Add price volatility with risk and reward (Animal Crossing turnips) to fix exploits and add decisions about how much to risk. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2022-06-11 [0:23](https://youtu.be/Mep4_w8qxeE?t=23) Define one core loop: the most repeated minute-to-minute action. If it isn't fun, the rest of the game won't be either. ([[2022-06-11 - (ENGLISH) Core Loops and Prototyping by Roblox Level Up Connect 2022|(ENGLISH) Core Loops and Prototyping by Roblox Lev]])
+- 2022-06-11 [13:28](https://youtu.be/Mep4_w8qxeE?t=808) Before adding any system, state which part of the core loop it improves. Systems that don't tie back to the loop feel random and jumbled. ([[2022-06-11 - (ENGLISH) Core Loops and Prototyping by Roblox Level Up Connect 2022|(ENGLISH) Core Loops and Prototyping by Roblox Lev]])
+- 2022-06-11 [38:48](https://youtu.be/Mep4_w8qxeE?t=2328) Aim for one core loop per experience. Multiple loops usually mean the loop is overcomplicated or a tumor is present. ([[2022-06-11 - (ENGLISH) Core Loops and Prototyping by Roblox Level Up Connect 2022|(ENGLISH) Core Loops and Prototyping by Roblox Lev]])
+- 2022-06-11 [39:42](https://youtu.be/Mep4_w8qxeE?t=2382) Remove social gates from the core loop. Adopt Me's solo pet feature boosted engagement after parents needed another player to earn currency. ([[2022-06-11 - (ENGLISH) Core Loops and Prototyping by Roblox Level Up Connect 2022|(ENGLISH) Core Loops and Prototyping by Roblox Lev]])
+- 2022-06-11 [42:13](https://youtu.be/Mep4_w8qxeE?t=2533) The core loop should work solo or multiplayer. Give single-player players meaningful loop actions, as Jailbreak did with armored vehicle heists. ([[2022-06-11 - (ENGLISH) Core Loops and Prototyping by Roblox Level Up Connect 2022|(ENGLISH) Core Loops and Prototyping by Roblox Lev]])
+- 2022-06-11 [44:21](https://youtu.be/Mep4_w8qxeE?t=2661) Separate core loop (repeated actions) from progression (levels, unlocks). Give max-level players an endgame, a season, or a periodic reset. ([[2022-06-11 - (ENGLISH) Core Loops and Prototyping by Roblox Level Up Connect 2022|(ENGLISH) Core Loops and Prototyping by Roblox Lev]])
+- 2022-06-11 [50:12](https://youtu.be/Mep4_w8qxeE?t=3012) Design the whole experience around the core loop, especially early on. Unanchored cool ideas create a confusing mess and a short novelty period. ([[2022-06-11 - (ENGLISH) Core Loops and Prototyping by Roblox Level Up Connect 2022|(ENGLISH) Core Loops and Prototyping by Roblox Lev]])
+- 2023-03-31 [1:24](https://youtu.be/bYyD6tyz6Dg?t=84) Skip manual stat allocation if you want low-friction progression; grant stat boosts via items and buffs so players never feel they picked a wrong build. ([[2023-03-31 - Stat System Design - Creating Rpg Game|Stat System Design - Creating Rpg Game]])
+- 2023-03-31 [2:22](https://youtu.be/bYyD6tyz6Dg?t=142) Use one shared stat system for both players and enemies so the same numbers balance both sides. ([[2023-03-31 - Stat System Design - Creating Rpg Game|Stat System Design - Creating Rpg Game]])
+- 2023-04-02 [2:26](https://youtu.be/H6LsbS_SA2w?t=146) Tune the respawn delay per coin (e.g. 5 seconds, or 120 for two minutes) to control how often the same collectible reappears. ([[2023-04-02 - HOW TO MAKE A PART GIVE YOU CURRENCY 🛠️ Roblox Studio Tutorial|HOW TO MAKE A PART GIVE YOU CURRENCY 🛠️ Roblox Stu]])
+- 2023-04-02 [3:04](https://youtu.be/H6LsbS_SA2w?t=184) Vary the reward value by area (e.g. 1 currency in area one, 10 in area two) to scale rewards as players progress. ([[2023-04-02 - HOW TO MAKE A PART GIVE YOU CURRENCY 🛠️ Roblox Studio Tutorial|HOW TO MAKE A PART GIVE YOU CURRENCY 🛠️ Roblox Stu]])
+- 2025-05-23 [9:30](https://youtu.be/Gw2FwndwnOg?t=570) Dev 5 found emerald was reachable in about 5 minutes; tune ore value and time-to-unlock against the progression curve before adding content. ([[2025-05-23 - Can 6 DEVS Make GROW A GARDEN Without Communicating|Can 6 DEVS Make GROW A GARDEN Without Communicatin]])
+- 2025-05-23 [10:51](https://youtu.be/Gw2FwndwnOg?t=651) Add something to do while waiting for timers to finish, as Grow a Garden does with fast permanent fruit, so idle time isn't dead time. ([[2025-05-23 - Can 6 DEVS Make GROW A GARDEN Without Communicating|Can 6 DEVS Make GROW A GARDEN Without Communicatin]])
+- 2026-09-18 [16:26](https://youtu.be/j3L0K1yZjms?t=986) Use level-gated map indicators (red flash) to guide players to the right farming zone for their level. ([[2026-09-18 - In-Depth Beginners Leveling Guide Project Slayers 2|In-Depth Beginners Leveling Guide | Project Slayer]])
+- 2026-09-18 [22:27](https://youtu.be/j3L0K1yZjms?t=1347) Dungeons with points-based shop and RNG chests give a mid-game grind loop tied to progression items. ([[2026-09-18 - In-Depth Beginners Leveling Guide Project Slayers 2|In-Depth Beginners Leveling Guide | Project Slayer]])
+- 2026-09-18 [28:02](https://youtu.be/j3L0K1yZjms?t=1682) Random world events (e.g. wild horse spawns announced by NPC chat) reward players who watch for them. ([[2026-09-18 - In-Depth Beginners Leveling Guide Project Slayers 2|In-Depth Beginners Leveling Guide | Project Slayer]])
+- 2026-10-23 [7:06](https://youtu.be/OfObWnrucRY?t=426) Make high-tier gear expensive so players must grind for it, and balance the grind with cheaper chances (spins) to keep it feeling worthwhile. ([[2026-10-23 - Building a Viral Roblox Game with AI FULL PROCESS|Building a Viral Roblox Game with AI [FULL PROCESS]])
+
+## [[genre-mechanics]]
+- 2022-04-25 [8:16](https://youtu.be/Zrf1cou_yVo?t=496) Turn power growth into a puzzle of optimisation (Factorio, Satisfactory style) so progression rewards planning rather than repetition. ([[2022-04-25 - How Video Game Economies are Designed|How Video Game Economies are Designed]])
+- 2023-03-31 [3:54](https://youtu.be/bYyD6tyz6Dg?t=234) Keep elemental status effects simple (burn, slow, chill, shock) rather than multi-step ailment chains, so players don't get confused by extra calculations. ([[2023-03-31 - Stat System Design - Creating Rpg Game|Stat System Design - Creating Rpg Game]])
+
+Up: [[leads - How to make successful Roblox games]]

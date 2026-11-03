@@ -1,0 +1,3072 @@
+---
+title: Roblox Creator Docs - Tools & Resources
+tags: [roblox, roblox creator docs]
+---
+
+# Roblox Creator Docs: Tools & Resources
+
+## Tools mentioned
+- **Roblox Studio**: [[2026-10-28 - Docs tutorials curriculums environmental-art optimize-your-experience|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs art characters creating blender-configurations|Docs: art / characters / creating / blender-config]], [[2026-10-28 - Docs education adventure-game-series selling-items|Docs: education / adventure-game-series / selling-]], [[2026-10-28 - Docs resources weapons-kit|Docs: resources / weapons-kit]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway add-new-models|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education battle-royale-series cleanup-and-reset|Docs: education / battle-royale-series / cleanup-a]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-3|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs education adventure-game-series finishing-the-project|Docs: education / adventure-game-series / finishin]], [[2026-10-28 - Docs education resources coding-concept-abstraction|Docs: education / resources / coding-concept-abstr]], [[2026-10-28 - Docs tutorials|Docs: tutorials]], [[2026-10-28 - Docs chat platform-integrated-chat|Docs: chat / platform-integrated-chat]], [[2026-10-28 - Docs education adventure-game-series create-the-map|Docs: education / adventure-game-series / create-t]], [[2026-10-28 - Docs art characters creating texturing-setup|Docs: art / characters / creating / texturing-setu]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder test-and-play|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs avatar automatic-skinning-transfer|Docs: avatar / automatic-skinning-transfer]], [[2026-10-28 - Docs production game-design prototyping|Docs: production / game-design / prototyping]], [[2026-10-28 - Docs education adventure-game-series collect-items|Docs: education / adventure-game-series / collect-]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder connect-the-beam|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs education battle-royale-series creating-a-gui|Docs: education / battle-royale-series / creating-]], [[2026-10-28 - Docs avatar classic-clothing|Docs: avatar / classic-clothing]], [[2026-10-28 - Docs education build-it-play-it-island-of-move beginner-landing-page|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs art accessories creating-rigid publishing|Docs: art / accessories / creating-rigid / publish]], [[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]], [[2026-10-28 - Docs marketplace frequently-asked-questions|Docs: marketplace / frequently-asked-questions]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy buildings-and-props|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs education build-it-play-it-island-of-move animations-and-feedback|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials curriculums coding next-steps|Docs: tutorials / curriculums / coding / next-step]], [[2026-10-28 - Docs workspace streaming|Docs: workspace / streaming]], [[2026-10-28 - Docs tutorials curriculums coding test-and-save|Docs: tutorials / curriculums / coding / test-and-]], [[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]], [[2026-10-28 - Docs tutorials curriculums building|Docs: tutorials / curriculums / building]], [[2026-10-28 - Docs production monetization immersive-ads|Docs: production / monetization / immersive-ads]], [[2026-10-28 - Docs resources beyond-the-dark user-interface|Docs: resources / beyond-the-dark / user-interface]], [[2026-10-28 - Docs tutorials curriculums animator get-started|Docs: tutorials / curriculums / animator / get-sta]], [[2026-10-28 - Docs marketplace validation-system|Docs: marketplace / validation-system]], [[2026-10-28 - Docs tutorials fundamentals coding-4 intro-to-for-loops|Docs: tutorials / fundamentals / coding-4 / intro-]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder making-an-explosion|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs education battle-royale-series finishing-the-project|Docs: education / battle-royale-series / finishing]], [[2026-10-28 - Docs scripting module|Docs: scripting / module]], [[2026-10-28 - Docs education battle-royale-series landing|Docs: education / battle-royale-series / landing]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway main-page|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway get-off-the-ground|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting add-rounds|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs tutorials use-case-tutorials ui proximity-prompts|Docs: tutorials / use-case-tutorials / ui / proxim]], [[2026-10-28 - Docs education support roblox-account-creation|Docs: education / support / roblox-account-creatio]], [[2026-10-28 - Docs art accessories creating trimming|Docs: art / accessories / creating / trimming]], [[2026-10-28 - Docs tutorials use-case-tutorials lighting create-flickering-lights|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs art accessories creating|Docs: art / accessories / creating]], [[2026-10-28 - Docs chat examples rate-limit-public-text-inputs|Docs: chat / examples / rate-limit-public-text-inp]], [[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy change-the-script|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs avatar character-bodies test-blender|Docs: avatar / character-bodies / test-blender]], [[2026-10-28 - Docs get-started creating|Docs: get-started / creating]], [[2026-10-28 - Docs tutorials fundamentals coding-6 coding-concept-abstraction|Docs: tutorials / fundamentals / coding-6 / coding]], [[2026-10-28 - Docs tutorials fundamentals coding-2 parameters-practice-buttons|Docs: tutorials / fundamentals / coding-2 / parame]], [[2026-10-28 - Docs tutorials curriculums coding work-with-variables|Docs: tutorials / curriculums / coding / work-with]], [[2026-10-28 - Docs characters character-controller-library|Docs: characters / character-controller-library]], [[2026-10-28 - Docs tutorials fundamentals coding-2 functions-and-events|Docs: tutorials / fundamentals / coding-2 / functi]], [[2026-10-28 - Docs education resources getting-started-for-developers-education|Docs: education / resources / getting-started-for-]], [[2026-10-28 - Docs tutorials fundamentals coding-1 create-a-script|Docs: tutorials / fundamentals / coding-1 / create]], [[2026-10-28 - Docs education battle-royale-series managing-players|Docs: education / battle-royale-series / managing-]], [[2026-10-28 - Docs effects particle-emitters|Docs: effects / particle-emitters]], [[2026-10-28 - Docs education educator-onboarding 5-next-steps|Docs: education / educator-onboarding / 5-next-ste]], [[2026-10-28 - Docs resources battle-royale installation-and-setup|Docs: resources / battle-royale / installation-and]], [[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs projects data-model|Docs: projects / data-model]], [[2026-10-28 - Docs parts|Docs: parts]], [[2026-10-28 - Docs avatar emotes import|Docs: avatar / emotes / import]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy designing-a-map|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs art modeling roblox-blender-plugin|Docs: art / modeling / roblox-blender-plugin]], [[2026-10-28 - Docs avatar makeup reassign-textures|Docs: avatar / makeup / reassign-textures]], [[2026-10-28 - Docs effects trails|Docs: effects / trails]], [[2026-10-28 - Docs education build-it-play-it-island-of-move invite-friends-to-play|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials curriculums studio create-account|Docs: tutorials / curriculums / studio / create-ac]], [[2026-10-28 - Docs tutorials curriculums coding get-started|Docs: tutorials / curriculums / coding / get-start]], [[2026-10-28 - Docs education lesson-plans digital-citizenship coding-fundamentals|Docs: education / lesson-plans / digital-citizensh]], [[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]], [[2026-10-28 - Docs studio plugins|Docs: studio / plugins]], [[2026-10-28 - Docs art characters creating remove-extra-bones|Docs: art / characters / creating / remove-extra-b]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy landing|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-outdoor-environment|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs education battle-royale-series coding-the-game-loop|Docs: education / battle-royale-series / coding-th]], [[2026-10-28 - Docs education build-it-play-it-story-games complete-the-challenge|Docs: education / build-it-play-it-story-games / c]], [[2026-10-28 - Docs projects assets monetize|Docs: projects / assets / monetize]], [[2026-10-28 - Docs education build-it-play-it-island-of-move test-the-game|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs art accessories creating watertight|Docs: art / accessories / creating / watertight]], [[2026-10-28 - Docs audio objects|Docs: audio / objects]], [[2026-10-28 - Docs education support education-content|Docs: education / support / education-content]], [[2026-10-28 - Docs tutorials curriculums building get-started|Docs: tutorials / curriculums / building / get-sta]], [[2026-10-28 - Docs production monetization passes|Docs: production / monetization / passes]], [[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera control-the-users-c|Docs: tutorials / use-case-tutorials / input-and-c]], [[2026-10-28 - Docs resources beyond-the-dark|Docs: resources / beyond-the-dark]], [[2026-10-28 - Docs effects light-sources|Docs: effects / light-sources]], [[2026-10-28 - Docs ui video-frames|Docs: ui / video-frames]], [[2026-10-28 - Docs tutorials use-case-tutorials lighting light-with-props|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs tutorials curriculums core building create-a-project|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway go-beyond-the-challe|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs tutorials curriculums animator test-and-save|Docs: tutorials / curriculums / animator / test-an]], [[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]], [[2026-10-28 - Docs tutorials curriculums artist|Docs: tutorials / curriculums / artist]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder landing-page|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]], [[2026-10-28 - Docs ui appearance-modifiers|Docs: ui / appearance-modifiers]], [[2026-10-28 - Docs education build-it-play-it-story-games landing|Docs: education / build-it-play-it-story-games / l]], [[2026-10-28 - Docs tutorials use-case-tutorials physics create-spinning-objects|Docs: tutorials / use-case-tutorials / physics / c]], [[2026-10-28 - Docs get-started|Docs: get-started]], [[2026-10-28 - Docs tutorials curriculums building next-steps|Docs: tutorials / curriculums / building / next-st]], [[2026-10-28 - Docs tutorials fundamentals coding-1 object-properties|Docs: tutorials / fundamentals / coding-1 / object]], [[2026-10-28 - Docs education lesson-plans galactic-speedway-lesson|Docs: education / lesson-plans / galactic-speedway]], [[2026-10-28 - Docs production promotion referral-system|Docs: production / promotion / referral-system]], [[2026-10-28 - Docs education lesson-plans digital-citizenship landing|Docs: education / lesson-plans / digital-citizensh]], [[2026-10-28 - Docs resources feature-packages bundles|Docs: resources / feature-packages / bundles]], [[2026-10-28 - Docs art characters creating|Docs: art / characters / creating]], [[2026-10-28 - Docs tutorials use-case-tutorials modeling create-neon-signs|Docs: tutorials / use-case-tutorials / modeling / ]], [[2026-10-28 - Docs ai build|Docs: ai / build]], [[2026-10-28 - Docs education build-it-play-it-story-games code-the-story|Docs: education / build-it-play-it-story-games / c]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting score-poin|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials curriculums studio next-steps|Docs: tutorials / curriculums / studio / next-step]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway customize-and-share|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education resources classroom-best-practices|Docs: education / resources / classroom-best-pract]], [[2026-10-28 - Docs education resources teaching-remotely|Docs: education / resources / teaching-remotely]], [[2026-10-28 - Docs physics constraints cylindrical|Docs: physics / constraints / cylindrical]], [[2026-10-28 - Docs tutorials curriculums studio install-studio|Docs: tutorials / curriculums / studio / install-s]], [[2026-10-28 - Docs education lesson-plans create-and-destroy-lesson|Docs: education / lesson-plans / create-and-destro]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder particle-emitters|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs education lesson-plans digital-citizenship finishing-projects|Docs: education / lesson-plans / digital-citizensh]], [[2026-10-28 - Docs avatar rigid-accessories export|Docs: avatar / rigid-accessories / export]], [[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]], [[2026-10-28 - Docs tutorials fundamentals coding-4 create-a-timed-bridge|Docs: tutorials / fundamentals / coding-4 / create]], [[2026-10-28 - Docs education adventure-game-series landing|Docs: education / adventure-game-series / landing]], [[2026-10-28 - Docs tutorials curriculums curriculum-overview|Docs: tutorials / curriculums / curriculum-overvie]], [[2026-10-28 - Docs workspace streaming slim|Docs: workspace / streaming / slim]], [[2026-10-28 - Docs tutorials fundamentals coding-5 intro-to-arrays|Docs: tutorials / fundamentals / coding-5 / intro-]], [[2026-10-28 - Docs production monetization paid-access-local-currency|Docs: production / monetization / paid-access-loca]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy build-one-half|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway take-flight|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy save-and-publish|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]], [[2026-10-28 - Docs education build-it-play-it-story-games test-and-save|Docs: education / build-it-play-it-story-games / t]], [[2026-10-28 - Docs characters character-controller-library quick-start|Docs: characters / character-controller-library / ]], [[2026-10-28 - Docs parts textures-decals|Docs: parts / textures-decals]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-a-sparkler|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials fundamentals coding-2 code-a-function|Docs: tutorials / fundamentals / coding-2 / code-a]], [[2026-10-28 - Docs tutorials curriculums core scripting create-player-hazards|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-new-models|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting cre|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs resources modules social-interactions|Docs: resources / modules / social-interactions]], [[2026-10-28 - Docs production publishing publish-games-and-places|Docs: production / publishing / publish-games-and-]], [[2026-10-28 - Docs ui in-experience-containers|Docs: ui / in-experience-containers]], [[2026-10-28 - Docs production monetization shop|Docs: production / monetization / shop]], [[2026-10-28 - Docs effects beams|Docs: effects / beams]], [[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-ferris-wheel|Docs: tutorials / use-case-tutorials / physics / b]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway duplicate-and-design|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway save-and-publish|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs art accessories creating-rigid|Docs: art / accessories / creating-rigid]], [[2026-10-28 - Docs get-started tools|Docs: get-started / tools]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder using-particles-for-|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs art characters creating export-character|Docs: art / characters / creating / export-charact]], [[2026-10-28 - Docs studio|Docs: studio]], [[2026-10-28 - Docs education collaboration collaborating-in-roblox-landing-page|Docs: education / collaboration / collaborating-in]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder invite-friends|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs studio testing-modes|Docs: studio / testing-modes]], [[2026-10-28 - Docs tutorials fundamentals coding-6 create-with-module-scripts|Docs: tutorials / fundamentals / coding-6 / create]], [[2026-10-28 - Docs ui labels|Docs: ui / labels]], [[2026-10-28 - Docs performance-optimization microprofiler use-microprofiler|Docs: performance-optimization / microprofiler / u]], [[2026-10-28 - Docs tutorials curriculums coding|Docs: tutorials / curriculums / coding]], [[2026-10-28 - Docs resources battle-royale run-the-game|Docs: resources / battle-royale / run-the-game]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder finish-the-blast|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs get-started why-build-on-roblox|Docs: get-started / why-build-on-roblox]], [[2026-10-28 - Docs art modeling rig-a-simple-mesh|Docs: art / modeling / rig-a-simple-mesh]], [[2026-10-28 - Docs education lesson-plans animate-in-roblox-lesson|Docs: education / lesson-plans / animate-in-roblox]], [[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]], [[2026-10-28 - Docs performance-optimization microprofiler network|Docs: performance-optimization / microprofiler / n]], [[2026-10-28 - Docs tutorials fundamentals coding-3 traps-with-if-statements|Docs: tutorials / fundamentals / coding-3 / traps-]], [[2026-10-28 - Docs ui 3D-drag-detectors|Docs: ui / 3D-drag-detectors]], [[2026-10-28 - Docs ui ui-drag-detectors|Docs: ui / ui-drag-detectors]], [[2026-10-28 - Docs avatar dynamic-heads validate|Docs: avatar / dynamic-heads / validate]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-animations|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs resources beyond-the-dark layered-clothing|Docs: resources / beyond-the-dark / layered-clothi]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive design-dark-soundscapes|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs studio overview|Docs: studio / overview]], [[2026-10-28 - Docs art accessories creating converting|Docs: art / accessories / creating / converting]], [[2026-10-28 - Docs art blender|Docs: art / blender]], [[2026-10-28 - Docs art characters creating export-textures|Docs: art / characters / creating / export-texture]], [[2026-10-28 - Docs tutorials curriculums core scripting record-and-display-player-da|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]], [[2026-10-28 - Docs cloud guides instance|Docs: cloud / guides / instance]], [[2026-10-28 - Docs art accessories creating test-poses|Docs: art / accessories / creating / test-poses]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway add-to-the-garage|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]], [[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]], [[2026-10-28 - Docs resources battle-royale building-system|Docs: resources / battle-royale / building-system]], [[2026-10-28 - Docs tutorials use-case-tutorials audio in-game-sounds|Docs: tutorials / use-case-tutorials / audio / in-]], [[2026-10-28 - Docs education adventure-game-series code-the-leaderboard|Docs: education / adventure-game-series / code-the]], [[2026-10-28 - Docs studio controller-emulator|Docs: studio / controller-emulator]], [[2026-10-28 - Docs education lesson-plans roblox-developer landing|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs projects assets packages|Docs: projects / assets / packages]], [[2026-10-28 - Docs tutorials fundamentals coding-4 nested-loops|Docs: tutorials / fundamentals / coding-4 / nested]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive materialize-the-world|Docs: resources / the-mystery-of-duvall-drive / ma]], [[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]], [[2026-10-28 - Docs projects place-files|Docs: projects / place-files]], [[2026-10-28 - Docs tutorials fundamentals coding-3 powerups-with-if-statements|Docs: tutorials / fundamentals / coding-3 / poweru]], [[2026-10-28 - Docs tutorials curriculums environmental-art construct-your-world|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs resources feature-packages season-passes|Docs: resources / feature-packages / season-passes]], [[2026-10-28 - Docs education edu-templates edu-lesson-plan-template|Docs: education / edu-templates / edu-lesson-plan-]], [[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]], [[2026-10-28 - Docs tutorials fundamentals coding-4 glow-lights-with-for-loops|Docs: tutorials / fundamentals / coding-4 / glow-l]], [[2026-10-28 - Docs education build-it-play-it-island-of-move personalize-the-game|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]], [[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]], [[2026-10-28 - Docs tutorials curriculums studio|Docs: tutorials / curriculums / studio]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx use-particles-for-explosions|Docs: tutorials / use-case-tutorials / vfx / use-p]], [[2026-10-28 - Docs projects client-server|Docs: projects / client-server]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway going-for-a-race|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting fading-tra|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]], [[2026-10-28 - Docs education battle-royale-series project-setup|Docs: education / battle-royale-series / project-s]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting deadly-lav|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs art modeling assign-textures|Docs: art / modeling / assign-textures]], [[2026-10-28 - Docs tutorials fundamentals coding-3 give-points|Docs: tutorials / fundamentals / coding-3 / give-p]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder using-textures|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs players tools|Docs: players / tools]], [[2026-10-28 - Docs education build-it-play-it-island-of-move change-the-animation|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education lesson-plans story-games-lesson|Docs: education / lesson-plans / story-games-lesso]], [[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-4|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs art modeling export-requirements|Docs: art / modeling / export-requirements]], [[2026-10-28 - Docs tutorials use-case-tutorials use-case-tutorial-overview|Docs: tutorials / use-case-tutorials / use-case-tu]], [[2026-10-28 - Docs education lesson-plans digital-citizenship animating-characters|Docs: education / lesson-plans / digital-citizensh]], [[2026-10-28 - Docs tutorials curriculums environmental-art greybox-your-environment|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs education support designing-studio-templates|Docs: education / support / designing-studio-templ]], [[2026-10-28 - Docs tutorials curriculums animator|Docs: tutorials / curriculums / animator]], [[2026-10-28 - Docs workspace camera free-camera|Docs: workspace / camera / free-camera]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx laser-traps-with-beams|Docs: tutorials / use-case-tutorials / vfx / laser]], [[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]], [[2026-10-28 - Docs art accessories creating exporting|Docs: art / accessories / creating / exporting]], [[2026-10-28 - Docs creator-programs inspire|Docs: creator-programs / inspire]], [[2026-10-28 - Docs education lesson-plans digital-citizenship civil-and-safe-game|Docs: education / lesson-plans / digital-citizensh]], [[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]], [[2026-10-28 - Docs education build-it-play-it-story-games coding-a-question|Docs: education / build-it-play-it-story-games / c]], [[2026-10-28 - Docs art modeling rig-a-humanoid-model|Docs: art / modeling / rig-a-humanoid-model]], [[2026-10-28 - Docs tutorials curriculums coding customize-strings|Docs: tutorials / curriculums / coding / customize]], [[2026-10-28 - Docs tutorials fundamentals coding-6 intro-to-module-scripts|Docs: tutorials / fundamentals / coding-6 / intro-]], [[2026-10-28 - Docs art characters facial-animation create-basic-heads|Docs: art / characters / facial-animation / create]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy build-the-roads|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs tutorials fundamentals coding-2 multiple-parameters-and-arguments|Docs: tutorials / fundamentals / coding-2 / multip]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting cre|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials fundamentals coding-1 landing|Docs: tutorials / fundamentals / coding-1 / landin]], [[2026-10-28 - Docs avatar dynamic-heads facs-poses-reference|Docs: avatar / dynamic-heads / facs-poses-referenc]], [[2026-10-28 - Docs avatar layered-accessories project-files|Docs: avatar / layered-accessories / project-files]], [[2026-10-28 - Docs characters character-controller-library custom-abilities|Docs: characters / character-controller-library / ]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway grouping-the-parts|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs workspace|Docs: workspace]], [[2026-10-28 - Docs tutorials curriculums artist get-started|Docs: tutorials / curriculums / artist / get-start]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials use-case-tutorials physics create-elevators|Docs: tutorials / use-case-tutorials / physics / c]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway adding-wings|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs resources battle-royale the-storm|Docs: resources / battle-royale / the-storm]], [[2026-10-28 - Docs tutorials curriculums core scripting script-game-behavior|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder adding-scripts|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials curriculums user-interface-design|Docs: tutorials / curriculums / user-interface-des]], [[2026-10-28 - Docs art modeling texture-specifications|Docs: art / modeling / texture-specifications]], [[2026-10-28 - Docs production game-design monetization-foundations|Docs: production / game-design / monetization-foun]], [[2026-10-28 - Docs tutorials fundamentals coding-3 multiple-conditions|Docs: tutorials / fundamentals / coding-3 / multip]], [[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]], [[2026-10-28 - Docs tutorials curriculums environmental-art|Docs: tutorials / curriculums / environmental-art]], [[2026-10-28 - Docs projects configure-games|Docs: projects / configure-games]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting intro-to-s|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs production monetization paid-access-robux|Docs: production / monetization / paid-access-robu]], [[2026-10-28 - Docs tutorials curriculums environmental-art assemble-an-asset-library|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs tutorials fundamentals coding-3 intro-to-if-statements|Docs: tutorials / fundamentals / coding-3 / intro-]], [[2026-10-28 - Docs art characters validation-tool|Docs: art / characters / validation-tool]], [[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs tutorials curriculums building work-with-parts|Docs: tutorials / curriculums / building / work-wi]], [[2026-10-28 - Docs education landing-pages build-it-play-it|Docs: education / landing-pages / build-it-play-it]], [[2026-10-28 - Docs education support creating-bundled-installers|Docs: education / support / creating-bundled-insta]], [[2026-10-28 - Docs resources feature-packages missions|Docs: resources / feature-packages / missions]], [[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]], [[2026-10-28 - Docs ui frames|Docs: ui / frames]], [[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-1|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-engaging-ex|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials fundamentals coding-5 intro-to-dictionaries|Docs: tutorials / fundamentals / coding-5 / intro-]], [[2026-10-28 - Docs education build-it-play-it-island-of-move save-and-publish|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs cloud-services http-service|Docs: cloud-services / http-service]], [[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]], [[2026-10-28 - Docs art accessories creating modify-cage|Docs: art / accessories / creating / modify-cage]], [[2026-10-28 - Docs tutorials curriculums user-interface-design choose-an-art-style|Docs: tutorials / curriculums / user-interface-des]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy snap-to-grid|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs tutorials curriculums core scripting script-an-upgrade-button|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-2D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials fundamentals coding-5 loops-and-arrays|Docs: tutorials / fundamentals / coding-5 / loops-]], [[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]], [[2026-10-28 - Docs art modeling skin-a-humanoid-model|Docs: art / modeling / skin-a-humanoid-model]], [[2026-10-28 - Docs resources battle-royale|Docs: resources / battle-royale]], [[2026-10-28 - Docs tutorials fundamentals coding-3 landing|Docs: tutorials / fundamentals / coding-3 / landin]], [[2026-10-28 - Docs tutorials curriculums building test-and-save|Docs: tutorials / curriculums / building / test-an]], [[2026-10-28 - Docs chat voice-chat|Docs: chat / voice-chat]], [[2026-10-28 - Docs tutorials curriculums core building create-basic-visual-effects|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs environment post-processing-effects|Docs: environment / post-processing-effects]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder beginner-landing-pag|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials use-case-tutorials data-storage create-leaderboard|Docs: tutorials / use-case-tutorials / data-storag]], [[2026-10-28 - Docs avatar layered-accessories export|Docs: avatar / layered-accessories / export]], [[2026-10-28 - Docs education build-it-play-it-story-games finish-and-add|Docs: education / build-it-play-it-story-games / f]], [[2026-10-28 - Docs projects|Docs: projects]], [[2026-10-28 - Docs tutorials use-case-tutorials physics create-moving-objects|Docs: tutorials / use-case-tutorials / physics / c]], [[2026-10-28 - Docs education lesson-plans build-an-obby-lesson|Docs: education / lesson-plans / build-an-obby-les]], [[2026-10-28 - Docs education battle-royale-series ending-matches|Docs: education / battle-royale-series / ending-ma]], [[2026-10-28 - Docs education build-it-play-it-island-of-move go-beyond-the-challenge|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education build-it-play-it-story-games start-coding|Docs: education / build-it-play-it-story-games / s]], [[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]], [[2026-10-28 - Docs physics mechanical-constraints|Docs: physics / mechanical-constraints]], [[2026-10-28 - Docs tutorials use-case-tutorials audio play-background-music|Docs: tutorials / use-case-tutorials / audio / pla]], [[2026-10-28 - Docs studio setup|Docs: studio / setup]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-5|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs performance-optimization design|Docs: performance-optimization / design]], [[2026-10-28 - Docs sound objects|Docs: sound / objects]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder become-an-artist|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder save-by-publishing|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs education educator-onboarding 1-intro-to-roblox|Docs: education / educator-onboarding / 1-intro-to]], [[2026-10-28 - Docs tutorials fundamentals coding-1 parents-and-children|Docs: tutorials / fundamentals / coding-1 / parent]], [[2026-10-28 - Docs characters appearance|Docs: characters / appearance]], [[2026-10-28 - Docs resources battle-royale minimap-system|Docs: resources / battle-royale / minimap-system]], [[2026-10-28 - Docs resources templates|Docs: resources / templates]], [[2026-10-28 - Docs tutorials curriculums artist next-steps|Docs: tutorials / curriculums / artist / next-step]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway colors-and-textures|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs art accessories creating texture-map|Docs: art / accessories / creating / texture-map]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy playtest-the-map|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs avatar character-bodies project-files|Docs: avatar / character-bodies / project-files]], [[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]], [[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]], [[2026-10-28 - Docs tutorials curriculums core building customize-global-lighting|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs avatar tutorials|Docs: avatar / tutorials]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs education build-it-play-it-story-games opening-the-template|Docs: education / build-it-play-it-story-games / o]], [[2026-10-28 - Docs art modeling material-reference|Docs: art / modeling / material-reference]], [[2026-10-28 - Docs scripting|Docs: scripting]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]], [[2026-10-28 - Docs tutorials curriculums artist test-and-save|Docs: tutorials / curriculums / artist / test-and-]], [[2026-10-28 - Docs education battle-royale-series timers-and-events|Docs: education / battle-royale-series / timers-an]], [[2026-10-28 - Docs avatar emotes export|Docs: avatar / emotes / export]], [[2026-10-28 - Docs production publishing account-verification|Docs: production / publishing / account-verificati]], [[2026-10-28 - Docs education resources frequently-asked-questions-education|Docs: education / resources / frequently-asked-que]], [[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-hinged-door|Docs: tutorials / use-case-tutorials / physics / b]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-2|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs art characters creating modeling-tips|Docs: art / characters / creating / modeling-tips]], [[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]], [[2026-10-28 - Docs parts procedural-models|Docs: parts / procedural-models]], [[2026-10-28 - Docs tutorials fundamentals coding-1 coding-fundamentals|Docs: tutorials / fundamentals / coding-1 / coding]], [[2026-10-28 - Docs resources battle-royale core-scripts|Docs: resources / battle-royale / core-scripts]], [[2026-10-28 - Docs marketplace homestore|Docs: marketplace / homestore]], [[2026-10-28 - Docs education build-it-play-it-island-of-move landing|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway designing-your-speed|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx basic-particle-effects|Docs: tutorials / use-case-tutorials / vfx / basic]], [[2026-10-28 - Docs avatar emotes specifications|Docs: avatar / emotes / specifications]], [[2026-10-28 - Docs education build-it-play-it-island-of-move opening-the-template|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]], [[2026-10-28 - Docs art characters creating final-checks|Docs: art / characters / creating / final-checks]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]], [[2026-10-28 - Docs education build-it-play-it-story-games writing-the-story|Docs: education / build-it-play-it-story-games / w]], [[2026-10-28 - Docs education lesson-plans intro-to-game-and-coding|Docs: education / lesson-plans / intro-to-game-and]], [[2026-10-28 - Docs cloud-services secrets|Docs: cloud-services / secrets]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway sharing-your-speeder|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs production promotion ads-manager|Docs: production / promotion / ads-manager]], [[2026-10-28 - Docs avatar dynamic-heads specifications|Docs: avatar / dynamic-heads / specifications]], [[2026-10-28 - Docs scripting debounce|Docs: scripting / debounce]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder make-final-touches|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]], [[2026-10-28 - Docs ui viewport-frames|Docs: ui / viewport-frames]], [[2026-10-28 - Docs education adventure-game-series buying-upgrades|Docs: education / adventure-game-series / buying-u]], [[2026-10-28 - Docs art modeling skin-a-simple-mesh|Docs: art / modeling / skin-a-simple-mesh]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]], [[2026-10-28 - Docs avatar character-bodies test|Docs: avatar / character-bodies / test]], [[2026-10-28 - Docs tutorials fundamentals coding-5 pairs-and-ipairs|Docs: tutorials / fundamentals / coding-5 / pairs-]], [[2026-10-28 - Docs tutorials curriculums artist work-with-particle-emitters|Docs: tutorials / curriculums / artist / work-with]], [[2026-10-28 - Docs performance-optimization microprofiler|Docs: performance-optimization / microprofiler]], [[2026-10-28 - Docs art|Docs: art]], [[2026-10-28 - Docs tutorials fundamentals coding-2 use-parameters-and-events|Docs: tutorials / fundamentals / coding-2 / use-pa]], [[2026-10-28 - Docs tutorials curriculums user-interface-design wireframe-your-layout|Docs: tutorials / curriculums / user-interface-des]], [[2026-10-28 - Docs tutorials fundamentals coding-4 repeat-code-with-while-loops|Docs: tutorials / fundamentals / coding-4 / repeat]]
+- **Blender**: [[2026-10-28 - Docs art characters creating blender-configurations|Docs: art / characters / creating / blender-config]], [[2026-10-28 - Docs art accessories creating sculpting|Docs: art / accessories / creating / sculpting]], [[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]], [[2026-10-28 - Docs tutorials|Docs: tutorials]], [[2026-10-28 - Docs art characters creating texturing-setup|Docs: art / characters / creating / texturing-setu]], [[2026-10-28 - Docs avatar automatic-skinning-transfer|Docs: avatar / automatic-skinning-transfer]], [[2026-10-28 - Docs art accessories creating modeling-setup|Docs: art / accessories / creating / modeling-setu]], [[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]], [[2026-10-28 - Docs avatar character-bodies export|Docs: avatar / character-bodies / export]], [[2026-10-28 - Docs art accessories creating trimming|Docs: art / accessories / creating / trimming]], [[2026-10-28 - Docs art accessories creating|Docs: art / accessories / creating]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs avatar character-bodies test-blender|Docs: avatar / character-bodies / test-blender]], [[2026-10-28 - Docs get-started creating|Docs: get-started / creating]], [[2026-10-28 - Docs art modeling roblox-blender-plugin|Docs: art / modeling / roblox-blender-plugin]], [[2026-10-28 - Docs avatar makeup reassign-textures|Docs: avatar / makeup / reassign-textures]], [[2026-10-28 - Docs art characters creating remove-extra-bones|Docs: art / characters / creating / remove-extra-b]], [[2026-10-28 - Docs art characters facial-animation moods|Docs: art / characters / facial-animation / moods]], [[2026-10-28 - Docs art accessories creating watertight|Docs: art / accessories / creating / watertight]], [[2026-10-28 - Docs art accessories creating unwrapping|Docs: art / accessories / creating / unwrapping]], [[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]], [[2026-10-28 - Docs marketplace marketplace-policy|Docs: marketplace / marketplace-policy]], [[2026-10-28 - Docs art modeling cage-meshes create-cages|Docs: art / modeling / cage-meshes / create-cages]], [[2026-10-28 - Docs art characters creating caging|Docs: art / characters / creating / caging]], [[2026-10-28 - Docs avatar|Docs: avatar]], [[2026-10-28 - Docs avatar resources|Docs: avatar / resources]], [[2026-10-28 - Docs avatar rigid-accessories export|Docs: avatar / rigid-accessories / export]], [[2026-10-28 - Docs marketplace custom-thumbnails|Docs: marketplace / custom-thumbnails]], [[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]], [[2026-10-28 - Docs art accessories creating-rigid|Docs: art / accessories / creating-rigid]], [[2026-10-28 - Docs art characters creating export-character|Docs: art / characters / creating / export-charact]], [[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]], [[2026-10-28 - Docs art modeling specifications|Docs: art / modeling / specifications]], [[2026-10-28 - Docs art modeling rig-a-simple-mesh|Docs: art / modeling / rig-a-simple-mesh]], [[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]], [[2026-10-28 - Docs parts meshes|Docs: parts / meshes]], [[2026-10-28 - Docs art accessories creating caging-setup|Docs: art / accessories / creating / caging-setup]], [[2026-10-28 - Docs art blender|Docs: art / blender]], [[2026-10-28 - Docs art characters creating export-textures|Docs: art / characters / creating / export-texture]], [[2026-10-28 - Docs art accessories creating test-poses|Docs: art / accessories / creating / test-poses]], [[2026-10-28 - Docs art characters creating template-files|Docs: art / characters / creating / template-files]], [[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]], [[2026-10-28 - Docs avatar create|Docs: avatar / create]], [[2026-10-28 - Docs art modeling|Docs: art / modeling]], [[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]], [[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]], [[2026-10-28 - Docs art characters creating modeling-best-practices|Docs: art / characters / creating / modeling-best-]], [[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]], [[2026-10-28 - Docs art modeling assign-textures|Docs: art / modeling / assign-textures]], [[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]], [[2026-10-28 - Docs art modeling export-requirements|Docs: art / modeling / export-requirements]], [[2026-10-28 - Docs tutorials use-case-tutorials use-case-tutorial-overview|Docs: tutorials / use-case-tutorials / use-case-tu]], [[2026-10-28 - Docs art characters creating head-objects|Docs: art / characters / creating / head-objects]], [[2026-10-28 - Docs art accessories creating exporting|Docs: art / accessories / creating / exporting]], [[2026-10-28 - Docs avatar rigid-accessories specifications|Docs: avatar / rigid-accessories / specifications]], [[2026-10-28 - Docs art modeling rig-a-humanoid-model|Docs: art / modeling / rig-a-humanoid-model]], [[2026-10-28 - Docs art modeling cage-meshes|Docs: art / modeling / cage-meshes]], [[2026-10-28 - Docs art accessories creating texture-painting|Docs: art / accessories / creating / texture-paint]], [[2026-10-28 - Docs art accessories creating-rigid exporting|Docs: art / accessories / creating-rigid / exporti]], [[2026-10-28 - Docs avatar dynamic-heads facs-poses-reference|Docs: avatar / dynamic-heads / facs-poses-referenc]], [[2026-10-28 - Docs avatar layered-accessories project-files|Docs: avatar / layered-accessories / project-files]], [[2026-10-28 - Docs workspace|Docs: workspace]], [[2026-10-28 - Docs art modeling texture-specifications|Docs: art / modeling / texture-specifications]], [[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]], [[2026-10-28 - Docs art characters creating sculpting|Docs: art / characters / creating / sculpting]], [[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]], [[2026-10-28 - Docs art accessories validation-tool|Docs: art / accessories / validation-tool]], [[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]], [[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]], [[2026-10-28 - Docs avatar makeup specifications|Docs: avatar / makeup / specifications]], [[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]], [[2026-10-28 - Docs avatar layered-accessories export|Docs: avatar / layered-accessories / export]], [[2026-10-28 - Docs art accessories creating armature-setup|Docs: art / accessories / creating / armature-setu]], [[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]], [[2026-10-28 - Docs art accessories creating texture-map|Docs: art / accessories / creating / texture-map]], [[2026-10-28 - Docs avatar character-bodies project-files|Docs: avatar / character-bodies / project-files]], [[2026-10-28 - Docs avatar tutorials|Docs: avatar / tutorials]], [[2026-10-28 - Docs art accessories creating-rigid modeling-setup|Docs: art / accessories / creating-rigid / modelin]], [[2026-10-28 - Docs avatar emotes export|Docs: avatar / emotes / export]], [[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]], [[2026-10-28 - Docs art characters creating modeling-tips|Docs: art / characters / creating / modeling-tips]], [[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]], [[2026-10-28 - Docs art accessories creating-rigid texturing|Docs: art / accessories / creating-rigid / texturi]], [[2026-10-28 - Docs art modeling gltf-export|Docs: art / modeling / gltf-export]], [[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]], [[2026-10-28 - Docs art modeling rigging|Docs: art / modeling / rigging]], [[2026-10-28 - Docs avatar character-bodies test|Docs: avatar / character-bodies / test]], [[2026-10-28 - Docs art characters creating combine-head-geometry|Docs: art / characters / creating / combine-head-g]], [[2026-10-28 - Docs art accessories creating importing|Docs: art / accessories / creating / importing]]
+- **Luau**: [[2026-10-28 - Docs education adventure-game-series selling-items|Docs: education / adventure-game-series / selling-]], [[2026-10-28 - Docs education battle-royale-series cleanup-and-reset|Docs: education / battle-royale-series / cleanup-a]], [[2026-10-28 - Docs education adventure-game-series finishing-the-project|Docs: education / adventure-game-series / finishin]], [[2026-10-28 - Docs education adventure-game-series collect-items|Docs: education / adventure-game-series / collect-]], [[2026-10-28 - Docs tutorials curriculums coding next-steps|Docs: tutorials / curriculums / coding / next-step]], [[2026-10-28 - Docs tutorials fundamentals coding-4 intro-to-for-loops|Docs: tutorials / fundamentals / coding-4 / intro-]], [[2026-10-28 - Docs education battle-royale-series landing|Docs: education / battle-royale-series / landing]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting add-rounds|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs tutorials curriculums coding work-with-variables|Docs: tutorials / curriculums / coding / work-with]], [[2026-10-28 - Docs tutorials fundamentals coding-1 create-a-script|Docs: tutorials / fundamentals / coding-1 / create]], [[2026-10-28 - Docs projects data-model|Docs: projects / data-model]], [[2026-10-28 - Docs education battle-royale-series coding-the-game-loop|Docs: education / battle-royale-series / coding-th]], [[2026-10-28 - Docs luau booleans|Docs: luau / booleans]], [[2026-10-28 - Docs education support education-content|Docs: education / support / education-content]], [[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]], [[2026-10-28 - Docs education lesson-plans digital-citizenship landing|Docs: education / lesson-plans / digital-citizensh]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting score-poin|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials curriculums studio next-steps|Docs: tutorials / curriculums / studio / next-step]], [[2026-10-28 - Docs tutorials fundamentals coding-4 create-a-timed-bridge|Docs: tutorials / fundamentals / coding-4 / create]], [[2026-10-28 - Docs tutorials curriculums curriculum-overview|Docs: tutorials / curriculums / curriculum-overvie]], [[2026-10-28 - Docs tutorials fundamentals coding-5 intro-to-arrays|Docs: tutorials / fundamentals / coding-5 / intro-]], [[2026-10-28 - Docs characters character-controller-library quick-start|Docs: characters / character-controller-library / ]], [[2026-10-28 - Docs tutorials fundamentals coding-2 code-a-function|Docs: tutorials / fundamentals / coding-2 / code-a]], [[2026-10-28 - Docs tutorials curriculums core scripting create-player-hazards|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting cre|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials fundamentals coding-6 create-with-module-scripts|Docs: tutorials / fundamentals / coding-6 / create]], [[2026-10-28 - Docs tutorials curriculums coding|Docs: tutorials / curriculums / coding]], [[2026-10-28 - Docs tutorials fundamentals coding-3 traps-with-if-statements|Docs: tutorials / fundamentals / coding-3 / traps-]], [[2026-10-28 - Docs ui 3D-drag-detectors|Docs: ui / 3D-drag-detectors]], [[2026-10-28 - Docs education adventure-game-series code-the-leaderboard|Docs: education / adventure-game-series / code-the]], [[2026-10-28 - Docs tutorials fundamentals coding-4 nested-loops|Docs: tutorials / fundamentals / coding-4 / nested]], [[2026-10-28 - Docs luau numbers|Docs: luau / numbers]], [[2026-10-28 - Docs tutorials fundamentals coding-3 powerups-with-if-statements|Docs: tutorials / fundamentals / coding-3 / poweru]], [[2026-10-28 - Docs tutorials fundamentals coding-4 glow-lights-with-for-loops|Docs: tutorials / fundamentals / coding-4 / glow-l]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting fading-tra|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting deadly-lav|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials fundamentals coding-3 give-points|Docs: tutorials / fundamentals / coding-3 / give-p]], [[2026-10-28 - Docs education lesson-plans story-games-lesson|Docs: education / lesson-plans / story-games-lesso]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-4|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs education build-it-play-it-story-games coding-a-question|Docs: education / build-it-play-it-story-games / c]], [[2026-10-28 - Docs tutorials curriculums coding customize-strings|Docs: tutorials / curriculums / coding / customize]], [[2026-10-28 - Docs tutorials fundamentals coding-2 multiple-parameters-and-arguments|Docs: tutorials / fundamentals / coding-2 / multip]], [[2026-10-28 - Docs resources battle-royale the-storm|Docs: resources / battle-royale / the-storm]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder adding-scripts|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting intro-to-s|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials fundamentals coding-4 landing|Docs: tutorials / fundamentals / coding-4 / landin]], [[2026-10-28 - Docs tutorials fundamentals coding-3 intro-to-if-statements|Docs: tutorials / fundamentals / coding-3 / intro-]], [[2026-10-28 - Docs tutorials fundamentals coding-5 intro-to-dictionaries|Docs: tutorials / fundamentals / coding-5 / intro-]], [[2026-10-28 - Docs tutorials fundamentals coding-5 loops-and-arrays|Docs: tutorials / fundamentals / coding-5 / loops-]], [[2026-10-28 - Docs tutorials fundamentals coding-3 landing|Docs: tutorials / fundamentals / coding-3 / landin]], [[2026-10-28 - Docs education build-it-play-it-story-games start-coding|Docs: education / build-it-play-it-story-games / s]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs scripting|Docs: scripting]], [[2026-10-28 - Docs education battle-royale-series timers-and-events|Docs: education / battle-royale-series / timers-an]], [[2026-10-28 - Docs education resources frequently-asked-questions-education|Docs: education / resources / frequently-asked-que]], [[2026-10-28 - Docs tutorials fundamentals coding-1 coding-fundamentals|Docs: tutorials / fundamentals / coding-1 / coding]], [[2026-10-28 - Docs resources battle-royale core-scripts|Docs: resources / battle-royale / core-scripts]], [[2026-10-28 - Docs scripting debounce|Docs: scripting / debounce]], [[2026-10-28 - Docs tutorials fundamentals coding-5 pairs-and-ipairs|Docs: tutorials / fundamentals / coding-5 / pairs-]], [[2026-10-28 - Docs tutorials fundamentals coding-4 repeat-code-with-while-loops|Docs: tutorials / fundamentals / coding-4 / repeat]]
+- **Explorer**: [[2026-10-28 - Docs tutorials curriculums animator play-your-animation|Docs: tutorials / curriculums / animator / play-yo]], [[2026-10-28 - Docs education adventure-game-series collect-items|Docs: education / adventure-game-series / collect-]], [[2026-10-28 - Docs education battle-royale-series creating-a-gui|Docs: education / battle-royale-series / creating-]], [[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]], [[2026-10-28 - Docs tutorials curriculums animator get-started|Docs: tutorials / curriculums / animator / get-sta]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy change-the-script|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs tutorials fundamentals coding-2 parameters-practice-buttons|Docs: tutorials / fundamentals / coding-2 / parame]], [[2026-10-28 - Docs tutorials fundamentals coding-1 create-a-script|Docs: tutorials / fundamentals / coding-1 / create]], [[2026-10-28 - Docs resources battle-royale installation-and-setup|Docs: resources / battle-royale / installation-and]], [[2026-10-28 - Docs parts|Docs: parts]], [[2026-10-28 - Docs avatar emotes import|Docs: avatar / emotes / import]], [[2026-10-28 - Docs effects trails|Docs: effects / trails]], [[2026-10-28 - Docs tutorials curriculums coding get-started|Docs: tutorials / curriculums / coding / get-start]], [[2026-10-28 - Docs tutorials curriculums core building create-a-project|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs tutorials fundamentals coding-1 object-properties|Docs: tutorials / fundamentals / coding-1 / object]], [[2026-10-28 - Docs education build-it-play-it-story-games code-the-story|Docs: education / build-it-play-it-story-games / c]], [[2026-10-28 - Docs tutorials curriculums core building apply-polished-assets|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs tutorials fundamentals coding-5 intro-to-arrays|Docs: tutorials / fundamentals / coding-5 / intro-]], [[2026-10-28 - Docs animation editor|Docs: animation / editor]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-a-sparkler|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials curriculums core scripting create-player-hazards|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs studio overview|Docs: studio / overview]], [[2026-10-28 - Docs tutorials curriculums core scripting record-and-display-player-da|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]], [[2026-10-28 - Docs tutorials fundamentals coding-4 glow-lights-with-for-loops|Docs: tutorials / fundamentals / coding-4 / glow-l]], [[2026-10-28 - Docs education build-it-play-it-island-of-move personalize-the-game|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder using-textures|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs players tools|Docs: players / tools]], [[2026-10-28 - Docs education build-it-play-it-island-of-move change-the-animation|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting cre|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway design-the-world|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs tutorials curriculums core scripting script-game-behavior|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting intro-to-s|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs education build-it-play-it-story-games start-coding|Docs: education / build-it-play-it-story-games / s]], [[2026-10-28 - Docs physics mechanical-constraints|Docs: physics / mechanical-constraints]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder become-an-artist|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials fundamentals coding-1 parents-and-children|Docs: tutorials / fundamentals / coding-1 / parent]], [[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]], [[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-hinged-door|Docs: tutorials / use-case-tutorials / physics / b]], [[2026-10-28 - Docs education build-it-play-it-island-of-move opening-the-template|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education lesson-plans intro-to-game-and-coding|Docs: education / lesson-plans / intro-to-game-and]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway sharing-your-speeder|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs tutorials fundamentals coding-2 use-parameters-and-events|Docs: tutorials / fundamentals / coding-2 / use-pa]]
+- **Creator Dashboard**: [[2026-10-28 - Docs tutorials curriculums animator play-your-animation|Docs: tutorials / curriculums / animator / play-yo]], [[2026-10-28 - Docs cloud guides error-reporting|Docs: cloud / guides / error-reporting]], [[2026-10-28 - Docs production publishing thumbnails|Docs: production / publishing / thumbnails]], [[2026-10-28 - Docs production publishing badges|Docs: production / publishing / badges]], [[2026-10-28 - Docs avatar classic-clothing|Docs: avatar / classic-clothing]], [[2026-10-28 - Docs production promotion experience-events|Docs: production / promotion / experience-events]], [[2026-10-28 - Docs production monetization immersive-ads|Docs: production / monetization / immersive-ads]], [[2026-10-28 - Docs projects assets|Docs: projects / assets]], [[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]], [[2026-10-28 - Docs production analytics monetization|Docs: production / analytics / monetization]], [[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]], [[2026-10-28 - Docs cloud guides analytics|Docs: cloud / guides / analytics]], [[2026-10-28 - Docs cloud guides analytics benchmarks|Docs: cloud / guides / analytics / benchmarks]], [[2026-10-28 - Docs production monetization avatar-items|Docs: production / monetization / avatar-items]], [[2026-10-28 - Docs ui video-frames|Docs: ui / video-frames]], [[2026-10-28 - Docs projects groups|Docs: projects / groups]], [[2026-10-28 - Docs production promotion social-media-links|Docs: production / promotion / social-media-links]], [[2026-10-28 - Docs cloud-services extended-services|Docs: cloud-services / extended-services]], [[2026-10-28 - Docs production monetization private-servers|Docs: production / monetization / private-servers]], [[2026-10-28 - Docs get-started tools|Docs: get-started / tools]], [[2026-10-28 - Docs production publishing experience-icons|Docs: production / publishing / experience-icons]], [[2026-10-28 - Docs projects assets packages|Docs: projects / assets / packages]], [[2026-10-28 - Docs education build-it-play-it-island-of-move change-the-animation|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs audio assets|Docs: audio / assets]], [[2026-10-28 - Docs discovery-faq|Docs: discovery-faq]], [[2026-10-28 - Docs production monetization avatar-creation-token|Docs: production / monetization / avatar-creation-]], [[2026-10-28 - Docs cloud auth oauth2-overview|Docs: cloud / auth / oauth2-overview]], [[2026-10-28 - Docs cloud guides usage-place-publishing|Docs: cloud / guides / usage-place-publishing]], [[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]], [[2026-10-28 - Docs projects configure-games|Docs: projects / configure-games]], [[2026-10-28 - Docs scripting security access-control|Docs: scripting / security / access-control]], [[2026-10-28 - Docs production creator-store|Docs: production / creator-store]], [[2026-10-28 - Docs production analytics demographics|Docs: production / analytics / demographics]], [[2026-10-28 - Docs marketplace moderation|Docs: marketplace / moderation]], [[2026-10-28 - Docs projects|Docs: projects]], [[2026-10-28 - Docs production publishing experience-genres|Docs: production / publishing / experience-genres]], [[2026-10-28 - Docs production monetization engagement-based-payouts|Docs: production / monetization / engagement-based]], [[2026-10-28 - Docs avatar animation-packs|Docs: avatar / animation-packs]], [[2026-10-28 - Docs resources modules merch-booth|Docs: resources / modules / merch-booth]], [[2026-10-28 - Docs cloud guides experience-notifications|Docs: cloud / guides / experience-notifications]], [[2026-10-28 - Docs projects assets privacy|Docs: projects / assets / privacy]], [[2026-10-28 - Docs cloud-services secrets|Docs: cloud-services / secrets]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway sharing-your-speeder|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs discovery|Docs: discovery]]
+- **Maya**: [[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]], [[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]], [[2026-10-28 - Docs avatar character-bodies export|Docs: avatar / character-bodies / export]], [[2026-10-28 - Docs avatar makeup reassign-textures|Docs: avatar / makeup / reassign-textures]], [[2026-10-28 - Docs art characters facial-animation moods|Docs: art / characters / facial-animation / moods]], [[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]], [[2026-10-28 - Docs marketplace marketplace-policy|Docs: marketplace / marketplace-policy]], [[2026-10-28 - Docs art modeling cage-meshes create-cages|Docs: art / modeling / cage-meshes / create-cages]], [[2026-10-28 - Docs avatar resources|Docs: avatar / resources]], [[2026-10-28 - Docs avatar rigid-accessories export|Docs: avatar / rigid-accessories / export]], [[2026-10-28 - Docs marketplace custom-thumbnails|Docs: marketplace / custom-thumbnails]], [[2026-10-28 - Docs art modeling specifications|Docs: art / modeling / specifications]], [[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]], [[2026-10-28 - Docs parts meshes|Docs: parts / meshes]], [[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]], [[2026-10-28 - Docs art modeling|Docs: art / modeling]], [[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]], [[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]], [[2026-10-28 - Docs art modeling assign-textures|Docs: art / modeling / assign-textures]], [[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]], [[2026-10-28 - Docs art modeling export-requirements|Docs: art / modeling / export-requirements]], [[2026-10-28 - Docs avatar rigid-accessories specifications|Docs: avatar / rigid-accessories / specifications]], [[2026-10-28 - Docs art modeling cage-meshes|Docs: art / modeling / cage-meshes]], [[2026-10-28 - Docs art characters facial-animation create-basic-heads|Docs: art / characters / facial-animation / create]], [[2026-10-28 - Docs avatar dynamic-heads facs-poses-reference|Docs: avatar / dynamic-heads / facs-poses-referenc]], [[2026-10-28 - Docs avatar layered-accessories project-files|Docs: avatar / layered-accessories / project-files]], [[2026-10-28 - Docs workspace|Docs: workspace]], [[2026-10-28 - Docs art modeling texture-specifications|Docs: art / modeling / texture-specifications]], [[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]], [[2026-10-28 - Docs art accessories validation-tool|Docs: art / accessories / validation-tool]], [[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]], [[2026-10-28 - Docs avatar makeup specifications|Docs: avatar / makeup / specifications]], [[2026-10-28 - Docs avatar layered-accessories export|Docs: avatar / layered-accessories / export]], [[2026-10-28 - Docs avatar character-bodies project-files|Docs: avatar / character-bodies / project-files]], [[2026-10-28 - Docs avatar emotes export|Docs: avatar / emotes / export]], [[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]], [[2026-10-28 - Docs art modeling gltf-export|Docs: art / modeling / gltf-export]], [[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]], [[2026-10-28 - Docs art modeling rigging|Docs: art / modeling / rigging]]
+- **Properties window**: [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder making-an-explosion|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]], [[2026-10-28 - Docs tutorials fundamentals coding-2 parameters-practice-buttons|Docs: tutorials / fundamentals / coding-2 / parame]], [[2026-10-28 - Docs parts|Docs: parts]], [[2026-10-28 - Docs avatar emotes import|Docs: avatar / emotes / import]], [[2026-10-28 - Docs effects trails|Docs: effects / trails]], [[2026-10-28 - Docs tutorials curriculums building get-started|Docs: tutorials / curriculums / building / get-sta]], [[2026-10-28 - Docs tutorials fundamentals coding-1 object-properties|Docs: tutorials / fundamentals / coding-1 / object]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder particle-emitters|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials curriculums core building apply-polished-assets|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]], [[2026-10-28 - Docs players teams|Docs: players / teams]], [[2026-10-28 - Docs tutorials curriculums core scripting create-player-hazards|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs scripting locations|Docs: scripting / locations]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs studio overview|Docs: studio / overview]], [[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder using-textures|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs players tools|Docs: players / tools]], [[2026-10-28 - Docs tutorials curriculums core scripting script-game-behavior|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting intro-to-s|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs sound groups|Docs: sound / groups]], [[2026-10-28 - Docs education lesson-plans build-an-obby-lesson|Docs: education / lesson-plans / build-an-obby-les]], [[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-hinged-door|Docs: tutorials / use-case-tutorials / physics / b]], [[2026-10-28 - Docs parts models|Docs: parts / models]], [[2026-10-28 - Docs tutorials curriculums artist work-with-particle-emitters|Docs: tutorials / curriculums / artist / work-with]]
+- **Animation Editor**: [[2026-10-28 - Docs tutorials|Docs: tutorials]], [[2026-10-28 - Docs education build-it-play-it-island-of-move animations-and-feedback|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs avatar emotes import|Docs: avatar / emotes / import]], [[2026-10-28 - Docs animation|Docs: animation]], [[2026-10-28 - Docs tutorials curriculums animator test-and-save|Docs: tutorials / curriculums / animator / test-an]], [[2026-10-28 - Docs avatar|Docs: avatar]], [[2026-10-28 - Docs resources beyond-the-dark custom-characters|Docs: resources / beyond-the-dark / custom-charact]], [[2026-10-28 - Docs animation editor|Docs: animation / editor]], [[2026-10-28 - Docs education lesson-plans animate-in-roblox-lesson|Docs: education / lesson-plans / animate-in-roblox]], [[2026-10-28 - Docs parts meshes|Docs: parts / meshes]], [[2026-10-28 - Docs art characters facial-animation animate-heads|Docs: art / characters / facial-animation / animat]], [[2026-10-28 - Docs avatar create|Docs: avatar / create]], [[2026-10-28 - Docs education build-it-play-it-island-of-move change-the-animation|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials use-case-tutorials use-case-tutorial-overview|Docs: tutorials / use-case-tutorials / use-case-tu]], [[2026-10-28 - Docs animation using|Docs: animation / using]], [[2026-10-28 - Docs tutorials curriculums animator|Docs: tutorials / curriculums / animator]], [[2026-10-28 - Docs avatar emotes|Docs: avatar / emotes]], [[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]], [[2026-10-28 - Docs education build-it-play-it-island-of-move save-and-publish|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs animation events|Docs: animation / events]], [[2026-10-28 - Docs avatar dynamic-heads test|Docs: avatar / dynamic-heads / test]], [[2026-10-28 - Docs art|Docs: art]]
+- **Creator Store**: [[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]], [[2026-10-28 - Docs projects assets|Docs: projects / assets]], [[2026-10-28 - Docs sound|Docs: sound]], [[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]], [[2026-10-28 - Docs marketplace|Docs: marketplace]], [[2026-10-28 - Docs studio plugins|Docs: studio / plugins]], [[2026-10-28 - Docs projects assets monetize|Docs: projects / assets / monetize]], [[2026-10-28 - Docs avatar layered-accessories import|Docs: avatar / layered-accessories / import]], [[2026-10-28 - Docs tutorials curriculums core building apply-polished-assets|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs production monetization|Docs: production / monetization]], [[2026-10-28 - Docs parts materials|Docs: parts / materials]], [[2026-10-28 - Docs studio|Docs: studio]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx laser-traps-with-beams|Docs: tutorials / use-case-tutorials / vfx / laser]], [[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]], [[2026-10-28 - Docs projects assets toolbox|Docs: projects / assets / toolbox]], [[2026-10-28 - Docs projects|Docs: projects]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]], [[2026-10-28 - Docs parts procedural-models|Docs: parts / procedural-models]], [[2026-10-28 - Docs parts models|Docs: parts / models]]
+- **Asset Manager**: [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder connect-the-beam|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs projects assets|Docs: projects / assets]], [[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]], [[2026-10-28 - Docs resources battle-royale installation-and-setup|Docs: resources / battle-royale / installation-and]], [[2026-10-28 - Docs ui video-frames|Docs: ui / video-frames]], [[2026-10-28 - Docs avatar layered-accessories import|Docs: avatar / layered-accessories / import]], [[2026-10-28 - Docs avatar rigid-accessories import|Docs: avatar / rigid-accessories / import]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs resources beyond-the-dark layered-clothing|Docs: resources / beyond-the-dark / layered-clothi]], [[2026-10-28 - Docs studio overview|Docs: studio / overview]], [[2026-10-28 - Docs parts meshes|Docs: parts / meshes]], [[2026-10-28 - Docs tutorials use-case-tutorials audio in-game-sounds|Docs: tutorials / use-case-tutorials / audio / in-]], [[2026-10-28 - Docs projects assets packages|Docs: projects / assets / packages]], [[2026-10-28 - Docs audio assets|Docs: audio / assets]], [[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]], [[2026-10-28 - Docs art accessories creating-rigid importing|Docs: art / accessories / creating-rigid / importi]], [[2026-10-28 - Docs studio importer|Docs: studio / importer]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs art accessories creating importing|Docs: art / accessories / creating / importing]]
+- **CollectionService**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs resources beyond-the-dark custom-characters|Docs: resources / beyond-the-dark / custom-charact]], [[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]], [[2026-10-28 - Docs scripting locations|Docs: scripting / locations]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]], [[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]], [[2026-10-28 - Docs ui styling css-comparisons|Docs: ui / styling / css-comparisons]], [[2026-10-28 - Docs resources modules photo-booth|Docs: resources / modules / photo-booth]], [[2026-10-28 - Docs resources modules surface-art|Docs: resources / modules / surface-art]], [[2026-10-28 - Docs ui styling editor|Docs: ui / styling / editor]], [[2026-10-28 - Docs studio properties|Docs: studio / properties]], [[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]], [[2026-10-28 - Docs resources battle-royale minimap-system|Docs: resources / battle-royale / minimap-system]], [[2026-10-28 - Docs scripting services|Docs: scripting / services]], [[2026-10-28 - Docs ui styling|Docs: ui / styling]], [[2026-10-28 - Docs resources modules scavenger-hunt|Docs: resources / modules / scavenger-hunt]], [[2026-10-28 - Docs resources modules spawn-with-friends|Docs: resources / modules / spawn-with-friends]], [[2026-10-28 - Docs production publishing accessibility|Docs: production / publishing / accessibility]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]]
+- **Roblox Studio Explorer**: [[2026-10-28 - Docs tutorials curriculums building code-with-assistant|Docs: tutorials / curriculums / building / code-wi]], [[2026-10-28 - Docs ui buttons|Docs: ui / buttons]], [[2026-10-28 - Docs players teams|Docs: players / teams]], [[2026-10-28 - Docs environment clouds|Docs: environment / clouds]], [[2026-10-28 - Docs scripting locations|Docs: scripting / locations]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy finish-the-challeng|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs effects highlighting|Docs: effects / highlighting]], [[2026-10-28 - Docs parts model-generation|Docs: parts / model-generation]], [[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs sound groups|Docs: sound / groups]], [[2026-10-28 - Docs studio properties|Docs: studio / properties]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-a-score-bar|Docs: tutorials / use-case-tutorials / ui / create]], [[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]], [[2026-10-28 - Docs production analytics crashes|Docs: production / analytics / crashes]], [[2026-10-28 - Docs scripting attributes|Docs: scripting / attributes]], [[2026-10-28 - Docs avatar character-bodies test-studio|Docs: avatar / character-bodies / test-studio]], [[2026-10-28 - Docs parts models|Docs: parts / models]], [[2026-10-28 - Docs education build-it-play-it-island-of-move sharing-animations|Docs: education / build-it-play-it-island-of-move ]]
+- **Toolbox**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway add-new-models|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-3|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]], [[2026-10-28 - Docs projects assets|Docs: projects / assets]], [[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]], [[2026-10-28 - Docs ui video-frames|Docs: ui / video-frames]], [[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]], [[2026-10-28 - Docs avatar layered-accessories import|Docs: avatar / layered-accessories / import]], [[2026-10-28 - Docs tutorials curriculums core building apply-polished-assets|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs animation editor|Docs: animation / editor]], [[2026-10-28 - Docs studio overview|Docs: studio / overview]], [[2026-10-28 - Docs art accessories creating converting|Docs: art / accessories / creating / converting]], [[2026-10-28 - Docs tutorials use-case-tutorials audio in-game-sounds|Docs: tutorials / use-case-tutorials / audio / in-]], [[2026-10-28 - Docs projects assets packages|Docs: projects / assets / packages]], [[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx laser-traps-with-beams|Docs: tutorials / use-case-tutorials / vfx / laser]], [[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]], [[2026-10-28 - Docs studio importer|Docs: studio / importer]]
+- **Explorer window**: [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder making-an-explosion|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]], [[2026-10-28 - Docs tutorials curriculums coding work-with-variables|Docs: tutorials / curriculums / coding / work-with]], [[2026-10-28 - Docs tutorials curriculums building get-started|Docs: tutorials / curriculums / building / get-sta]], [[2026-10-28 - Docs tutorials use-case-tutorials lighting light-with-props|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs tutorials curriculums animator test-and-save|Docs: tutorials / curriculums / animator / test-an]], [[2026-10-28 - Docs physics mover-constraints|Docs: physics / mover-constraints]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway customize-and-share|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway test-the-speeder|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder particle-emitters|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs avatar makeup import|Docs: avatar / makeup / import]], [[2026-10-28 - Docs ui labels|Docs: ui / labels]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway add-to-the-garage|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-1|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs environment post-processing-effects|Docs: environment / post-processing-effects]], [[2026-10-28 - Docs education lesson-plans build-an-obby-lesson|Docs: education / lesson-plans / build-an-obby-les]], [[2026-10-28 - Docs tutorials curriculums artist work-with-particle-emitters|Docs: tutorials / curriculums / artist / work-with]]
+- **DataStoreService**: [[2026-10-28 - Docs cloud-services data-stores|Docs: cloud-services / data-stores]], [[2026-10-28 - Docs scripting module|Docs: scripting / module]], [[2026-10-28 - Docs players|Docs: players]], [[2026-10-28 - Docs production promotion referral-system|Docs: production / promotion / referral-system]], [[2026-10-28 - Docs production monetization|Docs: production / monetization]], [[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]], [[2026-10-28 - Docs players leaderboards|Docs: players / leaderboards]], [[2026-10-28 - Docs tutorials use-case-tutorials data-storage save-player-data|Docs: tutorials / use-case-tutorials / data-storag]], [[2026-10-28 - Docs cloud-services data-stores versioning-listing-and-caching|Docs: cloud-services / data-stores / versioning-li]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting sav|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials use-case-tutorials data-storage create-leaderboard|Docs: tutorials / use-case-tutorials / data-storag]], [[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]], [[2026-10-28 - Docs cloud-services data-stores player-data-purchasing|Docs: cloud-services / data-stores / player-data-p]], [[2026-10-28 - Docs scripting services|Docs: scripting / services]], [[2026-10-28 - Docs matchmaking attributes-and-signals|Docs: matchmaking / attributes-and-signals]], [[2026-10-28 - Docs cloud-services data-stores error-codes-and-limits|Docs: cloud-services / data-stores / error-codes-a]]
+- **Accessory Fitting Tool**: [[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]], [[2026-10-28 - Docs avatar|Docs: avatar]], [[2026-10-28 - Docs avatar rigid-accessories export|Docs: avatar / rigid-accessories / export]], [[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]], [[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]], [[2026-10-28 - Docs avatar create|Docs: avatar / create]], [[2026-10-28 - Docs art modeling|Docs: art / modeling]], [[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]], [[2026-10-28 - Docs art accessories publish-eyebrows-eyelashes|Docs: art / accessories / publish-eyebrows-eyelash]], [[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]], [[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]], [[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]], [[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]], [[2026-10-28 - Docs avatar layered-accessories export|Docs: avatar / layered-accessories / export]], [[2026-10-28 - Docs art|Docs: art]]
+- **Output window**: [[2026-10-28 - Docs education adventure-game-series collect-items|Docs: education / adventure-game-series / collect-]], [[2026-10-28 - Docs tutorials fundamentals coding-2 parameters-practice-buttons|Docs: tutorials / fundamentals / coding-2 / parame]], [[2026-10-28 - Docs tutorials fundamentals coding-1 create-a-script|Docs: tutorials / fundamentals / coding-1 / create]], [[2026-10-28 - Docs education battle-royale-series managing-players|Docs: education / battle-royale-series / managing-]], [[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]], [[2026-10-28 - Docs scripting locations|Docs: scripting / locations]], [[2026-10-28 - Docs studio overview|Docs: studio / overview]], [[2026-10-28 - Docs tutorials fundamentals coding-1 landing|Docs: tutorials / fundamentals / coding-1 / landin]], [[2026-10-28 - Docs tutorials curriculums core scripting script-game-behavior|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs tutorials fundamentals coding-3 multiple-conditions|Docs: tutorials / fundamentals / coding-3 / multip]], [[2026-10-28 - Docs tutorials fundamentals coding-3 intro-to-if-statements|Docs: tutorials / fundamentals / coding-3 / intro-]], [[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]], [[2026-10-28 - Docs education battle-royale-series ending-matches|Docs: education / battle-royale-series / ending-ma]], [[2026-10-28 - Docs scripting|Docs: scripting]], [[2026-10-28 - Docs tutorials fundamentals coding-2 use-parameters-and-events|Docs: tutorials / fundamentals / coding-2 / use-pa]]
+- **Creator Hub**: [[2026-10-28 - Docs art accessories creating-rigid publishing|Docs: art / accessories / creating-rigid / publish]], [[2026-10-28 - Docs production monetization passes|Docs: production / monetization / passes]], [[2026-10-28 - Docs get-started|Docs: get-started]], [[2026-10-28 - Docs chat quick-words|Docs: chat / quick-words]], [[2026-10-28 - Docs production monetization paid-access-local-currency|Docs: production / monetization / paid-access-loca]], [[2026-10-28 - Docs production monetization shop|Docs: production / monetization / shop]], [[2026-10-28 - Docs production promotion ad-integrations|Docs: production / promotion / ad-integrations]], [[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]], [[2026-10-28 - Docs ip-licensing faq|Docs: ip-licensing / faq]], [[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]], [[2026-10-28 - Docs players leaderboards|Docs: players / leaderboards]], [[2026-10-28 - Docs production creator-store|Docs: production / creator-store]], [[2026-10-28 - Docs production publishing experience-genres|Docs: production / publishing / experience-genres]], [[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]], [[2026-10-28 - Docs production promotion ads-manager|Docs: production / promotion / ads-manager]]
+- **TweenService**: [[2026-10-28 - Docs ui 2D-paths|Docs: ui / 2D-paths]], [[2026-10-28 - Docs resources beyond-the-dark user-interface|Docs: resources / beyond-the-dark / user-interface]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]], [[2026-10-28 - Docs parts textures-decals|Docs: parts / textures-decals]], [[2026-10-28 - Docs assistant prompt-engineering|Docs: assistant / prompt-engineering]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]], [[2026-10-28 - Docs education build-it-play-it-island-of-move animating-parts|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs ui animation|Docs: ui / animation]], [[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]], [[2026-10-28 - Docs scripting services|Docs: scripting / services]], [[2026-10-28 - Docs production publishing accessibility|Docs: production / publishing / accessibility]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]], [[2026-10-28 - Docs players loading-screens|Docs: players / loading-screens]]
+- **ParticleEmitter**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder particle-emitters|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder using-particles-for-|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs effects|Docs: effects]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder experienced-landing-|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx use-particles-for-explosions|Docs: tutorials / use-case-tutorials / vfx / use-p]], [[2026-10-28 - Docs tutorials fundamentals coding-3 give-points|Docs: tutorials / fundamentals / coding-3 / give-p]], [[2026-10-28 - Docs tutorials curriculums core building create-basic-visual-effects|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs sound objects|Docs: sound / objects]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx basic-particle-effects|Docs: tutorials / use-case-tutorials / vfx / basic]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]]
+- **Roblox Studio Animation Editor**: [[2026-10-28 - Docs education build-it-play-it-island-of-move looping-animations|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials curriculums animator play-your-animation|Docs: tutorials / curriculums / animator / play-yo]], [[2026-10-28 - Docs tutorials curriculums animator work-with-the-animation-editor|Docs: tutorials / curriculums / animator / work-wi]], [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-the-second-pose|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education build-it-play-it-island-of-move designing-poses|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education build-it-play-it-island-of-move create-the-first-pose|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]], [[2026-10-28 - Docs education build-it-play-it-island-of-move creating-animations|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs animation curve-editor|Docs: animation / curve-editor]], [[2026-10-28 - Docs education build-it-play-it-island-of-move exporting-animations|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs art modeling rigging|Docs: art / modeling / rigging]]
+- **Terrain Editor**: [[2026-10-28 - Docs education adventure-game-series create-the-map|Docs: education / adventure-game-series / create-t]], [[2026-10-28 - Docs parts terrain|Docs: parts / terrain]], [[2026-10-28 - Docs tutorials curriculums core building create-a-project|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs tutorials curriculums building next-steps|Docs: tutorials / curriculums / building / next-st]], [[2026-10-28 - Docs parts custom-terrain-materials|Docs: parts / custom-terrain-materials]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway design-the-world|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs workspace|Docs: workspace]], [[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]], [[2026-10-28 - Docs resources templates|Docs: resources / templates]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy terrain-tools|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs art|Docs: art]]
+- **Attachment**: [[2026-10-28 - Docs physics constraints universal|Docs: physics / constraints / universal]], [[2026-10-28 - Docs tutorials use-case-tutorials ui proximity-prompts|Docs: tutorials / use-case-tutorials / ui / proxim]], [[2026-10-28 - Docs physics constraints ball-socket|Docs: physics / constraints / ball-socket]], [[2026-10-28 - Docs sound|Docs: sound]], [[2026-10-28 - Docs effects beams|Docs: effects / beams]], [[2026-10-28 - Docs effects|Docs: effects]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx laser-traps-with-beams|Docs: tutorials / use-case-tutorials / vfx / laser]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-engaging-ex|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs sound objects|Docs: sound / objects]], [[2026-10-28 - Docs animation inverse-kinematics|Docs: animation / inverse-kinematics]], [[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-hinged-door|Docs: tutorials / use-case-tutorials / physics / b]]
+- **LocalScript**: [[2026-10-28 - Docs education battle-royale-series creating-a-gui|Docs: education / battle-royale-series / creating-]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs input|Docs: input]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting cre|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder adding-scripts|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials use-case-tutorials audio play-background-music|Docs: tutorials / use-case-tutorials / audio / pla]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs chat examples simple-custom-frontend-ui|Docs: chat / examples / simple-custom-frontend-ui]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]], [[2026-10-28 - Docs ui viewport-frames|Docs: ui / viewport-frames]], [[2026-10-28 - Docs players loading-screens|Docs: players / loading-screens]]
+- **ModuleScript**: [[2026-10-28 - Docs education battle-royale-series creating-a-gui|Docs: education / battle-royale-series / creating-]], [[2026-10-28 - Docs scripting module|Docs: scripting / module]], [[2026-10-28 - Docs tutorials use-case-tutorials ui proximity-prompts|Docs: tutorials / use-case-tutorials / ui / proxim]], [[2026-10-28 - Docs tutorials fundamentals coding-6 create-with-module-scripts|Docs: tutorials / fundamentals / coding-6 / create]], [[2026-10-28 - Docs tutorials curriculums core scripting record-and-display-player-da|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs tutorials fundamentals coding-6 intro-to-module-scripts|Docs: tutorials / fundamentals / coding-6 / intro-]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder adding-scripts|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials use-case-tutorials data-storage create-leaderboard|Docs: tutorials / use-case-tutorials / data-storag]], [[2026-10-28 - Docs education battle-royale-series timers-and-events|Docs: education / battle-royale-series / timers-an]], [[2026-10-28 - Docs luau stacks|Docs: luau / stacks]], [[2026-10-28 - Docs luau queues|Docs: luau / queues]]
+- **RemoteEvent**: [[2026-10-28 - Docs scripting module|Docs: scripting / module]], [[2026-10-28 - Docs chat examples rate-limit-public-text-inputs|Docs: chat / examples / rate-limit-public-text-inp]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs production analytics funnel-events|Docs: production / analytics / funnel-events]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting implement-blasters|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs characters name-health-display|Docs: characters / name-health-display]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder adding-scripts|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]], [[2026-10-28 - Docs scripting events remote|Docs: scripting / events / remote]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive foundational-gameplay-syste|Docs: resources / the-mystery-of-duvall-drive / fo]], [[2026-10-28 - Docs ui text-filtering|Docs: ui / text-filtering]]
+- **Roblox Studio Importer**: [[2026-10-28 - Docs avatar character-bodies export|Docs: avatar / character-bodies / export]], [[2026-10-28 - Docs resources beyond-the-dark custom-characters|Docs: resources / beyond-the-dark / custom-charact]], [[2026-10-28 - Docs avatar makeup import|Docs: avatar / makeup / import]], [[2026-10-28 - Docs parts meshes|Docs: parts / meshes]], [[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]], [[2026-10-28 - Docs avatar rigid-accessories specifications|Docs: avatar / rigid-accessories / specifications]], [[2026-10-28 - Docs art accessories publish-eyebrows-eyelashes|Docs: art / accessories / publish-eyebrows-eyelash]], [[2026-10-28 - Docs art accessories creating-rigid importing|Docs: art / accessories / creating-rigid / importi]], [[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]], [[2026-10-28 - Docs studio importer|Docs: studio / importer]], [[2026-10-28 - Docs avatar dynamic-heads test|Docs: avatar / dynamic-heads / test]]
+- **Developer Console**: [[2026-10-28 - Docs studio developer-console|Docs: studio / developer-console]], [[2026-10-28 - Docs performance-optimization microprofiler modes|Docs: performance-optimization / microprofiler / m]], [[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]], [[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]], [[2026-10-28 - Docs studio optimization scriptprofiler|Docs: studio / optimization / scriptprofiler]], [[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]], [[2026-10-28 - Docs studio network-simulator|Docs: studio / network-simulator]], [[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]], [[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]], [[2026-10-28 - Docs studio debugging|Docs: studio / debugging]], [[2026-10-28 - Docs performance-optimization microprofiler|Docs: performance-optimization / microprofiler]]
+- **Roblox Studio Toolbox**: [[2026-10-28 - Docs resources weapons-kit|Docs: resources / weapons-kit]], [[2026-10-28 - Docs tutorials curriculums user-interface-design implement-designs-in-|Docs: tutorials / curriculums / user-interface-des]], [[2026-10-28 - Docs resources modules selfie-mode|Docs: resources / modules / selfie-mode]], [[2026-10-28 - Docs resources feature-packages engagement-rewards|Docs: resources / feature-packages / engagement-re]], [[2026-10-28 - Docs resources modules emote-bar|Docs: resources / modules / emote-bar]], [[2026-10-28 - Docs resources modules photo-booth|Docs: resources / modules / photo-booth]], [[2026-10-28 - Docs production creator-store|Docs: production / creator-store]], [[2026-10-28 - Docs projects assets toolbox|Docs: projects / assets / toolbox]], [[2026-10-28 - Docs resources modules scavenger-hunt|Docs: resources / modules / scavenger-hunt]], [[2026-10-28 - Docs resources modules merch-booth|Docs: resources / modules / merch-booth]]
+- **UIListLayout**: [[2026-10-28 - Docs tutorials curriculums user-interface-design implement-designs-in-|Docs: tutorials / curriculums / user-interface-des]], [[2026-10-28 - Docs ui size-modifiers|Docs: ui / size-modifiers]], [[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]], [[2026-10-28 - Docs ui|Docs: ui]], [[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]], [[2026-10-28 - Docs ui styling compatibility|Docs: ui / styling / compatibility]], [[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]], [[2026-10-28 - Docs ui list-flex-layouts|Docs: ui / list-flex-layouts]], [[2026-10-28 - Docs chat examples simple-custom-frontend-ui|Docs: chat / examples / simple-custom-frontend-ui]], [[2026-10-28 - Docs ui scrolling-frames|Docs: ui / scrolling-frames]]
+- **curl**: [[2026-10-28 - Docs cloud guides error-reporting|Docs: cloud / guides / error-reporting]], [[2026-10-28 - Docs cloud auth api-keys|Docs: cloud / auth / api-keys]], [[2026-10-28 - Docs cloud guides analytics|Docs: cloud / guides / analytics]], [[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]], [[2026-10-28 - Docs cloud guides usage-place-publishing|Docs: cloud / guides / usage-place-publishing]], [[2026-10-28 - Docs cloud-services data-stores right-to-be-forgotten|Docs: cloud-services / data-stores / right-to-be-f]], [[2026-10-28 - Docs cloud guides secrets-store|Docs: cloud / guides / secrets-store]], [[2026-10-28 - Docs cloud guides experience-notifications|Docs: cloud / guides / experience-notifications]], [[2026-10-28 - Docs cloud guides advertising|Docs: cloud / guides / advertising]]
+- **TextChatService**: [[2026-10-28 - Docs chat platform-integrated-chat|Docs: chat / platform-integrated-chat]], [[2026-10-28 - Docs chat examples proximity-chat|Docs: chat / examples / proximity-chat]], [[2026-10-28 - Docs chat bubble-chat|Docs: chat / bubble-chat]], [[2026-10-28 - Docs chat examples group-chat-tags|Docs: chat / examples / group-chat-tags]], [[2026-10-28 - Docs chat chat-window|Docs: chat / chat-window]], [[2026-10-28 - Docs chat cross-server-chat|Docs: chat / cross-server-chat]], [[2026-10-28 - Docs chat examples simple-custom-frontend-ui|Docs: chat / examples / simple-custom-frontend-ui]], [[2026-10-28 - Docs chat examples custom-text-chat-commands|Docs: chat / examples / custom-text-chat-commands]], [[2026-10-28 - Docs chat in-experience-text-chat|Docs: chat / in-experience-text-chat]]
+- **ScreenGui**: [[2026-10-28 - Docs education battle-royale-series creating-a-gui|Docs: education / battle-royale-series / creating-]], [[2026-10-28 - Docs resources beyond-the-dark user-interface|Docs: resources / beyond-the-dark / user-interface]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]], [[2026-10-28 - Docs tutorials curriculums core scripting script-an-upgrade-button|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs ui text-input|Docs: ui / text-input]], [[2026-10-28 - Docs chat examples simple-custom-frontend-ui|Docs: chat / examples / simple-custom-frontend-ui]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive immersive-narrative|Docs: resources / the-mystery-of-duvall-drive / im]], [[2026-10-28 - Docs players loading-screens|Docs: players / loading-screens]]
+- **ProximityPrompt**: [[2026-10-28 - Docs resources beyond-the-dark user-interface|Docs: resources / beyond-the-dark / user-interface]], [[2026-10-28 - Docs tutorials use-case-tutorials ui proximity-prompts|Docs: tutorials / use-case-tutorials / ui / proxim]], [[2026-10-28 - Docs ui proximity-prompts|Docs: ui / proximity-prompts]], [[2026-10-28 - Docs tutorials fundamentals coding-5 intro-to-arrays|Docs: tutorials / fundamentals / coding-5 / intro-]], [[2026-10-28 - Docs projects teleport|Docs: projects / teleport]], [[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]], [[2026-10-28 - Docs tutorials use-case-tutorials physics create-elevators|Docs: tutorials / use-case-tutorials / physics / c]], [[2026-10-28 - Docs resources modules surface-art|Docs: resources / modules / surface-art]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-engaging-ex|Docs: education / build-it-play-it-mansion-of-wond]]
+- **Avatar Setup tool**: [[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]], [[2026-10-28 - Docs art modeling cage-meshes create-cages|Docs: art / modeling / cage-meshes / create-cages]], [[2026-10-28 - Docs avatar makeup import|Docs: avatar / makeup / import]], [[2026-10-28 - Docs studio|Docs: studio]], [[2026-10-28 - Docs art characters facial-animation animate-heads|Docs: art / characters / facial-animation / animat]], [[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]], [[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]], [[2026-10-28 - Docs art accessories creating-rigid converting|Docs: art / accessories / creating-rigid / convert]], [[2026-10-28 - Docs studio importer|Docs: studio / importer]]
+- **MicroProfiler**: [[2026-10-28 - Docs performance-optimization microprofiler modes|Docs: performance-optimization / microprofiler / m]], [[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]], [[2026-10-28 - Docs performance-optimization microprofiler use-microprofiler|Docs: performance-optimization / microprofiler / u]], [[2026-10-28 - Docs performance-optimization microprofiler network|Docs: performance-optimization / microprofiler / n]], [[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]], [[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]], [[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]], [[2026-10-28 - Docs performance-optimization microprofiler|Docs: performance-optimization / microprofiler]], [[2026-10-28 - Docs performance-optimization microprofiler tag-table|Docs: performance-optimization / microprofiler / t]]
+- **Ads Manager**: [[2026-10-28 - Docs production promotion|Docs: production / promotion]], [[2026-10-28 - Docs production promotion reporting-and-billing|Docs: production / promotion / reporting-and-billi]], [[2026-10-28 - Docs production|Docs: production]], [[2026-10-28 - Docs production promotion advertise|Docs: production / promotion / advertise]], [[2026-10-28 - Docs production promotion ad-integrations|Docs: production / promotion / ad-integrations]], [[2026-10-28 - Docs marketplace sponsor-items|Docs: marketplace / sponsor-items]], [[2026-10-28 - Docs production promotion search-ads|Docs: production / promotion / search-ads]], [[2026-10-28 - Docs production promotion ads-manager|Docs: production / promotion / ads-manager]]
+- **HumanoidDescription**: [[2026-10-28 - Docs avatar character-bodies export|Docs: avatar / character-bodies / export]], [[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]], [[2026-10-28 - Docs avatar avatar-generation|Docs: avatar / avatar-generation]], [[2026-10-28 - Docs characters emotes|Docs: characters / emotes]], [[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]], [[2026-10-28 - Docs resources modules emote-bar|Docs: resources / modules / emote-bar]], [[2026-10-28 - Docs characters appearance|Docs: characters / appearance]], [[2026-10-28 - Docs players avatar-editor|Docs: players / avatar-editor]]
+- **MarketplaceService**: [[2026-10-28 - Docs production monetization passes|Docs: production / monetization / passes]], [[2026-10-28 - Docs resources feature-packages bundles|Docs: resources / feature-packages / bundles]], [[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]], [[2026-10-28 - Docs production monetization price-optimization|Docs: production / monetization / price-optimizati]], [[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]], [[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]], [[2026-10-28 - Docs scripting services|Docs: scripting / services]], [[2026-10-28 - Docs players avatar-editor|Docs: players / avatar-editor]]
+- **Accessory Fitting Tool (AFT)**: [[2026-10-28 - Docs avatar layered-accessories import|Docs: avatar / layered-accessories / import]], [[2026-10-28 - Docs avatar rigid-accessories import|Docs: avatar / rigid-accessories / import]], [[2026-10-28 - Docs art accessories creating converting|Docs: art / accessories / creating / converting]], [[2026-10-28 - Docs avatar rigid-accessories specifications|Docs: avatar / rigid-accessories / specifications]], [[2026-10-28 - Docs art accessories creating-rigid converting|Docs: art / accessories / creating-rigid / convert]], [[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]], [[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]], [[2026-10-28 - Docs avatar dynamic-heads test|Docs: avatar / dynamic-heads / test]]
+- **Properties**: [[2026-10-28 - Docs tutorials curriculums animator play-your-animation|Docs: tutorials / curriculums / animator / play-yo]], [[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]], [[2026-10-28 - Docs tutorials curriculums animator get-started|Docs: tutorials / curriculums / animator / get-sta]], [[2026-10-28 - Docs tutorials curriculums coding get-started|Docs: tutorials / curriculums / coding / get-start]], [[2026-10-28 - Docs education build-it-play-it-island-of-move change-the-animation|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder become-an-artist|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs education build-it-play-it-island-of-move opening-the-template|Docs: education / build-it-play-it-island-of-move ]]
+- **SoundService**: [[2026-10-28 - Docs sound|Docs: sound]], [[2026-10-28 - Docs resources beyond-the-dark|Docs: resources / beyond-the-dark]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive design-dark-soundscapes|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs tutorials use-case-tutorials audio play-background-music|Docs: tutorials / use-case-tutorials / audio / pla]], [[2026-10-28 - Docs sound objects|Docs: sound / objects]], [[2026-10-28 - Docs scripting services|Docs: scripting / services]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]]
+- **Substance Painter**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive materialize-the-world|Docs: resources / the-mystery-of-duvall-drive / ma]], [[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]], [[2026-10-28 - Docs art modeling material-reference|Docs: art / modeling / material-reference]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]], [[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]]
+- **Beam**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs effects beams|Docs: effects / beams]], [[2026-10-28 - Docs effects|Docs: effects]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx laser-traps-with-beams|Docs: tutorials / use-case-tutorials / vfx / laser]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-engaging-ex|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]]
+- **PointLight**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs effects light-sources|Docs: effects / light-sources]], [[2026-10-28 - Docs effects|Docs: effects]], [[2026-10-28 - Docs tutorials fundamentals coding-4 glow-lights-with-for-loops|Docs: tutorials / fundamentals / coding-4 / glow-l]], [[2026-10-28 - Docs tutorials curriculums core building create-basic-visual-effects|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx basic-particle-effects|Docs: tutorials / use-case-tutorials / vfx / basic]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]]
+- **Avatar Setup**: [[2026-10-28 - Docs avatar|Docs: avatar]], [[2026-10-28 - Docs avatar dynamic-heads validate|Docs: avatar / dynamic-heads / validate]], [[2026-10-28 - Docs avatar create|Docs: avatar / create]], [[2026-10-28 - Docs avatar character-bodies test-studio|Docs: avatar / character-bodies / test-studio]], [[2026-10-28 - Docs avatar dynamic-heads test|Docs: avatar / dynamic-heads / test]], [[2026-10-28 - Docs avatar dynamic-heads specifications|Docs: avatar / dynamic-heads / specifications]], [[2026-10-28 - Docs art|Docs: art]]
+- **MemoryStoreService**: [[2026-10-28 - Docs cloud-services memory-stores best-practices|Docs: cloud-services / memory-stores / best-practi]], [[2026-10-28 - Docs cloud-services memory-stores queue|Docs: cloud-services / memory-stores / queue]], [[2026-10-28 - Docs cloud-services memory-stores hash-map|Docs: cloud-services / memory-stores / hash-map]], [[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]], [[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]], [[2026-10-28 - Docs cloud-services memory-stores sorted-map|Docs: cloud-services / memory-stores / sorted-map]], [[2026-10-28 - Docs luau queues|Docs: luau / queues]]
+- **Input Action System**: [[2026-10-28 - Docs input gamepad|Docs: input / gamepad]], [[2026-10-28 - Docs characters character-controller-library|Docs: characters / character-controller-library]], [[2026-10-28 - Docs input mobile|Docs: input / mobile]], [[2026-10-28 - Docs input mouse-and-keyboard|Docs: input / mouse-and-keyboard]], [[2026-10-28 - Docs input|Docs: input]], [[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]]
+- **UserInputService**: [[2026-10-28 - Docs input gamepad|Docs: input / gamepad]], [[2026-10-28 - Docs input mobile|Docs: input / mobile]], [[2026-10-28 - Docs input mouse-and-keyboard|Docs: input / mouse-and-keyboard]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]]
+- **Controller Emulator**: [[2026-10-28 - Docs studio device-simulator|Docs: studio / device-simulator]], [[2026-10-28 - Docs input micro-gamepad|Docs: input / micro-gamepad]], [[2026-10-28 - Docs studio controller-emulator|Docs: studio / controller-emulator]], [[2026-10-28 - Docs ui styling editor|Docs: ui / styling / editor]], [[2026-10-28 - Docs input input-action-system|Docs: input / input-action-system]], [[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]]
+- **Device Emulator**: [[2026-10-28 - Docs tutorials curriculums user-interface-design implement-designs-in-|Docs: tutorials / curriculums / user-interface-des]], [[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]], [[2026-10-28 - Docs input micro-gamepad|Docs: input / micro-gamepad]], [[2026-10-28 - Docs ui styling editor|Docs: ui / styling / editor]], [[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-a-score-bar|Docs: tutorials / use-case-tutorials / ui / create]]
+- **UIAspectRatioConstraint**: [[2026-10-28 - Docs tutorials curriculums user-interface-design implement-designs-in-|Docs: tutorials / curriculums / user-interface-des]], [[2026-10-28 - Docs ui size-modifiers|Docs: ui / size-modifiers]], [[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]], [[2026-10-28 - Docs ui styling compatibility|Docs: ui / styling / compatibility]], [[2026-10-28 - Docs ui animation|Docs: ui / animation]], [[2026-10-28 - Docs tutorials curriculums user-interface-design choose-an-art-style|Docs: tutorials / curriculums / user-interface-des]]
+- **Open Cloud API**: [[2026-10-28 - Docs art modeling roblox-blender-plugin|Docs: art / modeling / roblox-blender-plugin]], [[2026-10-28 - Docs ui video-frames|Docs: ui / video-frames]], [[2026-10-28 - Docs cloud-services data-stores data-stores-manager|Docs: cloud-services / data-stores / data-stores-m]], [[2026-10-28 - Docs cloud reference patterns|Docs: cloud / reference / patterns]], [[2026-10-28 - Docs cloud guides data-stores request-handling|Docs: cloud / guides / data-stores / request-handl]], [[2026-10-28 - Docs cloud-services http-service|Docs: cloud-services / http-service]]
+- **ClickDetector**: [[2026-10-28 - Docs education adventure-game-series landing|Docs: education / adventure-game-series / landing]], [[2026-10-28 - Docs projects teleport|Docs: projects / teleport]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]], [[2026-10-28 - Docs education build-it-play-it-island-of-move animating-parts|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-4|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs education adventure-game-series buying-upgrades|Docs: education / adventure-game-series / buying-u]]
+- **Command Bar**: [[2026-10-28 - Docs workspace streaming slim|Docs: workspace / streaming / slim]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]], [[2026-10-28 - Docs studio overview|Docs: studio / overview]], [[2026-10-28 - Docs education battle-royale-series ending-matches|Docs: education / battle-royale-series / ending-ma]], [[2026-10-28 - Docs studio debugging|Docs: studio / debugging]], [[2026-10-28 - Docs ui page-layouts|Docs: ui / page-layouts]]
+- **Roblox Studio Properties window**: [[2026-10-28 - Docs ui on-screen-containers|Docs: ui / on-screen-containers]], [[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]], [[2026-10-28 - Docs studio properties|Docs: studio / properties]], [[2026-10-28 - Docs environment global-wind|Docs: environment / global-wind]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-a-score-bar|Docs: tutorials / use-case-tutorials / ui / create]], [[2026-10-28 - Docs projects assets privacy|Docs: projects / assets / privacy]]
+- **Script Profiler**: [[2026-10-28 - Docs luau native-code-gen|Docs: luau / native-code-gen]], [[2026-10-28 - Docs studio developer-console|Docs: studio / developer-console]], [[2026-10-28 - Docs production analytics error-report|Docs: production / analytics / error-report]], [[2026-10-28 - Docs studio optimization scriptprofiler|Docs: studio / optimization / scriptprofiler]], [[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]]
+- **Terrain tools**: [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-3|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs education adventure-game-series landing|Docs: education / adventure-game-series / landing]], [[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-5|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]]
+- **SurfaceGui**: [[2026-10-28 - Docs resources beyond-the-dark user-interface|Docs: resources / beyond-the-dark / user-interface]], [[2026-10-28 - Docs tutorials fundamentals coding-4 create-a-timed-bridge|Docs: tutorials / fundamentals / coding-4 / create]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-4|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs resources modules surface-art|Docs: resources / modules / surface-art]], [[2026-10-28 - Docs ui text-input|Docs: ui / text-input]]
+- **Rotate tool**: [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-the-second-pose|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education build-it-play-it-island-of-move designing-poses|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy build-the-roads|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs tutorials curriculums building work-with-parts|Docs: tutorials / curriculums / building / work-wi]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy complete-the-city|Docs: education / build-it-play-it-create-and-dest]]
+- **Importer**: [[2026-10-28 - Docs projects assets|Docs: projects / assets]], [[2026-10-28 - Docs tutorials use-case-tutorials use-case-tutorial-overview|Docs: tutorials / use-case-tutorials / use-case-tu]], [[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]], [[2026-10-28 - Docs tutorials curriculums environmental-art assemble-an-asset-library|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs art|Docs: art]]
+- **ServerScriptService**: [[2026-10-28 - Docs tutorials fundamentals coding-4 intro-to-for-loops|Docs: tutorials / fundamentals / coding-4 / intro-]], [[2026-10-28 - Docs scripting events bindable|Docs: scripting / events / bindable]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting cre|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs tutorials fundamentals coding-3 give-points|Docs: tutorials / fundamentals / coding-3 / give-p]], [[2026-10-28 - Docs tutorials fundamentals coding-3 intro-to-if-statements|Docs: tutorials / fundamentals / coding-3 / intro-]]
+- **BindableEvent**: [[2026-10-28 - Docs scripting module|Docs: scripting / module]], [[2026-10-28 - Docs scripting events bindable|Docs: scripting / events / bindable]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting implement-blasters|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs players avatar-context-menu|Docs: players / avatar-context-menu]], [[2026-10-28 - Docs education battle-royale-series timers-and-events|Docs: education / battle-royale-series / timers-an]]
+- **UIGridLayout**: [[2026-10-28 - Docs ui grid-table-layouts|Docs: ui / grid-table-layouts]], [[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]], [[2026-10-28 - Docs ui styling compatibility|Docs: ui / styling / compatibility]], [[2026-10-28 - Docs ui list-flex-layouts|Docs: ui / list-flex-layouts]], [[2026-10-28 - Docs ui scrolling-frames|Docs: ui / scrolling-frames]]
+- **UISizeConstraint**: [[2026-10-28 - Docs ui grid-table-layouts|Docs: ui / grid-table-layouts]], [[2026-10-28 - Docs ui size-modifiers|Docs: ui / size-modifiers]], [[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]], [[2026-10-28 - Docs production publishing console-guidelines|Docs: production / publishing / console-guidelines]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]]
+- **SoundGroup**: [[2026-10-28 - Docs sound|Docs: sound]], [[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive design-dark-soundscapes|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs sound groups|Docs: sound / groups]], [[2026-10-28 - Docs resources beyond-the-dark sound-design|Docs: resources / beyond-the-dark / sound-design]]
+- **HttpService**: [[2026-10-28 - Docs cloud|Docs: cloud]], [[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]], [[2026-10-28 - Docs projects groups|Docs: projects / groups]], [[2026-10-28 - Docs production promotion invite-prompts|Docs: production / promotion / invite-prompts]], [[2026-10-28 - Docs cloud reference rate-limits|Docs: cloud / reference / rate-limits]]
+- **Assistant**: [[2026-10-28 - Docs studio mcp|Docs: studio / mcp]], [[2026-10-28 - Docs studio|Docs: studio]], [[2026-10-28 - Docs tutorials curriculums core scripting script-game-behavior|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs parts procedural-models|Docs: parts / procedural-models]], [[2026-10-28 - Docs performance-optimization microprofiler|Docs: performance-optimization / microprofiler]]
+- **Lighting service**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs effects light-sources|Docs: effects / light-sources]], [[2026-10-28 - Docs environment|Docs: environment]], [[2026-10-28 - Docs environment atmosphere|Docs: environment / atmosphere]], [[2026-10-28 - Docs environment post-processing-effects|Docs: environment / post-processing-effects]]
+- **SpotLight**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs effects light-sources|Docs: effects / light-sources]], [[2026-10-28 - Docs effects|Docs: effects]], [[2026-10-28 - Docs tutorials fundamentals coding-4 glow-lights-with-for-loops|Docs: tutorials / fundamentals / coding-4 / glow-l]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]]
+- **AudioEmitter**: [[2026-10-28 - Docs audio objects|Docs: audio / objects]], [[2026-10-28 - Docs audio|Docs: audio]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]]
+- **Wire**: [[2026-10-28 - Docs audio objects|Docs: audio / objects]], [[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]], [[2026-10-28 - Docs chat voice-chat|Docs: chat / voice-chat]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]]
+- **AudioListener**: [[2026-10-28 - Docs audio objects|Docs: audio / objects]], [[2026-10-28 - Docs audio|Docs: audio]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]]
+- **UICorner**: [[2026-10-28 - Docs ui appearance-modifiers|Docs: ui / appearance-modifiers]], [[2026-10-28 - Docs ui styling compatibility|Docs: ui / styling / compatibility]], [[2026-10-28 - Docs ui frames|Docs: ui / frames]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]], [[2026-10-28 - Docs ui scrolling-frames|Docs: ui / scrolling-frames]]
+- **Studio Importer**: [[2026-10-28 - Docs avatar layered-accessories import|Docs: avatar / layered-accessories / import]], [[2026-10-28 - Docs avatar rigid-accessories import|Docs: avatar / rigid-accessories / import]], [[2026-10-28 - Docs avatar create|Docs: avatar / create]], [[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]], [[2026-10-28 - Docs art accessories creating importing|Docs: art / accessories / creating / importing]]
+- **License Manager**: [[2026-10-28 - Docs get-started resources|Docs: get-started / resources]], [[2026-10-28 - Docs ip-licensing license-manager|Docs: ip-licensing / license-manager]], [[2026-10-28 - Docs ip-licensing|Docs: ip-licensing]], [[2026-10-28 - Docs ip-licensing faq|Docs: ip-licensing / faq]], [[2026-10-28 - Docs ip-licensing get-started|Docs: ip-licensing / get-started]]
+- **Material Generator**: [[2026-10-28 - Docs studio texture-generator|Docs: studio / texture-generator]], [[2026-10-28 - Docs parts materials|Docs: parts / materials]], [[2026-10-28 - Docs parts custom-terrain-materials|Docs: parts / custom-terrain-materials]], [[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]], [[2026-10-28 - Docs art|Docs: art]]
+- **FBX export**: [[2026-10-28 - Docs art modeling rig-a-simple-mesh|Docs: art / modeling / rig-a-simple-mesh]], [[2026-10-28 - Docs art modeling|Docs: art / modeling]], [[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]], [[2026-10-28 - Docs art accessories creating-rigid exporting|Docs: art / accessories / creating-rigid / exporti]], [[2026-10-28 - Docs art modeling skin-a-simple-mesh|Docs: art / modeling / skin-a-simple-mesh]]
+- **TextLabel**: [[2026-10-28 - Docs education battle-royale-series creating-a-gui|Docs: education / battle-royale-series / creating-]], [[2026-10-28 - Docs tutorials fundamentals coding-4 create-a-timed-bridge|Docs: tutorials / fundamentals / coding-4 / create]], [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-4|Docs: education / lesson-plans / roblox-developer ]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive immersive-narrative|Docs: resources / the-mystery-of-duvall-drive / im]]
+- **Style Editor**: [[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]], [[2026-10-28 - Docs ui|Docs: ui]], [[2026-10-28 - Docs studio overview|Docs: studio / overview]], [[2026-10-28 - Docs ui styling editor|Docs: ui / styling / editor]]
+- **GuiService**: [[2026-10-28 - Docs workspace streaming|Docs: workspace / streaming]], [[2026-10-28 - Docs characters emotes|Docs: characters / emotes]], [[2026-10-28 - Docs production publishing accessibility|Docs: production / publishing / accessibility]], [[2026-10-28 - Docs players avatar-inspect-menu|Docs: players / avatar-inspect-menu]]
+- **AI Assistant**: [[2026-10-28 - Docs tutorials curriculums building|Docs: tutorials / curriculums / building]], [[2026-10-28 - Docs get-started|Docs: get-started]], [[2026-10-28 - Docs get-started tools|Docs: get-started / tools]], [[2026-10-28 - Docs tutorials curriculums building work-with-parts|Docs: tutorials / curriculums / building / work-wi]]
+- **AvatarCreationService**: [[2026-10-28 - Docs marketplace validation-system|Docs: marketplace / validation-system]], [[2026-10-28 - Docs avatar avatar-generation|Docs: avatar / avatar-generation]], [[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]], [[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]]
+- **CompressorSoundEffect**: [[2026-10-28 - Docs sound|Docs: sound]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive design-dark-soundscapes|Docs: resources / the-mystery-of-duvall-drive / de]], [[2026-10-28 - Docs sound groups|Docs: sound / groups]], [[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]]
+- **OAuth 2.0**: [[2026-10-28 - Docs cloud|Docs: cloud]], [[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]], [[2026-10-28 - Docs cloud auth oauth2-develop|Docs: cloud / auth / oauth2-develop]], [[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]]
+- **Face Animation Editor**: [[2026-10-28 - Docs art characters facial-animation moods|Docs: art / characters / facial-animation / moods]], [[2026-10-28 - Docs avatar|Docs: avatar]], [[2026-10-28 - Docs art characters facial-animation animate-heads|Docs: art / characters / facial-animation / animat]], [[2026-10-28 - Docs avatar dynamic-heads test|Docs: avatar / dynamic-heads / test]]
+- **SurfaceLight**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs effects light-sources|Docs: effects / light-sources]], [[2026-10-28 - Docs effects|Docs: effects]], [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]]
+- **AudioTextToSpeech**: [[2026-10-28 - Docs audio objects|Docs: audio / objects]], [[2026-10-28 - Docs audio|Docs: audio]], [[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]]
+- **Material Manager**: [[2026-10-28 - Docs studio material-generator|Docs: studio / material-generator]], [[2026-10-28 - Docs parts materials|Docs: parts / materials]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive materialize-the-world|Docs: resources / the-mystery-of-duvall-drive / ma]], [[2026-10-28 - Docs tutorials curriculums environmental-art assemble-an-asset-library|Docs: tutorials / curriculums / environmental-art ]]
+- **RaycastParams**: [[2026-10-28 - Docs workspace collisions|Docs: workspace / collisions]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs workspace raycasting|Docs: workspace / raycasting]]
+- **SurfaceAppearance**: [[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]], [[2026-10-28 - Docs resources beyond-the-dark custom-characters|Docs: resources / beyond-the-dark / custom-charact]], [[2026-10-28 - Docs avatar rigid-accessories import|Docs: avatar / rigid-accessories / import]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]]
+- **Photoshop**: [[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]], [[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway colors-and-textures|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]]
+- **UIGradient**: [[2026-10-28 - Docs ui appearance-modifiers|Docs: ui / appearance-modifiers]], [[2026-10-28 - Docs ui|Docs: ui]], [[2026-10-28 - Docs ui styling compatibility|Docs: ui / styling / compatibility]], [[2026-10-28 - Docs chat chat-window|Docs: chat / chat-window]]
+- **UIStroke**: [[2026-10-28 - Docs ui appearance-modifiers|Docs: ui / appearance-modifiers]], [[2026-10-28 - Docs ui|Docs: ui]], [[2026-10-28 - Docs ui animation|Docs: ui / animation]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]]
+- **Attachments**: [[2026-10-28 - Docs tutorials use-case-tutorials physics create-spinning-objects|Docs: tutorials / use-case-tutorials / physics / c]], [[2026-10-28 - Docs physics|Docs: physics]], [[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-ferris-wheel|Docs: tutorials / use-case-tutorials / physics / b]], [[2026-10-28 - Docs tutorials use-case-tutorials physics create-moving-objects|Docs: tutorials / use-case-tutorials / physics / c]]
+- **Creator Store / Toolbox**: [[2026-10-28 - Docs tutorials use-case-tutorials physics create-spinning-objects|Docs: tutorials / use-case-tutorials / physics / c]], [[2026-10-28 - Docs resources feature-packages bundles|Docs: resources / feature-packages / bundles]], [[2026-10-28 - Docs audio assets|Docs: audio / assets]], [[2026-10-28 - Docs resources feature-packages missions|Docs: resources / feature-packages / missions]]
+- **Core feature package**: [[2026-10-28 - Docs resources feature-packages bundles|Docs: resources / feature-packages / bundles]], [[2026-10-28 - Docs resources feature-packages engagement-rewards|Docs: resources / feature-packages / engagement-re]], [[2026-10-28 - Docs resources feature-packages season-passes|Docs: resources / feature-packages / season-passes]], [[2026-10-28 - Docs resources feature-packages missions|Docs: resources / feature-packages / missions]]
+- **Luau scripts**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway customize-and-share|Docs: education / build-it-play-it-galactic-speedw]], [[2026-10-28 - Docs education adventure-game-series landing|Docs: education / adventure-game-series / landing]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder experienced-landing-|Docs: education / build-it-play-it-mansion-of-wond]], [[2026-10-28 - Docs scripting attributes|Docs: scripting / attributes]]
+- **Workspace:Raycast**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]], [[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]], [[2026-10-28 - Docs workspace raycasting|Docs: workspace / raycasting]]
+- **Move tool**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy build-one-half|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs education build-it-play-it-island-of-move designing-poses|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs tutorials curriculums building work-with-parts|Docs: tutorials / curriculums / building / work-wi]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy complete-the-city|Docs: education / build-it-play-it-create-and-dest]]
+- **Reaper**: [[2026-10-28 - Docs art reaper|Docs: art / reaper]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-2D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]]
+- **HingeConstraint**: [[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-ferris-wheel|Docs: tutorials / use-case-tutorials / physics / b]], [[2026-10-28 - Docs physics constraints hinge|Docs: physics / constraints / hinge]], [[2026-10-28 - Docs animation inverse-kinematics|Docs: animation / inverse-kinematics]], [[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-hinged-door|Docs: tutorials / use-case-tutorials / physics / b]]
+- **Highlight**: [[2026-10-28 - Docs effects|Docs: effects]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]], [[2026-10-28 - Docs projects server-authority techniques|Docs: projects / server-authority / techniques]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive immersive-narrative|Docs: resources / the-mystery-of-duvall-drive / im]]
+- **Roblox Assistant**: [[2026-10-28 - Docs assistant prompt-engineering|Docs: assistant / prompt-engineering]], [[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs tutorials curriculums core building customize-global-lighting|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs assistant skills|Docs: assistant / skills]]
+- **Python requests**: [[2026-10-28 - Docs cloud guides experiments|Docs: cloud / guides / experiments]], [[2026-10-28 - Docs cloud guides instance|Docs: cloud / guides / instance]], [[2026-10-28 - Docs cloud guides data-stores|Docs: cloud / guides / data-stores]], [[2026-10-28 - Docs cloud guides data-stores request-handling|Docs: cloud / guides / data-stores / request-handl]]
+- **CanvasGroup**: [[2026-10-28 - Docs ui animation|Docs: ui / animation]], [[2026-10-28 - Docs ui frames|Docs: ui / frames]], [[2026-10-28 - Docs production publishing accessibility|Docs: production / publishing / accessibility]], [[2026-10-28 - Docs ui scrolling-frames|Docs: ui / scrolling-frames]]
+- **ScrollingFrame**: [[2026-10-28 - Docs production publishing console-guidelines|Docs: production / publishing / console-guidelines]], [[2026-10-28 - Docs ui frames|Docs: ui / frames]], [[2026-10-28 - Docs chat examples simple-custom-frontend-ui|Docs: chat / examples / simple-custom-frontend-ui]], [[2026-10-28 - Docs ui scrolling-frames|Docs: ui / scrolling-frames]]
+- **Data Stores Manager (Creator Hub)**: [[2026-10-28 - Docs cloud-services data-stores|Docs: cloud-services / data-stores]], [[2026-10-28 - Docs cloud-services data-stores data-stores-manager|Docs: cloud-services / data-stores / data-stores-m]], [[2026-10-28 - Docs cloud-services data-stores right-to-be-forgotten|Docs: cloud-services / data-stores / right-to-be-f]]
+- **TextChatCommand**: [[2026-10-28 - Docs chat platform-integrated-chat|Docs: chat / platform-integrated-chat]], [[2026-10-28 - Docs chat examples custom-text-chat-commands|Docs: chat / examples / custom-text-chat-commands]], [[2026-10-28 - Docs chat in-experience-text-chat|Docs: chat / in-experience-text-chat]]
+- **Paint tool**: [[2026-10-28 - Docs education adventure-game-series create-the-map|Docs: education / adventure-game-series / create-t]], [[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs education build-it-play-it-create-and-destroy terrain-tools|Docs: education / build-it-play-it-create-and-dest]]
+- **Marketplace**: [[2026-10-28 - Docs education adventure-game-series collect-items|Docs: education / adventure-game-series / collect-]], [[2026-10-28 - Docs projects assets|Docs: projects / assets]], [[2026-10-28 - Docs get-started tools|Docs: get-started / tools]]
+- **HapticEffect**: [[2026-10-28 - Docs input gamepad|Docs: input / gamepad]], [[2026-10-28 - Docs input mobile|Docs: input / mobile]], [[2026-10-28 - Docs production publishing console-guidelines|Docs: production / publishing / console-guidelines]]
+- **Save to Roblox**: [[2026-10-28 - Docs art accessories creating-rigid publishing|Docs: art / accessories / creating-rigid / publish]], [[2026-10-28 - Docs tutorials use-case-tutorials modeling create-neon-signs|Docs: tutorials / use-case-tutorials / modeling / ]], [[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]]
+- **Rights Manager**: [[2026-10-28 - Docs marketplace frequently-asked-questions|Docs: marketplace / frequently-asked-questions]], [[2026-10-28 - Docs ip-licensing get-started|Docs: ip-licensing / get-started]], [[2026-10-28 - Docs production creator-store|Docs: production / creator-store]]
+- **PolicyService**: [[2026-10-28 - Docs production monetization immersive-ads|Docs: production / monetization / immersive-ads]], [[2026-10-28 - Docs production monetization|Docs: production / monetization]], [[2026-10-28 - Docs production promotion comply-with-advertising-standards|Docs: production / promotion / comply-with-adverti]]
+- **Luau type checker**: [[2026-10-28 - Docs luau type-checking|Docs: luau / type-checking]], [[2026-10-28 - Docs luau comments|Docs: luau / comments]], [[2026-10-28 - Docs luau|Docs: luau]]
+- **Script editor**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy change-the-script|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs tutorials fundamentals coding-1 object-properties|Docs: tutorials / fundamentals / coding-1 / object]], [[2026-10-28 - Docs studio|Docs: studio]]
+- **Experience Settings**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy change-the-script|Docs: education / build-it-play-it-create-and-dest]], [[2026-10-28 - Docs resources battle-royale installation-and-setup|Docs: resources / battle-royale / installation-and]], [[2026-10-28 - Docs chat voice-chat|Docs: chat / voice-chat]]
+- **Class.PolicyService**: [[2026-10-28 - Docs production promotion experience-guidelines|Docs: production / promotion / experience-guidelin]], [[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]], [[2026-10-28 - Docs production promotion content-maturity|Docs: production / promotion / content-maturity]]
+- **ProcessReceipt**: [[2026-10-28 - Docs scripting security client-server-boundary|Docs: scripting / security / client-server-boundar]], [[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]], [[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]]
+- **Visualization Options widget**: [[2026-10-28 - Docs parts|Docs: parts]], [[2026-10-28 - Docs physics mover-constraints|Docs: physics / mover-constraints]], [[2026-10-28 - Docs tutorials curriculums environmental-art assemble-an-asset-library|Docs: tutorials / curriculums / environmental-art ]]
+- **Curve Editor**: [[2026-10-28 - Docs avatar emotes import|Docs: avatar / emotes / import]], [[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]], [[2026-10-28 - Docs animation curve-editor|Docs: animation / curve-editor]]
+- **Missions feature package**: [[2026-10-28 - Docs production game-design introduction-to-quest-design|Docs: production / game-design / introduction-to-q]], [[2026-10-28 - Docs resources feature-packages season-passes|Docs: resources / feature-packages / season-passes]], [[2026-10-28 - Docs resources feature-packages missions|Docs: resources / feature-packages / missions]]
+- **Roblox Blender plugin**: [[2026-10-28 - Docs art modeling roblox-blender-plugin|Docs: art / modeling / roblox-blender-plugin]], [[2026-10-28 - Docs tutorials use-case-tutorials use-case-tutorial-overview|Docs: tutorials / use-case-tutorials / use-case-tu]], [[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]]
+- **Players service**: [[2026-10-28 - Docs players|Docs: players]], [[2026-10-28 - Docs education adventure-game-series code-the-leaderboard|Docs: education / adventure-game-series / code-the]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting sav|Docs: tutorials / use-case-tutorials / scripting /]]
+- **Roblox Studio MCP server**: [[2026-10-28 - Docs studio mcp|Docs: studio / mcp]], [[2026-10-28 - Docs assistant mcp|Docs: assistant / mcp]], [[2026-10-28 - Docs parts procedural-models|Docs: parts / procedural-models]]
+- **Roblox Studio Script Editor**: [[2026-10-28 - Docs luau comments|Docs: luau / comments]], [[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]], [[2026-10-28 - Docs luau|Docs: luau]]
+- **AudioPlayer**: [[2026-10-28 - Docs audio objects|Docs: audio / objects]], [[2026-10-28 - Docs audio|Docs: audio]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]]
+- **AudioDeviceOutput**: [[2026-10-28 - Docs audio objects|Docs: audio / objects]], [[2026-10-28 - Docs chat voice-chat|Docs: chat / voice-chat]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]]
+- **AudioSpeechToText**: [[2026-10-28 - Docs audio objects|Docs: audio / objects]], [[2026-10-28 - Docs audio|Docs: audio]], [[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]]
+- **EditableMesh**: [[2026-10-28 - Docs avatar avatar-generation|Docs: avatar / avatar-generation]], [[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]], [[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]]
+- **EditableImage**: [[2026-10-28 - Docs avatar avatar-generation|Docs: avatar / avatar-generation]], [[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]], [[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]]
+- **Roblox Open Cloud**: [[2026-10-28 - Docs cloud reference scopes|Docs: cloud / reference / scopes]], [[2026-10-28 - Docs cloud auth oauth2-develop|Docs: cloud / auth / oauth2-develop]], [[2026-10-28 - Docs cloud guides|Docs: cloud / guides]]
+- **Substance Designer**: [[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive materialize-the-world|Docs: resources / the-mystery-of-duvall-drive / ma]], [[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]]
+- **UIPadding**: [[2026-10-28 - Docs ui appearance-modifiers|Docs: ui / appearance-modifiers]], [[2026-10-28 - Docs ui list-flex-layouts|Docs: ui / list-flex-layouts]], [[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]]
+- **Roblox Studio Explorer/Properties**: [[2026-10-28 - Docs workspace camera|Docs: workspace / camera]], [[2026-10-28 - Docs ui text-input|Docs: ui / text-input]], [[2026-10-28 - Docs animation inverse-kinematics|Docs: animation / inverse-kinematics]]
+- **Roblox Studio 3D Importer**: [[2026-10-28 - Docs art modeling cage-meshes create-cages|Docs: art / modeling / cage-meshes / create-cages]], [[2026-10-28 - Docs art modeling|Docs: art / modeling]], [[2026-10-28 - Docs art modeling cage-meshes|Docs: art / modeling / cage-meshes]]
+- **Animation Capture**: [[2026-10-28 - Docs avatar|Docs: avatar]], [[2026-10-28 - Docs avatar emotes|Docs: avatar / emotes]], [[2026-10-28 - Docs art|Docs: art]]
+- **GIMP**: [[2026-10-28 - Docs avatar|Docs: avatar]], [[2026-10-28 - Docs avatar create|Docs: avatar / create]], [[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]]
+- **Private servers**: [[2026-10-28 - Docs education resources teaching-remotely|Docs: education / resources / teaching-remotely]], [[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]], [[2026-10-28 - Docs education collaboration collaborating-in-roblox-landing-page|Docs: education / collaboration / collaborating-in]]
+- **FBX**: [[2026-10-28 - Docs avatar resources|Docs: avatar / resources]], [[2026-10-28 - Docs avatar character-bodies project-files|Docs: avatar / character-bodies / project-files]], [[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]]
+- **Experiments**: [[2026-10-28 - Docs production analytics get-started|Docs: production / analytics / get-started]], [[2026-10-28 - Docs production game-design onboarding|Docs: production / game-design / onboarding]], [[2026-10-28 - Docs production game-design balance-virtual-economies|Docs: production / game-design / balance-virtual-e]]
+- **Rojo**: [[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]], [[2026-10-28 - Docs scripting sync|Docs: scripting / sync]], [[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]]
+- **task.wait**: [[2026-10-28 - Docs tutorials fundamentals coding-4 create-a-timed-bridge|Docs: tutorials / fundamentals / coding-4 / create]], [[2026-10-28 - Docs tutorials use-case-tutorials data-storage save-player-data|Docs: tutorials / use-case-tutorials / data-storag]], [[2026-10-28 - Docs scripting debounce|Docs: scripting / debounce]]
+- **ContextActionService**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting implement-blasters|Docs: tutorials / curriculums / gameplay-scripting]], [[2026-10-28 - Docs input micro-gamepad|Docs: input / micro-gamepad]], [[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera detect-user-input|Docs: tutorials / use-case-tutorials / input-and-c]]
+- **Roblox Studio Assistant**: [[2026-10-28 - Docs assistant guide|Docs: assistant / guide]], [[2026-10-28 - Docs assistant mcp|Docs: assistant / mcp]], [[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]]
+- **RigidConstraint**: [[2026-10-28 - Docs physics constraints rigid|Docs: physics / constraints / rigid]], [[2026-10-28 - Docs physics constraints weld|Docs: physics / constraints / weld]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive foundational-gameplay-syste|Docs: resources / the-mystery-of-duvall-drive / fo]]
+- **WeldConstraint**: [[2026-10-28 - Docs physics constraints rigid|Docs: physics / constraints / rigid]], [[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]], [[2026-10-28 - Docs physics constraints weld|Docs: physics / constraints / weld]]
+- **TextService**: [[2026-10-28 - Docs characters name-health-display|Docs: characters / name-health-display]], [[2026-10-28 - Docs production publishing accessibility|Docs: production / publishing / accessibility]], [[2026-10-28 - Docs ui text-filtering|Docs: ui / text-filtering]]
+- **Performance Dashboard**: [[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]], [[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]], [[2026-10-28 - Docs performance-optimization monitor|Docs: performance-optimization / monitor]]
+- **PrismaticConstraint**: [[2026-10-28 - Docs physics constraints prismatic|Docs: physics / constraints / prismatic]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]], [[2026-10-28 - Docs tutorials use-case-tutorials physics create-elevators|Docs: tutorials / use-case-tutorials / physics / c]]
+- **Configs**: [[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]], [[2026-10-28 - Docs production game-design onboarding|Docs: production / game-design / onboarding]], [[2026-10-28 - Docs production game-design balance-virtual-economies|Docs: production / game-design / balance-virtual-e]]
+- **UIPageLayout**: [[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]], [[2026-10-28 - Docs ui styling compatibility|Docs: ui / styling / compatibility]], [[2026-10-28 - Docs ui page-layouts|Docs: ui / page-layouts]]
+- **Studio MCP server**: [[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]], [[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]], [[2026-10-28 - Docs performance-optimization microprofiler|Docs: performance-optimization / microprofiler]]
+- **Node.js**: [[2026-10-28 - Docs cloud guides data-stores|Docs: cloud / guides / data-stores]], [[2026-10-28 - Docs cloud auth oauth2-sample|Docs: cloud / auth / oauth2-sample]], [[2026-10-28 - Docs cloud guides|Docs: cloud / guides]]
+- **Atmosphere object**: [[2026-10-28 - Docs environment|Docs: environment]], [[2026-10-28 - Docs environment atmosphere|Docs: environment / atmosphere]], [[2026-10-28 - Docs tutorials curriculums core building customize-global-lighting|Docs: tutorials / curriculums / core / building / ]]
+- **Open Cloud**: [[2026-10-28 - Docs players users|Docs: players / users]], [[2026-10-28 - Docs studio importer|Docs: studio / importer]], [[2026-10-28 - Docs cloud-services secrets|Docs: cloud-services / secrets]]
+- **AudioDeviceInput**: [[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]], [[2026-10-28 - Docs chat voice-chat|Docs: chat / voice-chat]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]]
+- **Asset Configuration window**: [[2026-10-28 - Docs projects assets toolbox|Docs: projects / assets / toolbox]], [[2026-10-28 - Docs parts models|Docs: parts / models]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway sharing-your-speeder|Docs: education / build-it-play-it-galactic-speedw]]
+- **RemoteFunction**: [[2026-10-28 - Docs tutorials curriculums core scripting script-an-upgrade-button|Docs: tutorials / curriculums / core / scripting /]], [[2026-10-28 - Docs tutorials use-case-tutorials data-storage create-leaderboard|Docs: tutorials / use-case-tutorials / data-storag]], [[2026-10-28 - Docs scripting events remote|Docs: scripting / events / remote]]
+- **Audacity**: [[2026-10-28 - Docs tutorials use-case-tutorials audio add-2D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]]
+- **TextBox**: [[2026-10-28 - Docs ui text-input|Docs: ui / text-input]], [[2026-10-28 - Docs chat examples simple-custom-frontend-ui|Docs: chat / examples / simple-custom-frontend-ui]], [[2026-10-28 - Docs ui text-filtering|Docs: ui / text-filtering]]
+- **Microprofiler**: [[2026-10-28 - Docs tutorials curriculums environmental-art optimize-your-experience|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs performance-optimization microprofiler task-scheduler|Docs: performance-optimization / microprofiler / t]]
+- **Scene Analysis**: [[2026-10-28 - Docs tutorials curriculums environmental-art optimize-your-experience|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]]
+- **Open Cloud APIs for data stores**: [[2026-10-28 - Docs cloud-services data-stores|Docs: cloud-services / data-stores]], [[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]]
+- **leaderstats**: [[2026-10-28 - Docs education adventure-game-series selling-items|Docs: education / adventure-game-series / selling-]], [[2026-10-28 - Docs players leaderboards|Docs: players / leaderboards]]
+- **Calisthenics Tool**: [[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]], [[2026-10-28 - Docs art modeling|Docs: art / modeling]]
+- **Clothing Validation Tool**: [[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]], [[2026-10-28 - Docs art modeling|Docs: art / modeling]]
+- **Draw tool**: [[2026-10-28 - Docs education adventure-game-series create-the-map|Docs: education / adventure-game-series / create-t]], [[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]]
+- **IntValue**: [[2026-10-28 - Docs education battle-royale-series creating-a-gui|Docs: education / battle-royale-series / creating-]], [[2026-10-28 - Docs education adventure-game-series code-the-leaderboard|Docs: education / adventure-game-series / code-the]]
+- **Rig Generator**: [[2026-10-28 - Docs tutorials curriculums animator work-with-the-animation-editor|Docs: tutorials / curriculums / animator / work-wi]], [[2026-10-28 - Docs animation editor|Docs: animation / editor]]
+- **AnalyticsService**: [[2026-10-28 - Docs production analytics event-types|Docs: production / analytics / event-types]], [[2026-10-28 - Docs production analytics custom-events|Docs: production / analytics / custom-events]]
+- **Network Simulator**: [[2026-10-28 - Docs studio device-simulator|Docs: studio / device-simulator]], [[2026-10-28 - Docs studio testing-modes|Docs: studio / testing-modes]]
+- **RunService.Heartbeat**: [[2026-10-28 - Docs scripting scheduler|Docs: scripting / scheduler]], [[2026-10-28 - Docs tutorials use-case-tutorials lighting create-flickering-lights|Docs: tutorials / use-case-tutorials / lighting / ]]
+- **Script Editor**: [[2026-10-28 - Docs luau type-checking|Docs: luau / type-checking]], [[2026-10-28 - Docs scripting|Docs: scripting]]
+- **Debris service**: [[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]]
+- **DevEx Portal (Tipalti)**: [[2026-10-28 - Docs production monetization devex-portal|Docs: production / monetization / devex-portal]], [[2026-10-28 - Docs production monetization developer-exchange|Docs: production / monetization / developer-exchan]]
+- **Player:GetJoinData()**: [[2026-10-28 - Docs production promotion deeplinks|Docs: production / promotion / deeplinks]], [[2026-10-28 - Docs production promotion experience-notifications|Docs: production / promotion / experience-notifica]]
+- **Open Cloud APIs**: [[2026-10-28 - Docs cloud auth api-keys|Docs: cloud / auth / api-keys]], [[2026-10-28 - Docs cloud auth oauth2-overview|Docs: cloud / auth / oauth2-overview]]
+- **Luau heap tool**: [[2026-10-28 - Docs performance-optimization scene-analysis|Docs: performance-optimization / scene-analysis]], [[2026-10-28 - Docs studio optimization memory-usage|Docs: studio / optimization / memory-usage]]
+- **MarketplaceService:PromptRobuxTransferAsync**: [[2026-10-28 - Docs production monetization roblox-plus|Docs: production / monetization / roblox-plus]], [[2026-10-28 - Docs production monetization robux-transfers|Docs: production / monetization / robux-transfers]]
+- **MarketplaceService:GetProductInfoAsync**: [[2026-10-28 - Docs production monetization roblox-plus|Docs: production / monetization / roblox-plus]], [[2026-10-28 - Docs scripting transparent-batching|Docs: scripting / transparent-batching]]
+- **ProximityPromptService**: [[2026-10-28 - Docs tutorials use-case-tutorials ui proximity-prompts|Docs: tutorials / use-case-tutorials / ui / proxim]], [[2026-10-28 - Docs ui proximity-prompts|Docs: ui / proximity-prompts]]
+- **BallSocketConstraint**: [[2026-10-28 - Docs physics constraints ball-socket|Docs: physics / constraints / ball-socket]], [[2026-10-28 - Docs animation inverse-kinematics|Docs: animation / inverse-kinematics]]
+- **UITableLayout**: [[2026-10-28 - Docs ui grid-table-layouts|Docs: ui / grid-table-layouts]], [[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]]
+- **Sound**: [[2026-10-28 - Docs sound|Docs: sound]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive design-dark-soundscapes|Docs: resources / the-mystery-of-duvall-drive / de]]
+- **EqualizerSoundEffect**: [[2026-10-28 - Docs sound|Docs: sound]], [[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]]
+- **ReverbSoundEffect**: [[2026-10-28 - Docs sound|Docs: sound]], [[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]]
+- **Torque constraint**: [[2026-10-28 - Docs physics constraints torque|Docs: physics / constraints / torque]], [[2026-10-28 - Docs physics constraints angular-velocity|Docs: physics / constraints / angular-velocity]]
+- **AngularVelocity constraint**: [[2026-10-28 - Docs physics constraints torque|Docs: physics / constraints / torque]], [[2026-10-28 - Docs physics constraints angular-velocity|Docs: physics / constraints / angular-velocity]]
+- **Roblox Creator Dashboard**: [[2026-10-28 - Docs matchmaking customize-matchmaking|Docs: matchmaking / customize-matchmaking]], [[2026-10-28 - Docs projects assets in-experience-asset-creation|Docs: projects / assets / in-experience-asset-crea]]
+- **Avatar Editor Service**: [[2026-10-28 - Docs marketplace|Docs: marketplace]], [[2026-10-28 - Docs players avatar-inspect-menu|Docs: players / avatar-inspect-menu]]
+- **Calisthenics Tool (Blender add-on)**: [[2026-10-28 - Docs avatar character-bodies test-blender|Docs: avatar / character-bodies / test-blender]], [[2026-10-28 - Docs art modeling calisthenics-tool|Docs: art / modeling / calisthenics-tool]]
+- **Luau script**: [[2026-10-28 - Docs tutorials fundamentals coding-2 parameters-practice-buttons|Docs: tutorials / fundamentals / coding-2 / parame]], [[2026-10-28 - Docs education adventure-game-series buying-upgrades|Docs: education / adventure-game-series / buying-u]]
+- **Avatar Settings**: [[2026-10-28 - Docs characters character-controller-library|Docs: characters / character-controller-library]], [[2026-10-28 - Docs characters appearance|Docs: characters / appearance]]
+- **UITextSizeConstraint**: [[2026-10-28 - Docs ui size-modifiers|Docs: ui / size-modifiers]], [[2026-10-28 - Docs production publishing accessibility|Docs: production / publishing / accessibility]]
+- **Roblox Studio Terrain Editor**: [[2026-10-28 - Docs studio terrain-editor|Docs: studio / terrain-editor]], [[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]]
+- **Postman**: [[2026-10-28 - Docs cloud|Docs: cloud]], [[2026-10-28 - Docs cloud reference openapi|Docs: cloud / reference / openapi]]
+- **UIDragDetector**: [[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]], [[2026-10-28 - Docs ui ui-drag-detectors|Docs: ui / ui-drag-detectors]]
+- **Animation Graph Editor**: [[2026-10-28 - Docs animation expressions|Docs: animation / expressions]], [[2026-10-28 - Docs animation graph-editor-state-machine|Docs: animation / graph-editor-state-machine]]
+- **AnimationTrack:SetParameter**: [[2026-10-28 - Docs animation expressions|Docs: animation / expressions]], [[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]]
+- **StarterGui**: [[2026-10-28 - Docs players|Docs: players]], [[2026-10-28 - Docs characters emotes|Docs: characters / emotes]]
+- **Roblox Creator Dashboard Analytics**: [[2026-10-28 - Docs production analytics analytics-dashboard|Docs: production / analytics / analytics-dashboard]], [[2026-10-28 - Docs production analytics insights|Docs: production / analytics / insights]]
+- **Error Report**: [[2026-10-28 - Docs cloud-services memory-stores observability|Docs: cloud-services / memory-stores / observabili]], [[2026-10-28 - Docs cloud-services memory-stores best-practices|Docs: cloud-services / memory-stores / best-practi]]
+- **Roblox client**: [[2026-10-28 - Docs education educator-onboarding 2-playing-on-roblox|Docs: education / educator-onboarding / 2-playing-]], [[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]]
+- **Analytics Query API**: [[2026-10-28 - Docs cloud guides analytics benchmarks|Docs: cloud / guides / analytics / benchmarks]], [[2026-10-28 - Docs cloud guides analytics metrics|Docs: cloud / guides / analytics / metrics]]
+- **Animation Editor (Clip Editor)**: [[2026-10-28 - Docs animation capture|Docs: animation / capture]], [[2026-10-28 - Docs tutorials use-case-tutorials animation create-an-animation|Docs: tutorials / use-case-tutorials / animation /]]
+- **Atmosphere**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]], [[2026-10-28 - Docs environment clouds|Docs: environment / clouds]]
+- **Creator dashboard**: [[2026-10-28 - Docs get-started monetization|Docs: get-started / monetization]], [[2026-10-28 - Docs production game-design liveops-essentials|Docs: production / game-design / liveops-essential]]
+- **AnimationConstraint**: [[2026-10-28 - Docs animation|Docs: animation]], [[2026-10-28 - Docs physics constraints animation|Docs: physics / constraints / animation]]
+- **CFrame.lookAt**: [[2026-10-28 - Docs workspace cframes|Docs: workspace / cframes]], [[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera control-the-users-c|Docs: tutorials / use-case-tutorials / input-and-c]]
+- **MessagingService**: [[2026-10-28 - Docs cloud-services cross-server-messaging|Docs: cloud-services / cross-server-messaging]], [[2026-10-28 - Docs cloud-services data-stores player-data-purchasing|Docs: cloud-services / data-stores / player-data-p]]
+- **NoCollisionConstraint**: [[2026-10-28 - Docs workspace collisions|Docs: workspace / collisions]], [[2026-10-28 - Docs physics constraints no-collision|Docs: physics / constraints / no-collision]]
+- **pcall**: [[2026-10-28 - Docs scripting transparent-batching|Docs: scripting / transparent-batching]], [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting sav|Docs: tutorials / use-case-tutorials / scripting /]]
+- **Studio Assistant**: [[2026-10-28 - Docs tutorials curriculums core building create-a-project|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]]
+- **BubbleChatConfiguration**: [[2026-10-28 - Docs chat bubble-chat|Docs: chat / bubble-chat]], [[2026-10-28 - Docs chat in-experience-text-chat|Docs: chat / in-experience-text-chat]]
+- **Particle Emitter**: [[2026-10-28 - Docs tutorials curriculums artist|Docs: tutorials / curriculums / artist]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder make-final-touches|Docs: education / build-it-play-it-mansion-of-wond]]
+- **InputAction**: [[2026-10-28 - Docs production publishing vr-guidelines|Docs: production / publishing / vr-guidelines]], [[2026-10-28 - Docs input input-action-system|Docs: input / input-action-system]]
+- **Data Stores Manager**: [[2026-10-28 - Docs projects groups|Docs: projects / groups]], [[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]]
+- **AnalyticsService:LogEconomyEvent**: [[2026-10-28 - Docs production analytics custom-fields|Docs: production / analytics / custom-fields]], [[2026-10-28 - Docs production analytics economy-events|Docs: production / analytics / economy-events]]
+- **Negate**: [[2026-10-28 - Docs tutorials use-case-tutorials modeling create-neon-signs|Docs: tutorials / use-case-tutorials / modeling / ]], [[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]]
+- **Union**: [[2026-10-28 - Docs tutorials use-case-tutorials modeling create-neon-signs|Docs: tutorials / use-case-tutorials / modeling / ]], [[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]]
+- **Developer Console (F9)**: [[2026-10-28 - Docs production analytics error-report|Docs: production / analytics / error-report]], [[2026-10-28 - Docs performance-optimization design|Docs: performance-optimization / design]]
+- **RunService:BindToSimulation**: [[2026-10-28 - Docs projects server-authority|Docs: projects / server-authority]], [[2026-10-28 - Docs projects server-authority techniques|Docs: projects / server-authority / techniques]]
+- **SpringConstraint**: [[2026-10-28 - Docs physics constraints cylindrical|Docs: physics / constraints / cylindrical]], [[2026-10-28 - Docs physics constraints spring|Docs: physics / constraints / spring]]
+- **ReplicatedStorage**: [[2026-10-28 - Docs scripting events bindable|Docs: scripting / events / bindable]], [[2026-10-28 - Docs luau queues|Docs: luau / queues]]
+- **StarterGui:SetCoreGuiEnabled**: [[2026-10-28 - Docs players disable-ui|Docs: players / disable-ui]], [[2026-10-28 - Docs production monetization shop|Docs: production / monetization / shop]]
+- **Script Sync**: [[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]], [[2026-10-28 - Docs scripting|Docs: scripting]]
+- **StyLua**: [[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]], [[2026-10-28 - Docs scripting sync|Docs: scripting / sync]]
+- **Animate script**: [[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]], [[2026-10-28 - Docs animation using|Docs: animation / using]]
+- **MaterialService**: [[2026-10-28 - Docs tutorials curriculums core building apply-polished-assets|Docs: tutorials / curriculums / core / building / ]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]]
+- **Tipalti**: [[2026-10-28 - Docs production monetization paid-access-local-currency|Docs: production / monetization / paid-access-loca]], [[2026-10-28 - Docs production monetization tax-information|Docs: production / monetization / tax-information]]
+- **/generate_mesh**: [[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]], [[2026-10-28 - Docs assistant guide|Docs: assistant / guide]]
+- **/generate_procedural_model**: [[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]], [[2026-10-28 - Docs assistant guide|Docs: assistant / guide]]
+- **Show Orientation Indicator**: [[2026-10-28 - Docs parts textures-decals|Docs: parts / textures-decals]], [[2026-10-28 - Docs ui in-experience-containers|Docs: ui / in-experience-containers]]
+- **Price optimization**: [[2026-10-28 - Docs production monetization|Docs: production / monetization]], [[2026-10-28 - Docs production monetization price-optimization|Docs: production / monetization / price-optimizati]]
+- **Toolbox (Inventory tab)**: [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-new-models|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs education build-it-play-it-galactic-speedway sharing-your-speeder|Docs: education / build-it-play-it-galactic-speedw]]
+- **Clouds object**: [[2026-10-28 - Docs environment clouds|Docs: environment / clouds]], [[2026-10-28 - Docs environment|Docs: environment]]
+- **Groups**: [[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]], [[2026-10-28 - Docs education collaboration collaborating-in-roblox-landing-page|Docs: education / collaboration / collaborating-in]]
+- **Google Classroom**: [[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]], [[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]]
+- **Developer Forum**: [[2026-10-28 - Docs get-started tools|Docs: get-started / tools]], [[2026-10-28 - Docs cloud reference rate-limits|Docs: cloud / reference / rate-limits]]
+- **Roblox Configs**: [[2026-10-28 - Docs production game-design onboarding-techniques|Docs: production / game-design / onboarding-techni]], [[2026-10-28 - Docs production game-design ui-ux-design|Docs: production / game-design / ui-ux-design]]
+- **Roblox Experiments**: [[2026-10-28 - Docs production game-design onboarding-techniques|Docs: production / game-design / onboarding-techni]], [[2026-10-28 - Docs production game-design ui-ux-design|Docs: production / game-design / ui-ux-design]]
+- **Device Simulator**: [[2026-10-28 - Docs studio testing-modes|Docs: studio / testing-modes]], [[2026-10-28 - Docs studio controller-emulator|Docs: studio / controller-emulator]]
+- **Creator Hub / Creator Dashboard**: [[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]], [[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]]
+- **Roblox Studio Output window**: [[2026-10-28 - Docs tutorials fundamentals coding-5 make-changes-to-arrays|Docs: tutorials / fundamentals / coding-5 / make-c]], [[2026-10-28 - Docs studio output|Docs: studio / output]]
+- **AudioEqualizer**: [[2026-10-28 - Docs audio|Docs: audio]], [[2026-10-28 - Docs audio effects|Docs: audio / effects]]
+- **AudioCompressor**: [[2026-10-28 - Docs audio|Docs: audio]], [[2026-10-28 - Docs audio effects|Docs: audio / effects]]
+- **AudioReverb**: [[2026-10-28 - Docs audio|Docs: audio]], [[2026-10-28 - Docs audio effects|Docs: audio / effects]]
+- **Extended Services**: [[2026-10-28 - Docs cloud-services memory-stores best-practices|Docs: cloud-services / memory-stores / best-practi]], [[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]]
+- **BillboardGui**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive immersive-narrative|Docs: resources / the-mystery-of-duvall-drive / im]]
+- **Visual Studio Code**: [[2026-10-28 - Docs scripting sync|Docs: scripting / sync]], [[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]]
+- **Automatic Skinning Transfer**: [[2026-10-28 - Docs avatar create|Docs: avatar / create]], [[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]]
+- **TweenInfo**: [[2026-10-28 - Docs education build-it-play-it-island-of-move animating-parts|Docs: education / build-it-play-it-island-of-move ]], [[2026-10-28 - Docs ui animation|Docs: ui / animation]]
+- **Environment Art Asset Library**: [[2026-10-28 - Docs tutorials curriculums environmental-art construct-your-world|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]]
+- **StyleSheet**: [[2026-10-28 - Docs ui styling css-comparisons|Docs: ui / styling / css-comparisons]], [[2026-10-28 - Docs ui styling|Docs: ui / styling]]
+- **StyleRule**: [[2026-10-28 - Docs ui styling css-comparisons|Docs: ui / styling / css-comparisons]], [[2026-10-28 - Docs ui styling|Docs: ui / styling]]
+- **StyleLink**: [[2026-10-28 - Docs ui styling css-comparisons|Docs: ui / styling / css-comparisons]], [[2026-10-28 - Docs ui styling|Docs: ui / styling]]
+- **StyleQuery**: [[2026-10-28 - Docs ui styling css-comparisons|Docs: ui / styling / css-comparisons]], [[2026-10-28 - Docs ui styling compatibility|Docs: ui / styling / compatibility]]
+- **Animator**: [[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]], [[2026-10-28 - Docs animation using|Docs: animation / using]]
+- **Dynamic Price Check tool**: [[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]], [[2026-10-28 - Docs production monetization price-optimization|Docs: production / monetization / price-optimizati]]
+- **GetDeveloperProductsAsync**: [[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]], [[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]]
+- **AssetService**: [[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]], [[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]]
+- **WrapDeformer**: [[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]], [[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]]
+- **Script**: [[2026-10-28 - Docs tutorials use-case-tutorials vfx laser-traps-with-beams|Docs: tutorials / use-case-tutorials / vfx / laser]], [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder adding-scripts|Docs: education / build-it-play-it-mansion-of-wond]]
+- **DevForum**: [[2026-10-28 - Docs creator-programs inspire|Docs: creator-programs / inspire]], [[2026-10-28 - Docs production roblox-user-base|Docs: production / roblox-user-base]]
+- **PathfindingService**: [[2026-10-28 - Docs characters pathfinding|Docs: characters / pathfinding]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive foundational-gameplay-syste|Docs: resources / the-mystery-of-duvall-drive / fo]]
+- **Discord webhooks**: [[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]], [[2026-10-28 - Docs production analytics alerts|Docs: production / analytics / alerts]]
+- **Slack webhooks**: [[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]], [[2026-10-28 - Docs production analytics alerts|Docs: production / analytics / alerts]]
+- **RunService**: [[2026-10-28 - Docs scripting events deferred|Docs: scripting / events / deferred]], [[2026-10-28 - Docs scripting services|Docs: scripting / services]]
+- **task library**: [[2026-10-28 - Docs scripting events deferred|Docs: scripting / events / deferred]], [[2026-10-28 - Docs tutorials fundamentals coding-4 repeat-code-with-while-loops|Docs: tutorials / fundamentals / coding-4 / repeat]]
+- **Git**: [[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]], [[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]]
+- **Rig_and_Attachments_Template.blend**: [[2026-10-28 - Docs art modeling rig-a-humanoid-model|Docs: art / modeling / rig-a-humanoid-model]], [[2026-10-28 - Docs art accessories creating armature-setup|Docs: art / accessories / creating / armature-setu]]
+- **UIFlexItem**: [[2026-10-28 - Docs ui styling compatibility|Docs: ui / styling / compatibility]], [[2026-10-28 - Docs ui list-flex-layouts|Docs: ui / list-flex-layouts]]
+- **GuiService.ViewportDisplaySize**: [[2026-10-28 - Docs production publishing console-guidelines|Docs: production / publishing / console-guidelines]], [[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]]
+- **InputActionLabel**: [[2026-10-28 - Docs production publishing console-guidelines|Docs: production / publishing / console-guidelines]], [[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]]
+- **TextService:FilterStringAsync()**: [[2026-10-28 - Docs chat preset-system-guidelines|Docs: chat / preset-system-guidelines]], [[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]]
+- **WrapTarget**: [[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]], [[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]]
+- **VoiceChatService**: [[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]], [[2026-10-28 - Docs chat voice-chat|Docs: chat / voice-chat]]
+- **ZBrush**: [[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]]
+- **Frame**: [[2026-10-28 - Docs ui frames|Docs: ui / frames]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive immersive-narrative|Docs: resources / the-mystery-of-duvall-drive / im]]
+- **ViewportFrame**: [[2026-10-28 - Docs ui frames|Docs: ui / frames]], [[2026-10-28 - Docs ui viewport-frames|Docs: ui / viewport-frames]]
+- **Observability Dashboard**: [[2026-10-28 - Docs cloud-services http-service|Docs: cloud-services / http-service]], [[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]]
+- **Code Assist**: [[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]], [[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]]
+- **Blender 3.0**: [[2026-10-28 - Docs art modeling skin-a-humanoid-model|Docs: art / modeling / skin-a-humanoid-model]], [[2026-10-28 - Docs art modeling skin-a-simple-mesh|Docs: art / modeling / skin-a-simple-mesh]]
+- **ChatWindowConfiguration**: [[2026-10-28 - Docs chat chat-window|Docs: chat / chat-window]], [[2026-10-28 - Docs chat in-experience-text-chat|Docs: chat / in-experience-text-chat]]
+- **Sound object**: [[2026-10-28 - Docs tutorials use-case-tutorials audio play-background-music|Docs: tutorials / use-case-tutorials / audio / pla]], [[2026-10-28 - Docs sound objects|Docs: sound / objects]]
+- **LinearVelocity constraint**: [[2026-10-28 - Docs physics constraints linear-velocity|Docs: physics / constraints / linear-velocity]], [[2026-10-28 - Docs physics constraints vector-force|Docs: physics / constraints / vector-force]]
+- **VectorForce constraint**: [[2026-10-28 - Docs physics constraints linear-velocity|Docs: physics / constraints / linear-velocity]], [[2026-10-28 - Docs physics constraints vector-force|Docs: physics / constraints / vector-force]]
+- **Roblox Client**: [[2026-10-28 - Docs education educator-onboarding 1-intro-to-roblox|Docs: education / educator-onboarding / 1-intro-to]], [[2026-10-28 - Docs education resources frequently-asked-questions-education|Docs: education / resources / frequently-asked-que]]
+- **ImageLabel**: [[2026-10-28 - Docs resources battle-royale minimap-system|Docs: resources / battle-royale / minimap-system]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive immersive-narrative|Docs: resources / the-mystery-of-duvall-drive / im]]
+- **Teams service**: [[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]], [[2026-10-28 - Docs tutorials curriculums gameplay-scripting create-teams|Docs: tutorials / curriculums / gameplay-scripting]]
+- **Packages**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]], [[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]]
+- **Discord**: [[2026-10-28 - Docs production roblox-user-base|Docs: production / roblox-user-base]], [[2026-10-28 - Docs education developer beta-testing-experiences|Docs: education / developer / beta-testing-experie]]
+- **Creator Hub Configs page**: [[2026-10-28 - Docs production configs|Docs: production / configs]]
+- **Roblox Studio Configs widget**: [[2026-10-28 - Docs production configs|Docs: production / configs]]
+- **ConfigService**: [[2026-10-28 - Docs production configs|Docs: production / configs]]
+- **ConfigSnapshot**: [[2026-10-28 - Docs production configs|Docs: production / configs]]
+- **TV Remote simulation in Roblox Studio**: [[2026-10-28 - Docs creator-programs android-tv-pilot|Docs: creator-programs / android-tv-pilot]]
+- **Memory stores**: [[2026-10-28 - Docs cloud-services data-stores|Docs: cloud-services / data-stores]]
+- **Luau heap profiler**: [[2026-10-28 - Docs luau native-code-gen|Docs: luau / native-code-gen]]
+- **Roblox Studio Command Bar**: [[2026-10-28 - Docs luau native-code-gen|Docs: luau / native-code-gen]]
+- **debug.dumpcodesize()**: [[2026-10-28 - Docs luau native-code-gen|Docs: luau / native-code-gen]]
+- **Roblox Assistant (in Studio)**: [[2026-10-28 - Docs tutorials curriculums building code-with-assistant|Docs: tutorials / curriculums / building / code-wi]]
+- **Roblox Studio playtest (Test mode)**: [[2026-10-28 - Docs tutorials curriculums building code-with-assistant|Docs: tutorials / curriculums / building / code-wi]]
+- **Roblox Weapons Kit (prefab weapons)**: [[2026-10-28 - Docs resources weapons-kit|Docs: resources / weapons-kit]]
+- **Inventory**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway add-new-models|Docs: education / build-it-play-it-galactic-speedw]]
+- **Open Cloud Data Stores API v1**: [[2026-10-28 - Docs cloud guides data-stores throttling|Docs: cloud / guides / data-stores / throttling]]
+- **Roblox Open Cloud Error Reporting API**: [[2026-10-28 - Docs cloud guides error-reporting|Docs: cloud / guides / error-reporting]]
+- **Elastic Deform**: [[2026-10-28 - Docs art accessories creating sculpting|Docs: art / accessories / creating / sculpting]]
+- **Inflate**: [[2026-10-28 - Docs art accessories creating sculpting|Docs: art / accessories / creating / sculpting]]
+- **Cloth**: [[2026-10-28 - Docs art accessories creating sculpting|Docs: art / accessories / creating / sculpting]]
+- **Roblox Studio Avatar Setup tool**: [[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]]
+- **Roblox Blender and Maya project files**: [[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]]
+- **Roblox Studio Reimport**: [[2026-10-28 - Docs art modeling reimport|Docs: art / modeling / reimport]]
+- **Alt+Shift+R hotkey**: [[2026-10-28 - Docs art modeling reimport|Docs: art / modeling / reimport]]
+- **Configure Reimport Settings dialog**: [[2026-10-28 - Docs art modeling reimport|Docs: art / modeling / reimport]]
+- **TextChannelWindow**: [[2026-10-28 - Docs chat platform-integrated-chat|Docs: chat / platform-integrated-chat]]
+- **Quick Words**: [[2026-10-28 - Docs chat platform-integrated-chat|Docs: chat / platform-integrated-chat]]
+- **Brush Mode toggle**: [[2026-10-28 - Docs education adventure-game-series create-the-map|Docs: education / adventure-game-series / create-t]]
+- **Blender Texture Paint**: [[2026-10-28 - Docs art characters creating texturing-setup|Docs: art / characters / creating / texturing-setu]]
+- **Roblox Creator Dashboard OAuth 2.0 Apps page**: [[2026-10-28 - Docs cloud auth oauth2-registration|Docs: cloud / auth / oauth2-registration]]
+- **WrapLayer.AutoSkin property**: [[2026-10-28 - Docs avatar automatic-skinning-transfer|Docs: avatar / automatic-skinning-transfer]]
+- **Roblox Studio free camera mode (Left Shift + P)**: [[2026-10-28 - Docs production publishing thumbnails|Docs: production / publishing / thumbnails]]
+- **BadgeService (AwardBadgeAsync, GetBadgeInfoAsync, UserHasBadgeAsync, GetUserBadgesAsync)**: [[2026-10-28 - Docs production publishing badges|Docs: production / publishing / badges]]
+- **Roblox Studio Toolbox (Creator Store)**: [[2026-10-28 - Docs scripting security third-party-vulnerabilities|Docs: scripting / security / third-party-vulnerabi]]
+- **Workspace.SandboxedInstance**: [[2026-10-28 - Docs scripting security third-party-vulnerabilities|Docs: scripting / security / third-party-vulnerabi]]
+- **Model.Sandboxed property**: [[2026-10-28 - Docs scripting security third-party-vulnerabilities|Docs: scripting / security / third-party-vulnerabi]]
+- **Model.Capabilities property**: [[2026-10-28 - Docs scripting security third-party-vulnerabilities|Docs: scripting / security / third-party-vulnerabi]]
+- **Roblox Creator Challenge quiz game**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway take-the-challenge-2|Docs: education / build-it-play-it-galactic-speedw]]
+- **paper prototyping materials (paper, dice, Legos, board pieces)**: [[2026-10-28 - Docs production game-design prototyping|Docs: production / game-design / prototyping]]
+- **Insert from File**: [[2026-10-28 - Docs education adventure-game-series collect-items|Docs: education / adventure-game-series / collect-]]
+- **Roblox caging templates**: [[2026-10-28 - Docs avatar layered-accessories caging-best-practices|Docs: avatar / layered-accessories / caging-best-p]]
+- **UniversalConstraint**: [[2026-10-28 - Docs physics constraints universal|Docs: physics / constraints / universal]]
+- **StringValue**: [[2026-10-28 - Docs education battle-royale-series creating-a-gui|Docs: education / battle-royale-series / creating-]]
+- **FeaturePackages Core**: [[2026-10-28 - Docs resources feature-packages changelog|Docs: resources / feature-packages / changelog]]
+- **ModalManager**: [[2026-10-28 - Docs resources feature-packages changelog|Docs: resources / feature-packages / changelog]]
+- **UITimer**: [[2026-10-28 - Docs resources feature-packages changelog|Docs: resources / feature-packages / changelog]]
+- **UITween**: [[2026-10-28 - Docs resources feature-packages changelog|Docs: resources / feature-packages / changelog]]
+- **playPurchaseEffect**: [[2026-10-28 - Docs resources feature-packages changelog|Docs: resources / feature-packages / changelog]]
+- **Missions package**: [[2026-10-28 - Docs resources feature-packages changelog|Docs: resources / feature-packages / changelog]]
+- **Season Passes package**: [[2026-10-28 - Docs resources feature-packages changelog|Docs: resources / feature-packages / changelog]]
+- **Clip Editor**: [[2026-10-28 - Docs tutorials curriculums animator work-with-the-animation-editor|Docs: tutorials / curriculums / animator / work-wi]]
+- **Image editor (any)**: [[2026-10-28 - Docs avatar classic-clothing|Docs: avatar / classic-clothing]]
+- **Roblox Events & Updates**: [[2026-10-28 - Docs production promotion experience-events|Docs: production / promotion / experience-events]]
+- **GameJoinContext / player:GetJoinData()**: [[2026-10-28 - Docs production promotion experience-events|Docs: production / promotion / experience-events]]
+- **Controller Emulator (Studio)**: [[2026-10-28 - Docs input gamepad|Docs: input / gamepad]]
+- **Assistant for Studio**: [[2026-10-28 - Docs assistant overview|Docs: assistant / overview]]
+- **Assistant in Roblox documentation**: [[2026-10-28 - Docs assistant overview|Docs: assistant / overview]]
+- **Clothing_Cage.blend**: [[2026-10-28 - Docs art accessories creating modeling-setup|Docs: art / accessories / creating / modeling-setu]]
+- **Path2D**: [[2026-10-28 - Docs ui 2D-paths|Docs: ui / 2D-paths]]
+- **Roblox Studio viewport path tooling widget**: [[2026-10-28 - Docs ui 2D-paths|Docs: ui / 2D-paths]]
+- **Immersive ads**: [[2026-10-28 - Docs production promotion advertise-on-roblox|Docs: production / promotion / advertise-on-roblox]]
+- **Search ads**: [[2026-10-28 - Docs production promotion advertise-on-roblox|Docs: production / promotion / advertise-on-roblox]]
+- **Sponsored games**: [[2026-10-28 - Docs production promotion advertise-on-roblox|Docs: production / promotion / advertise-on-roblox]]
+- **Sponsored items**: [[2026-10-28 - Docs production promotion advertise-on-roblox|Docs: production / promotion / advertise-on-roblox]]
+- **Avatar tab**: [[2026-10-28 - Docs education build-it-play-it-island-of-move animations-and-feedback|Docs: education / build-it-play-it-island-of-move ]]
+- **Network Stats debug overlay**: [[2026-10-28 - Docs workspace streaming|Docs: workspace / streaming]]
+- **Creator Dashboard Analytics**: [[2026-10-28 - Docs production analytics event-types|Docs: production / analytics / event-types]]
+- **Modern City template**: [[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]]
+- **Pivot Tools**: [[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]]
+- **Classic Obby template**: [[2026-10-28 - Docs tutorials curriculums building|Docs: tutorials / curriculums / building]]
+- **Roblox Studio Device Simulator**: [[2026-10-28 - Docs studio device-simulator|Docs: studio / device-simulator]]
+- **Device Manager**: [[2026-10-28 - Docs studio device-simulator|Docs: studio / device-simulator]]
+- **Creator Store (Ads portal and image packages)**: [[2026-10-28 - Docs production monetization immersive-ads|Docs: production / monetization / immersive-ads]]
+- **ReplicatedStorage ModuleScript**: [[2026-10-28 - Docs resources beyond-the-dark user-interface|Docs: resources / beyond-the-dark / user-interface]]
+- **Library.task**: [[2026-10-28 - Docs scripting scheduler|Docs: scripting / scheduler]]
+- **Library.coroutine**: [[2026-10-28 - Docs scripting scheduler|Docs: scripting / scheduler]]
+- **Loop toggle**: [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-the-second-pose|Docs: education / build-it-play-it-island-of-move ]]
+- **Space bar (play/stop preview)**: [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-the-second-pose|Docs: education / build-it-play-it-island-of-move ]]
+- **Script Analysis window**: [[2026-10-28 - Docs luau type-checking|Docs: luau / type-checking]]
+- **Roblox Studio Model tab (Union, Intersect, Separate, Negate)**: [[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]]
+- **GeometryService (UnionAsync, IntersectAsync, SubtractAsync, SweepPartAsync, FragmentAsync, GenerateFragmentSites)**: [[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]]
+- **CollectionService rbxNegate tag**: [[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]]
+- **Blender Solidify modifier**: [[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]]
+- **3D Print Toolbox**: [[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]]
+- **Mesh Repair Tools**: [[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]]
+- **MeshLab**: [[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]]
+- **HttpService:JSONDecode()**: [[2026-10-28 - Docs production promotion deeplinks|Docs: production / promotion / deeplinks]]
+- **AppsFlyer**: [[2026-10-28 - Docs production promotion deeplinks|Docs: production / promotion / deeplinks]]
+- **Roblox Creator Dashboard API Keys page**: [[2026-10-28 - Docs cloud auth api-keys|Docs: cloud / auth / api-keys]]
+- **Secrets Store (in Roblox places)**: [[2026-10-28 - Docs cloud auth api-keys|Docs: cloud / auth / api-keys]]
+- **Roblox Studio Texture Paint**: [[2026-10-28 - Docs art characters creating texturing-eyes|Docs: art / characters / creating / texturing-eyes]]
+- **Blender-style Object/Edit mode workflow**: [[2026-10-28 - Docs art characters creating texturing-eyes|Docs: art / characters / creating / texturing-eyes]]
+- **Roblox Studio Team Create**: [[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]]
+- **Live Scripting**: [[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]]
+- **Drafts Mode**: [[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]]
+- **Script History / Version History**: [[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]]
+- **Creator Hub Safety > Collaborators**: [[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]]
+- **Roblox Studio Scene Analysis**: [[2026-10-28 - Docs performance-optimization scene-analysis|Docs: performance-optimization / scene-analysis]]
+- **SceneAnalysisService (Engine API, via MCP server)**: [[2026-10-28 - Docs performance-optimization scene-analysis|Docs: performance-optimization / scene-analysis]]
+- **Synty Nature Pack**: [[2026-10-28 - Docs education battle-royale-series finishing-the-project|Docs: education / battle-royale-series / finishing]]
+- **Synty City Pack**: [[2026-10-28 - Docs education battle-royale-series finishing-the-project|Docs: education / battle-royale-series / finishing]]
+- **Synty Dungeon Pack: Cave & Castle Interiors**: [[2026-10-28 - Docs education battle-royale-series finishing-the-project|Docs: education / battle-royale-series / finishing]]
+- **Roblox Studio ParticleEmitter**: [[2026-10-28 - Docs tutorials use-case-tutorials vfx custom-particle-effects|Docs: tutorials / use-case-tutorials / vfx / custo]]
+- **MarketplaceService:PromptRobloxSubscriptionPurchase**: [[2026-10-28 - Docs production monetization roblox-plus|Docs: production / monetization / roblox-plus]]
+- **MarketplaceService:GetRobloxSubscriptionDetailsAsync**: [[2026-10-28 - Docs production monetization roblox-plus|Docs: production / monetization / roblox-plus]]
+- **Player.HasRobloxSubscription**: [[2026-10-28 - Docs production monetization roblox-plus|Docs: production / monetization / roblox-plus]]
+- **ModuleScripts**: [[2026-10-28 - Docs education battle-royale-series landing|Docs: education / battle-royale-series / landing]]
+- **Events**: [[2026-10-28 - Docs education battle-royale-series landing|Docs: education / battle-royale-series / landing]]
+- **Galactic Speedway template**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway get-off-the-ground|Docs: education / build-it-play-it-galactic-speedw]]
+- **Generate tool**: [[2026-10-28 - Docs parts terrain|Docs: parts / terrain]]
+- **Import tool**: [[2026-10-28 - Docs parts terrain|Docs: parts / terrain]]
+- **Select and Transform tools**: [[2026-10-28 - Docs parts terrain|Docs: parts / terrain]]
+- **Fill and Sea Level tools**: [[2026-10-28 - Docs parts terrain|Docs: parts / terrain]]
+- **Brush tools (Draw, Sculpt, Smooth, Flatten, Paint)**: [[2026-10-28 - Docs parts terrain|Docs: parts / terrain]]
+- **Terrain class scripting (FillBlock etc.)**: [[2026-10-28 - Docs parts terrain|Docs: parts / terrain]]
+- **RobloxColorMapIndex file**: [[2026-10-28 - Docs parts terrain|Docs: parts / terrain]]
+- **Studio Importer (3D Importer)**: [[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]]
+- **Adaptive Animation plugin**: [[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]]
+- **HumanoidRigDescription**: [[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]]
+- **DigitsRigDescription**: [[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]]
+- **Roblox Studio Explorer window**: [[2026-10-28 - Docs studio explorer|Docs: studio / explorer]]
+- **Studio search input (Ctrl+Shift+X / Cmd+Shift+X)**: [[2026-10-28 - Docs studio explorer|Docs: studio / explorer]]
+- **Explorer and Properties windows**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting create-flickering-lights|Docs: tutorials / use-case-tutorials / lighting / ]]
+- **NumberSequence editor**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting create-flickering-lights|Docs: tutorials / use-case-tutorials / lighting / ]]
+- **Open Cloud v1 API**: [[2026-10-28 - Docs cloud reference errors|Docs: cloud / reference / errors]]
+- **Open Cloud v2 API**: [[2026-10-28 - Docs cloud reference errors|Docs: cloud / reference / errors]]
+- **Roblox template cages**: [[2026-10-28 - Docs art accessories creating|Docs: art / accessories / creating]]
+- **Roblox armature templates**: [[2026-10-28 - Docs art accessories creating|Docs: art / accessories / creating]]
+- **TextService (filter via GetNonChatStringForBroadcastAsync)**: [[2026-10-28 - Docs chat examples rate-limit-public-text-inputs|Docs: chat / examples / rate-limit-public-text-inp]]
+- **tick()**: [[2026-10-28 - Docs chat examples rate-limit-public-text-inputs|Docs: chat / examples / rate-limit-public-text-inp]]
+- **Custom Matchmaking configuration page**: [[2026-10-28 - Docs matchmaking customize-matchmaking|Docs: matchmaking / customize-matchmaking]]
+- **Device Trust API**: [[2026-10-28 - Docs scripting security security-tactics|Docs: scripting / security / security-tactics]]
+- **Blender Weight Paint mode**: [[2026-10-28 - Docs art modeling calisthenics-tool|Docs: art / modeling / calisthenics-tool]]
+- **Blender FBX importer/exporter**: [[2026-10-28 - Docs art modeling calisthenics-tool|Docs: art / modeling / calisthenics-tool]]
+- **SelfieMode module (Creator Store)**: [[2026-10-28 - Docs resources modules selfie-mode|Docs: resources / modules / selfie-mode]]
+- **DepthOfFieldEffect**: [[2026-10-28 - Docs resources modules selfie-mode|Docs: resources / modules / selfie-mode]]
+- **image editor**: [[2026-10-28 - Docs get-started creating|Docs: get-started / creating]]
+- **Luau ModuleScripts**: [[2026-10-28 - Docs tutorials fundamentals coding-6 coding-concept-abstraction|Docs: tutorials / fundamentals / coding-6 / coding]]
+- **Roblox Analytics Alerts dashboard**: [[2026-10-28 - Docs cloud guides alerts metrics|Docs: cloud / guides / alerts / metrics]]
+- **Roblox Analytics Alerts API**: [[2026-10-28 - Docs cloud guides alerts metrics|Docs: cloud / guides / alerts / metrics]]
+- **AvatarAbilities module (@rbx/AvatarAbilities)**: [[2026-10-28 - Docs characters character-controller-library|Docs: characters / character-controller-library]]
+- **Script objects**: [[2026-10-28 - Docs tutorials fundamentals coding-2 functions-and-events|Docs: tutorials / fundamentals / coding-2 / functi]]
+- **Creator Dashboard Maturity & Compliance questionnaire**: [[2026-10-28 - Docs production promotion experience-guidelines|Docs: production / promotion / experience-guidelin]]
+- **UIScale**: [[2026-10-28 - Docs ui size-modifiers|Docs: ui / size-modifiers]]
+- **AutomaticSize**: [[2026-10-28 - Docs ui size-modifiers|Docs: ui / size-modifiers]]
+- **TextScaled**: [[2026-10-28 - Docs ui size-modifiers|Docs: ui / size-modifiers]]
+- **Local server test**: [[2026-10-28 - Docs education battle-royale-series managing-players|Docs: education / battle-royale-series / managing-]]
+- **Toolbox / Inventory / Creator Store**: [[2026-10-28 - Docs effects particle-emitters|Docs: effects / particle-emitters]]
+- **Studio Settings (Editor Quality Level)**: [[2026-10-28 - Docs effects particle-emitters|Docs: effects / particle-emitters]]
+- **Open Cloud REST APIs**: [[2026-10-28 - Docs cloud|Docs: cloud]]
+- **API keys**: [[2026-10-28 - Docs cloud|Docs: cloud]]
+- **OpenAPI descriptions**: [[2026-10-28 - Docs cloud|Docs: cloud]]
+- **Roblox webhooks**: [[2026-10-28 - Docs cloud|Docs: cloud]]
+- **PlayerGui.ScreenOrientation**: [[2026-10-28 - Docs input mobile|Docs: input / mobile]]
+- **StarterGui.ScreenOrientation**: [[2026-10-28 - Docs input mobile|Docs: input / mobile]]
+- **Roblox Open Cloud Inventory API**: [[2026-10-28 - Docs cloud guides inventory|Docs: cloud / guides / inventory]]
+- **Roblox Analytics Query API**: [[2026-10-28 - Docs cloud guides analytics|Docs: cloud / guides / analytics]]
+- **TokenBucket module (example)**: [[2026-10-28 - Docs scripting security client-server-boundary|Docs: scripting / security / client-server-boundar]]
+- **math.isfinite**: [[2026-10-28 - Docs scripting security client-server-boundary|Docs: scripting / security / client-server-boundar]]
+- **utf8.len**: [[2026-10-28 - Docs scripting security client-server-boundary|Docs: scripting / security / client-server-boundar]]
+- **Model/Home toolbar**: [[2026-10-28 - Docs parts|Docs: parts]]
+- **Badges**: [[2026-10-28 - Docs production game-design introduction-to-quest-design|Docs: production / game-design / introduction-to-q]]
+- **LiveOps essentials**: [[2026-10-28 - Docs production game-design introduction-to-quest-design|Docs: production / game-design / introduction-to-q]]
+- **Color sequence editor**: [[2026-10-28 - Docs effects trails|Docs: effects / trails]]
+- **Number sequence editor**: [[2026-10-28 - Docs effects trails|Docs: effects / trails]]
+- **Creator Dashboard (notification strings, analytics)**: [[2026-10-28 - Docs production promotion experience-notifications|Docs: production / promotion / experience-notifica]]
+- **Open Cloud Luau package (OpenCloud.V2.UserNotification)**: [[2026-10-28 - Docs production promotion experience-notifications|Docs: production / promotion / experience-notifica]]
+- **ExperienceNotificationService (PromptOptIn, CanPromptOptInAsync)**: [[2026-10-28 - Docs production promotion experience-notifications|Docs: production / promotion / experience-notifica]]
+- **Blend1DNode**: [[2026-10-28 - Docs animation expressions|Docs: animation / expressions]]
+- **Humanoid (MoveDirection, WalkSpeed)**: [[2026-10-28 - Docs animation expressions|Docs: animation / expressions]]
+- **RunService.Stepped**: [[2026-10-28 - Docs animation expressions|Docs: animation / expressions]]
+- **Library.math**: [[2026-10-28 - Docs animation expressions|Docs: animation / expressions]]
+- **Creator Dashboard (Creations > Share Links)**: [[2026-10-28 - Docs production promotion share-links|Docs: production / promotion / share-links]]
+- **Player:GetJoinData() / LaunchData**: [[2026-10-28 - Docs production promotion share-links|Docs: production / promotion / share-links]]
+- **Player object**: [[2026-10-28 - Docs players|Docs: players]]
+- **StarterGear**: [[2026-10-28 - Docs players|Docs: players]]
+- **Creator Hub Bans dashboard**: [[2026-10-28 - Docs players|Docs: players]]
+- **Open Cloud bans and blocks API**: [[2026-10-28 - Docs players|Docs: players]]
+- **Explore page**: [[2026-10-28 - Docs production analytics analytics-dashboard|Docs: production / analytics / analytics-dashboard]]
+- **Sales data CSV export**: [[2026-10-28 - Docs production analytics analytics-dashboard|Docs: production / analytics / analytics-dashboard]]
+- **Class.Player.FrustumStreaming**: [[2026-10-28 - Docs workspace streaming frustum|Docs: workspace / streaming / frustum]]
+- **Enum.FrustumStreamingMode**: [[2026-10-28 - Docs workspace streaming frustum|Docs: workspace / streaming / frustum]]
+- **Class.Player:AddReplicationFocus()**: [[2026-10-28 - Docs workspace streaming frustum|Docs: workspace / streaming / frustum]]
+- **Class.RemoteEvent**: [[2026-10-28 - Docs workspace streaming frustum|Docs: workspace / streaming / frustum]]
+- **Story Game template**: [[2026-10-28 - Docs tutorials curriculums coding get-started|Docs: tutorials / curriculums / coding / get-start]]
+- **Memory Stores observability dashboard**: [[2026-10-28 - Docs cloud-services memory-stores observability|Docs: cloud-services / memory-stores / observabili]]
+- **Roblox Platform Quick Start Guide**: [[2026-10-28 - Docs education educator-onboarding 2-playing-on-roblox|Docs: education / educator-onboarding / 2-playing-]]
+- **Open Cloud Messaging Service API**: [[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]]
+- **Creator Dashboard API keys**: [[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]]
+- **Benchmarks API (analytics-benchmark/v1)**: [[2026-10-28 - Docs cloud guides analytics benchmarks|Docs: cloud / guides / analytics / benchmarks]]
+- **Plugin Debugging / PluginDebugService**: [[2026-10-28 - Docs studio plugins|Docs: studio / plugins]]
+- **ChangeHistoryService**: [[2026-10-28 - Docs studio plugins|Docs: studio / plugins]]
+- **Selection service**: [[2026-10-28 - Docs studio plugins|Docs: studio / plugins]]
+- **execute_luau**: [[2026-10-28 - Docs studio mcp|Docs: studio / mcp]]
+- **script_read**: [[2026-10-28 - Docs studio mcp|Docs: studio / mcp]]
+- **multi_edit**: [[2026-10-28 - Docs studio mcp|Docs: studio / mcp]]
+- **search_asset**: [[2026-10-28 - Docs studio mcp|Docs: studio / mcp]]
+- **start_stop_play**: [[2026-10-28 - Docs studio mcp|Docs: studio / mcp]]
+- **list_roblox_studios**: [[2026-10-28 - Docs studio mcp|Docs: studio / mcp]]
+- **Studio Properties window (RichText checkbox preview)**: [[2026-10-28 - Docs ui rich-text|Docs: ui / rich-text]]
+- **Face Capture (beta)**: [[2026-10-28 - Docs animation capture|Docs: animation / capture]]
+- **Live Animation Creator (beta)**: [[2026-10-28 - Docs animation capture|Docs: animation / capture]]
+- **Roblox Studio Clip Editor**: [[2026-10-28 - Docs art characters facial-animation moods|Docs: art / characters / facial-animation / moods]]
+- **SunRays**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]]
+- **ColorCorrectionEffect**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]]
+- **Luau linter**: [[2026-10-28 - Docs luau comments|Docs: luau / comments]]
+- **Luau compiler**: [[2026-10-28 - Docs luau comments|Docs: luau / comments]]
+- **Price Optimization**: [[2026-10-28 - Docs get-started monetization|Docs: get-started / monetization]]
+- **Regional Pricing**: [[2026-10-28 - Docs get-started monetization|Docs: get-started / monetization]]
+- **Roblox Commerce APIs**: [[2026-10-28 - Docs get-started monetization|Docs: get-started / monetization]]
+- **Shopify integration**: [[2026-10-28 - Docs get-started monetization|Docs: get-started / monetization]]
+- **Inverse kinematics APIs**: [[2026-10-28 - Docs animation|Docs: animation]]
+- **Bone**: [[2026-10-28 - Docs animation|Docs: animation]]
+- **AnimationTrack:GetMarkerReachedSignal()**: [[2026-10-28 - Docs animation|Docs: animation]]
+- **Swagger Editor**: [[2026-10-28 - Docs cloud reference openapi|Docs: cloud / reference / openapi]]
+- **OpenAPI Generator**: [[2026-10-28 - Docs cloud reference openapi|Docs: cloud / reference / openapi]]
+- **openapi.json**: [[2026-10-28 - Docs cloud reference openapi|Docs: cloud / reference / openapi]]
+- **Creator Store Packages (ProfileCard module)**: [[2026-10-28 - Docs resources modules profile-card|Docs: resources / modules / profile-card]]
+- **ProfileCard.configure()**: [[2026-10-28 - Docs resources modules profile-card|Docs: resources / modules / profile-card]]
+- **CFrame.new**: [[2026-10-28 - Docs workspace cframes|Docs: workspace / cframes]]
+- **CFrame.fromEulerAnglesXYZ**: [[2026-10-28 - Docs workspace cframes|Docs: workspace / cframes]]
+- **CFrame:ToWorldSpace**: [[2026-10-28 - Docs workspace cframes|Docs: workspace / cframes]]
+- **CFrame:Lerp**: [[2026-10-28 - Docs workspace cframes|Docs: workspace / cframes]]
+- **math.rad**: [[2026-10-28 - Docs workspace cframes|Docs: workspace / cframes]]
+- **Blender Texture Paint mode**: [[2026-10-28 - Docs art accessories creating unwrapping|Docs: art / accessories / creating / unwrapping]]
+- **Substance Painter (for PBR, not covered)**: [[2026-10-28 - Docs art accessories creating unwrapping|Docs: art / accessories / creating / unwrapping]]
+- **Roblox Open Cloud OAuth 2.0 API**: [[2026-10-28 - Docs cloud auth oauth2-reference|Docs: cloud / auth / oauth2-reference]]
+- **OIDC discovery document (.well-known/openid-configuration)**: [[2026-10-28 - Docs cloud auth oauth2-reference|Docs: cloud / auth / oauth2-reference]]
+- **Playtest (Play/Stop)**: [[2026-10-28 - Docs tutorials curriculums building get-started|Docs: tutorials / curriculums / building / get-sta]]
+- **TextChannel.ShouldDeliverCallback**: [[2026-10-28 - Docs chat examples proximity-chat|Docs: chat / examples / proximity-chat]]
+- **Players:GetPlayerByUserId**: [[2026-10-28 - Docs chat examples proximity-chat|Docs: chat / examples / proximity-chat]]
+- **Model:GetPivot**: [[2026-10-28 - Docs chat examples proximity-chat|Docs: chat / examples / proximity-chat]]
+- **RunService:BindToRenderStep**: [[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera control-the-users-c|Docs: tutorials / use-case-tutorials / input-and-c]]
+- **StarterPlayer.CameraMode**: [[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera control-the-users-c|Docs: tutorials / use-case-tutorials / input-and-c]]
+- **Roblox Studio Material Generator (Window > 3D menu)**: [[2026-10-28 - Docs studio material-generator|Docs: studio / material-generator]]
+- **Material widget picker**: [[2026-10-28 - Docs studio material-generator|Docs: studio / material-generator]]
+- **Teleportation Playground sample game**: [[2026-10-28 - Docs cloud-services cross-server-messaging|Docs: cloud-services / cross-server-messaging]]
+- **Layered clothing system**: [[2026-10-28 - Docs resources beyond-the-dark|Docs: resources / beyond-the-dark]]
+- **Cage deformer**: [[2026-10-28 - Docs resources beyond-the-dark|Docs: resources / beyond-the-dark]]
+- **Monetization > Avatar Items**: [[2026-10-28 - Docs production monetization avatar-items|Docs: production / monetization / avatar-items]]
+- **Avatar Items Analytics tab**: [[2026-10-28 - Docs production monetization avatar-items|Docs: production / monetization / avatar-items]]
+- **Roblox Studio Lighting service**: [[2026-10-28 - Docs environment lighting|Docs: environment / lighting]]
+- **Studio Collision Groups editor (Window > 3D)**: [[2026-10-28 - Docs workspace collisions|Docs: workspace / collisions]]
+- **Visualization Options: Collision fidelity toggle**: [[2026-10-28 - Docs workspace collisions|Docs: workspace / collisions]]
+- **BindToCollisionSummaries**: [[2026-10-28 - Docs workspace collisions|Docs: workspace / collisions]]
+- **RegisterCollisionGroup / CollisionGroupSetCollidable**: [[2026-10-28 - Docs workspace collisions|Docs: workspace / collisions]]
+- **MarketplaceService:UserOwnsGamePassAsync**: [[2026-10-28 - Docs scripting transparent-batching|Docs: scripting / transparent-batching]]
+- **AvatarEditorService:GetItemDetailsAsync**: [[2026-10-28 - Docs scripting transparent-batching|Docs: scripting / transparent-batching]]
+- **AssetService:GetBundleDetailsAsync**: [[2026-10-28 - Docs scripting transparent-batching|Docs: scripting / transparent-batching]]
+- **task.spawn**: [[2026-10-28 - Docs scripting transparent-batching|Docs: scripting / transparent-batching]]
+- **Players.CreateHumanoidModelFromDescription**: [[2026-10-28 - Docs avatar avatar-generation|Docs: avatar / avatar-generation]]
+- **Misty Harbor (starter project)**: [[2026-10-28 - Docs tutorials use-case-tutorials lighting light-with-props|Docs: tutorials / use-case-tutorials / lighting / ]]
+- **Roblox Studio Move tool**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway moving-the-body|Docs: education / build-it-play-it-galactic-speedw]]
+- **Directional arrows**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway moving-the-body|Docs: education / build-it-play-it-galactic-speedw]]
+- **BubbleChatMessageProperties**: [[2026-10-28 - Docs chat bubble-chat|Docs: chat / bubble-chat]]
+- **TextChatService.OnBubbleAdded**: [[2026-10-28 - Docs chat bubble-chat|Docs: chat / bubble-chat]]
+- **TextChatService:DisplayBubble**: [[2026-10-28 - Docs chat bubble-chat|Docs: chat / bubble-chat]]
+- **Packages (PackageLink)**: [[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]]
+- **3ds Max**: [[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]]
+- **OpenXR**: [[2026-10-28 - Docs production publishing vr-guidelines|Docs: production / publishing / vr-guidelines]]
+- **Auto Quality Mode**: [[2026-10-28 - Docs production publishing vr-guidelines|Docs: production / publishing / vr-guidelines]]
+- **CameraModule**: [[2026-10-28 - Docs production publishing vr-guidelines|Docs: production / publishing / vr-guidelines]]
+- **Quest 2**: [[2026-10-28 - Docs production publishing vr-guidelines|Docs: production / publishing / vr-guidelines]]
+- **UIShadow**: [[2026-10-28 - Docs ui appearance-modifiers|Docs: ui / appearance-modifiers]]
+- **Communities**: [[2026-10-28 - Docs projects groups|Docs: projects / groups]]
+- **Open Cloud Groups endpoints**: [[2026-10-28 - Docs projects groups|Docs: projects / groups]]
+- **Studio network owners visualization**: [[2026-10-28 - Docs physics network-ownership|Docs: physics / network-ownership]]
+- **BasePart:SetNetworkOwner()**: [[2026-10-28 - Docs physics network-ownership|Docs: physics / network-ownership]]
+- **BasePart:SetNetworkOwnershipAuto()**: [[2026-10-28 - Docs physics network-ownership|Docs: physics / network-ownership]]
+- **Creator Dashboard Analytics > Engagement**: [[2026-10-28 - Docs production analytics engagement|Docs: production / analytics / engagement]]
+- **Constraints: AngularVelocity, HingeConstraint**: [[2026-10-28 - Docs tutorials use-case-tutorials physics create-spinning-objects|Docs: tutorials / use-case-tutorials / physics / c]]
+- **BasePart:ApplyAngularImpulse**: [[2026-10-28 - Docs tutorials use-case-tutorials physics create-spinning-objects|Docs: tutorials / use-case-tutorials / physics / c]]
+- **UserInputService.PreferredInput**: [[2026-10-28 - Docs input|Docs: input]]
+- **UserInputService:GetLastInputType()**: [[2026-10-28 - Docs input|Docs: input]]
+- **Enum.AnalyticsCustomFieldKeys**: [[2026-10-28 - Docs production analytics custom-fields|Docs: production / analytics / custom-fields]]
+- **Roblox Explorer**: [[2026-10-28 - Docs education lesson-plans galactic-speedway-lesson|Docs: education / lesson-plans / galactic-speedway]]
+- **Garage folder**: [[2026-10-28 - Docs education lesson-plans galactic-speedway-lesson|Docs: education / lesson-plans / galactic-speedway]]
+- **VIP/private servers**: [[2026-10-28 - Docs education lesson-plans galactic-speedway-lesson|Docs: education / lesson-plans / galactic-speedway]]
+- **Roblox Studio Rig Generator**: [[2026-10-28 - Docs tutorials use-case-tutorials animation create-an-animation|Docs: tutorials / use-case-tutorials / animation /]]
+- **Luau heap memory snapshots**: [[2026-10-28 - Docs studio developer-console|Docs: studio / developer-console]]
+- **Creator Hub (Engagement > Referral Rewards)**: [[2026-10-28 - Docs production promotion referral-system|Docs: production / promotion / referral-system]]
+- **Feedback dashboard (Creator Dashboard, Audience > Feedback)**: [[2026-10-28 - Docs production analytics feedback|Docs: production / analytics / feedback]]
+- **Season passes feature package**: [[2026-10-28 - Docs production game-design season-pass-design|Docs: production / game-design / season-pass-desig]]
+- **Season pass tier balance calculator**: [[2026-10-28 - Docs production game-design season-pass-design|Docs: production / game-design / season-pass-desig]]
+- **Generic season pass system PDF**: [[2026-10-28 - Docs production game-design season-pass-design|Docs: production / game-design / season-pass-desig]]
+- **Season pass UI wireframes**: [[2026-10-28 - Docs production game-design season-pass-design|Docs: production / game-design / season-pass-desig]]
+- **StarterPlayer properties**: [[2026-10-28 - Docs workspace camera|Docs: workspace / camera]]
+- **Workspace.CurrentCamera**: [[2026-10-28 - Docs workspace camera|Docs: workspace / camera]]
+- **Bundles feature package**: [[2026-10-28 - Docs resources feature-packages bundles|Docs: resources / feature-packages / bundles]]
+- **Blender 3.4+**: [[2026-10-28 - Docs art characters creating|Docs: art / characters / creating]]
+- **Roblox downloadable character template model**: [[2026-10-28 - Docs art characters creating|Docs: art / characters / creating]]
+- **Part tool (Block)**: [[2026-10-28 - Docs tutorials use-case-tutorials modeling create-neon-signs|Docs: tutorials / use-case-tutorials / modeling / ]]
+- **Import (.obj)**: [[2026-10-28 - Docs tutorials use-case-tutorials modeling create-neon-signs|Docs: tutorials / use-case-tutorials / modeling / ]]
+- **Build (Roblox mobile app tab)**: [[2026-10-28 - Docs ai build|Docs: ai / build]]
+- **Roblox Select**: [[2026-10-28 - Docs ai build|Docs: ai / build]]
+- **Roblox Studio Constraint picker**: [[2026-10-28 - Docs physics mover-constraints|Docs: physics / mover-constraints]]
+- **Roblox Creator Dashboard (Creations, Publish Settings)**: [[2026-10-28 - Docs projects game-ownership-transfer|Docs: projects / game-ownership-transfer]]
+- **Open Cloud API keys**: [[2026-10-28 - Docs projects game-ownership-transfer|Docs: projects / game-ownership-transfer]]
+- **StoryManager script**: [[2026-10-28 - Docs education build-it-play-it-story-games code-the-story|Docs: education / build-it-play-it-story-games / c]]
+- **Roblox Creator Dashboard Error Report**: [[2026-10-28 - Docs production analytics error-report|Docs: production / analytics / error-report]]
+- **Studio Output Window**: [[2026-10-28 - Docs production analytics error-report|Docs: production / analytics / error-report]]
+- **Leaderboard (leaderstats)**: [[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting score-poin|Docs: tutorials / use-case-tutorials / scripting /]]
+- **Blender Cage Template (.blend project file)**: [[2026-10-28 - Docs art characters creating caging|Docs: art / characters / creating / caging]]
+- **Adaptive Animation**: [[2026-10-28 - Docs avatar|Docs: avatar]]
+- **RunService:SetPredictionMode**: [[2026-10-28 - Docs projects server-authority|Docs: projects / server-authority]]
+- **RunService:GetPredictionStatus**: [[2026-10-28 - Docs projects server-authority|Docs: projects / server-authority]]
+- **InputAction / InputContext**: [[2026-10-28 - Docs projects server-authority|Docs: projects / server-authority]]
+- **Plant reference project**: [[2026-10-28 - Docs tutorials curriculums studio next-steps|Docs: tutorials / curriculums / studio / next-step]]
+- **Terrain Tools**: [[2026-10-28 - Docs education resources classroom-best-practices|Docs: education / resources / classroom-best-pract]]
+- **Collaboration (Studio)**: [[2026-10-28 - Docs education resources teaching-remotely|Docs: education / resources / teaching-remotely]]
+- **CylindricalConstraint**: [[2026-10-28 - Docs physics constraints cylindrical|Docs: physics / constraints / cylindrical]]
+- **Roblox Studio Playtest (Play)**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway test-the-speeder|Docs: education / build-it-play-it-galactic-speedw]]
+- **Cut / Paste Into**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway test-the-speeder|Docs: education / build-it-play-it-galactic-speedw]]
+- **AssemblyAngularVelocity property**: [[2026-10-28 - Docs physics constraints angular-velocity|Docs: physics / constraints / angular-velocity]]
+- **Creator Hub Analytics Explore page**: [[2026-10-28 - Docs production analytics custom-events|Docs: production / analytics / custom-events]]
+- **Humanoid:TakeDamage**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]]
+- **BindableFunction**: [[2026-10-28 - Docs scripting events bindable|Docs: scripting / events / bindable]]
+- **Blender Studio Plugin**: [[2026-10-28 - Docs avatar resources|Docs: avatar / resources]]
+- **Blender Validation Tool**: [[2026-10-28 - Docs avatar resources|Docs: avatar / resources]]
+- **Blender Calisthenics Tool**: [[2026-10-28 - Docs avatar resources|Docs: avatar / resources]]
+- **GuiService.TouchControlsEnabled**: [[2026-10-28 - Docs players disable-ui|Docs: players / disable-ui]]
+- **Creator Dashboard Analytics (Engagement, Monetization, Acquisitions pages)**: [[2026-10-28 - Docs production analytics get-started|Docs: production / analytics / get-started]]
+- **Experience configs**: [[2026-10-28 - Docs production analytics get-started|Docs: production / analytics / get-started]]
+- **Class.TextChatService**: [[2026-10-28 - Docs chat guidelines|Docs: chat / guidelines]]
+- **Class.TextChannel**: [[2026-10-28 - Docs chat guidelines|Docs: chat / guidelines]]
+- **Text filtering**: [[2026-10-28 - Docs chat guidelines|Docs: chat / guidelines]]
+- **Migrate from legacy chat guide**: [[2026-10-28 - Docs chat guidelines|Docs: chat / guidelines]]
+- **RunService.PreSimulation**: [[2026-10-28 - Docs resources beyond-the-dark custom-characters|Docs: resources / beyond-the-dark / custom-charact]]
+- **Engine API**: [[2026-10-28 - Docs cloud-services data-stores data-stores-manager|Docs: cloud-services / data-stores / data-stores-m]]
+- **Rokit**: [[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]]
+- **Wally**: [[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]]
+- **Lune**: [[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]]
+- **Selene**: [[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]]
+- **Luau Language Server**: [[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]]
+- **Roblox Creator Roadmap**: [[2026-10-28 - Docs get-started resources|Docs: get-started / resources]]
+- **Feature Packages**: [[2026-10-28 - Docs get-started resources|Docs: get-started / resources]]
+- **Catalog**: [[2026-10-28 - Docs get-started resources|Docs: get-started / resources]]
+- **Analytics dashboard (Creator Hub)**: [[2026-10-28 - Docs production analytics funnel-events|Docs: production / analytics / funnel-events]]
+- **AnalyticsService:LogFunnelStepEvent**: [[2026-10-28 - Docs production analytics funnel-events|Docs: production / analytics / funnel-events]]
+- **AnalyticsService:LogOnboardingFunnelStepEvent**: [[2026-10-28 - Docs production analytics funnel-events|Docs: production / analytics / funnel-events]]
+- **Roblox Toolbox**: [[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]]
+- **NPC script**: [[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]]
+- **Touch events**: [[2026-10-28 - Docs education adventure-game-series landing|Docs: education / adventure-game-series / landing]]
+- **Tool objects**: [[2026-10-28 - Docs education adventure-game-series landing|Docs: education / adventure-game-series / landing]]
+- **Creator Store API (Toolbox Service, Open Cloud)**: [[2026-10-28 - Docs projects assets api|Docs: projects / assets / api]]
+- **Marketplace catalog search API (catalog.roblox.com/v1/search/items/details)**: [[2026-10-28 - Docs projects assets api|Docs: projects / assets / api]]
+- **PKCE**: [[2026-10-28 - Docs cloud auth oauth2-develop|Docs: cloud / auth / oauth2-develop]]
+- **Roblox Studio instance streaming**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive stream-in-immersion|Docs: resources / the-mystery-of-duvall-drive / st]]
+- **Assistant (Build with Assistant)**: [[2026-10-28 - Docs tutorials curriculums core building apply-polished-assets|Docs: tutorials / curriculums / core / building / ]]
+- **Developer Console DebugVisualizations**: [[2026-10-28 - Docs workspace streaming slim|Docs: workspace / streaming / slim]]
+- **Chat service (legacy)**: [[2026-10-28 - Docs tutorials fundamentals coding-5 intro-to-arrays|Docs: tutorials / fundamentals / coding-5 / intro-]]
+- **Random**: [[2026-10-28 - Docs tutorials fundamentals coding-5 intro-to-arrays|Docs: tutorials / fundamentals / coding-5 / intro-]]
+- **Custom Thumbnail Tool (UGC Thumbnail Tool) Studio plugin**: [[2026-10-28 - Docs marketplace custom-thumbnails|Docs: marketplace / custom-thumbnails]]
+- **Roblox Studio Explorer and Asset Configuration window**: [[2026-10-28 - Docs marketplace custom-thumbnails|Docs: marketplace / custom-thumbnails]]
+- **MarketplaceService:PlayerOwnsAssetAsync()**: [[2026-10-28 - Docs production monetization paid-access-local-currency|Docs: production / monetization / paid-access-loca]]
+- **SpawnLocation**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]]
+- **ForceField**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]]
+- **Players.RespawnTime**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]]
+- **RBXScriptConnection**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]]
+- **View Selector**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy build-one-half|Docs: education / build-it-play-it-create-and-dest]]
+- **Model tab Snap to Grid**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy build-one-half|Docs: education / build-it-play-it-create-and-dest]]
+- **Assistant (Plan mode, Build)**: [[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]]
+- **/generate_material**: [[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]]
+- **MCP**: [[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]]
+- **Play button**: [[2026-10-28 - Docs education build-it-play-it-story-games test-and-save|Docs: education / build-it-play-it-story-games / t]]
+- **File > Publish**: [[2026-10-28 - Docs education build-it-play-it-story-games test-and-save|Docs: education / build-it-play-it-story-games / t]]
+- **MarketplaceService:GetUserSubscriptionStatusAsync**: [[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]]
+- **MarketplaceService:PromptSubscriptionPurchase**: [[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]]
+- **MarketplaceService:GetSubscriptionProductInfoAsync**: [[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]]
+- **MarketplaceService:GetUserSubscriptionPaymentHistoryAsync**: [[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]]
+- **Players.UserSubscriptionStatusChanged**: [[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]]
+- **MarketplaceService.PromptSubscriptionPurchaseFinished**: [[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]]
+- **Cloud API webhooks**: [[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]]
+- **task.delay**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting implement-blasters|Docs: tutorials / curriculums / gameplay-scripting]]
+- **Player attributes**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting implement-blasters|Docs: tutorials / curriculums / gameplay-scripting]]
+- **Character Controller Library (CCL) beta**: [[2026-10-28 - Docs characters character-controller-library quick-start|Docs: characters / character-controller-library / ]]
+- **AvatarAbilities module**: [[2026-10-28 - Docs characters character-controller-library quick-start|Docs: characters / character-controller-library / ]]
+- **/segment_mesh**: [[2026-10-28 - Docs assistant guide|Docs: assistant / guide]]
+- **/insert_asset**: [[2026-10-28 - Docs assistant guide|Docs: assistant / guide]]
+- **/plan**: [[2026-10-28 - Docs assistant guide|Docs: assistant / guide]]
+- **Material Generator (lightweight)**: [[2026-10-28 - Docs assistant guide|Docs: assistant / guide]]
+- **3D Importer**: [[2026-10-28 - Docs assistant guide|Docs: assistant / guide]]
+- **Roblox Open Cloud API**: [[2026-10-28 - Docs cloud reference types|Docs: cloud / reference / types]]
+- **Roblox physics engine**: [[2026-10-28 - Docs physics|Docs: physics]]
+- **Constraints (hinge, spring, rope, mover)**: [[2026-10-28 - Docs physics|Docs: physics]]
+- **Collision groups**: [[2026-10-28 - Docs physics|Docs: physics]]
+- **ReaComp**: [[2026-10-28 - Docs art reaper|Docs: art / reaper]]
+- **ReaEQ**: [[2026-10-28 - Docs art reaper|Docs: art / reaper]]
+- **ReaFir**: [[2026-10-28 - Docs art reaper|Docs: art / reaper]]
+- **Toolbox (Inventory, My Models)**: [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-a-sparkler|Docs: education / build-it-play-it-mansion-of-wond]]
+- **Color Sequence editor**: [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-a-sparkler|Docs: education / build-it-play-it-mansion-of-wond]]
+- **Texture Generator (Studio tool)**: [[2026-10-28 - Docs studio texture-generator|Docs: studio / texture-generator]]
+- **Assistant /generate_texture command**: [[2026-10-28 - Docs studio texture-generator|Docs: studio / texture-generator]]
+- **Roblox Studio MCP**: [[2026-10-28 - Docs studio texture-generator|Docs: studio / texture-generator]]
+- **Managed pricing**: [[2026-10-28 - Docs production monetization|Docs: production / monetization]]
+- **Automatic Weights**: [[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]]
+- **Weight Painting**: [[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]]
+- **Clothing_Cage_Template.blend**: [[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]]
+- **Creator Dashboard matchmaking analytics**: [[2026-10-28 - Docs matchmaking analytics|Docs: matchmaking / analytics]]
+- **Material widget**: [[2026-10-28 - Docs parts materials|Docs: parts / materials]]
+- **Roblox Studio MaterialService**: [[2026-10-28 - Docs parts materials|Docs: parts / materials]]
+- **Creator Dashboard Analytics > Acquisition**: [[2026-10-28 - Docs production analytics acquisition|Docs: production / analytics / acquisition]]
+- **Roblox Studio Constraint tool**: [[2026-10-28 - Docs physics constraints rigid|Docs: physics / constraints / rigid]]
+- **Creator Store (Packages)**: [[2026-10-28 - Docs resources modules social-interactions|Docs: resources / modules / social-interactions]]
+- **SocialInteractions module**: [[2026-10-28 - Docs resources modules social-interactions|Docs: resources / modules / social-interactions]]
+- **Luau string patterns**: [[2026-10-28 - Docs resources modules social-interactions|Docs: resources / modules / social-interactions]]
+- **Creator Dashboard / Creator Hub**: [[2026-10-28 - Docs production publishing publish-games-and-places|Docs: production / publishing / publish-games-and-]]
+- **Performance dashboard**: [[2026-10-28 - Docs cloud-services extended-services|Docs: cloud-services / extended-services]]
+- **Billing Center**: [[2026-10-28 - Docs production promotion reporting-and-billing|Docs: production / promotion / reporting-and-billi]]
+- **Roblox Studio UI objects**: [[2026-10-28 - Docs ui|Docs: ui]]
+- **Lighting**: [[2026-10-28 - Docs environment clouds|Docs: environment / clouds]]
+- **Studio Settings Editor Quality Level**: [[2026-10-28 - Docs effects beams|Docs: effects / beams]]
+- **Studio constraints: TorsionSpringConstraint**: [[2026-10-28 - Docs physics constraints torsion-spring|Docs: physics / constraints / torsion-spring]]
+- **Visualization Options (GUI overlay toggle)**: [[2026-10-28 - Docs ui on-screen-containers|Docs: ui / on-screen-containers]]
+- **Input Action System (InputContext, InputAction, InputBinding)**: [[2026-10-28 - Docs input micro-gamepad|Docs: input / micro-gamepad]]
+- **Live Collaboration**: [[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]]
+- **Roblox chat**: [[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]]
+- **Class.Accessory**: [[2026-10-28 - Docs art accessories creating-rigid|Docs: art / accessories / creating-rigid]]
+- **Team Create**: [[2026-10-28 - Docs get-started tools|Docs: get-started / tools]]
+- **Talent Hub**: [[2026-10-28 - Docs get-started tools|Docs: get-started / tools]]
+- **Roblox Cube**: [[2026-10-28 - Docs get-started tools|Docs: get-started / tools]]
+- **Avatar Setup (Roblox Studio)**: [[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]]
+- **Importer tool**: [[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]]
+- **Attachment Tool**: [[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]]
+- **Cage Brush**: [[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]]
+- **Check Body / Check Face testing tools**: [[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]]
+- **Trail**: [[2026-10-28 - Docs effects|Docs: effects]]
+- **Roblox Studio Selection**: [[2026-10-28 - Docs assistant prompt-engineering|Docs: assistant / prompt-engineering]]
+- **Material generator**: [[2026-10-28 - Docs studio|Docs: studio]]
+- **Texture generator**: [[2026-10-28 - Docs studio|Docs: studio]]
+- **X-ray view**: [[2026-10-28 - Docs performance-optimization microprofiler modes|Docs: performance-optimization / microprofiler / m]]
+- **Render Stats (Shift+F2)**: [[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]]
+- **PlaceScriptMemory**: [[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]]
+- **Visualization Options (collision fidelity)**: [[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]]
+- **Explorer filter CollisionFidelity=PreciseConvexDecomposition**: [[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]]
+- **Player Emulator**: [[2026-10-28 - Docs studio testing-modes|Docs: studio / testing-modes]]
+- **StudioTestService**: [[2026-10-28 - Docs studio testing-modes|Docs: studio / testing-modes]]
+- **VirtualInput**: [[2026-10-28 - Docs studio testing-modes|Docs: studio / testing-modes]]
+- **RodConstraint**: [[2026-10-28 - Docs physics constraints rod|Docs: physics / constraints / rod]]
+- **Localization page**: [[2026-10-28 - Docs production|Docs: production]]
+- **Developer Exchange**: [[2026-10-28 - Docs production|Docs: production]]
+- **Analytics**: [[2026-10-28 - Docs production|Docs: production]]
+- **Rewarded Video ad format**: [[2026-10-28 - Docs production promotion advertise|Docs: production / promotion / advertise]]
+- **Billboard ad format**: [[2026-10-28 - Docs production promotion advertise|Docs: production / promotion / advertise]]
+- **Portal ad format**: [[2026-10-28 - Docs production promotion advertise|Docs: production / promotion / advertise]]
+- **Inverse Kinematics**: [[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]]
+- **Event markers**: [[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]]
+- **Shopify (Roblox sales channel)**: [[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]]
+- **Class.CommerceService**: [[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]]
+- **Class.MarketplaceService.ProcessReceipt**: [[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]]
+- **Roblox webhooks (CommerceProductOrderPaid / CommerceProductOrderRefunded)**: [[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]]
+- **Creator Hub Taxes page**: [[2026-10-28 - Docs production monetization tax-information|Docs: production / monetization / tax-information]]
+- **Performance Summary overlay**: [[2026-10-28 - Docs performance-optimization microprofiler use-microprofiler|Docs: performance-optimization / microprofiler / u]]
+- **debug.profilebegin / debug.profileend**: [[2026-10-28 - Docs performance-optimization microprofiler use-microprofiler|Docs: performance-optimization / microprofiler / u]]
+- **Luau table library (table.insert, table.remove, table.find)**: [[2026-10-28 - Docs tutorials fundamentals coding-5 make-changes-to-arrays|Docs: tutorials / fundamentals / coding-5 / make-c]]
+- **Roblox Creator Events events dashboard**: [[2026-10-28 - Docs creator-programs creator-events|Docs: creator-programs / creator-events]]
+- **Humanoid**: [[2026-10-28 - Docs characters name-health-display|Docs: characters / name-health-display]]
+- **Players**: [[2026-10-28 - Docs characters name-health-display|Docs: characters / name-health-display]]
+- **Roblox Cloud API (creator-configs-public-api)**: [[2026-10-28 - Docs cloud guides configs|Docs: cloud / guides / configs]]
+- **ConfigService (Luau)**: [[2026-10-28 - Docs cloud guides configs|Docs: cloud / guides / configs]]
+- **Creator Hub / Studio (alternative config UI)**: [[2026-10-28 - Docs cloud guides configs|Docs: cloud / guides / configs]]
+- **Engagement Rewards feature package**: [[2026-10-28 - Docs resources feature-packages engagement-rewards|Docs: resources / feature-packages / engagement-re]]
+- **AdService:GetCampaignEligibilityAsync**: [[2026-10-28 - Docs production promotion ad-integrations|Docs: production / promotion / ad-integrations]]
+- **AdService:RegisterDisclosureButton**: [[2026-10-28 - Docs production promotion ad-integrations|Docs: production / promotion / ad-integrations]]
+- **Roblox Open Cloud creator-configs API**: [[2026-10-28 - Docs cloud guides experiments|Docs: cloud / guides / experiments]]
+- **cURL**: [[2026-10-28 - Docs cloud guides experiments|Docs: cloud / guides / experiments]]
+- **Creator Hub Experiments page**: [[2026-10-28 - Docs cloud guides experiments|Docs: cloud / guides / experiments]]
+- **Built-in Roblox analytics**: [[2026-10-28 - Docs get-started why-build-on-roblox|Docs: get-started / why-build-on-roblox]]
+- **Paid UA system**: [[2026-10-28 - Docs get-started why-build-on-roblox|Docs: get-started / why-build-on-roblox]]
+- **Humanoid:PlayEmote**: [[2026-10-28 - Docs characters emotes|Docs: characters / emotes]]
+- **Licenses catalog**: [[2026-10-28 - Docs ip-licensing|Docs: ip-licensing]]
+- **Roblox Battle Royale Weapons Kit**: [[2026-10-28 - Docs resources battle-royale pickup-system|Docs: resources / battle-royale / pickup-system]]
+- **RarityConfiguration script**: [[2026-10-28 - Docs resources battle-royale pickup-system|Docs: resources / battle-royale / pickup-system]]
+- **Rewarded Video (Roblox ad placement)**: [[2026-10-28 - Docs production promotion rewarded-video-playbooks shooter|Docs: production / promotion / rewarded-video-play]]
+- **Placement ID tagging**: [[2026-10-28 - Docs production promotion rewarded-video-playbooks shooter|Docs: production / promotion / rewarded-video-play]]
+- **Roblox Studio RopeConstraint**: [[2026-10-28 - Docs physics constraints rope|Docs: physics / constraints / rope]]
+- **Rig Generator (Studio Avatar/Home tab > Character)**: [[2026-10-28 - Docs studio rig-builder|Docs: studio / rig-builder]]
+- **Roblox desktop client**: [[2026-10-28 - Docs performance-optimization microprofiler network|Docs: performance-optimization / microprofiler / n]]
+- **Roblox built-in performance tools**: [[2026-10-28 - Docs performance-optimization|Docs: performance-optimization]]
+- **Roblox analytics tools**: [[2026-10-28 - Docs performance-optimization|Docs: performance-optimization]]
+- **Roblox IP Platform**: [[2026-10-28 - Docs production publishing ip-guidelines|Docs: production / publishing / ip-guidelines]]
+- **Matchmaking service**: [[2026-10-28 - Docs matchmaking|Docs: matchmaking]]
+- **Custom attributes**: [[2026-10-28 - Docs matchmaking|Docs: matchmaking]]
+- **Custom signals**: [[2026-10-28 - Docs matchmaking|Docs: matchmaking]]
+- **Mock servers**: [[2026-10-28 - Docs matchmaking|Docs: matchmaking]]
+- **Matchmaking analytics**: [[2026-10-28 - Docs matchmaking|Docs: matchmaking]]
+- **Roblox Studio Visualization Options (Awake parts)**: [[2026-10-28 - Docs physics sleep-system|Docs: physics / sleep-system]]
+- **DragDetector**: [[2026-10-28 - Docs ui 3D-drag-detectors|Docs: ui / 3D-drag-detectors]]
+- **StarterGui:SetCore**: [[2026-10-28 - Docs players avatar-context-menu|Docs: players / avatar-context-menu]]
+- **StarterGui:GetCore**: [[2026-10-28 - Docs players avatar-context-menu|Docs: players / avatar-context-menu]]
+- **FACS pose mapping**: [[2026-10-28 - Docs avatar dynamic-heads validate|Docs: avatar / dynamic-heads / validate]]
+- **glTF export**: [[2026-10-28 - Docs avatar dynamic-heads validate|Docs: avatar / dynamic-heads / validate]]
+- **Luau LocalScript and ModuleScript**: [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-animations|Docs: education / build-it-play-it-island-of-move ]]
+- **Roblox Create page Animations section**: [[2026-10-28 - Docs education build-it-play-it-island-of-move adding-animations|Docs: education / build-it-play-it-island-of-move ]]
+- **Accessory Fitting Tool / Accessory Tool (upcoming)**: [[2026-10-28 - Docs resources beyond-the-dark layered-clothing|Docs: resources / beyond-the-dark / layered-clothi]]
+- **Layered clothing cage template (Roblox)**: [[2026-10-28 - Docs resources beyond-the-dark layered-clothing|Docs: resources / beyond-the-dark / layered-clothi]]
+- **DCC application (Blender-style rigging/skinning)**: [[2026-10-28 - Docs resources beyond-the-dark layered-clothing|Docs: resources / beyond-the-dark / layered-clothi]]
+- **Performance Stats**: [[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]]
+- **Debug Stats**: [[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]]
+- **Network Simulation**: [[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]]
+- **Creator Hub Licenses catalog**: [[2026-10-28 - Docs ip-licensing creators|Docs: ip-licensing / creators]]
+- **Intellectual Property > Licenses page**: [[2026-10-28 - Docs ip-licensing creators|Docs: ip-licensing / creators]]
+- **MaterialService / MaterialVariant**: [[2026-10-28 - Docs parts meshes|Docs: parts / meshes]]
+- **Visualization Options (Collision fidelity)**: [[2026-10-28 - Docs parts meshes|Docs: parts / meshes]]
+- **TeleportService**: [[2026-10-28 - Docs projects teleport|Docs: projects / teleport]]
+- **TeleportOptions**: [[2026-10-28 - Docs projects teleport|Docs: projects / teleport]]
+- **HttpService:GenerateGUID**: [[2026-10-28 - Docs projects teleport|Docs: projects / teleport]]
+- **Players:GetJoinData**: [[2026-10-28 - Docs projects teleport|Docs: projects / teleport]]
+- **DataStores**: [[2026-10-28 - Docs projects teleport|Docs: projects / teleport]]
+- **MemoryStores**: [[2026-10-28 - Docs projects teleport|Docs: projects / teleport]]
+- **Blender Snapping tool**: [[2026-10-28 - Docs art blender|Docs: art / blender]]
+- **Blender Sculpting workspace**: [[2026-10-28 - Docs art blender|Docs: art / blender]]
+- **Blender UV Editing workspace**: [[2026-10-28 - Docs art blender|Docs: art / blender]]
+- **Blender Texture Paint workspace**: [[2026-10-28 - Docs art blender|Docs: art / blender]]
+- **Group audit logs**: [[2026-10-28 - Docs projects group-guidelines|Docs: projects / group-guidelines]]
+- **Principled BSDF shader node**: [[2026-10-28 - Docs art characters creating export-textures|Docs: art / characters / creating / export-texture]]
+- **Folder/IntValue leaderstats**: [[2026-10-28 - Docs tutorials curriculums core scripting record-and-display-player-da|Docs: tutorials / curriculums / core / scripting /]]
+- **Toolbox (advised against)**: [[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]]
+- **Studio scripting**: [[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]]
+- **Roblox Open Cloud Engine Instance APIs (beta)**: [[2026-10-28 - Docs cloud guides instance|Docs: cloud / guides / instance]]
+- **Google Sheets**: [[2026-10-28 - Docs cloud guides instance|Docs: cloud / guides / instance]]
+- **Google Apps Script**: [[2026-10-28 - Docs cloud guides instance|Docs: cloud / guides / instance]]
+- **Memory Store Observability Dashboard**: [[2026-10-28 - Docs cloud-services memory-stores best-practices|Docs: cloud-services / memory-stores / best-practi]]
+- **EventSequencer module (Creator Store package)**: [[2026-10-28 - Docs resources modules event-sequencer|Docs: resources / modules / event-sequencer]]
+- **Scene Manager plugin**: [[2026-10-28 - Docs resources modules event-sequencer|Docs: resources / modules / event-sequencer]]
+- **Roblox Studio Concert template**: [[2026-10-28 - Docs resources modules event-sequencer|Docs: resources / modules / event-sequencer]]
+- **Roblox Creator Hub Experiments page**: [[2026-10-28 - Docs production experiments|Docs: production / experiments]]
+- **ConfigService (GetConfigForPlayerAsync, ConfigSnapshot:GetValue)**: [[2026-10-28 - Docs production experiments|Docs: production / experiments]]
+- **Custom matchmaking configuration**: [[2026-10-28 - Docs production experiments|Docs: production / experiments]]
+- **Data stores (for persisting variants)**: [[2026-10-28 - Docs production experiments|Docs: production / experiments]]
+- **Video Service dashboard (Creator Dashboard > Monitoring)**: [[2026-10-28 - Docs cloud-services video-service|Docs: cloud-services / video-service]]
+- **Class.VideoFrame**: [[2026-10-28 - Docs cloud-services video-service|Docs: cloud-services / video-service]]
+- **Class.SurfaceGui**: [[2026-10-28 - Docs cloud-services video-service|Docs: cloud-services / video-service]]
+- **Class.ScreenGui**: [[2026-10-28 - Docs cloud-services video-service|Docs: cloud-services / video-service]]
+- **3D viewport**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway add-to-the-garage|Docs: education / build-it-play-it-galactic-speedw]]
+- **StreamingEnabled**: [[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]]
+- **ModelStreamingMode**: [[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]]
+- **LevelOfDetail (SLIM)**: [[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]]
+- **rbx-convert-to-streaming AI skill**: [[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]]
+- **Streaming debug overlay**: [[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]]
+- **Environmental Terrain heightmap import**: [[2026-10-28 - Docs resources battle-royale building-system|Docs: resources / battle-royale / building-system]]
+- **Creator Hub Data Stores dashboard**: [[2026-10-28 - Docs cloud-services data-stores observability|Docs: cloud-services / data-stores / observability]]
+- **Class.DataStoreService**: [[2026-10-28 - Docs cloud-services data-stores observability|Docs: cloud-services / data-stores / observability]]
+- **Terrain Materials Manager**: [[2026-10-28 - Docs parts custom-terrain-materials|Docs: parts / custom-terrain-materials]]
+- **MaterialVariant**: [[2026-10-28 - Docs parts custom-terrain-materials|Docs: parts / custom-terrain-materials]]
+- **Folder**: [[2026-10-28 - Docs education adventure-game-series code-the-leaderboard|Docs: education / adventure-game-series / code-the]]
+- **IntegrityService.EvaluatePlayerDeviceTrust**: [[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]]
+- **Player.DeviceTrustLevel**: [[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]]
+- **Player:IsVerified()**: [[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]]
+- **TeleportService:TeleportAsync()**: [[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]]
+- **Creator Hub Anti-cheat page**: [[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]]
+- **Animation Capture for Faces extension**: [[2026-10-28 - Docs art characters facial-animation animate-heads|Docs: art / characters / facial-animation / animat]]
+- **Roblox avatar body templates (.blend/.fbx/PBR .png)**: [[2026-10-28 - Docs art characters creating template-files|Docs: art / characters / creating / template-files]]
+- **Roblox Studio Script Sync**: [[2026-10-28 - Docs scripting sync|Docs: scripting / sync]]
+- **Roblox Luau LSP**: [[2026-10-28 - Docs scripting sync|Docs: scripting / sync]]
+- **Luau Language Server Companion**: [[2026-10-28 - Docs scripting sync|Docs: scripting / sync]]
+- **selene**: [[2026-10-28 - Docs scripting sync|Docs: scripting / sync]]
+- **SocialService**: [[2026-10-28 - Docs production promotion invite-prompts|Docs: production / promotion / invite-prompts]]
+- **ExperienceInviteOptions**: [[2026-10-28 - Docs production promotion invite-prompts|Docs: production / promotion / invite-prompts]]
+- **Creator Dashboard Notifications**: [[2026-10-28 - Docs production promotion invite-prompts|Docs: production / promotion / invite-prompts]]
+- **Roblox Recommendation Service API**: [[2026-10-28 - Docs production recommendation|Docs: production / recommendation]]
+- **Creator Hub Recommendation Service analytics**: [[2026-10-28 - Docs production recommendation|Docs: production / recommendation]]
+- **PackageLink**: [[2026-10-28 - Docs projects assets packages|Docs: projects / assets / packages]]
+- **Diff viewer (Compare Package Versions)**: [[2026-10-28 - Docs projects assets packages|Docs: projects / assets / packages]]
+- **Creator Dashboard My Transactions report**: [[2026-10-28 - Docs marketplace marketplace-fees-and-commissions|Docs: marketplace / marketplace-fees-and-commissio]]
+- **Sales Data analytics**: [[2026-10-28 - Docs marketplace marketplace-fees-and-commissions|Docs: marketplace / marketplace-fees-and-commissio]]
+- **Calisthenics tool**: [[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]]
+- **Clothing validation tool**: [[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]]
+- **MemoryStoreQueue**: [[2026-10-28 - Docs cloud-services memory-stores queue|Docs: cloud-services / memory-stores / queue]]
+- **Creator Store plugins (redundant part finders, terrain optimizers)**: [[2026-10-28 - Docs projects place-files|Docs: projects / place-files]]
+- **Autodesk Maya**: [[2026-10-28 - Docs avatar create|Docs: avatar / create]]
+- **SpecialMesh**: [[2026-10-28 - Docs education build-it-play-it-island-of-move animating-parts|Docs: education / build-it-play-it-island-of-move ]]
+- **Post Processing Effects (Roblox Studio lighting)**: [[2026-10-28 - Docs education lesson-plans digital-citizenship lights-and-polish|Docs: education / lesson-plans / digital-citizensh]]
+- **MemoryStoreHashMap**: [[2026-10-28 - Docs cloud-services memory-stores hash-map|Docs: cloud-services / memory-stores / hash-map]]
+- **AudioChorus**: [[2026-10-28 - Docs audio effects|Docs: audio / effects]]
+- **AudioDistortion**: [[2026-10-28 - Docs audio effects|Docs: audio / effects]]
+- **AudioEcho**: [[2026-10-28 - Docs audio effects|Docs: audio / effects]]
+- **AudioFlanger**: [[2026-10-28 - Docs audio effects|Docs: audio / effects]]
+- **AudioPitchShifter**: [[2026-10-28 - Docs audio effects|Docs: audio / effects]]
+- **Toolbox / Creator Store**: [[2026-10-28 - Docs resources feature-packages season-passes|Docs: resources / feature-packages / season-passes]]
+- **Season Passes feature package**: [[2026-10-28 - Docs resources feature-packages season-passes|Docs: resources / feature-packages / season-passes]]
+- **Anthropic**: [[2026-10-28 - Docs assistant mcp|Docs: assistant / mcp]]
+- **OpenAI**: [[2026-10-28 - Docs assistant mcp|Docs: assistant / mcp]]
+- **Google Gemini**: [[2026-10-28 - Docs assistant mcp|Docs: assistant / mcp]]
+- **GameSettings script**: [[2026-10-28 - Docs education build-it-play-it-island-of-move personalize-the-game|Docs: education / build-it-play-it-island-of-move ]]
+- **Beams**: [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder experienced-landing-|Docs: education / build-it-play-it-mansion-of-wond]]
+- **Roblox Studio Activity History**: [[2026-10-28 - Docs projects activity-history|Docs: projects / activity-history]]
+- **Creator Hub Activity History page**: [[2026-10-28 - Docs projects activity-history|Docs: projects / activity-history]]
+- **Roblox Avatar Setup / body cage templates**: [[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]]
+- **Solid modeling**: [[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]]
+- **LoadAnimation**: [[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]]
+- **Touched event**: [[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]]
+- **Create Character Animations**: [[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]]
+- **Emit() Plugin (Creator Marketplace)**: [[2026-10-28 - Docs tutorials use-case-tutorials vfx use-particles-for-explosions|Docs: tutorials / use-case-tutorials / vfx / use-p]]
+- **Luau Script**: [[2026-10-28 - Docs tutorials use-case-tutorials vfx use-particles-for-explosions|Docs: tutorials / use-case-tutorials / vfx / use-p]]
+- **Studio Settings Network Simulation**: [[2026-10-28 - Docs projects client-server|Docs: projects / client-server]]
+- **Experience Settings (File > Experience Settings)**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway going-for-a-race|Docs: education / build-it-play-it-galactic-speedw]]
+- **State Machine view**: [[2026-10-28 - Docs animation graph-editor-state-machine|Docs: animation / graph-editor-state-machine]]
+- **Graph parameters**: [[2026-10-28 - Docs animation graph-editor-state-machine|Docs: animation / graph-editor-state-machine]]
+- **Roblox RTBF deletion templates (data stores)**: [[2026-10-28 - Docs production publishing RTBF-and-creators|Docs: production / publishing / RTBF-and-creators]]
+- **Creator webhooks (Right to Erasure Request trigger)**: [[2026-10-28 - Docs production publishing RTBF-and-creators|Docs: production / publishing / RTBF-and-creators]]
+- **glTF Export beta feature**: [[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]]
+- **Roblox head cage templates**: [[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]]
+- **Toolbox Grayboxing Kit (by Roblox_Educators)**: [[2026-10-28 - Docs education battle-royale-series project-setup|Docs: education / battle-royale-series / project-s]]
+- **GetUsersPriceLevelsAsync**: [[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]]
+- **GetProductInfoAsync**: [[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]]
+- **Sponsored Items page (Roblox creator dashboard)**: [[2026-10-28 - Docs marketplace sponsor-items|Docs: marketplace / sponsor-items]]
+- **Advertising API**: [[2026-10-28 - Docs marketplace sponsor-items|Docs: marketplace / sponsor-items]]
+- **Highlight instance**: [[2026-10-28 - Docs effects highlighting|Docs: effects / highlighting]]
+- **RobloxStudio.exe / RobloxStudio (command-line arguments)**: [[2026-10-28 - Docs studio cli|Docs: studio / cli]]
+- **Avatar Auto Setup**: [[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]]
+- **EmoteBar Creator Store module**: [[2026-10-28 - Docs resources modules emote-bar|Docs: resources / modules / emote-bar]]
+- **Players:IsInGroupAsync**: [[2026-10-28 - Docs chat examples group-chat-tags|Docs: chat / examples / group-chat-tags]]
+- **Instance attributes (SetAttribute/GetAttribute)**: [[2026-10-28 - Docs chat examples group-chat-tags|Docs: chat / examples / group-chat-tags]]
+- **Procreate**: [[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]]
+- **Ucupaint**: [[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]]
+- **BoolValue**: [[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-4|Docs: education / lesson-plans / roblox-developer ]]
+- **AnimationController**: [[2026-10-28 - Docs animation using|Docs: animation / using]]
+- **AnimationTrack**: [[2026-10-28 - Docs animation using|Docs: animation / using]]
+- **Animation**: [[2026-10-28 - Docs animation using|Docs: animation / using]]
+- **Animation Swap Script**: [[2026-10-28 - Docs education lesson-plans digital-citizenship animating-characters|Docs: education / lesson-plans / digital-citizensh]]
+- **Presentation: Animations in Roblox**: [[2026-10-28 - Docs education lesson-plans digital-citizenship animating-characters|Docs: education / lesson-plans / digital-citizensh]]
+- **Handout: Animation Feedback**: [[2026-10-28 - Docs education lesson-plans digital-citizenship animating-characters|Docs: education / lesson-plans / digital-citizensh]]
+- **Creator Hub (Finances > Cash Out)**: [[2026-10-28 - Docs production monetization developer-exchange|Docs: production / monetization / developer-exchan]]
+- **DevEx Dashboard**: [[2026-10-28 - Docs production monetization developer-exchange|Docs: production / monetization / developer-exchan]]
+- **Creator Hub Audience Reach dashboard**: [[2026-10-28 - Docs production publishing kids-and-select|Docs: production / publishing / kids-and-select]]
+- **Roblox Creator Dashboard Analytics > Retention**: [[2026-10-28 - Docs production analytics retention|Docs: production / analytics / retention]]
+- **Baseplate template**: [[2026-10-28 - Docs tutorials curriculums environmental-art greybox-your-environment|Docs: tutorials / curriculums / environmental-art ]]
+- **Experience Settings (Permissions, Playability, Configure Place, Allow Copying)**: [[2026-10-28 - Docs education support designing-studio-templates|Docs: education / support / designing-studio-templ]]
+- **Download a Copy (.rbxl)**: [[2026-10-28 - Docs education support designing-studio-templates|Docs: education / support / designing-studio-templ]]
+- **Studio Terrain Editor**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy island-terrain|Docs: education / build-it-play-it-create-and-dest]]
+- **PlaneConstraint**: [[2026-10-28 - Docs physics constraints plane|Docs: physics / constraints / plane]]
+- **Free camera mode (freecam)**: [[2026-10-28 - Docs workspace camera free-camera|Docs: workspace / camera / free-camera]]
+- **Input Action System (IAS)**: [[2026-10-28 - Docs workspace camera free-camera|Docs: workspace / camera / free-camera]]
+- **Secrets store**: [[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]]
+- **Path**: [[2026-10-28 - Docs characters pathfinding|Docs: characters / pathfinding]]
+- **Humanoid:Move**: [[2026-10-28 - Docs characters pathfinding|Docs: characters / pathfinding]]
+- **PathfindingModifier**: [[2026-10-28 - Docs characters pathfinding|Docs: characters / pathfinding]]
+- **PathfindingLink**: [[2026-10-28 - Docs characters pathfinding|Docs: characters / pathfinding]]
+- **Studio Visualization Options**: [[2026-10-28 - Docs characters pathfinding|Docs: characters / pathfinding]]
+- **Creator Hub webhook configuration**: [[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]]
+- **Open Cloud API (data stores)**: [[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]]
+- **Express.js sample server**: [[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]]
+- **Roblox Cloud API**: [[2026-10-28 - Docs cloud reference rate-limits|Docs: cloud / reference / rate-limits]]
+- **Workspace.SignalBehavior**: [[2026-10-28 - Docs scripting events deferred|Docs: scripting / events / deferred]]
+- **Event:Once()**: [[2026-10-28 - Docs scripting events deferred|Docs: scripting / events / deferred]]
+- **Moon Animator**: [[2026-10-28 - Docs avatar emotes|Docs: avatar / emotes]]
+- **PlayerList**: [[2026-10-28 - Docs players leaderboards|Docs: players / leaderboards]]
+- **OrderedDataStore**: [[2026-10-28 - Docs players leaderboards|Docs: players / leaderboards]]
+- **Open Cloud API (Create Asset endpoint)**: [[2026-10-28 - Docs audio assets|Docs: audio / assets]]
+- **Roblox Studio transcoder**: [[2026-10-28 - Docs audio assets|Docs: audio / assets]]
+- **PhotoBooth module (Creator Store package)**: [[2026-10-28 - Docs resources modules photo-booth|Docs: resources / modules / photo-booth]]
+- **Lua**: [[2026-10-28 - Docs education lesson-plans digital-citizenship civil-and-safe-game|Docs: education / lesson-plans / digital-citizensh]]
+- **Script Sync (beta)**: [[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]]
+- **Claude Code**: [[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]]
+- **Cursor**: [[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]]
+- **require()**: [[2026-10-28 - Docs tutorials fundamentals coding-6 intro-to-module-scripts|Docs: tutorials / fundamentals / coding-6 / intro-]]
+- **Open Cloud APIs (apis.roblox.com/cloud/v2)**: [[2026-10-28 - Docs cloud guides data-stores|Docs: cloud / guides / data-stores]]
+- **Roblox Analytics alerts**: [[2026-10-28 - Docs cloud guides alert metrics|Docs: cloud / guides / alert / metrics]]
+- **Blender 5.2**: [[2026-10-28 - Docs art characters facial-animation create-basic-heads|Docs: art / characters / facial-animation / create]]
+- **Accessory Fitting Tool (Studio Avatar tab)**: [[2026-10-28 - Docs avatar accessory-fitting-tool|Docs: avatar / accessory-fitting-tool]]
+- **Creator Analytics**: [[2026-10-28 - Docs discovery-faq|Docs: discovery-faq]]
+- **LocalizationService**: [[2026-10-28 - Docs ui animation|Docs: ui / animation]]
+- **utf8.graphemes**: [[2026-10-28 - Docs ui animation|Docs: ui / animation]]
+- **PromptCreateAvatarAsync**: [[2026-10-28 - Docs production monetization avatar-creation-token|Docs: production / monetization / avatar-creation-]]
+- **PromptCreateAvatarAssetAsync**: [[2026-10-28 - Docs production monetization avatar-creation-token|Docs: production / monetization / avatar-creation-]]
+- **PromptCreateMakeupAsync**: [[2026-10-28 - Docs production monetization avatar-creation-token|Docs: production / monetization / avatar-creation-]]
+- **Python hashlib/base64 (MD5 checksum)**: [[2026-10-28 - Docs cloud guides data-stores request-handling|Docs: cloud / guides / data-stores / request-handl]]
+- **UserInputService:GetStringForKeyCode**: [[2026-10-28 - Docs production publishing console-guidelines|Docs: production / publishing / console-guidelines]]
+- **UserInputService:GetImageForKeyCode**: [[2026-10-28 - Docs production publishing console-guidelines|Docs: production / publishing / console-guidelines]]
+- **Terrain Paint tool**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway design-the-world|Docs: education / build-it-play-it-galactic-speedw]]
+- **Properties panel**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway design-the-world|Docs: education / build-it-play-it-galactic-speedw]]
+- **GenerationService:GenerateModelAsync**: [[2026-10-28 - Docs parts model-generation|Docs: parts / model-generation]]
+- **Import Roblox Model (Behaviors.rbxm)**: [[2026-10-28 - Docs parts model-generation|Docs: parts / model-generation]]
+- **Clothing_Cage_Template**: [[2026-10-28 - Docs avatar layered-accessories project-files|Docs: avatar / layered-accessories / project-files]]
+- **Rig_and_Attachments_Template**: [[2026-10-28 - Docs avatar layered-accessories project-files|Docs: avatar / layered-accessories / project-files]]
+- **Combined-Template**: [[2026-10-28 - Docs avatar layered-accessories project-files|Docs: avatar / layered-accessories / project-files]]
+- **AvatarAbilities / Character Controller Library (CCL)**: [[2026-10-28 - Docs characters character-controller-library custom-abilities|Docs: characters / character-controller-library / ]]
+- **Roblox Open Cloud API documentation try-it-out feature**: [[2026-10-28 - Docs cloud reference risk-levels|Docs: cloud / reference / risk-levels]]
+- **Players:BanAsync**: [[2026-10-28 - Docs scripting security server-side-detection|Docs: scripting / security / server-side-detection]]
+- **Quick Words (built-in)**: [[2026-10-28 - Docs chat preset-system-guidelines|Docs: chat / preset-system-guidelines]]
+- **Sky object**: [[2026-10-28 - Docs environment|Docs: environment]]
+- **Post-processing effects (Lighting or Camera)**: [[2026-10-28 - Docs environment|Docs: environment]]
+- **Mansion of Wonder template**: [[2026-10-28 - Docs tutorials curriculums artist get-started|Docs: tutorials / curriculums / artist / get-start]]
+- **Studio Experience Settings > Security**: [[2026-10-28 - Docs tutorials use-case-tutorials data-storage save-player-data|Docs: tutorials / use-case-tutorials / data-storag]]
+- **coroutine.wrap**: [[2026-10-28 - Docs tutorials use-case-tutorials data-storage save-player-data|Docs: tutorials / use-case-tutorials / data-storag]]
+- **PivotTo / GetPivot**: [[2026-10-28 - Docs tutorials use-case-tutorials data-storage save-player-data|Docs: tutorials / use-case-tutorials / data-storag]]
+- **express**: [[2026-10-28 - Docs cloud auth oauth2-sample|Docs: cloud / auth / oauth2-sample]]
+- **openid-client**: [[2026-10-28 - Docs cloud auth oauth2-sample|Docs: cloud / auth / oauth2-sample]]
+- **npm**: [[2026-10-28 - Docs cloud auth oauth2-sample|Docs: cloud / auth / oauth2-sample]]
+- **Developer Console (F9 / /console)**: [[2026-10-28 - Docs studio optimization memory-usage|Docs: studio / optimization / memory-usage]]
+- **Memory tool**: [[2026-10-28 - Docs studio optimization memory-usage|Docs: studio / optimization / memory-usage]]
+- **debug.setmemorycategory**: [[2026-10-28 - Docs studio optimization memory-usage|Docs: studio / optimization / memory-usage]]
+- **Analytics Dashboard**: [[2026-10-28 - Docs production promotion search-ads|Docs: production / promotion / search-ads]]
+- **Camera:ViewportPointToRay**: [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]]
+- **Toolbox / Inventory**: [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]]
+- **Roblox Classroom Kit (.zip)**: [[2026-10-28 - Docs education resources resources-landing|Docs: education / resources / resources-landing]]
+- **Roblox Marketing Kit**: [[2026-10-28 - Docs education resources resources-landing|Docs: education / resources / resources-landing]]
+- **Private Servers**: [[2026-10-28 - Docs education resources resources-landing|Docs: education / resources / resources-landing]]
+- **Roblox Studio Pivot tool**: [[2026-10-28 - Docs studio pivot-tools|Docs: studio / pivot-tools]]
+- **Edit Pivot tool**: [[2026-10-28 - Docs studio pivot-tools|Docs: studio / pivot-tools]]
+- **Properties window pivot fields**: [[2026-10-28 - Docs studio pivot-tools|Docs: studio / pivot-tools]]
+- **GetPivot()**: [[2026-10-28 - Docs studio pivot-tools|Docs: studio / pivot-tools]]
+- **PivotTo()**: [[2026-10-28 - Docs studio pivot-tools|Docs: studio / pivot-tools]]
+- **Servo actuator**: [[2026-10-28 - Docs tutorials use-case-tutorials physics create-elevators|Docs: tutorials / use-case-tutorials / physics / c]]
+- **Creator Hub IP Library**: [[2026-10-28 - Docs ip-licensing get-started|Docs: ip-licensing / get-started]]
+- **Creator Hub Performance dashboard**: [[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]]
+- **Enum.DeveloperMemoryTag**: [[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]]
+- **Extended Services for Compute**: [[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]]
+- **Datatype.User**: [[2026-10-28 - Docs players users|Docs: players / users]]
+- **Class.Player.User**: [[2026-10-28 - Docs players users|Docs: players / users]]
+- **User.fromId**: [[2026-10-28 - Docs players users|Docs: players / users]]
+- **User:ToString**: [[2026-10-28 - Docs players users|Docs: players / users]]
+- **User.fromString**: [[2026-10-28 - Docs players users|Docs: players / users]]
+- **WrapLayer**: [[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]]
+- **Roblox Rewarded Video ad placements**: [[2026-10-28 - Docs production promotion rewarded-video-playbooks sports|Docs: production / promotion / rewarded-video-play]]
+- **SurfaceArt module (Creator Store package)**: [[2026-10-28 - Docs resources modules surface-art|Docs: resources / modules / surface-art]]
+- **Model toolbar Align Tool**: [[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]]
+- **Anchor**: [[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]]
+- **Assistant prompt**: [[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]]
+- **Team Test**: [[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]]
+- **Luau table library (table.insert, table.remove, table.clone, table.freeze, table.isfrozen)**: [[2026-10-28 - Docs luau tables|Docs: luau / tables]]
+- **third-party 3D modeling tools**: [[2026-10-28 - Docs tutorials curriculums environmental-art|Docs: tutorials / curriculums / environmental-art]]
+- **Roblox Place Publishing API (Open Cloud)**: [[2026-10-28 - Docs cloud guides usage-place-publishing|Docs: cloud / guides / usage-place-publishing]]
+- **GitHub Actions**: [[2026-10-28 - Docs cloud guides usage-place-publishing|Docs: cloud / guides / usage-place-publishing]]
+- **Developer modules (Roblox Studio)**: [[2026-10-28 - Docs resources modules|Docs: resources / modules]]
+- **Roblox Open Cloud Assets API**: [[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]]
+- **Get Operation endpoint**: [[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]]
+- **Toolbox / Asset Manager**: [[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]]
+- **Roblox app**: [[2026-10-28 - Docs projects configure-games|Docs: projects / configure-games]]
+- **Players.BanAsync**: [[2026-10-28 - Docs scripting security access-control|Docs: scripting / security / access-control]]
+- **Roblox Studio Play Solo**: [[2026-10-28 - Docs scripting security access-control|Docs: scripting / security / access-control]]
+- **Creator Store Advanced Filter**: [[2026-10-28 - Docs production creator-store|Docs: production / creator-store]]
+- **Stripe**: [[2026-10-28 - Docs production creator-store|Docs: production / creator-store]]
+- **Asset Privacy**: [[2026-10-28 - Docs production creator-store|Docs: production / creator-store]]
+- **Roblox Creator Hub**: [[2026-10-28 - Docs production monetization paid-access-robux|Docs: production / monetization / paid-access-robu]]
+- **Roblox RoundMale avatar template**: [[2026-10-28 - Docs art characters creating sculpting|Docs: art / characters / creating / sculpting]]
+- **Avatar Validation Tool (Blender add-on)**: [[2026-10-28 - Docs art characters validation-tool|Docs: art / characters / validation-tool]]
+- **Blender 3.5.1+**: [[2026-10-28 - Docs art characters validation-tool|Docs: art / characters / validation-tool]]
+- **ListVersionsAsync**: [[2026-10-28 - Docs cloud-services data-stores versioning-listing-and-caching|Docs: cloud-services / data-stores / versioning-li]]
+- **GetVersionAsync**: [[2026-10-28 - Docs cloud-services data-stores versioning-listing-and-caching|Docs: cloud-services / data-stores / versioning-li]]
+- **RemoveVersionAsync**: [[2026-10-28 - Docs cloud-services data-stores versioning-listing-and-caching|Docs: cloud-services / data-stores / versioning-li]]
+- **Snapshot Data Stores Open Cloud API**: [[2026-10-28 - Docs cloud-services data-stores versioning-listing-and-caching|Docs: cloud-services / data-stores / versioning-li]]
+- **HttpService.JSONEncode**: [[2026-10-28 - Docs cloud-services data-stores versioning-listing-and-caching|Docs: cloud-services / data-stores / versioning-li]]
+- **Roblox Event system**: [[2026-10-28 - Docs education developer planning-for-educational-settings|Docs: education / developer / planning-for-educati]]
+- **Roblox private servers**: [[2026-10-28 - Docs education developer planning-for-educational-settings|Docs: education / developer / planning-for-educati]]
+- **Part inserter**: [[2026-10-28 - Docs tutorials curriculums building work-with-parts|Docs: tutorials / curriculums / building / work-wi]]
+- **Scale tool**: [[2026-10-28 - Docs tutorials curriculums building work-with-parts|Docs: tutorials / curriculums / building / work-wi]]
+- **Anchor tool**: [[2026-10-28 - Docs tutorials curriculums building work-with-parts|Docs: tutorials / curriculums / building / work-wi]]
+- **Roblox Studio Model tab (collisions toggle)**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy complete-the-city|Docs: education / build-it-play-it-create-and-dest]]
+- **Duplicate**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy complete-the-city|Docs: education / build-it-play-it-create-and-dest]]
+- **Input Action System (Studio)**: [[2026-10-28 - Docs input input-action-system|Docs: input / input-action-system]]
+- **InputContext**: [[2026-10-28 - Docs input input-action-system|Docs: input / input-action-system]]
+- **InputBinding**: [[2026-10-28 - Docs input input-action-system|Docs: input / input-action-system]]
+- **InputActionLabel (beta)**: [[2026-10-28 - Docs input input-action-system|Docs: input / input-action-system]]
+- **Windows Command Prompt**: [[2026-10-28 - Docs education support creating-bundled-installers|Docs: education / support / creating-bundled-insta]]
+- **RobloxStudioLauncherBeta.exe -bundle**: [[2026-10-28 - Docs education support creating-bundled-installers|Docs: education / support / creating-bundled-insta]]
+- **RobloxPlayerLauncher.exe -bundle**: [[2026-10-28 - Docs education support creating-bundled-installers|Docs: education / support / creating-bundled-insta]]
+- **Studio Avatar Setup tool**: [[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]]
+- **MarketplaceService:BindReceiptHandler**: [[2026-10-28 - Docs production monetization robux-transfers|Docs: production / monetization / robux-transfers]]
+- **Enum.ReceiptType.RobuxTransferSender**: [[2026-10-28 - Docs production monetization robux-transfers|Docs: production / monetization / robux-transfers]]
+- **Enum.ReceiptType.RobuxTransferReceiver**: [[2026-10-28 - Docs production monetization robux-transfers|Docs: production / monetization / robux-transfers]]
+- **Enum.ReceiptDecision**: [[2026-10-28 - Docs production monetization robux-transfers|Docs: production / monetization / robux-transfers]]
+- **Layered Accessory Validation Tool (Blender add-on)**: [[2026-10-28 - Docs art accessories validation-tool|Docs: art / accessories / validation-tool]]
+- **Layered Accessory Validation Tool (Maya plugin)**: [[2026-10-28 - Docs art accessories validation-tool|Docs: art / accessories / validation-tool]]
+- **Python 3.0+**: [[2026-10-28 - Docs art accessories validation-tool|Docs: art / accessories / validation-tool]]
+- **CounterSystem**: [[2026-10-28 - Docs resources feature-packages missions|Docs: resources / feature-packages / missions]]
+- **R15 Rig and Attachments project file**: [[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]]
+- **Body cage project files**: [[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]]
+- **Demographics analytics page**: [[2026-10-28 - Docs production analytics demographics|Docs: production / analytics / demographics]]
+- **Studio**: [[2026-10-28 - Docs marketplace moderation|Docs: marketplace / moderation]]
+- **Roblox Studio rewarded video ads**: [[2026-10-28 - Docs production promotion rewarded-video-playbooks rpg|Docs: production / promotion / rewarded-video-play]]
+- **Roblox Studio Avatar tab**: [[2026-10-28 - Docs art accessories creating-rigid converting|Docs: art / accessories / creating-rigid / convert]]
+- **VideoFrame**: [[2026-10-28 - Docs ui frames|Docs: ui / frames]]
+- **Texture Generator**: [[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]]
+- **Managed Pricing (Creator Hub)**: [[2026-10-28 - Docs production monetization price-optimization|Docs: production / monetization / price-optimizati]]
+- **Roblox Studio Experience Settings**: [[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting sav|Docs: tutorials / use-case-tutorials / scripting /]]
+- **Boardwalk template**: [[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-engaging-ex|Docs: education / build-it-play-it-mansion-of-wond]]
+- **Roblox Studio Animation Graph Editor**: [[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]]
+- **Avatar tab Character > My Avatar**: [[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]]
+- **Graph > Create Animate script**: [[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]]
+- **Enum.AnimationNodeType**: [[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]]
+- **Enum.PredictionMode**: [[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]]
+- **File → Publish**: [[2026-10-28 - Docs education build-it-play-it-island-of-move save-and-publish|Docs: education / build-it-play-it-island-of-move ]]
+- **WebView2**: [[2026-10-28 - Docs projects assets toolbox|Docs: projects / assets / toolbox]]
+- **WebKit**: [[2026-10-28 - Docs projects assets toolbox|Docs: projects / assets / toolbox]]
+- **Creator Hub secrets store**: [[2026-10-28 - Docs cloud-services http-service|Docs: cloud-services / http-service]]
+- **Plugin Management window**: [[2026-10-28 - Docs cloud-services http-service|Docs: cloud-services / http-service]]
+- **Sculpt mode**: [[2026-10-28 - Docs art accessories creating modify-cage|Docs: art / accessories / creating / modify-cage]]
+- **Edit mode**: [[2026-10-28 - Docs art accessories creating modify-cage|Docs: art / accessories / creating / modify-cage]]
+- **Inflate tool**: [[2026-10-28 - Docs art accessories creating modify-cage|Docs: art / accessories / creating / modify-cage]]
+- **Script Analysis (Luau linting)**: [[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]]
+- **Find/Replace and Find All/Replace All**: [[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]]
+- **Script Function Filter**: [[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]]
+- **Studio Settings > Script Editor**: [[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]]
+- **Game UI Database**: [[2026-10-28 - Docs tutorials curriculums user-interface-design choose-an-art-style|Docs: tutorials / curriculums / user-interface-des]]
+- **TextButton**: [[2026-10-28 - Docs tutorials curriculums core scripting script-an-upgrade-button|Docs: tutorials / curriculums / core / scripting /]]
+- **PlayerData ModuleScript**: [[2026-10-28 - Docs tutorials curriculums core scripting script-an-upgrade-button|Docs: tutorials / curriculums / core / scripting /]]
+- **Leaderboard module**: [[2026-10-28 - Docs tutorials curriculums core scripting script-an-upgrade-button|Docs: tutorials / curriculums / core / scripting /]]
+- **Creator Hub / Creations tab**: [[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]]
+- **Studio Constraint tool**: [[2026-10-28 - Docs physics constraints weld|Docs: physics / constraints / weld]]
+- **SoundEffect (EqualizerSoundEffect, ChorusSoundEffect)**: [[2026-10-28 - Docs resources beyond-the-dark sound-design|Docs: resources / beyond-the-dark / sound-design]]
+- **Sidechain compressor**: [[2026-10-28 - Docs resources beyond-the-dark sound-design|Docs: resources / beyond-the-dark / sound-design]]
+- **Roblox dynamic head template (vertex-colored cage)**: [[2026-10-28 - Docs avatar dynamic-heads caging-best-practices|Docs: avatar / dynamic-heads / caging-best-practic]]
+- **Hidden Surface Removal (HSR)**: [[2026-10-28 - Docs avatar dynamic-heads caging-best-practices|Docs: avatar / dynamic-heads / caging-best-practic]]
+- **Auto-setup for neck cage**: [[2026-10-28 - Docs avatar dynamic-heads caging-best-practices|Docs: avatar / dynamic-heads / caging-best-practic]]
+- **Roblox Studio Visualization Options (Assemblies toggle)**: [[2026-10-28 - Docs physics assemblies|Docs: physics / assemblies]]
+- **ChatInputBarConfiguration**: [[2026-10-28 - Docs chat chat-window|Docs: chat / chat-window]]
+- **ChannelTabsConfiguration**: [[2026-10-28 - Docs chat chat-window|Docs: chat / chat-window]]
+- **ChatWindowMessageProperties**: [[2026-10-28 - Docs chat chat-window|Docs: chat / chat-window]]
+- **Creator Hub (Configurations > Server management)**: [[2026-10-28 - Docs projects update-games|Docs: projects / update-games]]
+- **ServerRestartScheduled event**: [[2026-10-28 - Docs projects update-games|Docs: projects / update-games]]
+- **UI Style Editor / Style Queries**: [[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]]
+- **Creator Hub Managed Pricing tab**: [[2026-10-28 - Docs production monetization managed-pricing|Docs: production / monetization / managed-pricing]]
+- **Price optimization tests**: [[2026-10-28 - Docs production monetization managed-pricing|Docs: production / monetization / managed-pricing]]
+- **Dynamic price check tool**: [[2026-10-28 - Docs production monetization managed-pricing|Docs: production / monetization / managed-pricing]]
+- **MarketplaceService:GetUsersPriceLevelsAsync**: [[2026-10-28 - Docs production monetization managed-pricing|Docs: production / monetization / managed-pricing]]
+- **AudioFader**: [[2026-10-28 - Docs chat voice-chat|Docs: chat / voice-chat]]
+- **Roblox Analytics Alerts API (Open Cloud)**: [[2026-10-28 - Docs cloud guides alerts|Docs: cloud / guides / alerts]]
+- **Creator Hub UI alerts**: [[2026-10-28 - Docs cloud guides alerts|Docs: cloud / guides / alerts]]
+- **Webhooks**: [[2026-10-28 - Docs cloud guides alerts|Docs: cloud / guides / alerts]]
+- **Open Cloud Configs API**: [[2026-10-28 - Docs cloud-services data-stores right-to-be-forgotten|Docs: cloud-services / data-stores / right-to-be-f]]
+- **TweenService:SmoothDamp**: [[2026-10-28 - Docs projects server-authority techniques|Docs: projects / server-authority / techniques]]
+- **Animator:GetTrackByAnimationId**: [[2026-10-28 - Docs projects server-authority techniques|Docs: projects / server-authority / techniques]]
+- **Animator:GetPlayingAnimationTracks**: [[2026-10-28 - Docs projects server-authority techniques|Docs: projects / server-authority / techniques]]
+- **Roblox Studio Wind Direction widget**: [[2026-10-28 - Docs environment global-wind|Docs: environment / global-wind]]
+- **Luau script (math.sin, task.wait)**: [[2026-10-28 - Docs environment global-wind|Docs: environment / global-wind]]
+- **Build with Assistant**: [[2026-10-28 - Docs tutorials curriculums core building create-basic-visual-effects|Docs: tutorials / curriculums / core / building / ]]
+- **Camera object**: [[2026-10-28 - Docs environment post-processing-effects|Docs: environment / post-processing-effects]]
+- **OrderedDataStore (GetSortedAsync, SetAsync)**: [[2026-10-28 - Docs tutorials use-case-tutorials data-storage create-leaderboard|Docs: tutorials / use-case-tutorials / data-storag]]
+- **MemoryStore (suggested for real-time updates)**: [[2026-10-28 - Docs tutorials use-case-tutorials data-storage create-leaderboard|Docs: tutorials / use-case-tutorials / data-storag]]
+- **storyMaker:GetInput**: [[2026-10-28 - Docs education build-it-play-it-story-games finish-and-add|Docs: education / build-it-play-it-story-games / f]]
+- **Datatype.PhysicalProperties**: [[2026-10-28 - Docs physics units|Docs: physics / units]]
+- **Network Simulator (Studio beta, File > Beta Features > New Device Simulator)**: [[2026-10-28 - Docs studio network-simulator|Docs: studio / network-simulator]]
+- **Studio Device Simulator**: [[2026-10-28 - Docs studio network-simulator|Docs: studio / network-simulator]]
+- **MicroProfiler network capture**: [[2026-10-28 - Docs studio network-simulator|Docs: studio / network-simulator]]
+- **NetworkSettings properties (script/plugin control)**: [[2026-10-28 - Docs studio network-simulator|Docs: studio / network-simulator]]
+- **Constraints (LinearVelocity, PrismaticConstraint)**: [[2026-10-28 - Docs tutorials use-case-tutorials physics create-moving-objects|Docs: tutorials / use-case-tutorials / physics / c]]
+- **BasePart.ApplyImpulse**: [[2026-10-28 - Docs tutorials use-case-tutorials physics create-moving-objects|Docs: tutorials / use-case-tutorials / physics / c]]
+- **Studio device emulator**: [[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]]
+- **Performance Stats overlay**: [[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]]
+- **Roblox Studio Assistant (AI prompting)**: [[2026-10-28 - Docs education lesson-plans build-an-obby-lesson|Docs: education / lesson-plans / build-an-obby-les]]
+- **Open Cloud Flush Memory Store endpoint**: [[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]]
+- **Creator Dashboard Extended Services**: [[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]]
+- **Roblox Creator Dashboard Alerts**: [[2026-10-28 - Docs production analytics alerts|Docs: production / analytics / alerts]]
+- **Experience webhooks**: [[2026-10-28 - Docs production analytics alerts|Docs: production / analytics / alerts]]
+- **PagerDuty**: [[2026-10-28 - Docs production analytics alerts|Docs: production / analytics / alerts]]
+- **Roact**: [[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]]
+- **Fusion**: [[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]]
+- **Constraint picker**: [[2026-10-28 - Docs physics mechanical-constraints|Docs: physics / mechanical-constraints]]
+- **Open Cloud API reference**: [[2026-10-28 - Docs cloud guides|Docs: cloud / guides]]
+- **Python**: [[2026-10-28 - Docs cloud guides|Docs: cloud / guides]]
+- **roblox.com/support**: [[2026-10-28 - Docs production publishing experience-genres|Docs: production / publishing / experience-genres]]
+- **AssemblyLinearVelocity property**: [[2026-10-28 - Docs physics constraints linear-velocity|Docs: physics / constraints / linear-velocity]]
+- **AdService**: [[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]]
+- **GetAdAvailabilityNowAsync**: [[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]]
+- **CreateAdRewardFromDevProductId**: [[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]]
+- **ShowRewardedVideoAdAsync**: [[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]]
+- **RegisterAdOpportunityAsync**: [[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]]
+- **Render and Summary debug stats**: [[2026-10-28 - Docs performance-optimization design|Docs: performance-optimization / design]]
+- **Device emulator**: [[2026-10-28 - Docs performance-optimization design|Docs: performance-optimization / design]]
+- **Rights Manager (Intellectual Property > Removal Requests)**: [[2026-10-28 - Docs production publishing rights-manager|Docs: production / publishing / rights-manager]]
+- **MarketplaceService:PromptPremiumPurchase()**: [[2026-10-28 - Docs production monetization engagement-based-payouts|Docs: production / monetization / engagement-based]]
+- **Players.PlayerMembershipChanged**: [[2026-10-28 - Docs production monetization engagement-based-payouts|Docs: production / monetization / engagement-based]]
+- **Open Cloud secrets store API**: [[2026-10-28 - Docs cloud guides secrets-store|Docs: cloud / guides / secrets-store]]
+- **LibSodium sealed box**: [[2026-10-28 - Docs cloud guides secrets-store|Docs: cloud / guides / secrets-store]]
+- **PyNaCl (Python)**: [[2026-10-28 - Docs cloud guides secrets-store|Docs: cloud / guides / secrets-store]]
+- **Avatar Setup (Roblox Studio tool)**: [[2026-10-28 - Docs avatar-setup auto-setup-requirements|Docs: avatar-setup / auto-setup-requirements]]
+- **Roblox matchmaking configuration (custom signals, custom attributes)**: [[2026-10-28 - Docs matchmaking scoring|Docs: matchmaking / scoring]]
+- **DistortionSoundEffect**: [[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]]
+- **EchoSoundEffect**: [[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]]
+- **PitchShiftSoundEffect**: [[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]]
+- **TremoloSoundEffect**: [[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]]
+- **Roblox Studio Avatar tab (Rig Builder, Clip Editor)**: [[2026-10-28 - Docs avatar animation-packs|Docs: avatar / animation-packs]]
+- **Animation Editor Curve Editor**: [[2026-10-28 - Docs avatar animation-packs|Docs: avatar / animation-packs]]
+- **Maturity & Compliance Questionnaire (Creator Dashboard)**: [[2026-10-28 - Docs production promotion content-maturity|Docs: production / promotion / content-maturity]]
+- **PolicyService.GetPolicyInfoForPlayerAsync**: [[2026-10-28 - Docs production promotion content-maturity|Docs: production / promotion / content-maturity]]
+- **LineForce constraint**: [[2026-10-28 - Docs physics constraints line-force|Docs: physics / constraints / line-force]]
+- **Roblox Studio Align tool**: [[2026-10-28 - Docs studio align-tool|Docs: studio / align-tool]]
+- **Luau static linter**: [[2026-10-28 - Docs luau|Docs: luau]]
+- **Cross-platform development guide (workflows and APIs)**: [[2026-10-28 - Docs production publishing adaptive-design|Docs: production / publishing / adaptive-design]]
+- **Roblox Studio Avatar Settings**: [[2026-10-28 - Docs production monetization 18-plus-devex-rate|Docs: production / monetization / 18-plus-devex-ra]]
+- **Creator Hub Analytics Economy dashboard**: [[2026-10-28 - Docs production analytics economy-events|Docs: production / analytics / economy-events]]
+- **Insert Object**: [[2026-10-28 - Docs tutorials fundamentals coding-1 parents-and-children|Docs: tutorials / fundamentals / coding-1 / parent]]
+- **LogService**: [[2026-10-28 - Docs studio output|Docs: studio / output]]
+- **Roblox Analytics**: [[2026-10-28 - Docs production game-design analytics-essentials|Docs: production / game-design / analytics-essenti]]
+- **Experiments (A/B testing)**: [[2026-10-28 - Docs production game-design analytics-essentials|Docs: production / game-design / analytics-essenti]]
+- **Configs (real-time in-game values)**: [[2026-10-28 - Docs production game-design analytics-essentials|Docs: production / game-design / analytics-essenti]]
+- **AI analytics reports (Gemini 2.5)**: [[2026-10-28 - Docs production analytics insights|Docs: production / analytics / insights]]
+- **Player feedback reports (Meta Llama 3)**: [[2026-10-28 - Docs production analytics insights|Docs: production / analytics / insights]]
+- **Creator Hub Crashes chart**: [[2026-10-28 - Docs production analytics crashes|Docs: production / analytics / crashes]]
+- **Server out-of-memory snapshots (JSON summary)**: [[2026-10-28 - Docs production analytics crashes|Docs: production / analytics / crashes]]
+- **Treemap viewer**: [[2026-10-28 - Docs production analytics crashes|Docs: production / analytics / crashes]]
+- **CSV export of memory snapshots**: [[2026-10-28 - Docs production analytics crashes|Docs: production / analytics / crashes]]
+- **Discord (webhook integration, bot application)**: [[2026-10-28 - Docs cloud webhooks automate-right-to-erasure|Docs: cloud / webhooks / automate-right-to-erasure]]
+- **Python 3 with discord, requests, urllib3 libraries**: [[2026-10-28 - Docs cloud webhooks automate-right-to-erasure|Docs: cloud / webhooks / automate-right-to-erasure]]
+- **Open Cloud Data Stores API**: [[2026-10-28 - Docs cloud webhooks automate-right-to-erasure|Docs: cloud / webhooks / automate-right-to-erasure]]
+- **Open Cloud Ordered Data Stores API**: [[2026-10-28 - Docs cloud webhooks automate-right-to-erasure|Docs: cloud / webhooks / automate-right-to-erasure]]
+- **Creator Dashboard webhooks**: [[2026-10-28 - Docs cloud webhooks automate-right-to-erasure|Docs: cloud / webhooks / automate-right-to-erasure]]
+- **MainConfiguration**: [[2026-10-28 - Docs resources battle-royale minimap-system|Docs: resources / battle-royale / minimap-system]]
+- **Luau garbage collector**: [[2026-10-28 - Docs luau nil|Docs: luau / nil]]
+- **Event Sequencer**: [[2026-10-28 - Docs resources templates|Docs: resources / templates]]
+- **Krita**: [[2026-10-28 - Docs education build-it-play-it-galactic-speedway colors-and-textures|Docs: education / build-it-play-it-galactic-speedw]]
+- **AssetService:PromptCreatePlatformContentAsync**: [[2026-10-28 - Docs projects assets in-experience-asset-creation|Docs: projects / assets / in-experience-asset-crea]]
+- **AssetService:CreateEditableImage**: [[2026-10-28 - Docs projects assets in-experience-asset-creation|Docs: projects / assets / in-experience-asset-crea]]
+- **EditableImage:DrawRectangle**: [[2026-10-28 - Docs projects assets in-experience-asset-creation|Docs: projects / assets / in-experience-asset-crea]]
+- **EditableImage:DrawImageTransformed**: [[2026-10-28 - Docs projects assets in-experience-asset-creation|Docs: projects / assets / in-experience-asset-crea]]
+- **Studio Toolbox Inventory tab**: [[2026-10-28 - Docs projects assets in-experience-asset-creation|Docs: projects / assets / in-experience-asset-crea]]
+- **FriendsLocator (Creator Store package)**: [[2026-10-28 - Docs resources modules friends-locator|Docs: resources / modules / friends-locator]]
+- **Roblox Studio multi-client simulation**: [[2026-10-28 - Docs resources modules friends-locator|Docs: resources / modules / friends-locator]]
+- **RunService:IsStudio()**: [[2026-10-28 - Docs resources modules friends-locator|Docs: resources / modules / friends-locator]]
+- **Feature packages (Bundles, Missions, Season Passes, Engagement Rewards)**: [[2026-10-28 - Docs resources feature-packages|Docs: resources / feature-packages]]
+- **PlayerData.Server**: [[2026-10-28 - Docs cloud-services data-stores player-data-purchasing|Docs: cloud-services / data-stores / player-data-p]]
+- **PlayerData.Client**: [[2026-10-28 - Docs cloud-services data-stores player-data-purchasing|Docs: cloud-services / data-stores / player-data-p]]
+- **DataStoreWrapper**: [[2026-10-28 - Docs cloud-services data-stores player-data-purchasing|Docs: cloud-services / data-stores / player-data-p]]
+- **SessionLockedDataStoreWrapper**: [[2026-10-28 - Docs cloud-services data-stores player-data-purchasing|Docs: cloud-services / data-stores / player-data-p]]
+- **BindToClose**: [[2026-10-28 - Docs cloud-services data-stores player-data-purchasing|Docs: cloud-services / data-stores / player-data-p]]
+- **RankProductsAsync**: [[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]]
+- **RecommendTopProductsAsync**: [[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]]
+- **GetProductInfo**: [[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]]
+- **Roblox Studio Cheatsheet handout**: [[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]]
+- **Digital Safety Scavenger Hunt handout**: [[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]]
+- **Digital Safety presentation**: [[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]]
+- **Sculpt tool**: [[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]]
+- **Flatten tool**: [[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]]
+- **Fill tool**: [[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]]
+- **Material Overrides**: [[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]]
+- **AlignOrientation constraint**: [[2026-10-28 - Docs physics constraints align-orientation|Docs: physics / constraints / align-orientation]]
+- **Lighting service properties**: [[2026-10-28 - Docs tutorials curriculums core building customize-global-lighting|Docs: tutorials / curriculums / core / building / ]]
+- **game:GetService()**: [[2026-10-28 - Docs scripting services|Docs: scripting / services]]
+- **WaitForChild()**: [[2026-10-28 - Docs scripting services|Docs: scripting / services]]
+- **Network ownership API**: [[2026-10-28 - Docs scripting security network-ownership|Docs: scripting / security / network-ownership]]
+- **Server authority (beta)**: [[2026-10-28 - Docs scripting security network-ownership|Docs: scripting / security / network-ownership]]
+- **Toolbox Inventory**: [[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera detect-user-input|Docs: tutorials / use-case-tutorials / input-and-c]]
+- **Roblox Studio LocalScript**: [[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera detect-user-input|Docs: tutorials / use-case-tutorials / input-and-c]]
+- **Animation Events bar**: [[2026-10-28 - Docs animation events|Docs: animation / events]]
+- **AnimationTrack:GetMarkerReachedSignal**: [[2026-10-28 - Docs animation events|Docs: animation / events]]
+- **Roblox Studio Style Editor**: [[2026-10-28 - Docs ui styling|Docs: ui / styling]]
+- **StyleDerive**: [[2026-10-28 - Docs ui styling|Docs: ui / styling]]
+- **Instance attributes (Studio UI)**: [[2026-10-28 - Docs scripting attributes|Docs: scripting / attributes]]
+- **Roblox Studio Version History widget (Window > Version History)**: [[2026-10-28 - Docs projects version-history|Docs: projects / version-history]]
+- **Creator Dashboard Version History**: [[2026-10-28 - Docs projects version-history|Docs: projects / version-history]]
+- **Blender-style 3D app (unspecified)**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]]
+- **3DS Max**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]]
+- **Marmoset**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]]
+- **AlignPosition**: [[2026-10-28 - Docs physics constraints align-position|Docs: physics / constraints / align-position]]
+- **Roblox Studio Script Editor debugger**: [[2026-10-28 - Docs studio debugging|Docs: studio / debugging]]
+- **Breakpoints window**: [[2026-10-28 - Docs studio debugging|Docs: studio / debugging]]
+- **Call Stack window**: [[2026-10-28 - Docs studio debugging|Docs: studio / debugging]]
+- **Watch window**: [[2026-10-28 - Docs studio debugging|Docs: studio / debugging]]
+- **UnreliableRemoteEvent**: [[2026-10-28 - Docs scripting events remote|Docs: scripting / events / remote]]
+- **IKControl**: [[2026-10-28 - Docs animation inverse-kinematics|Docs: animation / inverse-kinematics]]
+- **ScavengerHunt module (Creator Store package)**: [[2026-10-28 - Docs resources modules scavenger-hunt|Docs: resources / modules / scavenger-hunt]]
+- **DataStore**: [[2026-10-28 - Docs resources modules scavenger-hunt|Docs: resources / modules / scavenger-hunt]]
+- **MatchmakingService**: [[2026-10-28 - Docs matchmaking attributes-and-signals|Docs: matchmaking / attributes-and-signals]]
+- **SpawnWithFriends module (Creator Store package)**: [[2026-10-28 - Docs resources modules spawn-with-friends|Docs: resources / modules / spawn-with-friends]]
+- **Roblox app / roblox.com Settings**: [[2026-10-28 - Docs production publishing account-verification|Docs: production / publishing / account-verificati]]
+- **Age ID verification flow**: [[2026-10-28 - Docs production publishing account-verification|Docs: production / publishing / account-verificati]]
+- **Players:Kick**: [[2026-10-28 - Docs production promotion comply-with-advertising-standards|Docs: production / promotion / comply-with-adverti]]
+- **Roblox Creator Hub Analytics: Custom dashboards**: [[2026-10-28 - Docs production analytics custom-dashboards|Docs: production / analytics / custom-dashboards]]
+- **Explore page charts**: [[2026-10-28 - Docs production analytics custom-dashboards|Docs: production / analytics / custom-dashboards]]
+- **Avatar test place**: [[2026-10-28 - Docs avatar character-bodies test-studio|Docs: avatar / character-bodies / test-studio]]
+- **StarterPlayer**: [[2026-10-28 - Docs avatar character-bodies test-studio|Docs: avatar / character-bodies / test-studio]]
+- **RequestStreamAroundAsync**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive foundational-gameplay-syste|Docs: resources / the-mystery-of-duvall-drive / fo]]
+- **Humanoid.MoveTo**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive foundational-gameplay-syste|Docs: resources / the-mystery-of-duvall-drive / fo]]
+- **Autodesk Maya (.ma)**: [[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]]
+- **Class.SurfaceAppearance**: [[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]]
+- **Blender Studio plugin**: [[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]]
+- **Blender validation tool**: [[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]]
+- **Blender Calisthenics tool**: [[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]]
+- **MerchBooth module (Creator Store package)**: [[2026-10-28 - Docs resources modules merch-booth|Docs: resources / modules / merch-booth]]
+- **Roblox Open Cloud UserNotification API**: [[2026-10-28 - Docs cloud guides experience-notifications|Docs: cloud / guides / experience-notifications]]
+- **Developer Console Memory tab**: [[2026-10-28 - Docs performance-optimization monitor|Docs: performance-optimization / monitor]]
+- **MemoryStoreSortedMap**: [[2026-10-28 - Docs cloud-services memory-stores sorted-map|Docs: cloud-services / memory-stores / sorted-map]]
+- **Studio 3D Importer**: [[2026-10-28 - Docs characters adaptive-animation|Docs: characters / adaptive-animation]]
+- **Adaptive Animation toolbar**: [[2026-10-28 - Docs characters adaptive-animation|Docs: characters / adaptive-animation]]
+- **Joint assignment tool**: [[2026-10-28 - Docs characters adaptive-animation|Docs: characters / adaptive-animation]]
+- **T-pose mode**: [[2026-10-28 - Docs characters adaptive-animation|Docs: characters / adaptive-animation]]
+- **Remap Rig panel**: [[2026-10-28 - Docs characters adaptive-animation|Docs: characters / adaptive-animation]]
+- **HttpService:JSONEncode**: [[2026-10-28 - Docs cloud-services data-stores error-codes-and-limits|Docs: cloud-services / data-stores / error-codes-a]]
+- **Open Cloud Data Store APIs**: [[2026-10-28 - Docs cloud-services data-stores error-codes-and-limits|Docs: cloud-services / data-stores / error-codes-a]]
+- **X (Twitter)**: [[2026-10-28 - Docs production roblox-user-base|Docs: production / roblox-user-base]]
+- **DevEx**: [[2026-10-28 - Docs production roblox-user-base|Docs: production / roblox-user-base]]
+- **Solid modeling tools**: [[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]]
+- **Particle emitters**: [[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]]
+- **Global lighting settings**: [[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]]
+- **RemoteFunctions**: [[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]]
+- **Roblox Ads Manager**: [[2026-10-28 - Docs get-started strategies|Docs: get-started / strategies]]
+- **Roblox events system**: [[2026-10-28 - Docs get-started strategies|Docs: get-started / strategies]]
+- **TikTok ads**: [[2026-10-28 - Docs get-started strategies|Docs: get-started / strategies]]
+- **Actor**: [[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]]
+- **task.desynchronize / task.synchronize**: [[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]]
+- **RunService:ConnectParallel**: [[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]]
+- **Actor:SendMessage / BindToMessageParallel**: [[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]]
+- **SharedTable**: [[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]]
+- **Terrain:WriteVoxels**: [[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]]
+- **UGC Homestore template**: [[2026-10-28 - Docs marketplace homestore|Docs: marketplace / homestore]]
+- **ReplicatedStorage.Settings ModuleScript**: [[2026-10-28 - Docs marketplace homestore|Docs: marketplace / homestore]]
+- **ServerScriptService README ModuleScript**: [[2026-10-28 - Docs marketplace homestore|Docs: marketplace / homestore]]
+- **Module scripts**: [[2026-10-28 - Docs tutorials fundamentals coding-6 landing|Docs: tutorials / fundamentals / coding-6 / landin]]
+- **Revamped Asset Manager**: [[2026-10-28 - Docs projects assets privacy|Docs: projects / assets / privacy]]
+- **Toolbox (Inventory/Creation tabs)**: [[2026-10-28 - Docs projects assets privacy|Docs: projects / assets / privacy]]
+- **Roblox Studio Device Emulator**: [[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]]
+- **Roblox Studio Avatar Settings window**: [[2026-10-28 - Docs studio avatar-settings|Docs: studio / avatar-settings]]
+- **Studio preview lineup (AvatarPreview folder)**: [[2026-10-28 - Docs studio avatar-settings|Docs: studio / avatar-settings]]
+- **Character Controller Library**: [[2026-10-28 - Docs studio avatar-settings|Docs: studio / avatar-settings]]
+- **Texture Paint mode**: [[2026-10-28 - Docs art accessories creating-rigid texturing|Docs: art / accessories / creating-rigid / texturi]]
+- **Smart UV Project**: [[2026-10-28 - Docs art accessories creating-rigid texturing|Docs: art / accessories / creating-rigid / texturi]]
+- **Roblox Studio 9-Slice Editor**: [[2026-10-28 - Docs ui 9-slice|Docs: ui / 9-slice]]
+- **Studio Properties window**: [[2026-10-28 - Docs chat examples custom-text-chat-commands|Docs: chat / examples / custom-text-chat-commands]]
+- **PolicyService:GetPolicyInfoForPlayerAsync**: [[2026-10-28 - Docs production monetization paid-random-items|Docs: production / monetization / paid-random-item]]
+- **Move It Simulator template**: [[2026-10-28 - Docs education build-it-play-it-island-of-move opening-the-template|Docs: education / build-it-play-it-island-of-move ]]
+- **Add tool**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy terrain-tools|Docs: education / build-it-play-it-create-and-dest]]
+- **Smooth tool**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy terrain-tools|Docs: education / build-it-play-it-create-and-dest]]
+- **Subtract tool**: [[2026-10-28 - Docs education build-it-play-it-create-and-destroy terrain-tools|Docs: education / build-it-play-it-create-and-dest]]
+- **Roblox Ads Management API (v1)**: [[2026-10-28 - Docs cloud guides advertising|Docs: cloud / guides / advertising]]
+- **Open Cloud Assets API**: [[2026-10-28 - Docs cloud guides advertising|Docs: cloud / guides / advertising]]
+- **Open Cloud Analytics API**: [[2026-10-28 - Docs cloud guides advertising|Docs: cloud / guides / advertising]]
+- **Sponsored Items Manager**: [[2026-10-28 - Docs cloud guides advertising|Docs: cloud / guides / advertising]]
+- **Roblox Studio Microprofiler**: [[2026-10-28 - Docs physics adaptive-timestepping|Docs: physics / adaptive-timestepping]]
+- **Studio Settings Physics tab**: [[2026-10-28 - Docs physics adaptive-timestepping|Docs: physics / adaptive-timestepping]]
+- **Workspace PhysicsSteppingMethod property**: [[2026-10-28 - Docs physics adaptive-timestepping|Docs: physics / adaptive-timestepping]]
+- **Animation Editor plugin**: [[2026-10-28 - Docs education build-it-play-it-island-of-move sharing-animations|Docs: education / build-it-play-it-island-of-move ]]
+- **RBXM files**: [[2026-10-28 - Docs education build-it-play-it-island-of-move sharing-animations|Docs: education / build-it-play-it-island-of-move ]]
+- **LastPass**: [[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]]
+- **Batch installers**: [[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]]
+- **Creator Hub Analytics Home**: [[2026-10-28 - Docs production analytics|Docs: production / analytics]]
+- **Acquisition page**: [[2026-10-28 - Docs production analytics|Docs: production / analytics]]
+- **Funnel analytics**: [[2026-10-28 - Docs production analytics|Docs: production / analytics]]
+- **Benchmark scorecards**: [[2026-10-28 - Docs production analytics|Docs: production / analytics]]
+- **AnalyticsService:GetPlayerSegmentsAsync**: [[2026-10-28 - Docs production analytics|Docs: production / analytics]]
+- **table.insert**: [[2026-10-28 - Docs luau stacks|Docs: luau / stacks]]
+- **table.remove**: [[2026-10-28 - Docs luau stacks|Docs: luau / stacks]]
+- **setmetatable**: [[2026-10-28 - Docs luau stacks|Docs: luau / stacks]]
+- **Team / Team.Color**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting create-teams|Docs: tutorials / curriculums / gameplay-scripting]]
+- **ReplicatedStorage HUDGuiSetup**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting create-teams|Docs: tutorials / curriculums / gameplay-scripting]]
+- **ServerScriptService LaserBlastHandler**: [[2026-10-28 - Docs tutorials curriculums gameplay-scripting create-teams|Docs: tutorials / curriculums / gameplay-scripting]]
+- **Lighting service (Bloom, ColorCorrection, Clouds)**: [[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]]
+- **Players:GetUserIdFromNameAsync**: [[2026-10-28 - Docs players avatar-inspect-menu|Docs: players / avatar-inspect-menu]]
+- **WrapTextureTransfer**: [[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]]
+- **Roblox Analytics Dashboard**: [[2026-10-28 - Docs education developer beta-testing-experiences|Docs: education / developer / beta-testing-experie]]
+- **Form Embedder (community tool, not officially supported)**: [[2026-10-28 - Docs education developer beta-testing-experiences|Docs: education / developer / beta-testing-experie]]
+- **Roblox groups**: [[2026-10-28 - Docs education developer beta-testing-experiences|Docs: education / developer / beta-testing-experie]]
+- **TextFilterResult**: [[2026-10-28 - Docs ui text-filtering|Docs: ui / text-filtering]]
+- **text editor or paper for drafting**: [[2026-10-28 - Docs education build-it-play-it-story-games writing-the-story|Docs: education / build-it-play-it-story-games / w]]
+- **HttpService:GetSecret**: [[2026-10-28 - Docs cloud-services secrets|Docs: cloud-services / secrets]]
+- **Datatype.Secret (AddPrefix/AddSuffix)**: [[2026-10-28 - Docs cloud-services secrets|Docs: cloud-services / secrets]]
+- **HttpService:RequestAsync**: [[2026-10-28 - Docs cloud-services secrets|Docs: cloud-services / secrets]]
+- **TextChannel**: [[2026-10-28 - Docs chat in-experience-text-chat|Docs: chat / in-experience-text-chat]]
+- **TextSource**: [[2026-10-28 - Docs chat in-experience-text-chat|Docs: chat / in-experience-text-chat]]
+- **TextChatMessage**: [[2026-10-28 - Docs chat in-experience-text-chat|Docs: chat / in-experience-text-chat]]
+- **RaycastResult**: [[2026-10-28 - Docs workspace raycasting|Docs: workspace / raycasting]]
+- **Roblox Studio Explorer and Properties windows**: [[2026-10-28 - Docs environment skybox|Docs: environment / skybox]]
+- **Lighting.Sky object**: [[2026-10-28 - Docs environment skybox|Docs: environment / skybox]]
+- **Roblox Studio glTF export**: [[2026-10-28 - Docs art modeling gltf-export|Docs: art / modeling / gltf-export]]
+- **Cinema 4D**: [[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]]
+- **Roblox Studio Asset Manager**: [[2026-10-28 - Docs projects assets manager|Docs: projects / assets / manager]]
+- **Creator Dashboard localization settings**: [[2026-10-28 - Docs production localization|Docs: production / localization]]
+- **Automatic Translations user setting**: [[2026-10-28 - Docs production localization|Docs: production / localization]]
+- **Translation table (manual translations)**: [[2026-10-28 - Docs production localization|Docs: production / localization]]
+- **Translator collaborators**: [[2026-10-28 - Docs production localization|Docs: production / localization]]
+- **Monthly translation analytics download**: [[2026-10-28 - Docs production localization|Docs: production / localization]]
+- **Instance attributes**: [[2026-10-28 - Docs scripting debounce|Docs: scripting / debounce]]
+- **RichText**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive immersive-narrative|Docs: resources / the-mystery-of-duvall-drive / im]]
+- **ServerStorage**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]]
+- **EventManager (custom)**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]]
+- **GameStateManager (custom)**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]]
+- **DemoGlobalSettings (custom)**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]]
+- **Camera**: [[2026-10-28 - Docs ui viewport-frames|Docs: ui / viewport-frames]]
+- **Sky**: [[2026-10-28 - Docs ui viewport-frames|Docs: ui / viewport-frames]]
+- **RunService.PostSimulation**: [[2026-10-28 - Docs ui viewport-frames|Docs: ui / viewport-frames]]
+- **SurfaceGUI**: [[2026-10-28 - Docs education adventure-game-series buying-upgrades|Docs: education / adventure-game-series / buying-u]]
+- **leaderstats IntValues**: [[2026-10-28 - Docs education adventure-game-series buying-upgrades|Docs: education / adventure-game-series / buying-u]]
+- **Streaming Enabled**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]]
+- **UI features**: [[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]]
+- **Roblox Studio plugin API**: [[2026-10-28 - Docs studio build-studio-widgets|Docs: studio / build-studio-widgets]]
+- **DockWidgetPluginGui**: [[2026-10-28 - Docs studio build-studio-widgets|Docs: studio / build-studio-widgets]]
+- **Plugin:StartDrag()**: [[2026-10-28 - Docs studio build-studio-widgets|Docs: studio / build-studio-widgets]]
+- **Studio GUI GitHub repo**: [[2026-10-28 - Docs studio build-studio-widgets|Docs: studio / build-studio-widgets]]
+- **Roblox uncopylocked testing place file**: [[2026-10-28 - Docs avatar character-bodies test|Docs: avatar / character-bodies / test]]
+- **Data Stores Observability Dashboard**: [[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]]
+- **Data Stores Batch Processor**: [[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]]
+- **Open Cloud data store APIs**: [[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]]
+- **DataStore2 migration tool (beta)**: [[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]]
+- **AvatarEditorService**: [[2026-10-28 - Docs players avatar-editor|Docs: players / avatar-editor]]
+- **CatalogSearchParams**: [[2026-10-28 - Docs players avatar-editor|Docs: players / avatar-editor]]
+- **Creator Analytics dashboard**: [[2026-10-28 - Docs discovery|Docs: discovery]]
+- **Home Recommendations analytics tab**: [[2026-10-28 - Docs discovery|Docs: discovery]]
+- **Flame graphs**: [[2026-10-28 - Docs performance-optimization microprofiler|Docs: performance-optimization / microprofiler]]
+- **Skills tab**: [[2026-10-28 - Docs assistant skills|Docs: assistant / skills]]
+- **rbx-create-skill**: [[2026-10-28 - Docs assistant skills|Docs: assistant / skills]]
+- **rbx-debug**: [[2026-10-28 - Docs assistant skills|Docs: assistant / skills]]
+- **rbx-device-simulator-lua**: [[2026-10-28 - Docs assistant skills|Docs: assistant / skills]]
+- **rbx-docs-search**: [[2026-10-28 - Docs assistant skills|Docs: assistant / skills]]
+- **rbx-perf-profiling**: [[2026-10-28 - Docs assistant skills|Docs: assistant / skills]]
+- **rbx-scene-analysis**: [[2026-10-28 - Docs assistant skills|Docs: assistant / skills]]
+- **LibMP**: [[2026-10-28 - Docs performance-optimization microprofiler tag-table|Docs: performance-optimization / microprofiler / t]]
+- **Workspace.SandboxedInstanceMode (set to Experimental)**: [[2026-10-28 - Docs scripting capabilities|Docs: scripting / capabilities]]
+- **Instance.Sandboxed property**: [[2026-10-28 - Docs scripting capabilities|Docs: scripting / capabilities]]
+- **Instance.Capabilities property**: [[2026-10-28 - Docs scripting capabilities|Docs: scripting / capabilities]]
+- **Flow charts**: [[2026-10-28 - Docs production game-design ui-ux-design|Docs: production / game-design / ui-ux-design]]
+- **Style Guide**: [[2026-10-28 - Docs production game-design ui-ux-design|Docs: production / game-design / ui-ux-design]]
+- **Roblox core UI**: [[2026-10-28 - Docs tutorials curriculums user-interface-design wireframe-your-layout|Docs: tutorials / curriculums / user-interface-des]]
+- **Sample laser tag .rbxl file**: [[2026-10-28 - Docs tutorials curriculums user-interface-design wireframe-your-layout|Docs: tutorials / curriculums / user-interface-des]]
+- **ReplicatedFirst**: [[2026-10-28 - Docs players loading-screens|Docs: players / loading-screens]]
+- **RemoveDefaultLoadingScreen**: [[2026-10-28 - Docs players loading-screens|Docs: players / loading-screens]]
+
+## Points viewers to (candidates for further study)
+- Add configs to your code ([[2026-10-28 - Docs production configs|Docs: production / configs]])
+- Target configs to specific players ([[2026-10-28 - Docs production configs|Docs: production / configs]])
+- Environmental Art Curriculum Q&A (Roblox DevForum) ([[2026-10-28 - Docs tutorials curriculums environmental-art optimize-your-experience|Docs: tutorials / curriculums / environmental-art ]])
+- Environment Art - Optimizing .rbxl file ([[2026-10-28 - Docs tutorials curriculums environmental-art optimize-your-experience|Docs: tutorials / curriculums / environmental-art ]])
+- Export textures (Roblox docs) ([[2026-10-28 - Docs art characters creating blender-configurations|Docs: art / characters / creating / blender-config]])
+- Blender FBX scaling (Roblox docs) ([[2026-10-28 - Docs art characters creating blender-configurations|Docs: art / characters / creating / blender-config]])
+- Colleen Lewis: Tips for Pair Programming ([[2026-10-28 - Docs education collaboration collaboration-best-practices|Docs: education / collaboration / collaboration-be]])
+- Android TV Pilot Program application (Roblox creator programs) ([[2026-10-28 - Docs creator-programs android-tv-pilot|Docs: creator-programs / android-tv-pilot]])
+- Creator Dashboard (Development Items > Animations) ([[2026-10-28 - Docs tutorials curriculums animator play-your-animation|Docs: tutorials / curriculums / animator / play-yo]])
+- Roblox Community Standards ([[2026-10-28 - Docs creator-programs todays-picks-marketplace|Docs: creator-programs / todays-picks-marketplace]])
+- Roblox Marketplace Policy ([[2026-10-28 - Docs creator-programs todays-picks-marketplace|Docs: creator-programs / todays-picks-marketplace]])
+- Disabling caching (docs) ([[2026-10-28 - Docs cloud-services data-stores|Docs: cloud-services / data-stores]])
+- Metadata limits (docs) ([[2026-10-28 - Docs cloud-services data-stores|Docs: cloud-services / data-stores]])
+- Memory stores (docs) ([[2026-10-28 - Docs cloud-services data-stores|Docs: cloud-services / data-stores]])
+- Open Cloud APIs for data stores (docs) ([[2026-10-28 - Docs cloud-services data-stores|Docs: cloud-services / data-stores]])
+- Roblox Creator Docs: Adventure Game series (education) ([[2026-10-28 - Docs education adventure-game-series selling-items|Docs: education / adventure-game-series / selling-]])
+- Roblox Creator Docs: Assistant tutorial ([[2026-10-28 - Docs tutorials curriculums building code-with-assistant|Docs: tutorials / curriculums / building / code-wi]])
+- Roblox Limited Use License ([[2026-10-28 - Docs resources weapons-kit|Docs: resources / weapons-kit]])
+- Build It, Play It: Galactic Speedway education course ([[2026-10-28 - Docs education build-it-play-it-galactic-speedway add-new-models|Docs: education / build-it-play-it-galactic-speedw]])
+- Handout: Adventure Game Vision Document ([[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-3|Docs: education / lesson-plans / roblox-developer ]])
+- Handout: Adventure Game Reference ([[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-3|Docs: education / lesson-plans / roblox-developer ]])
+- Data store error codes and limits (Open Cloud v2 rate limits) ([[2026-10-28 - Docs cloud guides data-stores throttling|Docs: cloud / guides / data-stores / throttling]])
+- Analytics (ErrorCount metric, MessageHash dimension) ([[2026-10-28 - Docs cloud guides error-reporting|Docs: cloud / guides / error-reporting]])
+- Pattern rules section of the Error Reporting docs ([[2026-10-28 - Docs cloud guides error-reporting|Docs: cloud / guides / error-reporting]])
+- Basic character creation tutorial ([[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]])
+- Avatar references and project files ([[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]])
+- FBX export settings ([[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]])
+- Avatar specifications ([[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]])
+- Rigging and skinning overview ([[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]])
+- Uploading to Marketplace ([[2026-10-28 - Docs avatar character-bodies|Docs: avatar / character-bodies]])
+- Create and Use Functions ([[2026-10-28 - Docs education resources coding-concept-abstraction|Docs: education / resources / coding-concept-abstr]])
+- Returning Values from Functions ([[2026-10-28 - Docs education resources coding-concept-abstraction|Docs: education / resources / coding-concept-abstr]])
+- Peter "MrChickenRocket" McNeill's original Cardboard Box Simulator performance article ([[2026-10-28 - Docs resources performance|Docs: resources / performance]])
+- Cardboard Box Simulator experience ([[2026-10-28 - Docs resources performance|Docs: resources / performance]])
+- Roblox Creator Docs tutorials section ([[2026-10-28 - Docs tutorials|Docs: tutorials]])
+- Custom text chat commands (Roblox docs) ([[2026-10-28 - Docs chat platform-integrated-chat|Docs: chat / platform-integrated-chat]])
+- Marketplace policy - Modesty layers ([[2026-10-28 - Docs art characters creating texturing-setup|Docs: art / characters / creating / texturing-setu]])
+- Creator Third-Party App Policy ([[2026-10-28 - Docs cloud auth oauth2-registration|Docs: cloud / auth / oauth2-registration]])
+- Roblox Terms of Service ([[2026-10-28 - Docs cloud auth oauth2-registration|Docs: cloud / auth / oauth2-registration]])
+- Skin a humanoid model (Roblox docs) ([[2026-10-28 - Docs avatar automatic-skinning-transfer|Docs: avatar / automatic-skinning-transfer]])
+- Free camera mode docs ([[2026-10-28 - Docs production publishing thumbnails|Docs: production / publishing / thumbnails]])
+- Community Rules ([[2026-10-28 - Docs production publishing thumbnails|Docs: production / publishing / thumbnails]])
+- Terms of Use ([[2026-10-28 - Docs production publishing thumbnails|Docs: production / publishing / thumbnails]])
+- Roblox Creator Docs: Badges ([[2026-10-28 - Docs production publishing badges|Docs: production / publishing / badges]])
+- Script Capabilities documentation ([[2026-10-28 - Docs scripting security third-party-vulnerabilities|Docs: scripting / security / third-party-vulnerabi]])
+- Code Ninjas ([[2026-10-28 - Docs education resources roblox-educators|Docs: education / resources / roblox-educators]])
+- EDMO ([[2026-10-28 - Docs education resources roblox-educators|Docs: education / resources / roblox-educators]])
+- Natalie Clabo (YouTube, Roblox and Blender modeling) ([[2026-10-28 - Docs education resources roblox-educators|Docs: education / resources / roblox-educators]])
+- Genius Academy (Colombia) ([[2026-10-28 - Docs education resources roblox-educators|Docs: education / resources / roblox-educators]])
+- Code Wiz ([[2026-10-28 - Docs education resources roblox-educators|Docs: education / resources / roblox-educators]])
+- WGFactory (South Korea) ([[2026-10-28 - Docs education resources roblox-educators|Docs: education / resources / roblox-educators]])
+- Build It, Play It: Galactic Speedway education course ([[2026-10-28 - Docs education build-it-play-it-galactic-speedway take-the-challenge-2|Docs: education / build-it-play-it-galactic-speedw]])
+- Core loops docs ([[2026-10-28 - Docs production game-design prototyping|Docs: production / game-design / prototyping]])
+- UI and UX docs ([[2026-10-28 - Docs production game-design prototyping|Docs: production / game-design / prototyping]])
+- Roblox Creator Docs: Adventure game series, Collect items lesson ([[2026-10-28 - Docs education adventure-game-series collect-items|Docs: education / adventure-game-series / collect-]])
+- Asset Manager article (custom texture upload) ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder connect-the-beam|Docs: education / build-it-play-it-mansion-of-wond]])
+- Roblox Creator Docs: Layered accessory caging best practices ([[2026-10-28 - Docs avatar layered-accessories caging-best-practices|Docs: avatar / layered-accessories / caging-best-p]])
+- Mechanical constraints docs ([[2026-10-28 - Docs physics constraints universal|Docs: physics / constraints / universal]])
+- Roblox units docs ([[2026-10-28 - Docs physics constraints universal|Docs: physics / constraints / universal]])
+- Get started (modern 3D cosmetics guide) ([[2026-10-28 - Docs avatar classic-clothing|Docs: avatar / classic-clothing]])
+- Roblox Creator Hub: Experience events and updates ([[2026-10-28 - Docs production promotion experience-events|Docs: production / promotion / experience-events]])
+- Off-Platform Featuring program ([[2026-10-28 - Docs production promotion experience-events|Docs: production / promotion / experience-events]])
+- Input type detection docs ([[2026-10-28 - Docs input gamepad|Docs: input / gamepad]])
+- UserInputService.GamepadEnabled ([[2026-10-28 - Docs input gamepad|Docs: input / gamepad]])
+- UserInputService.GamepadConnected / GamepadDisconnected ([[2026-10-28 - Docs input gamepad|Docs: input / gamepad]])
+- EU DSA IP notice email: [email] ([[2026-10-28 - Docs production publishing dsa-ip-reporting|Docs: production / publishing / dsa-ip-reporting]])
+- Reporting Illegal Content in the European Union (Roblox Help Center) ([[2026-10-28 - Docs production publishing dsa-ip-reporting|Docs: production / publishing / dsa-ip-reporting]])
+- European Commission list of accredited out-of-court dispute settlement bodies ([[2026-10-28 - Docs production publishing dsa-ip-reporting|Docs: production / publishing / dsa-ip-reporting]])
+- Assistant for Studio guide ([[2026-10-28 - Docs assistant overview|Docs: assistant / overview]])
+- Uploading and publishing to the Marketplace ([[2026-10-28 - Docs art accessories creating-rigid publishing|Docs: art / accessories / creating-rigid / publish]])
+- Marketplace fees and commissions ([[2026-10-28 - Docs art accessories creating-rigid publishing|Docs: art / accessories / creating-rigid / publish]])
+- Roblox for Unity developers ([[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]])
+- Roblox for Unreal developers ([[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]])
+- Data model ([[2026-10-28 - Docs tutorials curriculums studio explore-ui|Docs: tutorials / curriculums / studio / explore-u]])
+- Roblox Clothing_Cage.blend template ([[2026-10-28 - Docs art accessories creating modeling-setup|Docs: art / accessories / creating / modeling-setu]])
+- Publishing Advance documentation ([[2026-10-28 - Docs marketplace frequently-asked-questions|Docs: marketplace / frequently-asked-questions]])
+- Archiving Assets documentation ([[2026-10-28 - Docs marketplace frequently-asked-questions|Docs: marketplace / frequently-asked-questions]])
+- Roblox appeals page ([[2026-10-28 - Docs marketplace frequently-asked-questions|Docs: marketplace / frequently-asked-questions]])
+- Illegal Content Reporting Form ([[2026-10-28 - Docs marketplace frequently-asked-questions|Docs: marketplace / frequently-asked-questions]])
+- Class.Path2D:GetControlPoints() ([[2026-10-28 - Docs ui 2D-paths|Docs: ui / 2D-paths]])
+- Class.Path2D:GetPositionOnCurveArcLength() ([[2026-10-28 - Docs ui 2D-paths|Docs: ui / 2D-paths]])
+- Roblox Advertising Standards ([[2026-10-28 - Docs production promotion advertise-on-roblox|Docs: production / promotion / advertise-on-roblox]])
+- Roblox Community Standards ([[2026-10-28 - Docs production promotion advertise-on-roblox|Docs: production / promotion / advertise-on-roblox]])
+- Roblox Terms of Use ([[2026-10-28 - Docs production promotion advertise-on-roblox|Docs: production / promotion / advertise-on-roblox]])
+- Roblox Independent Advertising Policy ([[2026-10-28 - Docs production promotion advertise-on-roblox|Docs: production / promotion / advertise-on-roblox]])
+- Coding fundamentals series ([[2026-10-28 - Docs tutorials curriculums coding next-steps|Docs: tutorials / curriculums / coding / next-step]])
+- Invite early testers docs ([[2026-10-28 - Docs tutorials curriculums coding next-steps|Docs: tutorials / curriculums / coding / next-step]])
+- Release games docs ([[2026-10-28 - Docs tutorials curriculums coding next-steps|Docs: tutorials / curriculums / coding / next-step]])
+- Create deadly lava tutorial ([[2026-10-28 - Docs tutorials curriculums coding next-steps|Docs: tutorials / curriculums / coding / next-step]])
+- Create fading traps tutorial ([[2026-10-28 - Docs tutorials curriculums coding next-steps|Docs: tutorials / curriculums / coding / next-step]])
+- Create health pickups tutorial ([[2026-10-28 - Docs tutorials curriculums coding next-steps|Docs: tutorials / curriculums / coding / next-step]])
+- SLIM guide (high-fidelity level of detail for models and avatars) ([[2026-10-28 - Docs workspace streaming|Docs: workspace / streaming]])
+- Streaming techniques guide ([[2026-10-28 - Docs workspace streaming|Docs: workspace / streaming]])
+- Economy events docs ([[2026-10-28 - Docs production analytics event-types|Docs: production / analytics / event-types]])
+- Funnel events docs ([[2026-10-28 - Docs production analytics event-types|Docs: production / analytics / event-types]])
+- Custom events docs ([[2026-10-28 - Docs production analytics event-types|Docs: production / analytics / event-types]])
+- Creator Dashboard error report ([[2026-10-28 - Docs production analytics event-types|Docs: production / analytics / event-types]])
+- Pivot Tools docs ([[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]])
+- Textures and decals docs ([[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]])
+- Blender pivot point docs ([[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]])
+- Maya pivot point docs ([[2026-10-28 - Docs tutorials use-case-tutorials modeling assemble-modular-environmen|Docs: tutorials / use-case-tutorials / modeling / ]])
+- Studio lesson (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums building|Docs: tutorials / curriculums / building]])
+- Beginner lesson plans / Building your first game (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums building|Docs: tutorials / curriculums / building]])
+- Roblox Advertising Standards ([[2026-10-28 - Docs production monetization immersive-ads|Docs: production / monetization / immersive-ads]])
+- Billing (advertiser billing docs) ([[2026-10-28 - Docs production monetization immersive-ads|Docs: production / monetization / immersive-ads]])
+- Maturity and Compliance Questionnaire ([[2026-10-28 - Docs production monetization immersive-ads|Docs: production / monetization / immersive-ads]])
+- Roblox docs: Schedule code ([[2026-10-28 - Docs scripting scheduler|Docs: scripting / scheduler]])
+- Templates (Roblox docs list of provided templates) ([[2026-10-28 - Docs tutorials curriculums animator get-started|Docs: tutorials / curriculums / animator / get-sta]])
+- Workspace.LuauTypeCheckMode ([[2026-10-28 - Docs luau type-checking|Docs: luau / type-checking]])
+- Roblox docs: PartOperation:SubstituteGeometry() ([[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]])
+- Roblox docs: MeshPart:ApplyMesh() ([[2026-10-28 - Docs parts solid-modeling|Docs: parts / solid-modeling]])
+- Tipalti Payment methods coverage documentation ([[2026-10-28 - Docs production monetization devex-portal|Docs: production / monetization / devex-portal]])
+- IRS Form W-9 ([[2026-10-28 - Docs production monetization devex-portal|Docs: production / monetization / devex-portal]])
+- IRS Form W-8 ([[2026-10-28 - Docs production monetization devex-portal|Docs: production / monetization / devex-portal]])
+- IRS Form 1099-NEC ([[2026-10-28 - Docs production monetization devex-portal|Docs: production / monetization / devex-portal]])
+- DevEx tax information page ([[2026-10-28 - Docs production monetization devex-portal|Docs: production / monetization / devex-portal]])
+- Ads Manager ([[2026-10-28 - Docs production promotion|Docs: production / promotion]])
+- Events and updates ([[2026-10-28 - Docs production promotion|Docs: production / promotion]])
+- Sponsor items ([[2026-10-28 - Docs production promotion|Docs: production / promotion]])
+- Player:GetJoinData() reference docs ([[2026-10-28 - Docs production promotion deeplinks|Docs: production / promotion / deeplinks]])
+- Include launch data docs section ([[2026-10-28 - Docs production promotion deeplinks|Docs: production / promotion / deeplinks]])
+- Share links (replacement for deep links) ([[2026-10-28 - Docs production promotion deeplinks|Docs: production / promotion / deeplinks]])
+- Asset privacy ([[2026-10-28 - Docs projects assets|Docs: projects / assets]])
+- Asset permissions ([[2026-10-28 - Docs projects assets|Docs: projects / assets]])
+- Packages ([[2026-10-28 - Docs projects assets|Docs: projects / assets]])
+- Character appearance ([[2026-10-28 - Docs projects assets|Docs: projects / assets]])
+- Working with Assets - Asset Moderation ([[2026-10-28 - Docs projects assets|Docs: projects / assets]])
+- Wireframe Your Layouts (UI curriculum) ([[2026-10-28 - Docs tutorials curriculums user-interface-design implement-designs-in-|Docs: tutorials / curriculums / user-interface-des]])
+- Track points in the Gameplay Scripting Curriculum ([[2026-10-28 - Docs tutorials curriculums user-interface-design implement-designs-in-|Docs: tutorials / curriculums / user-interface-des]])
+- UI Design Asset Library (Creator Store) ([[2026-10-28 - Docs tutorials curriculums user-interface-design implement-designs-in-|Docs: tutorials / curriculums / user-interface-des]])
+- Roblox Open Cloud Scopes documentation ([[2026-10-28 - Docs cloud auth api-keys|Docs: cloud / auth / api-keys]])
+- Roblox Creator Docs: Texturing eyes ([[2026-10-28 - Docs art characters creating texturing-eyes|Docs: art / characters / creating / texturing-eyes]])
+- Team Create age requirements FAQ ([[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]])
+- Access version history docs ([[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]])
+- Activity History ([[2026-10-28 - Docs projects collaboration|Docs: projects / collaboration]])
+- Create and publish animation packs ([[2026-10-28 - Docs marketplace validation-system|Docs: marketplace / validation-system]])
+- Body specifications ([[2026-10-28 - Docs marketplace validation-system|Docs: marketplace / validation-system]])
+- Dynamic head specifications ([[2026-10-28 - Docs marketplace validation-system|Docs: marketplace / validation-system]])
+- Makeup specifications ([[2026-10-28 - Docs marketplace validation-system|Docs: marketplace / validation-system]])
+- Rigid accessory specifications ([[2026-10-28 - Docs marketplace validation-system|Docs: marketplace / validation-system]])
+- Layered accessory specifications ([[2026-10-28 - Docs marketplace validation-system|Docs: marketplace / validation-system]])
+- Roblox Creator Docs: education / build-it-play-it-mansion-of-wonder ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder making-an-explosion|Docs: education / build-it-play-it-mansion-of-wond]])
+- Luau heap tool ([[2026-10-28 - Docs performance-optimization scene-analysis|Docs: performance-optimization / scene-analysis]])
+- Roblox MCP server ([[2026-10-28 - Docs performance-optimization scene-analysis|Docs: performance-optimization / scene-analysis]])
+- Creating Traps tutorial ([[2026-10-28 - Docs education battle-royale-series finishing-the-project|Docs: education / battle-royale-series / finishing]])
+- Leaderboards article ([[2026-10-28 - Docs education battle-royale-series finishing-the-project|Docs: education / battle-royale-series / finishing]])
+- Powerups tutorial ([[2026-10-28 - Docs education battle-royale-series finishing-the-project|Docs: education / battle-royale-series / finishing]])
+- ReportHarmfulContent.com ([[2026-10-28 - Docs education resources intro-to-digital-safety|Docs: education / resources / intro-to-digital-saf]])
+- Add 2-Step Verification to Your Account (Roblox support) ([[2026-10-28 - Docs education resources intro-to-digital-safety|Docs: education / resources / intro-to-digital-saf]])
+- Adopt Me! Scams (external resource) ([[2026-10-28 - Docs education resources intro-to-digital-safety|Docs: education / resources / intro-to-digital-saf]])
+- Fortnite Scams and More (Tulane University) ([[2026-10-28 - Docs education resources intro-to-digital-safety|Docs: education / resources / intro-to-digital-saf]])
+- Replication order (Roblox docs) ([[2026-10-28 - Docs scripting module|Docs: scripting / module]])
+- Events (Roblox docs) ([[2026-10-28 - Docs scripting module|Docs: scripting / module]])
+- Textures and Decals docs ([[2026-10-28 - Docs tutorials use-case-tutorials vfx custom-particle-effects|Docs: tutorials / use-case-tutorials / vfx / custo]])
+- Class.ParticleEmitter API page ([[2026-10-28 - Docs tutorials use-case-tutorials vfx custom-particle-effects|Docs: tutorials / use-case-tutorials / vfx / custo]])
+- Sell a pass docs ([[2026-10-28 - Docs production monetization roblox-plus|Docs: production / monetization / roblox-plus]])
+- Sell a developer product docs ([[2026-10-28 - Docs production monetization roblox-plus|Docs: production / monetization / roblox-plus]])
+- Robux transfers docs ([[2026-10-28 - Docs production monetization roblox-plus|Docs: production / monetization / roblox-plus]])
+- Battle Royale Example project ([[2026-10-28 - Docs education battle-royale-series landing|Docs: education / battle-royale-series / landing]])
+- Creator Dashboard Monetization overview ([[2026-10-28 - Docs production analytics monetization|Docs: production / analytics / monetization]])
+- Character specifications (Roblox docs) ([[2026-10-28 - Docs avatar character-bodies export|Docs: avatar / character-bodies / export]])
+- Blender FBX scaling (Roblox docs) ([[2026-10-28 - Docs avatar character-bodies export|Docs: avatar / character-bodies / export]])
+- Keeping Your Account Safe ([[2026-10-28 - Docs education build-it-play-it-galactic-speedway main-page|Docs: education / build-it-play-it-galactic-speedw]])
+- RobloxColorMapIndex file ([[2026-10-28 - Docs parts terrain|Docs: parts / terrain]])
+- Roblox Creator Docs: Spawning and Respawning (Configure Spawn Locations) ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting add-rounds|Docs: tutorials / curriculums / gameplay-scripting]])
+- Roblox Creator Docs: UI Curriculum (Objective UI component) ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting add-rounds|Docs: tutorials / curriculums / gameplay-scripting]])
+- Importer docs ([[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]])
+- Test character bodies docs ([[2026-10-28 - Docs avatar character-bodies import|Docs: avatar / character-bodies / import]])
+- DevForum announcement on dynamic heads (feedback thread referenced in the page warning) ([[2026-10-28 - Docs art characters head-comparison|Docs: art / characters / head-comparison]])
+- Roblox Creator Docs: Explorer window ([[2026-10-28 - Docs studio explorer|Docs: studio / explorer]])
+- Class.ProximityPrompt reference ([[2026-10-28 - Docs tutorials use-case-tutorials ui proximity-prompts|Docs: tutorials / use-case-tutorials / ui / proxim]])
+- Class.ProximityPromptService reference ([[2026-10-28 - Docs tutorials use-case-tutorials ui proximity-prompts|Docs: tutorials / use-case-tutorials / ui / proxim]])
+- Mechanical constraints overview (Roblox docs) ([[2026-10-28 - Docs physics constraints ball-socket|Docs: physics / constraints / ball-socket]])
+- Roblox units documentation ([[2026-10-28 - Docs physics constraints ball-socket|Docs: physics / constraints / ball-socket]])
+- Roblox docs: UIListLayout ([[2026-10-28 - Docs ui grid-table-layouts|Docs: ui / grid-table-layouts]])
+- Notable Translators list (Roblox creator docs) ([[2026-10-28 - Docs creator-programs notable-translators|Docs: creator-programs / notable-translators]])
+- Keeping Your Account Safe (Roblox docs) ([[2026-10-28 - Docs education support roblox-account-creation|Docs: education / support / roblox-account-creatio]])
+- Exporting Requirements (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials lighting create-flickering-lights|Docs: tutorials / use-case-tutorials / lighting / ]])
+- Quick Start Guide (educator download) ([[2026-10-28 - Docs education educator-onboarding landing|Docs: education / educator-onboarding / landing]])
+- Audio (newer audio objects and effects documentation) ([[2026-10-28 - Docs sound|Docs: sound]])
+- Marketplace policies ([[2026-10-28 - Docs art accessories creating|Docs: art / accessories / creating]])
+- Mover constraints overview ([[2026-10-28 - Docs physics constraints torque|Docs: physics / constraints / torque]])
+- Roblox units ([[2026-10-28 - Docs physics constraints torque|Docs: physics / constraints / torque]])
+- Existing signals ([[2026-10-28 - Docs matchmaking customize-matchmaking|Docs: matchmaking / customize-matchmaking]])
+- Custom signals ([[2026-10-28 - Docs matchmaking customize-matchmaking|Docs: matchmaking / customize-matchmaking]])
+- Custom attributes ([[2026-10-28 - Docs matchmaking customize-matchmaking|Docs: matchmaking / customize-matchmaking]])
+- Scoring ([[2026-10-28 - Docs matchmaking customize-matchmaking|Docs: matchmaking / customize-matchmaking]])
+- Roblox Units ([[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]])
+- Materials - Default Physical Properties ([[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]])
+- Creator Store ([[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]])
+- Open Cloud overview ([[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]])
+- Core curriculum ([[2026-10-28 - Docs tutorials first-experience|Docs: tutorials / first-experience]])
+- Marketplace policy ([[2026-10-28 - Docs marketplace|Docs: marketplace]])
+- Intellectual property ([[2026-10-28 - Docs marketplace|Docs: marketplace]])
+- Moderation ([[2026-10-28 - Docs marketplace|Docs: marketplace]])
+- Fees and Commissions ([[2026-10-28 - Docs marketplace|Docs: marketplace]])
+- Roblox Education: Build it, play it, create and destroy course ([[2026-10-28 - Docs education build-it-play-it-create-and-destroy change-the-script|Docs: education / build-it-play-it-create-and-dest]])
+- Roblox Creator Docs: rigging and skinning documentation ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive develop-a-moving-world|Docs: resources / the-mystery-of-duvall-drive / de]])
+- Network Ownership, Movement Validation, and Physics Exploits ([[2026-10-28 - Docs scripting security security-tactics|Docs: scripting / security / security-tactics]])
+- Access Control and Confidentiality ([[2026-10-28 - Docs scripting security security-tactics|Docs: scripting / security / security-tactics]])
+- Creating heads (Roblox docs) ([[2026-10-28 - Docs avatar character-bodies test-blender|Docs: avatar / character-bodies / test-blender]])
+- Rigging and skinning (Roblox docs) ([[2026-10-28 - Docs avatar character-bodies test-blender|Docs: avatar / character-bodies / test-blender]])
+- Character body specifications (Roblox docs) ([[2026-10-28 - Docs avatar character-bodies test-blender|Docs: avatar / character-bodies / test-blender]])
+- Layered Accessory Validation Tool ([[2026-10-28 - Docs art modeling calisthenics-tool|Docs: art / modeling / calisthenics-tool]])
+- Skin a humanoid model (Roblox docs) ([[2026-10-28 - Docs art modeling calisthenics-tool|Docs: art / modeling / calisthenics-tool]])
+- Roblox custom mesh requirements ([[2026-10-28 - Docs art modeling calisthenics-tool|Docs: art / modeling / calisthenics-tool]])
+- Roblox Blender export settings ([[2026-10-28 - Docs art modeling calisthenics-tool|Docs: art / modeling / calisthenics-tool]])
+- Roblox reference models (with FACS data) ([[2026-10-28 - Docs art modeling calisthenics-tool|Docs: art / modeling / calisthenics-tool]])
+- Creator Store: SelfieMode package ([[2026-10-28 - Docs resources modules selfie-mode|Docs: resources / modules / selfie-mode]])
+- Roblox Community Standards (Harmful Off-Platform Speech or Behavior policy) ([[2026-10-28 - Docs creator-programs safety-council|Docs: creator-programs / safety-council]])
+- Roblox program status page ([[2026-10-28 - Docs creator-programs safety-council|Docs: creator-programs / safety-council]])
+- Colleen Lewis: Tips for Pair Programming ([[2026-10-28 - Docs education resources collaboration-best-practices|Docs: education / resources / collaboration-best-p]])
+- Roblox Studio onboarding tour ([[2026-10-28 - Docs get-started creating|Docs: get-started / creating]])
+- Create your first game tutorial ([[2026-10-28 - Docs get-started creating|Docs: get-started / creating]])
+- Intro to world building livestream ([[2026-10-28 - Docs get-started creating|Docs: get-started / creating]])
+- Intro to physics livestream ([[2026-10-28 - Docs get-started creating|Docs: get-started / creating]])
+- Avatar items overview ([[2026-10-28 - Docs get-started creating|Docs: get-started / creating]])
+- Roblox Creator Docs: Coding concept - abstraction ([[2026-10-28 - Docs tutorials fundamentals coding-6 coding-concept-abstraction|Docs: tutorials / fundamentals / coding-6 / coding]])
+- Class.BasePart.Touched event ([[2026-10-28 - Docs tutorials fundamentals coding-2 parameters-practice-buttons|Docs: tutorials / fundamentals / coding-2 / parame]])
+- Coding fundamentals series (Roblox Creator Docs) ([[2026-10-28 - Docs tutorials curriculums coding work-with-variables|Docs: tutorials / curriculums / coding / work-with]])
+- Roblox Character Controller Library docs ([[2026-10-28 - Docs characters character-controller-library|Docs: characters / character-controller-library]])
+- Roblox Community Standards ([[2026-10-28 - Docs production promotion experience-guidelines|Docs: production / promotion / experience-guidelin]])
+- Roblox 17+ Policy Standards ([[2026-10-28 - Docs production promotion experience-guidelines|Docs: production / promotion / experience-guidelin]])
+- Roblox Terms of Use ([[2026-10-28 - Docs production promotion experience-guidelines|Docs: production / promotion / experience-guidelin]])
+- Roblox Education website ([[2026-10-28 - Docs education resources getting-started-for-developers-education|Docs: education / resources / getting-started-for-]])
+- Inspiration Guide ([[2026-10-28 - Docs education resources getting-started-for-developers-education|Docs: education / resources / getting-started-for-]])
+- Education Partners page ([[2026-10-28 - Docs education resources getting-started-for-developers-education|Docs: education / resources / getting-started-for-]])
+- Talent Hub ([[2026-10-28 - Docs education resources getting-started-for-developers-education|Docs: education / resources / getting-started-for-]])
+- Designing Educational Games article ([[2026-10-28 - Docs education resources getting-started-for-developers-education|Docs: education / resources / getting-started-for-]])
+- Planning for Educational Settings article ([[2026-10-28 - Docs education resources getting-started-for-developers-education|Docs: education / resources / getting-started-for-]])
+- Dungeon Delve sample place ([[2026-10-28 - Docs ui proximity-prompts|Docs: ui / proximity-prompts]])
+- Class.Tool ([[2026-10-28 - Docs education battle-royale-series managing-players|Docs: education / battle-royale-series / managing-]])
+- Roblox Creator Docs: Battle Royale series ([[2026-10-28 - Docs education battle-royale-series managing-players|Docs: education / battle-royale-series / managing-]])
+- The Mystery of Duvall Drive (hand-built rain/mist example) ([[2026-10-28 - Docs effects particle-emitters|Docs: effects / particle-emitters]])
+- weather-island project (scripted storms, rain/mist spawning, roof detection) ([[2026-10-28 - Docs effects particle-emitters|Docs: effects / particle-emitters]])
+- Roblox Education Classroom Kit ([[2026-10-28 - Docs education educator-onboarding 5-next-steps|Docs: education / educator-onboarding / 5-next-ste]])
+- Roblox Education mailing list ([[2026-10-28 - Docs education educator-onboarding 5-next-steps|Docs: education / educator-onboarding / 5-next-ste]])
+- Roblox Education contact team ([[2026-10-28 - Docs education educator-onboarding 5-next-steps|Docs: education / educator-onboarding / 5-next-ste]])
+- RobloxBattleRoyale.zip reference project ([[2026-10-28 - Docs resources battle-royale installation-and-setup|Docs: resources / battle-royale / installation-and]])
+- Environmental terrain guide ([[2026-10-28 - Docs studio terrain-editor|Docs: studio / terrain-editor]])
+- Custom terrain materials ([[2026-10-28 - Docs studio terrain-editor|Docs: studio / terrain-editor]])
+- Open Cloud OAuth 2.0 sample app ([[2026-10-28 - Docs cloud|Docs: cloud]])
+- In-game HTTP requests documentation ([[2026-10-28 - Docs cloud|Docs: cloud]])
+- Open Cloud resource guides ([[2026-10-28 - Docs cloud|Docs: cloud]])
+- UI Fundamentals - HUD Meter template ([[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]])
+- UI Fundamentals - Interactivity template ([[2026-10-28 - Docs tutorials use-case-tutorials ui interactive-ui|Docs: tutorials / use-case-tutorials / ui / intera]])
+- Coding fundamentals (Roblox docs course) ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting|Docs: tutorials / curriculums / gameplay-scripting]])
+- Input type detection docs page ([[2026-10-28 - Docs input mobile|Docs: input / mobile]])
+- Roblox Open Cloud docs: Filtering ([[2026-10-28 - Docs cloud guides inventory|Docs: cloud / guides / inventory]])
+- Roblox Open Cloud docs: Pagination ([[2026-10-28 - Docs cloud guides inventory|Docs: cloud / guides / inventory]])
+- Client-Server Runtime ([[2026-10-28 - Docs projects data-model|Docs: projects / data-model]])
+- Customize the camera ([[2026-10-28 - Docs projects data-model|Docs: projects / data-model]])
+- Environmental terrain ([[2026-10-28 - Docs projects data-model|Docs: projects / data-model]])
+- Text chat overview ([[2026-10-28 - Docs projects data-model|Docs: projects / data-model]])
+- Voice chat ([[2026-10-28 - Docs projects data-model|Docs: projects / data-model]])
+- Roblox docs: GuiButton, TextButton, ImageButton, SurfaceGui ([[2026-10-28 - Docs ui buttons|Docs: ui / buttons]])
+- Qualtrics (market research company hosting the panel) ([[2026-10-28 - Docs creator-programs research-panel|Docs: creator-programs / research-panel]])
+- Roblox DevForum ([[2026-10-28 - Docs creator-programs research-panel|Docs: creator-programs / research-panel]])
+- Roblox Creator Dashboard ([[2026-10-28 - Docs cloud guides analytics|Docs: cloud / guides / analytics]])
+- Roblox DevForum (for API error reports) ([[2026-10-28 - Docs cloud guides analytics|Docs: cloud / guides / analytics]])
+- Roblox docs: Securing the client-server boundary ([[2026-10-28 - Docs scripting security client-server-boundary|Docs: scripting / security / client-server-boundar]])
+- Meshes ([[2026-10-28 - Docs parts|Docs: parts]])
+- Models ([[2026-10-28 - Docs parts|Docs: parts]])
+- Materials ([[2026-10-28 - Docs parts|Docs: parts]])
+- object selection ([[2026-10-28 - Docs parts|Docs: parts]])
+- Publish to Marketplace (Roblox docs) ([[2026-10-28 - Docs avatar emotes import|Docs: avatar / emotes / import]])
+- Missions feature package ([[2026-10-28 - Docs production game-design introduction-to-quest-design|Docs: production / game-design / introduction-to-q]])
+- Badges documentation ([[2026-10-28 - Docs production game-design introduction-to-quest-design|Docs: production / game-design / introduction-to-q]])
+- LiveOps essentials ([[2026-10-28 - Docs production game-design introduction-to-quest-design|Docs: production / game-design / introduction-to-q]])
+- Workshop videos on designing, writing, and producing quests ([[2026-10-28 - Docs production game-design introduction-to-quest-design|Docs: production / game-design / introduction-to-q]])
+- Roblox Learn & Explore sort application form (creator programs) ([[2026-10-28 - Docs creator-programs learn-explore-sort|Docs: creator-programs / learn-explore-sort]])
+- Create and Destroy template ([[2026-10-28 - Docs education build-it-play-it-create-and-destroy designing-a-map|Docs: education / build-it-play-it-create-and-dest]])
+- Roblox Blender plugin GitHub page ([[2026-10-28 - Docs art modeling roblox-blender-plugin|Docs: art / modeling / roblox-blender-plugin]])
+- Assign textures in Blender and Maya (Roblox docs) ([[2026-10-28 - Docs avatar makeup reassign-textures|Docs: avatar / makeup / reassign-textures]])
+- Per-partition limits (MemoryStores docs) ([[2026-10-28 - Docs cloud-services memory-stores per-partition-limits|Docs: cloud-services / memory-stores / per-partiti]])
+- MemoryStores best practices (MemoryStores docs) ([[2026-10-28 - Docs cloud-services memory-stores per-partition-limits|Docs: cloud-services / memory-stores / per-partiti]])
+- Roblox docs: Texture (asset ID guide) ([[2026-10-28 - Docs effects trails|Docs: effects / trails]])
+- Studio Settings > Editor Quality Level ([[2026-10-28 - Docs effects trails|Docs: effects / trails]])
+- Player invite prompts (docs) ([[2026-10-28 - Docs production promotion experience-notifications|Docs: production / promotion / experience-notifica]])
+- Open Cloud API ([[2026-10-28 - Docs production promotion experience-notifications|Docs: production / promotion / experience-notifica]])
+- Build It, Play It: Island of Move (Roblox education course) ([[2026-10-28 - Docs education build-it-play-it-island-of-move invite-friends-to-play|Docs: education / build-it-play-it-island-of-move ]])
+- API integration (parameter workflow, linked from the docs page) ([[2026-10-28 - Docs animation expressions|Docs: animation / expressions]])
+- Animation Graph Editor documentation (prerequisite) ([[2026-10-28 - Docs animation expressions|Docs: animation / expressions]])
+- Acquisition page (Creator Dashboard analytics for share links) ([[2026-10-28 - Docs production promotion share-links|Docs: production / promotion / share-links]])
+- Users and scoped user IDs ([[2026-10-28 - Docs players|Docs: players]])
+- In-game tools ([[2026-10-28 - Docs players|Docs: players]])
+- Disable default UI ([[2026-10-28 - Docs players|Docs: players]])
+- Open Cloud bans and blocks ([[2026-10-28 - Docs players|Docs: players]])
+- Roblox Terms of Use ([[2026-10-28 - Docs production analytics analytics-dashboard|Docs: production / analytics / analytics-dashboard]])
+- Roles and permissions (group roles) ([[2026-10-28 - Docs production analytics analytics-dashboard|Docs: production / analytics / analytics-dashboard]])
+- Creator Rewards program (age group definition) ([[2026-10-28 - Docs production analytics analytics-dashboard|Docs: production / analytics / analytics-dashboard]])
+- Game Details Page recommended games ([[2026-10-28 - Docs production analytics analytics-dashboard|Docs: production / analytics / analytics-dashboard]])
+- Keep Your Account Safe (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums studio create-account|Docs: tutorials / curriculums / studio / create-ac]])
+- Templates documentation (full list of Roblox-provided templates) ([[2026-10-28 - Docs tutorials curriculums coding get-started|Docs: tutorials / curriculums / coding / get-start]])
+- Observability status code table ([[2026-10-28 - Docs cloud-services memory-stores observability|Docs: cloud-services / memory-stores / observabili]])
+- Troubleshooting ([[2026-10-28 - Docs cloud-services memory-stores observability|Docs: cloud-services / memory-stores / observabili]])
+- Limits and Quotas ([[2026-10-28 - Docs cloud-services memory-stores observability|Docs: cloud-services / memory-stores / observabili]])
+- Account Security (Roblox docs) ([[2026-10-28 - Docs education educator-onboarding 2-playing-on-roblox|Docs: education / educator-onboarding / 2-playing-]])
+- Roblox Platform Quick Start Guide ([[2026-10-28 - Docs education educator-onboarding 2-playing-on-roblox|Docs: education / educator-onboarding / 2-playing-]])
+- Roblox Open Cloud Messaging Service API docs ([[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]])
+- Engine Class.MessagingService ([[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]])
+- Class.HttpService ([[2026-10-28 - Docs cloud guides usage-messaging|Docs: cloud / guides / usage-messaging]])
+- Roblox Analytics Query API docs ([[2026-10-28 - Docs cloud guides analytics benchmarks|Docs: cloud / guides / analytics / benchmarks]])
+- Supported metrics list (Roblox docs) ([[2026-10-28 - Docs cloud guides analytics benchmarks|Docs: cloud / guides / analytics / benchmarks]])
+- Roblox DevForum (for 500 error reports) ([[2026-10-28 - Docs cloud guides analytics benchmarks|Docs: cloud / guides / analytics / benchmarks]])
+- Creator Store - Distribute and sell assets ([[2026-10-28 - Docs studio plugins|Docs: studio / plugins]])
+- Roblox Studio MCP server docs (Creator docs, Studio MCP) ([[2026-10-28 - Docs studio mcp|Docs: studio / mcp]])
+- Model Context Protocol (MCP) open standard ([[2026-10-28 - Docs studio mcp|Docs: studio / mcp]])
+- Create page (Start Creating button for Studio download) ([[2026-10-28 - Docs education build-it-play-it-create-and-destroy landing|Docs: education / build-it-play-it-create-and-dest]])
+- Keeping Your Account Safe (Roblox help article) ([[2026-10-28 - Docs education build-it-play-it-create-and-destroy landing|Docs: education / build-it-play-it-create-and-dest]])
+- Datatype.Font enum reference ([[2026-10-28 - Docs ui rich-text|Docs: ui / rich-text]])
+- UI appearance modifiers (UIStroke) ([[2026-10-28 - Docs ui rich-text|Docs: ui / rich-text]])
+- Roblox Community Rules ([[2026-10-28 - Docs animation capture|Docs: animation / capture]])
+- Roblox Terms of Use ([[2026-10-28 - Docs animation capture|Docs: animation / capture]])
+- Create basic heads (Roblox docs) ([[2026-10-28 - Docs art characters facial-animation moods|Docs: art / characters / facial-animation / moods]])
+- Skyboxes (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]])
+- Lighting Indoors - Start place file ([[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]])
+- Lighting Indoors - Complete place file ([[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-indoor-environments|Docs: tutorials / use-case-tutorials / lighting / ]])
+- Autocomplete features (Roblox docs) ([[2026-10-28 - Docs luau comments|Docs: luau / comments]])
+- Developer Exchange Program (DevEx) ([[2026-10-28 - Docs get-started monetization|Docs: get-started / monetization]])
+- Approved Merchandiser Program (AMP) ([[2026-10-28 - Docs get-started monetization|Docs: get-started / monetization]])
+- Lighting Outdoors - Start .rbxl ([[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-outdoor-environment|Docs: tutorials / use-case-tutorials / lighting / ]])
+- Lighting Outdoors - Complete .rbxl ([[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-outdoor-environment|Docs: tutorials / use-case-tutorials / lighting / ]])
+- Skyboxes documentation ([[2026-10-28 - Docs tutorials use-case-tutorials lighting enhance-outdoor-environment|Docs: tutorials / use-case-tutorials / lighting / ]])
+- Firewall and Router Issues article (Roblox docs) ([[2026-10-28 - Docs education battle-royale-series coding-the-game-loop|Docs: education / battle-royale-series / coding-th]])
+- Roblox Creator Challenge ([[2026-10-28 - Docs education build-it-play-it-story-games complete-the-challenge|Docs: education / build-it-play-it-story-games / c]])
+- Creator Store - Distribute and sell assets ([[2026-10-28 - Docs projects assets monetize|Docs: projects / assets / monetize]])
+- Open source creator-docs repository (openapi.json) ([[2026-10-28 - Docs cloud reference openapi|Docs: cloud / reference / openapi]])
+- Creator Store: Packages > Profile Card ([[2026-10-28 - Docs resources modules profile-card|Docs: resources / modules / profile-card]])
+- Roblox official reference project for this tutorial stage ([[2026-10-28 - Docs art accessories creating watertight|Docs: art / accessories / creating / watertight]])
+- Add 2D audio tutorial ([[2026-10-28 - Docs audio objects|Docs: audio / objects]])
+- Add 3D audio tutorial ([[2026-10-28 - Docs audio objects|Docs: audio / objects]])
+- Add text-to-speech tutorial ([[2026-10-28 - Docs audio objects|Docs: audio / objects]])
+- Add speech-to-text tutorial ([[2026-10-28 - Docs audio objects|Docs: audio / objects]])
+- Audio effects docs page ([[2026-10-28 - Docs audio objects|Docs: audio / objects]])
+- AssetService:CreateAssetAsync() ([[2026-10-28 - Docs audio objects|Docs: audio / objects]])
+- Roblox creator docs: CFrames ([[2026-10-28 - Docs workspace cframes|Docs: workspace / cframes]])
+- Roblox Creator Docs: clothing texturing tutorial series ([[2026-10-28 - Docs art accessories creating unwrapping|Docs: art / accessories / creating / unwrapping]])
+- Roblox Education content library (left navigation bar) ([[2026-10-28 - Docs education support education-content|Docs: education / support / education-content]])
+- Open Cloud OAuth 2.0 overview (sample app guide) ([[2026-10-28 - Docs cloud auth oauth2-reference|Docs: cloud / auth / oauth2-reference]])
+- https://create.roblox.com/docs/reference/cloud ([[2026-10-28 - Docs cloud auth oauth2-reference|Docs: cloud / auth / oauth2-reference]])
+- Templates (full list of Roblox-provided templates) ([[2026-10-28 - Docs tutorials curriculums building get-started|Docs: tutorials / curriculums / building / get-sta]])
+- Roblox TextChatService documentation ([[2026-10-28 - Docs chat examples proximity-chat|Docs: chat / examples / proximity-chat]])
+- Roblox Incubator Program ([[2026-10-28 - Docs creator-programs jumpstart|Docs: creator-programs / jumpstart]])
+- Developer products docs ([[2026-10-28 - Docs production monetization passes|Docs: production / monetization / passes]])
+- Randomized Virtual Item Policy ([[2026-10-28 - Docs production monetization passes|Docs: production / monetization / passes]])
+- Community Standards ([[2026-10-28 - Docs production monetization passes|Docs: production / monetization / passes]])
+- Roblox Creator Docs: Control the user's camera ([[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera control-the-users-c|Docs: tutorials / use-case-tutorials / input-and-c]])
+- Roblox Studio docs: Material Generator ([[2026-10-28 - Docs studio material-generator|Docs: studio / material-generator]])
+- Teleportation Playground sample game ([[2026-10-28 - Docs cloud-services cross-server-messaging|Docs: cloud-services / cross-server-messaging]])
+- External tools guide for cross-server communication (linked on page) ([[2026-10-28 - Docs cloud-services cross-server-messaging|Docs: cloud-services / cross-server-messaging]])
+- Roblox Avatar documentation (creating avatar items with Blender or Maya) ([[2026-10-28 - Docs production monetization avatar-items|Docs: production / monetization / avatar-items]])
+- Roblox docs: Appearance (LightingStyle) ([[2026-10-28 - Docs effects light-sources|Docs: effects / light-sources]])
+- Roblox Creator Docs: Lighting.ClockTime, Lighting.TimeOfDay, Lighting.LightingStyle ([[2026-10-28 - Docs environment lighting|Docs: environment / lighting]])
+- Roblox docs: performance optimization (collision fidelity) ([[2026-10-28 - Docs workspace collisions|Docs: workspace / collisions]])
+- Roblox docs: mesh and solid model collisions ([[2026-10-28 - Docs workspace collisions|Docs: workspace / collisions]])
+- On-Screen UI Containers docs ([[2026-10-28 - Docs ui video-frames|Docs: ui / video-frames]])
+- In-game UI containers docs ([[2026-10-28 - Docs ui video-frames|Docs: ui / video-frames]])
+- Roblox DevForum alpha announcement for Photo-to-avatar ([[2026-10-28 - Docs avatar avatar-generation|Docs: avatar / avatar-generation]])
+- In-game creation documentation ([[2026-10-28 - Docs avatar avatar-generation|Docs: avatar / avatar-generation]])
+- Misty Harbor starter project ([[2026-10-28 - Docs tutorials use-case-tutorials lighting light-with-props|Docs: tutorials / use-case-tutorials / lighting / ]])
+- Code.org CS Principles Curriculum Guide ([[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]])
+- AP Central AP CSP Assessment Overview ([[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]])
+- AP Central Digital Portfolio Student User Guide ([[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]])
+- AP Central Sample Response A ([[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]])
+- Khan Academy AP CSP Exam Overview ([[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]])
+- Roblox Coding Fundamentals series ([[2026-10-28 - Docs education resources roblox-for-the-ap-csp-create-performance-task|Docs: education / resources / roblox-for-the-ap-cs]])
+- Class.TextGenerator (LLM-generated speech text) ([[2026-10-28 - Docs chat bubble-chat|Docs: chat / bubble-chat]])
+- Mansion of Wonder sample ([[2026-10-28 - Docs tutorials curriculums artist|Docs: tutorials / curriculums / artist]])
+- Studio lesson ([[2026-10-28 - Docs tutorials curriculums artist|Docs: tutorials / curriculums / artist]])
+- Input type detection (Roblox docs) ([[2026-10-28 - Docs input mouse-and-keyboard|Docs: input / mouse-and-keyboard]])
+- Adobe Substance Designer documentation Part 1 and Part 2 (PBR) ([[2026-10-28 - Docs resources beyond-the-dark building-architecture|Docs: resources / beyond-the-dark / building-archi]])
+- VR Menus and Settings ([[2026-10-28 - Docs production publishing vr-guidelines|Docs: production / publishing / vr-guidelines]])
+- Analytics essentials ([[2026-10-28 - Docs production game-design liveops-planning|Docs: production / game-design / liveops-planning]])
+- Balance virtual economies ([[2026-10-28 - Docs production game-design liveops-planning|Docs: production / game-design / liveops-planning]])
+- LiveOps essentials ([[2026-10-28 - Docs production game-design liveops-planning|Docs: production / game-design / liveops-planning]])
+- Content updates ([[2026-10-28 - Docs production game-design liveops-planning|Docs: production / game-design / liveops-planning]])
+- Roblox docs: UI appearance modifiers ([[2026-10-28 - Docs ui appearance-modifiers|Docs: ui / appearance-modifiers]])
+- Use with Open Cloud (Groups API setup and sample code) ([[2026-10-28 - Docs projects groups|Docs: projects / groups]])
+- Security Tactics and Cheat Mitigation (Roblox docs) ([[2026-10-28 - Docs physics network-ownership|Docs: physics / network-ownership]])
+- Keeping Your Account Safe (Roblox docs) ([[2026-10-28 - Docs education build-it-play-it-story-games landing|Docs: education / build-it-play-it-story-games / l]])
+- Roblox Docs: Retention ([[2026-10-28 - Docs production analytics engagement|Docs: production / analytics / engagement]])
+- Spinning Objects .rbxl sample file ([[2026-10-28 - Docs tutorials use-case-tutorials physics create-spinning-objects|Docs: tutorials / use-case-tutorials / physics / c]])
+- Roblox Units documentation ([[2026-10-28 - Docs tutorials use-case-tutorials physics create-spinning-objects|Docs: tutorials / use-case-tutorials / physics / c]])
+- Exporting Requirements documentation ([[2026-10-28 - Docs tutorials use-case-tutorials physics create-spinning-objects|Docs: tutorials / use-case-tutorials / physics / c]])
+- Roblox Creator Docs: Input ([[2026-10-28 - Docs input|Docs: input]])
+- Creator Hub ([[2026-10-28 - Docs get-started|Docs: get-started]])
+- Roblox Resources section (unspecified links) ([[2026-10-28 - Docs get-started|Docs: get-started]])
+- Roblox docs: AnalyticsService ([[2026-10-28 - Docs production analytics custom-fields|Docs: production / analytics / custom-fields]])
+- Invite early testers (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums building next-steps|Docs: tutorials / curriculums / building / next-st]])
+- Release games (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums building next-steps|Docs: tutorials / curriculums / building / next-st]])
+- Roblox Creator Docs: Object properties tutorial (coding-1) ([[2026-10-28 - Docs tutorials fundamentals coding-1 object-properties|Docs: tutorials / fundamentals / coding-1 / object]])
+- Private Servers documentation ([[2026-10-28 - Docs education lesson-plans galactic-speedway-lesson|Docs: education / lesson-plans / galactic-speedway]])
+- Walking Character Animations .rbxl starter file ([[2026-10-28 - Docs tutorials use-case-tutorials animation create-an-animation|Docs: tutorials / use-case-tutorials / animation /]])
+- Memory Usage docs ([[2026-10-28 - Docs studio developer-console|Docs: studio / developer-console]])
+- Script Profiler docs ([[2026-10-28 - Docs studio developer-console|Docs: studio / developer-console]])
+- Players.PlayerAdded ([[2026-10-28 - Docs production promotion referral-system|Docs: production / promotion / referral-system]])
+- Player:GetJoinData() ([[2026-10-28 - Docs production promotion referral-system|Docs: production / promotion / referral-system]])
+- Feedback insight reports ([[2026-10-28 - Docs production analytics feedback|Docs: production / analytics / feedback]])
+- Core loops documentation ([[2026-10-28 - Docs production game-design season-pass-design|Docs: production / game-design / season-pass-desig]])
+- Season passes feature package ([[2026-10-28 - Docs production game-design season-pass-design|Docs: production / game-design / season-pass-desig]])
+- Class.StarterPlayer ([[2026-10-28 - Docs workspace camera|Docs: workspace / camera]])
+- Class.Camera ([[2026-10-28 - Docs workspace camera|Docs: workspace / camera]])
+- Enum.CameraType ([[2026-10-28 - Docs workspace camera|Docs: workspace / camera]])
+- Publish Marketplace items ([[2026-10-28 - Docs marketplace marketplace-policy|Docs: marketplace / marketplace-policy]])
+- Marketplace categories ([[2026-10-28 - Docs marketplace marketplace-policy|Docs: marketplace / marketplace-policy]])
+- Roblox Community Standards ([[2026-10-28 - Docs marketplace marketplace-policy|Docs: marketplace / marketplace-policy]])
+- Avatar character specifications ([[2026-10-28 - Docs marketplace marketplace-policy|Docs: marketplace / marketplace-policy]])
+- Custom Skin Tone ([[2026-10-28 - Docs marketplace marketplace-policy|Docs: marketplace / marketplace-policy]])
+- Miscategorization ([[2026-10-28 - Docs marketplace marketplace-policy|Docs: marketplace / marketplace-policy]])
+- Contextual Purchases (Roblox docs) ([[2026-10-28 - Docs resources feature-packages bundles|Docs: resources / feature-packages / bundles]])
+- Roblox documentation: Create with templates (art/characters/creating) ([[2026-10-28 - Docs art characters creating|Docs: art / characters / creating]])
+- Layered accessories overview ([[2026-10-28 - Docs art modeling cage-meshes create-cages|Docs: art / modeling / cage-meshes / create-cages]])
+- Layered accessory caging best practices ([[2026-10-28 - Docs art modeling cage-meshes create-cages|Docs: art / modeling / cage-meshes / create-cages]])
+- Adjust scale (FBX) ([[2026-10-28 - Docs art modeling cage-meshes create-cages|Docs: art / modeling / cage-meshes / create-cages]])
+- Apply deformation ([[2026-10-28 - Docs art modeling cage-meshes create-cages|Docs: art / modeling / cage-meshes / create-cages]])
+- Exporting Requirements (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials modeling create-neon-signs|Docs: tutorials / use-case-tutorials / modeling / ]])
+- Creator Store ([[2026-10-28 - Docs tutorials use-case-tutorials modeling create-neon-signs|Docs: tutorials / use-case-tutorials / modeling / ]])
+- Roblox Community Standards ([[2026-10-28 - Docs ai build|Docs: ai / build]])
+- Roblox Support ([[2026-10-28 - Docs ai build|Docs: ai / build]])
+- Roblox Select process ([[2026-10-28 - Docs ai build|Docs: ai / build]])
+- Class.BodyPosition (deprecated) ([[2026-10-28 - Docs physics mover-constraints|Docs: physics / mover-constraints]])
+- Class.BodyGyro (deprecated) ([[2026-10-28 - Docs physics mover-constraints|Docs: physics / mover-constraints]])
+- Class.BodyVelocity (deprecated) ([[2026-10-28 - Docs physics mover-constraints|Docs: physics / mover-constraints]])
+- Class.RocketPropulsion (deprecated) ([[2026-10-28 - Docs physics mover-constraints|Docs: physics / mover-constraints]])
+- Roblox Creator Hub: Game ownership transfer docs ([[2026-10-28 - Docs projects game-ownership-transfer|Docs: projects / game-ownership-transfer]])
+- Creator Dashboard > Creations > Monitoring > Error Report ([[2026-10-28 - Docs production analytics error-report|Docs: production / analytics / error-report]])
+- Roblox Creator Docs: Score points tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting score-poin|Docs: tutorials / use-case-tutorials / scripting /]])
+- Blender Cage Template ([[2026-10-28 - Docs art characters creating caging|Docs: art / characters / creating / caging]])
+- Tutorial project with caging completed (download) ([[2026-10-28 - Docs art characters creating caging|Docs: art / characters / creating / caging]])
+- Roblox preset system guidelines ([[2026-10-28 - Docs chat quick-words|Docs: chat / quick-words]])
+- What is allowed / What is not allowed (Quick Words guidance) ([[2026-10-28 - Docs chat quick-words|Docs: chat / quick-words]])
+- Roblox docs: Create your first avatar body ([[2026-10-28 - Docs avatar|Docs: avatar]])
+- Roblox docs: Create your first character rig on an existing model ([[2026-10-28 - Docs avatar|Docs: avatar]])
+- Roblox docs: Create your first full body animation ([[2026-10-28 - Docs avatar|Docs: avatar]])
+- Roblox docs: Create your first dynamic head ([[2026-10-28 - Docs avatar|Docs: avatar]])
+- Roblox docs: Edit your first cage meshes on an existing model ([[2026-10-28 - Docs avatar|Docs: avatar]])
+- Roblox docs: Create your first layered accessory ([[2026-10-28 - Docs avatar|Docs: avatar]])
+- Roblox docs: replication order ([[2026-10-28 - Docs projects server-authority|Docs: projects / server-authority]])
+- Roblox docs: predictive instance creation ([[2026-10-28 - Docs projects server-authority|Docs: projects / server-authority]])
+- Roblox docs: playing sounds and visual effects ([[2026-10-28 - Docs projects server-authority|Docs: projects / server-authority]])
+- Roblox docs: writing animation code ([[2026-10-28 - Docs projects server-authority|Docs: projects / server-authority]])
+- Roblox Studio beginner lessons: building, coding, VFX, animation ([[2026-10-28 - Docs tutorials curriculums studio next-steps|Docs: tutorials / curriculums / studio / next-step]])
+- Projects, Assets, Data model, Client-server runtime guides ([[2026-10-28 - Docs tutorials curriculums studio next-steps|Docs: tutorials / curriculums / studio / next-step]])
+- Plant reference project ([[2026-10-28 - Docs tutorials curriculums studio next-steps|Docs: tutorials / curriculums / studio / next-step]])
+- Intermediate tutorials: Create HUD meters, Add 3D audio, Save player data ([[2026-10-28 - Docs tutorials curriculums studio next-steps|Docs: tutorials / curriculums / studio / next-step]])
+- ISTE.org - 10 strategies for online learning during a coronavirus outbreak ([[2026-10-28 - Docs education resources teaching-remotely|Docs: education / resources / teaching-remotely]])
+- Edsurge - Coronavirus Has Led to a Rush of Online Teaching advice for newly remote instructors ([[2026-10-28 - Docs education resources teaching-remotely|Docs: education / resources / teaching-remotely]])
+- Roblox Education FAQ ([[2026-10-28 - Docs education resources teaching-remotely|Docs: education / resources / teaching-remotely]])
+- Mechanical constraints docs page ([[2026-10-28 - Docs physics constraints cylindrical|Docs: physics / constraints / cylindrical]])
+- Roblox units documentation ([[2026-10-28 - Docs physics constraints cylindrical|Docs: physics / constraints / cylindrical]])
+- Mover constraints overview (Roblox docs) ([[2026-10-28 - Docs physics constraints angular-velocity|Docs: physics / constraints / angular-velocity]])
+- Roblox units (Roblox docs) ([[2026-10-28 - Docs physics constraints angular-velocity|Docs: physics / constraints / angular-velocity]])
+- Custom fields documentation ([[2026-10-28 - Docs production analytics custom-events|Docs: production / analytics / custom-events]])
+- Roblox Studio overview page ([[2026-10-28 - Docs tutorials curriculums studio install-studio|Docs: tutorials / curriculums / studio / install-s]])
+- Roblox Creator Programs page ([[2026-10-28 - Docs creator-programs|Docs: creator-programs]])
+- Presentation: Create and Destroy ([[2026-10-28 - Docs education lesson-plans create-and-destroy-lesson|Docs: education / lesson-plans / create-and-destro]])
+- Roblox Community Standards ([[2026-10-28 - Docs production promotion social-media-links|Docs: production / promotion / social-media-links]])
+- Raycasting documentation ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]])
+- Implementing Blasters tutorial chapter ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]])
+- Spawning and respawning tutorial chapter ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]])
+- Gameplay Scripting Curriculum Q&A ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting detect-hits|Docs: tutorials / curriculums / gameplay-scripting]])
+- Remote events ([[2026-10-28 - Docs scripting events bindable|Docs: scripting / events / bindable]])
+- Custom events ([[2026-10-28 - Docs scripting events bindable|Docs: scripting / events / bindable]])
+- Create with templates tutorial ([[2026-10-28 - Docs avatar resources|Docs: avatar / resources]])
+- How to cage Roblox's 3D clothing video guide ([[2026-10-28 - Docs avatar resources|Docs: avatar / resources]])
+- Skinning a Humanoid Model guide ([[2026-10-28 - Docs avatar resources|Docs: avatar / resources]])
+- Layered accessory specifications - Face accessories ([[2026-10-28 - Docs avatar resources|Docs: avatar / resources]])
+- Roblox docs: Class.ParticleEmitter ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder particle-emitters|Docs: education / build-it-play-it-mansion-of-wond]])
+- Roblox docs: Disable default UI ([[2026-10-28 - Docs players disable-ui|Docs: players / disable-ui]])
+- Engagement rewards feature package ([[2026-10-28 - Docs production analytics get-started|Docs: production / analytics / get-started]])
+- Onboarding docs ([[2026-10-28 - Docs production analytics get-started|Docs: production / analytics / get-started]])
+- Monetization foundations ([[2026-10-28 - Docs production analytics get-started|Docs: production / analytics / get-started]])
+- Dashboard filter by metrics ([[2026-10-28 - Docs production analytics get-started|Docs: production / analytics / get-started]])
+- Roblox layered accessory specifications ([[2026-10-28 - Docs avatar layered-accessories import|Docs: avatar / layered-accessories / import]])
+- Misusing Roblox Systems Community Standard ([[2026-10-28 - Docs chat guidelines|Docs: chat / guidelines]])
+- Text Chat Nudge FAQ ([[2026-10-28 - Docs chat guidelines|Docs: chat / guidelines]])
+- Rate-limited text inputs guide ([[2026-10-28 - Docs chat guidelines|Docs: chat / guidelines]])
+- Migrate from legacy chat ([[2026-10-28 - Docs chat guidelines|Docs: chat / guidelines]])
+- Roblox docs: Mesh Requirements ([[2026-10-28 - Docs resources beyond-the-dark custom-characters|Docs: resources / beyond-the-dark / custom-charact]])
+- Limits (Roblox docs) ([[2026-10-28 - Docs cloud-services data-stores data-stores-manager|Docs: cloud-services / data-stores / data-stores-m]])
+- Best practices (Roblox docs) ([[2026-10-28 - Docs cloud-services data-stores data-stores-manager|Docs: cloud-services / data-stores / data-stores-m]])
+- React + Roblox (Roblox docs) ([[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]])
+- Script types and locations (Roblox docs) ([[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]])
+- Roblox/resources GitHub projects ([[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]])
+- Rojo documentation ([[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]])
+- Rokit documentation ([[2026-10-28 - Docs projects external-tools|Docs: projects / external-tools]])
+- Roblox Creator Roadmap ([[2026-10-28 - Docs get-started resources|Docs: get-started / resources]])
+- Tips for finding the right developer partners ([[2026-10-28 - Docs get-started resources|Docs: get-started / resources]])
+- More on building engaging games ([[2026-10-28 - Docs get-started resources|Docs: get-started / resources]])
+- Learn techniques for monetizing your game ([[2026-10-28 - Docs get-started resources|Docs: get-started / resources]])
+- Get pre-built Feature Packages ([[2026-10-28 - Docs get-started resources|Docs: get-started / resources]])
+- Roblox Developers Conference (RDC) 2025 ([[2026-10-28 - Docs get-started resources|Docs: get-started / resources]])
+- Roblox Education digital citizenship lesson series ([[2026-10-28 - Docs education lesson-plans digital-citizenship finishing-projects|Docs: education / lesson-plans / digital-citizensh]])
+- Creator Hub Analytics dashboard ([[2026-10-28 - Docs production analytics funnel-events|Docs: production / analytics / funnel-events]])
+- Custom fields docs ([[2026-10-28 - Docs production analytics funnel-events|Docs: production / analytics / funnel-events]])
+- Blender FBX scaling documentation ([[2026-10-28 - Docs avatar rigid-accessories export|Docs: avatar / rigid-accessories / export]])
+- General mesh export settings ([[2026-10-28 - Docs avatar rigid-accessories export|Docs: avatar / rigid-accessories / export]])
+- Layered accessory export settings ([[2026-10-28 - Docs avatar rigid-accessories export|Docs: avatar / rigid-accessories / export]])
+- Animation documentation ([[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]])
+- Animate documentation ([[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]])
+- BodyParts documentation ([[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]])
+- Configuration documentation ([[2026-10-28 - Docs resources npc-kit|Docs: resources / npc-kit]])
+- Roblox Creator Docs: Surface GUIs tutorials section ([[2026-10-28 - Docs tutorials fundamentals coding-4 create-a-timed-bridge|Docs: tutorials / fundamentals / coding-4 / create]])
+- Adventure Game Example playable project ([[2026-10-28 - Docs education adventure-game-series landing|Docs: education / adventure-game-series / landing]])
+- Toolbox Service in the Open Cloud reference ([[2026-10-28 - Docs projects assets api|Docs: projects / assets / api]])
+- Open Cloud authorization endpoint reference documentation ([[2026-10-28 - Docs cloud auth oauth2-develop|Docs: cloud / auth / oauth2-develop]])
+- Open Cloud token endpoint reference documentation ([[2026-10-28 - Docs cloud auth oauth2-develop|Docs: cloud / auth / oauth2-develop]])
+- Studio lesson - Install and configure Roblox Studio ([[2026-10-28 - Docs tutorials curriculums curriculum-overview|Docs: tutorials / curriculums / curriculum-overvie]])
+- Create your first game ([[2026-10-28 - Docs tutorials curriculums curriculum-overview|Docs: tutorials / curriculums / curriculum-overvie]])
+- Luau basics ([[2026-10-28 - Docs tutorials curriculums curriculum-overview|Docs: tutorials / curriculums / curriculum-overvie]])
+- Roblox API Reference: BindableFunction:Invoke() ([[2026-10-28 - Docs luau tuples|Docs: luau / tuples]])
+- Roblox API Reference: Players:GetUserThumbnailAsync() ([[2026-10-28 - Docs luau tuples|Docs: luau / tuples]])
+- Materials - Custom Materials and PBR Textures ([[2026-10-28 - Docs tutorials curriculums core building apply-polished-assets|Docs: tutorials / curriculums / core / building / ]])
+- Core Building and Scripting asset library (Creator Store) ([[2026-10-28 - Docs tutorials curriculums core building apply-polished-assets|Docs: tutorials / curriculums / core / building / ]])
+- Enum.SlimTintMode ([[2026-10-28 - Docs workspace streaming slim|Docs: workspace / streaming / slim]])
+- Enum.SlimTranscoderStatus ([[2026-10-28 - Docs workspace streaming slim|Docs: workspace / streaming / slim]])
+- Workspace.StreamingEnabled streaming properties ([[2026-10-28 - Docs workspace streaming slim|Docs: workspace / streaming / slim]])
+- Roblox Creator Docs: Marketplace / Custom thumbnails ([[2026-10-28 - Docs marketplace custom-thumbnails|Docs: marketplace / custom-thumbnails]])
+- Payment methods coverage (Roblox docs) ([[2026-10-28 - Docs production monetization paid-access-local-currency|Docs: production / monetization / paid-access-loca]])
+- Debounce Patterns ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]])
+- In-game Leaderboards ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]])
+- Players.RespawnTime docs ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]])
+- Player.RespawnLocation docs ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]])
+- Humanoid.Health docs ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting spawn-respawn|Docs: tutorials / curriculums / gameplay-scripting]])
+- Assistant guide (content generation, segmentation) ([[2026-10-28 - Docs ai build-with-assistant|Docs: ai / build-with-assistant]])
+- Earn with subscriptions ([[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]])
+- Webhook notifications ([[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]])
+- Roblox Terms of Use ([[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]])
+- Roblox Community Standards ([[2026-10-28 - Docs production monetization subscriptions|Docs: production / monetization / subscriptions]])
+- Movement Validation (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting implement-blasters|Docs: tutorials / curriculums / gameplay-scripting]])
+- Custom abilities documentation (Roblox docs) ([[2026-10-28 - Docs characters character-controller-library quick-start|Docs: characters / character-controller-library / ]])
+- Prompt guide and examples (Roblox docs) ([[2026-10-28 - Docs assistant guide|Docs: assistant / guide]])
+- Roblox Staff livestream on Assistant tips ([[2026-10-28 - Docs assistant guide|Docs: assistant / guide]])
+- Behaviors Reference game .rbxl file ([[2026-10-28 - Docs assistant guide|Docs: assistant / guide]])
+- RFC 3339 ([[2026-10-28 - Docs cloud reference types|Docs: cloud / reference / types]])
+- ISO 4217 ([[2026-10-28 - Docs cloud reference types|Docs: cloud / reference / types]])
+- RFC base64 encoding ([[2026-10-28 - Docs cloud reference types|Docs: cloud / reference / types]])
+- Mechanical constraints guide ([[2026-10-28 - Docs physics|Docs: physics]])
+- Mover constraints guide ([[2026-10-28 - Docs physics|Docs: physics]])
+- Collisions guide ([[2026-10-28 - Docs physics|Docs: physics]])
+- Network ownership guide ([[2026-10-28 - Docs physics|Docs: physics]])
+- Adaptive timestepping guide ([[2026-10-28 - Docs physics|Docs: physics]])
+- Sleep system guide ([[2026-10-28 - Docs physics|Docs: physics]])
+- Roblox Creator Hub: License Manager docs ([[2026-10-28 - Docs ip-licensing license-manager|Docs: ip-licensing / license-manager]])
+- Up and Running: A Reaper User Guide ([[2026-10-28 - Docs art reaper|Docs: art / reaper]])
+- Creating Perfect Audio Loops (Roblox Sound Designer tutorial) ([[2026-10-28 - Docs art reaper|Docs: art / reaper]])
+- Reaper.fm ([[2026-10-28 - Docs art reaper|Docs: art / reaper]])
+- Use animations (Roblox docs) ([[2026-10-28 - Docs animation editor|Docs: animation / editor]])
+- Roblox Creator Docs: Textures and decals ([[2026-10-28 - Docs parts textures-decals|Docs: parts / textures-decals]])
+- Community Rules and Terms of Use ([[2026-10-28 - Docs parts textures-decals|Docs: parts / textures-decals]])
+- Mansion of Wonder Build It, Play It challenge ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-a-sparkler|Docs: education / build-it-play-it-mansion-of-wond]])
+- Material Generator ([[2026-10-28 - Docs studio texture-generator|Docs: studio / texture-generator]])
+- Monetization foundations ([[2026-10-28 - Docs production monetization|Docs: production / monetization]])
+- Design for Roblox ([[2026-10-28 - Docs production monetization|Docs: production / monetization]])
+- Live ops essentials ([[2026-10-28 - Docs production monetization|Docs: production / monetization]])
+- Level Up content cadence workshop ([[2026-10-28 - Docs production monetization|Docs: production / monetization]])
+- Creator Store - Distribute and sell assets ([[2026-10-28 - Docs production monetization|Docs: production / monetization]])
+- Skin a simple mesh ([[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]])
+- Layered model specifications ([[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]])
+- Exporting requirements ([[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]])
+- Accessory Fitting Tool ([[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]])
+- Converting clothing accessories tutorial ([[2026-10-28 - Docs art accessories rig-and-cage-existing-models|Docs: art / accessories / rig-and-cage-existing-mo]])
+- Creator Store Materials category ([[2026-10-28 - Docs parts materials|Docs: parts / materials]])
+- Distributing Assets docs ([[2026-10-28 - Docs parts materials|Docs: parts / materials]])
+- Custom terrain materials docs ([[2026-10-28 - Docs parts materials|Docs: parts / materials]])
+- Parts docs ([[2026-10-28 - Docs parts materials|Docs: parts / materials]])
+- Packages docs ([[2026-10-28 - Docs parts materials|Docs: parts / materials]])
+- Roblox Creator Docs: Create player hazards tutorial ([[2026-10-28 - Docs tutorials curriculums core scripting create-player-hazards|Docs: tutorials / curriculums / core / scripting /]])
+- Discovery docs page ([[2026-10-28 - Docs production analytics acquisition|Docs: production / analytics / acquisition]])
+- Day 1 retention docs page ([[2026-10-28 - Docs production analytics acquisition|Docs: production / analytics / acquisition]])
+- WeldConstraint documentation ([[2026-10-28 - Docs physics constraints rigid|Docs: physics / constraints / rigid]])
+- Deadly Lava tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting cre|Docs: tutorials / use-case-tutorials / scripting /]])
+- Fade Trap tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting cre|Docs: tutorials / use-case-tutorials / scripting /]])
+- Roblox docs: SocialInteractions module ([[2026-10-28 - Docs resources modules social-interactions|Docs: resources / modules / social-interactions]])
+- Configure games (group permissions) ([[2026-10-28 - Docs production publishing publish-games-and-places|Docs: production / publishing / publish-games-and-]])
+- Design for performance - Streaming and teleportation ([[2026-10-28 - Docs production publishing publish-games-and-places|Docs: production / publishing / publish-games-and-]])
+- Genres ([[2026-10-28 - Docs production publishing publish-games-and-places|Docs: production / publishing / publish-games-and-]])
+- Troubleshooting ([[2026-10-28 - Docs production publishing publish-games-and-places|Docs: production / publishing / publish-games-and-]])
+- Maturity & Compliance Questionnaire ([[2026-10-28 - Docs production publishing publish-games-and-places|Docs: production / publishing / publish-games-and-]])
+- Roblox Creator Hub Licenses catalog ([[2026-10-28 - Docs ip-licensing glossary|Docs: ip-licensing / glossary]])
+- Roblox advertising standards ([[2026-10-28 - Docs production promotion reporting-and-billing|Docs: production / promotion / reporting-and-billi]])
+- Earn from paid private server time ([[2026-10-28 - Docs production monetization private-servers|Docs: production / monetization / private-servers]])
+- Makeup test place (Roblox Studio) ([[2026-10-28 - Docs avatar makeup import|Docs: avatar / makeup / import]])
+- Roblox Creator Docs: UI ([[2026-10-28 - Docs ui|Docs: ui]])
+- Subscriptions (technical implementation docs) ([[2026-10-28 - Docs production game-design subscription-design|Docs: production / game-design / subscription-desi]])
+- Analytics essentials ([[2026-10-28 - Docs production game-design subscription-design|Docs: production / game-design / subscription-desi]])
+- Monetization Foundations ([[2026-10-28 - Docs production game-design subscription-design|Docs: production / game-design / subscription-desi]])
+- Content updates ([[2026-10-28 - Docs production game-design subscription-design|Docs: production / game-design / subscription-desi]])
+- Balance virtual economies ([[2026-10-28 - Docs production game-design subscription-design|Docs: production / game-design / subscription-desi]])
+- Season Pass Design ([[2026-10-28 - Docs production game-design subscription-design|Docs: production / game-design / subscription-desi]])
+- Roblox Creator Docs: In-game UI containers ([[2026-10-28 - Docs ui in-experience-containers|Docs: ui / in-experience-containers]])
+- Handle a developer product purchase ([[2026-10-28 - Docs production monetization shop|Docs: production / monetization / shop]])
+- Roblox Creator Docs: Dynamic clouds ([[2026-10-28 - Docs environment clouds|Docs: environment / clouds]])
+- Roblox Creator Docs: Beams ([[2026-10-28 - Docs effects beams|Docs: effects / beams]])
+- Roblox docs: Build a ferris wheel tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-ferris-wheel|Docs: tutorials / use-case-tutorials / physics / b]])
+- Mechanical constraints docs page ([[2026-10-28 - Docs physics constraints torsion-spring|Docs: physics / constraints / torsion-spring]])
+- Roblox units docs page ([[2026-10-28 - Docs physics constraints torsion-spring|Docs: physics / constraints / torsion-spring]])
+- In-game UI Containers (Roblox docs) ([[2026-10-28 - Docs ui on-screen-containers|Docs: ui / on-screen-containers]])
+- Display Order (Roblox docs) ([[2026-10-28 - Docs ui on-screen-containers|Docs: ui / on-screen-containers]])
+- Plant reference project ([[2026-10-28 - Docs scripting locations|Docs: scripting / locations]])
+- Replication order documentation ([[2026-10-28 - Docs scripting locations|Docs: scripting / locations]])
+- Roblox Rewarded Video documentation ([[2026-10-28 - Docs production promotion rewarded-video-playbooks obby|Docs: production / promotion / rewarded-video-play]])
+- Legacy gamepad control schema (Roblox docs) ([[2026-10-28 - Docs input micro-gamepad|Docs: input / micro-gamepad]])
+- Controller emulation (Roblox docs) ([[2026-10-28 - Docs input micro-gamepad|Docs: input / micro-gamepad]])
+- Taking a Screenshot ([[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]])
+- Recording Videos ([[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]])
+- Project-Based Rubric handout ([[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]])
+- Intro to digital civility ([[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]])
+- Classroom best practices ([[2026-10-28 - Docs education educator-onboarding 4-running-classrooms|Docs: education / educator-onboarding / 4-running-]])
+- Marketplace policies ([[2026-10-28 - Docs art accessories creating-rigid|Docs: art / accessories / creating-rigid]])
+- Userdata (Luau docs, linked from this page) ([[2026-10-28 - Docs luau userdata|Docs: luau / userdata]])
+- Creator Hub Studio documentation ([[2026-10-28 - Docs get-started tools|Docs: get-started / tools]])
+- First game tutorial ([[2026-10-28 - Docs get-started tools|Docs: get-started / tools]])
+- Nature Girl Avatar Setup template ([[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]])
+- Stylish Male Avatar Setup template ([[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]])
+- Publish to the Marketplace docs ([[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]])
+- Marketplace fees and commissions docs ([[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]])
+- Marketplace policy docs ([[2026-10-28 - Docs avatar-setup|Docs: avatar-setup]])
+- Asset Manager article ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder using-particles-for-|Docs: education / build-it-play-it-mansion-of-wond]])
+- Particle Emitters reference article ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder using-particles-for-|Docs: education / build-it-play-it-mansion-of-wond]])
+- Creator Rewards program (replacement for Creator Affiliate) ([[2026-10-28 - Docs creator-programs creator-affiliate|Docs: creator-programs / creator-affiliate]])
+- DevEx program ([[2026-10-28 - Docs creator-programs creator-affiliate|Docs: creator-programs / creator-affiliate]])
+- Test characters ([[2026-10-28 - Docs art characters creating export-character|Docs: art / characters / creating / export-charact]])
+- Test character bodies ([[2026-10-28 - Docs art characters creating export-character|Docs: art / characters / creating / export-charact]])
+- Roblox forum (share prompts and games to help improve Assistant) ([[2026-10-28 - Docs assistant prompt-engineering|Docs: assistant / prompt-engineering]])
+- Roblox Creator Store ([[2026-10-28 - Docs studio|Docs: studio]])
+- Studio collaboration docs ([[2026-10-28 - Docs studio|Docs: studio]])
+- Groups docs ([[2026-10-28 - Docs studio|Docs: studio]])
+- Roblox docs: MicroProfiler basics (frame and detailed modes) ([[2026-10-28 - Docs performance-optimization microprofiler modes|Docs: performance-optimization / microprofiler / m]])
+- Roblox Creator Docs: experience icons best practices ([[2026-10-28 - Docs production publishing experience-icons|Docs: production / publishing / experience-icons]])
+- Set physics and rendering parameters ([[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]])
+- Delete layered transparencies ([[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]])
+- Humanoid performance tips ([[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]])
+- streaming properties ([[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]])
+- Load time ([[2026-10-28 - Docs performance-optimization improve|Docs: performance-optimization / improve]])
+- Best practices for collaboration (Roblox education) ([[2026-10-28 - Docs education collaboration collaborating-in-roblox-landing-page|Docs: education / collaboration / collaborating-in]])
+- Collaboration guidelines handout ([[2026-10-28 - Docs education collaboration collaborating-in-roblox-landing-page|Docs: education / collaboration / collaborating-in]])
+- Trust and safety brochures ([[2026-10-28 - Docs education collaboration collaborating-in-roblox-landing-page|Docs: education / collaboration / collaborating-in]])
+- Docs: UI and UX ([[2026-10-28 - Docs production game-design onboarding-techniques|Docs: production / game-design / onboarding-techni]])
+- Video on color contrast (linked from docs) ([[2026-10-28 - Docs production game-design onboarding-techniques|Docs: production / game-design / onboarding-techni]])
+- Roblox Creator Docs: Studio testing modes ([[2026-10-28 - Docs studio testing-modes|Docs: studio / testing-modes]])
+- Mechanical constraints (Roblox docs) ([[2026-10-28 - Docs physics constraints rod|Docs: physics / constraints / rod]])
+- Roblox units (Roblox docs) ([[2026-10-28 - Docs physics constraints rod|Docs: physics / constraints / rod]])
+- Roblox Developer Exchange ([[2026-10-28 - Docs production|Docs: production]])
+- Roblox Ads Manager ([[2026-10-28 - Docs production|Docs: production]])
+- Community Feedback Program application form ([[2026-10-28 - Docs creator-programs feedback|Docs: creator-programs / feedback]])
+- Invite early testers (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]])
+- Release games (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]])
+- Create character animations tutorial ([[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]])
+- Rig humanoid models in Blender tutorial ([[2026-10-28 - Docs tutorials curriculums animator next-steps|Docs: tutorials / curriculums / animator / next-st]])
+- Roblox Commerce Standards ([[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]])
+- Roblox Community Standards ([[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]])
+- Roblox Advertising Standards ([[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]])
+- Customizing the Product Detail Page (Roblox docs) ([[2026-10-28 - Docs production monetization commerce-products|Docs: production / monetization / commerce-product]])
+- IRS tax treaty guidance ([[2026-10-28 - Docs production monetization tax-information|Docs: production / monetization / tax-information]])
+- Tipalti Supplier Hub ([[2026-10-28 - Docs production monetization tax-information|Docs: production / monetization / tax-information]])
+- Class.TextLabel ([[2026-10-28 - Docs ui labels|Docs: ui / labels]])
+- Class.ImageLabel ([[2026-10-28 - Docs ui labels|Docs: ui / labels]])
+- Class.SurfaceGui ([[2026-10-28 - Docs ui labels|Docs: ui / labels]])
+- Class.ScreenGui ([[2026-10-28 - Docs ui labels|Docs: ui / labels]])
+- Download the example game and open it via Open from File in Studio ([[2026-10-28 - Docs performance-optimization microprofiler use-microprofiler|Docs: performance-optimization / microprofiler / u]])
+- Table API (Library.table) documentation ([[2026-10-28 - Docs tutorials fundamentals coding-5 make-changes-to-arrays|Docs: tutorials / fundamentals / coding-5 / make-c]])
+- Studio lesson (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums coding|Docs: tutorials / curriculums / coding]])
+- Other beginner lesson plans (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums coding|Docs: tutorials / curriculums / coding]])
+- Creator Events past events page ([[2026-10-28 - Docs creator-programs creator-events|Docs: creator-programs / creator-events]])
+- [email] ([[2026-10-28 - Docs creator-programs creator-events|Docs: creator-programs / creator-events]])
+- Roblox DevForum Creator Events program staff ([[2026-10-28 - Docs creator-programs creator-events|Docs: creator-programs / creator-events]])
+- Roblox Creator Docs: Humanoid properties ([[2026-10-28 - Docs characters name-health-display|Docs: characters / name-health-display]])
+- Cloud API reference ([[2026-10-28 - Docs cloud guides configs|Docs: cloud / guides / configs]])
+- Add configs to your code (Roblox guide) ([[2026-10-28 - Docs cloud guides configs|Docs: cloud / guides / configs]])
+- Refresh snapshots in the experience configs guide ([[2026-10-28 - Docs cloud guides configs|Docs: cloud / guides / configs]])
+- Roblox Feature Packages docs (Core) ([[2026-10-28 - Docs resources feature-packages engagement-rewards|Docs: resources / feature-packages / engagement-re]])
+- Inputs documentation ([[2026-10-28 - Docs resources battle-royale run-the-game|Docs: resources / battle-royale / run-the-game]])
+- Roblox Community Standards (Advertising section) ([[2026-10-28 - Docs production promotion ad-integrations|Docs: production / promotion / ad-integrations]])
+- Roblox Advertising Standards ([[2026-10-28 - Docs production promotion ad-integrations|Docs: production / promotion / ad-integrations]])
+- Markets tier list (Roblox docs) ([[2026-10-28 - Docs production promotion ad-integrations|Docs: production / promotion / ad-integrations]])
+- Cloud API reference ([[2026-10-28 - Docs cloud guides experiments|Docs: cloud / guides / experiments]])
+- Metrics in the experiments guide ([[2026-10-28 - Docs cloud guides experiments|Docs: cloud / guides / experiments]])
+- Creator Dashboard (Copy Universe ID) ([[2026-10-28 - Docs cloud guides experiments|Docs: cloud / guides / experiments]])
+- Mansion of Wonder education project (Build It, Play It) ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder finish-the-blast|Docs: education / build-it-play-it-mansion-of-wond]])
+- Assign textures in modeling tools ([[2026-10-28 - Docs art modeling specifications|Docs: art / modeling / specifications]])
+- Texture specifications ([[2026-10-28 - Docs art modeling specifications|Docs: art / modeling / specifications]])
+- Character body specifications ([[2026-10-28 - Docs art modeling specifications|Docs: art / modeling / specifications]])
+- Accessory specifications and export settings ([[2026-10-28 - Docs art modeling specifications|Docs: art / modeling / specifications]])
+- Layered accessory specifications ([[2026-10-28 - Docs art modeling specifications|Docs: art / modeling / specifications]])
+- Avatar specifications and export settings ([[2026-10-28 - Docs art modeling specifications|Docs: art / modeling / specifications]])
+- Roblox Studio ([[2026-10-28 - Docs get-started why-build-on-roblox|Docs: get-started / why-build-on-roblox]])
+- Roblox built-in analytics ([[2026-10-28 - Docs get-started why-build-on-roblox|Docs: get-started / why-build-on-roblox]])
+- Roblox paid UA system ([[2026-10-28 - Docs get-started why-build-on-roblox|Docs: get-started / why-build-on-roblox]])
+- Roblox docs: rig a simple mesh (downloadable robot model and final FBX) ([[2026-10-28 - Docs art modeling rig-a-simple-mesh|Docs: art / modeling / rig-a-simple-mesh]])
+- SciShow Kids - How Do Our Bodies Move ([[2026-10-28 - Docs education lesson-plans animate-in-roblox-lesson|Docs: education / lesson-plans / animate-in-roblox]])
+- Roblox Licenses catalog ([[2026-10-28 - Docs ip-licensing|Docs: ip-licensing]])
+- Roblox License Manager ([[2026-10-28 - Docs ip-licensing|Docs: ip-licensing]])
+- Blender / Maya texture settings ([[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]])
+- Texture requirements ([[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]])
+- Material references ([[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]])
+- Clothing examples ([[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]])
+- Custom skin tone ([[2026-10-28 - Docs art modeling surface-appearance|Docs: art / modeling / surface-appearance]])
+- Roblox Battle Royale Weapons Kit documentation ([[2026-10-28 - Docs resources battle-royale pickup-system|Docs: resources / battle-royale / pickup-system]])
+- Roblox Creator Docs: Rewarded Video Playbook ([[2026-10-28 - Docs production promotion rewarded-video-playbooks shooter|Docs: production / promotion / rewarded-video-play]])
+- Mechanical constraints docs ([[2026-10-28 - Docs physics constraints rope|Docs: physics / constraints / rope]])
+- Roblox units docs ([[2026-10-28 - Docs physics constraints rope|Docs: physics / constraints / rope]])
+- Creator Spotlight: BelowNatural's Journey Building Paradoxum Games ([[2026-10-28 - Docs creator-programs spotlights|Docs: creator-programs / spotlights]])
+- Creator Spotlight: how unroot designs ui for marbles, mermaids, and more ([[2026-10-28 - Docs creator-programs spotlights|Docs: creator-programs / spotlights]])
+- Creator Spotlight: Meet Ahlvie, the Environmental Artist Behind Fantastical Worlds ([[2026-10-28 - Docs creator-programs spotlights|Docs: creator-programs / spotlights]])
+- Roblox docs: MicroProfiler ([[2026-10-28 - Docs performance-optimization microprofiler network|Docs: performance-optimization / microprofiler / n]])
+- U.S. Copyright Office ([[2026-10-28 - Docs production publishing ip-guidelines|Docs: production / publishing / ip-guidelines]])
+- U.S. Patent and Trademark Office ([[2026-10-28 - Docs production publishing ip-guidelines|Docs: production / publishing / ip-guidelines]])
+- 17 U.S.C. § 512(c)(3) ([[2026-10-28 - Docs production publishing ip-guidelines|Docs: production / publishing / ip-guidelines]])
+- 17 U.S.C. § 512(g)(3) ([[2026-10-28 - Docs production publishing ip-guidelines|Docs: production / publishing / ip-guidelines]])
+- DMCA section 512(f) ([[2026-10-28 - Docs production publishing ip-guidelines|Docs: production / publishing / ip-guidelines]])
+- EU Digital Services Act IP reporting ([[2026-10-28 - Docs production publishing ip-guidelines|Docs: production / publishing / ip-guidelines]])
+- Roblox Support: Private Servers page ([[2026-10-28 - Docs education support private-servers-for-classroom-use|Docs: education / support / private-servers-for-cl]])
+- Roblox Developer Hub: Private Servers page ([[2026-10-28 - Docs education support private-servers-for-classroom-use|Docs: education / support / private-servers-for-cl]])
+- Roblox Parents page (safety and moderation) ([[2026-10-28 - Docs education support private-servers-for-classroom-use|Docs: education / support / private-servers-for-cl]])
+- Server scoring ([[2026-10-28 - Docs matchmaking|Docs: matchmaking]])
+- Existing attributes ([[2026-10-28 - Docs matchmaking|Docs: matchmaking]])
+- Existing signals ([[2026-10-28 - Docs matchmaking|Docs: matchmaking]])
+- Customize your matchmaking configuration ([[2026-10-28 - Docs matchmaking|Docs: matchmaking]])
+- Analytics ([[2026-10-28 - Docs matchmaking|Docs: matchmaking]])
+- Roblox docs: Sleep system ([[2026-10-28 - Docs physics sleep-system|Docs: physics / sleep-system]])
+- Class.DragDetector API reference ([[2026-10-28 - Docs ui 3D-drag-detectors|Docs: ui / 3D-drag-detectors]])
+- DragDetector:SetDragStyleFunction() ([[2026-10-28 - Docs ui 3D-drag-detectors|Docs: ui / 3D-drag-detectors]])
+- DragDetector:SetPermissionPolicyFunction() ([[2026-10-28 - Docs ui 3D-drag-detectors|Docs: ui / 3D-drag-detectors]])
+- DragDetector:GetReferenceFrame() ([[2026-10-28 - Docs ui 3D-drag-detectors|Docs: ui / 3D-drag-detectors]])
+- 3D Drag Detectors (Roblox docs) ([[2026-10-28 - Docs ui ui-drag-detectors|Docs: ui / ui-drag-detectors]])
+- TransparencySlider.rbxm example ([[2026-10-28 - Docs ui ui-drag-detectors|Docs: ui / ui-drag-detectors]])
+- HueRotator.rbxm example ([[2026-10-28 - Docs ui ui-drag-detectors|Docs: ui / ui-drag-detectors]])
+- GridDrag.rbxm example ([[2026-10-28 - Docs ui ui-drag-detectors|Docs: ui / ui-drag-detectors]])
+- Roblox Creator Docs: Avatar Context Menu ([[2026-10-28 - Docs players avatar-context-menu|Docs: players / avatar-context-menu]])
+- Dynamic head specifications - FACS poses ([[2026-10-28 - Docs avatar dynamic-heads validate|Docs: avatar / dynamic-heads / validate]])
+- Create basic dynamic heads ([[2026-10-28 - Docs avatar dynamic-heads validate|Docs: avatar / dynamic-heads / validate]])
+- Avatar Setup bug report ([[2026-10-28 - Docs avatar dynamic-heads validate|Docs: avatar / dynamic-heads / validate]])
+- Waterfall Island .rbxl sample place ([[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]])
+- Snoqualmie Falls (Washington state) as real-world reference ([[2026-10-28 - Docs tutorials use-case-tutorials vfx create-waterfalls|Docs: tutorials / use-case-tutorials / vfx / creat]])
+- Animation overview (Roblox docs) ([[2026-10-28 - Docs education build-it-play-it-island-of-move adding-animations|Docs: education / build-it-play-it-island-of-move ]])
+- Animating Parts tween lesson (Roblox docs) ([[2026-10-28 - Docs education build-it-play-it-island-of-move adding-animations|Docs: education / build-it-play-it-island-of-move ]])
+- Health Pickups article (Roblox docs) ([[2026-10-28 - Docs education build-it-play-it-island-of-move adding-animations|Docs: education / build-it-play-it-island-of-move ]])
+- Layered accessories (guides, example projects, reference models) ([[2026-10-28 - Docs resources beyond-the-dark layered-clothing|Docs: resources / beyond-the-dark / layered-clothi]])
+- Accessory Fitting Tool docs ([[2026-10-28 - Docs resources beyond-the-dark layered-clothing|Docs: resources / beyond-the-dark / layered-clothi]])
+- Nesting SoundGroups and Ducking (Roblox docs) ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive design-dark-soundscapes|Docs: resources / the-mystery-of-duvall-drive / de]])
+- Roblox docs: monitoring performance ([[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]])
+- Roblox docs: Improve performance ([[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]])
+- Roblox docs: networking and replication ([[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]])
+- Roblox docs: Extended Services for Compute ([[2026-10-28 - Docs performance-optimization identify|Docs: performance-optimization / identify]])
+- Roblox Studio Beta Features (File > Beta Features) ([[2026-10-28 - Docs studio overview|Docs: studio / overview]])
+- Accessory Fitting Tool - Test accessories (Roblox docs) ([[2026-10-28 - Docs art accessories creating converting|Docs: art / accessories / creating / converting]])
+- Add 2D audio tutorial ([[2026-10-28 - Docs audio|Docs: audio]])
+- Add 3D audio tutorial ([[2026-10-28 - Docs audio|Docs: audio]])
+- Add text-to-speech tutorial ([[2026-10-28 - Docs audio|Docs: audio]])
+- Add speech-to-text tutorial ([[2026-10-28 - Docs audio|Docs: audio]])
+- Add voice chat tutorial ([[2026-10-28 - Docs audio|Docs: audio]])
+- Pitch details ([[2026-10-28 - Docs ip-licensing creators|Docs: ip-licensing / creators]])
+- Communication guidelines ([[2026-10-28 - Docs ip-licensing creators|Docs: ip-licensing / creators]])
+- Cancel a license ([[2026-10-28 - Docs ip-licensing creators|Docs: ip-licensing / creators]])
+- Mover constraints overview ([[2026-10-28 - Docs physics constraints animation|Docs: physics / constraints / animation]])
+- Roblox units documentation ([[2026-10-28 - Docs physics constraints animation|Docs: physics / constraints / animation]])
+- Rigging and skinning docs page ([[2026-10-28 - Docs parts meshes|Docs: parts / meshes]])
+- PBR Textures docs page ([[2026-10-28 - Docs parts meshes|Docs: parts / meshes]])
+- Improve performance docs page ([[2026-10-28 - Docs parts meshes|Docs: parts / meshes]])
+- Set physics and rendering parameters docs page ([[2026-10-28 - Docs parts meshes|Docs: parts / meshes]])
+- Create an animation docs page ([[2026-10-28 - Docs parts meshes|Docs: parts / meshes]])
+- Avatar docs page ([[2026-10-28 - Docs parts meshes|Docs: parts / meshes]])
+- Teleport to private servers (Roblox docs) ([[2026-10-28 - Docs projects teleport|Docs: projects / teleport]])
+- Configure secure teleportation (Roblox docs) ([[2026-10-28 - Docs projects teleport|Docs: projects / teleport]])
+- Blender.org ([[2026-10-28 - Docs art blender|Docs: art / blender]])
+- Roblox Environmental art curriculum: Develop polished assets - Trim sheets ([[2026-10-28 - Docs art blender|Docs: art / blender]])
+- Roblox accessory specifications and export settings ([[2026-10-28 - Docs art blender|Docs: art / blender]])
+- Roblox avatar specifications and export settings ([[2026-10-28 - Docs art blender|Docs: art / blender]])
+- Blender official documentation (Workspaces, Object Modes, Snapping, Unwrapping, Texture Paint) ([[2026-10-28 - Docs art blender|Docs: art / blender]])
+- Roblox Community Standards ([[2026-10-28 - Docs projects group-guidelines|Docs: projects / group-guidelines]])
+- Roblox Terms of Use ([[2026-10-28 - Docs projects group-guidelines|Docs: projects / group-guidelines]])
+- Test character bodies (Roblox docs) ([[2026-10-28 - Docs art characters creating export-textures|Docs: art / characters / creating / export-texture]])
+- Introduction to Roblox Studio tutorial ([[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]])
+- Create a script tutorial ([[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]])
+- Create the Map tutorial ([[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]])
+- Coding the Leaderboard tutorial ([[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]])
+- Finishing the Project tutorial ([[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]])
+- Roblox Studio Cheatsheet and Intro to Coding Cheatsheet handouts ([[2026-10-28 - Docs education lesson-plans roblox-developer-lesson|Docs: education / lesson-plans / roblox-developer-]])
+- Creator Hub Open Cloud API Keys page ([[2026-10-28 - Docs cloud guides instance|Docs: cloud / guides / instance]])
+- Potion Shop Demo Discover page ([[2026-10-28 - Docs cloud guides instance|Docs: cloud / guides / instance]])
+- Potion Shop spreadsheet (.ods) ([[2026-10-28 - Docs cloud guides instance|Docs: cloud / guides / instance]])
+- Mechanical constraints docs page ([[2026-10-28 - Docs physics constraints hinge|Docs: physics / constraints / hinge]])
+- Roblox units docs page ([[2026-10-28 - Docs physics constraints hinge|Docs: physics / constraints / hinge]])
+- Best practices for data stores ([[2026-10-28 - Docs cloud-services memory-stores best-practices|Docs: cloud-services / memory-stores / best-practi]])
+- Data stores versus memory stores ([[2026-10-28 - Docs cloud-services memory-stores best-practices|Docs: cloud-services / memory-stores / best-practi]])
+- Concert template in Roblox Studio ([[2026-10-28 - Docs resources modules event-sequencer|Docs: resources / modules / event-sequencer]])
+- Creator Store Packages: Event Sequencer ([[2026-10-28 - Docs resources modules event-sequencer|Docs: resources / modules / event-sequencer]])
+- Target experiments to specific audiences (Creator Hub doc) ([[2026-10-28 - Docs production experiments|Docs: production / experiments]])
+- Roblox Marketplace ([[2026-10-28 - Docs education build-it-play-it-create-and-destroy finish-the-challeng|Docs: education / build-it-play-it-create-and-dest]])
+- Mechanical constraints docs ([[2026-10-28 - Docs physics constraints prismatic|Docs: physics / constraints / prismatic]])
+- Roblox units docs ([[2026-10-28 - Docs physics constraints prismatic|Docs: physics / constraints / prismatic]])
+- Skin a simple mesh (Roblox docs) ([[2026-10-28 - Docs art accessories creating test-poses|Docs: art / accessories / creating / test-poses]])
+- Skin a humanoid mesh (Roblox docs) ([[2026-10-28 - Docs art accessories creating test-poses|Docs: art / accessories / creating / test-poses]])
+- Highlighting Objects ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]])
+- Lore and Thought Bubbles ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]])
+- Rotating Cloud Meshes ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive supporting-systems|Docs: resources / the-mystery-of-duvall-drive / su]])
+- SLIM avatars docs ([[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]])
+- Pathfinding - Strategies docs ([[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]])
+- Proactive streaming docs ([[2026-10-28 - Docs workspace streaming techniques|Docs: workspace / streaming / techniques]])
+- Sketch Series: Onboarding Techniques ([[2026-10-28 - Docs production game-design|Docs: production / game-design]])
+- Sketch Series: Retention Metrics ([[2026-10-28 - Docs production game-design|Docs: production / game-design]])
+- Environmental Terrain (Roblox docs) ([[2026-10-28 - Docs resources battle-royale building-system|Docs: resources / battle-royale / building-system]])
+- Error codes documentation ([[2026-10-28 - Docs cloud-services data-stores observability|Docs: cloud-services / data-stores / observability]])
+- Limits documentation ([[2026-10-28 - Docs cloud-services data-stores observability|Docs: cloud-services / data-stores / observability]])
+- Collectable Gems Model (Roblox Creator Hub model page) ([[2026-10-28 - Docs tutorials use-case-tutorials audio in-game-sounds|Docs: tutorials / use-case-tutorials / audio / in-]])
+- Custom materials (Roblox docs) ([[2026-10-28 - Docs parts custom-terrain-materials|Docs: parts / custom-terrain-materials]])
+- Roblox Education educator onboarding and training guides ([[2026-10-28 - Docs education support education-getting-started|Docs: education / support / education-getting-star]])
+- Roblox Education free lesson plans ([[2026-10-28 - Docs education support education-getting-started|Docs: education / support / education-getting-star]])
+- Roblox Education developer onboarding for educational projects ([[2026-10-28 - Docs education support education-getting-started|Docs: education / support / education-getting-star]])
+- Roblox Education learning games list ([[2026-10-28 - Docs education support education-getting-started|Docs: education / support / education-getting-star]])
+- Roblox Education directory of educators using Roblox ([[2026-10-28 - Docs education support education-getting-started|Docs: education / support / education-getting-star]])
+- Roblox Creator Docs: DataStores (mentioned as advanced topic) ([[2026-10-28 - Docs education adventure-game-series code-the-leaderboard|Docs: education / adventure-game-series / code-the]])
+- Help Center: supported Android devices and device troubleshooting steps ([[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]])
+- Configure secure teleportation ([[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]])
+- Securing the client-server boundary ([[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]])
+- Cheat mitigation tactics ([[2026-10-28 - Docs scripting security device-trust|Docs: scripting / security / device-trust]])
+- Device Simulator documentation ([[2026-10-28 - Docs studio controller-emulator|Docs: studio / controller-emulator]])
+- Animation Capture - Face docs page ([[2026-10-28 - Docs art characters facial-animation animate-heads|Docs: art / characters / facial-animation / animat]])
+- Use animations docs page ([[2026-10-28 - Docs art characters facial-animation animate-heads|Docs: art / characters / facial-animation / animat]])
+- Layered accessory specifications - Face accessories ([[2026-10-28 - Docs art characters creating template-files|Docs: art / characters / creating / template-files]])
+- Script types and locations (Roblox docs) ([[2026-10-28 - Docs scripting sync|Docs: scripting / sync]])
+- ISTE standards: Empowered Learner 1d, Innovative Designer 4a, 4c, Creative Communicator 6b, 6c ([[2026-10-28 - Docs education lesson-plans roblox-developer landing|Docs: education / lesson-plans / roblox-developer ]])
+- Friend Invite Reward System ([[2026-10-28 - Docs production promotion invite-prompts|Docs: production / promotion / invite-prompts]])
+- Class.RecommendationService.RegisterItemAsync ([[2026-10-28 - Docs production recommendation|Docs: production / recommendation]])
+- Class.RecommendationService.LogImpressionEvent ([[2026-10-28 - Docs production recommendation|Docs: production / recommendation]])
+- Class.RecommendationService.LogActionEvent ([[2026-10-28 - Docs production recommendation|Docs: production / recommendation]])
+- Class.RecommendationService.GenerateItemListAsync ([[2026-10-28 - Docs production recommendation|Docs: production / recommendation]])
+- Roblox Creator Docs: Asset privacy ([[2026-10-28 - Docs projects assets packages|Docs: projects / assets / packages]])
+- Roblox Marketplace Creator Requirements ([[2026-10-28 - Docs marketplace marketplace-fees-and-commissions|Docs: marketplace / marketplace-fees-and-commissio]])
+- Earned Robux & DevEx Rates ([[2026-10-28 - Docs marketplace marketplace-fees-and-commissions|Docs: marketplace / marketplace-fees-and-commissio]])
+- Per-Unit Fee documentation ([[2026-10-28 - Docs marketplace marketplace-fees-and-commissions|Docs: marketplace / marketplace-fees-and-commissio]])
+- Current Marketplace Price Ranges page ([[2026-10-28 - Docs marketplace marketplace-fees-and-commissions|Docs: marketplace / marketplace-fees-and-commissio]])
+- Beyond the Dark documentation (Create trim sheets section) ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive materialize-the-world|Docs: resources / the-mystery-of-duvall-drive / ma]])
+- Create your first layered accessory tutorial ([[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]])
+- Accessory and clothing reference files ([[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]])
+- Rigid accessories docs ([[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]])
+- Character appearance docs ([[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]])
+- Upload to Marketplace docs ([[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]])
+- Fees and commissions docs ([[2026-10-28 - Docs avatar layered-accessories|Docs: avatar / layered-accessories]])
+- Roblox docs: MemoryStoreService:GetQueue ([[2026-10-28 - Docs cloud-services memory-stores queue|Docs: cloud-services / memory-stores / queue]])
+- Roblox docs: MemoryStoreQueue:AddAsync / ReadAsync / RemoveAsync / GetSizeAsync ([[2026-10-28 - Docs cloud-services memory-stores queue|Docs: cloud-services / memory-stores / queue]])
+- Roblox Troubleshooting (place size) ([[2026-10-28 - Docs projects place-files|Docs: projects / place-files]])
+- Roblox Creator Docs: Create avatar assets ([[2026-10-28 - Docs avatar create|Docs: avatar / create]])
+- Roblox docs: General mesh specifications ([[2026-10-28 - Docs art modeling|Docs: art / modeling]])
+- Roblox docs: Avatar specifications ([[2026-10-28 - Docs art modeling|Docs: art / modeling]])
+- Roblox docs: Accessory specifications ([[2026-10-28 - Docs art modeling|Docs: art / modeling]])
+- Roblox docs: Rigging and skinning ([[2026-10-28 - Docs art modeling|Docs: art / modeling]])
+- Roblox docs: PBR textures ([[2026-10-28 - Docs art modeling|Docs: art / modeling]])
+- Roblox docs: Cage meshes ([[2026-10-28 - Docs art modeling|Docs: art / modeling]])
+- Class.TweenService API page ([[2026-10-28 - Docs education build-it-play-it-island-of-move animating-parts|Docs: education / build-it-play-it-island-of-move ]])
+- Roblox Post Processing Effects documentation page ([[2026-10-28 - Docs education lesson-plans digital-citizenship lights-and-polish|Docs: education / lesson-plans / digital-citizensh]])
+- Rigid accessories ([[2026-10-28 - Docs marketplace categories|Docs: marketplace / categories]])
+- Layered accessories ([[2026-10-28 - Docs marketplace categories|Docs: marketplace / categories]])
+- Bodies ([[2026-10-28 - Docs marketplace categories|Docs: marketplace / categories]])
+- Animation packs ([[2026-10-28 - Docs marketplace categories|Docs: marketplace / categories]])
+- Emotes ([[2026-10-28 - Docs marketplace categories|Docs: marketplace / categories]])
+- Roblox Creator Docs: Luau math library ([[2026-10-28 - Docs luau numbers|Docs: luau / numbers]])
+- Roblox Creator Docs: Luau bit32 library ([[2026-10-28 - Docs luau numbers|Docs: luau / numbers]])
+- Class.MemoryStoreHashMap ([[2026-10-28 - Docs cloud-services memory-stores hash-map|Docs: cloud-services / memory-stores / hash-map]])
+- Class.MemoryStoreService ([[2026-10-28 - Docs cloud-services memory-stores hash-map|Docs: cloud-services / memory-stores / hash-map]])
+- Environment Art - Constructing .rbxl sample file ([[2026-10-28 - Docs tutorials curriculums environmental-art construct-your-world|Docs: tutorials / curriculums / environmental-art ]])
+- Environment Art Asset Library ([[2026-10-28 - Docs tutorials curriculums environmental-art construct-your-world|Docs: tutorials / curriculums / environmental-art ]])
+- Audio objects documentation page (referenced for 2D/3D audio setup) ([[2026-10-28 - Docs audio effects|Docs: audio / effects]])
+- Season pass design (Roblox docs) ([[2026-10-28 - Docs resources feature-packages season-passes|Docs: resources / feature-packages / season-passes]])
+- Define missions (Roblox docs) ([[2026-10-28 - Docs resources feature-packages season-passes|Docs: resources / feature-packages / season-passes]])
+- Roblox Docs: CSS Comparisons ([[2026-10-28 - Docs ui styling css-comparisons|Docs: ui / styling / css-comparisons]])
+- Create basic dynamic heads ([[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]])
+- Automatic Skinning Transfer - Modify character cages ([[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]])
+- Blender Automatic Weights documentation ([[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]])
+- Layered accessories specifications ([[2026-10-28 - Docs art characters facial-animation create-face-accessories|Docs: art / characters / facial-animation / create]])
+- Model Context Protocol (MCP) ([[2026-10-28 - Docs assistant mcp|Docs: assistant / mcp]])
+- Roblox Education: Build it, Play it - Island of Move ([[2026-10-28 - Docs education build-it-play-it-island-of-move personalize-the-game|Docs: education / build-it-play-it-island-of-move ]])
+- Roblox Education: Build It, Play It - Mansion of Wonder example map ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder experienced-landing-|Docs: education / build-it-play-it-mansion-of-wond]])
+- Experience notifications ([[2026-10-28 - Docs projects activity-history|Docs: projects / activity-history]])
+- Roles and permissions ([[2026-10-28 - Docs projects activity-history|Docs: projects / activity-history]])
+- Dynamic head specifications ([[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]])
+- Layered accessory specifications ([[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]])
+- General mesh specifications ([[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]])
+- Rigging and Skinning ([[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]])
+- Publish bodies with eyelashes and eyebrows ([[2026-10-28 - Docs avatar character-bodies specifications|Docs: avatar / character-bodies / specifications]])
+- Customize avatar appearances ([[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]])
+- Private servers ([[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]])
+- Earn on Roblox ([[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]])
+- The Roblox user base ([[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]])
+- Promoting on Roblox ([[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]])
+- UI and UX ([[2026-10-28 - Docs production game-design design-for-roblox|Docs: production / game-design / design-for-roblox]])
+- Create Character Animations ([[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]])
+- Detect collisions (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]])
+- Hazardous Space Station sample .rbxl ([[2026-10-28 - Docs tutorials use-case-tutorials animation play-character-animations|Docs: tutorials / use-case-tutorials / animation /]])
+- Design educational games presentation (PDF and video), Roblox Connect 2022 ([[2026-10-28 - Docs education developer designing-educational-experiences|Docs: education / developer / designing-educationa]])
+- Roblox Studio beginner tutorial curriculum (Learn about Studio) ([[2026-10-28 - Docs tutorials curriculums studio|Docs: tutorials / curriculums / studio]])
+- Emit() Plugin Plugin on the Roblox Marketplace ([[2026-10-28 - Docs tutorials use-case-tutorials vfx use-particles-for-explosions|Docs: tutorials / use-case-tutorials / vfx / use-p]])
+- ParticleEmitter:Emit() API reference ([[2026-10-28 - Docs tutorials use-case-tutorials vfx use-particles-for-explosions|Docs: tutorials / use-case-tutorials / vfx / use-p]])
+- Roblox Creator Docs: client-server runtime ([[2026-10-28 - Docs projects client-server|Docs: projects / client-server]])
+- Deadly Lava tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting fading-tra|Docs: tutorials / use-case-tutorials / scripting /]])
+- JumpFallLandRunExample reference place ([[2026-10-28 - Docs animation graph-editor-state-machine|Docs: animation / graph-editor-state-machine]])
+- API integration docs (graph parameters) ([[2026-10-28 - Docs animation graph-editor-state-machine|Docs: animation / graph-editor-state-machine]])
+- Data store right to be forgotten (RTBF) docs ([[2026-10-28 - Docs production publishing RTBF-and-creators|Docs: production / publishing / RTBF-and-creators]])
+- Automate right to erasure using webhooks docs ([[2026-10-28 - Docs production publishing RTBF-and-creators|Docs: production / publishing / RTBF-and-creators]])
+- Roblox for Brands ([[2026-10-28 - Docs creator-programs brand-developer-directory|Docs: creator-programs / brand-developer-directory]])
+- Talent Hub ([[2026-10-28 - Docs creator-programs brand-developer-directory|Docs: creator-programs / brand-developer-directory]])
+- [email] ([[2026-10-28 - Docs creator-programs brand-developer-directory|Docs: creator-programs / brand-developer-directory]])
+- Dynamic head overview ([[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]])
+- Head validation process ([[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]])
+- Head validation video guide ([[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]])
+- Avatar Setup ([[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]])
+- Caging Best Practices ([[2026-10-28 - Docs art characters manually-update-catalog-heads|Docs: art / characters / manually-update-catalog-h]])
+- Roblox_Educators account (official trusted Roblox Education assets) ([[2026-10-28 - Docs education battle-royale-series project-setup|Docs: education / battle-royale-series / project-s]])
+- Introduction to scripting course ([[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting deadly-lav|Docs: tutorials / use-case-tutorials / scripting /]])
+- Create subscriptions ([[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]])
+- Check for dynamic pricing (Price optimization page) ([[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]])
+- Sell a pass inside your game ([[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]])
+- Sell a developer product inside your game ([[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]])
+- Publish to Marketplace (Avatar item pricing) ([[2026-10-28 - Docs production monetization regional-pricing|Docs: production / monetization / regional-pricing]])
+- Ads Manager ([[2026-10-28 - Docs marketplace sponsor-items|Docs: marketplace / sponsor-items]])
+- Advertising API ([[2026-10-28 - Docs marketplace sponsor-items|Docs: marketplace / sponsor-items]])
+- Reassign textures in Blender and Maya (makeup assets) ([[2026-10-28 - Docs art modeling assign-textures|Docs: art / modeling / assign-textures]])
+- UI and UX (Roblox docs) ([[2026-10-28 - Docs production game-design contextual-purchases|Docs: production / game-design / contextual-purcha]])
+- Roblox Terms of Use ([[2026-10-28 - Docs resources builder-font-license|Docs: resources / builder-font-license]])
+- Roblox Creator Docs: Highlight class ([[2026-10-28 - Docs effects highlighting|Docs: effects / highlighting]])
+- Roblox Education: Mansion of Wonder (build-it-play-it-mansion-of-wonder) ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder using-textures|Docs: education / build-it-play-it-mansion-of-wond]])
+- Collectible tools (Roblox docs) ([[2026-10-28 - Docs players tools|Docs: players / tools]])
+- Remote events and callbacks (Roblox docs) ([[2026-10-28 - Docs players tools|Docs: players / tools]])
+- Class.StarterGear (Roblox docs) ([[2026-10-28 - Docs players tools|Docs: players / tools]])
+- Avatar Creator demo ([[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]])
+- Avatar references ([[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]])
+- Avatar Creation Tokens docs ([[2026-10-28 - Docs avatar in-experience-creation|Docs: avatar / in-experience-creation]])
+- Creator Dashboard ([[2026-10-28 - Docs education build-it-play-it-island-of-move change-the-animation|Docs: education / build-it-play-it-island-of-move ]])
+- Roblox Creator Store Packages ([[2026-10-28 - Docs resources modules emote-bar|Docs: resources / modules / emote-bar]])
+- Hour of Code ([[2026-10-28 - Docs education lesson-plans story-games-lesson|Docs: education / lesson-plans / story-games-lesso]])
+- Roblox Studio Cheatsheet handout ([[2026-10-28 - Docs education lesson-plans story-games-lesson|Docs: education / lesson-plans / story-games-lesso]])
+- Roblox Story Game course ([[2026-10-28 - Docs education lesson-plans story-games-lesson|Docs: education / lesson-plans / story-games-lesso]])
+- Roblox Creator Docs: Developer Console ([[2026-10-28 - Docs studio optimization scriptprofiler|Docs: studio / optimization / scriptprofiler]])
+- Roblox Creator Docs: text chat (TextChatService) ([[2026-10-28 - Docs chat examples group-chat-tags|Docs: chat / examples / group-chat-tags]])
+- Makeup test place / MakeupBeta.zip reference place on GitHub ([[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]])
+- Template textures, template heads, reference game downloads ([[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]])
+- In-experience creation for makeup (Roblox docs) ([[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]])
+- Reassign textures and Face caging best practices (Roblox docs) ([[2026-10-28 - Docs avatar makeup|Docs: avatar / makeup]])
+- Roblox Developer lesson plans: Adventure game part 1 (prerequisite session) ([[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-4|Docs: education / lesson-plans / roblox-developer ]])
+- Review a license offer ([[2026-10-28 - Docs ip-licensing faq|Docs: ip-licensing / faq]])
+- Review matches and send a license offer ([[2026-10-28 - Docs ip-licensing faq|Docs: ip-licensing / faq]])
+- Roblox Terms of Use ([[2026-10-28 - Docs ip-licensing faq|Docs: ip-licensing / faq]])
+- DMCA process ([[2026-10-28 - Docs ip-licensing faq|Docs: ip-licensing / faq]])
+- Roblox modeling specifications ([[2026-10-28 - Docs art modeling export-requirements|Docs: art / modeling / export-requirements]])
+- Accessory specifications and export settings ([[2026-10-28 - Docs art modeling export-requirements|Docs: art / modeling / export-requirements]])
+- Layered accessory specifications and layered export settings ([[2026-10-28 - Docs art modeling export-requirements|Docs: art / modeling / export-requirements]])
+- Avatar specifications and avatar export settings ([[2026-10-28 - Docs art modeling export-requirements|Docs: art / modeling / export-requirements]])
+- Blender FBX scaling guide ([[2026-10-28 - Docs art modeling export-requirements|Docs: art / modeling / export-requirements]])
+- Roblox docs: Parts, Solid modeling, Meshes, Texture and decals, Mesh specifications, Texture specifications, Export requirements, Roblox Blender plugin, On-screen UI, In-game UI, Proximity prompts, Audio overview, Light sources, Global lighting, Particle emitters, Beams, Trails, Assemblies, Network ownership, Animation editor, Inverse kinematics, Luau reference, Data stores vs memory stores ([[2026-10-28 - Docs tutorials use-case-tutorials use-case-tutorial-overview|Docs: tutorials / use-case-tutorials / use-case-tu]])
+- Roblox Creator Docs: Animation editor export instructions ([[2026-10-28 - Docs animation using|Docs: animation / using]])
+- Roblox catalog animation reference table ([[2026-10-28 - Docs animation using|Docs: animation / using]])
+- Animation lesson tutorial (Roblox Education) ([[2026-10-28 - Docs education lesson-plans digital-citizenship animating-characters|Docs: education / lesson-plans / digital-citizensh]])
+- Animation Swap Script ([[2026-10-28 - Docs education lesson-plans digital-citizenship animating-characters|Docs: education / lesson-plans / digital-citizensh]])
+- Developer Exchange Terms of Use ([[2026-10-28 - Docs production monetization developer-exchange|Docs: production / monetization / developer-exchan]])
+- U.S. 18+ exchange rate ([[2026-10-28 - Docs production monetization developer-exchange|Docs: production / monetization / developer-exchan]])
+- Tax and DevEx Portal (Tipalti) Information ([[2026-10-28 - Docs production monetization developer-exchange|Docs: production / monetization / developer-exchan]])
+- ID verification ([[2026-10-28 - Docs production monetization developer-exchange|Docs: production / monetization / developer-exchan]])
+- Roblox Support form ([[2026-10-28 - Docs production monetization developer-exchange|Docs: production / monetization / developer-exchan]])
+- Publish games and places ([[2026-10-28 - Docs production publishing kids-and-select|Docs: production / publishing / kids-and-select]])
+- Content maturity and compliance ([[2026-10-28 - Docs production publishing kids-and-select|Docs: production / publishing / kids-and-select]])
+- Maturity & Compliance Questionnaire ([[2026-10-28 - Docs production publishing kids-and-select|Docs: production / publishing / kids-and-select]])
+- parental controls ([[2026-10-28 - Docs production publishing kids-and-select|Docs: production / publishing / kids-and-select]])
+- Roblox Creator Docs: Curve Editor ([[2026-10-28 - Docs animation curve-editor|Docs: animation / curve-editor]])
+- Core loops (Roblox docs) ([[2026-10-28 - Docs production analytics retention|Docs: production / analytics / retention]])
+- Onboarding (Roblox docs) ([[2026-10-28 - Docs production analytics retention|Docs: production / analytics / retention]])
+- Environment Art - Greyboxing .rbxl sample place file ([[2026-10-28 - Docs tutorials curriculums environmental-art greybox-your-environment|Docs: tutorials / curriculums / environmental-art ]])
+- Mansion of Wonder template ([[2026-10-28 - Docs education support designing-studio-templates|Docs: education / support / designing-studio-templ]])
+- Code Kingdoms (online educator) ([[2026-10-28 - Docs education support designing-studio-templates|Docs: education / support / designing-studio-templ]])
+- Byju's Future School ([[2026-10-28 - Docs education support designing-studio-templates|Docs: education / support / designing-studio-templ]])
+- Studio lesson (prerequisite beginner guide) ([[2026-10-28 - Docs tutorials curriculums animator|Docs: tutorials / curriculums / animator]])
+- Mechanical constraints docs page ([[2026-10-28 - Docs physics constraints plane|Docs: physics / constraints / plane]])
+- Roblox units documentation ([[2026-10-28 - Docs physics constraints plane|Docs: physics / constraints / plane]])
+- Roblox avatar character body templates documentation ([[2026-10-28 - Docs art characters creating head-objects|Docs: art / characters / creating / head-objects]])
+- Beams documentation ([[2026-10-28 - Docs tutorials use-case-tutorials vfx laser-traps-with-beams|Docs: tutorials / use-case-tutorials / vfx / laser]])
+- Exporting Requirements ([[2026-10-28 - Docs tutorials use-case-tutorials vfx laser-traps-with-beams|Docs: tutorials / use-case-tutorials / vfx / laser]])
+- Data stores docs ([[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]])
+- Ordered data stores docs ([[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]])
+- Open Cloud APIs for data stores ([[2026-10-28 - Docs cloud-services data-stores-vs-memory-stores|Docs: cloud-services / data-stores-vs-memory-store]])
+- Blender FBX scaling guide (Roblox docs) ([[2026-10-28 - Docs art accessories creating exporting|Docs: art / accessories / creating / exporting]])
+- Roblox Inspire official event page ([[2026-10-28 - Docs creator-programs inspire|Docs: creator-programs / inspire]])
+- Roblox docs: Pathfinding (creating paths, costs, modifiers, links, streaming) ([[2026-10-28 - Docs characters pathfinding|Docs: characters / pathfinding]])
+- RTBF and Creators ([[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]])
+- Automating Right to Erasure Requests Deletion ([[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]])
+- Subscription reference ([[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]])
+- Payload Schema ([[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]])
+- Verify webhook security ([[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]])
+- Test webhooks ([[2026-10-28 - Docs cloud webhooks webhook-notifications|Docs: cloud / webhooks / webhook-notifications]])
+- In-game HTTP requests documentation ([[2026-10-28 - Docs cloud reference rate-limits|Docs: cloud / reference / rate-limits]])
+- Handling rate limits documentation ([[2026-10-28 - Docs cloud reference rate-limits|Docs: cloud / reference / rate-limits]])
+- Class.Instance.Destroying ([[2026-10-28 - Docs scripting events deferred|Docs: scripting / events / deferred]])
+- Class.UserInputService ([[2026-10-28 - Docs scripting events deferred|Docs: scripting / events / deferred]])
+- Datatype.RBXScriptSignal.Once() ([[2026-10-28 - Docs scripting events deferred|Docs: scripting / events / deferred]])
+- Create character animations ([[2026-10-28 - Docs avatar emotes|Docs: avatar / emotes]])
+- Import emotes - Generate asset ID ([[2026-10-28 - Docs avatar emotes|Docs: avatar / emotes]])
+- character emotes ([[2026-10-28 - Docs avatar emotes|Docs: avatar / emotes]])
+- Roblox general mesh specifications ([[2026-10-28 - Docs avatar rigid-accessories specifications|Docs: avatar / rigid-accessories / specifications]])
+- Layered accessory specifications ([[2026-10-28 - Docs avatar rigid-accessories specifications|Docs: avatar / rigid-accessories / specifications]])
+- Convert rigid accessories tutorial ([[2026-10-28 - Docs avatar rigid-accessories specifications|Docs: avatar / rigid-accessories / specifications]])
+- Open Cloud API reference (Resource Paths, assetDetails list) ([[2026-10-28 - Docs cloud reference patterns|Docs: cloud / reference / patterns]])
+- Ordered data stores documentation ([[2026-10-28 - Docs players leaderboards|Docs: players / leaderboards]])
+- Class.GuiObject ([[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]])
+- Class.ScreenGui ([[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]])
+- Datatype.UDim2 ([[2026-10-28 - Docs ui position-and-size|Docs: ui / position-and-size]])
+- Roblox Audio Terms of Use ([[2026-10-28 - Docs audio assets|Docs: audio / assets]])
+- Roblox Community Rules and Terms of Use ([[2026-10-28 - Docs audio assets|Docs: audio / assets]])
+- Enums documentation ([[2026-10-28 - Docs luau type-coercion|Docs: luau / type-coercion]])
+- Roblox Creator Store: Packages category ([[2026-10-28 - Docs resources modules photo-booth|Docs: resources / modules / photo-booth]])
+- ISTE standards: Innovative Designer 4a, 4c, 4d; Creative Communicator 6b, 6d ([[2026-10-28 - Docs education lesson-plans digital-citizenship civil-and-safe-game|Docs: education / lesson-plans / digital-citizensh]])
+- Connect to the Roblox Studio MCP server (Roblox docs) ([[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]])
+- create.roblox.com ([[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]])
+- git-scm.com ([[2026-10-28 - Docs ai coding-harness|Docs: ai / coding-harness]])
+- Skin a humanoid model (Roblox docs) ([[2026-10-28 - Docs art modeling rig-a-humanoid-model|Docs: art / modeling / rig-a-humanoid-model]])
+- Advanced Module Scripts guide (Roblox Creator Docs) ([[2026-10-28 - Docs tutorials fundamentals coding-6 intro-to-module-scripts|Docs: tutorials / fundamentals / coding-6 / intro-]])
+- Manage API keys (Roblox docs) ([[2026-10-28 - Docs cloud guides data-stores|Docs: cloud / guides / data-stores]])
+- Avatar in-experience creation ([[2026-10-28 - Docs art modeling cage-meshes|Docs: art / modeling / cage-meshes]])
+- Create cages in Blender ([[2026-10-28 - Docs art modeling cage-meshes|Docs: art / modeling / cage-meshes]])
+- Apply deformation ([[2026-10-28 - Docs art modeling cage-meshes|Docs: art / modeling / cage-meshes]])
+- Create your own layered accessory ([[2026-10-28 - Docs art modeling cage-meshes|Docs: art / modeling / cage-meshes]])
+- Character body specifications - Inner and outer cages ([[2026-10-28 - Docs art characters facial-animation create-basic-heads|Docs: art / characters / facial-animation / create]])
+- Test heads in Studio ([[2026-10-28 - Docs art characters facial-animation create-basic-heads|Docs: art / characters / facial-animation / create]])
+- Create face accessories ([[2026-10-28 - Docs art accessories publish-eyebrows-eyelashes|Docs: art / accessories / publish-eyebrows-eyelash]])
+- Accessory Fitting Tool ([[2026-10-28 - Docs art accessories publish-eyebrows-eyelashes|Docs: art / accessories / publish-eyebrows-eyelash]])
+- Upload an asset ([[2026-10-28 - Docs art accessories publish-eyebrows-eyelashes|Docs: art / accessories / publish-eyebrows-eyelash]])
+- Marketplace policy ([[2026-10-28 - Docs art accessories publish-eyebrows-eyelashes|Docs: art / accessories / publish-eyebrows-eyelash]])
+- Export settings (Roblox docs) ([[2026-10-28 - Docs art accessories creating-rigid exporting|Docs: art / accessories / creating-rigid / exporti]])
+- Blender FBX scaling (Roblox docs) ([[2026-10-28 - Docs art accessories creating-rigid exporting|Docs: art / accessories / creating-rigid / exporti]])
+- Discovery overview page ([[2026-10-28 - Docs discovery-faq|Docs: discovery-faq]])
+- Discovery best practices ([[2026-10-28 - Docs discovery-faq|Docs: discovery-faq]])
+- Thumbnail best practices ([[2026-10-28 - Docs discovery-faq|Docs: discovery-faq]])
+- Style Editor guide (style transitions) ([[2026-10-28 - Docs ui animation|Docs: ui / animation]])
+- Stroke section of UI tween docs ([[2026-10-28 - Docs ui animation|Docs: ui / animation]])
+- Manage API keys (Open Cloud docs) ([[2026-10-28 - Docs cloud guides data-stores request-handling|Docs: cloud / guides / data-stores / request-handl]])
+- Pagination (Open Cloud docs) ([[2026-10-28 - Docs cloud guides data-stores request-handling|Docs: cloud / guides / data-stores / request-handl]])
+- Listing and prefixes (Open Cloud docs) ([[2026-10-28 - Docs cloud guides data-stores request-handling|Docs: cloud / guides / data-stores / request-handl]])
+- Data store filter reference (standard and ordered) ([[2026-10-28 - Docs cloud guides data-stores request-handling|Docs: cloud / guides / data-stores / request-handl]])
+- Input Action System displaying bindings docs ([[2026-10-28 - Docs production publishing console-guidelines|Docs: production / publishing / console-guidelines]])
+- Roblox quiz game (linked from page) ([[2026-10-28 - Docs education build-it-play-it-galactic-speedway design-the-world|Docs: education / build-it-play-it-galactic-speedw]])
+- Junkbot avatar package link ([[2026-10-28 - Docs education build-it-play-it-galactic-speedway design-the-world|Docs: education / build-it-play-it-galactic-speedw]])
+- Behaviors.rbxm (retargetable behavior assets) ([[2026-10-28 - Docs parts model-generation|Docs: parts / model-generation]])
+- How to cage Roblox 3D clothing video guide (Additional-FBX-assets.zip) ([[2026-10-28 - Docs avatar layered-accessories project-files|Docs: avatar / layered-accessories / project-files]])
+- Resources page for Roblox official avatar downloadable content ([[2026-10-28 - Docs avatar layered-accessories project-files|Docs: avatar / layered-accessories / project-files]])
+- @rbx/AvatarAbilities ([[2026-10-28 - Docs characters character-controller-library custom-abilities|Docs: characters / character-controller-library / ]])
+- Roblox Creator Docs: Securing the client-server boundary ([[2026-10-28 - Docs scripting security server-side-detection|Docs: scripting / security / server-side-detection]])
+- Roblox Community Standards ([[2026-10-28 - Docs chat preset-system-guidelines|Docs: chat / preset-system-guidelines]])
+- Roblox Terms of Use ([[2026-10-28 - Docs chat preset-system-guidelines|Docs: chat / preset-system-guidelines]])
+- Resource: Upstander Roleplay Situations (educator use only) ([[2026-10-28 - Docs education lesson-plans digital-citizenship being-a-digital-citize|Docs: education / lesson-plans / digital-citizensh]])
+- Handout: Project Feedback ([[2026-10-28 - Docs education lesson-plans digital-citizenship being-a-digital-citize|Docs: education / lesson-plans / digital-citizensh]])
+- Presentation: Project Feedback ([[2026-10-28 - Docs education lesson-plans digital-citizenship being-a-digital-citize|Docs: education / lesson-plans / digital-citizensh]])
+- Lesson: Intro to Digital Civility ([[2026-10-28 - Docs education lesson-plans digital-citizenship being-a-digital-citize|Docs: education / lesson-plans / digital-citizensh]])
+- Roblox Creator Docs: Lighting and effects ([[2026-10-28 - Docs environment|Docs: environment]])
+- Class.Workspace ([[2026-10-28 - Docs workspace|Docs: workspace]])
+- Class.MeshPart ([[2026-10-28 - Docs workspace|Docs: workspace]])
+- Class.Terrain ([[2026-10-28 - Docs workspace|Docs: workspace]])
+- Class.Model ([[2026-10-28 - Docs workspace|Docs: workspace]])
+- Roblox DevForum (invite notification channel) ([[2026-10-28 - Docs creator-programs managed-brand-integrations|Docs: creator-programs / managed-brand-integration]])
+- Templates documentation (full list of Roblox-provided templates) ([[2026-10-28 - Docs tutorials curriculums artist get-started|Docs: tutorials / curriculums / artist / get-start]])
+- Gold Rush data store tutorial start and complete .rbxl files ([[2026-10-28 - Docs tutorials use-case-tutorials data-storage save-player-data|Docs: tutorials / use-case-tutorials / data-storag]])
+- OAuth 2.0 authentication (Roblox docs) ([[2026-10-28 - Docs cloud auth oauth2-sample|Docs: cloud / auth / oauth2-sample]])
+- Performance Optimization (Roblox docs) ([[2026-10-28 - Docs studio optimization memory-usage|Docs: studio / optimization / memory-usage]])
+- Roblox Community Standards ([[2026-10-28 - Docs production promotion search-ads|Docs: production / promotion / search-ads]])
+- Create player tools tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]])
+- Detecting User Input tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]])
+- multi-client simulation guide ([[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting hit|Docs: tutorials / use-case-tutorials / scripting /]])
+- Roblox Educators directory ([[2026-10-28 - Docs education resources resources-landing|Docs: education / resources / resources-landing]])
+- Troubleshooting Education Networks guide ([[2026-10-28 - Docs education resources resources-landing|Docs: education / resources / resources-landing]])
+- General Connection Problems guide ([[2026-10-28 - Docs education resources resources-landing|Docs: education / resources / resources-landing]])
+- Firewall and Router Issues guide ([[2026-10-28 - Docs education resources resources-landing|Docs: education / resources / resources-landing]])
+- General Roblox Studio Issues guide ([[2026-10-28 - Docs education resources resources-landing|Docs: education / resources / resources-landing]])
+- Roblox Creator Docs: Create elevators tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials physics create-elevators|Docs: tutorials / use-case-tutorials / physics / c]])
+- Intellectual Property guidelines ([[2026-10-28 - Docs ip-licensing get-started|Docs: ip-licensing / get-started]])
+- Digital Millennium Copyright Act (DMCA) info ([[2026-10-28 - Docs ip-licensing get-started|Docs: ip-licensing / get-started]])
+- IP glossary ([[2026-10-28 - Docs ip-licensing get-started|Docs: ip-licensing / get-started]])
+- ServerScriptService/Core/ShrinkingBarrier ([[2026-10-28 - Docs resources battle-royale the-storm|Docs: resources / battle-royale / the-storm]])
+- ReplicatedStorage/Core/ShrinkingBarrierVisualization ([[2026-10-28 - Docs resources battle-royale the-storm|Docs: resources / battle-royale / the-storm]])
+- ReplicatedFirst/Configurations/MainConfiguration ([[2026-10-28 - Docs resources battle-royale the-storm|Docs: resources / battle-royale / the-storm]])
+- Coding Fundamentals tutorial ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder adding-scripts|Docs: education / build-it-play-it-mansion-of-wond]])
+- Saving Data article ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder adding-scripts|Docs: education / build-it-play-it-mansion-of-wond]])
+- Roblox Creator Docs: Analytics Query API supported metrics and dimensions ([[2026-10-28 - Docs cloud guides analytics metrics|Docs: cloud / guides / analytics / metrics]])
+- Roblox core curriculum ([[2026-10-28 - Docs tutorials curriculums user-interface-design|Docs: tutorials / curriculums / user-interface-des]])
+- Blender / Maya texture settings (Roblox docs) ([[2026-10-28 - Docs art modeling texture-specifications|Docs: art / modeling / texture-specifications]])
+- PBR texture budgets (Roblox docs) ([[2026-10-28 - Docs art modeling texture-specifications|Docs: art / modeling / texture-specifications]])
+- Textures and decals (Roblox docs) ([[2026-10-28 - Docs art modeling texture-specifications|Docs: art / modeling / texture-specifications]])
+- Season pass design (Roblox docs) ([[2026-10-28 - Docs production game-design monetization-foundations|Docs: production / game-design / monetization-foun]])
+- Quest design (Roblox docs) ([[2026-10-28 - Docs production game-design monetization-foundations|Docs: production / game-design / monetization-foun]])
+- Monetization glossary (Roblox docs) ([[2026-10-28 - Docs production game-design monetization-foundations|Docs: production / game-design / monetization-foun]])
+- Client Compute doc ([[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]])
+- Server Compute doc ([[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]])
+- Script Computation doc ([[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]])
+- Identify performance issues doc ([[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]])
+- Improve performance doc ([[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]])
+- Memory doc ([[2026-10-28 - Docs production analytics performance|Docs: production / analytics / performance]])
+- Datatype.User reference ([[2026-10-28 - Docs players users|Docs: players / users]])
+- Players service docs ([[2026-10-28 - Docs players users|Docs: players / users]])
+- Create a Timed Bridge tutorial (Surface GUI for displaying time) ([[2026-10-28 - Docs tutorials fundamentals coding-3 multiple-conditions|Docs: tutorials / fundamentals / coding-3 / multip]])
+- Roblox Rewarded Video documentation ([[2026-10-28 - Docs production promotion rewarded-video-playbooks incremental-sim|Docs: production / promotion / rewarded-video-play]])
+- Open Cloud OAuth 2.0 Authentication reference ([[2026-10-28 - Docs cloud auth oauth2-overview|Docs: cloud / auth / oauth2-overview]])
+- Cage-Mesh-Examples.blend ([[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]])
+- Layered accessories on non-R15 (docs) ([[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]])
+- Layered accessories (docs) ([[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]])
+- Automatic Skinning Transfer (docs) ([[2026-10-28 - Docs art modeling cage-meshes apply-deformation|Docs: art / modeling / cage-meshes / apply-deforma]])
+- Roblox Rewarded Video Playbook: Sports (official docs) ([[2026-10-28 - Docs production promotion rewarded-video-playbooks sports|Docs: production / promotion / rewarded-video-play]])
+- Roblox Creator Store Packages ([[2026-10-28 - Docs resources modules surface-art|Docs: resources / modules / surface-art]])
+- Transform parts ([[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]])
+- Solid modeling ([[2026-10-28 - Docs tutorials curriculums core building greybox-a-playable-area|Docs: tutorials / curriculums / core / building / ]])
+- Add 2D audio tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]])
+- Add 3D audio tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]])
+- Gingerbread House - Start .rbxl ([[2026-10-28 - Docs tutorials use-case-tutorials audio speech-to-text|Docs: tutorials / use-case-tutorials / audio / spe]])
+- Library.table library reference ([[2026-10-28 - Docs luau tables|Docs: luau / tables]])
+- Roblox core curriculum (building basics) ([[2026-10-28 - Docs tutorials curriculums environmental-art|Docs: tutorials / curriculums / environmental-art]])
+- https://create.roblox.com/dashboard/creations ([[2026-10-28 - Docs cloud guides usage-place-publishing|Docs: cloud / guides / usage-place-publishing]])
+- rbxassetid ([[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]])
+- Group roles and permissions ([[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]])
+- Asset delivery API ([[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]])
+- Importer ([[2026-10-28 - Docs cloud guides usage-assets|Docs: cloud / guides / usage-assets]])
+- content maturity & compliance docs ([[2026-10-28 - Docs projects configure-games|Docs: projects / configure-games]])
+- roles and permissions docs ([[2026-10-28 - Docs projects configure-games|Docs: projects / configure-games]])
+- Version History docs ([[2026-10-28 - Docs projects configure-games|Docs: projects / configure-games]])
+- Introduction to Roblox Studio (prior tutorial in the same course) ([[2026-10-28 - Docs tutorials use-case-tutorials scripting basic-scripting intro-to-s|Docs: tutorials / use-case-tutorials / scripting /]])
+- Teleport between places (docs) ([[2026-10-28 - Docs scripting security access-control|Docs: scripting / security / access-control]])
+- Data model guide (docs) ([[2026-10-28 - Docs scripting security access-control|Docs: scripting / security / access-control]])
+- Studio testing modes (docs) ([[2026-10-28 - Docs scripting security access-control|Docs: scripting / security / access-control]])
+- Asset Privacy docs ([[2026-10-28 - Docs production creator-store|Docs: production / creator-store]])
+- Stripe supported currencies documentation ([[2026-10-28 - Docs production creator-store|Docs: production / creator-store]])
+- Stripe minimum payouts table ([[2026-10-28 - Docs production creator-store|Docs: production / creator-store]])
+- Stripe cross-border payouts documentation ([[2026-10-28 - Docs production creator-store|Docs: production / creator-store]])
+- AI data sharing docs ([[2026-10-28 - Docs production creator-store|Docs: production / creator-store]])
+- Roblox docs: modeling best practices and sculpting tips ([[2026-10-28 - Docs art characters creating sculpting|Docs: art / characters / creating / sculpting]])
+- Environment Art - Assembling .rbxl file (sample laser tag environment) ([[2026-10-28 - Docs tutorials curriculums environmental-art assemble-an-asset-library|Docs: tutorials / curriculums / environmental-art ]])
+- Luau Operators (Roblox Creator Docs) ([[2026-10-28 - Docs tutorials fundamentals coding-3 intro-to-if-statements|Docs: tutorials / fundamentals / coding-3 / intro-]])
+- Content updates (Roblox docs) ([[2026-10-28 - Docs production game-design liveops-essentials|Docs: production / game-design / liveops-essential]])
+- ValidationTool_Blender.zip ([[2026-10-28 - Docs art characters validation-tool|Docs: art / characters / validation-tool]])
+- Assemble an asset library - Creating custom materials ([[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]])
+- Assemble modular environments - Reduce visible repetition ([[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]])
+- Building architecture - Creating trim sheets ([[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]])
+- PBR textures - Texture maps ([[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]])
+- Developing a moving world - Setting up the eye of the storm ([[2026-10-28 - Docs tutorials curriculums environmental-art develop-polished-assets|Docs: tutorials / curriculums / environmental-art ]])
+- Snapshot Data Stores Open Cloud API ([[2026-10-28 - Docs cloud-services data-stores versioning-listing-and-caching|Docs: cloud-services / data-stores / versioning-li]])
+- Non-finite numbers (Open Cloud docs) ([[2026-10-28 - Docs cloud-services data-stores versioning-listing-and-caching|Docs: cloud-services / data-stores / versioning-li]])
+- Next Generation Science Standards ([[2026-10-28 - Docs education developer planning-for-educational-settings|Docs: education / developer / planning-for-educati]])
+- Common Core ([[2026-10-28 - Docs education developer planning-for-educational-settings|Docs: education / developer / planning-for-educati]])
+- College Board ([[2026-10-28 - Docs education developer planning-for-educational-settings|Docs: education / developer / planning-for-educati]])
+- Stealth Assessment by Valerie Shute and Matthew Ventura ([[2026-10-28 - Docs education developer planning-for-educational-settings|Docs: education / developer / planning-for-educati]])
+- NN/g: Designing for Kids: Cognitive Considerations (2018) ([[2026-10-28 - Docs education developer planning-for-educational-settings|Docs: education / developer / planning-for-educati]])
+- University of Waterloo: Exam Questions: Types, Characteristics, and Suggestions ([[2026-10-28 - Docs education developer planning-for-educational-settings|Docs: education / developer / planning-for-educati]])
+- Class.StyleQuery.IsActive ([[2026-10-28 - Docs ui styling editor|Docs: ui / styling / editor]])
+- Class.StyleSheet:SetDerives() ([[2026-10-28 - Docs ui styling editor|Docs: ui / styling / editor]])
+- Enum.GuiState ([[2026-10-28 - Docs ui styling editor|Docs: ui / styling / editor]])
+- Enum.DisplaySize ([[2026-10-28 - Docs ui styling editor|Docs: ui / styling / editor]])
+- Roblox Controller Emulator ([[2026-10-28 - Docs input input-action-system|Docs: input / input-action-system]])
+- File > Beta Features > InputActionLabel ([[2026-10-28 - Docs input input-action-system|Docs: input / input-action-system]])
+- Rigid accessory creation tutorial ([[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]])
+- Accessory and clothing reference files ([[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]])
+- Rigid accessory specifications ([[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]])
+- Marketplace policy ([[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]])
+- Uploading to Marketplace ([[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]])
+- Fees and commissions ([[2026-10-28 - Docs avatar rigid-accessories|Docs: avatar / rigid-accessories]])
+- Roblox DevEx program ([[2026-10-28 - Docs production monetization robux-transfers|Docs: production / monetization / robux-transfers]])
+- Roblox general mesh specifications ([[2026-10-28 - Docs art accessories validation-tool|Docs: art / accessories / validation-tool]])
+- Roblox layered accessory specifications ([[2026-10-28 - Docs art accessories validation-tool|Docs: art / accessories / validation-tool]])
+- Roblox Creator Challenge (quiz game) ([[2026-10-28 - Docs education build-it-play-it-galactic-speedway take-the-challenge|Docs: education / build-it-play-it-galactic-speedw]])
+- Introduction to Quest Design ([[2026-10-28 - Docs resources feature-packages missions|Docs: resources / feature-packages / missions]])
+- Basic dynamic head creation tutorial ([[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]])
+- Basic facial accessory creation tutorial ([[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]])
+- Dynamic head caging best practices ([[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]])
+- FACS pose references ([[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]])
+- Dynamic head specifications ([[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]])
+- Validation process ([[2026-10-28 - Docs avatar dynamic-heads|Docs: avatar / dynamic-heads]])
+- Roblox Creator Dashboard Analytics docs ([[2026-10-28 - Docs production analytics demographics|Docs: production / analytics / demographics]])
+- Deferred events (Workspace.SignalBehavior) docs ([[2026-10-28 - Docs performance-optimization microprofiler task-scheduler|Docs: performance-optimization / microprofiler / t]])
+- Animator docs ([[2026-10-28 - Docs performance-optimization microprofiler task-scheduler|Docs: performance-optimization / microprofiler / t]])
+- BindToRenderStep docs ([[2026-10-28 - Docs performance-optimization microprofiler task-scheduler|Docs: performance-optimization / microprofiler / t]])
+- Roblox Marketplace Policy ([[2026-10-28 - Docs marketplace moderation|Docs: marketplace / moderation]])
+- IP infringement notice form ([[2026-10-28 - Docs marketplace moderation|Docs: marketplace / moderation]])
+- Audio objects documentation ([[2026-10-28 - Docs sound groups|Docs: sound / groups]])
+- Roblox Rewarded Video Playbook: RPG ([[2026-10-28 - Docs production promotion rewarded-video-playbooks rpg|Docs: production / promotion / rewarded-video-play]])
+- Roblox branding guidelines ([[2026-10-28 - Docs education resources marketing-materials|Docs: education / resources / marketing-materials]])
+- Core loops ([[2026-10-28 - Docs production game-design onboarding|Docs: production / game-design / onboarding]])
+- Season Pass Design ([[2026-10-28 - Docs production game-design onboarding|Docs: production / game-design / onboarding]])
+- Class.CanvasGroup ([[2026-10-28 - Docs ui frames|Docs: ui / frames]])
+- Class.GuiObject.ClipsDescendants ([[2026-10-28 - Docs ui frames|Docs: ui / frames]])
+- Class.StarterGui.ClipsDescendantsSupportsRotation ([[2026-10-28 - Docs ui frames|Docs: ui / frames]])
+- Class.Frame.AutomaticSize ([[2026-10-28 - Docs ui frames|Docs: ui / frames]])
+- Class.GuiObject.Rotation ([[2026-10-28 - Docs ui frames|Docs: ui / frames]])
+- Class.UICorner ([[2026-10-28 - Docs ui frames|Docs: ui / frames]])
+- Studio overview ([[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]])
+- Parts ([[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]])
+- Custom meshes ([[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]])
+- Materials ([[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]])
+- Textures and decals and PBR textures ([[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]])
+- Improve performance ([[2026-10-28 - Docs art overview-studio|Docs: art / overview-studio]])
+- Introduction to Roblox Studio tutorial ([[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-1|Docs: education / lesson-plans / roblox-developer ]])
+- Create a script tutorial ([[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-1|Docs: education / lesson-plans / roblox-developer ]])
+- Roblox Studio Cheatsheet handout ([[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-1|Docs: education / lesson-plans / roblox-developer ]])
+- Intro to Coding Cheatsheet handout ([[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-1|Docs: education / lesson-plans / roblox-developer ]])
+- Pass analytics ([[2026-10-28 - Docs production monetization price-optimization|Docs: production / monetization / price-optimizati]])
+- Developer Product analytics ([[2026-10-28 - Docs production monetization price-optimization|Docs: production / monetization / price-optimizati]])
+- Sell a pass ([[2026-10-28 - Docs production monetization price-optimization|Docs: production / monetization / price-optimizati]])
+- Sell a developer product ([[2026-10-28 - Docs production monetization price-optimization|Docs: production / monetization / price-optimizati]])
+- Gold Rush sample game ([[2026-10-28 - Docs tutorials use-case-tutorials scripting intermediate-scripting sav|Docs: tutorials / use-case-tutorials / scripting /]])
+- Boardwalk starter template ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-engaging-ex|Docs: education / build-it-play-it-mansion-of-wond]])
+- Boardwalk Starter Objects (Inventory) ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder creating-engaging-ex|Docs: education / build-it-play-it-mansion-of-wond]])
+- Core Loops (Roblox docs) ([[2026-10-28 - Docs production game-design content-updates|Docs: production / game-design / content-updates]])
+- Season pass design (Roblox docs) ([[2026-10-28 - Docs production game-design content-updates|Docs: production / game-design / content-updates]])
+- Animation Graph Reference File (Roblox reference place) ([[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]])
+- Enum.AnimationNodeType docs ([[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]])
+- Transition properties docs ([[2026-10-28 - Docs animation graph-editor|Docs: animation / graph-editor]])
+- Creator Store documentation ([[2026-10-28 - Docs projects assets toolbox|Docs: projects / assets / toolbox]])
+- Rate Limits (Open Cloud documentation) ([[2026-10-28 - Docs cloud-services http-service|Docs: cloud-services / http-service]])
+- Secrets stores (Creator Hub documentation) ([[2026-10-28 - Docs cloud-services http-service|Docs: cloud-services / http-service]])
+- PBR textures documentation ([[2026-10-28 - Docs avatar makeup specifications|Docs: avatar / makeup / specifications]])
+- General mesh specifications ([[2026-10-28 - Docs avatar makeup specifications|Docs: avatar / makeup / specifications]])
+- Rigid accessory specifications ([[2026-10-28 - Docs avatar makeup specifications|Docs: avatar / makeup / specifications]])
+- Layered accessory specifications ([[2026-10-28 - Docs avatar makeup specifications|Docs: avatar / makeup / specifications]])
+- Create accessories ([[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]])
+- Texture basic clothing ([[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]])
+- Material references ([[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]])
+- rigid accessory export settings ([[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]])
+- Marketplace policy ([[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]])
+- Fees and commissions ([[2026-10-28 - Docs art accessories from-existing|Docs: art / accessories / from-existing]])
+- Roblox Education docs: Mansion of Wonder lesson, design tab (UX careers) ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder next-steps-advanced|Docs: education / build-it-play-it-mansion-of-wond]])
+- Roblox report and block user guidance ([[2026-10-28 - Docs education resources intro-to-digital-civility|Docs: education / resources / intro-to-digital-civ]])
+- Luau linting documentation ([[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]])
+- Engine API Reference ([[2026-10-28 - Docs studio script-editor|Docs: studio / script-editor]])
+- Game UI Database (free screenshot resource of UI from hundreds of games) ([[2026-10-28 - Docs tutorials curriculums user-interface-design choose-an-art-style|Docs: tutorials / curriculums / user-interface-des]])
+- Web Content Accessibility Guidelines (Touch Target Size and Spacing) ([[2026-10-28 - Docs tutorials curriculums user-interface-design choose-an-art-style|Docs: tutorials / curriculums / user-interface-des]])
+- Environmental Art Curriculum (Roblox) ([[2026-10-28 - Docs tutorials curriculums user-interface-design choose-an-art-style|Docs: tutorials / curriculums / user-interface-des]])
+- Create player hazards (Roblox tutorial) ([[2026-10-28 - Docs tutorials curriculums core scripting script-an-upgrade-button|Docs: tutorials / curriculums / core / scripting /]])
+- Roblox Creator Docs: Importer ([[2026-10-28 - Docs art accessories creating-rigid importing|Docs: art / accessories / creating-rigid / importi]])
+- Add 3D audio (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-2D-audio|Docs: tutorials / use-case-tutorials / audio / add]])
+- Creating Perfect Audio Loops (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-2D-audio|Docs: tutorials / use-case-tutorials / audio / add]])
+- Class.Atmosphere ([[2026-10-28 - Docs environment atmosphere|Docs: environment / atmosphere]])
+- Class.Lighting ([[2026-10-28 - Docs environment atmosphere|Docs: environment / atmosphere]])
+- Creator requirements ([[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]])
+- Moderation ([[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]])
+- Fees and commissions ([[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]])
+- Marketplace licenses ([[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]])
+- Regional Pricing ([[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]])
+- Archive assets ([[2026-10-28 - Docs marketplace publish-to-marketplace|Docs: marketplace / publish-to-marketplace]])
+- RigidConstraint ([[2026-10-28 - Docs physics constraints weld|Docs: physics / constraints / weld]])
+- Rig a humanoid model (Roblox docs) ([[2026-10-28 - Docs art modeling skin-a-humanoid-model|Docs: art / modeling / skin-a-humanoid-model]])
+- Skin a simple mesh (Roblox docs) ([[2026-10-28 - Docs art modeling skin-a-humanoid-model|Docs: art / modeling / skin-a-humanoid-model]])
+- Blender Character Rigging fundamentals guide ([[2026-10-28 - Docs art modeling skin-a-humanoid-model|Docs: art / modeling / skin-a-humanoid-model]])
+- Blender Vertex Groups fundamentals guide ([[2026-10-28 - Docs art modeling skin-a-humanoid-model|Docs: art / modeling / skin-a-humanoid-model]])
+- Blender Auto Normalize documentation ([[2026-10-28 - Docs art modeling skin-a-humanoid-model|Docs: art / modeling / skin-a-humanoid-model]])
+- Roblox Battle Royale public game ([[2026-10-28 - Docs resources battle-royale|Docs: resources / battle-royale]])
+- Layered accessory caging best practices ([[2026-10-28 - Docs avatar dynamic-heads caging-best-practices|Docs: avatar / dynamic-heads / caging-best-practic]])
+- Roblox docs: Motor6D ([[2026-10-28 - Docs physics assemblies|Docs: physics / assemblies]])
+- Roblox docs: WeldConstraint ([[2026-10-28 - Docs physics assemblies|Docs: physics / assemblies]])
+- Roblox docs: VectorForce ([[2026-10-28 - Docs physics assemblies|Docs: physics / assemblies]])
+- Roblox docs: LinearVelocity ([[2026-10-28 - Docs physics assemblies|Docs: physics / assemblies]])
+- Roblox docs: AngularVelocity ([[2026-10-28 - Docs physics assemblies|Docs: physics / assemblies]])
+- Bubble Chat documentation ([[2026-10-28 - Docs chat chat-window|Docs: chat / chat-window]])
+- Adaptive design guide ([[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]])
+- Accessibility guidelines ([[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]])
+- Displaying bindings docs ([[2026-10-28 - Docs projects cross-platform|Docs: projects / cross-platform]])
+- 2025 Roblox Innovation Awards ([[2026-10-28 - Docs creator-programs innovation-awards|Docs: creator-programs / innovation-awards]])
+- Roblox Creator Docs: Intro to If Statements ([[2026-10-28 - Docs tutorials fundamentals coding-3 landing|Docs: tutorials / fundamentals / coding-3 / landin]])
+- Roblox Creator Docs: Multiple Conditions ([[2026-10-28 - Docs tutorials fundamentals coding-3 landing|Docs: tutorials / fundamentals / coding-3 / landin]])
+- Price optimization docs ([[2026-10-28 - Docs production monetization managed-pricing|Docs: production / monetization / managed-pricing]])
+- Regional pricing docs ([[2026-10-28 - Docs production monetization managed-pricing|Docs: production / monetization / managed-pricing]])
+- Genres documentation page ([[2026-10-28 - Docs tutorials curriculums building test-and-save|Docs: tutorials / curriculums / building / test-an]])
+- Voice Chat FAQ ([[2026-10-28 - Docs chat voice-chat|Docs: chat / voice-chat]])
+- Alerts (Creator Hub UI) ([[2026-10-28 - Docs cloud guides alerts|Docs: cloud / guides / alerts]])
+- Webhook notifications ([[2026-10-28 - Docs cloud guides alerts|Docs: cloud / guides / alerts]])
+- Supported metrics ([[2026-10-28 - Docs cloud guides alerts|Docs: cloud / guides / alerts]])
+- API reference documentation ([[2026-10-28 - Docs cloud guides alerts|Docs: cloud / guides / alerts]])
+- Manage API keys (Creator Hub) ([[2026-10-28 - Docs cloud-services data-stores right-to-be-forgotten|Docs: cloud-services / data-stores / right-to-be-f]])
+- Cloud API reference ([[2026-10-28 - Docs cloud-services data-stores right-to-be-forgotten|Docs: cloud-services / data-stores / right-to-be-f]])
+- Experience configs guide ([[2026-10-28 - Docs cloud-services data-stores right-to-be-forgotten|Docs: cloud-services / data-stores / right-to-be-f]])
+- Roblox docs: simulation sync ([[2026-10-28 - Docs projects server-authority techniques|Docs: projects / server-authority / techniques]])
+- Roblox docs: Workspace.GlobalWind ([[2026-10-28 - Docs environment global-wind|Docs: environment / global-wind]])
+- Roblox docs: ParticleEmitter ([[2026-10-28 - Docs environment global-wind|Docs: environment / global-wind]])
+- Class.ParticleEmitter ([[2026-10-28 - Docs tutorials curriculums core building create-basic-visual-effects|Docs: tutorials / curriculums / core / building / ]])
+- Customizing particles ([[2026-10-28 - Docs tutorials curriculums core building create-basic-visual-effects|Docs: tutorials / curriculums / core / building / ]])
+- Roblox docs: Tables ([[2026-10-28 - Docs luau luau-csharp-comparison|Docs: luau / luau-csharp-comparison]])
+- Roblox docs: Control Structures ([[2026-10-28 - Docs luau luau-csharp-comparison|Docs: luau / luau-csharp-comparison]])
+- Roblox docs: Functions ([[2026-10-28 - Docs luau luau-csharp-comparison|Docs: luau / luau-csharp-comparison]])
+- Lighting.ClockTime ([[2026-10-28 - Docs environment post-processing-effects|Docs: environment / post-processing-effects]])
+- Lighting.TimeOfDay ([[2026-10-28 - Docs environment post-processing-effects|Docs: environment / post-processing-effects]])
+- Mansion of Wonder template ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder beginner-landing-pag|Docs: education / build-it-play-it-mansion-of-wond]])
+- Roblox Creator Docs: Create a custom leaderboard with ordered data stores ([[2026-10-28 - Docs tutorials use-case-tutorials data-storage create-leaderboard|Docs: tutorials / use-case-tutorials / data-storag]])
+- Blender FBX scaling documentation ([[2026-10-28 - Docs avatar layered-accessories export|Docs: avatar / layered-accessories / export]])
+- General mesh export settings docs ([[2026-10-28 - Docs avatar layered-accessories export|Docs: avatar / layered-accessories / export]])
+- Rigid accessory export settings docs ([[2026-10-28 - Docs avatar layered-accessories export|Docs: avatar / layered-accessories / export]])
+- Datatype.PhysicalProperties documentation ([[2026-10-28 - Docs physics units|Docs: physics / units]])
+- Client-server runtime ([[2026-10-28 - Docs projects|Docs: projects]])
+- Data model ([[2026-10-28 - Docs projects|Docs: projects]])
+- Collaboration ([[2026-10-28 - Docs projects|Docs: projects]])
+- Studio testing modes ([[2026-10-28 - Docs projects|Docs: projects]])
+- Assets ([[2026-10-28 - Docs projects|Docs: projects]])
+- Luau documentation on Scope ([[2026-10-28 - Docs luau variables|Docs: luau / variables]])
+- Roblox docs: TextBox, GuiObject, string.gsub ([[2026-10-28 - Docs ui text-input|Docs: ui / text-input]])
+- Studio Settings Network tab ([[2026-10-28 - Docs studio network-simulator|Docs: studio / network-simulator]])
+- Roblox Units documentation ([[2026-10-28 - Docs tutorials use-case-tutorials physics create-moving-objects|Docs: tutorials / use-case-tutorials / physics / c]])
+- Exporting Requirements documentation ([[2026-10-28 - Docs tutorials use-case-tutorials physics create-moving-objects|Docs: tutorials / use-case-tutorials / physics / c]])
+- Moving Objects sample .rbxl file ([[2026-10-28 - Docs tutorials use-case-tutorials physics create-moving-objects|Docs: tutorials / use-case-tutorials / physics / c]])
+- Identify performance issues ([[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]])
+- Design for performance ([[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]])
+- Cross-platform development ([[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]])
+- Adaptive design ([[2026-10-28 - Docs performance-optimization test-on-hardware|Docs: performance-optimization / test-on-hardware]])
+- Roblox Studio Cheatsheet handout ([[2026-10-28 - Docs education lesson-plans build-an-obby-lesson|Docs: education / lesson-plans / build-an-obby-les]])
+- Intro to Coding Cheatsheet handout ([[2026-10-28 - Docs education lesson-plans build-an-obby-lesson|Docs: education / lesson-plans / build-an-obby-les]])
+- Learn About Studio (Roblox docs) ([[2026-10-28 - Docs education lesson-plans build-an-obby-lesson|Docs: education / lesson-plans / build-an-obby-les]])
+- Be Internet Awesome World (Google) ([[2026-10-28 - Docs education lesson-plans build-an-obby-lesson|Docs: education / lesson-plans / build-an-obby-les]])
+- Roblox Creator Docs: education / battle-royale-series ([[2026-10-28 - Docs education battle-royale-series ending-matches|Docs: education / battle-royale-series / ending-ma]])
+- Today's Picks on Home nomination survey (Roblox Creator Programs) ([[2026-10-28 - Docs creator-programs todays-picks-home|Docs: creator-programs / todays-picks-home]])
+- Roblox Creator Docs: Build It, Play It education series (Island of Move) ([[2026-10-28 - Docs education build-it-play-it-island-of-move go-beyond-the-challenge|Docs: education / build-it-play-it-island-of-move ]])
+- Recover from memory quota exhaustion ([[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]])
+- Troubleshooting ([[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]])
+- Enable a service ([[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]])
+- Service pricing ([[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]])
+- Developer Forum ([[2026-10-28 - Docs cloud-services memory-stores|Docs: cloud-services / memory-stores]])
+- Roblox Rig_and_Attachments_Template.blend ([[2026-10-28 - Docs art accessories creating armature-setup|Docs: art / accessories / creating / armature-setu]])
+- Roblox Creator Dashboard Performance dashboard ([[2026-10-28 - Docs production analytics alerts|Docs: production / analytics / alerts]])
+- Roblox experience Permissions page ([[2026-10-28 - Docs production analytics alerts|Docs: production / analytics / alerts]])
+- Build It, Play It story games lesson ([[2026-10-28 - Docs education build-it-play-it-story-games start-coding|Docs: education / build-it-play-it-story-games / s]])
+- Client-Server Model guide ([[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]])
+- Luau guide ([[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]])
+- Remote Events and Callbacks guide ([[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]])
+- UI guide ([[2026-10-28 - Docs resources plant-reference-project|Docs: resources / plant-reference-project]])
+- Roblox docs: Physics / Mechanical constraints ([[2026-10-28 - Docs physics mechanical-constraints|Docs: physics / mechanical-constraints]])
+- Audio (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials audio play-background-music|Docs: tutorials / use-case-tutorials / audio / pla]])
+- Open Cloud API reference ([[2026-10-28 - Docs cloud guides|Docs: cloud / guides]])
+- roblox.com/support (Experience Genre help category) ([[2026-10-28 - Docs production publishing experience-genres|Docs: production / publishing / experience-genres]])
+- Mover constraints overview ([[2026-10-28 - Docs physics constraints linear-velocity|Docs: physics / constraints / linear-velocity]])
+- Roblox units ([[2026-10-28 - Docs physics constraints linear-velocity|Docs: physics / constraints / linear-velocity]])
+- Roblox Creator Docs: Rewarded video ads ([[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]])
+- Roblox Creator Docs: Experiments ([[2026-10-28 - Docs production promotion rewarded-video-ads|Docs: production / promotion / rewarded-video-ads]])
+- Roblox Terms of Service (governs the account and Service referenced by the License) ([[2026-10-28 - Docs resources limited-use-license|Docs: resources / limited-use-license]])
+- Roblox Education: Build It, Play It course (Mansion of Wonder) ([[2026-10-28 - Docs education build-it-play-it-mansion-of-wonder challenge-checkpoint|Docs: education / build-it-play-it-mansion-of-wond]])
+- roblox.com (account creation) ([[2026-10-28 - Docs studio setup|Docs: studio / setup]])
+- Real World Building and Scripting Optimization ([[2026-10-28 - Docs performance-optimization design|Docs: performance-optimization / design]])
+- SLIM and Improve performance docs ([[2026-10-28 - Docs performance-optimization design|Docs: performance-optimization / design]])
+- Remove duplicate textures docs ([[2026-10-28 - Docs performance-optimization design|Docs: performance-optimization / design]])
+- Mechanical constraints docs page ([[2026-10-28 - Docs physics constraints spring|Docs: physics / constraints / spring]])
+- Roblox units docs page ([[2026-10-28 - Docs physics constraints spring|Docs: physics / constraints / spring]])
+- Audio (newer audio objects, linked from warning) ([[2026-10-28 - Docs sound objects|Docs: sound / objects]])
+- Creator Rewards program (replacement for Engagement-Based Payouts) ([[2026-10-28 - Docs production monetization engagement-based-payouts|Docs: production / monetization / engagement-based]])
+- Open Cloud secrets store: Use secrets (in-game usage guide) ([[2026-10-28 - Docs cloud guides secrets-store|Docs: cloud / guides / secrets-store]])
+- Roblox Creator Docs: Avatar Setup specifications ([[2026-10-28 - Docs avatar-setup auto-setup-requirements|Docs: avatar-setup / auto-setup-requirements]])
+- Roblox docs: Existing attributes ([[2026-10-28 - Docs matchmaking scoring|Docs: matchmaking / scoring]])
+- Roblox docs: Custom attributes ([[2026-10-28 - Docs matchmaking scoring|Docs: matchmaking / scoring]])
+- Roblox docs: Existing signals ([[2026-10-28 - Docs matchmaking scoring|Docs: matchmaking / scoring]])
+- Roblox docs: Custom signals ([[2026-10-28 - Docs matchmaking scoring|Docs: matchmaking / scoring]])
+- Gold Rush .rbxl sample place file ([[2026-10-28 - Docs tutorials use-case-tutorials ui create-a-score-bar|Docs: tutorials / use-case-tutorials / ui / create]])
+- Audio effects (newer Roblox docs page) ([[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]])
+- Ducking (Roblox docs) ([[2026-10-28 - Docs sound dynamic-effects|Docs: sound / dynamic-effects]])
+- Publish to Marketplace docs ([[2026-10-28 - Docs avatar animation-packs|Docs: avatar / animation-packs]])
+- Marketplace fees and commissions docs ([[2026-10-28 - Docs avatar animation-packs|Docs: avatar / animation-packs]])
+- UGC validation system docs ([[2026-10-28 - Docs avatar animation-packs|Docs: avatar / animation-packs]])
+- Curve Editor docs ([[2026-10-28 - Docs avatar animation-packs|Docs: avatar / animation-packs]])
+- Avatar Settings docs ([[2026-10-28 - Docs avatar animation-packs|Docs: avatar / animation-packs]])
+- Roblox Kids and Select ([[2026-10-28 - Docs production promotion content-maturity|Docs: production / promotion / content-maturity]])
+- Age-Restricted Content Policy ([[2026-10-28 - Docs production promotion content-maturity|Docs: production / promotion / content-maturity]])
+- Roblox Community Standards ([[2026-10-28 - Docs production promotion content-maturity|Docs: production / promotion / content-maturity]])
+- Class.PolicyService API reference ([[2026-10-28 - Docs production promotion content-maturity|Docs: production / promotion / content-maturity]])
+- Mover constraints overview ([[2026-10-28 - Docs physics constraints line-force|Docs: physics / constraints / line-force]])
+- Roblox units ([[2026-10-28 - Docs physics constraints line-force|Docs: physics / constraints / line-force]])
+- Empower Luau creation (AI training contribution program) ([[2026-10-28 - Docs luau|Docs: luau]])
+- Interactivity Showcase ([[2026-10-28 - Docs production publishing adaptive-design|Docs: production / publishing / adaptive-design]])
+- Cross-platform development guide ([[2026-10-28 - Docs production publishing adaptive-design|Docs: production / publishing / adaptive-design]])
+- Roblox Developer Exchange (DevEx) program documentation ([[2026-10-28 - Docs production monetization 18-plus-devex-rate|Docs: production / monetization / 18-plus-devex-ra]])
+- Roblox Creator Docs: UIListLayout ([[2026-10-28 - Docs ui list-flex-layouts|Docs: ui / list-flex-layouts]])
+- Balance virtual economies (Roblox docs) ([[2026-10-28 - Docs production analytics economy-events|Docs: production / analytics / economy-events]])
+- Event tracking limitations (Roblox docs) ([[2026-10-28 - Docs production analytics economy-events|Docs: production / analytics / economy-events]])
+- Custom fields (Roblox docs) ([[2026-10-28 - Docs production analytics economy-events|Docs: production / analytics / economy-events]])
+- Roblox free lesson plans ([[2026-10-28 - Docs education educator-onboarding 1-intro-to-roblox|Docs: education / educator-onboarding / 1-intro-to]])
+- Hardware Requirements page ([[2026-10-28 - Docs education educator-onboarding 1-intro-to-roblox|Docs: education / educator-onboarding / 1-intro-to]])
+- Safety page (COPPA compliance) ([[2026-10-28 - Docs education educator-onboarding 1-intro-to-roblox|Docs: education / educator-onboarding / 1-intro-to]])
+- Creator Hub ([[2026-10-28 - Docs ai accelerated-workflows|Docs: ai / accelerated-workflows]])
+- Class.LogService ([[2026-10-28 - Docs studio output|Docs: studio / output]])
+- Get started with analytics (Roblox docs) ([[2026-10-28 - Docs production game-design analytics-essentials|Docs: production / game-design / analytics-essenti]])
+- Avatar Settings ([[2026-10-28 - Docs characters appearance|Docs: characters / appearance]])
+- Layered accessories caging overview ([[2026-10-28 - Docs characters appearance|Docs: characters / appearance]])
+- Layered accessories caging best practices ([[2026-10-28 - Docs characters appearance|Docs: characters / appearance]])
+- Layered accessories cage mesh specifications ([[2026-10-28 - Docs characters appearance|Docs: characters / appearance]])
+- Avatar body cage specifications ([[2026-10-28 - Docs characters appearance|Docs: characters / appearance]])
+- Analytics dashboard docs ([[2026-10-28 - Docs production analytics insights|Docs: production / analytics / insights]])
+- Analytics essentials docs ([[2026-10-28 - Docs production analytics insights|Docs: production / analytics / insights]])
+- Creator Hub Creations page > Monitoring > Crashes ([[2026-10-28 - Docs production analytics crashes|Docs: production / analytics / crashes]])
+- Data store right to be forgotten (RTBF) ([[2026-10-28 - Docs cloud webhooks automate-right-to-erasure|Docs: cloud / webhooks / automate-right-to-erasure]])
+- RTBF and creators ([[2026-10-28 - Docs cloud webhooks automate-right-to-erasure|Docs: cloud / webhooks / automate-right-to-erasure]])
+- Verify webhook security ([[2026-10-28 - Docs cloud webhooks automate-right-to-erasure|Docs: cloud / webhooks / automate-right-to-erasure]])
+- Roblox battle-royale template docs: minimap-system ([[2026-10-28 - Docs resources battle-royale minimap-system|Docs: resources / battle-royale / minimap-system]])
+- Touring the UGC Homestore Template ([[2026-10-28 - Docs resources templates|Docs: resources / templates]])
+- Event Sequencer ([[2026-10-28 - Docs resources templates|Docs: resources / templates]])
+- Invite early testers (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums artist next-steps|Docs: tutorials / curriculums / artist / next-step]])
+- Release games (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums artist next-steps|Docs: tutorials / curriculums / artist / next-step]])
+- Create laser beams, waterfalls, volcanoes, lighting tutorials (Roblox docs) ([[2026-10-28 - Docs tutorials curriculums artist next-steps|Docs: tutorials / curriculums / artist / next-step]])
+- Galactic Speedway quiz game (Scrappers Backpack and As Many Colors as Stars badge) ([[2026-10-28 - Docs education build-it-play-it-galactic-speedway colors-and-textures|Docs: education / build-it-play-it-galactic-speedw]])
+- Roblox Intellectual Property Guidelines ([[2026-10-28 - Docs marketplace intellectual-property|Docs: marketplace / intellectual-property]])
+- Digital Millennium Copyright Act (DMCA) ([[2026-10-28 - Docs marketplace intellectual-property|Docs: marketplace / intellectual-property]])
+- Roblox Terms of Use ([[2026-10-28 - Docs marketplace intellectual-property|Docs: marketplace / intellectual-property]])
+- Roblox DevForum changelog/credits link (suggested placement) ([[2026-10-28 - Docs production publishing descriptions|Docs: production / publishing / descriptions]])
+- In-Experience Creation Demo Arena ([[2026-10-28 - Docs projects assets in-experience-asset-creation|Docs: projects / assets / in-experience-asset-crea]])
+- Creator Store Packages category ([[2026-10-28 - Docs resources modules friends-locator|Docs: resources / modules / friends-locator]])
+- [email] ([[2026-10-28 - Docs creator-programs developer-awards|Docs: creator-programs / developer-awards]])
+- Skin a humanoid model guide ([[2026-10-28 - Docs avatar character-bodies project-files|Docs: avatar / character-bodies / project-files]])
+- Create with templates guide ([[2026-10-28 - Docs avatar character-bodies project-files|Docs: avatar / character-bodies / project-files]])
+- Resources page (official avatar downloadable content) ([[2026-10-28 - Docs avatar character-bodies project-files|Docs: avatar / character-bodies / project-files]])
+- Roblox reference sample model for player data systems (imported into Studio) ([[2026-10-28 - Docs cloud-services data-stores player-data-purchasing|Docs: cloud-services / data-stores / player-data-p]])
+- MarketplaceService.ProcessReceipt docs page ([[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]])
+- Randomized virtual item policy ([[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]])
+- Passes documentation ([[2026-10-28 - Docs production monetization developer-products|Docs: production / monetization / developer-produc]])
+- Presentation: Digital Safety ([[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]])
+- Handout: Digital Safety Scavenger Hunt ([[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]])
+- Handout: Roblox Studio Cheatsheet ([[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]])
+- Building lesson tutorial ([[2026-10-28 - Docs education lesson-plans digital-citizenship intro-to-roblox|Docs: education / lesson-plans / digital-citizensh]])
+- Roblox Creator Docs: Create an environment with terrain ([[2026-10-28 - Docs tutorials curriculums core building create-an-environment-with-te|Docs: tutorials / curriculums / core / building / ]])
+- Mover constraints overview ([[2026-10-28 - Docs physics constraints align-orientation|Docs: physics / constraints / align-orientation]])
+- Roblox units ([[2026-10-28 - Docs physics constraints align-orientation|Docs: physics / constraints / align-orientation]])
+- Class.AlignPosition ([[2026-10-28 - Docs physics constraints align-orientation|Docs: physics / constraints / align-orientation]])
+- Global lighting (Creator Docs) ([[2026-10-28 - Docs tutorials curriculums core building customize-global-lighting|Docs: tutorials / curriculums / core / building / ]])
+- Lighting and effects ([[2026-10-28 - Docs tutorials curriculums core building customize-global-lighting|Docs: tutorials / curriculums / core / building / ]])
+- Atmospheric Effects ([[2026-10-28 - Docs tutorials curriculums core building customize-global-lighting|Docs: tutorials / curriculums / core / building / ]])
+- Open Cloud ([[2026-10-28 - Docs scripting services|Docs: scripting / services]])
+- Data model documentation ([[2026-10-28 - Docs scripting services|Docs: scripting / services]])
+- Blender official docs ([[2026-10-28 - Docs avatar tutorials|Docs: avatar / tutorials]])
+- Roblox Studio setup docs ([[2026-10-28 - Docs avatar tutorials|Docs: avatar / tutorials]])
+- Voice chat (Roblox docs, country verification requirements) ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]])
+- Gingerbread Island - Voice Chat sample .rbxl ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-voice-chat|Docs: tutorials / use-case-tutorials / audio / add]])
+- Roblox docs: sidebar security topics ([[2026-10-28 - Docs scripting security network-ownership|Docs: scripting / security / network-ownership]])
+- Substance Painter ([[2026-10-28 - Docs art modeling material-reference|Docs: art / modeling / material-reference]])
+- Create Player Tools tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera detect-user-input|Docs: tutorials / use-case-tutorials / input-and-c]])
+- Enum.KeyCode list ([[2026-10-28 - Docs tutorials use-case-tutorials input-and-camera detect-user-input|Docs: tutorials / use-case-tutorials / input-and-c]])
+- Roblox docs: Animation editor / animation events ([[2026-10-28 - Docs animation events|Docs: animation / events]])
+- Instance attributes docs ([[2026-10-28 - Docs scripting attributes|Docs: scripting / attributes]])
+- Events docs ([[2026-10-28 - Docs scripting attributes|Docs: scripting / attributes]])
+- Stream in / per-model streaming controls docs ([[2026-10-28 - Docs scripting attributes|Docs: scripting / attributes]])
+- Coding fundamentals ([[2026-10-28 - Docs scripting|Docs: scripting]])
+- Basic gameplay tutorial ([[2026-10-28 - Docs scripting|Docs: scripting]])
+- Compatibility in the Luau documentation ([[2026-10-28 - Docs scripting|Docs: scripting]])
+- Luau reference ([[2026-10-28 - Docs scripting|Docs: scripting]])
+- Script Types and Locations ([[2026-10-28 - Docs scripting|Docs: scripting]])
+- Box Modeling 101 staff article (Roblox) ([[2026-10-28 - Docs art accessories creating-rigid modeling-setup|Docs: art / accessories / creating-rigid / modelin]])
+- Blender official and community tutorials ([[2026-10-28 - Docs art accessories creating-rigid modeling-setup|Docs: art / accessories / creating-rigid / modelin]])
+- Mover constraints overview ([[2026-10-28 - Docs physics constraints vector-force|Docs: physics / constraints / vector-force]])
+- Roblox units ([[2026-10-28 - Docs physics constraints vector-force|Docs: physics / constraints / vector-force]])
+- Planning, Reuse, and Budgets (Roblox docs) ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]])
+- Packages (Roblox docs) ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]])
+- CC0 museum scan content ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive construct-the-house|Docs: resources / the-mystery-of-duvall-drive / co]])
+- AlignOrientation docs page ([[2026-10-28 - Docs physics constraints align-position|Docs: physics / constraints / align-position]])
+- Mover constraints overview ([[2026-10-28 - Docs physics constraints align-position|Docs: physics / constraints / align-position]])
+- Roblox units documentation ([[2026-10-28 - Docs physics constraints align-position|Docs: physics / constraints / align-position]])
+- Roblox Studio debugging docs ([[2026-10-28 - Docs studio debugging|Docs: studio / debugging]])
+- Class.RemoteEvent throttling section ([[2026-10-28 - Docs scripting events remote|Docs: scripting / events / remote]])
+- Class.UnreliableRemoteEvent payload limits ([[2026-10-28 - Docs scripting events remote|Docs: scripting / events / remote]])
+- Prompt subscription purchases docs ([[2026-10-28 - Docs scripting events remote|Docs: scripting / events / remote]])
+- Roblox Creator Docs: Animation Editor ([[2026-10-28 - Docs animation inverse-kinematics|Docs: animation / inverse-kinematics]])
+- Roblox Creator Store: ScavengerHunt package ([[2026-10-28 - Docs resources modules scavenger-hunt|Docs: resources / modules / scavenger-hunt]])
+- Roblox Education battle-royale-series course ([[2026-10-28 - Docs education battle-royale-series timers-and-events|Docs: education / battle-royale-series / timers-an]])
+- RDC 2025 YouTube playlist ([[2026-10-28 - Docs creator-programs rdc|Docs: creator-programs / rdc]])
+- Roblox Developer Forum (Save the Date announcements) ([[2026-10-28 - Docs creator-programs rdc|Docs: creator-programs / rdc]])
+- Blender FBX scaling documentation ([[2026-10-28 - Docs avatar emotes export|Docs: avatar / emotes / export]])
+- Export avatar animations from Maya tutorial ([[2026-10-28 - Docs avatar emotes export|Docs: avatar / emotes / export]])
+- Roblox docs: Create a custom attribute ([[2026-10-28 - Docs matchmaking attributes-and-signals|Docs: matchmaking / attributes-and-signals]])
+- Roblox docs: Create a custom signal ([[2026-10-28 - Docs matchmaking attributes-and-signals|Docs: matchmaking / attributes-and-signals]])
+- Roblox docs: Existing attributes ([[2026-10-28 - Docs matchmaking attributes-and-signals|Docs: matchmaking / attributes-and-signals]])
+- Roblox docs: Existing signals ([[2026-10-28 - Docs matchmaking attributes-and-signals|Docs: matchmaking / attributes-and-signals]])
+- Creator Store Packages ([[2026-10-28 - Docs resources modules spawn-with-friends|Docs: resources / modules / spawn-with-friends]])
+- Age ID Verification FAQs ([[2026-10-28 - Docs production publishing account-verification|Docs: production / publishing / account-verificati]])
+- Roblox Privacy Policy ([[2026-10-28 - Docs production publishing account-verification|Docs: production / publishing / account-verificati]])
+- Roblox Facial Media Capture Notice ([[2026-10-28 - Docs production publishing account-verification|Docs: production / publishing / account-verificati]])
+- Creator Store - Distribute and sell assets ([[2026-10-28 - Docs production publishing account-verification|Docs: production / publishing / account-verificati]])
+- Advertising Standards: Prohibited Advertising Practices and Content ([[2026-10-28 - Docs production promotion comply-with-advertising-standards|Docs: production / promotion / comply-with-adverti]])
+- Advertising Standards: Publisher Integrity ([[2026-10-28 - Docs production promotion comply-with-advertising-standards|Docs: production / promotion / comply-with-adverti]])
+- Independent Advertising Policy ([[2026-10-28 - Docs production promotion comply-with-advertising-standards|Docs: production / promotion / comply-with-adverti]])
+- Roblox localization tools ([[2026-10-28 - Docs production promotion comply-with-advertising-standards|Docs: production / promotion / comply-with-adverti]])
+- Roles and permissions (Creator Docs) ([[2026-10-28 - Docs production analytics custom-dashboards|Docs: production / analytics / custom-dashboards]])
+- Explore page (Creator Docs) ([[2026-10-28 - Docs production analytics custom-dashboards|Docs: production / analytics / custom-dashboards]])
+- Import character bodies docs ([[2026-10-28 - Docs avatar character-bodies test-studio|Docs: avatar / character-bodies / test-studio]])
+- Custom Skin Tones docs ([[2026-10-28 - Docs avatar character-bodies test-studio|Docs: avatar / character-bodies / test-studio]])
+- Making the Expanding Pantry (trigger volume example in the same doc series) ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive foundational-gameplay-syste|Docs: resources / the-mystery-of-duvall-drive / fo]])
+- Skin a simple mesh guide ([[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]])
+- Character bodies docs ([[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]])
+- Create with templates docs ([[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]])
+- How to cage Roblox's 3D clothing video guide ([[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]])
+- Skin a humanoid model guide ([[2026-10-28 - Docs art modeling project-files|Docs: art / modeling / project-files]])
+- Roblox Parent's Guide ([[2026-10-28 - Docs education resources frequently-asked-questions-education|Docs: education / resources / frequently-asked-que]])
+- Safety Features and Chat ([[2026-10-28 - Docs education resources frequently-asked-questions-education|Docs: education / resources / frequently-asked-que]])
+- Creating Bundled Installers ([[2026-10-28 - Docs education resources frequently-asked-questions-education|Docs: education / resources / frequently-asked-que]])
+- Roblox Featured Educator Program ([[2026-10-28 - Docs education resources frequently-asked-questions-education|Docs: education / resources / frequently-asked-que]])
+- Roblox Marketing Materials page ([[2026-10-28 - Docs education resources frequently-asked-questions-education|Docs: education / resources / frequently-asked-que]])
+- Roblox docs: Constraints (Class.HingeConstraint) ([[2026-10-28 - Docs tutorials use-case-tutorials physics build-a-hinged-door|Docs: tutorials / use-case-tutorials / physics / b]])
+- Creating Perfect Audio Loops (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]])
+- Add 2D audio (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]])
+- Debounce - Detect collisions (Roblox docs) ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]])
+- Gingerbread House - Complete Audio (sample place) ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]])
+- Gingerbread House - Start .rbxl (sample place) ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-3D-audio|Docs: tutorials / use-case-tutorials / audio / add]])
+- Gingerbread House - Start .rbxl file ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]])
+- Gingerbread House - Text-to-Speech .rbxl file ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]])
+- Debounce - Detect collisions ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]])
+- Properties and attributes ([[2026-10-28 - Docs tutorials use-case-tutorials audio add-text-to-speech|Docs: tutorials / use-case-tutorials / audio / add]])
+- Roblox Creator Store Packages ([[2026-10-28 - Docs resources modules merch-booth|Docs: resources / modules / merch-booth]])
+- Delivery system (Engine guide) ([[2026-10-28 - Docs cloud guides experience-notifications|Docs: cloud / guides / experience-notifications]])
+- Experiences guide ([[2026-10-28 - Docs cloud guides experience-notifications|Docs: cloud / guides / experience-notifications]])
+- Roblox Developer Education lesson plans (Roblox Developer 2 course) ([[2026-10-28 - Docs education lesson-plans roblox-developer roblox-developer-2|Docs: education / lesson-plans / roblox-developer ]])
+- Analytics ([[2026-10-28 - Docs performance-optimization monitor|Docs: performance-optimization / monitor]])
+- Roblox docs: Memory store sorted map ([[2026-10-28 - Docs cloud-services memory-stores sorted-map|Docs: cloud-services / memory-stores / sorted-map]])
+- Class.HumanoidRigDescription ([[2026-10-28 - Docs characters adaptive-animation|Docs: characters / adaptive-animation]])
+- Class.DigitsRigDescription ([[2026-10-28 - Docs characters adaptive-animation|Docs: characters / adaptive-animation]])
+- Blender Studio Snow character ([[2026-10-28 - Docs characters adaptive-animation|Docs: characters / adaptive-animation]])
+- Control rate limits documentation ([[2026-10-28 - Docs cloud-services data-stores error-codes-and-limits|Docs: cloud-services / data-stores / error-codes-a]])
+- Roblox Open Cloud API (apis.roblox.com/cloud/v2) ([[2026-10-28 - Docs cloud-services data-stores error-codes-and-limits|Docs: cloud-services / data-stores / error-codes-a]])
+- Design for Roblox (docs) ([[2026-10-28 - Docs production roblox-user-base|Docs: production / roblox-user-base]])
+- Promote on Roblox (docs) ([[2026-10-28 - Docs production roblox-user-base|Docs: production / roblox-user-base]])
+- Absolute basics of working in Studio ([[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]])
+- Coding fundamentals ([[2026-10-28 - Docs tutorials curriculums core|Docs: tutorials / curriculums / core]])
+- Performance Optimization docs ([[2026-10-28 - Docs get-started strategies|Docs: get-started / strategies]])
+- Merchandising best practices ([[2026-10-28 - Docs get-started strategies|Docs: get-started / strategies]])
+- Roblox Ads Manager ([[2026-10-28 - Docs get-started strategies|Docs: get-started / strategies]])
+- TikTok best practices for Roblox developers ([[2026-10-28 - Docs get-started strategies|Docs: get-started / strategies]])
+- FTC Endorsement and Testimonial Guides ([[2026-10-28 - Docs get-started strategies|Docs: get-started / strategies]])
+- Creator Store ([[2026-10-28 - Docs parts procedural-models|Docs: parts / procedural-models]])
+- Class.TextChatService.CreateDefaultTextChannels ([[2026-10-28 - Docs chat examples simple-custom-frontend-ui|Docs: chat / examples / simple-custom-frontend-ui]])
+- Class.TextChannelWindow ([[2026-10-28 - Docs chat examples simple-custom-frontend-ui|Docs: chat / examples / simple-custom-frontend-ui]])
+- Studio and Building lesson (Roblox Docs) ([[2026-10-28 - Docs tutorials fundamentals coding-1 coding-fundamentals|Docs: tutorials / fundamentals / coding-1 / coding]])
+- Roblox Battle Royale template (ServerScriptService/Server, StarterPlayerScripts/Client, ReplicatedFirst/InitialSetup) ([[2026-10-28 - Docs resources battle-royale core-scripts|Docs: resources / battle-royale / core-scripts]])
+- Create your first layered accessory ([[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]])
+- Accessory Fitting Tool ([[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]])
+- Caging best practices ([[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]])
+- Publish bodies with eyelashes and eyebrows ([[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]])
+- Skin a simple mesh tutorial ([[2026-10-28 - Docs avatar layered-accessories specifications|Docs: avatar / layered-accessories / specification]])
+- Roblox Creator Docs: Accessibility guidelines ([[2026-10-28 - Docs production publishing accessibility|Docs: production / publishing / accessibility]])
+- Character Name/Health Display ([[2026-10-28 - Docs parts models|Docs: parts / models]])
+- per-model streaming controls ([[2026-10-28 - Docs parts models|Docs: parts / models]])
+- model level of detail ([[2026-10-28 - Docs parts models|Docs: parts / models]])
+- Asset privacy ([[2026-10-28 - Docs parts models|Docs: parts / models]])
+- Creator Store - Distribute and sell assets ([[2026-10-28 - Docs parts models|Docs: parts / models]])
+- Roblox API reference thread safety tags ([[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]])
+- Best practices section of Parallel Luau docs ([[2026-10-28 - Docs scripting multithreading|Docs: scripting / multithreading]])
+- Assembling Modular Environments (Roblox docs) ([[2026-10-28 - Docs marketplace homestore|Docs: marketplace / homestore]])
+- Creator Dashboard ([[2026-10-28 - Docs marketplace homestore|Docs: marketplace / homestore]])
+- Roblox Creator Docs: Intro to module scripts ([[2026-10-28 - Docs tutorials fundamentals coding-6 landing|Docs: tutorials / fundamentals / coding-6 / landin]])
+- Roblox Creator Docs: Create with module scripts ([[2026-10-28 - Docs tutorials fundamentals coding-6 landing|Docs: tutorials / fundamentals / coding-6 / landin]])
+- Roblox Creator Docs: Coding abstraction ([[2026-10-28 - Docs tutorials fundamentals coding-6 landing|Docs: tutorials / fundamentals / coding-6 / landin]])
+- Roblox Creator Docs: Coding algorithms ([[2026-10-28 - Docs tutorials fundamentals coding-6 landing|Docs: tutorials / fundamentals / coding-6 / landin]])
+- Revamped Asset Manager documentation ([[2026-10-28 - Docs projects assets privacy|Docs: projects / assets / privacy]])
+- Lighting with Props course ([[2026-10-28 - Docs tutorials use-case-tutorials vfx basic-particle-effects|Docs: tutorials / use-case-tutorials / vfx / basic]])
+- Hazardous Space Station (starter template) ([[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]])
+- UI Fundamentals - HUD Meter (completed reference template) ([[2026-10-28 - Docs tutorials use-case-tutorials ui create-hud-meters|Docs: tutorials / use-case-tutorials / ui / create]])
+- Roblox Studio Avatar Settings documentation ([[2026-10-28 - Docs studio avatar-settings|Docs: studio / avatar-settings]])
+- PBR textures (Roblox docs) ([[2026-10-28 - Docs art accessories creating-rigid texturing|Docs: art / accessories / creating-rigid / texturi]])
+- Enum.ScaleType ([[2026-10-28 - Docs ui 9-slice|Docs: ui / 9-slice]])
+- Class.ImageLabel ([[2026-10-28 - Docs ui 9-slice|Docs: ui / 9-slice]])
+- Class.ImageButton ([[2026-10-28 - Docs ui 9-slice|Docs: ui / 9-slice]])
+- Roblox API docs: ScrollingFrame.CanvasSize ([[2026-10-28 - Docs ui scrolling-frames|Docs: ui / scrolling-frames]])
+- Roblox API docs: ScrollingFrame.ElasticBehavior ([[2026-10-28 - Docs ui scrolling-frames|Docs: ui / scrolling-frames]])
+- Open Cloud usage guide for assets ([[2026-10-28 - Docs studio importer|Docs: studio / importer]])
+- Audio Assets docs ([[2026-10-28 - Docs studio importer|Docs: studio / importer]])
+- Presets docs ([[2026-10-28 - Docs studio importer|Docs: studio / importer]])
+- Import settings docs ([[2026-10-28 - Docs studio importer|Docs: studio / importer]])
+- Customize characters with humanoid description ([[2026-10-28 - Docs avatar dynamic-heads test|Docs: avatar / dynamic-heads / test]])
+- Animate heads ([[2026-10-28 - Docs avatar dynamic-heads test|Docs: avatar / dynamic-heads / test]])
+- Import emotes - Generate asset ID (Roblox docs) ([[2026-10-28 - Docs avatar emotes specifications|Docs: avatar / emotes / specifications]])
+- DevForum announcement on advanced R15 rig emotes closed beta ([[2026-10-28 - Docs avatar emotes specifications|Docs: avatar / emotes / specifications]])
+- Play Quiz Experience (Roblox quiz game linked from the page) ([[2026-10-28 - Docs education build-it-play-it-create-and-destroy challenge-1|Docs: education / build-it-play-it-create-and-dest]])
+- Roblox Terms of Use ([[2026-10-28 - Docs production monetization paid-random-items|Docs: production / monetization / paid-random-item]])
+- Roblox Community Standards ([[2026-10-28 - Docs production monetization paid-random-items|Docs: production / monetization / paid-random-item]])
+- Roblox Education: Build it, play it, create and destroy ([[2026-10-28 - Docs education build-it-play-it-create-and-destroy terrain-tools|Docs: education / build-it-play-it-create-and-dest]])
+- Sponsored items (Roblox docs) ([[2026-10-28 - Docs cloud guides advertising|Docs: cloud / guides / advertising]])
+- Roblox DevForum (for API support posts) ([[2026-10-28 - Docs cloud guides advertising|Docs: cloud / guides / advertising]])
+- Roblox API reference: Advertising section (adconfiguration.roblox.com) ([[2026-10-28 - Docs cloud guides advertising|Docs: cloud / guides / advertising]])
+- Roblox docs: Adaptive timestepping ([[2026-10-28 - Docs physics adaptive-timestepping|Docs: physics / adaptive-timestepping]])
+- Asset privacy documentation ([[2026-10-28 - Docs education build-it-play-it-island-of-move sharing-animations|Docs: education / build-it-play-it-island-of-move ]])
+- How to Install and Play Roblox ([[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]])
+- Account Restrictions ([[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]])
+- Roblox Education networking guide ([[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]])
+- For parents resource ([[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]])
+- Trust and safety PDF ([[2026-10-28 - Docs education educator-onboarding 3-setting-up-a-roblox-classroom|Docs: education / educator-onboarding / 3-setting-]])
+- Get started with analytics ([[2026-10-28 - Docs production analytics|Docs: production / analytics]])
+- Retention and Engagement ([[2026-10-28 - Docs production analytics|Docs: production / analytics]])
+- Retention ([[2026-10-28 - Docs production analytics|Docs: production / analytics]])
+- Monetization ([[2026-10-28 - Docs production analytics|Docs: production / analytics]])
+- Discovery ([[2026-10-28 - Docs production analytics|Docs: production / analytics]])
+- Class.AnalyticsService:GetPlayerSegmentsAsync ([[2026-10-28 - Docs production analytics|Docs: production / analytics]])
+- UI Curriculum: Select a Color Theme ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting create-teams|Docs: tutorials / curriculums / gameplay-scripting]])
+- UI Curriculum: Player Indicator ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting create-teams|Docs: tutorials / curriculums / gameplay-scripting]])
+- UI Curriculum: Team Indicator ([[2026-10-28 - Docs tutorials curriculums gameplay-scripting create-teams|Docs: tutorials / curriculums / gameplay-scripting]])
+- Volcano Island - Start .rbxl ([[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]])
+- Volcano Island - Complete .rbxl ([[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]])
+- Creating Waterfalls tutorial ([[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]])
+- Asset Manager docs ([[2026-10-28 - Docs tutorials use-case-tutorials vfx create-volcanoes|Docs: tutorials / use-case-tutorials / vfx / creat]])
+- Roblox Avatar Inspect Menu docs ([[2026-10-28 - Docs players avatar-inspect-menu|Docs: players / avatar-inspect-menu]])
+- Avatar makeup (Studio authoring guide) ([[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]])
+- Roblox Avatar Creator demo ([[2026-10-28 - Docs avatar in-experience-creation-makeup|Docs: avatar / in-experience-creation-makeup]])
+- Form Embedder ([[2026-10-28 - Docs education developer beta-testing-experiences|Docs: education / developer / beta-testing-experie]])
+- Adopt Me Discord community ([[2026-10-28 - Docs education developer beta-testing-experiences|Docs: education / developer / beta-testing-experie]])
+- Lua 5.1 Manual (ranges in sets) ([[2026-10-28 - Docs luau strings|Docs: luau / strings]])
+- Roblox Studio Cheatsheet handout ([[2026-10-28 - Docs education lesson-plans intro-to-game-and-coding|Docs: education / lesson-plans / intro-to-game-and]])
+- Intro to Coding Cheatsheet handout ([[2026-10-28 - Docs education lesson-plans intro-to-game-and-coding|Docs: education / lesson-plans / intro-to-game-and]])
+- Optional Brainstorming handout ([[2026-10-28 - Docs education lesson-plans intro-to-game-and-coding|Docs: education / lesson-plans / intro-to-game-and]])
+- Content updates and LiveOps essentials ([[2026-10-28 - Docs production game-design balance-virtual-economies|Docs: production / game-design / balance-virtual-e]])
+- Open Cloud secrets reference documentation and guide ([[2026-10-28 - Docs cloud-services secrets|Docs: cloud-services / secrets]])
+- Roblox Creator Docs: Raycasting ([[2026-10-28 - Docs workspace raycasting|Docs: workspace / raycasting]])
+- Roblox Creator Store ([[2026-10-28 - Docs education build-it-play-it-galactic-speedway sharing-your-speeder|Docs: education / build-it-play-it-galactic-speedw]])
+- Ads Manager permissions guide ([[2026-10-28 - Docs production promotion ads-manager|Docs: production / promotion / ads-manager]])
+- Advanced join options docs ([[2026-10-28 - Docs production promotion ads-manager|Docs: production / promotion / ads-manager]])
+- Roblox advertising terms ([[2026-10-28 - Docs production promotion ads-manager|Docs: production / promotion / ads-manager]])
+- Roblox docs: ViewportFrames ([[2026-10-28 - Docs environment skybox|Docs: environment / skybox]])
+- Roblox staff 3D art articles ([[2026-10-28 - Docs art overview-dcc|Docs: art / overview-dcc]])
+- Importer (Roblox docs) ([[2026-10-28 - Docs projects assets manager|Docs: projects / assets / manager]])
+- Automatic translations docs ([[2026-10-28 - Docs production localization|Docs: production / localization]])
+- Translate in-game content docs ([[2026-10-28 - Docs production localization|Docs: production / localization]])
+- Work with translators docs ([[2026-10-28 - Docs production localization|Docs: production / localization]])
+- Language codes list ([[2026-10-28 - Docs production localization|Docs: production / localization]])
+- Dynamic head validation ([[2026-10-28 - Docs avatar dynamic-heads specifications|Docs: avatar / dynamic-heads / specifications]])
+- Dynamic head caging best practices ([[2026-10-28 - Docs avatar dynamic-heads specifications|Docs: avatar / dynamic-heads / specifications]])
+- Publish bodies with eyelashes and eyebrows ([[2026-10-28 - Docs avatar dynamic-heads specifications|Docs: avatar / dynamic-heads / specifications]])
+- Roblox custom mesh specifications ([[2026-10-28 - Docs avatar dynamic-heads specifications|Docs: avatar / dynamic-heads / specifications]])
+- Roblox character body specifications ([[2026-10-28 - Docs avatar dynamic-heads specifications|Docs: avatar / dynamic-heads / specifications]])
+- Roblox Creator Docs: Debounce patterns ([[2026-10-28 - Docs scripting debounce|Docs: scripting / debounce]])
+- Automatic translations (Roblox docs) ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive immersive-narrative|Docs: resources / the-mystery-of-duvall-drive / im]])
+- Missions Logic ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]])
+- GameStateManager ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]])
+- EventManager ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]])
+- DoorManager ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]])
+- Configuration Scripts ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]])
+- Foundational gameplay systems ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive main-design-requirements|Docs: resources / the-mystery-of-duvall-drive / ma]])
+- Roblox Creator Docs: ViewportFrame ([[2026-10-28 - Docs ui viewport-frames|Docs: ui / viewport-frames]])
+- PlayerSetup script (referenced tutorial step, not linked) ([[2026-10-28 - Docs education adventure-game-series buying-upgrades|Docs: education / adventure-game-series / buying-u]])
+- Rig a simple mesh (Roblox docs) ([[2026-10-28 - Docs art modeling skin-a-simple-mesh|Docs: art / modeling / skin-a-simple-mesh]])
+- Object Modes (Blender docs) ([[2026-10-28 - Docs art modeling skin-a-simple-mesh|Docs: art / modeling / skin-a-simple-mesh]])
+- Rig a simple mesh (Blender tutorial) ([[2026-10-28 - Docs art modeling rigging|Docs: art / modeling / rigging]])
+- Skin a simple mesh (Blender tutorial) ([[2026-10-28 - Docs art modeling rigging|Docs: art / modeling / rigging]])
+- Rig a humanoid model (Blender tutorial) ([[2026-10-28 - Docs art modeling rigging|Docs: art / modeling / rigging]])
+- Skin a humanoid model (Blender tutorial) ([[2026-10-28 - Docs art modeling rigging|Docs: art / modeling / rigging]])
+- Beyond the Dark showcase (official Roblox) ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]])
+- Kerr-Newman DSR-14 space station (prior Roblox showcase reference) ([[2026-10-28 - Docs resources the-mystery-of-duvall-drive|Docs: resources / the-mystery-of-duvall-drive]])
+- Roblox Studio GUI GitHub repo (Studio-style elements) ([[2026-10-28 - Docs studio build-studio-widgets|Docs: studio / build-studio-widgets]])
+- Class.Plugin:StartDrag() docs page ([[2026-10-28 - Docs studio build-studio-widgets|Docs: studio / build-studio-widgets]])
+- Test character bodies in Blender ([[2026-10-28 - Docs avatar character-bodies test|Docs: avatar / character-bodies / test]])
+- Test character bodies in Studio ([[2026-10-28 - Docs avatar character-bodies test|Docs: avatar / character-bodies / test]])
+- Proximity Prompts documentation ([[2026-10-28 - Docs tutorials fundamentals coding-5 pairs-and-ipairs|Docs: tutorials / fundamentals / coding-5 / pairs-]])
+- Intro To Arrays lesson ([[2026-10-28 - Docs tutorials fundamentals coding-5 pairs-and-ipairs|Docs: tutorials / fundamentals / coding-5 / pairs-]])
+- Data store error codes and limits ([[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]])
+- Retries ([[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]])
+- Set vs update ([[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]])
+- Data Stores Manager ([[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]])
+- Stagger recurring requests ([[2026-10-28 - Docs cloud-services data-stores best-practices|Docs: cloud-services / data-stores / best-practice]])
+- Const variables documentation ([[2026-10-28 - Docs luau scope|Docs: luau / scope]])
+- ModuleScript documentation ([[2026-10-28 - Docs luau scope|Docs: luau / scope]])
+- Simple Avatar Editor Demo reference place ([[2026-10-28 - Docs players avatar-editor|Docs: players / avatar-editor]])
+- Discovery FAQ ([[2026-10-28 - Docs discovery|Docs: discovery]])
+- Particle emitters guide (Creator Docs) ([[2026-10-28 - Docs tutorials curriculums artist work-with-particle-emitters|Docs: tutorials / curriculums / artist / work-with]])
+- Roblox Creator Docs: MicroProfiler Tag reference ([[2026-10-28 - Docs performance-optimization microprofiler|Docs: performance-optimization / microprofiler]])
+- Roblox Creator Docs: Improve performance ([[2026-10-28 - Docs performance-optimization microprofiler|Docs: performance-optimization / microprofiler]])
+- Roblox Assistant Settings > Skills tab ([[2026-10-28 - Docs assistant skills|Docs: assistant / skills]])
+- rbx-unit-test ([[2026-10-28 - Docs assistant skills|Docs: assistant / skills]])
+- LibMP documentation on GitHub (complete MicroProfiler tag list) ([[2026-10-28 - Docs performance-optimization microprofiler tag-table|Docs: performance-optimization / microprofiler / t]])
+- Improve performance (Roblox docs, linked from shadow advice) ([[2026-10-28 - Docs performance-optimization microprofiler tag-table|Docs: performance-optimization / microprofiler / t]])
+- Blender and Maya .FBX export settings ([[2026-10-28 - Docs art|Docs: art]])
+- General mesh specifications ([[2026-10-28 - Docs art|Docs: art]])
+- Avatar character specifications ([[2026-10-28 - Docs art|Docs: art]])
+- Marketplace policy ([[2026-10-28 - Docs art|Docs: art]])
+- Environmental art curriculum ([[2026-10-28 - Docs art|Docs: art]])
+- Custom skyboxes 101 ([[2026-10-28 - Docs art|Docs: art]])
+- Roblox official docs: UI and UX design ([[2026-10-28 - Docs production game-design ui-ux-design|Docs: production / game-design / ui-ux-design]])
+- Class.BasePart.Touched event (Creator Docs) ([[2026-10-28 - Docs tutorials fundamentals coding-2 use-parameters-and-events|Docs: tutorials / fundamentals / coding-2 / use-pa]])
+- UI & UX Design (Roblox curriculum) ([[2026-10-28 - Docs tutorials curriculums user-interface-design wireframe-your-layout|Docs: tutorials / curriculums / user-interface-des]])
+- Teleport between places (Roblox docs) ([[2026-10-28 - Docs players loading-screens|Docs: players / loading-screens]])
+- Roblox Creator Docs: Repeat code with while loops (tutorials/fundamentals/coding-4) ([[2026-10-28 - Docs tutorials fundamentals coding-4 repeat-code-with-while-loops|Docs: tutorials / fundamentals / coding-4 / repeat]])

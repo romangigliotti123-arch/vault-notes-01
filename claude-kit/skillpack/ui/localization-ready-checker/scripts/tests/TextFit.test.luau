@@ -1,0 +1,28 @@
+--!nocheck
+-- Run: lune run TextFit.test.luau   (from the kit's systems folder, see check-scripts.sh)
+local t = require("../../../../../systems/_check/harness")
+local F = require("../TextFit")
+
+t.test("short strings grow by the extra margin in expanding languages", function()
+	t.eq(F.estimate("Buy now", "de"), 13) -- 7*1.35=9.45 +3 -> 12.45 -> 13
+end)
+t.test("CJK shrinks and unknown languages assume the worst common case", function()
+	t.eq(F.estimate("Settings", "ja"), 5)
+	t.eq(F.estimate("Settings", "xx"), 14) -- 8*1.3=10.4+3 -> 14
+end)
+t.test("capacity from width, size and lines", function()
+	t.eq(F.capacity(200, 20), 20)
+	t.eq(F.capacity(200, 20, 2), 40)
+end)
+t.test("check flags only the languages that overflow", function()
+	local issues = F.check({ { key = "buy", text = "Buy now", maxChars = 9 } }, { "de", "ja", "fr" })
+	t.eq(#issues, 2)
+	t.eq(issues[1].lang, "de")
+	t.eq(issues[2].lang, "fr")
+end)
+t.test("looksHardcoded spots English text but not keys", function()
+	t.truthy(F.looksHardcoded("Buy now"))
+	t.falsy(F.looksHardcoded("shop.buy_now"))
+	t.falsy(F.looksHardcoded("123"))
+end)
+t.done()

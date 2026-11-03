@@ -1,0 +1,49 @@
+--!nocheck
+-- Run from the kit's systems folder: lune run ../skillpack/money/sink-source-mapper/scripts/tests/Ledger.test.luau
+local t = require("../../../../../systems/_check/harness")
+local Ledger = require("../Ledger")
+
+t.test("totals and shares per name", function()
+	local l = Ledger.new()
+	Ledger.record(l, "source", "quest", 100)
+	Ledger.record(l, "source", "quest", 100)
+	Ledger.record(l, "source", "drop", 200)
+	Ledger.record(l, "sink", "upgrade", 300)
+	local r = Ledger.report(l)
+	t.eq(r.sourceTotal, 400)
+	t.eq(r.sinkTotal, 300)
+	t.eq(r.sources[1].total, 200)
+	t.eq(r.sources[1].name, "drop") -- ties broken by name
+	t.eq(r.sources[1].share, 0.5)
+end)
+
+t.test("low sink ratio and dominant source are flagged", function()
+	local l = Ledger.new()
+	Ledger.record(l, "source", "afk", 900)
+	Ledger.record(l, "source", "quest", 100)
+	Ledger.record(l, "sink", "hat", 100)
+	local r = Ledger.report(l)
+	t.eq(#r.flags, 2)
+end)
+
+t.test("no sinks is its own flag", function()
+	local l = Ledger.new()
+	Ledger.record(l, "source", "afk", 10)
+	t.truthy(string.find(Ledger.report(l).flags[1], "no sinks", 1, true))
+end)
+
+t.test("empty ledger says so instead of dividing by zero", function()
+	local r = Ledger.report(Ledger.new())
+	t.eq(r.ratio, 0)
+	t.truthy(string.find(r.flags[1], "no sources", 1, true))
+end)
+
+t.test("bad records are rejected", function()
+	local l = Ledger.new()
+	t.falsy(pcall(Ledger.record, l, "gift", "x", 1))
+	t.falsy(pcall(Ledger.record, l, "sink", "", 1))
+	t.falsy(pcall(Ledger.record, l, "sink", "x", -5))
+	t.falsy(pcall(Ledger.record, l, "sink", "x", 0 / 0))
+end)
+
+t.done()

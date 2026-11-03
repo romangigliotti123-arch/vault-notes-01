@@ -1,0 +1,180 @@
+---
+title: RobloxOfficial - Tools & Resources
+tags: [roblox, robloxofficial]
+---
+
+# RobloxOfficial: Tools & Resources
+
+## Tools mentioned
+- **Roblox Studio**: [[2025-09-05 - Tech Talks EP29 Creator|Tech Talks EP29: Creator]], [[2018-07-24 - Roblox Developer Conference 2018 - User Experience Design|Roblox Developer Conference 2018 - User Experience]], [[2024-09-23 - Building a Business on Console RDC 2024|Building a Business on Console | RDC 2024]], [[2020-11-20 - A Roblox Story CJ Oyer|A Roblox Story: CJ Oyer]], [[2020-11-20 - A Roblox Story Zoe Basil|A Roblox Story: Zoe Basil]], [[2026-10-12 - Going Under the Hood with Mesh and Texture Streaming RDC 2026|Going Under the Hood with Mesh and Texture Streami]], [[2022-06-28 - Scaling Innovation at Roblox I Tech Innovators Panel|Scaling Innovation at Roblox I Tech Innovators Pan]], [[2026-03-12 - Game Changers Mary Turned Players Into Co-Creators|Game Changers: Mary Turned Players Into Co-Creator]], [[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]], [[2022-09-20 - Game Changers The Clemens Built a Family Business on Roblox|Game Changers: The Clemens Built a Family Business]]
+- **Blender**: [[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]], [[2018-07-24 - Roblox Developer Conference 2018 - Creating Worlds You Envision|Roblox Developer Conference 2018 - Creating Worlds]], [[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]]
+- **Open Cloud API**: [[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]], [[2025-09-26 - Building Connected Experiences with Roblox’s APIs RDC 2025|Building Connected Experiences with Roblox’s APIs ]]
+- **Roblox server fill settings (preferred/max players, social buffer)**: [[2018-07-24 - Roblox Developer Conference 2018 - Making Your Game More Social|Roblox Developer Conference 2018 - Making Your Gam]]
+- **Roblox in-app chat game cards and pinned games**: [[2018-07-24 - Roblox Developer Conference 2018 - Making Your Game More Social|Roblox Developer Conference 2018 - Making Your Gam]]
+- **Roblox friend invite from player list**: [[2018-07-24 - Roblox Developer Conference 2018 - Making Your Game More Social|Roblox Developer Conference 2018 - Making Your Gam]]
+- **Studio emulator (device/screen-size testing)**: [[2018-07-24 - Roblox Developer Conference 2018 - Building Games for Reach|Roblox Developer Conference 2018 - Building Games ]]
+- **Internal Roblox tool showing live player locations (not public)**: [[2018-07-24 - Roblox Developer Conference 2018 - Building Games for Reach|Roblox Developer Conference 2018 - Building Games ]]
+- **String tables / Roblox localization infrastructure**: [[2018-07-24 - Roblox Developer Conference 2018 - Building Games for Reach|Roblox Developer Conference 2018 - Building Games ]]
+- **UI editor**: [[2018-07-24 - Roblox Developer Conference 2018 - User Experience Design|Roblox Developer Conference 2018 - User Experience]]
+- **Studio emulator (device preview)**: [[2018-07-24 - Roblox Developer Conference 2018 - User Experience Design|Roblox Developer Conference 2018 - User Experience]]
+- **Online colour contrast checker**: [[2018-07-24 - Roblox Developer Conference 2018 - User Experience Design|Roblox Developer Conference 2018 - User Experience]]
+- **GameAnalytics**: [[2018-07-24 - Roblox Developer Conference 2018 - Monetization Panel|Roblox Developer Conference 2018 - Monetization Pa]]
+- **Luau**: [[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]]
+- **Roblox physics engine**: [[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]]
+- **SetNetworkOwnership (set network round-trip API)**: [[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]]
+- **Twitter**: [[2018-07-24 - Roblox Developer Conference 2018 - Business Marketing Panel|Roblox Developer Conference 2018 - Business Market]]
+- **YouTube**: [[2018-07-24 - Roblox Developer Conference 2018 - Business Marketing Panel|Roblox Developer Conference 2018 - Business Market]]
+- **Roblox sponsored games**: [[2018-07-24 - Roblox Developer Conference 2018 - Business Marketing Panel|Roblox Developer Conference 2018 - Business Market]]
+- **Roblox ads**: [[2018-07-24 - Roblox Developer Conference 2018 - Business Marketing Panel|Roblox Developer Conference 2018 - Business Market]]
+- **Roblox group shouts**: [[2018-07-24 - Roblox Developer Conference 2018 - Business Marketing Panel|Roblox Developer Conference 2018 - Business Market]]
+- **game analytics module**: [[2018-07-24 - Roblox Developer Conference 2018 - Business Marketing Panel|Roblox Developer Conference 2018 - Business Market]]
+- **Roblox DevForum**: [[2018-07-24 - Roblox Developer Conference 2018 - Leveraging Your Skills to Make Game|Roblox Developer Conference 2018 - Leveraging Your]]
+- **Roblox DevHub**: [[2018-07-24 - Roblox Developer Conference 2018 - Leveraging Your Skills to Make Game|Roblox Developer Conference 2018 - Leveraging Your]]
+- **Roblox wiki**: [[2018-07-24 - Roblox Developer Conference 2018 - Leveraging Your Skills to Make Game|Roblox Developer Conference 2018 - Leveraging Your]]
+- **Roblox Localization Service**: [[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]]
+- **Localization tables**: [[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]]
+- **Localization table API**: [[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]]
+- **Automatic text scraper**: [[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]]
+- **Google Sheets Translate macro**: [[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]]
+- **Roblox Studio Spanish test button**: [[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]]
+- **Performance Stats**: [[2018-07-24 - Roblox Developer Conference 2018 - Designing for Performance|Roblox Developer Conference 2018 - Designing for P]]
+- **Developer Console (client/server memory)**: [[2018-07-24 - Roblox Developer Conference 2018 - Designing for Performance|Roblox Developer Conference 2018 - Designing for P]]
+- **Microprofiler**: [[2018-07-24 - Roblox Developer Conference 2018 - Designing for Performance|Roblox Developer Conference 2018 - Designing for P]]
+- **Stopwatch (join time)**: [[2018-07-24 - Roblox Developer Conference 2018 - Designing for Performance|Roblox Developer Conference 2018 - Designing for P]]
+- **Roblox Studio device emulator (planned)**: [[2018-07-24 - Roblox Developer Conference 2018 - Designing for Performance|Roblox Developer Conference 2018 - Designing for P]]
+- **Roblox Studio (real-time and Future lighting)**: [[2018-07-24 - Roblox Developer Conference 2018 - Creating Worlds You Envision|Roblox Developer Conference 2018 - Creating Worlds]]
+- **Roblox Toolbox**: [[2018-07-24 - Roblox Developer Conference 2018 - Creating Worlds You Envision|Roblox Developer Conference 2018 - Creating Worlds]]
+- **3D Coat**: [[2018-07-24 - Roblox Developer Conference 2018 - Creating Worlds You Envision|Roblox Developer Conference 2018 - Creating Worlds]]
+- **ZBrush**: [[2018-07-24 - Roblox Developer Conference 2018 - Creating Worlds You Envision|Roblox Developer Conference 2018 - Creating Worlds]]
+- **Maya**: [[2018-07-24 - Roblox Developer Conference 2018 - Creating Worlds You Envision|Roblox Developer Conference 2018 - Creating Worlds]]
+- **Open Cloud (publisher APIs)**: [[2022-06-28 - Scaling Innovation at Roblox I Tech Innovators Panel|Scaling Innovation at Roblox I Tech Innovators Pan]]
+- **Blender mesh import plugin (community-built)**: [[2022-06-28 - Scaling Innovation at Roblox I Tech Innovators Panel|Scaling Innovation at Roblox I Tech Innovators Pan]]
+- **Roblox generative AI beta tools (pose-to-animation via phone camera, text-to-code, text-to-materials)**: [[2023-07-18 - Gaming Content Creation in 2023 (Collision 2023)|Gaming Content Creation in 2023 (Collision 2023)]]
+- **Substance Painter**: [[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]]
+- **Adobe Suite**: [[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]]
+- **Pro Tools**: [[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]]
+- **Ableton**: [[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]]
+- **iZotope RX10**: [[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]]
+- **TikTok**: [[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]]
+- **Roblox portals**: [[2023-09-19 - Grow Q&A RDC23|Grow Q&A | RDC23]]
+- **Roblox Connect**: [[2023-09-19 - Grow Q&A RDC23|Grow Q&A | RDC23]]
+- **Roblox machine translation**: [[2023-09-19 - Grow Q&A RDC23|Grow Q&A | RDC23]]
+- **Rendering stats (Ctrl/Cmd+Shift+F2)**: [[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]]
+- **Microprofiler (Ctrl/Cmd+F6)**: [[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]]
+- **F9 memory bar (device client memory)**: [[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]]
+- **Developer Console memory tab**: [[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]]
+- **F7 network stats (recv)**: [[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]]
+- **Analytics dashboard crash/memory insights**: [[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]]
+- **StreamingEnabled**: [[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]]
+- **SurfaceAppearance**: [[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]]
+- **get image for key code API**: [[2024-09-23 - Building a Business on Console RDC 2024|Building a Business on Console | RDC 2024]]
+- **haptic feedback API**: [[2024-09-23 - Building a Business on Console RDC 2024|Building a Business on Console | RDC 2024]]
+- **create.roblox.com documentation**: [[2024-09-23 - Building a Business on Console RDC 2024|Building a Business on Console | RDC 2024]]
+- **Creator dashboard**: [[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]]
+- **Avatar Preview tool**: [[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]]
+- **Avatar Auto Setup**: [[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]]
+- **Accessory fitting tool**: [[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]]
+- **Blender live link**: [[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]]
+- **Daz 3D integration**: [[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]]
+- **glTF import**: [[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]]
+- **Celestial Body Dragger (Studio plugin)**: [[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]]
+- **Lighting editor plugin by woot3**: [[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]]
+- **Milanote**: [[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]]
+- **Jira**: [[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]]
+- **Photoshop**: [[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]]
+- **Illustrator**: [[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]]
+- **Roblox Assistant (Studio)**: [[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]]
+- **Code Assist**: [[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]]
+- **Material Generator**: [[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]]
+- **Texture Generator**: [[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]]
+- **Studio file sync**: [[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]]
+- **GitHub Actions**: [[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]]
+- **VS Code**: [[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]]
+- **Studio AI assistant**: [[2025-09-05 - Tech Talks EP29 Creator|Tech Talks EP29: Creator]]
+- **Creator Hub experiments**: [[2025-09-05 - Tech Talks EP29 Creator|Tech Talks EP29: Creator]]
+- **Roblox messaging/global chat**: [[2025-09-05 - Tech Talks EP29 Creator|Tech Talks EP29: Creator]]
+- **Git (via plugin, Grow a Garden team)**: [[2025-09-05 - Tech Talks EP29 Creator|Tech Talks EP29: Creator]]
+- **Roblox Studio Assistant**: [[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]]
+- **Cube 3D (3D generation)**: [[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]]
+- **4D object generation API**: [[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]]
+- **In-experience text generation**: [[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]]
+- **Text-to-speech (in-experience)**: [[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]]
+- **Avatar auto setup**: [[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]]
+- **Model Context Protocol (MCP) with Figma**: [[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]]
+- **Text Chat Service (TCS)**: [[2025-09-26 - Building Connected Experiences with Roblox’s APIs RDC 2025|Building Connected Experiences with Roblox’s APIs ]]
+- **Voice chat / Audio API**: [[2025-09-26 - Building Connected Experiences with Roblox’s APIs RDC 2025|Building Connected Experiences with Roblox’s APIs ]]
+- **Party API (Studio support planned)**: [[2025-09-26 - Building Connected Experiences with Roblox’s APIs RDC 2025|Building Connected Experiences with Roblox’s APIs ]]
+- **Join Community API (coming)**: [[2025-09-26 - Building Connected Experiences with Roblox’s APIs RDC 2025|Building Connected Experiences with Roblox’s APIs ]]
+- **Forum API (coming)**: [[2025-09-26 - Building Connected Experiences with Roblox’s APIs RDC 2025|Building Connected Experiences with Roblox’s APIs ]]
+- **CaptureService**: [[2025-09-26 - Building Connected Experiences with Roblox’s APIs RDC 2025|Building Connected Experiences with Roblox’s APIs ]]
+- **Roblox Studio (makeup studio beta)**: [[2025-09-26 - Making Awesome Avatars Trends, Tools, and Opportunities RDC 2025|Making Awesome Avatars: Trends, Tools, and Opportu]]
+- **Maya and Blender (makeup UV/template files)**: [[2025-09-26 - Making Awesome Avatars Trends, Tools, and Opportunities RDC 2025|Making Awesome Avatars: Trends, Tools, and Opportu]]
+- **Ads Manager**: [[2025-09-26 - Making Awesome Avatars Trends, Tools, and Opportunities RDC 2025|Making Awesome Avatars: Trends, Tools, and Opportu]]
+- **Creator Dashboard**: [[2025-09-26 - Making Awesome Avatars Trends, Tools, and Opportunities RDC 2025|Making Awesome Avatars: Trends, Tools, and Opportu]]
+- **Roblox sponsored ads (referenced as 'sponsor it')**: [[2026-05-27 - Game Changers Evan and the Goofy Vision Behind Dead Rails|Game Changers: Evan and the Goofy Vision Behind De]]
+- **Roblox Creator Dashboard (Manage Games)**: [[2026-06-16 - How to Use Roblox’s Manage Games Controls|How to Use Roblox’s Manage Games Controls]]
+- **Animation graphs (Studio)**: [[2026-10-12 - Avatars at the Center Driving Gameplay, Identity, and Commerce RDC 202|Avatars at the Center: Driving Gameplay, Identity,]]
+- **Character Controller Library (CCL)**: [[2026-10-12 - Avatars at the Center Driving Gameplay, Identity, and Commerce RDC 202|Avatars at the Center: Driving Gameplay, Identity,]]
+- **Auto Setup**: [[2026-10-12 - Avatars at the Center Driving Gameplay, Identity, and Commerce RDC 202|Avatars at the Center: Driving Gameplay, Identity,]]
+- **Slim for avatars / LODs**: [[2026-10-12 - Avatars at the Center Driving Gameplay, Identity, and Commerce RDC 202|Avatars at the Center: Driving Gameplay, Identity,]]
+- **Humanoid rig description**: [[2026-10-12 - Avatars at the Center Driving Gameplay, Identity, and Commerce RDC 202|Avatars at the Center: Driving Gameplay, Identity,]]
+- **Texture streaming (engine feature)**: [[2026-10-12 - Going Under the Hood with Mesh and Texture Streaming RDC 2026|Going Under the Hood with Mesh and Texture Streami]]
+- **Mesh streaming and Mesh LOD system (workspace property, opt-in)**: [[2026-10-12 - Going Under the Hood with Mesh and Texture Streaming RDC 2026|Going Under the Hood with Mesh and Texture Streami]]
+- **Slim (runtime model baking)**: [[2026-10-12 - Going Under the Hood with Mesh and Texture Streaming RDC 2026|Going Under the Hood with Mesh and Texture Streami]]
+- **Debug views (texture resolution and LOD legends)**: [[2026-10-12 - Going Under the Hood with Mesh and Texture Streaming RDC 2026|Going Under the Hood with Mesh and Texture Streami]]
+
+## Points viewers to (candidates for further study)
+- Chris Miziners keynote (internationalization) ([[2018-07-24 - Roblox Developer Conference 2018 - Building Games for Reach|Roblox Developer Conference 2018 - Building Games ]])
+- Deepak Circus talk on upcoming age rating system ([[2018-07-24 - Roblox Developer Conference 2018 - Building Games for Reach|Roblox Developer Conference 2018 - Building Games ]])
+- GameAnalytics (free analytics service with Roblox module) ([[2018-07-24 - Roblox Developer Conference 2018 - Monetization Panel|Roblox Developer Conference 2018 - Monetization Pa]])
+- Supercell games (monetisation reference) ([[2018-07-24 - Roblox Developer Conference 2018 - Monetization Panel|Roblox Developer Conference 2018 - Monetization Pa]])
+- Game Maker's Toolkit - What Makes a Good Combat System (YouTube) ([[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]])
+- Overwatch (melee character design reference) ([[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]])
+- Mount and Blade (complex melee reference) ([[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]])
+- Dark Souls (combat system reference) ([[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]])
+- Street Fighter (combo system reference) ([[2018-07-24 - Roblox Developer Conference 2018 - Melee Combat Design and Tech|Roblox Developer Conference 2018 - Melee Combat: D]])
+- Roblox developer relations team ([[2018-07-24 - Roblox Developer Conference 2018 - Business Marketing Panel|Roblox Developer Conference 2018 - Business Market]])
+- Roblox official Twitch stream ([[2018-07-24 - Roblox Developer Conference 2018 - Business Marketing Panel|Roblox Developer Conference 2018 - Business Market]])
+- Treasure Hunt Simulator by Henry dev ([[2018-07-24 - Roblox Developer Conference 2018 - Leveraging Your Skills to Make Game|Roblox Developer Conference 2018 - Leveraging Your]])
+- Roblox developer forums (Q&A contact) ([[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]])
+- IBM globalization guidelines (text expansion table) ([[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]])
+- Roblox DevHub localization docs ([[2018-07-24 - Roblox Developer Conference 2018 - Accessing a Global Market|Roblox Developer Conference 2018 - Accessing a Glo]])
+- Roblox DevForum performance threads ([[2018-07-24 - Roblox Developer Conference 2018 - Designing for Performance|Roblox Developer Conference 2018 - Designing for P]])
+- Roblox Lua performance tips by Roberto Ierusalimschy ([[2018-07-24 - Roblox Developer Conference 2018 - Designing for Performance|Roblox Developer Conference 2018 - Designing for P]])
+- Roblox Developer Conference (GDC demos on interior design and environment design) ([[2018-07-24 - Roblox Developer Conference 2018 - Creating Worlds You Envision|Roblox Developer Conference 2018 - Creating Worlds]])
+- Stick Master Luke video series (Roblox Studio tutorials) ([[2020-11-20 - A Roblox Story Zoe Basil|A Roblox Story: Zoe Basil]])
+- Dave Bazuki (mentioned, Roblox event) ([[2020-11-20 - A Roblox Story Zoe Basil|A Roblox Story: Zoe Basil]])
+- Roblox new college grad applications (opens in fall) ([[2022-06-28 - Scaling Innovation at Roblox I Tech Innovators Panel|Scaling Innovation at Roblox I Tech Innovators Pan]])
+- Bloxy Awards ([[2022-09-20 - A Roblox Story - Terabrite|A Roblox Story - Terabrite]])
+- Carly Kloss (collaboration) ([[2022-09-20 - A Roblox Story - Samuel Jordan|A Roblox Story - Samuel Jordan]])
+- Burberry (Lola collection digital redesign) ([[2022-09-20 - A Roblox Story - Samuel Jordan|A Roblox Story - Samuel Jordan]])
+- Misfits Gaming ([[2023-07-18 - Gaming Content Creation in 2023 (Collision 2023)|Gaming Content Creation in 2023 (Collision 2023)]])
+- VidCon ([[2023-07-18 - Gaming Content Creation in 2023 (Collision 2023)|Gaming Content Creation in 2023 (Collision 2023)]])
+- Kick ([[2023-07-18 - Gaming Content Creation in 2023 (Collision 2023)|Gaming Content Creation in 2023 (Collision 2023)]])
+- Mr Beast Feastables ([[2023-07-18 - Gaming Content Creation in 2023 (Collision 2023)|Gaming Content Creation in 2023 (Collision 2023)]])
+- Roblox RDC keynote (AI, avatar, ads announcements) ([[2023-09-19 - Partnering for Success Tips for Creators and Brands RDC23|Partnering for Success: Tips for Creators and Bran]])
+- Jack fraggs (YouTuber making FPS content, featured Front Lines) ([[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]])
+- Call of Duty ([[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]])
+- Battlefield ([[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]])
+- Forza (audio comparison) ([[2023-09-19 - Creating Experiences to Reach New Audiences RDC23|Creating Experiences to Reach New Audiences | RDC2]])
+- Digital Wellness Lab (Boston Children's Hospital / Harvard) ([[2023-09-19 - Grow Q&A RDC23|Grow Q&A | RDC23]])
+- National Association for Media Literacy Education ([[2023-09-19 - Grow Q&A RDC23|Grow Q&A | RDC23]])
+- Roblox DevForum performance article/book by Mr Chicken Rocket (QR code shown) ([[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]])
+- Roblox Docs Microprofiler documentation ([[2024-09-23 - Using Roblox Tools to Improve Performance RDC 2024|Using Roblox Tools to Improve Performance | RDC 20]])
+- create.roblox.com docs ([[2024-09-23 - Building a Business on Console RDC 2024|Building a Business on Console | RDC 2024]])
+- Roblox is everywhere Lounge at RDC ([[2024-09-23 - Building a Business on Console RDC 2024|Building a Business on Console | RDC 2024]])
+- Partnership Brand Program ([[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]])
+- Today's Picks ([[2024-09-23 - Monetization for Avatar Creators RDC 2024|Monetization for Avatar Creators | RDC 2024]])
+- Sin City (film, color reference) ([[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]])
+- Pixar films (emotion reference) ([[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]])
+- Stranger Things (lighting analysis reference) ([[2024-09-23 - Finding Your Art Direction RDC 2024|Finding Your Art Direction | RDC 2024]])
+- Open Cloud API (open beta soon, with CLI and GitHub Actions samples) ([[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]])
+- RDC 2024 Studio AI booth ([[2024-09-23 - Create & Ship Faster with AI and Collaboration RDC 2024|Create & Ship Faster with AI and Collaboration | R]])
+- RDC (Roblox Developers Conference) announcements ([[2025-09-05 - Tech Talks EP29 Creator|Tech Talks EP29: Creator]])
+- Apollo 13 (analogy for systems checks) ([[2025-09-05 - Tech Talks EP29 Creator|Tech Talks EP29: Creator]])
+- Roblox Studio Assistant MCP ([[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]])
+- Roblox Cube 3D foundation model ([[2025-09-26 - Building Fun Games with AI RDC 2025|Building Fun Games with AI | RDC 2025]])
+- Roblox DevForum (API dates and details) ([[2025-09-26 - Building Connected Experiences with Roblox’s APIs RDC 2025|Building Connected Experiences with Roblox’s APIs ]])
+- Roblox dev forum (Marketplace Select criteria to be published) ([[2025-09-26 - Making Awesome Avatars Trends, Tools, and Opportunities RDC 2025|Making Awesome Avatars: Trends, Tools, and Opportu]])
+- Roblox developer forum (bug reports for Auto Setup) ([[2026-10-12 - Avatars at the Center Driving Gameplay, Identity, and Commerce RDC 202|Avatars at the Center: Driving Gameplay, Identity,]])
+- Roblox DevForum (bug reports for mesh streaming) ([[2026-10-12 - Going Under the Hood with Mesh and Texture Streaming RDC 2026|Going Under the Hood with Mesh and Texture Streami]])

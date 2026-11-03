@@ -1,0 +1,28 @@
+--!nocheck
+-- Run: lune run SafeArea.test.luau   (from the kit's systems folder, see check-scripts.sh)
+local t = require("../../../../../systems/_check/harness")
+local S = require("../SafeArea")
+
+local vp = { w = 800, h = 400 }
+local ins = S.fromGuiInset({ x = 40, y = 20 }, { x = 40, y = 10 })
+
+t.test("fromGuiInset maps the two vectors", function()
+	t.eq(ins, { left = 40, top = 20, right = 40, bottom = 10 })
+end)
+t.test("rect inside the margins passes", function()
+	t.eq(S.check({ { name = "ok", x = 100, y = 50, w = 100, h = 50 } }, vp, ins), {})
+end)
+t.test("rect under the left notch is a blocker when important", function()
+	local issues = S.check({ { name = "menu", x = 10, y = 50, w = 60, h = 60, important = true } }, vp, ins)
+	t.eq(#issues, 1)
+	t.eq(issues[1].severity, "blocker")
+	t.eq(issues[1].overflow.left, 30)
+end)
+t.test("pad tightens the margin and nudge points back inside", function()
+	local issues = S.check({ { name = "btn", x = 700, y = 350, w = 70, h = 45 } }, vp, ins, 8)
+	t.eq(#issues, 1)
+	t.eq(issues[1].severity, "minor")
+	local n = S.nudge(issues[1])
+	t.eq(n, { x = -18, y = -13 })
+end)
+t.done()

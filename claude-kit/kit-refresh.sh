@@ -1,0 +1,30 @@
+#!/bin/bash
+# kit-refresh.sh - run right after the vault update (self-healing fetch + fast-forward) (by vault-update.sh, the login agent/timer, or by hand) so installed copies of the kit
+# (agents, skills such as /game-dev-workflow, tools) refresh whenever the vault updates, and then syncs <vault>/Assets from the host share.
+# 1) install.sh (idempotent; kit wins: a file you changed is backed up to claude-kit/backup/<date>/ and replaced). Env CLAUDE_KIT_SKIP=1 skips this part.
+# 2) tools/assets-sync.py --vault <this vault>: downloads only new/changed asset files (about 2.7 GB the first time), deletes removed ones.
+#    Quiet unless something changed; skips with one line when the share is unreachable (Tailscale off). Env CLAUDE_ASSETS_SKIP=1 skips this part.
+# Prints a line only when something changed, so the log stays quiet. Never fails the caller.
+{
+D="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$D/install.sh" ]; then
+  out="$(CLAUDE_KIT_NOFOOTER=1 bash "$D/install.sh" 2>&1)" || out="kit refresh failed: $out"
+  case "$out" in
+    *"installed 0 new, updated 0, unchanged "*"replaced-yours 0 "*) ;;
+    *) printf '%s kit-refresh: %s\n' "$(date '+%F %T')" "$(printf '%s' "$out" | tr '\n' ' ')" ;;
+  esac
+fi
+if [ "${CLAUDE_ASSETS_SKIP:-0}" != 1 ] && [ -f "$D/tools/assets-sync.py" ]; then
+  PY=""
+  for p in python3 python; do
+    if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then PY="$p"; break; fi
+  done
+  if [ -z "$PY" ]; then
+    printf '%s assets-sync: skipped (no working python3; install Python 3 and run vault-update.sh)\n' "$(date '+%F %T')"
+  else
+    [ -f "$D/tools/vault-shards.py" ] && "$PY" -I "$D/tools/vault-shards.py" --vault "$(dirname "$D")" 2>&1   # extra repo shards (vault-notes-02, ...) from repos.json; silent when there are none
+    "$PY" -I "$D/tools/assets-sync.py" --vault "$(dirname "$D")" 2>&1   # streams its own progress lines (first sync); prints nothing when nothing changed
+  fi
+fi
+exit 0
+}

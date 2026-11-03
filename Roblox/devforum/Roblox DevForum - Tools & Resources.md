@@ -1,0 +1,1523 @@
+---
+title: Roblox DevForum - Tools & Resources
+tags: [roblox, roblox devforum]
+---
+
+# Roblox DevForum: Tools & Resources
+
+## Tools mentioned
+- **Roblox Studio**: [[2019-12-08 - Dragging objects with the mouse|Dragging objects with the mouse]], [[2021-09-12 - Data storingpresenting using ProfileService and ReplicaService!|Data storing/presenting using ProfileService and R]], [[2021-09-07 - OPEN SOURCE Lock-On Combat in 3D|[OPEN SOURCE] Lock-On Combat in 3D]], [[2025-12-09 - Studio Beta Build Fair, Responsive Games with Server Authority|[Studio Beta] Build Fair, Responsive Games with Se]], [[2018-12-12 - How to Prevent Speed Hacking|How to Prevent Speed Hacking]], [[2020-04-14 - How to save parts, and the idea of Serialization|How to save parts, and the idea of Serialization]], [[2021-05-15 - Creating simple VR Hands from Scratch|Creating simple VR Hands from Scratch]], [[2019-09-01 - Dungeon Generation A Procedural Generation Guide|Dungeon Generation: A Procedural Generation Guide]], [[2024-08-25 - Creating custom skyboxes using Blender & crafting stunning atmospheres|Creating custom skyboxes using Blender & crafting ]], [[2018-06-16 - How to use DataStore2 - Data Store caching and data loss prevention|How to use DataStore2 - Data Store caching and dat]], [[2020-05-18 - Writing an FPS framework, part 2 (2020)|Writing an FPS framework, part 2 (2020)]], [[2023-07-12 - Roblox is coming to Meta Quest!|Roblox is coming to Meta Quest!]], [[2024-09-13 - State machines In-Depth Tutorial|State machines // In-Depth Tutorial]], [[2026-06-15 - Pilot Create and Sell Animation Packs and Emotes on Marketplace|[Pilot] Create and Sell Animation Packs and Emotes]], [[2017-08-07 - A Guide to User Interface Design|A Guide to User Interface Design]], [[2025-10-31 - Creator Spotlight The Story Behind 99 Nights in the Forest|Creator Spotlight: The Story Behind 99 Nights in t]], [[2019-05-19 - How to Plan, Design and Build Quality User Interfaces|How to Plan, Design and Build Quality User Interfa]], [[2026-05-13 - Protect Your Games with Script Capabilities Sandboxing|Protect Your Games with Script Capabilities Sandbo]], [[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]], [[2019-03-15 - 2 Joint 2 Limb Inverse Kinematics|2 Joint 2 Limb Inverse Kinematics]], [[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]], [[2022-01-13 - How to animate 2 characters and play it in-game like a takedown animat|How to animate 2 characters and play it in-game li]], [[2019-12-31 - Creating A CircularRadial HP Bar Like Kingdom Hearts|Creating A Circular/Radial HP Bar Like Kingdom Hea]], [[2025-12-11 - New Requirements to Publish and Update Public Experiences|New Requirements to Publish and Update Public Expe]], [[2018-08-06 - The First Person Element Of A First Person Shooter|The First Person Element Of A First Person Shooter]], [[2020-04-14 - How to Rig a Car|How to Rig a Car]], [[2023-09-09 - All about optimization|All about optimization]], [[2021-03-06 - Lag reducing tips and Organzation tips!|Lag reducing tips and Organzation tips!]], [[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]], [[2026-04-23 - Studio Beta Introducing Procedural Models Build Parametrized 3D Models|[Studio Beta] Introducing Procedural Models: Build]], [[2026-06-23 - Improved AnimationConstraint Stable, Mass-Independent Tracking for Phy|Improved AnimationConstraint: Stable, Mass-Indepen]], [[2022-07-03 - How To Use Roblox Pathfinding Service 2.0|How To Use Roblox Pathfinding Service 2.0]], [[2021-07-06 - How to Add Weight to the Camera Camera Tutorial|How to Add "Weight" to the Camera [Camera Tutorial]], [[2023-02-03 - Creating Proper Anti-Exploits The Ultimate Guide|Creating Proper Anti-Exploits: The Ultimate Guide]], [[2021-11-13 - Dynamic Weather Library (Beta 1.0)|Dynamic Weather Library (Beta 1.0)]], [[2024-03-18 - Mass Uncopylocked 35 free games and projects|Mass Uncopylocked | 35 free games and projects]], [[2022-04-27 - How to make a clean, appealing UI|How to make a clean, appealing UI]], [[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]], [[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]], [[2025-05-21 - Math for Roblox Developers 1 Vectors|Math for Roblox Developers #1: Vectors]], [[2023-07-30 - The Best and Easiest Way To Save and Load Data|The Best and Easiest Way To Save and Load Data]], [[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]], [[2022-02-26 - Basics of CFrame multiplication and WeldsMotor6DsJoint Instances|Basics of CFrame multiplication and Welds/Motor6Ds]], [[2023-01-12 - Movement System|Movement System]], [[2026-05-14 - Full Release New UI Capabilities Shadows & Individual Corners!|[Full Release] New UI Capabilities: Shadows & Indi]], [[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]], [[2026-07-29 - Introducing Predictive Streaming Reduced Pausing and Smoother Gameplay|Introducing Predictive Streaming: Reduced Pausing ]], [[2022-04-18 - Benis' Pathfinding - Customizable, Easy to Use & Auto-Animating (R6 &|Benis' Pathfinding - Customizable, Easy to Use & A]], [[2019-05-08 - Ruski's Tutorial 1 - How to design a map layout|Ruski's Tutorial #1 - How to design a map layout]], [[2025-09-03 - In Depth Scripted Car Physics|In Depth Scripted Car Physics]], [[2025-07-24 - More Creators Can Now Use Rewarded Video Ads|More Creators Can Now Use Rewarded Video Ads]], [[2019-10-01 - Scripting Basics - Beginner guide to lua and Roblox|Scripting Basics - Beginner guide to lua and Roblo]], [[2020-07-31 - How to use Placement Service|How to use Placement Service]], [[2025-04-04 - NetRay - High-Performance Roblox Networking Library|NetRay - High-Performance Roblox Networking Librar]], [[2020-11-16 - Generating Equidistant Points on a Sphere|Generating Equidistant Points on a Sphere]], [[2020-06-18 - How to Make Server-Synced Daily Shops|How to Make Server-Synced Daily Shops]], [[2021-07-26 - Weighted Chance System|Weighted Chance System]], [[2020-06-22 - Building and Showcase TIPS! Update!|Building and Showcase TIPS! [Update!]]], [[2024-06-03 - The Basics of Combat Games Hitboxes|The Basics of Combat Games: Hitboxes]], [[2026-04-02 - Studio Beta Introducing the Animation Graph System|[Studio Beta] Introducing the Animation Graph Syst]], [[2025-12-03 - Managing Your Group Revenue and Experience Ownerships Just Became a Lo|Managing Your Group Revenue and Experience Ownersh]], [[2021-07-01 - The Ultimate Guide to Custom LoadingHealth Bars|The Ultimate Guide to Custom Loading/Health Bars]], [[2020-08-27 - Accessory Based Items, Clothing & Addons. UPDATED|Accessory Based Items, Clothing & Addons. [UPDATED]], [[2019-09-18 - How you should secure your game - A beginner guide for secure networki|How you should secure your game - A beginner guide]], [[2015-09-07 - How to use SliceCenter (Roblox's 9-Slice GUI Property)|How to use SliceCenter (Roblox's 9-Slice GUI Prope]], [[2021-02-21 - Efficient Object Oriented Programming Tutorial|Efficient Object Oriented Programming Tutorial]], [[2020-08-14 - How to make a raycasting gun|How to make a raycasting gun]]
+- **TweenService**: [[2019-09-16 - Promises and Why You Should Use Them|Promises and Why You Should Use Them]], [[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]], [[2020-05-08 - Procedural Animation What it is and how to do it|Procedural Animation: What it is and how to do it]], [[2020-12-21 - Understanding Easing Styles!|Understanding Easing Styles!]], [[2019-11-17 - How to Optimize Humanoids|How to Optimize Humanoids]], [[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]], [[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]], [[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]], [[2020-08-06 - Map Design and Scene Building Fantasy, Medieval and Nature maps|Map Design and Scene Building: Fantasy, Medieval a]], [[2020-02-14 - Creating a battle system OOP style!|Creating a battle system: OOP style!]], [[2021-02-12 - How To Make Advanced Health Bar|How To Make Advanced Health Bar]], [[2019-04-01 - Creating a CrateSpin System|Creating a Crate/Spin System]], [[2019-07-24 - Introduction to Tweening Models|Introduction to Tweening Models]], [[2022-05-12 - Client Replication 101. The guide to replicating effects to clients|Client Replication 101. The guide to replicating e]], [[2020-06-27 - Creating a Simple, Realistic Camera (With View Bobbing, Dynamic Blur,|Creating a Simple, Realistic Camera (With View Bob]]
+- **Luau**: [[2018-12-12 - How to Prevent Speed Hacking|How to Prevent Speed Hacking]], [[2021-05-15 - Creating simple VR Hands from Scratch|Creating simple VR Hands from Scratch]], [[2019-09-01 - Dungeon Generation A Procedural Generation Guide|Dungeon Generation: A Procedural Generation Guide]], [[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]], [[2023-02-03 - Creating Proper Anti-Exploits The Ultimate Guide|Creating Proper Anti-Exploits: The Ultimate Guide]], [[2020-08-07 - Table to String converter|Table to String converter]], [[2025-09-03 - In Depth Scripted Car Physics|In Depth Scripted Car Physics]], [[2020-07-31 - How to use Placement Service|How to use Placement Service]], [[2020-11-16 - Generating Equidistant Points on a Sphere|Generating Equidistant Points on a Sphere]], [[2021-07-26 - Weighted Chance System|Weighted Chance System]], [[2021-07-01 - The Ultimate Guide to Custom LoadingHealth Bars|The Ultimate Guide to Custom Loading/Health Bars]], [[2019-12-07 - All About Tables (the first of two tutorials on the subject)|All About Tables (the first of two tutorials on th]], [[2020-08-14 - How to make a raycasting gun|How to make a raycasting gun]]
+- **Blender**: [[2024-05-10 - ViewportFrame Masking|ViewportFrame Masking]], [[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]], [[2024-08-25 - Creating custom skyboxes using Blender & crafting stunning atmospheres|Creating custom skyboxes using Blender & crafting ]], [[2020-05-18 - Writing an FPS framework, part 2 (2020)|Writing an FPS framework, part 2 (2020)]], [[2019-09-30 - How to animate Tool Parts (Guns, Knifes etc.)|How to animate Tool Parts (Guns, Knifes etc.)]], [[2019-12-11 - Large-Scale Roblox Terrain The ultimate guide|Large-Scale Roblox Terrain: The ultimate guide]], [[2026-06-15 - Pilot Create and Sell Animation Packs and Emotes on Marketplace|[Pilot] Create and Sell Animation Packs and Emotes]], [[2021-03-21 - Making A Mesh Deformation Ocean|Making A Mesh Deformation Ocean]], [[2019-02-02 - Building Optimisation Tips and tricks!|Building Optimisation | Tips and tricks!]], [[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]], [[2021-06-29 - MeshPart Usage, Performance & Optimizations|MeshPart Usage, Performance & Optimizations]], [[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]], [[2020-06-22 - Building and Showcase TIPS! Update!|Building and Showcase TIPS! [Update!]]]
+- **RemoteEvent**: [[2020-01-20 - Replicating Instances to Only Some Players|Replicating Instances to Only Some Players]], [[2026-07-23 - Reference Instances Directly with Attributes|Reference Instances Directly with Attributes]], [[2020-05-09 - Perspective object dragging like Superliminal|Perspective object dragging like Superliminal]], [[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]], [[2023-09-09 - All about optimization|All about optimization]], [[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]], [[2024-11-03 - Client-Server Anti-Cheat System with Custom Encryption|Client-Server Anti-Cheat System with Custom Encryp]], [[2023-01-12 - Movement System|Movement System]], [[2020-02-14 - Creating a battle system OOP style!|Creating a battle system: OOP style!]], [[2022-05-12 - Client Replication 101. The guide to replicating effects to clients|Client Replication 101. The guide to replicating e]], [[2025-04-04 - NetRay - High-Performance Roblox Networking Library|NetRay - High-Performance Roblox Networking Librar]], [[2024-06-03 - The Basics of Combat Games Hitboxes|The Basics of Combat Games: Hitboxes]], [[2020-08-14 - How to make a raycasting gun|How to make a raycasting gun]]
+- **ProfileService**: [[2021-09-12 - Data storingpresenting using ProfileService and ReplicaService!|Data storing/presenting using ProfileService and R]], [[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]], [[2020-10-30 - Session locking explained (Datastore)|Session locking explained (Datastore)]], [[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]], [[2023-10-22 - DataKeep - A promise based, auto-saving DataStore module|DataKeep - A promise based, auto-saving DataStore ]], [[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]], [[2023-07-30 - The Best and Easiest Way To Save and Load Data|The Best and Easiest Way To Save and Load Data]], [[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]], [[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]], [[2022-08-17 - ProfileService Tutorial!|ProfileService Tutorial!]], [[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]], [[2023-11-02 - Roblox Lua Programming Formalities Guide|Roblox Lua Programming Formalities Guide]]
+- **DataStoreService**: [[2021-09-12 - Data storingpresenting using ProfileService and ReplicaService!|Data storing/presenting using ProfileService and R]], [[2018-11-26 - Creating A Furniture Placement System|Creating A Furniture Placement System]], [[2020-04-14 - How to save parts, and the idea of Serialization|How to save parts, and the idea of Serialization]], [[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]], [[2019-07-20 - How to properly save player data in data stores upon server close|How to properly save player data in data stores up]], [[2019-03-21 - Cross-Server Matchmaking Module|Cross-Server Matchmaking Module]], [[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]], [[2022-04-27 - Developers are not equipped to deal with exploiters|Developers are not equipped to deal with exploiter]], [[2020-08-21 - Datastore Tutorial for Beginners|Datastore Tutorial for Beginners]], [[2019-11-23 - Pcalls - When and how to use them|Pcalls - When and how to use them]]
+- **RaycastParams**: [[2023-07-07 - How to Create a Realistic NPC Eyesight System|How to Create a Realistic NPC Eyesight System]], [[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]], [[2026-04-07 - New spatial query filters|New spatial query filters]], [[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]], [[2015-09-01 - How to reflect rays on hit|How to reflect rays on hit]], [[2025-09-03 - In Depth Scripted Car Physics|In Depth Scripted Car Physics]], [[2022-02-26 - My Intro to Raycasting - WHAT, WHY, and HOW|My Intro to Raycasting - WHAT, WHY, and HOW]], [[2024-06-03 - The Basics of Combat Games Hitboxes|The Basics of Combat Games: Hitboxes]]
+- **RunService**: [[2018-11-26 - Creating A Furniture Placement System|Creating A Furniture Placement System]], [[2021-03-25 - FPS using ViewModels (The improved version) Parts 2 out of 3|FPS using ViewModels (The improved version) // Par]], [[2022-05-29 - Simple pathfinding ai|Simple pathfinding ai]], [[2021-05-12 - Improved How to Actually Improve Performance in Your Games|[Improved] How to Actually Improve Performance in ]], [[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]], [[2023-09-09 - All about optimization|All about optimization]], [[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]], [[2021-12-30 - A Guide to Making Proper Anti-Exploits|A Guide to Making Proper Anti-Exploits]]
+- **Rojo**: [[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]], [[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]], [[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]], [[2024-05-10 - How To React + Roblox|How To: React + Roblox]], [[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]], [[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]], [[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]]
+- **Wally**: [[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]], [[2026-06-17 - Sling - A modern and reactive backpack UI|Sling - A modern and reactive backpack UI]], [[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]], [[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]], [[2024-05-10 - How To React + Roblox|How To: React + Roblox]], [[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]], [[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]]
+- **Creator Hub**: [[2025-06-24 - Introducing Creator Rewards Earn More by Growing the Community|Introducing Creator Rewards: Earn More by Growing ]], [[2026-03-09 - How we are improving Home this year|How we are improving Home this year]], [[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]], [[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]], [[2025-07-24 - More Creators Can Now Use Rewarded Video Ads|More Creators Can Now Use Rewarded Video Ads]], [[2025-12-03 - Managing Your Group Revenue and Experience Ownerships Just Became a Lo|Managing Your Group Revenue and Experience Ownersh]], [[2026-08-25 - Roblox Kids and Select New Restrictions on Reward-Driven Media Feeds|Roblox Kids and Select: New Restrictions on Reward]]
+- **workspace:Raycast**: [[2023-07-07 - How to Create a Realistic NPC Eyesight System|How to Create a Realistic NPC Eyesight System]], [[2021-12-30 - A Guide to Making Proper Anti-Exploits|A Guide to Making Proper Anti-Exploits]], [[2015-09-01 - How to reflect rays on hit|How to reflect rays on hit]], [[2025-09-03 - In Depth Scripted Car Physics|In Depth Scripted Car Physics]], [[2022-02-26 - My Intro to Raycasting - WHAT, WHY, and HOW|My Intro to Raycasting - WHAT, WHY, and HOW]], [[2024-06-03 - The Basics of Combat Games Hitboxes|The Basics of Combat Games: Hitboxes]]
+- **Motor6D**: [[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]], [[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]], [[2018-08-06 - The First Person Element Of A First Person Shooter|The First Person Element Of A First Person Shooter]], [[2022-02-26 - Basics of CFrame multiplication and WeldsMotor6DsJoint Instances|Basics of CFrame multiplication and Welds/Motor6Ds]], [[2019-01-27 - How to animate a toolobject with a Dummy in the Animation Editor|How to animate a tool/object with a Dummy in the A]], [[2020-08-27 - Accessory Based Items, Clothing & Addons. UPDATED|Accessory Based Items, Clothing & Addons. [UPDATED]]
+- **DataStore2**: [[2018-06-16 - How to use DataStore2 - Data Store caching and data loss prevention|How to use DataStore2 - Data Store caching and dat]], [[2020-10-30 - Session locking explained (Datastore)|Session locking explained (Datastore)]], [[2020-02-14 - Creating a battle system OOP style!|Creating a battle system: OOP style!]], [[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]], [[2022-08-17 - ProfileService Tutorial!|ProfileService Tutorial!]]
+- **Attachment**: [[2018-09-07 - Modeling a projectile's motion|Modeling a projectile's motion]], [[2021-07-07 - Comprehensive Beginner's Guide to CFrames and How to Use Them CFrame G|Comprehensive Beginner's Guide to CFrames and How ]], [[2022-02-26 - Basics of CFrame multiplication and WeldsMotor6DsJoint Instances|Basics of CFrame multiplication and Welds/Motor6Ds]], [[2023-01-12 - Movement System|Movement System]], [[2025-09-03 - In Depth Scripted Car Physics|In Depth Scripted Car Physics]]
+- **RunService.RenderStepped**: [[2018-09-07 - Modeling a projectile's motion|Modeling a projectile's motion]], [[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]], [[2021-04-22 - Camera Animations for cutscenes and gameplay!|Camera Animations for cutscenes and gameplay!]], [[2024-06-24 - The Basics of Combat Games Projectiles|The Basics of Combat Games: Projectiles]], [[2020-06-27 - Creating a Simple, Realistic Camera (With View Bobbing, Dynamic Blur,|Creating a Simple, Realistic Camera (With View Bob]]
+- **MessagingService**: [[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]], [[2020-10-30 - Session locking explained (Datastore)|Session locking explained (Datastore)]], [[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]], [[2019-03-21 - Cross-Server Matchmaking Module|Cross-Server Matchmaking Module]], [[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]]
+- **ProfileStore**: [[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]], [[2020-10-30 - Session locking explained (Datastore)|Session locking explained (Datastore)]], [[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]], [[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]], [[2024-10-16 - Replica - Server to client state replication (Module)|Replica - Server to client state replication (Modu]]
+- **Moon Animator**: [[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]], [[2026-06-15 - Pilot Create and Sell Animation Packs and Emotes on Marketplace|[Pilot] Create and Sell Animation Packs and Emotes]], [[2022-02-03 - How to animate tools (the easiest and best way) (for melees)|How to animate tools (the easiest and best way) (f]], [[2022-01-13 - How to animate 2 characters and play it in-game like a takedown animat|How to animate 2 characters and play it in-game li]], [[2021-04-22 - Camera Animations for cutscenes and gameplay!|Camera Animations for cutscenes and gameplay!]]
+- **Creator Analytics**: [[2025-06-24 - Introducing Creator Rewards Earn More by Growing the Community|Introducing Creator Rewards: Earn More by Growing ]], [[2026-08-06 - Boost Your Discovery by Building Games People Want to Play|Boost Your Discovery by Building Games People Want]], [[2026-04-30 - Introducing the US 18+ DevEx Rate Earn 42% More on Spend from 18+ US P|Introducing the US 18+ DevEx Rate: Earn 42% More o]], [[2024-02-28 - Discovery on Roblox Past, Present, and Future Vision|Discovery on Roblox: Past, Present, and Future Vis]], [[2026-06-15 - Recommended For You Algorithm Improvements That Better Value Long-Term|Recommended For You Algorithm Improvements That Be]]
+- **UIListLayout**: [[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]], [[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]], [[2019-11-22 - Quick Tutorial How to make scrolling frames properly|Quick Tutorial: How to make scrolling frames prope]], [[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]]
+- **Git**: [[2018-08-31 - Guide to Web Development|Guide to Web Development]], [[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]], [[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]], [[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]]
+- **UserInputService**: [[2021-05-15 - Creating simple VR Hands from Scratch|Creating simple VR Hands from Scratch]], [[2018-08-06 - The First Person Element Of A First Person Shooter|The First Person Element Of A First Person Shooter]], [[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]], [[2022-05-12 - Client Replication 101. The guide to replicating effects to clients|Client Replication 101. The guide to replicating e]]
+- **HttpService**: [[2019-09-22 - Roblox Requests Simple, powerful HTTP in Roblox|Roblox Requests: Simple, powerful HTTP in Roblox]], [[2019-03-21 - Cross-Server Matchmaking Module|Cross-Server Matchmaking Module]], [[2020-06-18 - How to Make Server-Synced Daily Shops|How to Make Server-Synced Daily Shops]], [[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]]
+- **RemoteFunction**: [[2022-01-13 - How to animate 2 characters and play it in-game like a takedown animat|How to animate 2 characters and play it in-game li]], [[2020-02-14 - Creating a battle system OOP style!|Creating a battle system: OOP style!]], [[2019-04-01 - Creating a CrateSpin System|Creating a Crate/Spin System]], [[2025-04-04 - NetRay - High-Performance Roblox Networking Library|NetRay - High-Performance Roblox Networking Librar]]
+- **ModuleScript**: [[2020-01-20 - Replicating Instances to Only Some Players|Replicating Instances to Only Some Players]], [[2024-08-08 - Ultimate Perlin Noise and How To Make Procedural Terrain Guide 24,231|Ultimate Perlin Noise and How To Make Procedural T]], [[2024-05-29 - The Basics of Combat Games Health and Damage|The Basics of Combat Games: Health and Damage]], [[2019-04-01 - Creating a CrateSpin System|Creating a Crate/Spin System]]
+- **ReplicaService**: [[2021-09-12 - Data storingpresenting using ProfileService and ReplicaService!|Data storing/presenting using ProfileService and R]], [[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]], [[2024-10-16 - Replica - Server to client state replication (Module)|Replica - Server to client state replication (Modu]], [[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]]
+- **MicroProfiler**: [[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]], [[2026-03-24 - Voice Chat is now supported in servers of up to 100 users!|Voice Chat is now supported in servers of up to 10]], [[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]], [[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]]
+- **PathfindingService**: [[2022-05-29 - Simple pathfinding ai|Simple pathfinding ai]], [[2022-07-03 - How To Use Roblox Pathfinding Service 2.0|How To Use Roblox Pathfinding Service 2.0]], [[2025-05-13 - Smooth Pathfinding Chase|Smooth Pathfinding Chase]], [[2022-04-18 - Benis' Pathfinding - Customizable, Easy to Use & Auto-Animating (R6 &|Benis' Pathfinding - Customizable, Easy to Use & A]]
+- **Random**: [[2024-08-08 - Ultimate Perlin Noise and How To Make Procedural Terrain Guide 24,231|Ultimate Perlin Noise and How To Make Procedural T]], [[2021-10-04 - Creating Procedural Mountains A Fractal Noise Tutorial|Creating Procedural Mountains: A Fractal Noise Tut]], [[2015-09-01 - How to reflect rays on hit|How to reflect rays on hit]]
+- **task.wait**: [[2024-05-29 - The Basics of Combat Games Health and Damage|The Basics of Combat Games: Health and Damage]], [[2015-09-01 - How to reflect rays on hit|How to reflect rays on hit]], [[2024-06-03 - The Basics of Combat Games Hitboxes|The Basics of Combat Games: Hitboxes]]
+- **ScrollingFrame**: [[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]], [[2019-11-22 - Quick Tutorial How to make scrolling frames properly|Quick Tutorial: How to make scrolling frames prope]], [[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]]
+- **FastCast**: [[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]], [[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]], [[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]]
+- **ContextActionService**: [[2018-11-26 - Creating A Furniture Placement System|Creating A Furniture Placement System]], [[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]], [[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]]
+- **RunService.Heartbeat**: [[2019-08-24 - A Couple of Advanced CFrame Tricks|A Couple of Advanced CFrame Tricks]], [[2022-02-07 - How to use Cos and Sin|How to use Cos and Sin]], [[2024-06-24 - The Basics of Combat Games Projectiles|The Basics of Combat Games: Projectiles]]
+- **pcall**: [[2020-08-21 - Datastore Tutorial for Beginners|Datastore Tutorial for Beginners]], [[2019-11-23 - Pcalls - When and how to use them|Pcalls - When and how to use them]], [[2021-08-16 - Pcall(), xpcall() and ypcall() Tutorial - How do they work|Pcall(), xpcall() and ypcall() Tutorial - How do t]]
+- **BindableEvent**: [[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]], [[2023-09-09 - All about optimization|All about optimization]], [[2020-02-14 - Creating a battle system OOP style!|Creating a battle system: OOP style!]]
+- **Stravant Model Reflect**: [[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]], [[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]], [[2020-02-14 - Game Development Theory 101|Game Development Theory 101]]
+- **Trello**: [[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]], [[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]], [[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]]
+- **Debris service**: [[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]], [[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]], [[2020-08-27 - How to Catch Combat Logging|How to Catch Combat Logging]]
+- **Trove**: [[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]], [[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]], [[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]]
+- **Promise**: [[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]], [[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]], [[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]]
+- **os.clock**: [[2021-12-30 - A Guide to Making Proper Anti-Exploits|A Guide to Making Proper Anti-Exploits]], [[2024-06-24 - The Basics of Combat Games Projectiles|The Basics of Combat Games: Projectiles]], [[2024-06-03 - The Basics of Combat Games Hitboxes|The Basics of Combat Games: Hitboxes]]
+- **ControllerManager**: [[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]], [[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]], [[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]]
+- **buffer library**: [[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]], [[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]], [[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]]
+- **RunService:BindToSimulation**: [[2025-12-09 - Studio Beta Build Fair, Responsive Games with Server Authority|[Studio Beta] Build Fair, Responsive Games with Se]], [[2025-12-09 - Server Authority How to Begin|Server Authority: How to Begin?]], [[2025-12-09 - Server Authority Studio Beta - Insights from Engineers!|Server Authority Studio Beta - Insights from Engin]]
+- **Command Bar**: [[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]], [[2016-04-08 - Smooth Terrain How To's and Tips and Tricks|Smooth Terrain: How To's and Tips and Tricks]]
+- **Roblox Animation Editor**: [[2017-03-30 - Blender rig exporteranimation importer|Blender rig exporter/animation importer]], [[2019-09-30 - How to animate Tool Parts (Guns, Knifes etc.)|How to animate Tool Parts (Guns, Knifes etc.)]]
+- **GameAnalytics**: [[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]], [[2017-06-27 - Using GameAnalytics (Retention and Monetisation) (Ez mode)|Using GameAnalytics (Retention and Monetisation) (]]
+- **UIAspectRatioConstraint**: [[2021-08-14 - Simplest Way To Make Your GUI Fit To All Devices|Simplest Way To Make Your GUI Fit To All Devices]], [[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]]
+- **nodemon**: [[2018-08-31 - Guide to Web Development|Guide to Web Development]], [[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]]
+- **Beam**: [[2018-09-07 - Modeling a projectile's motion|Modeling a projectile's motion]], [[2023-01-12 - Movement System|Movement System]]
+- **Rig Builder plugin**: [[2022-07-03 - How To Use Roblox Pathfinding Service 2.0|How To Use Roblox Pathfinding Service 2.0]], [[2019-01-27 - How to animate a toolobject with a Dummy in the Animation Editor|How to animate a tool/object with a Dummy in the A]]
+- **Developer Console**: [[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]], [[2019-02-02 - Building Optimisation Tips and tricks!|Building Optimisation | Tips and tricks!]]
+- **TeleportService**: [[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]], [[2019-03-21 - Cross-Server Matchmaking Module|Cross-Server Matchmaking Module]]
+- **Players:GetNameFromUserIdAsync**: [[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]], [[2023-04-18 - How to Create a Custom Chat Tag|How to Create a Custom Chat Tag]]
+- **Pinterest**: [[2019-05-19 - How to Plan, Design and Build Quality User Interfaces|How to Plan, Design and Build Quality User Interfa]], [[2020-06-22 - Building and Showcase TIPS! Update!|Building and Showcase TIPS! [Update!]]]
+- **Adobe XD**: [[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]], [[2019-05-19 - How to Plan, Design and Build Quality User Interfaces|How to Plan, Design and Build Quality User Interfa]]
+- **BindToClose**: [[2019-07-20 - How to properly save player data in data stores upon server close|How to properly save player data in data stores up]], [[2020-08-21 - Datastore Tutorial for Beginners|Datastore Tutorial for Beginners]]
+- **WeldConstraint**: [[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]], [[2019-07-24 - Introduction to Tweening Models|Introduction to Tweening Models]]
+- **Adobe Photoshop**: [[2019-10-12 - How to create good User Interface for your games|How to create good User Interface for your games]], [[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]]
+- **UIGridLayout**: [[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]], [[2019-11-22 - Quick Tutorial How to make scrolling frames properly|Quick Tutorial: How to make scrolling frames prope]]
+- **xpcall**: [[2019-11-23 - Pcalls - When and how to use them|Pcalls - When and how to use them]], [[2021-08-16 - Pcall(), xpcall() and ypcall() Tutorial - How do they work|Pcall(), xpcall() and ypcall() Tutorial - How do t]]
+- **Roblox Studio command bar**: [[2024-08-08 - Ultimate Perlin Noise and How To Make Procedural Terrain Guide 24,231|Ultimate Perlin Noise and How To Make Procedural T]], [[2019-12-11 - Large-Scale Roblox Terrain The ultimate guide|Large-Scale Roblox Terrain: The ultimate guide]]
+- **UIGradient**: [[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]], [[2019-12-31 - Creating A CircularRadial HP Bar Like Kingdom Hearts|Creating A Circular/Radial HP Bar Like Kingdom Hea]]
+- **ScreenGui**: [[2020-01-20 - Replicating Instances to Only Some Players|Replicating Instances to Only Some Players]], [[2021-02-12 - How To Make Advanced Health Bar|How To Make Advanced Health Bar]]
+- **Atmos**: [[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]], [[2020-02-14 - Game Development Theory 101|Game Development Theory 101]]
+- **Stravant GapFill**: [[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]], [[2020-02-14 - Game Development Theory 101|Game Development Theory 101]]
+- **Premium Purchase Modal**: [[2024-11-26 - Paid Access Experiences Will Be Eligible for Engagement Based Payouts|Paid Access Experiences Will Be Eligible for Engag]], [[2020-02-19 - Introducing Premium Payouts!|Introducing Premium Payouts!]]
+- **getrawmetatable**: [[2020-07-29 - Exploiters and how they spoof stuff in your own game|Exploiters and how they spoof stuff in your own ga]], [[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]]
+- **TweenInfo**: [[2020-05-08 - Procedural Animation What it is and how to do it|Procedural Animation: What it is and how to do it]], [[2020-12-21 - Understanding Easing Styles!|Understanding Easing Styles!]]
+- **SetNetworkOwner**: [[2020-05-09 - Perspective object dragging like Superliminal|Perspective object dragging like Superliminal]], [[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]]
+- **ClickUp**: [[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]], [[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]]
+- **Jira**: [[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]], [[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]]
+- **Fusion**: [[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]], [[2020-06-17 - Yucon Framework Optimization, organization, and high-level security|Yucon Framework || Optimization, organization, and]]
+- **Roact**: [[2020-06-17 - Yucon Framework Optimization, organization, and high-level security|Yucon Framework || Optimization, organization, and]], [[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]]
+- **CollectionService**: [[2023-07-07 - How to Create a Realistic NPC Eyesight System|How to Create a Realistic NPC Eyesight System]], [[2020-07-12 - CollectionService in a nutshell|CollectionService in a nutshell]]
+- **Slack**: [[2023-02-26 - Guide Effectively QA Testing Your Roblox Experience|Guide: Effectively QA Testing Your Roblox Experien]], [[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]]
+- **Wrike**: [[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]], [[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]]
+- **Google Forms**: [[2023-02-26 - Guide Effectively QA Testing Your Roblox Experience|Guide: Effectively QA Testing Your Roblox Experien]], [[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]]
+- **Atmosphere object**: [[2024-08-25 - Creating custom skyboxes using Blender & crafting stunning atmospheres|Creating custom skyboxes using Blender & crafting ]], [[2020-08-06 - Map Design and Scene Building Fantasy, Medieval and Nature maps|Map Design and Scene Building: Fantasy, Medieval a]]
+- **AeroGameFramework**: [[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]], [[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]]
+- **Visual Studio Code**: [[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]], [[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]]
+- **GitHub Desktop**: [[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]], [[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]]
+- **VectorForce**: [[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]], [[2025-09-03 - In Depth Scripted Car Physics|In Depth Scripted Car Physics]]
+- **Microprofiler**: [[2022-06-26 - In-Depth Information about Roblox's RemoteEvents, Instance Replication|In-Depth Information about Roblox's RemoteEvents, ]], [[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]]
+- **LocalScript**: [[2021-05-19 - Gaussian blur filter for UI (tutorial)|Gaussian blur filter for UI (tutorial)]], [[2021-02-12 - How To Make Advanced Health Bar|How To Make Advanced Health Bar]]
+- **Cmdr**: [[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]], [[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]]
+- **task library**: [[2021-05-12 - Improved How to Actually Improve Performance in Your Games|[Improved] How to Actually Improve Performance in ]], [[2023-09-09 - All about optimization|All about optimization]]
+- **Figma**: [[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]], [[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]]
+- **math.noise**: [[2024-08-08 - Ultimate Perlin Noise and How To Make Procedural Terrain Guide 24,231|Ultimate Perlin Noise and How To Make Procedural T]], [[2021-10-04 - Creating Procedural Mountains A Fractal Noise Tutorial|Creating Procedural Mountains: A Fractal Noise Tut]]
+- **Knit**: [[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]], [[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]]
+- **ReplicatedStorage**: [[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]], [[2022-05-12 - Client Replication 101. The guide to replicating effects to clients|Client Replication 101. The guide to replicating e]]
+- **BridgeNet2**: [[2022-08-06 - BridgeNet Insanely optimized, easy-to-use networking library full of u|BridgeNet | Insanely optimized, easy-to-use networ]], [[2023-11-02 - Roblox Lua Programming Formalities Guide|Roblox Lua Programming Formalities Guide]]
+- **Luau type checker**: [[2022-09-27 - Guide to Type-Checking with OOP|Guide to Type-Checking with OOP]], [[2024-02-18 - Type Annotations! A guide to writing Luau code that is Actually Good™|Type Annotations! A guide to writing Luau code tha]]
+- **Dex Explorer**: [[2023-07-16 - Client Anti Cheats Aren't as bad as you think!|Client Anti Cheats: Aren't as bad as you think!]], [[2023-04-20 - Exploiting and how to prevent it|Exploiting and how to prevent it]]
+- **DataKeep**: [[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]], [[2023-10-22 - DataKeep - A promise based, auto-saving DataStore module|DataKeep - A promise based, auto-saving DataStore ]]
+- **OverlapParams**: [[2026-04-07 - New spatial query filters|New spatial query filters]], [[2024-06-03 - The Basics of Combat Games Hitboxes|The Basics of Combat Games: Hitboxes]]
+- **GroundController**: [[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]], [[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]]
+- **AirController**: [[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]], [[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]]
+- **Funnel analytics**: [[2024-08-08 - Analytics New Experience Overview with Insights, Benchmarks, Realtime|Analytics: New Experience Overview with Insights, ]], [[2024-09-18 - Analytics Track any custom event you want and use custom fields for se|Analytics: Track any custom event you want and use]]
+- **Replica**: [[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]], [[2024-10-16 - Replica - Server to client state replication (Module)|Replica - Server to client state replication (Modu]]
+- **Sera**: [[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]], [[2024-10-16 - Replica - Server to client state replication (Module)|Replica - Server to client state replication (Modu]]
+- **Creator Analytics dashboard**: [[2026-03-09 - How we are improving Home this year|How we are improving Home this year]], [[2025-10-16 - Analytics View retention by acquisition source and select your benchma|Analytics: View retention by acquisition source an]]
+- **InputAction**: [[2025-12-09 - Studio Beta Build Fair, Responsive Games with Server Authority|[Studio Beta] Build Fair, Responsive Games with Se]], [[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]]
+- **RunService:SetPredictionMode**: [[2025-12-09 - Server Authority How to Begin|Server Authority: How to Begin?]], [[2025-12-09 - Server Authority Studio Beta - Insights from Engineers!|Server Authority Studio Beta - Insights from Engin]]
+- **RunService:GetPredictionStatus**: [[2025-12-09 - Server Authority How to Begin|Server Authority: How to Begin?]], [[2025-12-09 - Server Authority Studio Beta - Insights from Engineers!|Server Authority Studio Beta - Insights from Engin]]
+- **AnimationConstraint**: [[2026-01-26 - Avatar Joint Upgrade for Physically-Simulated Character Movement is No|Avatar Joint Upgrade for Physically-Simulated Char]], [[2026-06-23 - Improved AnimationConstraint Stable, Mass-Independent Tracking for Phy|Improved AnimationConstraint: Stable, Mass-Indepen]]
+- **BallSocketConstraint**: [[2026-01-26 - Avatar Joint Upgrade for Physically-Simulated Character Movement is No|Avatar Joint Upgrade for Physically-Simulated Char]], [[2026-06-23 - Improved AnimationConstraint Stable, Mass-Independent Tracking for Phy|Improved AnimationConstraint: Stable, Mass-Indepen]]
+- **Creator Hub Audience Reach tab**: [[2026-05-11 - Alternate Publishing Requirements for Roblox Kids and Select|Alternate Publishing Requirements for Roblox Kids ]], [[2026-08-19 - Highly Engaged Player Threshold Drops to 250|Highly Engaged Player Threshold Drops to 250]]
+- **Roblox Wallet**: [[2026-09-11 - Introducing Roblox Wallet and Card Get Paid Faster|Introducing Roblox Wallet and Card: Get Paid Faste]], [[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]]
+- **CFrame:components()**: [[2015-01-03 - How to think about CFrames|How to think about CFrames]]
+- **CFrame:inverse()**: [[2015-01-03 - How to think about CFrames|How to think about CFrames]]
+- **RaycastResult.Normal**: [[2015-09-01 - How to reflect rays on hit|How to reflect rays on hit]]
+- **BitBuffer module (Stravant)**: [[2015-11-30 - Stravant's BitBuffer Module - Compact Storage Of Data Tutorial|Stravant's BitBuffer Module - Compact Storage Of D]]
+- **NevermoreEngine**: [[2015-12-24 - Hey experienced programmers, Nevermore Engine now can be installed in|Hey experienced programmers, Nevermore Engine now ]]
+- **Roblox command bar install**: [[2015-12-24 - Hey experienced programmers, Nevermore Engine now can be installed in|Hey experienced programmers, Nevermore Engine now ]]
+- **Build v4**: [[2016-04-04 - Building Tutorial For All (Resources Available)|Building Tutorial For All (Resources Available)]]
+- **F3X**: [[2016-04-04 - Building Tutorial For All (Resources Available)|Building Tutorial For All (Resources Available)]]
+- **qCmd Ult**: [[2016-04-04 - Building Tutorial For All (Resources Available)|Building Tutorial For All (Resources Available)]]
+- **Resize Align**: [[2016-04-04 - Building Tutorial For All (Resources Available)|Building Tutorial For All (Resources Available)]]
+- **Gapfill**: [[2016-04-04 - Building Tutorial For All (Resources Available)|Building Tutorial For All (Resources Available)]]
+- **Volumetric Lighting Plugin**: [[2016-04-04 - Building Tutorial For All (Resources Available)|Building Tutorial For All (Resources Available)]]
+- **Roblox Studio Terrain tools (Generate, Add, Subtract, Paint, Grow, Erode, Smooth, Regions)**: [[2016-04-08 - Smooth Terrain How To's and Tips and Tricks|Smooth Terrain: How To's and Tips and Tricks]]
+- **tick()**: [[2016-07-05 - The Basics Of Basic Optimization|The Basics Of Basic Optimization]]
+- **Script injectors (exploit tools)**: [[2016-12-09 - Understanding method hooking and keeping your game protected|Understanding method hooking and keeping your game]]
+- **setmetatable / getrawmetatable-style metatable hooking**: [[2016-12-09 - Understanding method hooking and keeping your game protected|Understanding method hooking and keeping your game]]
+- **Blender 2.80+ (addon)**: [[2017-03-30 - Blender rig exporteranimation importer|Blender rig exporter/animation importer]]
+- **Blender 2.79 (legacy, no longer maintained)**: [[2017-03-30 - Blender rig exporteranimation importer|Blender rig exporter/animation importer]]
+- **Roblox Blender rig exporter/animation importer plugin**: [[2017-03-30 - Blender rig exporteranimation importer|Blender rig exporter/animation importer]]
+- **Mixamo**: [[2017-03-30 - Blender rig exporteranimation importer|Blender rig exporter/animation importer]]
+- **GameAnalytics Roblox AnalyticsModule**: [[2017-06-27 - Using GameAnalytics (Retention and Monetisation) (Ez mode)|Using GameAnalytics (Retention and Monetisation) (]]
+- **GameAnalytics Realtime dashboard**: [[2017-06-27 - Using GameAnalytics (Retention and Monetisation) (Ez mode)|Using GameAnalytics (Retention and Monetisation) (]]
+- **GameAnalytics Collector REST API**: [[2017-06-27 - Using GameAnalytics (Retention and Monetisation) (Ez mode)|Using GameAnalytics (Retention and Monetisation) (]]
+- **Adobe Express Color Palette Generator**: [[2017-08-07 - A Guide to User Interface Design|A Guide to User Interface Design]]
+- **UIPadding**: [[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]]
+- **PixelFix**: [[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]]
+- **SizeConstraint**: [[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]]
+- **TextScaled**: [[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]]
+- **9-slicing (SliceCenter)**: [[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]]
+- **discord.js**: [[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]]
+- **roblox-js**: [[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]]
+- **noblox.js**: [[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]]
+- **Heroku CLI**: [[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]]
+- **Discord Developer Portal**: [[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]]
+- **Discord Permissions Calculator**: [[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]]
+- **Discord webhooks**: [[2017-11-29 - Game Design Theory Planning a Game and Implementing Features|Game Design Theory: Planning a Game and Implementi]]
+- **GameAnalytics module**: [[2017-11-29 - Game Design Theory Planning a Game and Implementing Features|Game Design Theory: Planning a Game and Implementi]]
+- **GitHub releases (rbxmx file)**: [[2018-06-16 - How to use DataStore2 - Data Store caching and data loss prevention|How to use DataStore2 - Data Store caching and dat]]
+- **Roblox CFrame constructor with quaternion components**: [[2018-07-05 - How to think about Quaternions|How to think about Quaternions]]
+- **EgoMoose quaternion class (gist)**: [[2018-07-05 - How to think about Quaternions|How to think about Quaternions]]
+- **BodyPosition**: [[2018-08-06 - The First Person Element Of A First Person Shooter|The First Person Element Of A First Person Shooter]]
+- **RunService RenderStepped/Heartbeat**: [[2018-08-06 - The First Person Element Of A First Person Shooter|The First Person Element Of A First Person Shooter]]
+- **Animation Editor**: [[2018-08-06 - The First Person Element Of A First Person Shooter|The First Person Element Of A First Person Shooter]]
+- **Node.js**: [[2018-08-31 - Guide to Web Development|Guide to Web Development]]
+- **Express**: [[2018-08-31 - Guide to Web Development|Guide to Web Development]]
+- **MongoDB**: [[2018-08-31 - Guide to Web Development|Guide to Web Development]]
+- **Mongoose**: [[2018-08-31 - Guide to Web Development|Guide to Web Development]]
+- **mLab**: [[2018-08-31 - Guide to Web Development|Guide to Web Development]]
+- **Postman**: [[2018-08-31 - Guide to Web Development|Guide to Web Development]]
+- **Humanoid.JumpPower**: [[2018-09-07 - Modeling a projectile's motion|Modeling a projectile's motion]]
+- **Workspace.Gravity**: [[2018-09-07 - Modeling a projectile's motion|Modeling a projectile's motion]]
+- **Ro-Defender-Plugin**: [[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]]
+- **Gui-Designer**: [[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]]
+- **Tool-Grip-Editor-Plugin**: [[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]]
+- **Light-Editor**: [[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]]
+- **Tag-Editor**: [[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]]
+- **Part-Counter**: [[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]]
+- **Roblox Studio Touched/GetTouchingParts**: [[2018-11-26 - Creating A Furniture Placement System|Creating A Furniture Placement System]]
+- **Roblox default animator**: [[2019-01-15 - Jespone's guide to animations|Jespone's guide to animations]]
+- **Old Roblox animator**: [[2019-01-15 - Jespone's guide to animations|Jespone's guide to animations]]
+- **Blender (Importer/Exporter by Den_S)**: [[2019-01-15 - Jespone's guide to animations|Jespone's guide to animations]]
+- **Moon Animator (by xsixx)**: [[2019-01-15 - Jespone's guide to animations|Jespone's guide to animations]]
+- **Ease Visualizer (GreenSock)**: [[2019-01-15 - Jespone's guide to animations|Jespone's guide to animations]]
+- **Roblox Studio Animation Editor**: [[2019-01-27 - How to animate a toolobject with a Dummy in the Animation Editor|How to animate a tool/object with a Dummy in the A]]
+- **Weld plugin (weld selected parts to Handle)**: [[2019-01-27 - How to animate a toolobject with a Dummy in the Animation Editor|How to animate a tool/object with a Dummy in the A]]
+- **Performance widget**: [[2019-02-02 - Building Optimisation Tips and tricks!|Building Optimisation | Tips and tricks!]]
+- **Performance Analyser**: [[2019-02-02 - Building Optimisation Tips and tricks!|Building Optimisation | Tips and tricks!]]
+- **CollisionFidelity setting**: [[2019-02-02 - Building Optimisation Tips and tricks!|Building Optimisation | Tips and tricks!]]
+- **Luau math library (math.acos, CFrame.fromAxisAngle)**: [[2019-03-15 - 2 Joint 2 Limb Inverse Kinematics|2 Joint 2 Limb Inverse Kinematics]]
+- **DataStoreService (OrderedDataStore)**: [[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]]
+- **Surface GUI**: [[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]]
+- **PointsService (deprecated)**: [[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]]
+- **Players:GetUserThumbnailAsync**: [[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]]
+- **leaderstats**: [[2019-04-01 - Creating a CrateSpin System|Creating a Crate/Spin System]]
+- **pen and paper**: [[2019-05-08 - Ruski's Tutorial 1 - How to design a map layout|Ruski's Tutorial #1 - How to design a map layout]]
+- **Pixelfix**: [[2019-05-19 - How to Plan, Design and Build Quality User Interfaces|How to Plan, Design and Build Quality User Interfa]]
+- **draw.io**: [[2019-06-24 - Using State Machines To Mitigate Teleport Exploits|Using State Machines To Mitigate Teleport Exploits]]
+- **LucidChart**: [[2019-06-24 - Using State Machines To Mitigate Teleport Exploits|Using State Machines To Mitigate Teleport Exploits]]
+- **coroutine.wrap**: [[2019-07-20 - How to properly save player data in data stores upon server close|How to properly save player data in data stores up]]
+- **Handles (command bar script for axis check)**: [[2019-07-24 - Introduction to Tweening Models|Introduction to Tweening Models]]
+- **Constraint viewer**: [[2019-07-24 - Introduction to Tweening Models|Introduction to Tweening Models]]
+- **Roblox CFrame API (fromAxisAngle, ToAxisAngle, Lerp)**: [[2019-08-24 - A Couple of Advanced CFrame Tricks|A Couple of Advanced CFrame Tricks]]
+- **Maid class (NevermoreEngine)**: [[2019-08-28 - How to use a Maid class on Roblox to manage state|How to use a Maid class on Roblox to manage state]]
+- **GitHub (Nyapaw/Roblox repo)**: [[2019-09-01 - Dungeon Generation A Procedural Generation Guide|Dungeon Generation: A Procedural Generation Guide]]
+- **Promise library (evaera / LPGhatguy, Roblox Lua)**: [[2019-09-16 - Promises and Why You Should Use Them|Promises and Why You Should Use Them]]
+- **NevermoreEngine Promise implementation (no cancellation)**: [[2019-09-16 - Promises and Why You Should Use Them|Promises and Why You Should Use Them]]
+- **HttpService:GetAsync**: [[2019-09-16 - Promises and Why You Should Use Them|Promises and Why You Should Use Them]]
+- **LocalScript/ModuleScript/ServerScriptService**: [[2019-09-18 - How you should secure your game - A beginner guide for secure networki|How you should secure your game - A beginner guide]]
+- **Roblox Requests**: [[2019-09-22 - Roblox Requests Simple, powerful HTTP in Roblox|Roblox Requests: Simple, powerful HTTP in Roblox]]
+- **Promises**: [[2019-09-22 - Roblox Requests Simple, powerful HTTP in Roblox|Roblox Requests: Simple, powerful HTTP in Roblox]]
+- **Roblox Rig Builder**: [[2019-09-30 - How to animate Tool Parts (Guns, Knifes etc.)|How to animate Tool Parts (Guns, Knifes etc.)]]
+- **Constraint Editor plugin**: [[2019-09-30 - How to animate Tool Parts (Guns, Knifes etc.)|How to animate Tool Parts (Guns, Knifes etc.)]]
+- **Output window (print/warn/error)**: [[2019-10-01 - Scripting Basics - Beginner guide to lua and Roblox|Scripting Basics - Beginner guide to lua and Roblo]]
+- **Roblox DevHub documentation**: [[2019-10-01 - Scripting Basics - Beginner guide to lua and Roblox|Scripting Basics - Beginner guide to lua and Roblo]]
+- **DevForum**: [[2019-10-01 - Scripting Basics - Beginner guide to lua and Roblox|Scripting Basics - Beginner guide to lua and Roblo]]
+- **Roblox Studio Lighting service (Shadowmap)**: [[2019-10-13 - How to make your lighting more realistic in shadowmap|How to make your lighting more realistic in shadow]]
+- **collectgarbage (count only)**: [[2019-10-24 - Garbage Collection and Memory Leaks in Roblox - What you should know|Garbage Collection and Memory Leaks in Roblox - Wh]]
+- **setmetatable with __mode**: [[2019-10-24 - Garbage Collection and Memory Leaks in Roblox - What you should know|Garbage Collection and Memory Leaks in Roblox - Wh]]
+- **do blocks for scoping**: [[2019-10-24 - Garbage Collection and Memory Leaks in Roblox - What you should know|Garbage Collection and Memory Leaks in Roblox - Wh]]
+- **TweenService V2 (by SteadyOn)**: [[2019-11-17 - How to Optimize Humanoids|How to Optimize Humanoids]]
+- **Roblox Studio Luau**: [[2019-11-22 - Quick Tutorial How to make scrolling frames properly|Quick Tutorial: How to make scrolling frames prope]]
+- **debug.traceback**: [[2019-11-23 - Pcalls - When and how to use them|Pcalls - When and how to use them]]
+- **Output**: [[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]]
+- **table library (insert, remove, concat, pack, unpack)**: [[2019-12-07 - All About Tables (the first of two tutorials on the subject)|All About Tables (the first of two tutorials on th]]
+- **mouse object (Mouse.Hit, Mouse.Target, TargetFilter)**: [[2019-12-08 - Dragging objects with the mouse|Dragging objects with the mouse]]
+- **BasePart:SetNetworkOwnership()**: [[2019-12-08 - Dragging objects with the mouse|Dragging objects with the mouse]]
+- **AlignPosition**: [[2019-12-08 - Dragging objects with the mouse|Dragging objects with the mouse]]
+- **Drag Detectors**: [[2019-12-08 - Dragging objects with the mouse|Dragging objects with the mouse]]
+- **Quadspinner Gaea**: [[2019-12-11 - Large-Scale Roblox Terrain The ultimate guide|Large-Scale Roblox Terrain: The ultimate guide]]
+- **NexusAvenger .OBJ Importer plugin**: [[2019-12-11 - Large-Scale Roblox Terrain The ultimate guide|Large-Scale Roblox Terrain: The ultimate guide]]
+- **Terrain:FillWedge()**: [[2019-12-11 - Large-Scale Roblox Terrain The ultimate guide|Large-Scale Roblox Terrain: The ultimate guide]]
+- **NumberSequence**: [[2019-12-31 - Creating A CircularRadial HP Bar Like Kingdom Hearts|Creating A Circular/Radial HP Bar Like Kingdom Hea]]
+- **PlayerGui**: [[2020-01-20 - Replicating Instances to Only Some Players|Replicating Instances to Only Some Players]]
+- **Blox (author's voxel project, greedy mesher)**: [[2020-02-07 - Consume everything - how greedy meshing works|Consume everything - how greedy meshing works]]
+- **BindableFunction**: [[2020-02-14 - Creating a battle system OOP style!|Creating a battle system: OOP style!]]
+- **F3X Building Tools**: [[2020-02-14 - Game Development Theory 101|Game Development Theory 101]]
+- **Light Editor**: [[2020-02-14 - Game Development Theory 101|Game Development Theory 101]]
+- **Atrazines Terrain Plugin V2**: [[2020-02-14 - Game Development Theory 101|Game Development Theory 101]]
+- **Stravant ResizeAlign**: [[2020-02-14 - Game Development Theory 101|Game Development Theory 101]]
+- **CSG Primitives**: [[2020-02-14 - Game Development Theory 101|Game Development Theory 101]]
+- **Premium Payout Chart**: [[2020-02-19 - Introducing Premium Payouts!|Introducing Premium Payouts!]]
+- **GetPolicyInfoForPlayerAsync**: [[2020-02-20 - About our upcoming Global Compliance System|About our upcoming Global Compliance System]]
+- **Velocity framework (ReturnedTrue)**: [[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]]
+- **Spring module (x_o)**: [[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]]
+- **Old Moon Animation Studio plugin**: [[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]]
+- **Blender rig exporter/animation importer**: [[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]]
+- **ACS gun model**: [[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]]
+- **setmetatable**: [[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]]
+- **getmetatable**: [[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]]
+- **rawget**: [[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]]
+- **rawset**: [[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]]
+- **rawequal**: [[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]]
+- **newproxy**: [[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]]
+- **collectgarbage**: [[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]]
+- **Roblox Studio Ctrl+Shift+F script search**: [[2020-04-05 - How to remove backdoors from your game|How to remove backdoors from your game]]
+- **Roblox Studio Manage Plugins window**: [[2020-04-05 - Clearing your game of malicious scripts, plugins, and backdoors|Clearing your game of malicious scripts, plugins, ]]
+- **DataModel:GetObjects() in command bar**: [[2020-04-05 - Clearing your game of malicious scripts, plugins, and backdoors|Clearing your game of malicious scripts, plugins, ]]
+- **Venom**: [[2020-04-05 - Clearing your game of malicious scripts, plugins, and backdoors|Clearing your game of malicious scripts, plugins, ]]
+- **GameTree**: [[2020-04-05 - Clearing your game of malicious scripts, plugins, and backdoors|Clearing your game of malicious scripts, plugins, ]]
+- **Kronos**: [[2020-04-05 - Clearing your game of malicious scripts, plugins, and backdoors|Clearing your game of malicious scripts, plugins, ]]
+- **Hidden Backdoor/Infection Script Detector**: [[2020-04-05 - Clearing your game of malicious scripts, plugins, and backdoors|Clearing your game of malicious scripts, plugins, ]]
+- **HttpService:JSONEncode**: [[2020-04-14 - How to save parts, and the idea of Serialization|How to save parts, and the idea of Serialization]]
+- **Google calculator (inverse trig via Inv)**: [[2020-05-02 - Basic Trigonometry|Basic Trigonometry]]
+- **HttpQueue (roblox-http-queue library)**: [[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]]
+- **Promise (evaera)**: [[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]]
+- **t typechecking (Osyris)**: [[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]]
+- **ProbableAI Documentation Reader plugin**: [[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]]
+- **roblox-ts (@rbxts/http-queue)**: [[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]]
+- **CFrameValue**: [[2020-05-08 - Procedural Animation What it is and how to do it|Procedural Animation: What it is and how to do it]]
+- **Motor6D C0**: [[2020-05-08 - Procedural Animation What it is and how to do it|Procedural Animation: What it is and how to do it]]
+- **RotatedRegion3 (EgoMoose)**: [[2020-05-09 - Perspective object dragging like Superliminal|Perspective object dragging like Superliminal]]
+- **Ray casting (FindPartOnRayWithIgnoreList)**: [[2020-05-09 - Perspective object dragging like Superliminal|Perspective object dragging like Superliminal]]
+- **CFrame:ToObjectSpace / ToWorldSpace**: [[2020-05-09 - Perspective object dragging like Superliminal|Perspective object dragging like Superliminal]]
+- **MongoDB Atlas**: [[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]]
+- **MongoDB Stitch**: [[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]]
+- **MongoDB Charts**: [[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]]
+- **FastCast Redux**: [[2020-05-18 - Writing an FPS framework, part 2 (2020)|Writing an FPS framework, part 2 (2020)]]
+- **Moon Animator (moon animation suite)**: [[2020-05-18 - Writing an FPS framework, part 2 (2020)|Writing an FPS framework, part 2 (2020)]]
+- **UICorner**: [[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]]
+- **ViewportFrame**: [[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]]
+- **UIScale**: [[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]]
+- **GuiService**: [[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]]
+- **Yucon Framework**: [[2020-06-17 - Yucon Framework Optimization, organization, and high-level security|Yucon Framework || Optimization, organization, and]]
+- **Yucon Editor (Roblox Studio plugin)**: [[2020-06-17 - Yucon Framework Optimization, organization, and high-level security|Yucon Framework || Optimization, organization, and]]
+- **Random (Luau)**: [[2020-06-18 - How to Make Server-Synced Daily Shops|How to Make Server-Synced Daily Shops]]
+- **os.time**: [[2020-06-18 - How to Make Server-Synced Daily Shops|How to Make Server-Synced Daily Shops]]
+- **SyncedTime ModuleScript**: [[2020-06-18 - How to Make Server-Synced Daily Shops|How to Make Server-Synced Daily Shops]]
+- **math.noise (Perlin noise)**: [[2020-06-27 - Creating a Simple, Realistic Camera (With View Bobbing, Dynamic Blur,|Creating a Simple, Realistic Camera (With View Bob]]
+- **UserInputService:IsKeyDown**: [[2020-06-27 - Creating a Simple, Realistic Camera (With View Bobbing, Dynamic Blur,|Creating a Simple, Realistic Camera (With View Bob]]
+- **Humanoid.CameraOffset**: [[2020-06-27 - Creating a Simple, Realistic Camera (With View Bobbing, Dynamic Blur,|Creating a Simple, Realistic Camera (With View Bob]]
+- **Quadratic Bézier curve in Luau**: [[2020-06-27 - Creating a Simple, Realistic Camera (With View Bobbing, Dynamic Blur,|Creating a Simple, Realistic Camera (With View Bob]]
+- **Madwork**: [[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]]
+- **Roblox Luau task library**: [[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]]
+- **Tag Editor Plugin**: [[2020-07-12 - CollectionService in a nutshell|CollectionService in a nutshell]]
+- **Discord**: [[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]]
+- **JIRA**: [[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]]
+- **Asana**: [[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]]
+- **Paint.NET**: [[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]]
+- **Photoshop**: [[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]]
+- **Basecamp**: [[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]]
+- **Monday**: [[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]]
+- **Patreon**: [[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]]
+- **setreadonly**: [[2020-07-29 - Exploiters and how they spoof stuff in your own game|Exploiters and how they spoof stuff in your own ga]]
+- **getnamecallmethod**: [[2020-07-29 - Exploiters and how they spoof stuff in your own game|Exploiters and how they spoof stuff in your own ga]]
+- **Placement Service (Roblox module v1.6.2)**: [[2020-07-31 - How to use Placement Service|How to use Placement Service]]
+- **Roblox Studio Terrain tools (Grow, add, subtract, erode, paint)**: [[2020-08-06 - Map Design and Scene Building Fantasy, Medieval and Nature maps|Map Design and Scene Building: Fantasy, Medieval a]]
+- **string.gsub**: [[2020-08-07 - Table to String converter|Table to String converter]]
+- **typeof**: [[2020-08-07 - Table to String converter|Table to String converter]]
+- **getfenv/setfenv**: [[2020-08-07 - Table to String converter|Table to String converter]]
+- **debug console**: [[2020-08-07 - Table to String converter|Table to String converter]]
+- **Workspace:Raycast**: [[2020-08-14 - How to make a raycasting gun|How to make a raycasting gun]]
+- **Datastore editing plugin (manual edit by UserId)**: [[2020-08-21 - Datastore Tutorial for Beginners|Datastore Tutorial for Beginners]]
+- **F3X plugin**: [[2020-08-27 - Accessory Based Items, Clothing & Addons. UPDATED|Accessory Based Items, Clothing & Addons. [UPDATED]]
+- **Humanoid:AddAccessory**: [[2020-08-27 - Accessory Based Items, Clothing & Addons. UPDATED|Accessory Based Items, Clothing & Addons. [UPDATED]]
+- **Default Build Tools**: [[2020-08-27 - Accessory Based Items, Clothing & Addons. UPDATED|Accessory Based Items, Clothing & Addons. [UPDATED]]
+- **ServerStorage**: [[2020-08-27 - How to Catch Combat Logging|How to Catch Combat Logging]]
+- **PlayerRemoving event**: [[2020-08-27 - How to Catch Combat Logging|How to Catch Combat Logging]]
+- **ObjectValue**: [[2020-08-27 - How to Catch Combat Logging|How to Catch Combat Logging]]
+- **StringValue**: [[2020-08-27 - How to Catch Combat Logging|How to Catch Combat Logging]]
+- **ScriptContext.Error event**: [[2020-09-12 - A complete guide ~ How exploits work & how to best prevent them|A complete guide ~ How exploits work & how to best]]
+- **RemoteEvent (ConsoleError)**: [[2020-09-12 - A complete guide ~ How exploits work & how to best prevent them|A complete guide ~ How exploits work & how to best]]
+- **Distance checker script**: [[2020-09-12 - A complete guide ~ How exploits work & how to best prevent them|A complete guide ~ How exploits work & how to best]]
+- **Git and GitHub**: [[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]]
+- **Flipper**: [[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]]
+- **Nevermore**: [[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]]
+- **Script Analysis Tool**: [[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]]
+- **F9 developer console**: [[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]]
+- **Quenty's Maid class**: [[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]]
+- **Roblox Packages**: [[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]]
+- **StreamingEnabled**: [[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]]
+- **LevelOfDetail property**: [[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]]
+- **RenderFidelity property**: [[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]]
+- **PartCaching/PartPooling modules**: [[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]]
+- **Celestial Body Dragger plugin (by Maximum_ADHD)**: [[2020-10-12 - Lighting Tutorial - How to use Lighting|Lighting Tutorial - How to use Lighting]]
+- **Sponsored Games (new ad system)**: [[2020-10-22 - We’ve Rebuilt Sponsored Games!|We’ve Rebuilt Sponsored Games!]]
+- **Creations page Sponsor button**: [[2020-10-22 - We’ve Rebuilt Sponsored Games!|We’ve Rebuilt Sponsored Games!]]
+- **Roblox LSP**: [[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]]
+- **Selene**: [[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]]
+- **DataStore UpdateAsync**: [[2020-10-30 - Session locking explained (Datastore)|Session locking explained (Datastore)]]
+- **Touched event**: [[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]]
+- **GetTouchingParts**: [[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]]
+- **Raycasting**: [[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]]
+- **Region3**: [[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]]
+- **@EgoMoose Rotated Region3 module**: [[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]]
+- **Enum.EasingStyle**: [[2020-12-21 - Understanding Easing Styles!|Understanding Easing Styles!]]
+- **BasePart:SetNetworkOwner**: [[2020-12-27 - Network ownership for beginners - How to handle physics on the client|Network ownership for beginners - How to handle ph]]
+- **Hexolus-Anticheat (GitHub, CC0)**: [[2021-01-14 - Hexolus' Server-sided Anticheat|Hexolus' Server-sided Anticheat]]
+- **Hexolus-OpenSource hub repo**: [[2021-01-14 - Hexolus' Server-sided Anticheat|Hexolus' Server-sided Anticheat]]
+- **Developer Stats**: [[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]]
+- **Mobile memory profiler**: [[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]]
+- **Roblox Studio emulator**: [[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]]
+- **Luau type checker (--!strict)**: [[2021-02-05 - Type checking for beginners!|Type checking for beginners!]]
+- **Justice.rbxm**: [[2021-02-05 - Justice, the awesome NPC system|Justice, the awesome NPC system]]
+- **Configuration instance**: [[2021-02-05 - Justice, the awesome NPC system|Justice, the awesome NPC system]]
+- **PathfindingModifier**: [[2021-02-05 - Justice, the awesome NPC system|Justice, the awesome NPC system]]
+- **Roblox Creator Documentation (API Reference, Education content)**: [[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]]
+- **Roblox Developer Forum**: [[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]]
+- **Roblox Lua Style Guide (GitHub)**: [[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]]
+- **ProfileService (loleris)**: [[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]]
+- **Gravity Controller (EgoMoose)**: [[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]]
+- **Vanilla Roblox Studio Icons (Elttob)**: [[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]]
+- **Roblox Build It, Play It! Challenges**: [[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]]
+- **Roblox network debugger (network tab)**: [[2021-02-14 - Network Optimization (2021) - Preventing High Latency & Reducing Lag|Network Optimization (2021) - Preventing High Late]]
+- **Luau metatables**: [[2021-02-21 - Efficient Object Oriented Programming Tutorial|Efficient Object Oriented Programming Tutorial]]
+- **ModuleScripts**: [[2021-02-21 - Efficient Object Oriented Programming Tutorial|Efficient Object Oriented Programming Tutorial]]
+- **Explorer**: [[2021-03-06 - Lag reducing tips and Organzation tips!|Lag reducing tips and Organzation tips!]]
+- **Properties panel**: [[2021-03-06 - Lag reducing tips and Organzation tips!|Lag reducing tips and Organzation tips!]]
+- **Blender Python script (bone-per-vertex rigging)**: [[2021-03-21 - Making A Mesh Deformation Ocean|Making A Mesh Deformation Ocean]]
+- **Roblox Studio avatar importer plugin**: [[2021-03-21 - Making A Mesh Deformation Ocean|Making A Mesh Deformation Ocean]]
+- **FBX export**: [[2021-03-21 - Making A Mesh Deformation Ocean|Making A Mesh Deformation Ocean]]
+- **Gerstner wave formula**: [[2021-03-21 - Making A Mesh Deformation Ocean|Making A Mesh Deformation Ocean]]
+- **Roblox Studio Collision Groups**: [[2021-03-25 - FPS using ViewModels (The improved version) Parts 2 out of 3|FPS using ViewModels (The improved version) // Par]]
+- **PhysicsService**: [[2021-03-25 - FPS using ViewModels (The improved version) Parts 2 out of 3|FPS using ViewModels (The improved version) // Par]]
+- **Animator.AnimationPlayed**: [[2021-03-25 - FPS using ViewModels (The improved version) Parts 2 out of 3|FPS using ViewModels (The improved version) // Par]]
+- **Developer Tools plugin**: [[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]]
+- **Auto Anchor plugin**: [[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]]
+- **AutoScale Lite plugin**: [[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]]
+- **HD Admin**: [[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]]
+- **Adonis**: [[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]]
+- **Team Create**: [[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]]
+- **Camera.CameraType Scriptable**: [[2021-04-22 - Camera Animations for cutscenes and gameplay!|Camera Animations for cutscenes and gameplay!]]
+- **Roblox Animator**: [[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]]
+- **AnimationController**: [[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]]
+- **RenderStepped**: [[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]]
+- **SpringModule (rbxm)**: [[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]]
+- **RemoteEvents**: [[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]]
+- **ParticleEmitter**: [[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]]
+- **Developer Console (Memory tab)**: [[2021-05-12 - Improved How to Actually Improve Performance in Your Games|[Improved] How to Actually Improve Performance in ]]
+- **MaterialService**: [[2021-05-12 - Improved How to Actually Improve Performance in Your Games|[Improved] How to Actually Improve Performance in ]]
+- **StarterGui:SetCore**: [[2021-05-15 - Creating simple VR Hands from Scratch|Creating simple VR Hands from Scratch]]
+- **Clanlabs**: [[2021-05-17 - Roblox Game Monetization Guide|Roblox Game Monetization Guide]]
+- **MS Paint**: [[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]]
+- **Coolors**: [[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]]
+- **Grabient**: [[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]]
+- **Kenney**: [[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]]
+- **Icons8**: [[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]]
+- **AutoScale plugin**: [[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]]
+- **Fractality's neon ModularScript**: [[2021-05-19 - Gaussian blur filter for UI (tutorial)|Gaussian blur filter for UI (tutorial)]]
+- **DepthOfField (Lighting)**: [[2021-05-19 - Gaussian blur filter for UI (tutorial)|Gaussian blur filter for UI (tutorial)]]
+- **OrderedDataStore**: [[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]]
+- **ColdCode**: [[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]]
+- **Script Performance view (Studio)**: [[2021-06-14 - Be careful when using assert() and Why|Be careful when using assert() and Why]]
+- **assert()**: [[2021-06-14 - Be careful when using assert() and Why|Be careful when using assert() and Why]]
+- **error()**: [[2021-06-14 - Be careful when using assert() and Why|Be careful when using assert() and Why]]
+- **Luau type annotations**: [[2021-06-14 - Be careful when using assert() and Why|Be careful when using assert() and Why]]
+- **Roblox Studio Wireframe Rendering**: [[2021-06-29 - MeshPart Usage, Performance & Optimizations|MeshPart Usage, Performance & Optimizations]]
+- **Mesh Optimization Tools plugin (CloneTrooper1019)**: [[2021-06-29 - MeshPart Usage, Performance & Optimizations|MeshPart Usage, Performance & Optimizations]]
+- **Luau LocalScript**: [[2021-07-06 - How to Add Weight to the Camera Camera Tutorial|How to Add "Weight" to the Camera [Camera Tutorial]]
+- **RunService:BindToRenderStep**: [[2021-07-06 - How to Add Weight to the Camera Camera Tutorial|How to Add "Weight" to the Camera [Camera Tutorial]]
+- **CFrame**: [[2021-07-07 - Comprehensive Beginner's Guide to CFrames and How to Use Them CFrame G|Comprehensive Beginner's Guide to CFrames and How ]]
+- **Vector3**: [[2021-07-07 - Comprehensive Beginner's Guide to CFrames and How to Use Them CFrame G|Comprehensive Beginner's Guide to CFrames and How ]]
+- **Adobe Color Accessibility tool**: [[2021-07-27 - Making Accessible Games for the Disability-Aware Era - A Not-Fully-Com|Making Accessible Games for the Disability-Aware E]]
+- **Roblox Studio Lighting service properties**: [[2021-08-02 - Improve Lighting (STEP BY STEP)|Improve Lighting (STEP BY STEP)]]
+- **Atmosphere**: [[2021-08-02 - Improve Lighting (STEP BY STEP)|Improve Lighting (STEP BY STEP)]]
+- **Fog**: [[2021-08-02 - Improve Lighting (STEP BY STEP)|Improve Lighting (STEP BY STEP)]]
+- **Terrain water settings**: [[2021-08-02 - Improve Lighting (STEP BY STEP)|Improve Lighting (STEP BY STEP)]]
+- **ColorCorrection**: [[2021-08-02 - Improve Lighting (STEP BY STEP)|Improve Lighting (STEP BY STEP)]]
+- **Bloom**: [[2021-08-02 - Improve Lighting (STEP BY STEP)|Improve Lighting (STEP BY STEP)]]
+- **SunRays**: [[2021-08-02 - Improve Lighting (STEP BY STEP)|Improve Lighting (STEP BY STEP)]]
+- **Skybox**: [[2021-08-02 - Improve Lighting (STEP BY STEP)|Improve Lighting (STEP BY STEP)]]
+- **Scaling plugin (unnamed, by Ascetis)**: [[2021-08-14 - Simplest Way To Make Your GUI Fit To All Devices|Simplest Way To Make Your GUI Fit To All Devices]]
+- **warn**: [[2021-08-16 - Pcall(), xpcall() and ypcall() Tutorial - How do they work|Pcall(), xpcall() and ypcall() Tutorial - How do t]]
+- **Adobe Illustrator**: [[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]]
+- **Sketch**: [[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]]
+- **InVision Studio**: [[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]]
+- **FramerX (up to three projects free)**: [[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]]
+- **RaycastHitboxV3 (Swordphin123)**: [[2021-09-07 - OPEN SOURCE Lock-On Combat in 3D|[OPEN SOURCE] Lock-On Combat in 3D]]
+- **Roblox Part API**: [[2021-10-04 - Creating Procedural Mountains A Fractal Noise Tutorial|Creating Procedural Mountains: A Fractal Noise Tut]]
+- **Nature2D**: [[2021-10-16 - Nature2D - 2D Physics Engine for UI Elements|Nature2D - 2D Physics Engine for UI Elements]]
+- **Dynamic Weather module (Lightning module by Quasiduck, Screen Rain by boatbomber)**: [[2021-11-13 - Dynamic Weather Library (Beta 1.0)|Dynamic Weather Library (Beta 1.0)]]
+- **Tag Editor plugin**: [[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]]
+- **DataStore Editor plugin**: [[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]]
+- **Janitor**: [[2021-12-25 - Using Janitor to combat memory leaks|Using Janitor to combat memory leaks]]
+- **Building Tools by F3X**: [[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]]
+- **Archimedes 2**: [[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]]
+- **Brush Tool 2.1**: [[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]]
+- **Part To Terrain**: [[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]]
+- **Texture Library Tool**: [[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]]
+- **Humanoid.FloorMaterial**: [[2021-12-30 - A Guide to Making Proper Anti-Exploits|A Guide to Making Proper Anti-Exploits]]
+- **PlatformStanding**: [[2021-12-30 - A Guide to Making Proper Anti-Exploits|A Guide to Making Proper Anti-Exploits]]
+- **CanvasDraw module**: [[2022-01-12 - CanvasDraw - A fast and powerful graphics library (Draw pixels, lines,|CanvasDraw - A fast and powerful graphics library ]]
+- **CanvasDraw Tools plugin**: [[2022-01-12 - CanvasDraw - A fast and powerful graphics library (Draw pixels, lines,|CanvasDraw - A fast and powerful graphics library ]]
+- **CanvasDraw Image Importer plugin**: [[2022-01-12 - CanvasDraw - A fast and powerful graphics library (Draw pixels, lines,|CanvasDraw - A fast and powerful graphics library ]]
+- **GitHub**: [[2022-01-12 - CanvasDraw - A fast and powerful graphics library (Draw pixels, lines,|CanvasDraw - A fast and powerful graphics library ]]
+- **Luau scripting**: [[2022-01-13 - How to animate 2 characters and play it in-game like a takedown animat|How to animate 2 characters and play it in-game li]]
+- **Krnl**: [[2022-01-14 - How exploits work and how to combat them|How exploits work and how to combat them]]
+- **Synapse X**: [[2022-01-14 - How exploits work and how to combat them|How exploits work and how to combat them]]
+- **RoDefender**: [[2022-01-14 - How exploits work and how to combat them|How exploits work and how to combat them]]
+- **Stats:GetTotalMemoryUsageMb**: [[2022-01-14 - How exploits work and how to combat them|How exploits work and how to combat them]]
+- **Luau metatables (setmetatable, __index)**: [[2022-01-22 - Roblox OOP (Object Oriented Programming)|Roblox OOP (Object Oriented Programming)]]
+- **Reclass plugin**: [[2022-02-03 - How to animate tools (the easiest and best way) (for melees)|How to animate tools (the easiest and best way) (f]]
+- **Tool Grip Editor plugin**: [[2022-02-03 - How to animate tools (the easiest and best way) (for melees)|How to animate tools (the easiest and best way) (f]]
+- **math.cos**: [[2022-02-07 - How to use Cos and Sin|How to use Cos and Sin]]
+- **math.sin**: [[2022-02-07 - How to use Cos and Sin|How to use Cos and Sin]]
+- **math.acos**: [[2022-02-07 - How to use Cos and Sin|How to use Cos and Sin]]
+- **math.asin**: [[2022-02-07 - How to use Cos and Sin|How to use Cos and Sin]]
+- **Vector3.new**: [[2022-02-07 - How to use Cos and Sin|How to use Cos and Sin]]
+- **CFrame.new**: [[2022-02-07 - How to use Cos and Sin|How to use Cos and Sin]]
+- **Matter**: [[2022-02-12 - All about Entity Component System|All about Entity Component System]]
+- **Jecs**: [[2022-02-12 - All about Entity Component System|All about Entity Component System]]
+- **Anatta**: [[2022-02-12 - All about Entity Component System|All about Entity Component System]]
+- **Stitch**: [[2022-02-12 - All about Entity Component System|All about Entity Component System]]
+- **Tiny-ECS**: [[2022-02-12 - All about Entity Component System|All about Entity Component System]]
+- **Roblox Studio (Game Settings / Monetization / Badges / Create)**: [[2022-02-25 - Announcing Free Badge Creations!|Announcing Free Badge Creations!]]
+- **Roblox.com creator dashboard**: [[2022-02-25 - Announcing Free Badge Creations!|Announcing Free Badge Creations!]]
+- **Weld**: [[2022-02-26 - Basics of CFrame multiplication and WeldsMotor6DsJoint Instances|Basics of CFrame multiplication and Welds/Motor6Ds]]
+- **RaycastResult**: [[2022-02-26 - My Intro to Raycasting - WHAT, WHY, and HOW|My Intro to Raycasting - WHAT, WHY, and HOW]]
+- **Roblox Creator Dashboard analytics**: [[2022-03-03 - New KPIs and Lower Enrollment Announcing the Analytics Dashboard - Mea|[New KPIs and Lower Enrollment] Announcing the Ana]]
+- **PlayFab (raw event queries, beta only)**: [[2022-03-03 - New KPIs and Lower Enrollment Announcing the Analytics Dashboard - Mea|[New KPIs and Lower Enrollment] Announcing the Ana]]
+- **Audio Discovery plugin (Roblox Studio)**: [[2022-03-09 - Action Needed Upcoming Changes to Asset Privacy for Audio|[Action Needed] Upcoming Changes to Asset Privacy ]]
+- **Audio Discovery plugin**: [[2022-03-16 - Update Changes to Asset Privacy for Audio|[Update] Changes to Asset Privacy for Audio]]
+- **Configure Item page (audio asset permissions)**: [[2022-03-16 - Update Changes to Asset Privacy for Audio|[Update] Changes to Asset Privacy for Audio]]
+- **Pro Sound Effects library**: [[2022-03-16 - Update Changes to Asset Privacy for Audio|[Update] Changes to Asset Privacy for Audio]]
+- **RenderDoc**: [[2022-03-29 - Creating the most optimized Roblox game- runs at 6000+ FPS!|Creating the most optimized Roblox game- runs at 6]]
+- **Roblox Toolbox/Marketplace model**: [[2022-04-18 - Benis' Pathfinding - Customizable, Easy to Use & Auto-Animating (R6 &|Benis' Pathfinding - Customizable, Easy to Use & A]]
+- **Interface Tools plugin**: [[2022-04-27 - How to make a clean, appealing UI|How to make a clean, appealing UI]]
+- **player:Kick()**: [[2022-04-27 - Developers are not equipped to deal with exploiters|Developers are not equipped to deal with exploiter]]
+- **Discord ticket system**: [[2022-04-27 - Developers are not equipped to deal with exploiters|Developers are not equipped to deal with exploiter]]
+- **Debris**: [[2022-05-12 - Client Replication 101. The guide to replicating effects to clients|Client Replication 101. The guide to replicating e]]
+- **Foreman**: [[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]]
+- **Rojo 7**: [[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]]
+- **Wally 0.3.1**: [[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]]
+- **StyLua 0.13.1**: [[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]]
+- **Selene 0.9.2**: [[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]]
+- **GitHub Actions**: [[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]]
+- **Roblox/setup-foreman**: [[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]]
+- **softprops/action-gh-release**: [[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]]
+- **Humanoid**: [[2022-05-29 - Simple pathfinding ai|Simple pathfinding ai]]
+- **Creator Dashboard standard analytics Monetization subpage**: [[2022-06-08 - Introducing Monetization Metrics for the Analytics Dashboard|Introducing Monetization Metrics for the Analytics]]
+- **My Transactions**: [[2022-06-08 - Introducing Monetization Metrics for the Analytics Dashboard|Introducing Monetization Metrics for the Analytics]]
+- **Developer Stats page**: [[2022-06-08 - Introducing Monetization Metrics for the Analytics Dashboard|Introducing Monetization Metrics for the Analytics]]
+- **ParticleEmitter (Roblox Studio)**: [[2022-06-20 - Yuruzuu's Open Source VFX|Yuruzuu's Open Source VFX]]
+- **Shift F3 (networking data)**: [[2022-06-26 - In-Depth Information about Roblox's RemoteEvents, Instance Replication|In-Depth Information about Roblox's RemoteEvents, ]]
+- **Shift F3 + Shift 1 (ping without processing delay)**: [[2022-06-26 - In-Depth Information about Roblox's RemoteEvents, Instance Replication|In-Depth Information about Roblox's RemoteEvents, ]]
+- **RakNet**: [[2022-06-26 - In-Depth Information about Roblox's RemoteEvents, Instance Replication|In-Depth Information about Roblox's RemoteEvents, ]]
+- **Animate scripts (R15/R6)**: [[2022-07-03 - How To Use Roblox Pathfinding Service 2.0|How To Use Roblox Pathfinding Service 2.0]]
+- **BridgeNet**: [[2022-08-06 - BridgeNet Insanely optimized, easy-to-use networking library full of u|BridgeNet | Insanely optimized, easy-to-use networ]]
+- **roblox-ts**: [[2022-08-06 - BridgeNet Insanely optimized, easy-to-use networking library full of u|BridgeNet | Insanely optimized, easy-to-use networ]]
+- **@rbxts/bridgenet (npm)**: [[2022-08-06 - BridgeNet Insanely optimized, easy-to-use networking library full of u|BridgeNet | Insanely optimized, easy-to-use networ]]
+- **Chickynoid**: [[2022-08-06 - BridgeNet Insanely optimized, easy-to-use networking library full of u|BridgeNet | Insanely optimized, easy-to-use networ]]
+- **Packet Profiler (author's plugin, measures remote packet bandwidth)**: [[2022-08-08 - Network Optimization best practices - how to keep your game's ping low|Network Optimization best practices - how to keep ]]
+- **HttpService:GenerateGUID**: [[2022-08-08 - Network Optimization best practices - how to keep your game's ping low|Network Optimization best practices - how to keep ]]
+- **Roblox DataStore**: [[2022-08-17 - ProfileService Tutorial!|ProfileService Tutorial!]]
+- **Creator Analytics Dashboards**: [[2022-10-17 - New Benchmarking & Insights Analytics Dashboards|New Benchmarking & Insights [Analytics Dashboards]]]
+- **NextPath script (NextPathHandler)**: [[2022-10-22 - NextPath Next gen script for Nextbots|NextPath: Next gen script for Nextbots]]
+- **SimplePath (by GrayzcaIe)**: [[2022-10-22 - NextPath Next gen script for Nextbots|NextPath: Next gen script for Nextbots]]
+- **Roblox Toolbox**: [[2022-10-22 - NextPath Next gen script for Nextbots|NextPath: Next gen script for Nextbots]]
+- **Humanoid:MoveTo()**: [[2022-10-22 - NextPath Next gen script for Nextbots|NextPath: Next gen script for Nextbots]]
+- **Roblox PathfindingService**: [[2022-10-22 - NextPath Next gen script for Nextbots|NextPath: Next gen script for Nextbots]]
+- **PathfindingService-free while-loop movement**: [[2023-01-12 - Movement System|Movement System]]
+- **Roblox Toolbox audio search**: [[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]]
+- **create.roblox.com/store/audio**: [[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]]
+- **RbxMusic plugin**: [[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]]
+- **AudioScape**: [[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]]
+- **TLDRLegal**: [[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]]
+- **Incompetech**: [[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]]
+- **OpenGameArt**: [[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]]
+- **itch.io**: [[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]]
+- **Discord Threads**: [[2023-02-26 - Guide Effectively QA Testing Your Roblox Experience|Guide: Effectively QA Testing Your Roblox Experien]]
+- **Roblox Creator Dashboard analytics pages (Overview, Retention, Monetization)**: [[2023-03-06 - Analytics Similar Experience Benchmarks & Broader Access|Analytics [Similar Experience Benchmarks & Broader]]
+- **TextChatService**: [[2023-04-18 - How to Create a Custom Chat Tag|How to Create a Custom Chat Tag]]
+- **TextChatMessageProperties**: [[2023-04-18 - How to Create a Custom Chat Tag|How to Create a Custom Chat Tag]]
+- **RemoteSpy**: [[2023-04-20 - Exploiting and how to prevent it|Exploiting and how to prevent it]]
+- **Script executors**: [[2023-04-20 - Exploiting and how to prevent it|Exploiting and how to prevent it]]
+- **DLL injector**: [[2023-04-20 - Exploiting and how to prevent it|Exploiting and how to prevent it]]
+- **Luau beautifier**: [[2023-04-20 - Exploiting and how to prevent it|Exploiting and how to prevent it]]
+- **Experience Guidelines questionnaire**: [[2023-06-20 - Create Experiences for People 17 and Older on Roblox|Create Experiences for People 17 and Older on Robl]]
+- **Age Verification (government ID + selfie)**: [[2023-06-20 - Create Experiences for People 17 and Older on Roblox|Create Experiences for People 17 and Older on Robl]]
+- **Adobe Color**: [[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]]
+- **Coolors contrast checker**: [[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]]
+- **Google Material icons**: [[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]]
+- **Font Awesome**: [[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]]
+- **Roblox UIStroke**: [[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]]
+- **Roblox UICorner**: [[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]]
+- **Gotham font**: [[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]]
+- **Creator Dashboard**: [[2023-07-12 - Roblox is coming to Meta Quest!|Roblox is coming to Meta Quest!]]
+- **Meta Quest App Lab**: [[2023-07-12 - Roblox is coming to Meta Quest!|Roblox is coming to Meta Quest!]]
+- **getnilinstances**: [[2023-07-16 - Client Anti Cheats Aren't as bad as you think!|Client Anti Cheats: Aren't as bad as you think!]]
+- **Toolbox (Recent/My Models)**: [[2023-07-30 - The Best and Easiest Way To Save and Load Data|The Best and Easiest Way To Save and Load Data]]
+- **Synapse X (syn.trampoline_call)**: [[2023-08-10 - Securing your anticheat Common bad practices, and how powerful are exp|Securing your anticheat: Common bad practices, and]]
+- **UNC (Unified Naming Convention)**: [[2023-08-10 - Securing your anticheat Common bad practices, and how powerful are exp|Securing your anticheat: Common bad practices, and]]
+- **Celery executor**: [[2023-08-10 - Securing your anticheat Common bad practices, and how powerful are exp|Securing your anticheat: Common bad practices, and]]
+- **Fluxus**: [[2023-08-10 - Securing your anticheat Common bad practices, and how powerful are exp|Securing your anticheat: Common bad practices, and]]
+- **Script-Ware**: [[2023-08-10 - Securing your anticheat Common bad practices, and how powerful are exp|Securing your anticheat: Common bad practices, and]]
+- **BillboardGui**: [[2023-09-09 - All about optimization|All about optimization]]
+- **Roblox Analytics overview page**: [[2023-09-19 - Analytics View Personalized Insights for Your Experience|Analytics: View Personalized Insights for Your Exp]]
+- **Creator Hub (Associated Items)**: [[2023-09-19 - Create and Manage Subscriptions within your Experience|Create and Manage Subscriptions within your Experi]]
+- **Roblox Studio subscription APIs (MarketplaceService)**: [[2023-09-19 - Create and Manage Subscriptions within your Experience|Create and Manage Subscriptions within your Experi]]
+- **Luau LSP**: [[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]]
+- **TopbarPlus**: [[2023-11-02 - Roblox Lua Programming Formalities Guide|Roblox Lua Programming Formalities Guide]]
+- **MarketplaceService**: [[2023-11-02 - Roblox Lua Programming Formalities Guide|Roblox Lua Programming Formalities Guide]]
+- **Roblox Studio Explorer**: [[2023-11-02 - Roblox Lua Programming Formalities Guide|Roblox Lua Programming Formalities Guide]]
+- **MemoryStoreService**: [[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]]
+- **ProximityPrompt**: [[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]]
+- **ClickDetector**: [[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]]
+- **Roblox Studio Beta Features (Luau Buffer Type)**: [[2023-11-30 - Introducing Luau buffer type Beta|Introducing Luau buffer type [Beta]]]
+- **Luau buffer library**: [[2023-11-30 - Introducing Luau buffer type Beta|Introducing Luau buffer type [Beta]]]
+- **Roblox Creator Dashboard Analytics (Acquisition page)**: [[2023-12-06 - Analytics View Home Recommendations Conversion Rate and Recent Icon Up|Analytics: View Home Recommendations Conversion Ra]]
+- **Rolimons (player data used for approximations)**: [[2023-12-31 - Understand the Roblox algorithm|Understand the Roblox algorithm]]
+- **Python 3**: [[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]]
+- **TensorFlow**: [[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]]
+- **Keras**: [[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]]
+- **pandas**: [[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]]
+- **numpy**: [[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]]
+- **matplotlib**: [[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]]
+- **GitHub Gists**: [[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]]
+- **HitboxClass module (VulkanAPI)**: [[2024-01-13 - HitboxClass v1.1B A Powerful OOP-based Hitbox Module|HitboxClass | v1.1B | A Powerful OOP-based Hitbox ]]
+- **GitHub release (.rbxm)**: [[2024-01-13 - HitboxClass v1.1B A Powerful OOP-based Hitbox Module|HitboxClass | v1.1B | A Powerful OOP-based Hitbox ]]
+- **--!strict**: [[2024-02-18 - Type Annotations! A guide to writing Luau code that is Actually Good™|Type Annotations! A guide to writing Luau code tha]]
+- **Roblox ads**: [[2024-02-28 - Discovery on Roblox Past, Present, and Future Vision|Discovery on Roblox: Past, Present, and Future Vis]]
+- **Notifications (creator-sent)**: [[2024-02-28 - Discovery on Roblox Past, Present, and Future Vision|Discovery on Roblox: Past, Present, and Future Vis]]
+- **16:9 images (testing)**: [[2024-02-28 - Discovery on Roblox Past, Present, and Future Vision|Discovery on Roblox: Past, Present, and Future Vis]]
+- **Emilio's Ragdoll Module**: [[2024-03-04 - Emilio's ragdoll module (Easy ahh ragdolls R15 and R6)|Emilio's ragdoll module (Easy ahh ragdolls R15 and]]
+- **AssemblyLinearVelocity**: [[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]]
+- **AssemblyAngularVelocity**: [[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]]
+- **PivotTo**: [[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]]
+- **Roblox Studio ViewportFrame**: [[2024-05-10 - ViewportFrame Masking|ViewportFrame Masking]]
+- **EditableImage**: [[2024-05-10 - ViewportFrame Masking|ViewportFrame Masking]]
+- **EditableMesh**: [[2024-05-10 - ViewportFrame Masking|ViewportFrame Masking]]
+- **react-lua**: [[2024-05-10 - How To React + Roblox|How To: React + Roblox]]
+- **react-roblox**: [[2024-05-10 - How To React + Roblox|How To: React + Roblox]]
+- **Cryo**: [[2024-05-10 - How To React + Roblox|How To: React + Roblox]]
+- **Dash**: [[2024-05-10 - How To React + Roblox|How To: React + Roblox]]
+- **Studio**: [[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]]
+- **Substance Painter**: [[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]]
+- **PureRef**: [[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]]
+- **Part to Terrain plugin**: [[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]]
+- **Brushtool plugin**: [[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]]
+- **TerrainPainter plugin**: [[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]]
+- **MeshVox plugin**: [[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]]
+- **newproxy()**: [[2024-05-29 - The Basics of Combat Games Health and Damage|The Basics of Combat Games: Health and Damage]]
+- **math.clamp**: [[2024-05-29 - The Basics of Combat Games Health and Damage|The Basics of Combat Games: Health and Damage]]
+- **workspace:GetPartBoundsInBox**: [[2024-06-03 - The Basics of Combat Games Hitboxes|The Basics of Combat Games: Hitboxes]]
+- **Raycast**: [[2024-06-24 - The Basics of Combat Games Projectiles|The Basics of Combat Games: Projectiles]]
+- **GetPartsInBox**: [[2024-06-24 - The Basics of Combat Games Projectiles|The Basics of Combat Games: Projectiles]]
+- **Ban API (Engine: Players:BanAsync)**: [[2024-06-25 - Introducing the Ban API and Alt Account Detection|Introducing the Ban API and Alt Account Detection]]
+- **OpenCloud UpdateUserRestriction / ListUserRestrictions**: [[2024-06-25 - Introducing the Ban API and Alt Account Detection|Introducing the Ban API and Alt Account Detection]]
+- **CreatorHub Ban Management Dashboard**: [[2024-06-25 - Introducing the Ban API and Alt Account Detection|Introducing the Ban API and Alt Account Detection]]
+- **ControllerPartSensor**: [[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]]
+- **Roblox Experience Overview page**: [[2024-08-08 - Analytics New Experience Overview with Insights, Benchmarks, Realtime|Analytics: New Experience Overview with Insights, ]]
+- **Realtime panel / performance page**: [[2024-08-08 - Analytics New Experience Overview with Insights, Benchmarks, Realtime|Analytics: New Experience Overview with Insights, ]]
+- **Rolimons**: [[2024-08-13 - How to (actually) make a popular game|How to (actually) make a popular game]]
+- **Sky object**: [[2024-08-25 - Creating custom skyboxes using Blender & crafting stunning atmospheres|Creating custom skyboxes using Blender & crafting ]]
+- **Clouds object**: [[2024-08-25 - Creating custom skyboxes using Blender & crafting stunning atmospheres|Creating custom skyboxes using Blender & crafting ]]
+- **DocumentService**: [[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]]
+- **MockDataStore**: [[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]]
+- **Lapis**: [[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]]
+- **Roblox Creator Dashboard (Custom page)**: [[2024-09-18 - Analytics Track any custom event you want and use custom fields for se|Analytics: Track any custom event you want and use]]
+- **Economy analytics**: [[2024-09-18 - Analytics Track any custom event you want and use custom fields for se|Analytics: Track any custom event you want and use]]
+- **Argon**: [[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]]
+- **Rokit**: [[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]]
+- **Zap**: [[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]]
+- **custom encryption**: [[2024-11-03 - Client-Server Anti-Cheat System with Custom Encryption|Client-Server Anti-Cheat System with Custom Encryp]]
+- **obfuscation**: [[2024-11-03 - Client-Server Anti-Cheat System with Custom Encryption|Client-Server Anti-Cheat System with Custom Encryp]]
+- **Command bar scripts (MeshPart/Union fidelity)**: [[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]]
+- **Bulk Audio Manager plugin**: [[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]]
+- **Part Counter plugin**: [[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]]
+- **imagecompressor.com**: [[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]]
+- **Hyperion anti-tamper**: [[2025-01-08 - Preventing Account Farming and Exploits|Preventing Account Farming and Exploits]]
+- **Ban API**: [[2025-01-08 - Preventing Account Farming and Exploits|Preventing Account Farming and Exploits]]
+- **Roblox AI abnormal-activity model**: [[2025-01-08 - Preventing Account Farming and Exploits|Preventing Account Farming and Exploits]]
+- **Automatic alt-detection service**: [[2025-01-08 - Preventing Account Farming and Exploits|Preventing Account Farming and Exploits]]
+- **Roblox Creator Hub Metatables documentation**: [[2025-02-27 - Advanced Scripting Tutorial|Advanced Scripting Tutorial]]
+- **Text+ (open-source Roblox text-rendering library)**: [[2025-03-02 - Text+ Custom fonts & advanced control|Text+ | Custom fonts & advanced control]]
+- **Creator Dashboard Home Recommendations tab**: [[2025-03-31 - Boost Your Discovery with the Improved Recommended For You Algorithm a|Boost Your Discovery with the Improved Recommended]]
+- **NetRay**: [[2025-04-04 - NetRay - High-Performance Roblox Networking Library|NetRay - High-Performance Roblox Networking Librar]]
+- **Luau New Type Solver**: [[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]]
+- **Luau types library**: [[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]]
+- **TypeForge (module of utility type functions)**: [[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]]
+- **Class++ (class system module by TenebrisNoctua)**: [[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]]
+- **Roblox official client**: [[2025-05-06 - An Update on Automated Action Against Modified Clients|An Update on Automated Action Against Modified Cli]]
+- **Server Authority (early access)**: [[2025-05-06 - An Update on Automated Action Against Modified Clients|An Update on Automated Action Against Modified Cli]]
+- **Violations and Appeals page**: [[2025-05-06 - An Update on Automated Action Against Modified Clients|An Update on Automated Action Against Modified Cli]]
+- **SmoothChase (Luau module)**: [[2025-05-13 - Smooth Pathfinding Chase|Smooth Pathfinding Chase]]
+- **Roblox Commerce APIs**: [[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]]
+- **Shopify**: [[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]]
+- **Approved Merchandiser Program (AMP)**: [[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]]
+- **Desmos 3D**: [[2025-05-21 - Math for Roblox Developers 1 Vectors|Math for Roblox Developers #1: Vectors]]
+- **Vector3/Vector2 API**: [[2025-05-21 - Math for Roblox Developers 1 Vectors|Math for Roblox Developers #1: Vectors]]
+- **Tipalti**: [[2025-06-24 - Introducing Creator Rewards Earn More by Growing the Community|Introducing Creator Rewards: Earn More by Growing ]]
+- **DevEx**: [[2025-06-24 - Introducing Creator Rewards Earn More by Growing the Community|Introducing Creator Rewards: Earn More by Growing ]]
+- **Creator Dashboard retention charts**: [[2025-07-15 - Analytics Track new user retention by daily and weekly cohort|Analytics: Track new user retention by daily and w]]
+- **New User Funnel tab**: [[2025-07-15 - Analytics Track new user retention by daily and weekly cohort|Analytics: Track new user retention by daily and w]]
+- **Cohort analysis table**: [[2025-07-15 - Analytics Track new user retention by daily and weekly cohort|Analytics: Track new user retention by daily and w]]
+- **AdService API**: [[2025-07-24 - More Creators Can Now Use Rewarded Video Ads|More Creators Can Now Use Rewarded Video Ads]]
+- **EditableImage API**: [[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]]
+- **Content.fromObject**: [[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]]
+- **Parallel Luau / Actors**: [[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]]
+- **CanvasDraw**: [[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]]
+- **OSGL**: [[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]]
+- **Reclass**: [[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]]
+- **luau-compile.exe (Luau release binary)**: [[2025-09-18 - Luau Bytecode EXPLAINED - How to Read, Debug, and Optimize Like a Hack|Luau Bytecode EXPLAINED - How to Read, Debug, and ]]
+- **Luau Bytecode Explorer (lbe.lonegladiator.dev)**: [[2025-09-18 - Luau Bytecode EXPLAINED - How to Read, Debug, and Optimize Like a Hack|Luau Bytecode EXPLAINED - How to Read, Debug, and ]]
+- **play.luau.org web disassembler**: [[2025-09-18 - Luau Bytecode EXPLAINED - How to Read, Debug, and Optimize Like a Hack|Luau Bytecode EXPLAINED - How to Read, Debug, and ]]
+- **Home recommendation signals analytics**: [[2025-10-16 - Analytics View retention by acquisition source and select your benchma|Analytics: View retention by acquisition source an]]
+- **Roblox Creator Dashboard Engagement > Event & Updates analytics tab**: [[2025-10-21 - Analytics Understand the success of your experience events|Analytics: Understand the success of your experien]]
+- **Roblox Creator Hub (Configs and Experiments pages)**: [[2025-11-06 - Live now Use configs and experiments to grow your game faster|[Live now] Use configs and experiments to grow you]]
+- **Roblox Studio (Open Configs in File menu)**: [[2025-11-06 - Live now Use configs and experiments to grow your game faster|[Live now] Use configs and experiments to grow you]]
+- **Custom Matchmaking dashboard page**: [[2025-11-06 - Custom Matchmaking is now available to all experiences on Roblox|Custom Matchmaking is now available to all experie]]
+- **Experiments dashboard tab**: [[2025-11-06 - Custom Matchmaking is now available to all experiences on Roblox|Custom Matchmaking is now available to all experie]]
+- **Roblox Studio (Experience Settings > Monetization)**: [[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]]
+- **Creator Hub forecaster (Monetization > Ads)**: [[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]]
+- **GetAdAvailabilityNowAsync API**: [[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]]
+- **Experimentation platform**: [[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]]
+- **Self-service ads reporting**: [[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]]
+- **ReflectionService**: [[2025-11-18 - Introducing ReflectionService Programmatic Access to Engine API Inform|Introducing ReflectionService: Programmatic Access]]
+- **SecurityCapabilities**: [[2025-11-18 - Introducing ReflectionService Programmatic Access to Engine API Inform|Introducing ReflectionService: Programmatic Access]]
+- **ChangeHistoryService**: [[2025-11-18 - Introducing ReflectionService Programmatic Access to Engine API Inform|Introducing ReflectionService: Programmatic Access]]
+- **Plugin toolbar API**: [[2025-11-18 - Introducing ReflectionService Programmatic Access to Engine API Inform|Introducing ReflectionService: Programmatic Access]]
+- **GroupService:PromptJoinAsync**: [[2025-12-08 - Prompt players to join Communities from in-experience!|Prompt players to join Communities from in-experie]]
+- **GroupService:GetGroupsAsync**: [[2025-12-08 - Prompt players to join Communities from in-experience!|Prompt players to join Communities from in-experie]]
+- **Player:IsInGroup**: [[2025-12-08 - Prompt players to join Communities from in-experience!|Prompt players to join Communities from in-experie]]
+- **Open Cloud via HttpService**: [[2025-12-08 - Prompt players to join Communities from in-experience!|Prompt players to join Communities from in-experie]]
+- **Server Authority Core API (Beta Features)**: [[2025-12-09 - Studio Beta Build Fair, Responsive Games with Server Authority|[Studio Beta] Build Fair, Responsive Games with Se]]
+- **Attributes**: [[2025-12-09 - Studio Beta Build Fair, Responsive Games with Server Authority|[Studio Beta] Build Fair, Responsive Games with Se]]
+- **Input Action System (IAS)**: [[2025-12-09 - Server Authority How to Begin|Server Authority: How to Begin?]]
+- **Workspace.AuthorityMode**: [[2025-12-09 - Server Authority Studio Beta - Insights from Engineers!|Server Authority Studio Beta - Insights from Engin]]
+- **Workspace.NextGenerationReplication**: [[2025-12-09 - Server Authority Studio Beta - Insights from Engineers!|Server Authority Studio Beta - Insights from Engin]]
+- **Workspace.StreamingEnabled**: [[2025-12-09 - Server Authority Studio Beta - Insights from Engineers!|Server Authority Studio Beta - Insights from Engin]]
+- **InputAction:GetState**: [[2025-12-09 - Server Authority Studio Beta - Insights from Engineers!|Server Authority Studio Beta - Insights from Engin]]
+- **BasePart:GetTouchingParts**: [[2025-12-09 - Server Authority Studio Beta - Insights from Engineers!|Server Authority Studio Beta - Insights from Engin]]
+- **Persona (ID verification provider)**: [[2025-12-11 - New Requirements to Publish and Update Public Experiences|New Requirements to Publish and Update Public Expe]]
+- **Open Cloud API**: [[2025-12-11 - New Requirements to Publish and Update Public Experiences|New Requirements to Publish and Update Public Expe]]
+- **Texture Streaming (engine feature)**: [[2025-12-12 - Introducing Texture Streaming|Introducing Texture Streaming]]
+- **Harmony (memory budget system)**: [[2025-12-12 - Introducing Texture Streaming|Introducing Texture Streaming]]
+- **Open Cloud Asset APIs**: [[2025-12-12 - Introducing Texture Streaming|Introducing Texture Streaming]]
+- **Rewind (Wally package text21/rewind)**: [[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]]
+- **Iris (debug panel)**: [[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]]
+- **Signal**: [[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]]
+- **table-util**: [[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]]
+- **t**: [[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]]
+- **BulkMoveTo**: [[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]]
+- **Vector3int16/Vector2int16**: [[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]]
+- **FastFlow**: [[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]]
+- **ScriptProfiler**: [[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]]
+- **Actors**: [[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]]
+- **@native**: [[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]]
+- **StarterPlayer.AvatarJointUpgrade**: [[2026-01-26 - Avatar Joint Upgrade for Physically-Simulated Character Movement is No|Avatar Joint Upgrade for Physically-Simulated Char]]
+- **CharacterBreakJointsOnDeath**: [[2026-01-26 - Avatar Joint Upgrade for Physically-Simulated Character Movement is No|Avatar Joint Upgrade for Physically-Simulated Char]]
+- **Physically Simulated Characters Demo**: [[2026-01-26 - Avatar Joint Upgrade for Physically-Simulated Character Movement is No|Avatar Joint Upgrade for Physically-Simulated Char]]
+- **AvatarEditorService**: [[2026-01-27 - Completing the Dynamic Head Migration|Completing the Dynamic Head Migration]]
+- **HumanoidDescription**: [[2026-01-27 - Completing the Dynamic Head Migration|Completing the Dynamic Head Migration]]
+- **BodyPartDescription**: [[2026-01-27 - Completing the Dynamic Head Migration|Completing the Dynamic Head Migration]]
+- **Players:CreateHumanoidModelFromDescriptionAsync**: [[2026-01-27 - Completing the Dynamic Head Migration|Completing the Dynamic Head Migration]]
+- **AvatarAbilities library (require("@rbx/AvatarAbilities"))**: [[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]]
+- **AbilityManager**: [[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]]
+- **Roblox Studio Beta Features**: [[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]]
+- **Server Authority beta**: [[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]]
+- **Creator Hub analytics dashboard**: [[2026-02-25 - New Analytics Dimensions Get insight into your players’ spending behav|New Analytics Dimensions: Get insight into your pl]]
+- **Ads Manager**: [[2026-03-09 - How we are improving Home this year|How we are improving Home this year]]
+- **GeometryService**: [[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]]
+- **FragmentAsync**: [[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]]
+- **GenerateFragmentSites**: [[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]]
+- **SweepPartAsync**: [[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]]
+- **SubtractAsync**: [[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]]
+- **CalculateConstraintsToPreserve**: [[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]]
+- **SubstituteGeometry/ApplyMesh**: [[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]]
+- **Creator Hub performance analytics**: [[2026-03-24 - Voice Chat is now supported in servers of up to 100 users!|Voice Chat is now supported in servers of up to 10]]
+- **Roblox Studio (Enable Voice Chat setting)**: [[2026-03-24 - Voice Chat is now supported in servers of up to 100 users!|Voice Chat is now supported in servers of up to 10]]
+- **Animation Graph Editor**: [[2026-04-02 - Studio Beta Introducing the Animation Graph System|[Studio Beta] Introducing the Animation Graph Syst]]
+- **Animation Clip Editor (ACE)**: [[2026-04-02 - Studio Beta Introducing the Animation Graph System|[Studio Beta] Introducing the Animation Graph Syst]]
+- **Avatar Joint Upgrade (AJU)**: [[2026-04-02 - Studio Beta Introducing the Animation Graph System|[Studio Beta] Introducing the Animation Graph Syst]]
+- **FilterDescendantsInstances**: [[2026-04-07 - New spatial query filters|New spatial query filters]]
+- **Character Controller Library**: [[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]]
+- **AvatarAbilities Library**: [[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]]
+- **Avatar Settings**: [[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]]
+- **Roblox Studio Emulator**: [[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]]
+- **CCL Reference Place**: [[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]]
+- **Creator Hub Select Eligibility dashboard**: [[2026-04-16 - AMA Publishing Requirements + Roblox Kids & Select|[AMA] Publishing Requirements + Roblox Kids & Sele]]
+- **Open Cloud API keys**: [[2026-04-16 - AMA Publishing Requirements + Roblox Kids & Select|[AMA] Publishing Requirements + Roblox Kids & Sele]]
+- **Assistant**: [[2026-04-23 - Studio Beta Introducing Procedural Models Build Parametrized 3D Models|[Studio Beta] Introducing Procedural Models: Build]]
+- **Studio MCP**: [[2026-04-23 - Studio Beta Introducing Procedural Models Build Parametrized 3D Models|[Studio Beta] Introducing Procedural Models: Build]]
+- **generate_procedural_model**: [[2026-04-23 - Studio Beta Introducing Procedural Models Build Parametrized 3D Models|[Studio Beta] Introducing Procedural Models: Build]]
+- **Creator Dashboard eligibility checker**: [[2026-04-30 - Introducing the US 18+ DevEx Rate Earn 42% More on Spend from 18+ US P|Introducing the US 18+ DevEx Rate: Earn 42% More o]]
+- **Player:PromptAgeCheck()**: [[2026-04-30 - Introducing the US 18+ DevEx Rate Earn 42% More on Spend from 18+ US P|Introducing the US 18+ DevEx Rate: Earn 42% More o]]
+- **Player.AgeChecked**: [[2026-04-30 - Introducing the US 18+ DevEx Rate Earn 42% More on Spend from 18+ US P|Introducing the US 18+ DevEx Rate: Earn 42% More o]]
+- **PromptRobuxTransferAsync**: [[2026-05-04 - Disabling Cross-Game Sales of Passes and Dev Products and Introducing|Disabling Cross-Game Sales of Passes and Dev Produ]]
+- **BindReceiptHandler**: [[2026-05-04 - Disabling Cross-Game Sales of Passes and Dev Products and Introducing|Disabling Cross-Game Sales of Passes and Dev Produ]]
+- **Studio free purchase feature**: [[2026-05-04 - Disabling Cross-Game Sales of Passes and Dev Products and Introducing|Disabling Cross-Game Sales of Passes and Dev Produ]]
+- **Developer Console (F9)**: [[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]]
+- **Debug stats (Shift+F1 to Shift+F5)**: [[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]]
+- **Wireframe Rendering**: [[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]]
+- **Roblox Studio CollisionFidelity viewport overlay**: [[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]]
+- **SandboxedInstanceMode (Workspace property, beta)**: [[2026-05-13 - Protect Your Games with Script Capabilities Sandboxing|Protect Your Games with Script Capabilities Sandbo]]
+- **Output window**: [[2026-05-13 - Protect Your Games with Script Capabilities Sandboxing|Protect Your Games with Script Capabilities Sandbo]]
+- **Style Editor**: [[2026-05-14 - Full Release New UI Capabilities Shadows & Individual Corners!|[Full Release] New UI Capabilities: Shadows & Indi]]
+- **Explorer/Properties**: [[2026-05-14 - Full Release New UI Capabilities Shadows & Individual Corners!|[Full Release] New UI Capabilities: Shadows & Indi]]
+- **Ban API (BanAsync with ApplyDeviceBlock)**: [[2026-06-04 - Ban API New Device Blocking Capability|Ban API: New Device Blocking Capability]]
+- **Unban API**: [[2026-06-04 - Ban API New Device Blocking Capability|Ban API: New Device Blocking Capability]]
+- **Maya**: [[2026-06-15 - Pilot Create and Sell Animation Packs and Emotes on Marketplace|[Pilot] Create and Sell Animation Packs and Emotes]]
+- **Sling**: [[2026-06-17 - Sling - A modern and reactive backpack UI|Sling - A modern and reactive backpack UI]]
+- **Vide**: [[2026-06-17 - Sling - A modern and reactive backpack UI|Sling - A modern and reactive backpack UI]]
+- **Satchel**: [[2026-06-17 - Sling - A modern and reactive backpack UI|Sling - A modern and reactive backpack UI]]
+- **Creator Hub Shop and Item catalog**: [[2026-06-24 - Introducing Shop A Personalized In-Game Storefront|Introducing Shop: A Personalized In-Game Storefron]]
+- **Roblox Studio Shop preview**: [[2026-06-24 - Introducing Shop A Personalized In-Game Storefront|Introducing Shop: A Personalized In-Game Storefron]]
+- **MarketplaceService:OpenShop**: [[2026-06-24 - Introducing Shop A Personalized In-Game Storefront|Introducing Shop: A Personalized In-Game Storefron]]
+- **StarterGui:SetCoreGuiEnabled**: [[2026-06-24 - Introducing Shop A Personalized In-Game Storefront|Introducing Shop: A Personalized In-Game Storefron]]
+- **Roblox Studio Terrain Editor**: [[2026-06-25 - Early Access Program Unlocking Massive Terrain With Up to 64 Custom Ma|[Early Access Program] Unlocking Massive Terrain W]]
+- **Terrain Materials Manager**: [[2026-06-25 - Early Access Program Unlocking Massive Terrain With Up to 64 Custom Ma|[Early Access Program] Unlocking Massive Terrain W]]
+- **Material Generator**: [[2026-06-25 - Early Access Program Unlocking Massive Terrain With Up to 64 Custom Ma|[Early Access Program] Unlocking Massive Terrain W]]
+- **Terrain API (SetMaterialSlot, GetMaterialSlot, ResetMaterialSlot, WriteVoxelChannels)**: [[2026-06-25 - Early Access Program Unlocking Massive Terrain With Up to 64 Custom Ma|[Early Access Program] Unlocking Massive Terrain W]]
+- **Roblox Studio MicroProfiler**: [[2026-06-26 - Automated Performance Profiling with MicroProfiler and Assistant|Automated Performance Profiling with MicroProfiler]]
+- **Assistant (Studio AI)**: [[2026-06-26 - Automated Performance Profiling with MicroProfiler and Assistant|Automated Performance Profiling with MicroProfiler]]
+- **Studio MCP server**: [[2026-06-26 - Automated Performance Profiling with MicroProfiler and Assistant|Automated Performance Profiling with MicroProfiler]]
+- **MicroProfiler API (LibMP)**: [[2026-06-26 - Automated Performance Profiling with MicroProfiler and Assistant|Automated Performance Profiling with MicroProfiler]]
+- **Roblox Studio Workspace Properties (AuthorityMode)**: [[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]]
+- **Instance Streaming Conversion Skill (experimental AI skill via MCP)**: [[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]]
+- **Studio network simulation (latency, packet loss)**: [[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]]
+- **Player:GetCameraState()**: [[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]]
+- **BindToSimulation**: [[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]]
+- **Extended Services for Compute**: [[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]]
+- **Scribe (Wally/npm library)**: [[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]]
+- **ProfileStore (bundled)**: [[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]]
+- **Scribe Studio plugin**: [[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]]
+- **ScribeTelemetry (Discord add-on)**: [[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]]
+- **Packet**: [[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]]
+- **UI Labs / Hoarcekat (storybooks)**: [[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]]
+- **InstanceHandle**: [[2026-07-23 - Reference Instances Directly with Attributes|Reference Instances Directly with Attributes]]
+- **Instance:SetAttribute**: [[2026-07-23 - Reference Instances Directly with Attributes|Reference Instances Directly with Attributes]]
+- **Instance:GetAttribute**: [[2026-07-23 - Reference Instances Directly with Attributes|Reference Instances Directly with Attributes]]
+- **Instance:GetAttributes**: [[2026-07-23 - Reference Instances Directly with Attributes|Reference Instances Directly with Attributes]]
+- **Instance:GetAttributeChangedSignal**: [[2026-07-23 - Reference Instances Directly with Attributes|Reference Instances Directly with Attributes]]
+- **Instance Streaming**: [[2026-07-29 - Introducing Predictive Streaming Reduced Pausing and Smoother Gameplay|Introducing Predictive Streaming: Reduced Pausing ]]
+- **Workspace.PredictiveStreamingMode**: [[2026-07-29 - Introducing Predictive Streaming Reduced Pausing and Smoother Gameplay|Introducing Predictive Streaming: Reduced Pausing ]]
+- **CollectionService:CreateCollection**: [[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]]
+- **Collection:ForEach**: [[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]]
+- **Collection:Destroy**: [[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]]
+- **Studio Explorer query: search filter**: [[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]]
+- **QueryDescendants selector syntax**: [[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]]
+- **RunService signals via OnHeartbeat/OnSimulate**: [[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]]
+- **Terrain Scattering System**: [[2026-09-11 - Terrain Updates Object Scattering, Path Splines, Projected Terrain Dec|Terrain Updates: Object Scattering, Path Splines, ]]
+- **Path Splines**: [[2026-09-11 - Terrain Updates Object Scattering, Path Splines, Projected Terrain Dec|Terrain Updates: Object Scattering, Path Splines, ]]
+- **Projected Decals**: [[2026-09-11 - Terrain Updates Object Scattering, Path Splines, Projected Terrain Dec|Terrain Updates: Object Scattering, Path Splines, ]]
+- **Virtual Texturing**: [[2026-09-11 - Terrain Updates Object Scattering, Path Splines, Projected Terrain Dec|Terrain Updates: Object Scattering, Path Splines, ]]
+- **Signed Distance Fields**: [[2026-09-11 - Terrain Updates Object Scattering, Path Splines, Projected Terrain Dec|Terrain Updates: Object Scattering, Path Splines, ]]
+- **Creator Hub Finances / Transactions page**: [[2026-09-11 - Introducing Roblox Wallet and Card Get Paid Faster|Introducing Roblox Wallet and Card: Get Paid Faste]]
+- **Roblox Card (2027)**: [[2026-09-11 - Introducing Roblox Wallet and Card Get Paid Faster|Introducing Roblox Wallet and Card: Get Paid Faste]]
+- **Observability Platform**: [[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]]
+- **Asset Moderation**: [[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]]
+- **Branch and Merge**: [[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]]
+- **Scene Generation**: [[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]]
+- **NPC Dynamic Behavior**: [[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]]
+- **Player.FrustumStreaming property**: [[2026-09-29 - Frustum Streaming Stream What Your Players See|Frustum Streaming: Stream What Your Players See]]
+- **Enum.FrustumStreamingMode**: [[2026-09-29 - Frustum Streaming Stream What Your Players See|Frustum Streaming: Stream What Your Players See]]
+- **BasePart:BindToCollisionSummaries**: [[2026-10-06 - Collision Summaries API Detailed Collision Data From The Engine|Collision Summaries API: Detailed Collision Data F]]
+- **RBXScriptConnection**: [[2026-10-06 - Collision Summaries API Detailed Collision Data From The Engine|Collision Summaries API: Detailed Collision Data F]]
+
+## Points viewers to (candidates for further study)
+- Wikipedia definition of object (OOP) ([[2014-09-03 - All about Object Oriented Programming|All about Object Oriented Programming]])
+- AxisAngle's Guide to CFrames (Imgur PNG) ([[2015-01-03 - How to think about CFrames|How to think about CFrames]])
+- Reflection formula r = d - 2(d·n)n ([[2015-09-01 - How to reflect rays on hit|How to reflect rays on hit]])
+- Real World Illustrator: Understanding 9-Slice Scaling ([[2015-09-07 - How to use SliceCenter (Roblox's 9-Slice GUI Property)|How to use SliceCenter (Roblox's 9-Slice GUI Prope]])
+- Stravant's original BitBuffer post (DevForum) ([[2015-11-30 - Stravant's BitBuffer Module - Compact Storage Of Data Tutorial|Stravant's BitBuffer Module - Compact Storage Of D]])
+- https://github.com/Quenty/NevermoreEngine#get-nevermore ([[2015-12-24 - Hey experienced programmers, Nevermore Engine now can be installed in|Hey experienced programmers, Nevermore Engine now ]])
+- https://github.com/Quenty/NevermoreEngine/tree/master/Modules/QuentyAdminCommands ([[2015-12-24 - Hey experienced programmers, Nevermore Engine now can be installed in|Hey experienced programmers, Nevermore Engine now ]])
+- Google images for building inspiration ([[2016-04-04 - Building Tutorial For All (Resources Available)|Building Tutorial For All (Resources Available)]])
+- Roblox Studio Build Suite plugin ([[2016-04-04 - Building Tutorial For All (Resources Available)|Building Tutorial For All (Resources Available)]])
+- http://wiki.roblox.com/index.php?title=API:Class/Terrain/FillBlock ([[2016-04-08 - Smooth Terrain How To's and Tips and Tricks|Smooth Terrain: How To's and Tips and Tricks]])
+- http://wiki.roblox.com/index.php?title=API:Class/Terrain/FillBall ([[2016-04-08 - Smooth Terrain How To's and Tips and Tricks|Smooth Terrain: How To's and Tips and Tricks]])
+- http://wiki.roblox.com/index.php?title=API:Class/Terrain/FillRegion ([[2016-04-08 - Smooth Terrain How To's and Tips and Tricks|Smooth Terrain: How To's and Tips and Tricks]])
+- AxisAngle (advanced optimization) ([[2016-07-05 - The Basics Of Basic Optimization|The Basics Of Basic Optimization]])
+- Roblox DevForum: claylittlehorse, 'Understanding method hooking and keeping your game protected' (Aug 2018 revision) ([[2016-12-09 - Understanding method hooking and keeping your game protected|Understanding method hooking and keeping your game]])
+- Santa_Root Blender tutorial video (Blender 2.97) ([[2017-03-30 - Blender rig exporteranimation importer|Blender rig exporter/animation importer]])
+- XAXA modified addon for R15 constraints (Blender 2.79) ([[2017-03-30 - Blender rig exporteranimation importer|Blender rig exporter/animation importer]])
+- GameAnalytics Collector REST API Reference ([[2017-06-27 - Using GameAnalytics (Retention and Monetisation) (Ez mode)|Using GameAnalytics (Retention and Monetisation) (]])
+- GameAnalytics website resource flow examples ([[2017-06-27 - Using GameAnalytics (Retention and Monetisation) (Ez mode)|Using GameAnalytics (Retention and Monetisation) (]])
+- GUI Anchoring Template (Roblox library asset 901513077) ([[2017-08-07 - A Guide to User Interface Design|A Guide to User Interface Design]])
+- colour-affects.co.uk psychological properties of colours ([[2017-08-07 - A Guide to User Interface Design|A Guide to User Interface Design]])
+- Printwand Basic Alignment Principles in Graphic Design ([[2017-08-07 - A Guide to User Interface Design|A Guide to User Interface Design]])
+- PixelFix: Remove the black edges on scaled images ([[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]])
+- Quenty Medium article on fixing images in Roblox UI ([[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]])
+- How to use SliceCenter (Roblox's 9-Slice GUI Property) ([[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]])
+- UI Design Objects & Tips (DevForum) ([[2017-09-23 - UI Design Starter Guide|UI Design Starter Guide]])
+- https://github.com/noblox/noblox.js ([[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]])
+- https://github.com/sentanos/roblox-js-server ([[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]])
+- https://discord.js.org ([[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]])
+- https://anidiots.guide/other-guides/hosting-on-glitch ([[2017-10-25 - Guide to Scripting Bots Javascript Tutorial FunCaptcha and New Host In|Guide to Scripting Bots | Javascript Tutorial | Fu]])
+- DevForum: Time frame for game prototype creation (Sharksie) ([[2017-11-29 - Game Design Theory Planning a Game and Implementing Features|Game Design Theory: Planning a Game and Implementi]])
+- DevForum: Discord Integration tutorial (Flowtonio) ([[2017-11-29 - Game Design Theory Planning a Game and Implementing Features|Game Design Theory: Planning a Game and Implementi]])
+- DevForum: Using GameAnalytics tutorial (DeepBlueNoSpace) ([[2017-11-29 - Game Design Theory Planning a Game and Implementing Features|Game Design Theory: Planning a Game and Implementi]])
+- DieSoft game design document template ([[2017-11-29 - Game Design Theory Planning a Game and Implementing Features|Game Design Theory: Planning a Game and Implementi]])
+- Quenty's Maid class pattern ([[2018-02-08 - PSA Connections can memory leak Instances!|PSA: Connections can memory leak Instances!]])
+- GoodSignal pure Lua Signal implementation by stravant (2021 edit, uses task library) ([[2018-02-08 - PSA Connections can memory leak Instances!|PSA: Connections can memory leak Instances!]])
+- DataStore2 documentation site ([[2018-06-16 - How to use DataStore2 - Data Store caching and data loss prevention|How to use DataStore2 - Data Store caching and dat]])
+- DataStore2 GitHub releases page ([[2018-06-16 - How to use DataStore2 - Data Store caching and data loss prevention|How to use DataStore2 - Data Store caching and dat]])
+- DataStore2 News/Changelog DevForum thread ([[2018-06-16 - How to use DataStore2 - Data Store caching and data loss prevention|How to use DataStore2 - Data Store caching and dat]])
+- EgoMoose quaternion class gist: https://gist.github.com/EgoMoose/7a8f4d7b00ffe45abce8ade72b173284 ([[2018-07-05 - How to think about Quaternions|How to think about Quaternions]])
+- Original post on scriptinghelpers ([[2018-07-05 - How to think about Quaternions|How to think about Quaternions]])
+- ScriptingHelpers original post ([[2018-08-06 - The First Person Element Of A First Person Shooter|The First Person Element Of A First Person Shooter]])
+- github.com/EgoMoose/Articles (simpleFPS gifs and images) ([[2018-08-06 - The First Person Element Of A First Person Shooter|The First Person Element Of A First Person Shooter]])
+- Discord.js Documentation ([[2018-08-31 - Guide to Web Development|Guide to Web Development]])
+- Roblox.js Documentation ([[2018-08-31 - Guide to Web Development|Guide to Web Development]])
+- MDN Guide on Promises ([[2018-08-31 - Guide to Web Development|Guide to Web Development]])
+- express-rate-limit documentation ([[2018-08-31 - Guide to Web Development|Guide to Web Development]])
+- Wikipedia: Bezier curves ([[2018-09-07 - Modeling a projectile's motion|Modeling a projectile's motion]])
+- Roblox wiki: Beam ([[2018-09-07 - Modeling a projectile's motion|Modeling a projectile's motion]])
+- ExtraCredit ([[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]])
+- Game Dev Underground ([[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]])
+- GDC ([[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]])
+- The Game Theorists ([[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]])
+- Kurdiez Scripting series ([[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]])
+- Roblox University playlist ([[2018-09-09 - Game Development Resources MEGA THREAD|Game Development Resources [MEGA THREAD]]])
+- scriptinghelpers original post ([[2018-11-26 - Creating A Furniture Placement System|Creating A Furniture Placement System]])
+- DevForum post on OOP in Lua (linked, not named) ([[2018-11-26 - Creating A Furniture Placement System|Creating A Furniture Placement System]])
+- EgoMoose blog (future post mentioned) ([[2018-11-26 - Creating A Furniture Placement System|Creating A Furniture Placement System]])
+- AlanBeckerTutorials ([[2019-01-15 - Jespone's guide to animations|Jespone's guide to animations]])
+- Disney 12 Principles of Animation ([[2019-01-15 - Jespone's guide to animations|Jespone's guide to animations]])
+- Ease Visualizer - GreenSock ([[2019-01-15 - Jespone's guide to animations|Jespone's guide to animations]])
+- Weapon.rbxm example gun (attached to original post) ([[2019-01-27 - How to animate a toolobject with a Dummy in the Animation Editor|How to animate a tool/object with a Dummy in the A]])
+- AnimationTutorial.rbxl example file (attached to original post) ([[2019-01-27 - How to animate a toolobject with a Dummy in the Animation Editor|How to animate a tool/object with a Dummy in the A]])
+- RDC 2018 'Designing for Performance' panel ([[2019-02-02 - Building Optimisation Tips and tricks!|Building Optimisation | Tips and tricks!]])
+- Zeuxcg RDC 18 talk on CanCollide ([[2019-02-02 - Building Optimisation Tips and tricks!|Building Optimisation | Tips and tricks!]])
+- Zeuxcg (cited on decals and mobile performance) ([[2019-02-02 - Building Optimisation Tips and tricks!|Building Optimisation | Tips and tricks!]])
+- Kampfkarren Twitter thread (original) ([[2019-02-23 - Avoiding wait() and why|Avoiding wait() and why]])
+- https://www.projecthorseshoe.com/reports/featured/ph18r3.htm ([[2019-03-01 - Monetisation 101 How to effectively generate revenue in your Roblox Ga|Monetisation 101: How to effectively generate reve]])
+- https://www.projecthorseshoe.com/reports/featured/ph17r4.htm ([[2019-03-01 - Monetisation 101 How to effectively generate revenue in your Roblox Ga|Monetisation 101: How to effectively generate reve]])
+- GDC Vault: 3 Monetization Metrics to Track Every Single Day (Chartboost) ([[2019-03-01 - Monetisation 101 How to effectively generate revenue in your Roblox Ga|Monetisation 101: How to effectively generate reve]])
+- GDC Vault: Player Centric Live Ops Monetization (Fuse Powered) ([[2019-03-01 - Monetisation 101 How to effectively generate revenue in your Roblox Ga|Monetisation 101: How to effectively generate reve]])
+- Original DevForum reply thread by LMH_Hutch ([[2019-03-15 - 2 Joint 2 Limb Inverse Kinematics|2 Joint 2 Limb Inverse Kinematics]])
+- 2 Joint 2 Limb Inverse Kinematics Demo.rbxl ([[2019-03-15 - 2 Joint 2 Limb Inverse Kinematics|2 Joint 2 Limb Inverse Kinematics]])
+- MessagingService documentation (Roblox Creator Hub) ([[2019-03-21 - Cross-Server Matchmaking Module|Cross-Server Matchmaking Module]])
+- TeleportService documentation (Roblox Creator Hub) ([[2019-03-21 - Cross-Server Matchmaking Module|Cross-Server Matchmaking Module]])
+- DataStoreService documentation (Roblox Creator Hub) ([[2019-03-21 - Cross-Server Matchmaking Module|Cross-Server Matchmaking Module]])
+- HttpService documentation (Roblox Creator Hub) ([[2019-03-21 - Cross-Server Matchmaking Module|Cross-Server Matchmaking Module]])
+- ThatTimothy DevForum tutorial (original post) ([[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]])
+- Leaderboard With Script Working DEMO.rbxl (downloadable) ([[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]])
+- Global Leaderboard With Script.rbxm (downloadable model) ([[2019-03-23 - How to make a simple global leaderboard|How to make a simple global leaderboard]])
+- Crate/Spin System open-source place by ForeverHD ([[2019-04-01 - Creating a CrateSpin System|Creating a Crate/Spin System]])
+- Ruski's Tutorial #2 - house layout design (linked from the page) ([[2019-05-08 - Ruski's Tutorial 1 - How to design a map layout|Ruski's Tutorial #1 - How to design a map layout]])
+- Pixelfix post (Roblox DevForum community resource) ([[2019-05-19 - How to Plan, Design and Build Quality User Interfaces|How to Plan, Design and Build Quality User Interfa]])
+- Basic Toggle.rbxm example toggle file ([[2019-05-19 - How to Plan, Design and Build Quality User Interfaces|How to Plan, Design and Build Quality User Interfa]])
+- Fly's handbook for creations threads (building guide) ([[2019-06-02 - How to make a game|How to make a game]])
+- fly#8523 (author's Discord) ([[2019-06-02 - How to make a game|How to make a game]])
+- The Labyrinth State Machine Example (open-sourced Roblox demo) ([[2019-06-24 - Using State Machines To Mitigate Teleport Exploits|Using State Machines To Mitigate Teleport Exploits]])
+- Roblox official 'Animating a Model' code sample on Creator Marketplace ([[2019-07-24 - Introduction to Tweening Models|Introduction to Tweening Models]])
+- Thread: SetPrimaryPartCFrame() gradually offsets component parts (Engine Bugs) ([[2019-07-24 - Introduction to Tweening Models|Introduction to Tweening Models]])
+- Future of Avatar presentation by Matt Brown at RDC 2019 ([[2019-08-15 - UGC Catalog is Now Live!|UGC Catalog is Now Live!]])
+- Quenty (discussed the surface-CFrame idea) ([[2019-08-24 - A Couple of Advanced CFrame Tricks|A Couple of Advanced CFrame Tricks]])
+- Custom character controller / custom camera up vector DevForum release post ([[2019-08-24 - A Couple of Advanced CFrame Tricks|A Couple of Advanced CFrame Tricks]])
+- https://medium.com/roblox-development/how-to-use-a-maid-class-on-roblox-to-manage-state-651bf74de98b ([[2019-08-28 - How to use a Maid class on Roblox to manage state|How to use a Maid class on Roblox to manage state]])
+- github.com/Quenty/NevermoreEngine ([[2019-08-28 - How to use a Maid class on Roblox to manage state|How to use a Maid class on Roblox to manage state]])
+- github.com/Nyapaw/Roblox ([[2019-09-01 - Dungeon Generation A Procedural Generation Guide|Dungeon Generation: A Procedural Generation Guide]])
+- RDC 2019 keynote on procedural generation (Crazyman32) ([[2019-09-01 - Dungeon Generation A Procedural Generation Guide|Dungeon Generation: A Procedural Generation Guide]])
+- DevForum: All about OOP community tutorial (2014) ([[2019-09-01 - Dungeon Generation A Procedural Generation Guide|Dungeon Generation: A Procedural Generation Guide]])
+- NevermoreEngine ([[2019-09-16 - Promises and Why You Should Use Them|Promises and Why You Should Use Them]])
+- Hexolus Server-sided Anticheat (open-source repo, linked by author) ([[2019-09-18 - How you should secure your game - A beginner guide for secure networki|How you should secure your game - A beginner guide]])
+- https://requests.paric.xyz/ ([[2019-09-22 - Roblox Requests Simple, powerful HTTP in Roblox|Roblox Requests: Simple, powerful HTTP in Roblox]])
+- https://github.com/jpatrickdill/roblox-requests ([[2019-09-22 - Roblox Requests Simple, powerful HTTP in Roblox|Roblox Requests: Simple, powerful HTTP in Roblox]])
+- Python Requests ([[2019-09-22 - Roblox Requests Simple, powerful HTTP in Roblox|Roblox Requests: Simple, powerful HTTP in Roblox]])
+- Roblox DevHub documentation on Premium Payouts ([[2019-09-23 - Roblox Premium is here!|Roblox Premium is here!]])
+- Roblox Developer Economics page ([[2019-09-23 - Roblox Premium is here!|Roblox Premium is here!]])
+- Phantom Forces (advanced shooter framework reference) ([[2019-09-30 - How to animate Tool Parts (Guns, Knifes etc.)|How to animate Tool Parts (Guns, Knifes etc.)]])
+- https://developer.roblox.com ([[2019-10-01 - Scripting Basics - Beginner guide to lua and Roblox|Scripting Basics - Beginner guide to lua and Roblo]])
+- Roblox DevForum ([[2019-10-01 - Scripting Basics - Beginner guide to lua and Roblox|Scripting Basics - Beginner guide to lua and Roblo]])
+- Google Images and Pinterest for wooden texture references ([[2019-10-12 - How to create good User Interface for your games|How to create good User Interface for your games]])
+- RealisticLightingTemplate.rbxl (author's template place) ([[2019-10-13 - How to make your lighting more realistic in shadowmap|How to make your lighting more realistic in shadow]])
+- Developer Exchange (DevEx) FAQ ([[2019-10-17 - Tier-less cash outs are here! 🎉|Tier-less cash outs are here! 🎉]])
+- @CompilerError DevForum post on coding many NPCs ([[2019-11-17 - How to Optimize Humanoids|How to Optimize Humanoids]])
+- @SteadyOn TweenService V2 module ([[2019-11-17 - How to Optimize Humanoids|How to Optimize Humanoids]])
+- AutoCanvasSize property ([[2019-11-22 - Quick Tutorial How to make scrolling frames properly|Quick Tutorial: How to make scrolling frames prope]])
+- Programming in Lua: 8.4 ([[2019-11-23 - Pcalls - When and how to use them|Pcalls - When and how to use them]])
+- Lua Globals - Roblox Creator Hub ([[2019-11-23 - Pcalls - When and how to use them|Pcalls - When and how to use them]])
+- debug - Roblox Creator Hub ([[2019-11-23 - Pcalls - When and how to use them|Pcalls - When and how to use them]])
+- Roblox Developer Hub ([[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]])
+- Stack Overflow ([[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]])
+- Lua.org ([[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]])
+- AlvinBlox (YouTube) ([[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]])
+- TheDevKing (YouTube) ([[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]])
+- Roblox Scripting Playlist (YouTube) ([[2019-11-24 - Lua Scripting Starter Guide|Lua Scripting Starter Guide]])
+- Associative array (general concept, linked in article) ([[2019-12-07 - All About Tables (the first of two tutorials on the subject)|All About Tables (the first of two tutorials on th]])
+- ScriptGuider DevForum answer on table.concat ([[2019-12-07 - All About Tables (the first of two tutorials on the subject)|All About Tables (the first of two tutorials on th]])
+- HaxHelper (Luau ipairs performance info) ([[2019-12-07 - All About Tables (the first of two tutorials on the subject)|All About Tables (the first of two tutorials on th]])
+- BenSBk advanced dragging system (uncopylocked) ([[2019-12-08 - Dragging objects with the mouse|Dragging objects with the mouse]])
+- dragging.rbxl and even_better_dragging.rbxl example files by starmaq ([[2019-12-08 - Dragging objects with the mouse|Dragging objects with the mouse]])
+- Quadspinner Gaea ([[2019-12-11 - Large-Scale Roblox Terrain The ultimate guide|Large-Scale Roblox Terrain: The ultimate guide]])
+- NexusAvenger .OBJ Importer ([[2019-12-11 - Large-Scale Roblox Terrain The ultimate guide|Large-Scale Roblox Terrain: The ultimate guide]])
+- UIGradient [LIVE] - #147 by UIScript (DevForum) ([[2019-12-31 - Creating A CircularRadial HP Bar Like Kingdom Hearts|Creating A Circular/Radial HP Bar Like Kingdom Hea]])
+- Replicate items to individual client (DevForum feature request by @Crazyman32) ([[2020-01-20 - Replicating Instances to Only Some Players|Replicating Instances to Only Some Players]])
+- All about Object Oriented Programming (community tutorial) ([[2020-02-14 - Creating a battle system OOP style!|Creating a battle system: OOP style!]])
+- BattleSystemTutorial.rbxl place file (uncopylocked resource) ([[2020-02-14 - Creating a battle system OOP style!|Creating a battle system: OOP style!]])
+- ArtStation ([[2020-02-14 - Game Development Theory 101|Game Development Theory 101]])
+- DeviantArt ([[2020-02-14 - Game Development Theory 101|Game Development Theory 101]])
+- Dribbble ([[2020-02-14 - Game Development Theory 101|Game Development Theory 101]])
+- Behance ([[2020-02-14 - Game Development Theory 101|Game Development Theory 101]])
+- coolors.co, colorhunt.co, colormind.io ([[2020-02-14 - Game Development Theory 101|Game Development Theory 101]])
+- Developer Economics page ([[2020-02-19 - Introducing Premium Payouts!|Introducing Premium Payouts!]])
+- DevHub Premium Payouts documentation ([[2020-02-19 - Introducing Premium Payouts!|Introducing Premium Payouts!]])
+- Forthcoming guide for game content compliance in major countries (promised, not yet published at time of post) ([[2020-02-20 - About our upcoming Global Compliance System|About our upcoming Global Compliance System]])
+- Writing an FPS framework, part 2 (2020) DevForum tutorial ([[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]])
+- rojo.space ([[2020-03-31 - Writing an FPS framework (2020)|Writing an FPS framework (2020)]])
+- Roblox Dev wiki metamethods page ([[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]])
+- Lua 5.1 manual ([[2020-03-31 - All you need to know about Metatables and Metamethods|All you need to know about Metatables and Metameth]])
+- Sudden_Demise DevForum post ([[2020-04-05 - How to remove backdoors from your game|How to remove backdoors from your game]])
+- How to inspect the source of plugins (Community Tutorials, DevForum) ([[2020-04-05 - Clearing your game of malicious scripts, plugins, and backdoors|Clearing your game of malicious scripts, plugins, ]])
+- Crazyman32 serializer module (linked by author) ([[2020-04-14 - How to save parts, and the idea of Serialization|How to save parts, and the idea of Serialization]])
+- serializer_place.rbxl demo place (author attachment) ([[2020-04-14 - How to save parts, and the idea of Serialization|How to save parts, and the idea of Serialization]])
+- sleitnick car rigging series (4 parts) ([[2020-04-14 - How to Rig a Car|How to Rig a Car]])
+- BitwiseAndrea (DevForum post author) ([[2020-04-16 - Account PIN now required for transferring group|Account PIN now required for transferring group]])
+- PiL Chapter 9 ([[2020-04-25 - Coroutines - When and how to use them|Coroutines - When and how to use them]])
+- Roblox Developer Hub coroutine article ([[2020-04-25 - Coroutines - When and how to use them|Coroutines - When and how to use them]])
+- Roblox Developer Hub coroutine API reference ([[2020-04-25 - Coroutines - When and how to use them|Coroutines - When and how to use them]])
+- BuilderBudCarl vector mathematics tutorial ([[2020-05-02 - Basic Trigonometry|Basic Trigonometry]])
+- github.com/ddavness/roblox-http-queue ([[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]])
+- ProbableAI Documentation Reader plugin ([[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]])
+- evaera Promise implementation ([[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]])
+- Osyris t typechecking library ([[2020-05-03 - HttpQueue - Forget about rate limiting, focus on the rest!|HttpQueue - Forget about rate limiting, focus on t]])
+- GDC talk by David Rosen on procedural animation ([[2020-05-08 - Procedural Animation What it is and how to do it|Procedural Animation: What it is and how to do it]])
+- Roblox API docs for TweenService ([[2020-05-08 - Procedural Animation What it is and how to do it|Procedural Animation: What it is and how to do it]])
+- Black Magic 2 (tilt augmentation example) ([[2020-05-08 - Procedural Animation What it is and how to do it|Procedural Animation: What it is and how to do it]])
+- Superliminal (game referenced as inspiration) ([[2020-05-09 - Perspective object dragging like Superliminal|Perspective object dragging like Superliminal]])
+- EgoMoose rotated Region3 module ([[2020-05-09 - Perspective object dragging like Superliminal|Perspective object dragging like Superliminal]])
+- Roblox Wiki on object space ([[2020-05-09 - Perspective object dragging like Superliminal|Perspective object dragging like Superliminal]])
+- The Lean Startup by Eric Ries ([[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]])
+- Game Development Resources MEGA THREAD (DevForum) ([[2020-05-10 - Game Design Theory Project Management with DevOps, Analytics and Pipel|Game Design Theory: Project Management with DevOps]])
+- Lua PIL (Programming in Lua) chapter on iterators ([[2020-05-13 - All you need to know about Iterator Functions|All you need to know about Iterator Functions]])
+- FastCast Redux by EtiTheSpirit (Roblox library 4453855787) ([[2020-05-18 - Writing an FPS framework, part 2 (2020)|Writing an FPS framework, part 2 (2020)]])
+- UI Design Starter Guide (EmeraldSlash, DevForum) ([[2020-06-06 - UI Design Objects & Tips|UI Design Objects & Tips]])
+- Yucon GitHub documentation page (ig-studios.github.io/YuconFramework) ([[2020-06-17 - Yucon Framework Optimization, organization, and high-level security|Yucon Framework || Optimization, organization, and]])
+- Yucon Discord server ([[2020-06-17 - Yucon Framework Optimization, organization, and high-level security|Yucon Framework || Optimization, organization, and]])
+- @XAXA synced time module (Google-based time) ([[2020-06-18 - How to Make Server-Synced Daily Shops|How to Make Server-Synced Daily Shops]])
+- @VitalWinter (helped with code) ([[2020-06-18 - How to Make Server-Synced Daily Shops|How to Make Server-Synced Daily Shops]])
+- Roblox Architects group ([[2020-06-22 - Building and Showcase TIPS! Update!|Building and Showcase TIPS! [Update!]]])
+- The Magic Circle group ([[2020-06-22 - Building and Showcase TIPS! Update!|Building and Showcase TIPS! [Update!]]])
+- Urbanize: The Great List of Roblox Showcases ([[2020-06-22 - Building and Showcase TIPS! Update!|Building and Showcase TIPS! [Update!]]])
+- Lolaphobia lighting tutorial ([[2020-06-22 - Building and Showcase TIPS! Update!|Building and Showcase TIPS! [Update!]]])
+- Roblox DevHub Bézier curve diagram ([[2020-06-27 - Creating a Simple, Realistic Camera (With View Bobbing, Dynamic Blur,|Creating a Simple, Realistic Camera (With View Bob]])
+- Author's earlier tutorials on trigonometry and vector math ([[2020-06-27 - Creating a Simple, Realistic Camera (With View Bobbing, Dynamic Blur,|Creating a Simple, Realistic Camera (With View Bob]])
+- ProfileService wiki ([[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]])
+- ProfileService on GitHub ([[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]])
+- Roblox library (ProfileService) ([[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]])
+- M_nzter ProfileService tutorial ([[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]])
+- CheekySquid ProfileService in 10 minutes ([[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]])
+- okeanskiy ProfileService playlist ([[2020-07-11 - Save your player data with ProfileService! (DataStore Module)|Save your player data with ProfileService! (DataSt]])
+- Tag Editor Plugin by @Sweetheartichoke (DevForum) ([[2020-07-12 - CollectionService in a nutshell|CollectionService in a nutshell]])
+- Lua Learning (Roblox project, mentioned positively) ([[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]])
+- Game Advertising 101 (author's post) ([[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]])
+- Project Management 101 (author's post) ([[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]])
+- Game Design 101 (author's post) ([[2020-07-26 - How to make a successful Roblox Game|How to make a successful Roblox Game]])
+- TechSpectrum Twitter ([[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]])
+- Discord invite rbx-agile (manager community) ([[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]])
+- Scrum Product Owner and Scrum Master certifications (author) ([[2020-07-26 - Game Design Theory Becoming a Leader for Project Management and Team B|Game Design Theory: Becoming a Leader for Project ]])
+- Official Placement Service GitHub repository ([[2020-07-31 - How to use Placement Service|How to use Placement Service]])
+- Official Placement Service documentation ([[2020-07-31 - How to use Placement Service|How to use Placement Service]])
+- Demo place (linked by author) ([[2020-07-31 - How to use Placement Service|How to use Placement Service]])
+- Roblox Developer Hub raycasting docs ([[2020-08-14 - How to make a raycasting gun|How to make a raycasting gun]])
+- PlayerMouse2 custom mouse module by sjr04 (mentioned) ([[2020-08-14 - How to make a raycasting gun|How to make a raycasting gun]])
+- BanTech (quoted forum advice on not over-punishing leavers) ([[2020-08-27 - How to Catch Combat Logging|How to Catch Combat Logging]])
+- Roblox DevHub Premium Payouts documentation ([[2020-09-02 - Increasing Premium Payouts|Increasing Premium Payouts]])
+- Roblox Developer Economics page ([[2020-09-02 - Increasing Premium Payouts|Increasing Premium Payouts]])
+- https://luau-lang.org/ ([[2020-09-08 - Concepts Object Oriented Programming in Roblox|Concepts: Object Oriented Programming in Roblox]])
+- https://developer.roblox.com/en-us/articles/Metatables ([[2020-09-08 - Concepts Object Oriented Programming in Roblox|Concepts: Object Oriented Programming in Roblox]])
+- https://devforum.roblox.com/t/all-about-object-oriented-programming/8585 ([[2020-09-08 - Concepts Object Oriented Programming in Roblox|Concepts: Object Oriented Programming in Roblox]])
+- https://roblox.github.io/lua-style-guide/#metatables ([[2020-09-08 - Concepts Object Oriented Programming in Roblox|Concepts: Object Oriented Programming in Roblox]])
+- https://www.lua.org/pil/16.html ([[2020-09-08 - Concepts Object Oriented Programming in Roblox|Concepts: Object Oriented Programming in Roblox]])
+- louka ([[2020-09-12 - A complete guide ~ How exploits work & how to best prevent them|A complete guide ~ How exploits work & how to best]])
+- eternal ([[2020-09-12 - A complete guide ~ How exploits work & how to best prevent them|A complete guide ~ How exploits work & how to best]])
+- defcon ([[2020-09-12 - A complete guide ~ How exploits work & how to best prevent them|A complete guide ~ How exploits work & how to best]])
+- V3rmillion ([[2020-09-12 - A complete guide ~ How exploits work & how to best prevent them|A complete guide ~ How exploits work & how to best]])
+- https://en.help.roblox.com/hc/en-us/articles/203313380 ([[2020-09-26 - Account Security PSA|Account Security PSA]])
+- Roblox DevHub ([[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]])
+- Roblox Scripting Style Guides 1-3 ([[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]])
+- Roblox Localization docs ([[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]])
+- YouTube Luau tutorials ([[2020-10-06 - Roblox Scripting Roadmap & Learning Resource List|Roblox Scripting Roadmap & Learning Resource List]])
+- DevForum: Limits of RemoteEvents ([[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]])
+- DevForum: What are bad programming habits that you see often by scripters ([[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]])
+- Mariofly5 building optimization post ([[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]])
+- Greedy meshing post ([[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]])
+- Roblox LevelOfDetail beta feature post ([[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]])
+- Medium: Don't use 'next' instead of 'pairs' ([[2020-10-12 - Performance considerations, improvements, and optimizations when makin|Performance considerations, improvements, and opti]])
+- Celestial Body Dragger plugin by @Maximum_ADHD ([[2020-10-12 - Lighting Tutorial - How to use Lighting|Lighting Tutorial - How to use Lighting]])
+- Roblox DevForum: We've Rebuilt Sponsored Games! (auggadoodle, 2020-10-22) ([[2020-10-22 - We’ve Rebuilt Sponsored Games!|We’ve Rebuilt Sponsored Games!]])
+- Rojo documentation ([[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]])
+- AeroGameFramework extension and official video tutorials ([[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]])
+- AeroGameFramework documentation ([[2020-10-26 - Setup Rojo Fast The easy way to setup Rojo with Git support|Setup Rojo Fast: The easy way to setup Rojo with G]])
+- Preventing item duplication via trading (DevForum) ([[2020-10-30 - Session locking explained (Datastore)|Session locking explained (Datastore)]])
+- @EgoMoose Rotated Region3 module ([[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]])
+- @avozzo ([[2020-11-12 - Melee Hitboxes - What Is The Best Solution, and is the Touched event r|Melee Hitboxes - What Is The Best Solution, and is]])
+- Brilliant.org: Inverse Transform Sampling ([[2020-11-16 - Generating Equidistant Points on a Sphere|Generating Equidistant Points on a Sphere]])
+- Wikipedia: Boids (Craig Reynolds, 1986) ([[2020-11-16 - Generating Equidistant Points on a Sphere|Generating Equidistant Points on a Sphere]])
+- Roblox Developer Hub EasingDirection documentation ([[2020-12-21 - Understanding Easing Styles!|Understanding Easing Styles!]])
+- Wikipedia: polynomial degree ([[2020-12-21 - Understanding Easing Styles!|Understanding Easing Styles!]])
+- Moonvane's other CFrame tutorials ([[2020-12-31 - The Ultimate Guide to Vector3Cross() and Vector3Dot()|The Ultimate Guide to Vector3:Cross() and Vector3:]])
+- MatLab PID video (youtube wkfEZmsQqiA) ([[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]])
+- Brian Douglas PID video series (youtube UR0hOmjaHp0) ([[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]])
+- Wikipedia: Proportional-integral-derivative controller ([[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]])
+- Wikipedia: Control loop ([[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]])
+- BPS.Space DIY PID rocket videos ([[2021-01-07 - PID control pt. 1 Proportional Control|PID control pt. 1: Proportional Control]])
+- https://github.com/Hexcede/Hexolus-Anticheat ([[2021-01-14 - Hexolus' Server-sided Anticheat|Hexolus' Server-sided Anticheat]])
+- https://github.com/Hexcede/Hexolus-OpenSource ([[2021-01-14 - Hexolus' Server-sided Anticheat|Hexolus' Server-sided Anticheat]])
+- grilme99 (Changed event CFrame/Position explanation) ([[2021-01-14 - Hexolus' Server-sided Anticheat|Hexolus' Server-sided Anticheat]])
+- https://developer.roblox.com/en-us/articles/Improving-Performance ([[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]])
+- https://developer.roblox.com/en-us/articles/Developer-Console ([[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]])
+- https://developer.roblox.com/en-us/articles/MicroProfiler ([[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]])
+- Gavin's microprofiler cheat sheet ([[2021-01-23 - Improving Game Performance Benchmarking, Microprofiler, Developer Stat|Improving Game Performance: Benchmarking, Micropro]])
+- Official Luau type checking docs ([[2021-02-05 - Type checking for beginners!|Type checking for beginners!]])
+- Helltaker by vanripper (source of the Justice character and art) ([[2021-02-05 - Justice, the awesome NPC system|Justice, the awesome NPC system]])
+- Programming in Lua (book series) ([[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]])
+- Lua 5.1 Reference Manual ([[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]])
+- AlvinBlox, okeanskiy, B Ricey, GnomeCode (YouTube channels) ([[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]])
+- Matt D'Avella 2 Day Rule video ([[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]])
+- Barry J. Zimmerman (Self-Regulated Learning) ([[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]])
+- crazyman32 / sleitnick RDC 2019 procedural generation talk ([[2021-02-12 - Learn to Script Learn to Code in 5 Steps|Learn to Script / Learn to Code in 5 Steps]])
+- csqrl health bar tutorial (previous tutorial, credited in post) ([[2021-02-12 - How To Make Advanced Health Bar|How To Make Advanced Health Bar]])
+- Hexcede's original 'Network Optimization - Preventing High Latency & Reducing Lag' DevForum article ([[2021-02-14 - Network Optimization (2021) - Preventing High Latency & Reducing Lag|Network Optimization (2021) - Preventing High Late]])
+- All about Object Oriented Programming (Roblox DevForum community tutorial, 2014, edited 2020) ([[2021-02-21 - Efficient Object Oriented Programming Tutorial|Efficient Object Oriented Programming Tutorial]])
+- Rcade Example Kit (Roblox model by SuperSpeedy101) ([[2021-02-21 - Efficient Object Oriented Programming Tutorial|Efficient Object Oriented Programming Tutorial]])
+- DevHub documentation on Premium Payouts ([[2021-02-26 - Increasing Premium Payouts - Starting Today!|Increasing Premium Payouts - Starting Today!]])
+- Developer Economics page ([[2021-02-26 - Increasing Premium Payouts - Starting Today!|Increasing Premium Payouts - Starting Today!]])
+- Pixar films (Toy Story, Monsters Inc) as example of tradition plus innovation ([[2021-03-03 - How to make your game have Replayability|How to make your game have Replayability]])
+- Post on wave equation and scripting (linked by author, not named) ([[2021-03-21 - Making A Mesh Deformation Ocean|Making A Mesh Deformation Ocean]])
+- FBXImportGeneric - Roblox (DevForum/docs link) ([[2021-03-21 - Making A Mesh Deformation Ocean|Making A Mesh Deformation Ocean]])
+- EgoMoose ViewModel tutorial (recommended by author as better alternative) ([[2021-03-25 - FPS using ViewModels (The improved version) Parts 2 out of 3|FPS using ViewModels (The improved version) // Par]])
+- Roblox DevHub API documentation ([[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]])
+- DevForum Resources category (community models) ([[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]])
+- RoSync (linked virus info post) ([[2021-03-27 - Developing - Expert developers advice from all around the world|Developing - Expert developers advice from all aro]])
+- Moon Animator (Creator Hub Marketplace) ([[2021-04-22 - Camera Animations for cutscenes and gameplay!|Camera Animations for cutscenes and gameplay!]])
+- Designing an FPS Framework: Beginner's guide [PART 2] (Community Tutorials, by EXM_0) ([[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]])
+- EXM_0 Discord server ([[2021-05-01 - Designing an FPS Framework Beginner's guide|Designing an FPS Framework: Beginner's guide]])
+- Part 1 of the FPS Framework tutorial by EXM_0 ([[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]])
+- Author's Discord server ([[2021-05-04 - Designing an FPS Framework Beginner’s guide PART 2|Designing an FPS Framework: Beginner’s guide [PART]])
+- Roblox official Improve Performance docs ([[2021-05-12 - Improved How to Actually Improve Performance in Your Games|[Improved] How to Actually Improve Performance in ]])
+- Roblox Handling Events doc ([[2021-05-12 - Improved How to Actually Improve Performance in Your Games|[Improved] How to Actually Improve Performance in ]])
+- Roblox Lighting doc ([[2021-05-12 - Improved How to Actually Improve Performance in Your Games|[Improved] How to Actually Improve Performance in ]])
+- Roblox content streaming doc ([[2021-05-12 - Improved How to Actually Improve Performance in Your Games|[Improved] How to Actually Improve Performance in ]])
+- VR Teleportation Movement using Hands (DevForum community tutorial, follow-up) ([[2021-05-15 - Creating simple VR Hands from Scratch|Creating simple VR Hands from Scratch]])
+- https://www.roblox.com/develop/premium-payout ([[2021-05-17 - Roblox Game Monetization Guide|Roblox Game Monetization Guide]])
+- @peraldon DevForum post on player types (F2P monetisation) ([[2021-05-17 - Roblox Game Monetization Guide|Roblox Game Monetization Guide]])
+- Roblox RDC 2018 talk ([[2021-05-17 - Roblox Game Monetization Guide|Roblox Game Monetization Guide]])
+- Kenney (free icons and assets) ([[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]])
+- Icons8 ([[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]])
+- Grabient ([[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]])
+- Coolors ([[2021-05-18 - The Ultimate UI Design Guide|The Ultimate UI Design Guide]])
+- Fractality (original ModularScript author) ([[2021-05-19 - Gaussian blur filter for UI (tutorial)|Gaussian blur filter for UI (tutorial)]])
+- DataStore2 ([[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]])
+- ProfileService ([[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]])
+- Berezaa's DataStore method (DevForum) ([[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]])
+- ArtFoundation 'Session locking explained' post ([[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]])
+- colbert2677 request budget function ([[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]])
+- Disgusted by You#8532 exponential wait suggestion ([[2021-06-06 - DataStores - Beginners to Advanced|DataStores - Beginners to Advanced]])
+- Programming in Lua (book, warns about assert message cost) ([[2021-06-14 - Be careful when using assert() and Why|Be careful when using assert() and Why]])
+- LuaJIT wiki (warns about assert message cost) ([[2021-06-14 - Be careful when using assert() and Why|Be careful when using assert() and Why]])
+- Defensive coding and failing fast (DevForum community tutorial) ([[2021-06-14 - Be careful when using assert() and Why|Be careful when using assert() and Why]])
+- RenderFidelity API documentation ([[2021-06-29 - MeshPart Usage, Performance & Optimizations|MeshPart Usage, Performance & Optimizations]])
+- Mesh Optimization Tools plugin by CloneTrooper1019 ([[2021-06-29 - MeshPart Usage, Performance & Optimizations|MeshPart Usage, Performance & Optimizations]])
+- xXSanrioSlayer99 DevForum tutorial post ([[2021-07-06 - How to Add Weight to the Camera Camera Tutorial|How to Add "Weight" to the Camera [Camera Tutorial]])
+- Roblox CFrame API documentation (linked page listing properties and functions) ([[2021-07-07 - Comprehensive Beginner's Guide to CFrames and How to Use Them CFrame G|Comprehensive Beginner's Guide to CFrames and How ]])
+- Roblox Accelerator Program ([[2021-07-19 - Introducing the Game Fund|Introducing the Game Fund]])
+- Roblox Developer Relations Game Fund forum thread ([[2021-07-19 - Introducing the Game Fund|Introducing the Game Fund]])
+- https://color.adobe.com/create/color-accessibility ([[2021-07-27 - Making Accessible Games for the Disability-Aware Era - A Not-Fully-Com|Making Accessible Games for the Disability-Aware E]])
+- Lua Globals documentation ([[2021-08-16 - Pcall(), xpcall() and ypcall() Tutorial - How do they work|Pcall(), xpcall() and ypcall() Tutorial - How do t]])
+- Roblox Globals documentation ([[2021-08-16 - Pcall(), xpcall() and ypcall() Tutorial - How do they work|Pcall(), xpcall() and ypcall() Tutorial - How do t]])
+- Dragon City (inspiration for monster-collecting concept) ([[2021-08-23 - 22 Free Game Ideas (Might add 1 idea every day until 100)|22 Free Game Ideas (Might add 1 idea every day unt]])
+- Minecraft Hunger Games (inspiration for Big Battle) ([[2021-08-23 - 22 Free Game Ideas (Might add 1 idea every day until 100)|22 Free Game Ideas (Might add 1 idea every day unt]])
+- Interaction Design Foundation (UI design definition) ([[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]])
+- ColourBlindAwareness.org ([[2021-09-05 - UI Design and the Fundamentals|UI Design and the Fundamentals]])
+- Lock-On demo place: roblox.com/games/7354346829 ([[2021-09-07 - OPEN SOURCE Lock-On Combat in 3D|[OPEN SOURCE] Lock-On Combat in 3D]])
+- Raycast Hitbox 4.01 DevForum post ([[2021-09-07 - OPEN SOURCE Lock-On Combat in 3D|[OPEN SOURCE] Lock-On Combat in 3D]])
+- ProfileService API page (loleris) ([[2021-09-12 - Data storingpresenting using ProfileService and ReplicaService!|Data storing/presenting using ProfileService and R]])
+- ReplicaService API page (loleris) ([[2021-09-12 - Data storingpresenting using ProfileService and ReplicaService!|Data storing/presenting using ProfileService and R]])
+- DataStore 2.0 ([[2021-09-12 - Data storingpresenting using ProfileService and ReplicaService!|Data storing/presenting using ProfileService and R]])
+- LuckyDataStore ([[2021-09-12 - Data storingpresenting using ProfileService and ReplicaService!|Data storing/presenting using ProfileService and R]])
+- Ken Perlin (Perlin noise, NYU) ([[2021-10-04 - Creating Procedural Mountains A Fractal Noise Tutorial|Creating Procedural Mountains: A Fractal Noise Tut]])
+- https://github.com/jaipack17/Nature2D ([[2021-10-16 - Nature2D - 2D Physics Engine for UI Elements|Nature2D - 2D Physics Engine for UI Elements]])
+- Nature2D Roblox Model ([[2021-10-16 - Nature2D - 2D Physics Engine for UI Elements|Nature2D - 2D Physics Engine for UI Elements]])
+- Nature2D Documentation ([[2021-10-16 - Nature2D - 2D Physics Engine for UI Elements|Nature2D - 2D Physics Engine for UI Elements]])
+- Nature2D API Reference ([[2021-10-16 - Nature2D - 2D Physics Engine for UI Elements|Nature2D - 2D Physics Engine for UI Elements]])
+- Nature2D Tutorials ([[2021-10-16 - Nature2D - 2D Physics Engine for UI Elements|Nature2D - 2D Physics Engine for UI Elements]])
+- Physics Demos [2D] (Roblox experience) ([[2021-10-16 - Nature2D - 2D Physics Engine for UI Elements|Nature2D - 2D Physics Engine for UI Elements]])
+- Ray Traced Global Illumination plugin (by mostbootifulgirlever collaborator) ([[2021-11-13 - Dynamic Weather Library (Beta 1.0)|Dynamic Weather Library (Beta 1.0)]])
+- ACS (evaporation rate source quoted) ([[2021-11-13 - Dynamic Weather Library (Beta 1.0)|Dynamic Weather Library (Beta 1.0)]])
+- Discord server for updates (invite code omitted) ([[2021-11-13 - Dynamic Weather Library (Beta 1.0)|Dynamic Weather Library (Beta 1.0)]])
+- JackADevil's Halloween & Horror (DevForum) ([[2021-12-10 - How to Make a Terrifying Horror Game|How to Make a Terrifying Horror Game]])
+- TheCarbyneUniverse's BOO - The 3 Prime Elements to Spice up Your Horror Games (DevForum) ([[2021-12-10 - How to Make a Terrifying Horror Game|How to Make a Terrifying Horror Game]])
+- AzimuthBecameReal's Game Design - Audience - Genres (DevForum) ([[2021-12-10 - How to Make a Terrifying Horror Game|How to Make a Terrifying Horror Game]])
+- TVTropes Flavor Text ([[2021-12-10 - How to Make a Terrifying Horror Game|How to Make a Terrifying Horror Game]])
+- Knit GitHub module ([[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]])
+- Rojo (rojo.space) ([[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]])
+- Aero Game Framework ([[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]])
+- SwapUI, Instance Serializer, InCommand, Studio Levels, Tool Grip Editor, Get Object Path, Easy Crop, Archimedes Two, Weld Plugin (Roblox plugins listed) ([[2021-12-17 - You need to use the Knit Game Framework(A template to help get started|You need to use the Knit Game Framework(A template]])
+- Maid ([[2021-12-25 - Using Janitor to combat memory leaks|Using Janitor to combat memory leaks]])
+- GoodSignal ([[2021-12-25 - Using Janitor to combat memory leaks|Using Janitor to combat memory leaks]])
+- FastSignal ([[2021-12-25 - Using Janitor to combat memory leaks|Using Janitor to combat memory leaks]])
+- Janitor documentation ([[2021-12-25 - Using Janitor to combat memory leaks|Using Janitor to combat memory leaks]])
+- Atmos - professional skyboxes and lighting ([[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]])
+- HOW TO USE F3X: The Basics (YouTube) ([[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]])
+- Getting Started with Atmos (YouTube) ([[2021-12-29 - Guide of how to improve your buildings! (Long)|Guide of how to improve your buildings! (Long)]])
+- Exploiting Explained: Second Revision by Autterfly (DevForum) ([[2021-12-30 - A Guide to Making Proper Anti-Exploits|A Guide to Making Proper Anti-Exploits]])
+- DevForum post on angle/facing vector math (linked, unnamed) ([[2021-12-30 - A Guide to Making Proper Anti-Exploits|A Guide to Making Proper Anti-Exploits]])
+- Roblox DevHub replication documentation ([[2021-12-30 - A Guide to Making Proper Anti-Exploits|A Guide to Making Proper Anti-Exploits]])
+- SushiScripter DevForum article on server-sided debounce ([[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]])
+- SushiScripter DevForum article on client-replication VFX ([[2022-01-02 - Full Beginner's Guide on scripting AnimeFighting VFX(Visual Effects) P|Full Beginner's Guide on scripting Anime/Fighting ]])
+- CanvasDraw API Documentation (DevForum bulletin) ([[2022-01-12 - CanvasDraw - A fast and powerful graphics library (Draw pixels, lines,|CanvasDraw - A fast and powerful graphics library ]])
+- CanvasDraw 4.0 Tutorial ([[2022-01-12 - CanvasDraw - A fast and powerful graphics library (Draw pixels, lines,|CanvasDraw - A fast and powerful graphics library ]])
+- CanvasDraw Demo Place ([[2022-01-12 - CanvasDraw - A fast and powerful graphics library (Draw pixels, lines,|CanvasDraw - A fast and powerful graphics library ]])
+- Roblox EditableImage/EditableMesh Client Beta announcement (Jan 16, 2025) ([[2022-01-12 - CanvasDraw - A fast and powerful graphics library (Draw pixels, lines,|CanvasDraw - A fast and powerful graphics library ]])
+- TakeDown animation Testing (Roblox experience linked by author) ([[2022-01-13 - How to animate 2 characters and play it in-game like a takedown animat|How to animate 2 characters and play it in-game li]])
+- Understanding method hooking and keeping your game protected (DevForum Community Tutorials) ([[2022-01-14 - How exploits work and how to combat them|How exploits work and how to combat them]])
+- DevForum thread on spoofing (linked, not named) ([[2022-01-25 - Why Your Anti-Exploit Sucks|Why Your Anti-Exploit Sucks]])
+- Pokemoncraft5290 (suggested teleport-back punishment) ([[2022-01-25 - Why Your Anti-Exploit Sucks|Why Your Anti-Exploit Sucks]])
+- Comment utiliser cos et sin (French version, DevForum) ([[2022-02-07 - How to use Cos and Sin|How to use Cos and Sin]])
+- Versus Series #1 - ECS vs OOP ([[2022-02-12 - All about Entity Component System|All about Entity Component System]])
+- What is a diamond problem in Object-Oriented Programming? ([[2022-02-12 - All about Entity Component System|All about Entity Component System]])
+- My RustConf 2018 Closing Keynote ([[2022-02-12 - All about Entity Component System|All about Entity Component System]])
+- Ukendio/jecs GitHub (benchmarks in README) ([[2022-02-12 - All about Entity Component System|All about Entity Component System]])
+- magnalite's All about Object Oriented Programming post ([[2022-02-12 - All about Entity Component System|All about Entity Component System]])
+- Alvinblox CFrame tutorial ([[2022-02-26 - Basics of CFrame multiplication and WeldsMotor6DsJoint Instances|Basics of CFrame multiplication and Welds/Motor6Ds]])
+- Devforum CFrame math article ([[2022-02-26 - Basics of CFrame multiplication and WeldsMotor6DsJoint Instances|Basics of CFrame multiplication and Welds/Motor6Ds]])
+- EgoMoose advanced CFrame alignment technique ([[2022-02-26 - Basics of CFrame multiplication and WeldsMotor6DsJoint Instances|Basics of CFrame multiplication and Welds/Motor6Ds]])
+- Roblox analytics dashboard documentation (KPI definitions) ([[2022-03-03 - New KPIs and Lower Enrollment Announcing the Analytics Dashboard - Mea|[New KPIs and Lower Enrollment] Announcing the Ana]])
+- Roblox analytics tutorial ([[2022-03-03 - New KPIs and Lower Enrollment Announcing the Analytics Dashboard - Mea|[New KPIs and Lower Enrollment] Announcing the Ana]])
+- Roblox licensed music catalog and Monstercat collection ([[2022-03-09 - Action Needed Upcoming Changes to Asset Privacy for Audio|[Action Needed] Upcoming Changes to Asset Privacy ]])
+- Previous audio asset privacy announcement (DevForum) ([[2022-03-16 - Update Changes to Asset Privacy for Audio|[Update] Changes to Asset Privacy for Audio]])
+- Audio asset permissions documentation ([[2022-03-16 - Update Changes to Asset Privacy for Audio|[Update] Changes to Asset Privacy for Audio]])
+- Upload limits feedback survey ([[2022-03-16 - Update Changes to Asset Privacy for Audio|[Update] Changes to Asset Privacy for Audio]])
+- boatbomber Twitter ([[2022-03-29 - Creating the most optimized Roblox game- runs at 6000+ FPS!|Creating the most optimized Roblox game- runs at 6]])
+- boatbomber GitHub/Patreon/BuyMeACoffee/PayPal (sponsorship links) ([[2022-03-29 - Creating the most optimized Roblox game- runs at 6000+ FPS!|Creating the most optimized Roblox game- runs at 6]])
+- Interface Tools - Roblox plugin ([[2022-04-27 - How to make a clean, appealing UI|How to make a clean, appealing UI]])
+- developer.roblox.com Game Security wiki page ([[2022-04-27 - Developers are not equipped to deal with exploiters|Developers are not equipped to deal with exploiter]])
+- #resources:community-tutorials DevForum category ([[2022-04-27 - Developers are not equipped to deal with exploiters|Developers are not equipped to deal with exploiter]])
+- KreekCraft (YouTube) ([[2022-05-05 - Level Up Designing for YouTube Engagement Roundtable ft. KreekCraft an|Level Up: Designing for YouTube Engagement Roundta]])
+- Wonder Works Studio ([[2022-05-05 - Level Up Designing for YouTube Engagement Roundtable ft. KreekCraft an|Level Up: Designing for YouTube Engagement Roundta]])
+- https://github.com/FxllenCode/devops-rblx-tutorial ([[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]])
+- https://rojo.space ([[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]])
+- https://github.com/UpliftGames/wally ([[2022-05-18 - Creating a proper, Open-Source Project with DevOps!|Creating a proper, Open-Source Project with DevOps]])
+- Roblox Creator Hub: Character Pathfinding ([[2022-05-29 - Simple pathfinding ai|Simple pathfinding ai]])
+- Roblox Creator Hub: RunService ([[2022-05-29 - Simple pathfinding ai|Simple pathfinding ai]])
+- Roblox Creator Dashboard ([[2022-06-08 - Introducing Monetization Metrics for the Analytics Dashboard|Introducing Monetization Metrics for the Analytics]])
+- My Transactions ([[2022-06-08 - Introducing Monetization Metrics for the Analytics Dashboard|Introducing Monetization Metrics for the Analytics]])
+- RoVFX Discord server ([[2022-06-20 - Yuruzuu's Open Source VFX|Yuruzuu's Open Source VFX]])
+- Yuruzuu Patreon (exclusive assets) ([[2022-06-20 - Yuruzuu's Open Source VFX|Yuruzuu's Open Source VFX]])
+- RakNet (raknet.com) ([[2022-06-26 - In-Depth Information about Roblox's RemoteEvents, Instance Replication|In-Depth Information about Roblox's RemoteEvents, ]])
+- Tomarty's ORE (One Remote Event) DevForum post ([[2022-06-26 - In-Depth Information about Roblox's RemoteEvents, Instance Replication|In-Depth Information about Roblox's RemoteEvents, ]])
+- Roblox Developer Hub PathfindingService docs ([[2022-07-03 - How To Use Roblox Pathfinding Service 2.0|How To Use Roblox Pathfinding Service 2.0]])
+- Hexcede (cost multiplier explanation) ([[2022-07-03 - How To Use Roblox Pathfinding Service 2.0|How To Use Roblox Pathfinding Service 2.0]])
+- Memory leak tutorial linked by author ([[2022-07-03 - How To Use Roblox Pathfinding Service 2.0|How To Use Roblox Pathfinding Service 2.0]])
+- https://github.com/ffrostfall/BridgeNet ([[2022-08-06 - BridgeNet Insanely optimized, easy-to-use networking library full of u|BridgeNet | Insanely optimized, easy-to-use networ]])
+- https://www.npmjs.com/package/@rbxts/bridgenet ([[2022-08-06 - BridgeNet Insanely optimized, easy-to-use networking library full of u|BridgeNet | Insanely optimized, easy-to-use networ]])
+- Roblox DevForum reliability types feature request for RemoteEvents ([[2022-08-06 - BridgeNet Insanely optimized, easy-to-use networking library full of u|BridgeNet | Insanely optimized, easy-to-use networ]])
+- Packet Profiler plugin by PysephDEV ([[2022-08-08 - Network Optimization best practices - how to keep your game's ping low|Network Optimization best practices - how to keep ]])
+- Author's prior post on earning Robux with nothing ([[2022-08-14 - The Art of Robux Getting|The Art of Robux Getting]])
+- Miro, Trello, HacknPlan (planning boards) ([[2022-08-14 - The Art of Robux Getting|The Art of Robux Getting]])
+- Talenthub and Hidden Developers (job boards the author discourages) ([[2022-08-14 - The Art of Robux Getting|The Art of Robux Getting]])
+- RDC (Roblox Developer Conference) for networking ([[2022-08-14 - The Art of Robux Getting|The Art of Robux Getting]])
+- Save your player data with ProfileService! (DataStore Module) - DevForum Community Resources ([[2022-08-17 - ProfileService Tutorial!|ProfileService Tutorial!]])
+- Roblox Developer Forum (submission status messages) ([[2022-09-07 - Updates and Changes to the UGC Catalog Application|Updates and Changes to the UGC Catalog Application]])
+- RDC 2022 Avatar Economy presentation by @givenothingback & @Captain_Rando, Sept 10 ([[2022-09-07 - Updates and Changes to the UGC Catalog Application|Updates and Changes to the UGC Catalog Application]])
+- Luau idiomatic OOP page (Roblox docs) ([[2022-09-27 - Guide to Type-Checking with OOP|Guide to Type-Checking with OOP]])
+- Creator Analytics Dashboards (Developer Stats page) ([[2022-10-17 - New Benchmarking & Insights Analytics Dashboards|New Benchmarking & Insights [Analytics Dashboards]]])
+- SimplePath by GrayzcaIe ([[2022-10-22 - NextPath Next gen script for Nextbots|NextPath: Next gen script for Nextbots]])
+- Example Nextbot (linked in post) ([[2022-10-22 - NextPath Next gen script for Nextbots|NextPath: Next gen script for Nextbots]])
+- https://www.roblox.com/library/12130875696/Unit ([[2023-01-12 - Movement System|Movement System]])
+- Guide by Reapimus: A Guide to Making Proper Anti-Exploits ([[2023-02-03 - Creating Proper Anti-Exploits The Ultimate Guide|Creating Proper Anti-Exploits: The Ultimate Guide]])
+- Guide by Dancdx: How exploits work and how to combat them ([[2023-02-03 - Creating Proper Anti-Exploits The Ultimate Guide|Creating Proper Anti-Exploits: The Ultimate Guide]])
+- https://create.roblox.com/store/audio ([[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]])
+- https://tldrlegal.com/ ([[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]])
+- https://incompetech.com ([[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]])
+- https://opengameart.org ([[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]])
+- https://freesound.org ([[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]])
+- https://www.listencopyleftonward.com/ ([[2023-02-10 - Finding Free Music For Your Games (both in and off platform)|Finding Free Music For Your Games (both in and off]])
+- #resources:community-resources (Roblox DevForum channel for free QA groups) ([[2023-02-26 - Guide Effectively QA Testing Your Roblox Experience|Guide: Effectively QA Testing Your Roblox Experien]])
+- Roblox creator feedback form for upcoming analytics products ([[2023-03-06 - Analytics Similar Experience Benchmarks & Broader Access|Analytics [Similar Experience Benchmarks & Broader]])
+- Halloween and Horror (DevForum) ([[2023-03-09 - Guide to Making Better Horror Experiences|Guide to Making Better Horror Experiences]])
+- BOO - The 3 Prime Elements to Spice up Your Horror Games! (DevForum) ([[2023-03-09 - Guide to Making Better Horror Experiences|Guide to Making Better Horror Experiences]])
+- How to Make a Terrifying Horror Game (DevForum) ([[2023-03-09 - Guide to Making Better Horror Experiences|Guide to Making Better Horror Experiences]])
+- Roblox RDC presentation on model consistency ([[2023-03-09 - Guide to Making Better Horror Experiences|Guide to Making Better Horror Experiences]])
+- Bloodborne, Dark Souls trilogy, souls-like games (enemy design references) ([[2023-03-09 - Guide to Making Better Horror Experiences|Guide to Making Better Horror Experiences]])
+- Half-Life cockroach AI ([[2023-03-09 - Guide to Making Better Horror Experiences|Guide to Making Better Horror Experiences]])
+- Community Standards ([[2023-03-22 - Taking Action on Copies of Roblox-Created Limiteds|Taking Action on Copies of Roblox-Created Limiteds]])
+- Terms of Use ([[2023-03-22 - Taking Action on Copies of Roblox-Created Limiteds|Taking Action on Copies of Roblox-Created Limiteds]])
+- Marketplace Requirements ([[2023-03-22 - Taking Action on Copies of Roblox-Created Limiteds|Taking Action on Copies of Roblox-Created Limiteds]])
+- Publishing to Marketplace (Creator Hub) ([[2023-03-22 - Taking Action on Copies of Roblox-Created Limiteds|Taking Action on Copies of Roblox-Created Limiteds]])
+- https://www.roblox.com/groups/6290210 ([[2023-04-18 - How to Create a Custom Chat Tag|How to Create a Custom Chat Tag]])
+- Roblox DevForum: community tutorial by IWasTaked0 (this post) ([[2023-04-20 - Exploiting and how to prevent it|Exploiting and how to prevent it]])
+- Experience Guidelines ([[2023-06-20 - Create Experiences for People 17 and Older on Roblox|Create Experiences for People 17 and Older on Robl]])
+- Age Recommendations help page ([[2023-06-20 - Create Experiences for People 17 and Older on Roblox|Create Experiences for People 17 and Older on Robl]])
+- Community Standards ([[2023-06-20 - Create Experiences for People 17 and Older on Roblox|Create Experiences for People 17 and Older on Robl]])
+- 17+ Policy Standards ([[2023-06-20 - Create Experiences for People 17 and Older on Roblox|Create Experiences for People 17 and Older on Robl]])
+- @ImSnox - New ui blur [fully automatic] (DevForum) ([[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]])
+- @rivvvur - Product: exe | Modern Admin Panel (UI reference) ([[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]])
+- Vercel landing page (gradient reference) ([[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]])
+- Font Awesome landing page (design reference) ([[2023-06-25 - How to make extremely Clean UI while keeping good UX|How to make extremely Clean UI while keeping good ]])
+- Dot Product - Wikipedia ([[2023-07-07 - How to Create a Realistic NPC Eyesight System|How to Create a Realistic NPC Eyesight System]])
+- Coroutine - Roblox Documentation ([[2023-07-07 - How to Create a Realistic NPC Eyesight System|How to Create a Realistic NPC Eyesight System]])
+- Roblox Creator Dashboard Access page ([[2023-07-12 - Roblox is coming to Meta Quest!|Roblox is coming to Meta Quest!]])
+- Roblox PC VR developer update post ([[2023-07-12 - Roblox is coming to Meta Quest!|Roblox is coming to Meta Quest!]])
+- HexadecimalLiker (DevForum helper) ([[2023-07-16 - Client Anti Cheats Aren't as bad as you think!|Client Anti Cheats: Aren't as bad as you think!]])
+- MonzterDEV - How to Make a Simulator on Roblox in 2022 tutorial ([[2023-07-30 - The Best and Easiest Way To Save and Load Data|The Best and Easiest Way To Save and Load Data]])
+- ProfileService documentation website ([[2023-07-30 - The Best and Easiest Way To Save and Load Data|The Best and Easiest Way To Save and Load Data]])
+- CodedViolet devforum tutorial on client anticheat base ([[2023-08-10 - Securing your anticheat Common bad practices, and how powerful are exp|Securing your anticheat: Common bad practices, and]])
+- HexadecimalLiker devforum anticheat replies ([[2023-08-10 - Securing your anticheat Common bad practices, and how powerful are exp|Securing your anticheat: Common bad practices, and]])
+- Game Design 101 – How to make your game fun, enjoyable and replayable (Sensei_Developer) ([[2023-08-18 - How to Successfully Grow Your Game (Ft. Sensei_Developer & Vikinglaw)|How to Successfully Grow Your Game (Ft. Sensei_Dev]])
+- Helpful Tips and Advice For Developers | Part 1 (chach_chach28) ([[2023-08-18 - How to Successfully Grow Your Game (Ft. Sensei_Developer & Vikinglaw)|How to Successfully Grow Your Game (Ft. Sensei_Dev]])
+- Helpful Tips and Advice For Developers | Part 2 (chach_chach28) ([[2023-08-18 - How to Successfully Grow Your Game (Ft. Sensei_Developer & Vikinglaw)|How to Successfully Grow Your Game (Ft. Sensei_Dev]])
+- GnomeCode tower defense series ([[2023-09-09 - All about optimization|All about optimization]])
+- Roblox Retention and Engagement guides ([[2023-09-19 - Analytics View Personalized Insights for Your Experience|Analytics: View Personalized Insights for Your Exp]])
+- Roblox Monetization guide ([[2023-09-19 - Analytics View Personalized Insights for Your Experience|Analytics: View Personalized Insights for Your Exp]])
+- MarketplaceService documentation ([[2023-09-19 - Create and Manage Subscriptions within your Experience|Create and Manage Subscriptions within your Experi]])
+- Subscription Design article (Creator Hub) ([[2023-09-19 - Create and Manage Subscriptions within your Experience|Create and Manage Subscriptions within your Experi]])
+- Earning on Roblox ([[2023-09-19 - Create and Manage Subscriptions within your Experience|Create and Manage Subscriptions within your Experi]])
+- Our Vision for the Roblox Economy ([[2023-09-19 - Create and Manage Subscriptions within your Experience|Create and Manage Subscriptions within your Experi]])
+- ProfileService ([[2023-10-22 - DataKeep - A promise based, auto-saving DataStore module|DataKeep - A promise based, auto-saving DataStore ]])
+- Roblox OSS discord DataKeep thread ([[2023-10-22 - DataKeep - A promise based, auto-saving DataStore module|DataKeep - A promise based, auto-saving DataStore ]])
+- DataKeep GitHub repository ([[2023-10-22 - DataKeep - A promise based, auto-saving DataStore module|DataKeep - A promise based, auto-saving DataStore ]])
+- Synapse Softworks LLC (partner, reverse engineering firm) ([[2023-10-27 - Exploit Prevention Update|Exploit Prevention Update]])
+- Roblox Bug Bounty program ([[2023-10-27 - Exploit Prevention Update|Exploit Prevention Update]])
+- RDC 2023 ([[2023-10-27 - Exploit Prevention Update|Exploit Prevention Update]])
+- Hexcede: How you should secure your game (DevForum) ([[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]])
+- Hexcede: Scripting Basics beginner guide (DevForum) ([[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]])
+- Hexcede: Garbage Collection and Memory Leaks in Roblox (DevForum) ([[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]])
+- Hexcede: Network Optimization (2021) (DevForum) ([[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]])
+- Hexolus server-sided anticheat (open source) ([[2023-10-29 - How to write great code and speed up everything|How to write great code and speed up everything]])
+- Lua Style Guide ([[2023-11-02 - Roblox Lua Programming Formalities Guide|Roblox Lua Programming Formalities Guide]])
+- MadLife Code Guidebook ([[2023-11-02 - Roblox Lua Programming Formalities Guide|Roblox Lua Programming Formalities Guide]])
+- buymeacoffee.com (creator support link, omitted) ([[2023-11-19 - How to make a cross-server matchmaking system Full Tutorial|How to make a cross-server matchmaking system | Fu]])
+- Roblox Creator Hub buffer documentation ([[2023-11-30 - Introducing Luau buffer type Beta|Introducing Luau buffer type [Beta]]])
+- Luau website buffer documentation ([[2023-11-30 - Introducing Luau buffer type Beta|Introducing Luau buffer type [Beta]]])
+- Luau GitHub RFC for buffer type ([[2023-11-30 - Introducing Luau buffer type Beta|Introducing Luau buffer type [Beta]]])
+- https://create.roblox.com/docs/production/analytics/acquisition ([[2023-12-06 - Analytics View Home Recommendations Conversion Rate and Recent Icon Up|Analytics: View Home Recommendations Conversion Ra]])
+- Supercell (project scrapping example) ([[2023-12-31 - Understand the Roblox algorithm|Understand the Roblox algorithm]])
+- Roblox dev talks on YouTube and DevForum retention articles ([[2023-12-31 - Understand the Roblox algorithm|Understand the Roblox algorithm]])
+- https://github.com/acuaroo/LTAATCE ([[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]])
+- DataPredict by @MYOriginsWorkshop ([[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]])
+- Gist export guide by @astraIboy ([[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]])
+- https://youtu.be/IN2XmBhILt4?t=369 ([[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]])
+- https://www.youtube.com/watch?v=qg4PchTECck ([[2024-01-07 - Let's teach an AI to catch exploiters!|Let's teach an AI to catch exploiters!]])
+- HitboxClass GitHub documentation ([[2024-01-13 - HitboxClass v1.1B A Powerful OOP-based Hitbox Module|HitboxClass | v1.1B | A Powerful OOP-based Hitbox ]])
+- beansinmybathroom (WeldTo velocity prediction method) ([[2024-01-13 - HitboxClass v1.1B A Powerful OOP-based Hitbox Module|HitboxClass | v1.1B | A Powerful OOP-based Hitbox ]])
+- Roblox Lua Style guide ([[2024-02-18 - Type Annotations! A guide to writing Luau code that is Actually Good™|Type Annotations! A guide to writing Luau code tha]])
+- Roblox typechecking documentation (/types) ([[2024-02-18 - Type Annotations! A guide to writing Luau code that is Actually Good™|Type Annotations! A guide to writing Luau code tha]])
+- Roblox RDC talk on Home recommendation system ([[2024-02-28 - Discovery on Roblox Past, Present, and Future Vision|Discovery on Roblox: Past, Present, and Future Vis]])
+- Creator Analytics Home recommendation conversion rate graph ([[2024-02-28 - Discovery on Roblox Past, Present, and Future Vision|Discovery on Roblox: Past, Present, and Future Vis]])
+- Upcoming Creator AMAs, Creator Roadmap and forums ([[2024-02-28 - Discovery on Roblox Past, Present, and Future Vision|Discovery on Roblox: Past, Present, and Future Vis]])
+- Original DevForum post by emiliotigre2017 ([[2024-03-04 - Emilio's ragdoll module (Easy ahh ragdolls R15 and R6)|Emilio's ragdoll module (Easy ahh ragdolls R15 and]])
+- YouTube video by author explaining module functions ([[2024-03-04 - Emilio's ragdoll module (Easy ahh ragdolls R15 and R6)|Emilio's ragdoll module (Easy ahh ragdolls R15 and]])
+- Sawhorse Interactive ([[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]])
+- Supersocial ([[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]])
+- Red Manta ([[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]])
+- @SigmaTechRBLX ([[2024-03-12 - HowTo Physics-Based TweenService|HowTo: Physics-Based TweenService]])
+- Mass Uncopylocked post by GamerKreep (DevForum, 2024-03-18) ([[2024-03-18 - Mass Uncopylocked 35 free games and projects|Mass Uncopylocked | 35 free games and projects]])
+- ViewportFrame_Masking_Examples.rbxl place file ([[2024-05-10 - ViewportFrame Masking|ViewportFrame Masking]])
+- react-lua-tutorial GitHub repo ([[2024-05-10 - How To React + Roblox|How To: React + Roblox]])
+- react-lua docs ([[2024-05-10 - How To React + Roblox|How To: React + Roblox]])
+- Official React docs ([[2024-05-10 - How To React + Roblox|How To: React + Roblox]])
+- Kampfkarren (custom hook example) ([[2024-05-10 - How To React + Roblox|How To: React + Roblox]])
+- Ahlvie on Roblox and Twitter (creator profile) ([[2024-05-10 - Creator Spotlight Meet Ahlvie, the Environmental Artist Behind Fantast|Creator Spotlight: Meet Ahlvie, the Environmental ]])
+- TheCraftNCreator, The Basics of Combat Games: Hitboxes ([[2024-06-24 - The Basics of Combat Games Projectiles|The Basics of Combat Games: Projectiles]])
+- Engine Ban API docs ([[2024-06-25 - Introducing the Ban API and Alt Account Detection|Introducing the Ban API and Alt Account Detection]])
+- OpenCloud Ban API docs ([[2024-06-25 - Introducing the Ban API and Alt Account Detection|Introducing the Ban API and Alt Account Detection]])
+- Ban API Guidelines ([[2024-06-25 - Introducing the Ban API and Alt Account Detection|Introducing the Ban API and Alt Account Detection]])
+- Roblox Character Controllers documentation article ([[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]])
+- Roblox Platformer template (OOP + physics controllers) ([[2024-07-29 - How to Actually Use Roblox's Physics Character Controllers|How to Actually Use Roblox's Physics Character Con]])
+- Sebastian Lague Perlin noise video ([[2024-08-08 - Ultimate Perlin Noise and How To Make Procedural Terrain Guide 24,231|Ultimate Perlin Noise and How To Make Procedural T]])
+- Roblox Perlin Generator GitHub repo (LxckyDev) ([[2024-08-08 - Ultimate Perlin Noise and How To Make Procedural Terrain Guide 24,231|Ultimate Perlin Noise and How To Make Procedural T]])
+- Roblox DevForum: How discovery works ([[2024-08-08 - Analytics New Experience Overview with Insights, Benchmarks, Realtime|Analytics: New Experience Overview with Insights, ]])
+- Roblox Lua Style guide ([[2024-08-11 - Understanding When to Use Different Cases in Luau Scripting|Understanding When to Use Different Cases in Luau ]])
+- Rolimons ([[2024-08-13 - How to (actually) make a popular game|How to (actually) make a popular game]])
+- Skybox_Generating.blend template file ([[2024-08-25 - Creating custom skyboxes using Blender & crafting stunning atmospheres|Creating custom skyboxes using Blender & crafting ]])
+- CustomSkyboxExample.rbxl demo place ([[2024-08-25 - Creating custom skyboxes using Blender & crafting stunning atmospheres|Creating custom skyboxes using Blender & crafting ]])
+- Lapis by @nezuo ([[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]])
+- DataKeep ([[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]])
+- Roblox OSS Discord projects thread ([[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]])
+- kineticwallet MockDataStore ([[2024-09-05 - DocumentService - A powerful, schematised DataStore library|DocumentService - A powerful, schematised DataStor]])
+- Elden Ring (boss state logic, cited as example) ([[2024-09-13 - State machines In-Depth Tutorial|State machines // In-Depth Tutorial]])
+- Metal Gear (enemy AI state logic, cited as example) ([[2024-09-13 - State machines In-Depth Tutorial|State machines // In-Depth Tutorial]])
+- Assassin's Creed (enemy AI state logic, cited as example) ([[2024-09-13 - State machines In-Depth Tutorial|State machines // In-Depth Tutorial]])
+- Roblox custom events documentation ([[2024-09-18 - Analytics Track any custom event you want and use custom fields for se|Analytics: Track any custom event you want and use]])
+- RDC (Roblox Developers Conference) ([[2024-09-18 - Analytics Track any custom event you want and use custom fields for se|Analytics: Track any custom event you want and use]])
+- ProfileStore wiki ([[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]])
+- Rileybytes YouTube tutorials on ProfileStore overview and developer product handling ([[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]])
+- Replica ([[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]])
+- Sera ([[2024-10-11 - ProfileStore - Save your player data easy (DataStore Module)|ProfileStore - Save your player data easy (DataSto]])
+- github.com/awesome-roblox/awesome-roblox ([[2024-10-15 - Awesome Roblox A curated list of awesome things related to Roblox OSS|Awesome Roblox: A curated list of awesome things r]])
+- Replica GitHub repo ([[2024-10-16 - Replica - Server to client state replication (Module)|Replica - Server to client state replication (Modu]])
+- Replica wiki ([[2024-10-16 - Replica - Server to client state replication (Module)|Replica - Server to client state replication (Modu]])
+- ProfileStore ([[2024-10-16 - Replica - Server to client state replication (Module)|Replica - Server to client state replication (Modu]])
+- Sera ([[2024-10-16 - Replica - Server to client state replication (Module)|Replica - Server to client state replication (Modu]])
+- Engagement-Based Payouts Documentation ([[2024-11-26 - Paid Access Experiences Will Be Eligible for Engagement Based Payouts|Paid Access Experiences Will Be Eligible for Engag]])
+- imagecompressor.com ([[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]])
+- 440obama command-bar script ([[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]])
+- sandofamber CollisionFidelity script ([[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]])
+- AGoodGuyHere (FindFirstChild advice) ([[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]])
+- wastbo (mesh reuse) ([[2025-01-08 - The Hitchhiker's Guide To Optimization - Optimize Your Game Using Just|The Hitchhiker's Guide To Optimization - Optimize ]])
+- Solar System Exploration 2 ([[2025-01-15 - I made a PlanetarySpherical gravity system|I made a Planetary/Spherical gravity system]])
+- Metatables | Documentation - Roblox Creator Hub ([[2025-02-27 - Advanced Scripting Tutorial|Advanced Scripting Tutorial]])
+- Text+ GitHub repository (releases) ([[2025-03-02 - Text+ Custom fonts & advanced control|Text+ | Custom fonts & advanced control]])
+- Tween+ (tweening library by same author) ([[2025-03-02 - Text+ Custom fonts & advanced control|Text+ | Custom fonts & advanced control]])
+- Signal+ (signals library by same author) ([[2025-03-02 - Text+ Custom fonts & advanced control|Text+ | Custom fonts & advanced control]])
+- Inxpect (API maps library by same author) ([[2025-03-02 - Text+ Custom fonts & advanced control|Text+ | Custom fonts & advanced control]])
+- Roblox Discovery and Creator Success Teams webinar ([[2025-03-31 - Boost Your Discovery with the Improved Recommended For You Algorithm a|Boost Your Discovery with the Improved Recommended]])
+- NetRay Compile (successor project, faster and lower bandwidth) ([[2025-04-04 - NetRay - High-Performance Roblox Networking Library|NetRay - High-Performance Roblox Networking Librar]])
+- NetRay Documentation website ([[2025-04-04 - NetRay - High-Performance Roblox Networking Library|NetRay - High-Performance Roblox Networking Librar]])
+- AlexanderLindholt Signal+ (special thanks) ([[2025-04-04 - NetRay - High-Performance Roblox Networking Library|NetRay - High-Performance Roblox Networking Librar]])
+- https://luau.org/types-library/#types-library-functions ([[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]])
+- Type Function Library | Luau ([[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]])
+- Type Functions | Luau ([[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]])
+- An introduction to Luau types | Luau ([[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]])
+- Type API source code (linked from Class++ section) ([[2025-05-04 - Luau's New Type Solver How to utilize type functions!|Luau's New Type Solver: How to utilize type functi]])
+- Violations and Appeals page ([[2025-05-06 - An Update on Automated Action Against Modified Clients|An Update on Automated Action Against Modified Cli]])
+- Community Standards: Evading Safety and Security Systems ([[2025-05-06 - An Update on Automated Action Against Modified Clients|An Update on Automated Action Against Modified Cli]])
+- Server Authority early access application ([[2025-05-06 - An Update on Automated Action Against Modified Clients|An Update on Automated Action Against Modified Cli]])
+- https://github.com/wBrowsqq/SmoothChase ([[2025-05-13 - Smooth Pathfinding Chase|Smooth Pathfinding Chase]])
+- Roblox Commerce Standards ([[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]])
+- Roblox Community Standards ([[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]])
+- Roblox Advertising Standards ([[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]])
+- Promo Offer policies ([[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]])
+- Shopify signup link (Creator Hub) ([[2025-05-15 - Expanding How Commerce Can Help You Earn and Grow Your Communities|Expanding How Commerce Can Help You Earn and Grow ]])
+- Lugical CameraService (open-source camera manipulation) ([[2025-05-21 - Math for Roblox Developers 1 Vectors|Math for Roblox Developers #1: Vectors]])
+- Lugical standalone cutscene tutorial ([[2025-05-21 - Math for Roblox Developers 1 Vectors|Math for Roblox Developers #1: Vectors]])
+- Lugical Discord @lugical.me ([[2025-05-21 - Math for Roblox Developers 1 Vectors|Math for Roblox Developers #1: Vectors]])
+- Lugical Twitter/X @LugicalDev ([[2025-05-21 - Math for Roblox Developers 1 Vectors|Math for Roblox Developers #1: Vectors]])
+- Lugical Bluesky @lugical.bsky.social ([[2025-05-21 - Math for Roblox Developers 1 Vectors|Math for Roblox Developers #1: Vectors]])
+- Engagement Based Payouts (EBP) ([[2025-06-24 - Introducing Creator Rewards Earn More by Growing the Community|Introducing Creator Rewards: Earn More by Growing ]])
+- Creator Affiliate program ([[2025-06-24 - Introducing Creator Rewards Earn More by Growing the Community|Introducing Creator Rewards: Earn More by Growing ]])
+- Roblox Terms of Use ([[2025-06-24 - Introducing Creator Rewards Earn More by Growing the Community|Introducing Creator Rewards: Earn More by Growing ]])
+- Roblox Community Standards ([[2025-06-24 - Introducing Creator Rewards Earn More by Growing the Community|Introducing Creator Rewards: Earn More by Growing ]])
+- Roblox Creator Hub retention documentation (tactical retention suggestions) ([[2025-07-15 - Analytics Track new user retention by daily and weekly cohort|Analytics: Track new user retention by daily and w]])
+- Creator Documentation ([[2025-07-24 - More Creators Can Now Use Rewarded Video Ads|More Creators Can Now Use Rewarded Video Ads]])
+- Rewarded Video Newsroom Announcement ([[2025-07-24 - More Creators Can Now Use Rewarded Video Ads|More Creators Can Now Use Rewarded Video Ads]])
+- Latitude brand lift study (Roblox Audience Impact, March 2024) ([[2025-07-24 - More Creators Can Now Use Rewarded Video Ads|More Creators Can Now Use Rewarded Video Ads]])
+- CanvasDraw (Ethanthegrand14) ([[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]])
+- OSGL (saaawdust) ([[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]])
+- Roblox EditableImage/EditableMesh Client Beta announcement (Jan 16 2025) ([[2025-08-03 - A complete guide to EditableImages|A complete guide to EditableImages]])
+- Understanding Raycasting - DevForum Community Tutorials ([[2025-09-03 - In Depth Scripted Car Physics|In Depth Scripted Car Physics]])
+- Comprehensive Beginner's Guide to CFrames - DevForum Community Tutorials ([[2025-09-03 - In Depth Scripted Car Physics|In Depth Scripted Car Physics]])
+- Roblox Help Center (DevEx) ([[2025-09-05 - Increasing DevEx — Creators Will Now Earn 8.5% More|Increasing DevEx — Creators Will Now Earn 8.5% Mor]])
+- Roblox Support: category 'Developer Exchange (DevEx)', 'Other issue relative to the DevEx Program' ([[2025-09-05 - Increasing DevEx — Creators Will Now Earn 8.5% More|Increasing DevEx — Creators Will Now Earn 8.5% Mor]])
+- https://github.com/luau-lang/luau/releases ([[2025-09-18 - Luau Bytecode EXPLAINED - How to Read, Debug, and Optimize Like a Hack|Luau Bytecode EXPLAINED - How to Read, Debug, and ]])
+- https://lbe.lonegladiator.dev ([[2025-09-18 - Luau Bytecode EXPLAINED - How to Read, Debug, and Optimize Like a Hack|Luau Bytecode EXPLAINED - How to Read, Debug, and ]])
+- https://play.luau.org/ ([[2025-09-18 - Luau Bytecode EXPLAINED - How to Read, Debug, and Optimize Like a Hack|Luau Bytecode EXPLAINED - How to Read, Debug, and ]])
+- luau-lang/luau Common/include/Luau/Bytecode.h ([[2025-09-18 - Luau Bytecode EXPLAINED - How to Read, Debug, and Optimize Like a Hack|Luau Bytecode EXPLAINED - How to Read, Debug, and ]])
+- Roblox discovery documentation ([[2025-10-16 - Analytics View retention by acquisition source and select your benchma|Analytics: View retention by acquisition source an]])
+- Science of Game Discovery (RDC session, YouTube) ([[2025-10-16 - Analytics View retention by acquisition source and select your benchma|Analytics: View retention by acquisition source an]])
+- Creator webinar Oct 21 (product leaders) ([[2025-10-16 - Analytics View retention by acquisition source and select your benchma|Analytics: View retention by acquisition source an]])
+- LiveOps Essentials (Roblox Creator Hub) ([[2025-10-21 - Analytics Understand the success of your experience events|Analytics: Understand the success of your experien]])
+- LiveOps Planning (Roblox Creator Hub) ([[2025-10-21 - Analytics Understand the success of your experience events|Analytics: Understand the success of your experien]])
+- Cracky4 Roblox profile and Twitter ([[2025-10-31 - Creator Spotlight The Story Behind 99 Nights in the Forest|Creator Spotlight: The Story Behind 99 Nights in t]])
+- ForyxeV Roblox profile and Twitter ([[2025-10-31 - Creator Spotlight The Story Behind 99 Nights in the Forest|Creator Spotlight: The Story Behind 99 Nights in t]])
+- Viridial Roblox profile and Twitter ([[2025-10-31 - Creator Spotlight The Story Behind 99 Nights in the Forest|Creator Spotlight: The Story Behind 99 Nights in t]])
+- Roblox performance optimization best practices documentation ([[2025-11-03 - Launching even more Server CPU!|Launching even more Server CPU!]])
+- Prior Roblox dynamic server memory update (2024) ([[2025-11-03 - Launching even more Server CPU!|Launching even more Server CPU!]])
+- Roblox Configs and Experiments documentation ([[2025-11-06 - Live now Use configs and experiments to grow your game faster|[Live now] Use configs and experiments to grow you]])
+- RDC 2025 session on experiment best practices ([[2025-11-06 - Live now Use configs and experiments to grow your game faster|[Live now] Use configs and experiments to grow you]])
+- Upcoming Roblox webinar (2 PM PST, next week) ([[2025-11-06 - Live now Use configs and experiments to grow your game faster|[Live now] Use configs and experiments to grow you]])
+- Roblox Learn video on Custom Matchmaking ([[2025-11-06 - Custom Matchmaking is now available to all experiences on Roblox|Custom Matchmaking is now available to all experie]])
+- Custom Matchmaking documentation (Server Scoring, Attributes and signals) ([[2025-11-06 - Custom Matchmaking is now available to all experiences on Roblox|Custom Matchmaking is now available to all experie]])
+- Roblox DevForum post on beta launch ([[2025-11-06 - Custom Matchmaking is now available to all experiences on Roblox|Custom Matchmaking is now available to all experie]])
+- Rewarded Video Documentation ([[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]])
+- Previous DevForum post on Rewarded Video ([[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]])
+- Rewarded Video webinar ([[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]])
+- Ads eligibility page (linked in documentation) ([[2025-11-11 - Rewarded Video ads are now available to all ads eligible creators|Rewarded Video ads are now available to all ads el]])
+- Roblox Verified Badge requirements page (DevForum post by always2factor) ([[2025-11-14 - Update on Verified Badge Requirements for Experiences|Update on Verified Badge Requirements for Experien]])
+- ReflectionService documentation (Roblox Creator Hub) ([[2025-11-18 - Introducing ReflectionService Programmatic Access to Engine API Inform|Introducing ReflectionService: Programmatic Access]])
+- Creator Hub roles page ([[2025-12-03 - Managing Your Group Revenue and Experience Ownerships Just Became a Lo|Managing Your Group Revenue and Experience Ownersh]])
+- Experience Permissions page ([[2025-12-03 - Managing Your Group Revenue and Experience Ownerships Just Became a Lo|Managing Your Group Revenue and Experience Ownersh]])
+- Official docs on implementing community prompts (Roblox Creator Docs) ([[2025-12-08 - Prompt players to join Communities from in-experience!|Prompt players to join Communities from in-experie]])
+- Server Authority documentation (Roblox Creator Docs) ([[2025-12-09 - Studio Beta Build Fair, Responsive Games with Server Authority|[Studio Beta] Build Fair, Responsive Games with Se]])
+- RDC 25 breakout session on Server Authority ([[2025-12-09 - Studio Beta Build Fair, Responsive Games with Server Authority|[Studio Beta] Build Fair, Responsive Games with Se]])
+- Server Authority example places: Laser Tag, Soccer, Racing ([[2025-12-09 - Studio Beta Build Fair, Responsive Games with Server Authority|[Studio Beta] Build Fair, Responsive Games with Se]])
+- Roblox Server Authority Best Practices community tutorial (TenebrisNoctua) ([[2025-12-09 - Server Authority How to Begin|Server Authority: How to Begin?]])
+- Roblox documentation on Input Action System ([[2025-12-09 - Server Authority How to Begin|Server Authority: How to Begin?]])
+- Articles on Rollback Netcode concepts ([[2025-12-09 - Server Authority How to Begin|Server Authority: How to Begin?]])
+- Roblox Privacy Policy ([[2025-12-11 - New Requirements to Publish and Update Public Experiences|New Requirements to Publish and Update Public Expe]])
+- Roblox Facial Media Capture Notice ([[2025-12-11 - New Requirements to Publish and Update Public Experiences|New Requirements to Publish and Update Public Expe]])
+- 4k texture rendering Studio Beta ([[2025-12-12 - Introducing Texture Streaming|Introducing Texture Streaming]])
+- SLIM ([[2025-12-12 - Introducing Texture Streaming|Introducing Texture Streaming]])
+- Instance streaming ([[2025-12-12 - Introducing Texture Streaming|Introducing Texture Streaming]])
+- Mesh LoD simplification (RDC announcement) ([[2025-12-12 - Introducing Texture Streaming|Introducing Texture Streaming]])
+- https://text21.github.io/Rewind/ ([[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]])
+- https://github.com/text21/Rewind ([[2025-12-18 - Archived Rewind - Server-Authoritative Hit Validation & Custom Charact|[Archived] Rewind - Server-Authoritative Hit Valid]])
+- @PysephDEV data-type byte-size resource ([[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]])
+- @Atrazine heightmap post ([[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]])
+- @bob_factory (FastFlow) ([[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]])
+- @happya_x 3D flowfield post ([[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]])
+- @Content_Corrupted019 networking library post ([[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]])
+- Astro Force bandwidth optimization post (60x reduction) ([[2025-12-31 - Performance tips (network bandwidth, client framerate, etc.) for custo|Performance tips (network bandwidth, client framer]])
+- Studio Beta announcement post for Avatar Joint Upgrade ([[2026-01-26 - Avatar Joint Upgrade for Physically-Simulated Character Movement is No|Avatar Joint Upgrade for Physically-Simulated Char]])
+- Roblox DevForum: Dynamic Head migration posts (Jan 29, Feb 4, Mar 5, Mar 23 2026 updates) ([[2026-01-27 - Completing the Dynamic Head Migration|Completing the Dynamic Head Migration]])
+- Kestrel (studio reviewing head conversions) ([[2026-01-27 - Completing the Dynamic Head Migration|Completing the Dynamic Head Migration]])
+- Avatar Abilities Beta Template placefile ([[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]])
+- ControllerManager documentation ([[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]])
+- Server Authority beta ([[2026-02-18 - Studio Beta AvatarAbilities Library for a Luau-Based Character Control|[Studio Beta] AvatarAbilities Library for a Luau-B]])
+- Analytics Dashboard documentation (Creator Hub) ([[2026-02-25 - New Analytics Dimensions Get insight into your players’ spending behav|New Analytics Dimensions: Get insight into your pl]])
+- Creator Rewards (Monetization > Creator Rewards) ([[2026-02-25 - New Analytics Dimensions Get insight into your players’ spending behav|New Analytics Dimensions: Get insight into your pl]])
+- Video guidelines documentation ([[2026-03-09 - How we are improving Home this year|How we are improving Home this year]])
+- Curation team nomination form ([[2026-03-09 - How we are improving Home this year|How we are improving Home this year]])
+- Roblox Newsroom post on creator programs ([[2026-03-09 - How we are improving Home this year|How we are improving Home this year]])
+- Two-minute RFY algorithm explainer video ([[2026-03-09 - How we are improving Home this year|How we are improving Home this year]])
+- Solid modeling guide (Roblox docs) ([[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]])
+- Solid Modeling on Meshes Studio Beta demo place (RBXL) ([[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]])
+- Solid Modeling Early Access program ([[2026-03-12 - Studio Beta Solid Modeling on Meshes & new Fragment and Sweep APIs|[Studio Beta] Solid Modeling on Meshes & new Fragm]])
+- Voice Chat documentation (linked from post) ([[2026-03-24 - Voice Chat is now supported in servers of up to 100 users!|Voice Chat is now supported in servers of up to 10]])
+- Custom matchmaking Age signal ([[2026-03-24 - Voice Chat is now supported in servers of up to 100 users!|Voice Chat is now supported in servers of up to 10]])
+- Subscription Design Guide (Roblox) ([[2026-04-01 - Let Your Players Pay for Subscriptions within Experiences in Robux|Let Your Players Pay for Subscriptions within Expe]])
+- Creator Implementation Guide: Livetopia ([[2026-04-01 - Let Your Players Pay for Subscriptions within Experiences in Robux|Let Your Players Pay for Subscriptions within Expe]])
+- Step-by-step subscription creation guide ([[2026-04-01 - Let Your Players Pay for Subscriptions within Experiences in Robux|Let Your Players Pay for Subscriptions within Expe]])
+- Subscriptions documentation page ([[2026-04-01 - Let Your Players Pay for Subscriptions within Experiences in Robux|Let Your Players Pay for Subscriptions within Expe]])
+- How to age check (Roblox help) ([[2026-04-02 - Friends Are Back! Expanding Trusted Friends for a New Way to Chat and|Friends Are Back! Expanding Trusted Friends for a ]])
+- How to link your account (Roblox help) ([[2026-04-02 - Friends Are Back! Expanding Trusted Friends for a New Way to Chat and|Friends Are Back! Expanding Trusted Friends for a ]])
+- MaximumADHD (graph image courtesy) ([[2026-04-02 - Studio Beta Introducing the Animation Graph System|[Studio Beta] Introducing the Animation Graph Syst]])
+- Roblox documentation on Animation Graph ([[2026-04-02 - Studio Beta Introducing the Animation Graph System|[Studio Beta] Introducing the Animation Graph Syst]])
+- Character Controller Library documentation and tuning guide ([[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]])
+- Character Controller Library Studio Beta post ([[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]])
+- CCL Reference Place (uncopylocked) ([[2026-04-08 - Full Release The Future of Character Movement Character Controller Lib|[Full Release] The Future of Character Movement: C]])
+- Roblox Newsroom announcement on Roblox Kids and Roblox Select accounts ([[2026-04-13 - New Publishing Requirements & Evaluation Process for Games|New Publishing Requirements & Evaluation Process f]])
+- Roblox DevForum AMA, April 16, 2026 ([[2026-04-13 - New Publishing Requirements & Evaluation Process for Games|New Publishing Requirements & Evaluation Process f]])
+- IARC (International Age Rating Coalition) framework ([[2026-04-13 - New Publishing Requirements & Evaluation Process for Games|New Publishing Requirements & Evaluation Process f]])
+- Roblox Facial Media Capture Privacy Notice ([[2026-04-16 - AMA Publishing Requirements + Roblox Kids & Select|[AMA] Publishing Requirements + Roblox Kids & Sele]])
+- Roblox Help Center (Enhanced Protection) ([[2026-04-21 - Introducing Enhanced Protection Professional-Grade Security for Creato|Introducing Enhanced Protection: Professional-Grad]])
+- Full ProceduralModel documentation (linked from post) ([[2026-04-23 - Studio Beta Introducing Procedural Models Build Parametrized 3D Models|[Studio Beta] Introducing Procedural Models: Build]])
+- Roblox Creator Hub US 18+ DevEx rate eligibility pages ([[2026-04-30 - Introducing the US 18+ DevEx Rate Earn 42% More on Spend from 18+ US P|Introducing the US 18+ DevEx Rate: Earn 42% More o]])
+- Roblox Shareholder Letter, April 30, 2026 (ir.roblox.com) ([[2026-04-30 - Introducing the US 18+ DevEx Rate Earn 42% More on Spend from 18+ US P|Introducing the US 18+ DevEx Rate: Earn 42% More o]])
+- Roblox DevForum post by dinobotsnarl824 (May 2026) ([[2026-05-04 - Disabling Cross-Game Sales of Passes and Dev Products and Introducing|Disabling Cross-Game Sales of Passes and Dev Produ]])
+- Transfers API documentation (linked by Roblox) ([[2026-05-04 - Disabling Cross-Game Sales of Passes and Dev Products and Introducing|Disabling Cross-Game Sales of Passes and Dev Produ]])
+- Roblox Creator Hub: MicroProfiler docs ([[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]])
+- Roblox Creator Hub: Tag reference ([[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]])
+- [Client Beta] Acoustic Simulation dev forum post ([[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]])
+- WoloPoints: The Bandwidth Art (network optimization post) ([[2026-05-10 - The definitive tutorial to game optimization everything you need to kn|The definitive tutorial to game optimization: ever]])
+- Roblox Creator Hub Audience Reach dashboard ([[2026-05-11 - Alternate Publishing Requirements for Roblox Kids and Select|Alternate Publishing Requirements for Roblox Kids ]])
+- Roblox docs: Interactions between containers section ([[2026-05-13 - Protect Your Games with Script Capabilities Sandboxing|Protect Your Games with Script Capabilities Sandbo]])
+- Roblox docs: sandboxing and capabilities ([[2026-05-13 - Protect Your Games with Script Capabilities Sandboxing|Protect Your Games with Script Capabilities Sandbo]])
+- IndividualRoundedCorner_Demo.rbxl sample place ([[2026-05-14 - Full Release New UI Capabilities Shadows & Individual Corners!|[Full Release] New UI Capabilities: Shadows & Indi]])
+- UIShadow_Demo.rbxl sample place ([[2026-05-14 - Full Release New UI Capabilities Shadows & Individual Corners!|[Full Release] New UI Capabilities: Shadows & Indi]])
+- Creator Hub BanAsync API reference ([[2026-06-04 - Ban API New Device Blocking Capability|Ban API: New Device Blocking Capability]])
+- Advanced Animation Pilot Program application ([[2026-06-15 - Pilot Create and Sell Animation Packs and Emotes on Marketplace|[Pilot] Create and Sell Animation Packs and Emotes]])
+- Roblox Appeals Portal ([[2026-06-15 - Pilot Create and Sell Animation Packs and Emotes on Marketplace|[Pilot] Create and Sell Animation Packs and Emotes]])
+- Creator Docs (Recommended For You algorithm) ([[2026-06-15 - Recommended For You Algorithm Improvements That Better Value Long-Term|Recommended For You Algorithm Improvements That Be]])
+- Roblox algorithm overview video (2 min) ([[2026-06-15 - Recommended For You Algorithm Improvements That Better Value Long-Term|Recommended For You Algorithm Improvements That Be]])
+- Creator Analytics Home Recommendations webinar (June 17) ([[2026-06-15 - Recommended For You Algorithm Improvements That Better Value Long-Term|Recommended For You Algorithm Improvements That Be]])
+- Satchel (inspiration for Sling) ([[2026-06-17 - Sling - A modern and reactive backpack UI|Sling - A modern and reactive backpack UI]])
+- Roblox Physics Team rollout thread (DevForum, by m0bsterlobster) ([[2026-06-23 - Improved AnimationConstraint Stable, Mass-Independent Tracking for Phy|Improved AnimationConstraint: Stable, Mass-Indepen]])
+- MarketplaceService:OpenShop technical documentation ([[2026-06-24 - Introducing Shop A Personalized In-Game Storefront|Introducing Shop: A Personalized In-Game Storefron]])
+- Product Intelligence APIs ([[2026-06-24 - Introducing Shop A Personalized In-Game Storefront|Introducing Shop: A Personalized In-Game Storefron]])
+- Roblox Early Access Programs documentation ([[2026-06-25 - Early Access Program Unlocking Massive Terrain With Up to 64 Custom Ma|[Early Access Program] Unlocking Massive Terrain W]])
+- Terrain Early Access Program DevForum signup form ([[2026-06-25 - Early Access Program Unlocking Massive Terrain With Up to 64 Custom Ma|[Early Access Program] Unlocking Massive Terrain W]])
+- Studio MCP server connection instructions (linked in post) ([[2026-06-26 - Automated Performance Profiling with MicroProfiler and Assistant|Automated Performance Profiling with MicroProfiler]])
+- Server Authority documentation getting-started guide ([[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]])
+- Server Authority Advanced Techniques page ([[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]])
+- Racing, Soccer, Laser Tag template games ([[2026-07-09 - Full Release Ship Fair And Competitive Games with Server Authority|[Full Release] Ship Fair And Competitive Games wit]])
+- Scribe Studio on the Creator Store ([[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]])
+- roblox-ts guide (Scribe docs) ([[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]])
+- Scribe Security guide ([[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]])
+- Scribe Commands & Requests guide ([[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]])
+- Scribe leaderboards guide ([[2026-07-15 - Scribe v2.6.1 - Persistent, typed, auto-replicated player data built o|Scribe v2.6.1 - Persistent, typed, auto-replicated]])
+- Creator Analytics Overview page ([[2026-08-06 - Boost Your Discovery by Building Games People Want to Play|Boost Your Discovery by Building Games People Want]])
+- Creator Analytics > Acquisition > Home Recommendations ([[2026-08-06 - Boost Your Discovery by Building Games People Want to Play|Boost Your Discovery by Building Games People Want]])
+- Roblox retention and discovery resources (linked) ([[2026-08-06 - Boost Your Discovery by Building Games People Want to Play|Boost Your Discovery by Building Games People Want]])
+- Roblox monetization resources (linked) ([[2026-08-06 - Boost Your Discovery by Building Games People Want to Play|Boost Your Discovery by Building Games People Want]])
+- Avatar Backgrounds pilot application (DevForum) ([[2026-08-06 - Pilot Create and Sell Avatar Backgrounds on Marketplace|[Pilot] Create and Sell Avatar Backgrounds on Mark]])
+- Instance:QueryDescendants documentation ([[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]])
+- CSS selectors / Blink (performance design inspiration) ([[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]])
+- flecs (ECS reference for planned query extensions) ([[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]])
+- CollectionObby.rbxl demo place ([[2026-08-13 - Collections How to group instances with query patterns|Collections: How to group instances with query pat]])
+- Roblox Kids and Select documentation ([[2026-08-19 - Highly Engaged Player Threshold Drops to 250|Highly Engaged Player Threshold Drops to 250]])
+- Check your publishing eligibility (Creator Hub) ([[2026-08-19 - Highly Engaged Player Threshold Drops to 250|Highly Engaged Player Threshold Drops to 250]])
+- Roblox Kids and Select Newsroom post ([[2026-08-19 - Highly Engaged Player Threshold Drops to 250|Highly Engaged Player Threshold Drops to 250]])
+- Roblox Support ([[2026-08-19 - Actioning Against Bot Accounts On Roblox|Actioning Against Bot Accounts On Roblox]])
+- Creator Hub > Analytics ([[2026-08-19 - Actioning Against Bot Accounts On Roblox|Actioning Against Bot Accounts On Roblox]])
+- Terrain Early Access Program ([[2026-09-11 - Terrain Updates Object Scattering, Path Splines, Projected Terrain Dec|Terrain Updates: Object Scattering, Path Splines, ]])
+- Roblox DevForum terrain updates posts ([[2026-09-11 - Terrain Updates Object Scattering, Path Splines, Projected Terrain Dec|Terrain Updates: Object Scattering, Path Splines, ]])
+- Roblox DevForum post introducing Roblox Wallet and Card ([[2026-09-11 - Introducing Roblox Wallet and Card Get Paid Faster|Introducing Roblox Wallet and Card: Get Paid Faste]])
+- Airwallex US, LLC (payment services provider) ([[2026-09-11 - Introducing Roblox Wallet and Card Get Paid Faster|Introducing Roblox Wallet and Card: Get Paid Faste]])
+- Restricted Content Policy ([[2026-09-11 - RDC26 What We Announced|RDC26: What We Announced]])
+- Roblox streaming documentation ([[2026-09-29 - Frustum Streaming Stream What Your Players See|Frustum Streaming: Stream What Your Players See]])

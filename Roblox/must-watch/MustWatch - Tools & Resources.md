@@ -1,0 +1,303 @@
+---
+title: MustWatch - Tools & Resources
+tags: [roblox, mustwatch]
+---
+
+# MustWatch: Tools & Resources
+
+## Tools mentioned
+- **Roblox Studio**: [[2026-01-05 - How I made a FRONT PAGE game in 30 Days!|How I made a FRONT PAGE game in 30 Days!]], [[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]], [[2026-06-05 - Jailbreak Creator, Asimo, Talks the State of the Platform Creators on|"Jailbreak" Creator, Asimo, Talks the State of the]], [[2023-09-19 - Future of the Roblox Creator Economy RDC23|Future of the Roblox Creator Economy | RDC23]], [[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]], [[2021-07-16 - Designing Game Expansions with AbstractAlex, Usering & ImprobableAI|Designing Game Expansions with AbstractAlex, Useri]], [[2025-05-19 - How Big Studios Develop on Roblox|How Big Studios Develop on Roblox]], [[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]], [[2023-09-19 - Discovery on Roblox Innovations to Grow Your Experience RDC23|Discovery on Roblox: Innovations to Grow Your Expe]], [[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]], [[2025-09-26 - How Top Studios Use Analytics and Experimentation to Grow RDC 2025|How Top Studios Use Analytics and Experimentation ]], [[2025-07-09 - Why Steal A Games and Cashgrabs Are So Successful Game Design Secrets|Why "Steal A" Games and "Cashgrabs" Are So Success]], [[2026-10-12 - How to Design, Grow, and Retain an 18+ Player Base on Roblox RDC 2026|How to Design, Grow, and Retain an 18+ Player Base]], [[2024-10-12 - Here's how I made 2.3M Robux in 3 days of work|Here's how I made 2.3M Robux in 3 days of work]]
+- **Creator Hub**: [[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]], [[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]], [[2023-09-19 - Future of the Roblox Creator Economy RDC23|Future of the Roblox Creator Economy | RDC23]], [[2025-06-09 - How to grow your experience with Roblox Ads Manager|How to grow your experience with Roblox Ads Manage]], [[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]], [[2026-10-12 - What Drives Discovery Understanding the Algorithm RDC 2026|What Drives Discovery: Understanding the Algorithm]], [[2025-09-26 - How Top Studios Use Analytics and Experimentation to Grow RDC 2025|How Top Studios Use Analytics and Experimentation ]], [[2026-10-12 - Monetizing Intellectual Property RDC 2026|Monetizing Intellectual Property | RDC 2026]]
+- **Discord**: [[2026-01-05 - How I made a FRONT PAGE game in 30 Days!|How I made a FRONT PAGE game in 30 Days!]], [[2021-07-16 - Designing Game Expansions with AbstractAlex, Usering & ImprobableAI|Designing Game Expansions with AbstractAlex, Useri]], [[2025-09-26 - The Retention Playbook Turning Players into Fans RDC 2025|The Retention Playbook: Turning Players into Fans ]], [[2022-01-13 - LiveOps on Roblox with Ruddev_Ethan and x_o|LiveOps on Roblox with Ruddev_Ethan and x_o]], [[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]]
+- **Twitter**: [[2021-07-16 - Designing Game Expansions with AbstractAlex, Usering & ImprobableAI|Designing Game Expansions with AbstractAlex, Useri]], [[2021-12-01 - Live Ops with the Notorious Creators of Jailbreak RDC 2021|Live Ops with the Notorious Creators of Jailbreak ]], [[2022-01-13 - LiveOps on Roblox with Ruddev_Ethan and x_o|LiveOps on Roblox with Ruddev_Ethan and x_o]], [[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]]
+- **Creator Analytics dashboard**: [[2026-06-18 - Recommended for you algorithm Q&A|Recommended for you algorithm Q&A]], [[2026-06-15 - How the “Recommended for You” algorithm works on Roblox|How the “Recommended for You” algorithm works on R]], [[2025-09-26 - The Science of Game Discovery What Works RDC 2025|The Science of Game Discovery: What Works | RDC 20]], [[2025-10-30 - How Home Recommendations & Ads Actually Work|How Home Recommendations & Ads Actually Work]]
+- **Trello**: [[2021-12-01 - Live Ops with the Notorious Creators of Jailbreak RDC 2021|Live Ops with the Notorious Creators of Jailbreak ]], [[2022-01-13 - LiveOps on Roblox with Ruddev_Ethan and x_o|LiveOps on Roblox with Ruddev_Ethan and x_o]], [[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]]
+- **YouTube**: [[2025-09-26 - The Retention Playbook Turning Players into Fans RDC 2025|The Retention Playbook: Turning Players into Fans ]], [[2021-12-01 - Live Ops with the Notorious Creators of Jailbreak RDC 2021|Live Ops with the Notorious Creators of Jailbreak ]]
+- **RoTrends**: [[2024-09-23 - Using Analytics to Grow and Improve Your Experience RDC 2024|Using Analytics to Grow and Improve Your Experienc]], [[2023-01-19 - Monetizing a Roblox Experience with Erythia, MrFergie & Shawnyg|Monetizing a Roblox Experience with Erythia, MrFer]]
+- **Creator Analytics**: [[2023-09-19 - Future of the Roblox Creator Economy RDC23|Future of the Roblox Creator Economy | RDC23]], [[2025-06-09 - How to grow your experience with Roblox Ads Manager|How to grow your experience with Roblox Ads Manage]]
+- **Ads Manager**: [[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]], [[2026-10-12 - Mastering Monetization Lessons from Top Creators RDC 2026|Mastering Monetization: Lessons from Top Creators ]]
+- **VS Code**: [[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]], [[2025-05-19 - How Big Studios Develop on Roblox|How Big Studios Develop on Roblox]]
+- **Rojo**: [[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]], [[2025-05-19 - How Big Studios Develop on Roblox|How Big Studios Develop on Roblox]]
+- **Wally**: [[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]], [[2025-05-19 - How Big Studios Develop on Roblox|How Big Studios Develop on Roblox]]
+- **License Manager**: [[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]], [[2026-10-12 - Monetizing Intellectual Property RDC 2026|Monetizing Intellectual Property | RDC 2026]]
+- **Input action system**: [[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]], [[2025-09-26 - Building Competitive Games RDC 2025|Building Competitive Games | RDC 2025]]
+- **GameAnalytics SDK**: [[2021-07-16 - Designing Game Expansions with AbstractAlex, Usering & ImprobableAI|Designing Game Expansions with AbstractAlex, Useri]]
+- **Google Docs**: [[2021-07-16 - Designing Game Expansions with AbstractAlex, Usering & ImprobableAI|Designing Game Expansions with AbstractAlex, Useri]]
+- **Instagram**: [[2021-07-16 - Designing Game Expansions with AbstractAlex, Usering & ImprobableAI|Designing Game Expansions with AbstractAlex, Useri]]
+- **Google Sheets**: [[2021-09-16 - Designing Season Passes with Dspav and BreakfastCandy|Designing Season Passes with Dspav and BreakfastCa]]
+- **Microsoft Excel**: [[2021-09-16 - Designing Season Passes with Dspav and BreakfastCandy|Designing Season Passes with Dspav and BreakfastCa]]
+- **Google Cloud Function**: [[2021-12-01 - Live Ops with the Notorious Creators of Jailbreak RDC 2021|Live Ops with the Notorious Creators of Jailbreak ]]
+- **Roblox DateTime API**: [[2021-12-01 - Live Ops with the Notorious Creators of Jailbreak RDC 2021|Live Ops with the Notorious Creators of Jailbreak ]]
+- **Roblox HttpService**: [[2021-12-01 - Live Ops with the Notorious Creators of Jailbreak RDC 2021|Live Ops with the Notorious Creators of Jailbreak ]]
+- **Roblox Developer API (game stats)**: [[2021-12-01 - Live Ops with the Notorious Creators of Jailbreak RDC 2021|Live Ops with the Notorious Creators of Jailbreak ]]
+- **Bartle player types framework (Richard Bartle, 1996)**: [[2021-12-03 - Designing Player Goals|Designing Player Goals]]
+- **Notion**: [[2022-01-13 - LiveOps on Roblox with Ruddev_Ethan and x_o|LiveOps on Roblox with Ruddev_Ethan and x_o]]
+- **PlayFab**: [[2022-01-13 - LiveOps on Roblox with Ruddev_Ethan and x_o|LiveOps on Roblox with Ruddev_Ethan and x_o]]
+- **Roblox Developer Forum**: [[2022-01-13 - LiveOps on Roblox with Ruddev_Ethan and x_o|LiveOps on Roblox with Ruddev_Ethan and x_o]]
+- **Roblox Creator Dashboard analytics (implied, not named)**: [[2022-02-24 - Analytics Essentials|Analytics Essentials]]
+- **Slido**: [[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]]
+- **Roblox Studio free cam**: [[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]]
+- **Creator Hub dashboard**: [[2023-08-18 - LiveOps Essentials|LiveOps Essentials]]
+- **Creator Marketplace**: [[2023-09-19 - Future of the Roblox Creator Economy RDC23|Future of the Roblox Creator Economy | RDC23]]
+- **Roblox Creator Dashboard analytics**: [[2023-09-19 - How to Use Analytics to Grow and Monetize Your Experience RDC23|How to Use Analytics to Grow and Monetize Your Exp]]
+- **GameAnalytics (third-party)**: [[2023-09-19 - How to Use Analytics to Grow and Monetize Your Experience RDC23|How to Use Analytics to Grow and Monetize Your Exp]]
+- **Webhooks**: [[2023-09-19 - How to Use Analytics to Grow and Monetize Your Experience RDC23|How to Use Analytics to Grow and Monetize Your Exp]]
+- **Open Cloud**: [[2023-09-19 - Discovery on Roblox Innovations to Grow Your Experience RDC23|Discovery on Roblox: Innovations to Grow Your Expe]]
+- **Roblox notification APIs (upcoming)**: [[2023-09-19 - Discovery on Roblox Innovations to Grow Your Experience RDC23|Discovery on Roblox: Innovations to Grow Your Expe]]
+- **Roblox Studio (immersive ads templates)**: [[2023-09-19 - Immersive Ads Best Practices and Learnings RDC23|Immersive Ads: Best Practices and Learnings | RDC2]]
+- **ads.roblox.com (advertiser account)**: [[2023-09-19 - Immersive Ads Best Practices and Learnings RDC23|Immersive Ads: Best Practices and Learnings | RDC2]]
+- **Roblox Partner Program**: [[2023-09-19 - Immersive Ads Best Practices and Learnings RDC23|Immersive Ads: Best Practices and Learnings | RDC2]]
+- **Voldex in-house A/B testing tools**: [[2023-09-19 - Navigating the Difference Between Roblox and Mobile Free-to-Play RDC23|Navigating the Difference Between Roblox and Mobil]]
+- **AnalyticsService (Roblox Studio)**: [[2024-07-24 - Tracking funnel and economy events on Roblox|Tracking funnel and economy events on Roblox]]
+- **Economy events**: [[2024-07-24 - Tracking funnel and economy events on Roblox|Tracking funnel and economy events on Roblox]]
+- **Funnel events (one-time and recurring)**: [[2024-07-24 - Tracking funnel and economy events on Roblox|Tracking funnel and economy events on Roblox]]
+- **Creator Analytics Suite**: [[2024-07-24 - Tracking funnel and economy events on Roblox|Tracking funnel and economy events on Roblox]]
+- **Roblox native analytics (economy and funnel events)**: [[2024-09-23 - Finding Success with your LiveOps Strategy RDC 2024|Finding Success with your LiveOps Strategy | RDC 2]]
+- **Game Analytics**: [[2024-09-23 - Finding Success with your LiveOps Strategy RDC 2024|Finding Success with your LiveOps Strategy | RDC 2]]
+- **Grafana**: [[2024-09-23 - Finding Success with your LiveOps Strategy RDC 2024|Finding Success with your LiveOps Strategy | RDC 2]]
+- **Asana, Monday, Trello, Jira**: [[2024-09-23 - Finding Success with your LiveOps Strategy RDC 2024|Finding Success with your LiveOps Strategy | RDC 2]]
+- **Sponsored experiences**: [[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]]
+- **Search ads**: [[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]]
+- **Audience Estimator**: [[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]]
+- **Immersive ads**: [[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]]
+- **Rewarded video ads**: [[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]]
+- **Subscriptions**: [[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]]
+- **Price Optimization**: [[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]]
+- **Party API**: [[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]]
+- **Audio API**: [[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]]
+- **Captures API**: [[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]]
+- **Video API**: [[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]]
+- **Text Chat Service**: [[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]]
+- **Roblox Analytics Experience Overview**: [[2024-09-23 - Using Analytics to Grow and Improve Your Experience RDC 2024|Using Analytics to Grow and Improve Your Experienc]]
+- **Funnel and Economy analytics**: [[2024-09-23 - Using Analytics to Grow and Improve Your Experience RDC 2024|Using Analytics to Grow and Improve Your Experienc]]
+- **Thumbnail personalization (beta)**: [[2024-09-23 - Using Analytics to Grow and Improve Your Experience RDC 2024|Using Analytics to Grow and Improve Your Experienc]]
+- **Automatic translation**: [[2024-09-23 - Building for International Markets RDC 2024|Building for International Markets | RDC 2024]]
+- **Text chat service API (real-time auto-translation)**: [[2024-09-23 - Building for International Markets RDC 2024|Building for International Markets | RDC 2024]]
+- **Experience price optimization (upcoming)**: [[2024-09-23 - Building for International Markets RDC 2024|Building for International Markets | RDC 2024]]
+- **Regional pricing (upcoming)**: [[2024-09-23 - Building for International Markets RDC 2024|Building for International Markets | RDC 2024]]
+- **Localized Creator documentation (10 languages, later 2024)**: [[2024-09-23 - Building for International Markets RDC 2024|Building for International Markets | RDC 2024]]
+- **Studio localization (German, Vietnamese; Thai, Indonesian, Polish, Turkish planned)**: [[2024-09-23 - Building for International Markets RDC 2024|Building for International Markets | RDC 2024]]
+- **Roblox Talent Hub**: [[2024-10-12 - Here's how I made 2.3M Robux in 3 days of work|Here's how I made 2.3M Robux in 3 days of work]]
+- **Creator Hub (Overview analytics)**: [[2024-10-28 - How to ACTUALLY get Players in your ROBLOX Game|How to ACTUALLY get Players in your ROBLOX Game]]
+- **Roblox Ad Manager (Sponsored Experience campaigns)**: [[2024-10-28 - How to ACTUALLY get Players in your ROBLOX Game|How to ACTUALLY get Players in your ROBLOX Game]]
+- **Creator Hub thumbnails page (Homepage tab, Edit active thumbnails)**: [[2024-11-13 - Thumbnail Personalization on Roblox|Thumbnail Personalization on Roblox]]
+- **Creator dashboard (time-series of ranking-relevant metrics)**: [[2025-04-16 - Tech Talks EP25 Discovery|Tech Talks EP25: Discovery]]
+- **Thumbnail personalization tool**: [[2025-04-16 - Tech Talks EP25 Discovery|Tech Talks EP25: Discovery]]
+- **Cube 3D (3D generation model, metadata alignment)**: [[2025-04-16 - Tech Talks EP25 Discovery|Tech Talks EP25: Discovery]]
+- **Rokit**: [[2025-05-19 - How Big Studios Develop on Roblox|How Big Studios Develop on Roblox]]
+- **Selene**: [[2025-05-19 - How Big Studios Develop on Roblox|How Big Studios Develop on Roblox]]
+- **StyLua**: [[2025-05-19 - How Big Studios Develop on Roblox|How Big Studios Develop on Roblox]]
+- **Git**: [[2025-05-19 - How Big Studios Develop on Roblox|How Big Studios Develop on Roblox]]
+- **Roblox Ads Manager (new flow and classic flow)**: [[2025-06-09 - How to grow your experience with Roblox Ads Manager|How to grow your experience with Roblox Ads Manage]]
+- **React**: [[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]]
+- **Fusion**: [[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]]
+- **Signal**: [[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]]
+- **Charm**: [[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]]
+- **Sift**: [[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]]
+- **Google Docs (contractor agreement)**: [[2025-09-09 - How To Build a Business On Roblox|How To Build a Business On Roblox]]
+- **Roblox rewarded video ads (beta, Google ad tech)**: [[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]]
+- **Roblox Moments (short-clip sharing with join button; APIs and source code to follow)**: [[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]]
+- **Roblox ads manager (simplified 3-step campaigns)**: [[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]]
+- **Row Monitor (tracks brand standalone games and hubs)**: [[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]]
+- **Roblox self-service IP licensing program**: [[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]]
+- **Roblox generative AI 3D asset tools**: [[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]]
+- **License Catalog**: [[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]]
+- **IP scanner (multimodal and reasoning models)**: [[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]]
+- **USCO and USPTO registration guides**: [[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]]
+- **Roblox Ads Manager (objectives: maximize plays, acquire users, reengage/drive retention, reactivate users)**: [[2025-09-26 - The Science of Game Discovery What Works RDC 2025|The Science of Game Discovery: What Works | RDC 20]]
+- **Thumbnail personalization**: [[2025-09-26 - The Science of Game Discovery What Works RDC 2025|The Science of Game Discovery: What Works | RDC 20]]
+- **Video previews**: [[2025-09-26 - The Science of Game Discovery What Works RDC 2025|The Science of Game Discovery: What Works | RDC 20]]
+- **Roblox Experiments (in development)**: [[2025-09-26 - How Top Studios Use Analytics and Experimentation to Grow RDC 2025|How Top Studios Use Analytics and Experimentation ]]
+- **Roblox Configs / feature flags (in development)**: [[2025-09-26 - How Top Studios Use Analytics and Experimentation to Grow RDC 2025|How Top Studios Use Analytics and Experimentation ]]
+- **Price optimization (Roblox)**: [[2025-09-26 - Mastering Monetization Turning Creativity into Revenue RDC 2025|Mastering Monetization: Turning Creativity into Re]]
+- **Regional pricing (Roblox)**: [[2025-09-26 - Mastering Monetization Turning Creativity into Revenue RDC 2025|Mastering Monetization: Turning Creativity into Re]]
+- **Rewarded video ads (Roblox)**: [[2025-09-26 - Mastering Monetization Turning Creativity into Revenue RDC 2025|Mastering Monetization: Turning Creativity into Re]]
+- **Developer subscriptions (Roblox, 2026)**: [[2025-09-26 - Mastering Monetization Turning Creativity into Revenue RDC 2025|Mastering Monetization: Turning Creativity into Re]]
+- **Item-level price optimization (Roblox dev forum)**: [[2025-09-26 - Mastering Monetization Turning Creativity into Revenue RDC 2025|Mastering Monetization: Turning Creativity into Re]]
+- **Styling APIs (stylesheets, tokens, themes, no-code style editor)**: [[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]]
+- **PreferredInput API**: [[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]]
+- **ViewportDisplaySize API**: [[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]]
+- **UIListLayout and flex properties**: [[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]]
+- **TextScaled and UITextSizeConstraint**: [[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]]
+- **UISizeConstraint**: [[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]]
+- **Studio emulation**: [[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]]
+- **Developer Console**: [[2025-09-26 - Top Game Performance Tales RDC 2025|Top Game Performance Tales | RDC 2025]]
+- **Microprofiler**: [[2025-09-26 - Top Game Performance Tales RDC 2025|Top Game Performance Tales | RDC 2025]]
+- **F2 stats screen**: [[2025-09-26 - Top Game Performance Tales RDC 2025|Top Game Performance Tales | RDC 2025]]
+- **Creator analytics**: [[2025-09-26 - Top Game Performance Tales RDC 2025|Top Game Performance Tales | RDC 2025]]
+- **Custom matchmaking signals (closed beta, open to all creators)**: [[2025-09-26 - Building Competitive Games RDC 2025|Building Competitive Games | RDC 2025]]
+- **Experimentation platform (A/B testing for matchmaking)**: [[2025-09-26 - Building Competitive Games RDC 2025|Building Competitive Games | RDC 2025]]
+- **Server authority with latency compensation (early access)**: [[2025-09-26 - Building Competitive Games RDC 2025|Building Competitive Games | RDC 2025]]
+- **Fixed heartbeat (RunService hook)**: [[2025-09-26 - Building Competitive Games RDC 2025|Building Competitive Games | RDC 2025]]
+- **Matchmaking services API**: [[2025-09-26 - Building Competitive Games RDC 2025|Building Competitive Games | RDC 2025]]
+- **Ads Manager (classic and new)**: [[2025-10-30 - How Home Recommendations & Ads Actually Work|How Home Recommendations & Ads Actually Work]]
+- **Roblox Configs (Studio config editor and Creator Hub)**: [[2025-12-01 - How to use Configs and Experimentation to grow your game faster|How to use Configs and Experimentation to grow you]]
+- **Roblox Experiments (Creator Hub)**: [[2025-12-01 - How to use Configs and Experimentation to grow your game faster|How to use Configs and Experimentation to grow you]]
+- **Minimum detectable effect estimator**: [[2025-12-01 - How to use Configs and Experimentation to grow your game faster|How to use Configs and Experimentation to grow you]]
+- **Config service (Luau)**: [[2025-12-01 - How to use Configs and Experimentation to grow your game faster|How to use Configs and Experimentation to grow you]]
+- **Roblox Developer Hub**: [[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]]
+- **ChatGPT (suggested for learning)**: [[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]]
+- **YouTube tutorials**: [[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]]
+- **Roblox Wiki**: [[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]]
+- **Roblox Ads Manager**: [[2026-02-04 - How to make an ad campaign with Roblox Ads Manager|How to make an ad campaign with Roblox Ads Manager]]
+- **Roblox Creator Hub Ads Manager**: [[2026-03-06 - How to ACTUALLY Advertise Your Roblox Game|How to ACTUALLY Advertise Your Roblox Game]]
+- **Photopea**: [[2026-04-25 - How to ACTUALLY Make High CTR Roblox Thumbnails|How to ACTUALLY Make High CTR Roblox Thumbnails]]
+- **RoVis**: [[2026-04-25 - How to ACTUALLY Make High CTR Roblox Thumbnails|How to ACTUALLY Make High CTR Roblox Thumbnails]]
+- **Google image search**: [[2026-04-25 - How to ACTUALLY Make High CTR Roblox Thumbnails|How to ACTUALLY Make High CTR Roblox Thumbnails]]
+- **Online background remover**: [[2026-04-25 - How to ACTUALLY Make High CTR Roblox Thumbnails|How to ACTUALLY Make High CTR Roblox Thumbnails]]
+- **Snipping tool**: [[2026-04-25 - How to ACTUALLY Make High CTR Roblox Thumbnails|How to ACTUALLY Make High CTR Roblox Thumbnails]]
+- **Creator Analytics experimentation tool**: [[2026-06-18 - Recommended for you algorithm Q&A|Recommended for you algorithm Q&A]]
+- **Team Test**: [[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]]
+- **Avatar auto setup**: [[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]]
+- **Prompt to Avatar**: [[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]]
+- **Studio 3D/texture generation**: [[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]]
+- **Character Controller Library (CCL)**: [[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]]
+- **Slim**: [[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]]
+- **Custom invisible ghost-observer script (hides creator from leaderboard)**: [[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]]
+- **Feedback window (in-game)**: [[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]]
+- **Server authority visualizer (Ctrl+Shift+F6)**: [[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]]
+- **Studio network simulation**: [[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]]
+- **Attributes**: [[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]]
+- **Input actions**: [[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]]
+- **ValueBase objects**: [[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]]
+- **CCL (character controller library)**: [[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]]
+- **Creator Dashboard (home recommendations tab, acquisition page)**: [[2026-10-12 - What Drives Discovery Understanding the Algorithm RDC 2026|What Drives Discovery: Understanding the Algorithm]]
+- **Roblox experiments (A/B tests)**: [[2026-10-12 - What Drives Discovery Understanding the Algorithm RDC 2026|What Drives Discovery: Understanding the Algorithm]]
+- **Roblox real-time performance alerts**: [[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]]
+- **Roblox error reports (version filter)**: [[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]]
+- **Roblox experiments with harm detection**: [[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]]
+- **Roblox custom dashboards and calculated metrics**: [[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]]
+- **Roblox microprofiler API**: [[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]]
+- **Roblox Open Cloud APIs**: [[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]]
+- **Roblox game server logs**: [[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]]
+- **Doobig in-house analytics SDK, alerts, server list, log requests, A/B pipeline, AI query assistant**: [[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]]
+- **Studio plugin (rewarded video templates)**: [[2026-10-12 - Mastering Monetization Lessons from Top Creators RDC 2026|Mastering Monetization: Lessons from Top Creators ]]
+- **Earnings objective (ROAS)**: [[2026-10-12 - Mastering Monetization Lessons from Top Creators RDC 2026|Mastering Monetization: Lessons from Top Creators ]]
+- **Personalized shops**: [[2026-10-12 - Mastering Monetization Lessons from Top Creators RDC 2026|Mastering Monetization: Lessons from Top Creators ]]
+- **Unified attribution**: [[2026-10-12 - Mastering Monetization Lessons from Top Creators RDC 2026|Mastering Monetization: Lessons from Top Creators ]]
+- **Quick Words**: [[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]]
+- **Native friend and global leaderboards**: [[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]]
+- **Community page announcements and polls**: [[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]]
+- **Community analytics**: [[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]]
+- **Player support (beta)**: [[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]]
+- **Friends chat**: [[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]]
+- **Voice calling**: [[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]]
+- **Rights Manager**: [[2026-10-12 - Monetizing Intellectual Property RDC 2026|Monetizing Intellectual Property | RDC 2026]]
+- **Roblox AI MCP automated testing tools**: [[2026-10-12 - How to Design, Grow, and Retain an 18+ Player Base on Roblox RDC 2026|How to Design, Grow, and Retain an 18+ Player Base]]
+
+## Points viewers to (candidates for further study)
+- GDC talk on zero-dollar marketing for indie studios ([[2021-07-16 - Designing Game Expansions with AbstractAlex, Usering & ImprobableAI|Designing Game Expansions with AbstractAlex, Useri]])
+- Level Up workshop series (Roblox) ([[2021-09-16 - Designing Season Passes with Dspav and BreakfastCandy|Designing Season Passes with Dspav and BreakfastCa]])
+- Dan's earlier workshop on game expansions ([[2021-09-16 - Designing Season Passes with Dspav and BreakfastCandy|Designing Season Passes with Dspav and BreakfastCa]])
+- Dan's earlier economy design talks ([[2021-09-16 - Designing Season Passes with Dspav and BreakfastCandy|Designing Season Passes with Dspav and BreakfastCa]])
+- Community-supported Jailbreak wiki ([[2021-12-01 - Live Ops with the Notorious Creators of Jailbreak RDC 2021|Live Ops with the Notorious Creators of Jailbreak ]])
+- Roblox Game Insights level up workshop part two (progression), coming next week ([[2021-12-03 - Designing Player Goals|Designing Player Goals]])
+- Richard Bartle's player types model (1996) ([[2021-12-03 - Designing Player Goals|Designing Player Goals]])
+- Dan's Season Pass Workshop (Roblox Developer Relations YouTube channel) ([[2021-12-09 - Designing Player Progression|Designing Player Progression]])
+- Roblox Developer Relations 'Level Up' channel ([[2022-01-13 - LiveOps on Roblox with Ruddev_Ethan and x_o|LiveOps on Roblox with Ruddev_Ethan and x_o]])
+- Level Up (Roblox developer education channel) ([[2022-02-24 - Analytics Essentials|Analytics Essentials]])
+- Honey the Unicorn (YouTuber) ([[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]])
+- Megan Plays (YouTuber) ([[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]])
+- Mini Tune (Piggy developer) ([[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]])
+- Asimo3089 (Jailbreak developer) ([[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]])
+- Rousseau Plays (YouTuber) ([[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]])
+- Roblox Developer Relations Level Up series ([[2022-05-05 - Designing For Youtube Engagement with KreekCraft, WonderWorksZach & Jo|Designing For Youtube Engagement with KreekCraft, ]])
+- Roblox Level Up YouTube channel (part two Q&A) ([[2023-01-19 - Monetizing a Roblox Experience with Erythia, MrFergie & Shawnyg|Monetizing a Roblox Experience with Erythia, MrFer]])
+- Mimi Dev (quoted on subscriptions demand) ([[2023-09-19 - Future of the Roblox Creator Economy RDC23|Future of the Roblox Creator Economy | RDC23]])
+- Roblox RDC23 session 'How to Use Analytics to Grow and Monetize Your Experience' ([[2023-09-19 - How to Use Analytics to Grow and Monetize Your Experience RDC23|How to Use Analytics to Grow and Monetize Your Exp]])
+- Video Stars program (Roblox) ([[2023-09-19 - Promoting Your Experience With Content Creators RDC23|Promoting Your Experience With Content Creators | ]])
+- Tick Tok ([[2023-09-19 - Promoting Your Experience With Content Creators RDC23|Promoting Your Experience With Content Creators | ]])
+- YouTube Shorts ([[2023-09-19 - Promoting Your Experience With Content Creators RDC23|Promoting Your Experience With Content Creators | ]])
+- Venomous Wolf (creator of Animal Life Forest Roleplay) ([[2023-09-19 - Discovery on Roblox Innovations to Grow Your Experience RDC23|Discovery on Roblox: Innovations to Grow Your Expe]])
+- IAB viewability standard ([[2023-09-19 - Immersive Ads Best Practices and Learnings RDC23|Immersive Ads: Best Practices and Learnings | RDC2]])
+- Roblox Search and Discovery booth at RDC ([[2023-09-19 - Navigating the Difference Between Roblox and Mobile Free-to-Play RDC23|Navigating the Difference Between Roblox and Mobil]])
+- Roblox Creator Analytics economy and funnel docs ([[2024-07-24 - Tracking funnel and economy events on Roblox|Tracking funnel and economy events on Roblox]])
+- RDC 2024 analytics panel (session referenced at 215) ([[2024-09-23 - Finding Success with your LiveOps Strategy RDC 2024|Finding Success with your LiveOps Strategy | RDC 2]])
+- RDC email contact for Paradox live ops team ([[2024-09-23 - Finding Success with your LiveOps Strategy RDC 2024|Finding Success with your LiveOps Strategy | RDC 2]])
+- Roblox RDC 2024 keynote ([[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]])
+- Audience Estimator ([[2024-09-23 - Scale Your Business on Roblox RDC 2024|Scale Your Business on Roblox | RDC 2024]])
+- Roblox RDC 2024 talks ([[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]])
+- Liftopia ([[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]])
+- Dress to Impress ([[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]])
+- On Tap ([[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]])
+- Neighbors ([[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]])
+- Lethal Company ([[2024-09-23 - The Power of Social Unlock More Engagement in Your Experiences RDC 202|The Power of Social: Unlock More Engagement in You]])
+- RDC 2024 (Roblox Developers Conference) ([[2024-09-23 - Using Analytics to Grow and Improve Your Experience RDC 2024|Using Analytics to Grow and Improve Your Experienc]])
+- Big Mac index (pricing analogy) ([[2024-09-23 - Building for International Markets RDC 2024|Building for International Markets | RDC 2024]])
+- Roblox Talent Hub (commission jobs) ([[2024-10-12 - Here's how I made 2.3M Robux in 3 days of work|Here's how I made 2.3M Robux in 3 days of work]])
+- Hidden Devs Discord server (hiring and help channels) ([[2024-10-12 - Here's how I made 2.3M Robux in 3 days of work|Here's how I made 2.3M Robux in 3 days of work]])
+- Forthcoming DevForum post on thumbnail personalization ([[2024-11-13 - Thumbnail Personalization on Roblox|Thumbnail Personalization on Roblox]])
+- Sunno (AI music generation startup, metadata-driven recommendation example) ([[2025-04-16 - Tech Talks EP25 Discovery|Tech Talks EP25: Discovery]])
+- Roblox DevForum post on Ads Manager upgrades ([[2025-06-09 - How to grow your experience with Roblox Ads Manager|How to grow your experience with Roblox Ads Manage]])
+- Roblox DevForum post on Recommended For You changes (March 31) ([[2025-06-09 - How to grow your experience with Roblox Ads Manager|How to grow your experience with Roblox Ads Manage]])
+- Speaker's Substack essay on the strategy-first developer mindset (linked in description) ([[2025-07-09 - Why Steal A Games and Cashgrabs Are So Successful Game Design Secrets|Why "Steal A" Games and "Cashgrabs" Are So Success]])
+- Scripting Secrets (channel's own community, promotional) ([[2025-07-11 - Roblox Player Psychology EXPOSED Maslow’s Hierarchy of Needs|Roblox Player Psychology EXPOSED: Maslow’s Hierarc]])
+- Speaker's previous tooling tutorial (Rojo/VS Code/Wally) ([[2025-08-29 - How PRO Devs Set Up Roblox Games|How PRO Devs Set Up Roblox Games]])
+- Scripting Secrets (channel course) ([[2025-09-09 - How To Build a Business On Roblox|How To Build a Business On Roblox]])
+- Video on why devs lose motivation and burnout ([[2025-09-09 - How To Build a Business On Roblox|How To Build a Business On Roblox]])
+- Row Monitor (brand game/hub tracker) ([[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]])
+- Geek report on brand usage of platforms ([[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]])
+- Deconstructor of Fun Slack community ([[2025-09-10 - Inside RDC 2025 How Roblox Is Courting Pro Developer|Inside RDC 2025: How Roblox Is Courting Pro Develo]])
+- US Copyright Office registration guide ([[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]])
+- USPTO trademark registration guide ([[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]])
+- Roblox Community Standards ([[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]])
+- Digital Millennium Copyright Act (DMCA) ([[2025-09-26 - Unlocking Fandoms Evolution of Intellectual Property on Roblox RDC 202|Unlocking Fandoms: Evolution of Intellectual Prope]])
+- Roblox documentation on discovery signals ([[2025-09-26 - The Science of Game Discovery What Works RDC 2025|The Science of Game Discovery: What Works | RDC 20]])
+- Roblox creator analytics ([[2025-09-26 - The Science of Game Discovery What Works RDC 2025|The Science of Game Discovery: What Works | RDC 20]])
+- RDC 2025 funnel analysis talk (prior year) ([[2025-09-26 - How Top Studios Use Analytics and Experimentation to Grow RDC 2025|How Top Studios Use Analytics and Experimentation ]])
+- Roblox developer forum post on item-level price optimization ([[2025-09-26 - Mastering Monetization Turning Creativity into Revenue RDC 2025|Mastering Monetization: Turning Creativity into Re]])
+- Bemmy Blocks YouTube video on Spongebob TD ([[2025-09-26 - Mastering Monetization Turning Creativity into Revenue RDC 2025|Mastering Monetization: Turning Creativity into Re]])
+- RDC 2025 device lab and creation support area ([[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]])
+- QR code demo experience shown at end of talk ([[2025-09-26 - Reach Every Player Optimizing for Cross-Platform RDC 2025|Reach Every Player: Optimizing for Cross-Platform ]])
+- RDC 2024 Using Roblox Tools to Improve Performance ([[2025-09-26 - Top Game Performance Tales RDC 2025|Top Game Performance Tales | RDC 2025]])
+- Roblox Creator Hub ([[2025-09-26 - Top Game Performance Tales RDC 2025|Top Game Performance Tales | RDC 2025]])
+- Roblox DevForum ([[2025-09-26 - Top Game Performance Tales RDC 2025|Top Game Performance Tales | RDC 2025]])
+- Roblox developer forum server authority early access announcement ([[2025-09-26 - Building Competitive Games RDC 2025|Building Competitive Games | RDC 2025]])
+- Snowshoveling simulator (trend reference) ([[2025-09-26 - The Retention Playbook Turning Players into Fans RDC 2025|The Retention Playbook: Turning Players into Fans ]])
+- Nextbots (trend reference) ([[2025-09-26 - The Retention Playbook Turning Players into Fans RDC 2025|The Retention Playbook: Turning Players into Fans ]])
+- Roblox DevForum post on ads within RFY sort ([[2025-10-30 - How Home Recommendations & Ads Actually Work|How Home Recommendations & Ads Actually Work]])
+- create.roblox.com/docs/production/configs ([[2025-12-01 - How to use Configs and Experimentation to grow your game faster|How to use Configs and Experimentation to grow you]])
+- create.roblox.com/docs/production/experiments ([[2025-12-01 - How to use Configs and Experimentation to grow your game faster|How to use Configs and Experimentation to grow you]])
+- Unequip (Survivor Week in the Woods) ([[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]])
+- Dusty Trip (origin of sack mechanic) ([[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]])
+- Dead Rails ([[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]])
+- Doors ([[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]])
+- Work at a Pizza Place ([[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]])
+- Roblox Developer Conference (RDC) ([[2025-12-21 - Cracky4 Reveals The Secrets Of Being A Top Roblox Developer Interview|Cracky4 Reveals The Secrets Of Being A Top Roblox ]])
+- Manhunt (creator's link in description, not a tool) ([[2026-01-05 - How I made a FRONT PAGE game in 30 Days!|How I made a FRONT PAGE game in 30 Days!]])
+- Ads Manager link in video description ([[2026-02-04 - How to make an ad campaign with Roblox Ads Manager|How to make an ad campaign with Roblox Ads Manager]])
+- Links to tools in video description (not specified) ([[2026-04-25 - How to ACTUALLY Make High CTR Roblox Thumbnails|How to ACTUALLY Make High CTR Roblox Thumbnails]])
+- Creek (Creators on the Blox episode) ([[2026-06-05 - Jailbreak Creator, Asimo, Talks the State of the Platform Creators on|"Jailbreak" Creator, Asimo, Talks the State of the]])
+- Shaletski (Discord contact for Ready Player One event) ([[2026-06-05 - Jailbreak Creator, Asimo, Talks the State of the Platform Creators on|"Jailbreak" Creator, Asimo, Talks the State of the]])
+- Elite Builders of Robloxia (group) ([[2026-06-05 - Jailbreak Creator, Asimo, Talks the State of the Platform Creators on|"Jailbreak" Creator, Asimo, Talks the State of the]])
+- Wood Reviewer (a Roblox creator) ([[2026-06-05 - Jailbreak Creator, Asimo, Talks the State of the Platform Creators on|"Jailbreak" Creator, Asimo, Talks the State of the]])
+- Creators on the Blox podcast ([[2026-06-05 - Jailbreak Creator, Asimo, Talks the State of the Platform Creators on|"Jailbreak" Creator, Asimo, Talks the State of the]])
+- Roblox DevForum algorithm update post ([[2026-06-18 - Recommended for you algorithm Q&A|Recommended for you algorithm Q&A]])
+- Creator Analytics documentation link (top of dashboard) ([[2026-06-18 - Recommended for you algorithm Q&A|Recommended for you algorithm Q&A]])
+- Roblox dev forum (feature/roadmap posts) ([[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]])
+- Analytics breakout session (tomorrow 10:30) ([[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]])
+- Inspire program ([[2026-09-17 - Creator Keynote RDC 2026|Creator Keynote | RDC 2026]])
+- Tower of Hell ([[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]])
+- Dead Rails ([[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]])
+- Survival Week in the Woods ([[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]])
+- DeadRouse ([[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]])
+- Grow a Garden ([[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]])
+- Illegal Soccer ([[2026-09-30 - They built 99 Nights in 3 months… it blew up overnight Made on Roblox|They built 99 Nights in 3 months… it blew up overn]])
+- Creator support booth / engine booth (Q&A) ([[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]])
+- Ask me about net code shirt (Brian/Drew) ([[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]])
+- QR code for slides and code ([[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]])
+- Upcoming studio build skill for best-practice code review ([[2026-10-12 - Mastering Server Authority to Build Competitive Multiplayer Games RDC|Mastering Server Authority to Build Competitive Mu]])
+- Roblox forum posts on algorithm experiments ([[2026-10-12 - What Drives Discovery Understanding the Algorithm RDC 2026|What Drives Discovery: Understanding the Algorithm]])
+- Evan's (Turning Tables) Twitter posts on portfolio data ([[2026-10-12 - What Drives Discovery Understanding the Algorithm RDC 2026|What Drives Discovery: Understanding the Algorithm]])
+- Roblox RDC 2026 keynote (multiplayer testing tools, NPCs) ([[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]])
+- New player data APIs with schemas (announced at RDC 2026) ([[2026-10-12 - Analytics Spot Performance Issues Before Players Do RDC 2026|Analytics: Spot Performance Issues Before Players ]])
+- RDC 2026 booths and creator ads/monetisation workshops ([[2026-10-12 - Mastering Monetization Lessons from Top Creators RDC 2026|Mastering Monetization: Lessons from Top Creators ]])
+- Roblox social team presentation at RDC 2026 ([[2026-10-12 - Build Games That Bring Players Together RDC 2026|Build Games That Bring Players Together | RDC 2026]])
+- Kodansha IP slate (Fairy Tail, Knights of Sidonia, Ghost in the Shell encyclopedia) ([[2026-10-12 - Monetizing Intellectual Property RDC 2026|Monetizing Intellectual Property | RDC 2026]])
+- Sting licensed music asset pack (coming soon) ([[2026-10-12 - Monetizing Intellectual Property RDC 2026|Monetizing Intellectual Property | RDC 2026]])
+- Final Fantasy ([[2026-10-12 - Deep Systems, Deep Engagement Building Complex RPG Mechanics RDC 2026|Deep Systems, Deep Engagement: Building Complex RP]])
+- World of Warcraft ([[2026-10-12 - Deep Systems, Deep Engagement Building Complex RPG Mechanics RDC 2026|Deep Systems, Deep Engagement: Building Complex RP]])
+- Rift ([[2026-10-12 - Deep Systems, Deep Engagement Building Complex RPG Mechanics RDC 2026|Deep Systems, Deep Engagement: Building Complex RP]])
+- John Wick (film, cinematic realism example) ([[2026-10-12 - Deep Systems, Deep Engagement Building Complex RPG Mechanics RDC 2026|Deep Systems, Deep Engagement: Building Complex RP]])
+- Jamie Gryworth (YouTube), 30 seconds of fun concept ([[2026-10-12 - How to Design, Grow, and Retain an 18+ Player Base on Roblox RDC 2026|How to Design, Grow, and Retain an 18+ Player Base]])
+- The Fourth Curtain podcast (Alex Seropian) ([[2026-10-12 - How to Design, Grow, and Retain an 18+ Player Base on Roblox RDC 2026|How to Design, Grow, and Retain an 18+ Player Base]])

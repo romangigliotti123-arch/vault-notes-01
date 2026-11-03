@@ -1,0 +1,1203 @@
+---
+title: Mindset And Strategy
+topic: mindset-and-strategy
+theme: Mindset & Process
+sources: 300 videos
+creators: [#7Phantom, 1Coal, 1_Bruce, Alex Builds Games, AlexDev, AlvinBlox, ArTheDev, Arow, B Ricey, Britt Drake, Business of Creators, ByteBlox, CallMeDogey, Creators on the Blox, Crusherfire, Daiorg, Deconstructor of Fun, DitchyDevelopments, Duckable, Emancyphur, Erthlord, GameMakers, GamesBeat, Generalist Programmer, GnomeCode, ItsZyonic, Last Level Studios, Leif, Lnor Roblox, LovJak, Matt The Method, MonarchDev, MoseyTube, Perstile, PineappleDev, Player.One, Poke, PolarBear, Quez, Raul, RoWatcher (tracker blog), Roblox, Roblox Creator Docs, Roblox Creators, Roblox DevForum, RoyalDev, SmartyRBX, Stewiepfing, StudioKrew (agency blog, GGAID data), Suphi Kaner, TheDankDeveloper, TheDevKing, ThePurpleGuy, Tizzy, Tubefilter, VuukStudios, Xaiyne, Yann, bubDEV, janisjanis01, kra_DeZ, rasdev, waveshine, {EISABOOS} "RBX"]
+source_dates: 2018-05-01 to 2026-10-30
+tags: [roblox, knowledge-base, mindset-and-strategy]
+---
+
+# Mindset And Strategy
+
+_attitude, consistency, portfolio approach, expectations, big-picture strategy._
+
+Evidence base: 634 extracted items from 300 videos by #7Phantom, 1Coal, 1_Bruce, Alex Builds Games, AlexDev, AlvinBlox, ArTheDev, Arow, B Ricey, Britt Drake, Business of Creators, ByteBlox, CallMeDogey, Creators on the Blox, Crusherfire, Daiorg, Deconstructor of Fun, DitchyDevelopments, Duckable, Emancyphur, Erthlord, GameMakers, GamesBeat, Generalist Programmer, GnomeCode, ItsZyonic, Last Level Studios, Leif, Lnor Roblox, LovJak, Matt The Method, MonarchDev, MoseyTube, Perstile, PineappleDev, Player.One, Poke, PolarBear, Quez, Raul, RoWatcher (tracker blog), Roblox, Roblox Creator Docs, Roblox Creators, Roblox DevForum, RoyalDev, SmartyRBX, Stewiepfing, StudioKrew (agency blog, GGAID data), Suphi Kaner, TheDankDeveloper, TheDevKing, ThePurpleGuy, Tizzy, Tubefilter, VuukStudios, Xaiyne, Yann, bubDEV, janisjanis01, kra_DeZ, rasdev, waveshine, {EISABOOS} "RBX" (2018-05-01 to 2026-10-30). Roblox changes quickly: check the date on each source and see Date context below.
+
+## Overview
+Creators (mostly self-reported indie developers, plus Roblox DevForum and Creator Docs) converge on: expect most releases to fail, ship many, diagnose each outcome, and persist. Newer 2026 advice shifts the picture. It favours cutting a game after about 14 days of fixes without algorithm pickup, expects hits to last 1-2 months, prioritises longevity over peak CCU, and aims for top-tier scale with staged CCU targets. This partly conflicts with older "realistic CCU target" and "focus on one game" guidance. Earnings are near zero until recommendations or traction arrive. Work efficiently, build repeatedly, ask precise questions, find a mentor, and save a budget before funding. Treat all specific figures as individual creator claims.
+
+## Rules and findings
+- **Expect your first games to flop and keep shipping** (multiple-creators): First games are usually bad and get no players; hits tend to come after several releases. Treat each flop as learning, not a verdict on you. Top devs are distinguished by never quitting. Officially, only about 1-1.5 of a room's hands were up for a first-page hit on a first attempt. Sources: [AlvinBlox 2021-01 6:32](https://youtu.be/fivk8yp-VT4?t=392), [AlvinBlox 2021-01 6:32](https://youtu.be/fivk8yp-VT4?t=392), [Roblox Creators 2021-11 1:06:56](https://youtu.be/rVr0IyfYkPg?t=4016), [SmartyRBX 2023-02 2:35](https://youtu.be/rdWyuDEpGyk?t=155), [SmartyRBX 2023-02 2:35](https://youtu.be/rdWyuDEpGyk?t=155). Newest source 2026-10-11.
+- **Favor volume: many simple games over one big bet** (multiple-creators): Ten simple games in a year beat one risky game taking a year. More titles raises the odds one takes off. Tizzy: 'Volume, volume, volume.' Avoid spending years on a complex dream game before shipping. Sources: [AlvinBlox 2025-04 6:37](https://youtu.be/f63stwpsaXw?t=397), [SmartyRBX 2025-06 14:22](https://youtu.be/tpVRSnWwZWI?t=862), [MoseyTube 2026-05 2:44](https://youtu.be/JG37MoDpOTw?t=164), [Tizzy 2026-07 17:42](https://youtu.be/LZOohZHsJus?t=1062), [SmartyRBX 2025-07 5:48](https://youtu.be/vBllyv2fnWw?t=348). Newest source 2026-07-20.
+- **Don't go all-in on one project or one role when unknown** (multiple-creators): If you are unknown with no budget, build passion projects and commissions to grow skills and connections instead. Pick a role (solo, team, freelancer) but know it can change; a failed attempt is something to learn from and repeat. Sources: [AlvinBlox 2025-06 9:48](https://youtu.be/Y93DRfB-Deo?t=588), [Roblox 2018-07 3:27](https://youtu.be/NmyzbBbrBS4?t=207), [Roblox 2018-07 8:58](https://youtu.be/NmyzbBbrBS4?t=538), [Roblox 2018-07 8:58](https://youtu.be/NmyzbBbrBS4?t=538). Newest source 2025-06-07.
+- **Build discipline, not reliance on motivation** (multiple-creators): Motivation comes and goes; do what you say you'll do. Even 5 minutes when you don't feel like it builds momentum, and building 30 minutes daily improves you quickly. Give collaborators clear examples and direction instead of relying on motivation. Sources: [SmartyRBX 2024-12 4:06](https://youtu.be/_-LugzuCA38?t=246), [SmartyRBX 2024-12 4:06](https://youtu.be/_-LugzuCA38?t=246), [SmartyRBX 2024-12 4:48](https://youtu.be/_-LugzuCA38?t=288), [Tizzy 2026-09 5:41](https://youtu.be/E_tVm3bc5Xo?t=341), [Tizzy 2026-09 5:41](https://youtu.be/E_tVm3bc5Xo?t=341). Newest source 2026-09-14.
+- **Protect your health and take breaks before burnout** (multiple-creators): Look after yourself before your community. Dread about a game hurts quality. A rested team returned more productive and the game survived a break because of its foundation. Walks help when stuck. When burnt out, switch to a different enjoyable project. Keep the project fun or you will quit. Sources: [Roblox Creators 2021-12 21:29](https://youtu.be/wrf6DRlfoO8?t=1289), [Roblox Creators 2021-12 22:10](https://youtu.be/wrf6DRlfoO8?t=1330), [Roblox 2023-09 22:12](https://youtu.be/9eaev-ypgWo?t=1332), [Roblox Creators 2026-09 36:43](https://youtu.be/hohwBQGQO7c?t=2203), [Roblox Creators 2026-09 42:48](https://youtu.be/hohwBQGQO7c?t=2568). Newest source 2026-09-30.
+- **Don't let stats or fan attention control your mood** (multiple-creators): Daily player counts and momentum are fragile and obsessing erodes self-worth. Limit social media since it makes criticism feel personal; separate critique from the person. Don't let audience size raise pressure, and avoid over-caring about fan and celebrity attention. Sources: [waveshine 2025-08 5:34](https://youtu.be/xnlaYLnCtFc?t=334), [waveshine 2025-08 5:34](https://youtu.be/xnlaYLnCtFc?t=334), [Creators on the Blox 2026-06 55:04](https://youtu.be/5vJCBrxPHmY?t=3304), [Creators on the Blox 2025-11 47:04](https://youtu.be/Qn0uVUSxG8I?t=2824), [Creators on the Blox 2025-11 29:13](https://youtu.be/f9BmInLHotA?t=1753). Newest source 2026-09-14.
+- **Make low-stakes releases by building an audience** (single-mention): Creators on the Blox reports no burnout since 2024 once an audience expected his output. Keep working on current output without raising stakes. Sources: [Creators on the Blox 2025-10 1:08:51](https://youtu.be/WODeLtB2YH4?t=4131), [Creators on the Blox 2025-10 1:08:51](https://youtu.be/WODeLtB2YH4?t=4131), [Creators on the Blox 2025-11 29:13](https://youtu.be/f9BmInLHotA?t=1753). Newest source 2025-11-02.
+- **Take responsibility for results and diagnose** (multiple-creators): When metrics are bad, ask what you did wrong or can improve in yourself rather than blaming players, algorithm, devs or saturation. Separate ego from the game, read feedback, run experiments. If a path fails (zero commissions), diagnose (e.g. weak promotion) before switching. Tizzy calls excuses 'copium'. Sources: [SmartyRBX 2025-07 2:11](https://youtu.be/exOJsFcer1Q?t=131), [waveshine 2025-08 6:36](https://youtu.be/xnlaYLnCtFc?t=396), [Tizzy 2026-09 10:08](https://youtu.be/E_tVm3bc5Xo?t=608), [Tizzy 2026-07 9:17](https://youtu.be/EZzztgpSaTU?t=557), [SmartyRBX 2025-06 17:07](https://youtu.be/tpVRSnWwZWI?t=1027). Newest source 2026-09-14.
+- **Think like a business owner / CEO guiding the artist** (one-creator-repeated): SmartyRBX: treat games as products meeting market needs, set tangible goals (earnings, players), plan a career timeline, use strategy for concept and marketing and passion for components (models, assets, UI). Build with the market in mind or it ignores you. He says 99% of devs should not follow passion first (unverified claim). Sources: [SmartyRBX 2025-03 0:26](https://youtu.be/_wqZyaTEsHQ?t=26), [SmartyRBX 2025-06 21:47](https://youtu.be/tpVRSnWwZWI?t=1307), [SmartyRBX 2025-06 25:54](https://youtu.be/skcp4P68i84?t=1554), [SmartyRBX 2025-06 10:52](https://youtu.be/MAnvGNgBKgQ?t=652), [SmartyRBX 2025-06 13:39](https://youtu.be/MAnvGNgBKgQ?t=819). Newest source 2025-07-21.
+- **Study successful games objectively rather than dismissing them** (multiple-creators): Play trending games like Grow a Garden, take notes on what they do right and why wins happened (player desire, simple fun) instead of calling them cash grabs or luck. Also learn from other Roblox games and find what they miss, building on it rather than copying. Still launch your own games; theory alone isn't enough. Sources: [SmartyRBX 2025-06 18:10](https://youtu.be/Lplz7ZFcKlQ?t=1090), [SmartyRBX 2025-06 17:06](https://youtu.be/MAnvGNgBKgQ?t=1026), [SmartyRBX 2025-07 4:47](https://youtu.be/vBllyv2fnWw?t=287), [SmartyRBX 2025-07 11:15](https://youtu.be/ddfqOQ7H_h8?t=675), [SmartyRBX 2025-06 17:29](https://youtu.be/Lplz7ZFcKlQ?t=1049). Newest source 2026-06-05.
+- **Move beyond commissions with a deliberate income ladder** (multiple-creators): Commissions trade time for money and cap income. Progress commissions, then assets and games to sell, then original projects once funded. Monetize simple games and reinvest into hiring scripters, builders, modelers, UI designers. Start small hires to learn project management first. Tizzy: 'Use slop, stack cash, then passion projects.' Sources: [AlvinBlox 2025-03 8:31](https://youtu.be/dtRGRx-2WNg?t=511), [SmartyRBX 2025-06 2:24](https://youtu.be/BMS5iYw_8Vk?t=144), [SmartyRBX 2025-06 2:24](https://youtu.be/BMS5iYw_8Vk?t=144), [SmartyRBX 2025-09 1:05](https://youtu.be/ysqeKxPqBXA?t=65), [SmartyRBX 2025-09 1:05](https://youtu.be/ysqeKxPqBXA?t=65). Newest source 2026-10-14.
+- **Make games you personally enjoy and care about** (multiple-creators): Passion sustains years of updates; build only what you'd play yourself. Hits came from games creators loved. Motivation should come from caring, not money alone. Keep the 'soul' in your game. Opposing view from SmartyRBX: strategy before passion. Sources: [AlvinBlox 2021-01 9:00](https://youtu.be/fivk8yp-VT4?t=540), [AlvinBlox 2025-04 2:31](https://youtu.be/Le4QhC3dDGk?t=151), [AlvinBlox 2025-04 2:31](https://youtu.be/Le4QhC3dDGk?t=151), [Creators on the Blox 2025-12 34:00](https://youtu.be/LyJ04iE6K1M?t=2040), [Daiorg 2025-12 25:54](https://youtu.be/JCMIb008Y6E?t=1554). Newest source 2026-10-12.
+- **Scope to current skill; learn core skills** (multiple-creators): Keep big goals but scope the first game to your skill. Learn scripting to finish full games rather than only maps; Daiorg says top games are made by people who can code. AI doesn't remove need for design knowledge; AI-generated games without skill investment are unlikely to hit; vibe-coding doesn't reliably blow up. Sources: [SmartyRBX 2025-06 1:06](https://youtu.be/MAnvGNgBKgQ?t=66), [SmartyRBX 2025-06 3:09](https://youtu.be/MAnvGNgBKgQ?t=189), [SmartyRBX 2025-06 24:41](https://youtu.be/tpVRSnWwZWI?t=1481), [Daiorg 2025-12 1:08](https://youtu.be/JCMIb008Y6E?t=68), [MoseyTube 2026-07 3:26](https://youtu.be/1Oicl2fFt3o?t=206). Newest source 2026-10-13.
+- **Plan realistic learning time and expectations** (multiple-creators): Expect weeks to years of learning; waveshine estimates 1-2 weeks of Studio practice before commissions and ~2 months before a gimmick game (his estimate). Progress takes years; success isn't overnight. Treat scripting as a hobby while learning so it stays enjoyable. Sources: [waveshine 2024-10 2:54](https://youtu.be/zW0VdnOqxMk?t=174), [waveshine 2025-08 0:54](https://youtu.be/xnlaYLnCtFc?t=54), [TheDankDeveloper 2023-10 0:00](https://youtu.be/DJsRZ2FfoMk?t=0), [SmartyRBX 2023-01 1:31](https://youtu.be/DOMuVNlHv8Y?t=91), [AlvinBlox 2021-01 5:22](https://youtu.be/fivk8yp-VT4?t=322). Newest source 2025-08-04.
+- **Set small milestones and realistic CCU targets** (multiple-creators): Celebrate 10, then 50, then 100 players. Tizzy: a ~20% change to a proven genre targets 1-5K, maybe 10K CCU; 100K needs stacked innovations. His claim that five traits make 10K likely is unsupported. SmartyRBX says ~200 players can earn a living (unverified); Creators on the Blox says top-1000 is now viable vs top-10 in 2016. Sources: [AlvinBlox 2025-04 8:03](https://youtu.be/f63stwpsaXw?t=483), [AlvinBlox 2025-04 7:21](https://youtu.be/f63stwpsaXw?t=441), [Tizzy 2026-09 15:42](https://youtu.be/CRCcsYEB_6A?t=942), [Tizzy 2026-07 18:34](https://youtu.be/FnsIL4zPCQg?t=1114), [SmartyRBX 2025-06 15:44](https://youtu.be/tpVRSnWwZWI?t=944). Newest source 2026-09-23.
+- **Be patient with results, but cut losses on dead projects** (multiple-creators): Some games or items take a week or months to take off; growth can lag campaigns (Spin or Die ~4 months after ads). But MoseyTube says reconsider a game if the algorithm hasn't picked it up by day 14, and kra_DeZ says move on instead of pouring years and earnings into it. Sources: [Roblox Creators 2021-11 1:06:56](https://youtu.be/rVr0IyfYkPg?t=4016), [Roblox Creators 2025-04 7:21](https://youtu.be/Zb1BJow0NV4?t=441), [AlvinBlox 2025-04 7:21](https://youtu.be/f63stwpsaXw?t=441), [kra_DeZ 2026-10 14:56](https://youtu.be/lrubtajkaeI?t=896), [kra_DeZ 2026-10 14:56](https://youtu.be/lrubtajkaeI?t=896). Newest source 2026-10-20.
+- **Go for sustained retention and long-term updates, not spikes** (multiple-creators): A game stabilizing at a few hundred CCU that retains beats a two-week spike. Don't abandon a taking-off game (Yeucc regrets stopping The Sun Experiment). Game development is a marathon, except trend games. Think years ahead. Plan multiple reasons to stay, return and spend. Sources: [MoseyTube 2026-05 2:44](https://youtu.be/JG37MoDpOTw?t=164), [Creators on the Blox 2025-10 46:57](https://youtu.be/XtWTnz56ZpM?t=2817), [Creators on the Blox 2025-10 46:57](https://youtu.be/XtWTnz56ZpM?t=2817), [ItsZyonic 2026-01 6:53](https://youtu.be/4-ge-E9WvM4?t=413), [ItsZyonic 2026-01 7:34](https://youtu.be/4-ge-E9WvM4?t=454). Newest source 2026-07-24.
+- **Prioritize engagement, then monetization, then acquisition** (multiple-creators): Official: retention is the base; acquisition without it is a leaky bucket. Monetization follows engaged players. 10 users spending 100 Robux beats one user spending 1,000 for long-term retention and discovery. Sources: [Roblox 2024-09 26:44](https://youtu.be/QC6XWgJRJEM?t=1604), [Roblox 2024-09 26:44](https://youtu.be/QC6XWgJRJEM?t=1604), [Roblox 2026-10 24:03](https://youtu.be/hoMbv_R8AMU?t=1443), [Roblox 2025-09 22:36](https://youtu.be/MJ-zYfL10Ew?t=1356), [Roblox 2025-09 22:36](https://youtu.be/MJ-zYfL10Ew?t=1356). Newest source 2026-10-12.
+- **Plan promotion and an owned audience** (multiple-creators): A released game without promotion won't get players. Fun games can snowball from friends' servers and promotion, without heavy Robux spend. Spread across platforms and build a studio brand. Don't chase trends only for views; build a recognizable identity and own a reachable community. Sources: [SmartyRBX 2023-10 26:32](https://youtu.be/vemqKJ-5yRE?t=1592), [AlvinBlox 2025-04 4:02](https://youtu.be/f63stwpsaXw?t=242), [AlvinBlox 2025-04 4:02](https://youtu.be/f63stwpsaXw?t=242), [Roblox Creators 2022-05 2:49](https://youtu.be/HxqWoF_wfMQ?t=169), [Roblox Creators 2022-05 2:49](https://youtu.be/HxqWoF_wfMQ?t=169). Newest source 2026-07-30.
+- **Respect the community and balance feedback with vision** (multiple-creators): Player goodwill is key currency; act on feedback, show you care. But catering solely to feedback yields formulaic copies; fine to say no. Talk to players in Discord. Tizzy: the player is usually right. Be transparent about delays. Sources: [Roblox Creators 2021-08 42:42](https://youtu.be/4-vZkSrGAxI?t=2562), [Roblox 2023-09 14:20](https://youtu.be/UVq0045HNQ4?t=860), [Roblox 2023-09 14:20](https://youtu.be/UVq0045HNQ4?t=860), [Roblox 2024-09 21:12](https://youtu.be/DxrLfwsfV1I?t=1272), [Roblox 2024-09 21:53](https://youtu.be/DxrLfwsfV1I?t=1313). Newest source 2026-08-05.
+- **Iterate with a hypothesis-driven loop** (one-creator-repeated): Research, hypothesize, launch an update targeting one stat, check results, keep or revert. Write a hypothesis before checking data to score judgement. Expect balance and economy tuning to be ongoing; first balance is wrong (~50% math, 50% live iteration). Use funnel analysis and read competitors. Sources: [Tizzy 2026-06 14:12](https://youtu.be/zoz3PSMqets?t=852), [Tizzy 2026-06 7:29](https://youtu.be/pu2o80prNV8?t=449), [Tizzy 2026-05 2:03](https://youtu.be/0pMW1T0rdUI?t=123), [Roblox Creators 2021-09 1:36:22](https://youtu.be/k2gbQI-ggB4?t=5782), [Tizzy 2026-07 20:16](https://youtu.be/nggNvUILQ1I?t=1216). Newest source 2026-07-20.
+- **Execution beats ideas** (multiple-creators): Ideas are abundant; execution and reliable talent are hard. A simple concept executed well beats a complex one executed poorly; you need a simple instantly understandable concept with layered systems, not a genius idea. Real effort beats cash-grab design. Sources: [Tizzy 2026-05 13:55](https://youtu.be/8q6kdFVL_fY?t=835), [Tizzy 2026-05 0:40](https://youtu.be/7tYPvXYlif8?t=40), [Tizzy 2026-05 13:55](https://youtu.be/8q6kdFVL_fY?t=835), [MoseyTube 2026-06 3:56](https://youtu.be/2rLYGu0v490?t=236), [MoseyTube 2026-06 3:56](https://youtu.be/2rLYGu0v490?t=236). Newest source 2026-07-24.
+- **Use brand and partnership work for credibility and long-term presence** (one-creator-repeated): Define success upfront (reach and 80-85+ thumbs up for activations; revenue and users for licensed games). Early on brand projects build credibility. Get communication expectations in writing; pitch persistently. Experiences need seasonal updates or are just ads. Sources: [Roblox Creators 2022-05 58:14](https://youtu.be/14RMDByrG1U?t=3494), [Roblox Creators 2022-05 58:56](https://youtu.be/14RMDByrG1U?t=3536), [Roblox Creators 2022-05 59:28](https://youtu.be/14RMDByrG1U?t=3568), [Roblox Creators 2023-05 2:07](https://youtu.be/3Y4_B5-EHjY?t=127), [Roblox 2023-09 9:12](https://youtu.be/S8ORVEKec_4?t=552). Newest source 2023-09-19.
+- **Build in public and network** (multiple-creators): Posting early builds hiring reputation, even if posts look foolish. Contact Roblox Dev Relations early; stay on top of new features via DevForum. Focus on your experience rather than courting staff. Sources: [Tizzy 2026-05 2:03](https://youtu.be/7tYPvXYlif8?t=123), [Roblox Creators 2024-08 10:09](https://youtu.be/2t_zhxyLOJ8?t=609), [Roblox 2018-07 15:42](https://youtu.be/NmyzbBbrBS4?t=942), [Roblox 2023-09 25:47](https://youtu.be/yUDvI8mGnn8?t=1547). Newest source 2026-05-26.
+- **Design usability and social hooks first** (multiple-creators): Usable plain UI beats pretty unusable UI; let players be who they want, avoid over-gamifying; abstract social activities (pizza place) work; design single-player fun first; give content from the start. Sources: [Roblox Creators 2021-09 10:53](https://youtu.be/AG-3o_GdqKI?t=653), [Roblox Creators 2021-09 10:53](https://youtu.be/AG-3o_GdqKI?t=653), [Roblox Creators 2021-12 1:26](https://youtu.be/cY1B5_x4RoU?t=86), [Roblox Creators 2021-09 4:15](https://youtu.be/UlKAoiFLgUo?t=255), [Roblox Creators 2021-09 4:15](https://youtu.be/UlKAoiFLgUo?t=255). Newest source 2022-06-16.
+- **Fix before restarting; reflect on deal choices** (single-mention): Try to fix problems first and start over only if you can't restore an earlier state. Be clear on why you'd sell and be comfortable with deadlines before taking investors. Make deliberate platform and age targeting decisions with data. Sources: [Roblox Creators 2025-08 22:30](https://youtu.be/xU3ikvnA5OM?t=1350), [Roblox 2025-09 1:43](https://youtu.be/Z3T33q4-Y_A?t=103), [Roblox 2025-09 7:21](https://youtu.be/Z3T33q4-Y_A?t=441), [Roblox 2018-07 5:20](https://youtu.be/a2DaoXERzhE?t=320), [CallMeDogey 2025-05 1:20](https://youtu.be/ZAfE-Row9tU?t=80). Newest source 2025-09-26.
+- **Don't resent popular low-effort genres; stay yourself** (multiple-creators): The audience decides; there is room for every game type. Derivative inspiration is fine if differentiated. Try to be you. Sources: [Creators on the Blox 2026-06 58:31](https://youtu.be/5vJCBrxPHmY?t=3511), [Creators on the Blox 2025-10 1:17:27](https://youtu.be/XtWTnz56ZpM?t=4647), [Creators on the Blox 2025-10 1:35:37](https://youtu.be/WODeLtB2YH4?t=5737), [Creators on the Blox 2026-03 54:37](https://youtu.be/LWaw0KNwxyM?t=3277). Newest source 2026-06-05.
+- **Plan for whales when monetizing** (single-mention): Roblox's 2019 official guidance says about 75% of revenue typically comes from 1-5% of players. Retaining these high-spending players can decide whether a game survives, so design retention and long-term value for them. Figure is dated; verify against current data. Sources: [Roblox DevForum 2019-03](https://devforum.roblox.com/t/monetisation-101-how-to-effectively-generate-revenue-in-your-roblox-game/246902). Newest source 2019-03-01.
+- **Don't make money the end goal** (multiple-creators): Money should follow a clear, shared creative vision rather than drive the project. Creators argue that a good game with a solid vision will attract money, while money-first projects (e.g. quick copycat hits) are a weaker path for long-term motivation. Sources: [GameMakers 2021-01 58:38](https://youtu.be/y8H_GRdGaJw?t=3518), [GameMakers 2021-01 58:38](https://youtu.be/y8H_GRdGaJw?t=3518), [DitchyDevelopments 2026-03 4:51](https://youtu.be/O9fIqTik9ik?t=291). Newest source 2026-03-14.
+- **Invest Robux into games instead of hoarding** (single-mention): Advice from 2022 is to spend Robux on games rather than save them, because Robux held long-term loses value as developer-side Robux inflates. This is a 2022 claim; re-check current Robux economics before acting on it. Sources: [Roblox DevForum 2022-08](https://devforum.roblox.com/t/the-art-of-robux-getting/1922578). Newest source 2022-08-14.
+- **Choose a vocation you're good at and enjoy** (single-mention): Pick the role you are genuinely skilled at and like (e.g. building, scripting, art). Your genre or community can change later; your vocation is harder to change, so choose it deliberately. Sources: [Roblox DevForum 2022-08](https://devforum.roblox.com/t/the-art-of-robux-getting/1922578). Newest source 2022-08-14.
+- **Keep a concise public portfolio across several channels** (single-mention): Open multiple channels (Discord, Twitter, Reddit, etc.) and keep a clear, concise portfolio. Avoid flashy presentation that distracts from the work itself. Sources: [Roblox DevForum 2022-08](https://devforum.roblox.com/t/the-art-of-robux-getting/1922578). Newest source 2022-08-14.
+- **Prepare for luck by readying your game** (single-mention): Luck plays a role when a trend or market gap appears. Optimize concept, retention and monetization in advance so your game can capitalize when the opening arrives, rather than scrambling after it. Sources: [Roblox DevForum 2023-12](https://devforum.roblox.com/t/understand-the-roblox-algorithm/2772921). Newest source 2023-12-31.
+- **Expect merit-based discovery; invest in updates and events** (one-creator-repeated): Roblox official guidance says each creation should reach an audience based on quality, and that updates and events correlate with audience reach. This lets you focus on building rather than hunting for an audience. Prefer this over luck-based reasoning. Sources: [Roblox DevForum 2024-02](https://devforum.roblox.com/t/discovery-on-roblox-past-present-and-future-vision/2859111), [Roblox DevForum 2024-02](https://devforum.roblox.com/t/discovery-on-roblox-past-present-and-future-vision/2859111). Newest source 2024-02-28.
+- **Don't chase a single metric; build a replayable game** (one-creator-repeated): Roblox considers a range of signals that measure value over time, so optimizing one number (CCU, visits, or a single ranking) misleads. Your first priority is a game people want to play again. Sources: [Roblox DevForum 2026-08](https://devforum.roblox.com/t/boost-your-discovery-by-building-games-people-want-to-play/4779042), [Roblox DevForum 2026-08](https://devforum.roblox.com/t/boost-your-discovery-by-building-games-people-want-to-play/4779042). Newest source 2026-08-06.
+- **Treat behavioral design as the main growth lever** (single-mention): Growth gaps (e.g. 50 vs 50,000 CCU) are attributed mainly to engineering around human behavior rather than code quality. Prioritize how players are motivated and what keeps them returning. Self-reported attribution. Sources: [Roblox DevForum 2026-03](https://devforum.roblox.com/t/why-your-technically-superior-game-isn%E2%80%99t-succeeding-on-roblox-and-why-the-algorithm-ignores-it/4461606). Newest source 2026-03-02.
+- **Approach each new platform as a beginner** (single-mention): Past success on one platform does not guarantee the next hit. Treat Roblox as a new platform and expect to start from the basics, even with prior experience. Expect many failures per success. Sources: [Deconstructor of Fun 2026-04 42:22](https://youtu.be/PNeLRjewQns?t=2542), [Deconstructor of Fun 2026-04 42:22](https://youtu.be/PNeLRjewQns?t=2542). Newest source 2026-04-06.
+- **Frame content around a personal journey** (one-creator-repeated): People follow journeys even when they don't care about the game itself (e.g. a beginner becoming a Roblox dev). Share progress, challenges and milestones to build an audience around you, not just the product. Sources: [DitchyDevelopments 2026-06 2:44](https://youtu.be/cfLbW2j2VLs?t=164), [DitchyDevelopments 2026-06 2:44](https://youtu.be/cfLbW2j2VLs?t=164). Newest source 2026-06-18.
+- **Balance building the game with building its community** (single-mention): Stay consistent on both tracks. Working with other developers helps, but going solo is possible if you keep up both the game and its community. Sources: [DitchyDevelopments 2026-06 3:25](https://youtu.be/cfLbW2j2VLs?t=205). Newest source 2026-06-18.
+- **Set realistic team, schedule and update frequency** (single-mention): Be honest about team strengths, schedules and how often you can update. Work on features that inspire you to avoid burnout and keep a healthy work-life balance. Sources: [Roblox Creator Docs 2026-10](https://create.roblox.com/docs/production/game-design/liveops-essentials). Newest source 2026-10-28.
+- **Distinguish active vs passive income in your plan** (single-mention): Active income is money earned while working; passive income is money earned while you sleep. Use this framing when planning the income ladder beyond commissions. Sources: [Roblox DevForum 2022-08](https://devforum.roblox.com/t/the-art-of-robux-getting/1922578). Newest source 2022-08-14.
+- **Design for mobile first** (single-mention): The large majority of Roblox players use mobile devices, so optimize UI, controls and performance for mobile users from the start. Sources: [Stewiepfing 2025-04 0:00](https://youtu.be/e48wgHQll2Y?t=0). Newest source 2025-04-27.
+- **Design accessibility for everyone** (single-mention): Accessibility features help all players, not only disabled ones, much like curb ramps help everyone. Build accessibility in as a goal for every game rather than an add-on. Sources: [Roblox Creators 2023-05 14:00](https://youtu.be/K1pEI6LVJJA?t=840). Newest source 2023-05-18.
+- **Expect most ideas to fail and plan for a low hit ratio** (one-creator-repeated): Assume roughly 70%+ of ideas won't work, even ones you feel sure about (80-90% for active creators, per the speaker's estimate). Even top teams hit at most 30-40%. A success doesn't guarantee the next one, so keep iterating. Sources: [Roblox 2018-07 10:49](https://youtu.be/EDY-8V943IE?t=649), [Roblox 2018-07 14:13](https://youtu.be/EDY-8V943IE?t=853), [Roblox 2018-07 10:49](https://youtu.be/EDY-8V943IE?t=649), [Roblox 2018-07 14:13](https://youtu.be/EDY-8V943IE?t=853). Newest source 2018-07-24.
+- **Build lasting value beyond a single game** (single-mention): Invest in the team, reusable tools and analytics pipelines, and in IP, characters and community that can outlive any one title. These assets carry over to later projects when a game fails. Sources: [Roblox 2018-07 13:32](https://youtu.be/EDY-8V943IE?t=812). Newest source 2018-07-24.
+- **Don't assume success transfers to unfamiliar genres** (single-mention): Analysing a genre doesn't make you fluent in it. You will miss the small details players in that genre care about, so validate with players before committing. Sources: [Roblox 2018-07 16:18](https://youtu.be/EDY-8V943IE?t=978). Newest source 2018-07-24.
+- **Brainstorm and split work with peers before the lead** (multiple-creators): Discuss game aspects with the whole team; combined perspectives produce more unique ideas than one person alone. Have peers help each other first (ask three peers before the lead) to build independence and reduce bottlenecks. Sources: [Roblox DevForum 2018-05](https://devforum.roblox.com/t/how-to-cooperate-with-a-development-team/122601), [Roblox Creator Docs 2026-10](https://create.roblox.com/docs/education/resources/collaboration-best-practices). Newest source 2026-10-28.
+- **Practise by building unique things yourself** (one-creator-repeated): Repeated hands-on practice of original builds is the main path to becoming a better developer. Expect learning to take a lot of time; persistence separates developers who ship from those who quit mid-project. Sources: [Roblox DevForum 2019-11](https://devforum.roblox.com/t/lua-scripting-starter-guide/394618), [Roblox DevForum 2019-11](https://devforum.roblox.com/t/lua-scripting-starter-guide/394618). Newest source 2019-11-24.
+- **Find the simplest way to build and ship** (single-mention): Over-complicating wastes time without improving productivity. Choose the simplest build that delivers the core experience and release it. Sources: [B Ricey 2022-09 19:19](https://youtu.be/MyK4o2pIpQw?t=1159). Newest source 2022-09-23.
+- **Cut features players won't use** (single-mention): Think from the player's perspective and skip features they will not use. Each unused feature costs build time without adding retention. Sources: [Roblox DevForum 2023-09](https://devforum.roblox.com/t/all-about-optimization/2586333). Newest source 2023-09-09.
+- **Prioritise original concepts for long-term earnings** (one-creator-repeated): The speaker says top-earning and defining Roblox games are usually originals; clones can earn short-term but rarely outperform the original. Cash-grab templates are a reliable short-term earner. Weigh this against cloning a proven formula. Sources: [bubDEV 2025-09 4:33](https://youtu.be/kg_h09_x7no?t=273), [bubDEV 2025-10 10:39](https://youtu.be/N-u2gI4DUyw?t=639), [bubDEV 2025-09 4:33](https://youtu.be/kg_h09_x7no?t=273), [bubDEV 2025-10 10:39](https://youtu.be/N-u2gI4DUyw?t=639). Newest source 2025-10-19.
+- **Learn the principle behind a successful game, not the game itself** (single-mention): Extract the packaging or design formula that made a hit (why it works) instead of copying the title. Learning the principle transfers to new projects; copying the surface does not. Sources: [rasdev 2026-09 0:00](https://youtu.be/Df5ebFGEOXY?t=0). Newest source 2026-09-13.
+- **Diagnose a flop before abandoning the project** (multiple-creators): Don't drop a game after one flop. Check the likelier causes first: weak thumbnail, core loop, or mechanic. Packaging alone won't sell; if gameplay is poor, retention and revenue won't follow. Sources: [rasdev 2026-07 3:24](https://youtu.be/fPT2GCkK1QM?t=204), [rasdev 2026-09 4:05](https://youtu.be/Df5ebFGEOXY?t=245), [janisjanis01 2026-09 10:02](https://youtu.be/WJpNCB5J9bg?t=602). Newest source 2026-09-27.
+- **Understand Roblox and its players deeply before expecting success** (multiple-creators): Spend time as an active player in the ecosystem. Understanding Roblox players beats outspending large brands on marketing. The speaker says success takes platform skill, not luck. Sources: [Yann 2026-05 0:00](https://youtu.be/dbNA3K8lt2w?t=0), [rasdev 2026-09 5:30](https://youtu.be/ILhTEWqz2kU?t=330), [Yann 2026-05 6:09](https://youtu.be/dbNA3K8lt2w?t=369), [rasdev 2026-09 5:30](https://youtu.be/ILhTEWqz2kU?t=330). Newest source 2026-09-22.
+- **Budget $50-100 to advertise a finished game** (one-creator-repeated): The speaker considers a $50-100 ad budget the cheapest scalable investment available. If you can't afford it after weeks of work, the bigger problem is the project's readiness to be seen. Sources: [Yann 2026-05 8:52](https://youtu.be/yw32DZtz4mQ?t=532), [Yann 2026-05 8:52](https://youtu.be/yw32DZtz4mQ?t=532). Newest source 2026-05-30.
+- **Define personal reasons and per-project goals** (single-mention): Write down why you make Roblox games and set goals per project. Goals change over time and should match your current skill and experience. Sources: [Yann 2026-06 0:14](https://youtu.be/zWeDpmrjhUM?t=14). Newest source 2026-06-19.
+- **Ignore hostile critics and negative actors after release** (multiple-creators): Criticism is constant once a game grows. Don't respond to threats or hostility; keep building and focus on supportive community members. Sources: [janisjanis01 2026-04 7:02](https://youtu.be/xqHXDYbuF2w?t=422), [Duckable 2026-07 21:54](https://youtu.be/eRhFPgj8tc4?t=1314). Newest source 2026-07-04.
+- **Use AI to lower barriers but keep struggling through problems** (multiple-creators): Beginners can let AI help, but should still work through problems themselves, since the struggle is where learning happens. Avoid over-optimising the AI setup (endless skills, plugins, hooks), which can replace time spent building. Sources: [Crusherfire 2026-10 8:09](https://youtu.be/4n7thZAAF-E?t=489), [Crusherfire 2026-10 5:04](https://youtu.be/4n7thZAAF-E?t=304), [Crusherfire 2026-10 8:09](https://youtu.be/4n7thZAAF-E?t=489), [Duckable 2026-08 3:18](https://youtu.be/Cc7HT3uNjeQ?t=198). Newest source 2026-10-24.
+- **Park extra ideas when scope grows** (single-mention): When goals get too big, write extra ideas in the design document and focus on the current session's goal. This prevents scope creep and keeps progress visible. Sources: [Roblox Creator Docs 2026-10](https://create.roblox.com/docs/education/lesson-plans/roblox-developer/roblox-developer-3). Newest source 2026-10-28.
+- **Focus on one game and polish it (current view)** (one-creator-repeated): The newest advice favours one game over many clones or parallel projects, since juggling increases the risk of dropping something critical. Commit to one proven concept and polish it before expanding. Sources: [janisjanis01 2026-07 12:10](https://youtu.be/OL1FJ17wzZE?t=730), [janisjanis01 2026-06 12:51](https://youtu.be/CltiB53QTHw?t=771), [janisjanis01 2026-06 12:51](https://youtu.be/CltiB53QTHw?t=771), [janisjanis01 2026-07 12:10](https://youtu.be/OL1FJ17wzZE?t=730). Newest source 2026-07-05.
+- **Target ~200 active players as a sustainable benchmark** (multiple-creators): Don't assume you need 10K concurrent players; a game with about 200 active players can still earn meaningful Robux. Set milestones around consistent player counts first. Sources: [bubDEV 2025-08 6:51](https://youtu.be/Iv80MDXZBXU?t=411), [1Coal 2023-08 0:20](https://youtu.be/YBSsksqfxo0?t=20). Newest source 2025-08-08.
+- **Ask your audience before a big rework and show progress** (one-creator-repeated): Grinding a large rework without visible progress can be less engaging for viewers. Ask the audience which content they prefer and share clips of progress. Sources: [B Ricey 2021-01 18:42](https://youtu.be/xwaCg7SWUhc?t=1122), [B Ricey 2021-01 18:42](https://youtu.be/xwaCg7SWUhc?t=1122). Newest source 2021-01-04.
+- **Publish a rough version early** (single-mention): Launch a playable, incomplete build rather than polishing for years. A DevForum author's team stalled until a rough launch brought player feedback and motivation. Most projects fail because they never start, so shipping beats a perfect idea. Sources: [Roblox DevForum 2019-06](https://devforum.roblox.com/t/how-to-make-a-game/287493), [Roblox DevForum 2019-06](https://devforum.roblox.com/t/how-to-make-a-game/287493). Newest source 2019-06-02.
+- **Judge progress against your own older builds** (single-mention): Compare your current build to your earlier ones, not to other developers' multi-year projects. This measures real improvement and avoids demotivation. Starting with a simple original game also avoids that comparison trap. Sources: [Roblox DevForum 2021-03](https://devforum.roblox.com/t/developing-expert-developers-advice-from-all-around-the-world/1134437), [Roblox DevForum 2021-03](https://devforum.roblox.com/t/developing-expert-developers-advice-from-all-around-the-world/1134437). Newest source 2021-03-27.
+- **Treat your first game as paid training** (multiple-creators): Its job is to teach you, not to earn money or go viral. Scope it small, expect messy results, and keep building after bad early outcomes. Don't make your dream game first, since expectations far above your skill make early development painful. Sources: [ArTheDev 2026-06 4:08](https://youtu.be/wG9XzLnJC5k?t=248), [ArTheDev 2026-05 3:28](https://youtu.be/3FB6ZzAON8I?t=208), [ArTheDev 2026-06 0:56](https://youtu.be/wG9XzLnJC5k?t=56), [Roblox DevForum 2021-03](https://devforum.roblox.com/t/developing-expert-developers-advice-from-all-around-the-world/1134437). Newest source 2026-06-07.
+- **Pick a game you can finish** (one-creator-repeated): Ask 'What game can I actually finish?' rather than 'What game will succeed?'. Knowing what to build is harder than writing code, so a finishable scope with a clear end beats a hypothetical hit that never ships. Sources: [ArTheDev 2026-06 4:08](https://youtu.be/wG9XzLnJC5k?t=248), [ArTheDev 2026-05 0:24](https://youtu.be/3FB6ZzAON8I?t=24), [ArTheDev 2026-06 0:56](https://youtu.be/wG9XzLnJC5k?t=56). Newest source 2026-06-07.
+- **Commit once an idea passes your filter** (one-creator-repeated): Don't keep re-deciding between ideas. An unmade game never gets played, so you can't learn whether it works. If a prototype fails the test, rerun research with an idea as different as possible; if the new idea is too similar, the problem is likely execution. Sources: [MonarchDev 2026-09 8:10](https://youtu.be/haYW1hXahOM?t=490), [MonarchDev 2026-09 8:10](https://youtu.be/haYW1hXahOM?t=490), [MonarchDev 2026-09 7:29](https://youtu.be/haYW1hXahOM?t=449). Newest source 2026-09-06.
+- **Set a 14-day fix window, then cut or move on** (one-creator-repeated): If a game doesn't get home recommendations or algorithm pickup after about 14 days of fixes, stop and make another. Time is limited, and a game that never gets engagement is cut. Diagnose discovery versus stickiness within that window before deciding. Sources: [VuukStudios 2026-08 17:49](https://youtu.be/Tk0qXybUK0E?t=1069), [VuukStudios 2026-06 14:48](https://youtu.be/catPKgFIZbQ?t=888), [VuukStudios 2026-08 8:12](https://youtu.be/m7015JSIrpw?t=492). Newest source 2026-08-26.
+- **Expect near-zero early revenue; judge by home recommendations** (one-creator-repeated): Pre-recommendation revenue is minimal ('pennies'). Revenue usually starts after home recommendations hit, so judge a game by that milestone. Kusho made almost nothing initially and only started earning after sustained daily work. Sources: [VuukStudios 2026-06 18:52](https://youtu.be/catPKgFIZbQ?t=1132), [VuukStudios 2026-06 18:52](https://youtu.be/catPKgFIZbQ?t=1132), [VuukStudios 2025-11 4:51](https://youtu.be/U4nduRcszJ4?t=291). Newest source 2026-06-16.
+- **Judge revenue by monetisation, not visits** (single-mention): Visits alone don't predict earnings. One developer's revenue varied widely with monetisation strategy, so optimise the monetisation funnel alongside traffic rather than assuming more visits means more money. Sources: [PineappleDev 2025-08 3:35](https://youtu.be/tsmsTtrlT8Y?t=215). Newest source 2025-08-07.
+- **Treat peak CCU as temporary** (one-creator-repeated): Hits often last only months, sometimes weeks for trend games, and most last about 1-2 months before the algorithm moves on. Plan sustained development and updates rather than expecting a peak to persist. Don't expect every month to match a peak month. Sources: [VuukStudios 2026-10 9:28](https://youtu.be/DTJeR2gJSZo?t=568), [VuukStudios 2026-06 19:33](https://youtu.be/catPKgFIZbQ?t=1173), [VuukStudios 2026-06 19:33](https://youtu.be/catPKgFIZbQ?t=1173), [VuukStudios 2026-10 9:28](https://youtu.be/DTJeR2gJSZo?t=568). Newest source 2026-10-21.
+- **Prefer longevity over a short peak** (one-creator-repeated): A game averaging 5-8K CCU for a year beats a 20K-peak game that dies in 15 days, in this creator's view. Aim for longer-lived niche games with a loyal fanbase; long-lived titles can be sold for significant sums later. Sources: [VuukStudios 2026-09 14:31](https://youtu.be/d5YHwCqwgYM?t=871), [VuukStudios 2026-10 14:14](https://youtu.be/0ENzqNB_EUo?t=854), [VuukStudios 2026-08 9:26](https://youtu.be/aw0PmBkakb4?t=566). Newest source 2026-10-11.
+- **Work efficiently, not longer** (multiple-creators): One efficient hour can beat eight inefficient hours, especially when burnout is a risk. Consistency alone is not enough; focus on the highest-leverage work so effort compounds into results. Sources: [Roblox DevForum 2021-02](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259), [VuukStudios 2026-09 11:37](https://youtu.be/eS0Vc7h0VW0?t=697). Newest source 2026-09-13.
+- **Remove distraction friction** (single-mention): Move your phone to another room so distracting actions take more effort. Making productive work the path of least resistance is more reliable than relying on motivation. Sources: [Roblox DevForum 2021-02](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259). Newest source 2021-02-12.
+- **When stuck, ask precise questions and step away briefly** (multiple-creators): Ask 'what part of the script isn't working?' rather than 'why doesn't this work?'. If still stuck, step away for a day or two, then start building again and iterate rather than stalling. Sources: [Roblox DevForum 2021-02](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259), [PineappleDev 2024-11 2:44](https://youtu.be/Bgdqc4uAjtw?t=164). Newest source 2024-11-08.
+- **Find a mentor or accountability structure** (single-mention): Self-guided learning without any external accountability is why many people stall, according to this creator. A mentor or structured check-in keeps the consistent work going. Sources: [VuukStudios 2023-12 17:11](https://youtu.be/fEcFzlBQew8?t=1031). Newest source 2023-12-25.
+- **Save a budget before funding development** (single-mention): Build savings and income before committing to funded development, since few professionals work without a budget. This keeps a project alive through slow early months. Sources: [Roblox DevForum 2020-07](https://devforum.roblox.com/t/game-design-theory-becoming-a-leader-for-project-management-and-team-building/690475). Newest source 2020-07-26.
+- **Separate leadership from craft when choosing leads** (single-mention): Strong developers do not automatically make strong managers. Choose or train leads for communication, coordination and organisation, and don't assume the best coder should run the team. Sources: [Roblox DevForum 2020-07](https://devforum.roblox.com/t/game-design-theory-becoming-a-leader-for-project-management-and-team-building/690475), [Roblox DevForum 2020-07](https://devforum.roblox.com/t/game-design-theory-becoming-a-leader-for-project-management-and-team-building/690475). Newest source 2020-07-26.
+- **Work free to build a portfolio early** (one-creator-repeated): Start by working on unpaid projects to build a portfolio of finished work, which the creator calls sweat equity. Early finished projects matter more than early income. Sources: [VuukStudios 2023-12 4:51](https://youtu.be/fEcFzlBQew8?t=291), [VuukStudios 2023-12 4:51](https://youtu.be/fEcFzlBQew8?t=291). Newest source 2023-12-25.
+- **Learn to full-stack to deliver whole projects** (single-mention): Build scripting, VFX, animation and building skills rather than specialising in one, so you can deliver a complete project alone. Specialise later once the core is covered. Sources: [VuukStudios 2023-12 5:32](https://youtu.be/fEcFzlBQew8?t=332). Newest source 2023-12-25.
+- **Diversify channels and income streams** (multiple-creators): Stack several channels at once, such as paid ads plus short-form video; one creator saw compounding results. Build multiple income streams (games, commissions, store packs) rather than relying on one product. Sources: [Erthlord 2026-01 14:45](https://youtu.be/69IBB6O4o4c?t=885), [VuukStudios 2026-10 14:02](https://youtu.be/4vuXAQt0PuQ?t=842). Newest source 2026-10-03.
+- **Set a staged CCU ladder aimed at top-tier scale** (one-creator-repeated): Track concrete targets such as 10K, then 100K, then 200K CCU. One creator aims for top-5 scale rather than 1-2K CCU, arguing the 10K-to-50K gap is roughly 10x earnings. Treat these as aspirational claims, not guarantees. Sources: [VuukStudios 2026-10 16:44](https://youtu.be/4vuXAQt0PuQ?t=1004), [VuukStudios 2026-10 13:47](https://youtu.be/DTJeR2gJSZo?t=827), [VuukStudios 2026-10 18:07](https://youtu.be/4vuXAQt0PuQ?t=1087), [VuukStudios 2026-10 13:47](https://youtu.be/DTJeR2gJSZo?t=827). Newest source 2026-10-21.
+- **Don't hunt for a magic formula** (one-creator-repeated): There is no magic formula for ad spend, thumbnails, descriptions or settings. Learn game design and promotion by shipping many games and iterating on results. Sources: [VuukStudios 2026-10 15:03](https://youtu.be/DTJeR2gJSZo?t=903), [VuukStudios 2026-10 15:03](https://youtu.be/DTJeR2gJSZo?t=903). Newest source 2026-10-21.
+- **Persistence beats talent** (one-creator-repeated): Earners are not the most talented developers; they are the ones who keep showing up and updating a game players want to return to week after week. Consistency is what separates early earners. Sources: [Generalist Programmer 2026-07 1:14](https://youtu.be/CFohgybeybM?t=74), [Generalist Programmer 2026-07 7:03](https://youtu.be/CFohgybeybM?t=423). Newest source 2026-07-03.
+- **Speed of build beats programming pedigree** (one-creator-repeated): The people making the most money are not necessarily the best programmers; they find good ideas and build them fastest. Prioritise shipping speed over code perfection, while keeping quality adequate. Sources: [Matt The Method 2026-08 5:06](https://youtu.be/1mYF-cWJPmQ?t=306), [Matt The Method 2026-08 2:37](https://youtu.be/1mYF-cWJPmQ?t=157). Newest source 2026-08-26.
+- **Compound small daily improvement** (single-mention): Improving about 1% per day compounds: 1.01 to the power 365 is roughly 37.8x over a year (arithmetic from the source's claim). Consistent daily practice beats occasional bursts. Sources: [VuukStudios 2025-11 8:20](https://youtu.be/U4nduRcszJ4?t=500). Newest source 2025-11-28.
+- **Don't stop after a big payout** (one-creator-repeated): After a large Robux amount, keep building consistently rather than coasting. Finish accepted commissions and keep a release cadence, or motivation and output drop. Sources: [Raul 2026-08 2:35](https://youtu.be/NE8OWWbAia8?t=155), [Raul 2026-08 2:35](https://youtu.be/NE8OWWbAia8?t=155). Newest source 2026-08-20.
+- **Check Creator Programs and track award milestones** (one-creator-repeated): Check the Creator Programs page for programs you qualify for, such as Creator Rewards or Developer Awards. Awards trigger on milestones (MAU, rolling 12-month Robux, lifetime play hours) and are granted automatically with no application. Sources: [Roblox Creator Docs 2026-10](https://create.roblox.com/docs/creator-programs), [Roblox Creator Docs 2026-10](https://create.roblox.com/docs/creator-programs/developer-awards). Newest source 2026-10-28.
+- **Plan development time as several times the estimate** (single-mention): Expect projects to take far longer than estimated. One developer assumed 2 days and it took about 30. Build buffer into schedules and set realistic update frequency. Sources: [PineappleDev 2025-03 0:17](https://youtu.be/IEAr0I_sUV4?t=17). Newest source 2025-03-04.
+- **Discount easy-money and quick-build claims** (multiple-creators): Claims like 'free money in 7 days with AI' or 'UGC is easy' are unverified. UGC was described as much harder than it looks. Base expectations on your own measured data and the sustained-effort evidence. Sources: [Perstile 2025-05 3:21](https://youtu.be/ET3fRqaFmFc?t=201), [Erthlord 2026-07 0:00](https://youtu.be/57GCHQtyuZQ?t=0). Newest source 2026-07-23.
+- **Design for Game Fund priorities if pitching** (single-mention): Official Game Fund priorities (2021) were multiplayer focus, cross-platform with mobile optimisation, social mechanics as core, and avatar/Metaverse item integration. Verify the program is still active before designing around it. Sources: [Roblox DevForum 2021-07](https://devforum.roblox.com/t/introducing-the-game-fund/1361477). Newest source 2021-07-19.
+- **Show persistence through self-driven projects when applying for roles** (single-mention): For games roles, self-made projects (learning to code, making games, building in Roblox) signal persistence to hiring leads. Treat them as portfolio proof, not a shortcut past skill gaps. Sources: [Last Level Studios 2019-09 58:38](https://youtu.be/h4W8yHxmxns?t=3518). Newest source 2019-09-13.
+- **Start with template edits before a large project** (one-creator-repeated): Edit existing Roblox template games (e.g., Line Runner) to learn scripting first. Large first projects demotivate beginners and expose many bugs at once. Build outward from small experiments. Sources: [Last Level Studios 2020-02 1:25](https://youtu.be/HU4JJOft4Pw?t=85), [Last Level Studios 2020-02 9:43](https://youtu.be/_LdpUJ41cso?t=583), [Last Level Studios 2020-02 9:43](https://youtu.be/_LdpUJ41cso?t=583). Newest source 2020-02-14.
+- **Treat Roblox as real game-dev training** (single-mention): Skills learned on Roblox transfer to professional game development: server/client architecture, UX design, and monetisation design. Frame Roblox work as career-relevant training. Sources: [Last Level Studios 2020-02 31:17](https://youtu.be/_LdpUJ41cso?t=1877). Newest source 2020-02-14.
+- **Cap side-project hours to keep it enjoyable** (one-creator-repeated): Keep a game as a part-time hobby of about 10-15 hours a week rather than going full time, to avoid burnout. Stay part-time while it is financially sustainable. Sources: [Last Level Studios 2021-08 29:14](https://youtu.be/3djSOjdGaE8?t=1754), [Last Level Studios 2021-08 29:14](https://youtu.be/3djSOjdGaE8?t=1754). Newest source 2021-08-27.
+- **Reserve maintenance time for platform changes** (single-mention): Roblox can depreciate critical features, so keep ongoing time in the plan to maintain and update shipped games rather than assuming a finished game stays working. Sources: [Last Level Studios 2021-08 27:52](https://youtu.be/3djSOjdGaE8?t=1672). Newest source 2021-08-27.
+- **Time-box new formats to about one month** (one-creator-repeated): Give a new format such as VR about one month of experimentation before judging it. Expect modest earnings and treat it as uncharted territory, not a guaranteed hit. Sources: [Last Level Studios 2021-12 41:40](https://youtu.be/v_TGu45AD_g?t=2500), [Last Level Studios 2021-12 39:36](https://youtu.be/v_TGu45AD_g?t=2376). Newest source 2021-12-09.
+- **Schedule days off during long team builds** (multiple-creators): Long solo or duo builds lead to burnout and eventually to hating the game. Scheduled days off restored focus and productivity for the team. Put recovery days on the calendar before exhaustion sets in. Sources: [Lnor Roblox 2025-12 5:32](https://youtu.be/Nywo2NwQPNo?t=332), [Lnor Roblox 2025-12 5:32](https://youtu.be/Nywo2NwQPNo?t=332), [Last Level Studios 2021-08 29:14](https://youtu.be/3djSOjdGaE8?t=1754). Newest source 2025-12-03.
+- **Check whether obligation has replaced enjoyment** (single-mention): If you feel duty to players rather than enjoyment, the project may be held back by that lingering obligation. Consider handing it off. Low-advice source: verify against your own motivation before acting. Sources: [Last Level Studios 2023-12 6:40](https://youtu.be/kQ6JMjjGvow?t=400), [Last Level Studios 2023-12 6:40](https://youtu.be/kQ6JMjjGvow?t=400). Newest source 2023-12-17.
+- **Post at least every two days to grow an audience** (single-mention): Post consistently, at least every two days minimum. The speaker said near-daily posting over about 5 months was needed before breaking out. Consistency matters more than single big posts. Sources: [#7Phantom 2025-07 0:52](https://youtu.be/xjZXsHxKerE?t=52). Newest source 2025-07-18.
+- **Research the idea substantially before committing** (single-mention): Idea selection takes significant research time. Do not pick a game just because it looks cool. Pair this with a commitment filter so research ends in a decision. Sources: [RoyalDev 2026-09 4:11](https://youtu.be/nLuxSFg5viw?t=251). Newest source 2026-09-18.
+- **Budget about 12 months for UGC to pay back costs** (multiple-creators): UGC sales can take about a year to recoup upload and promotion costs. One creator turned profit only at month 12 (about 35,966 vs 34,900 Robux spent). Another earned $0 for the first six months. Plan cash runway accordingly. Sources: [ThePurpleGuy 2026-07 0:00](https://youtu.be/zurNJYYXVhk?t=0), [ThePurpleGuy 2026-02 2:05](https://youtu.be/EDHExZQHk4I?t=125), [Britt Drake 2025-12 10:47](https://youtu.be/ncZn8_hopuc?t=647). Newest source 2026-07-04.
+- **Keep adding UGC items to scale earnings slowly** (multiple-creators): A single item rarely pays back quickly. Earnings scaled slowly over months after one creator posted more items. Consistent output is the lever for UGC income. Sources: [Xaiyne 2026-10 0:41](https://youtu.be/wkfCP_09CI8?t=41), [ThePurpleGuy 2026-02 2:05](https://youtu.be/EDHExZQHk4I?t=125). Newest source 2026-10-21.
+- **Delegate hype-driven feedback to detached people** (single-mention): Avoid riding the hype train yourself. Ask people disconnected from development for feedback on hype and reception, so enthusiasm does not distort product decisions. Sources: [Last Level Studios 2019-09 12:55](https://youtu.be/hnCm955Du8w?t=775). Newest source 2019-09-06.
+- **Accept that effort does not guarantee results** (single-mention): You can improve everything and still miss expected results. Judge the outcome through diagnosis and data rather than assuming more effort will close the gap. Sources: [Lnor Roblox 2026-05 2:43](https://youtu.be/QOS7dQowyRk?t=163). Newest source 2026-05-10.
+- **Finish a planned scope, then judge the outcome honestly** (single-mention): One creator claims finishing every game, even failed ones, keeps him shipping. This is the newest stance but conflicts with time-boxed cut rules. Reconcile by finishing the planned scope, then diagnosing before deciding what to do next. Sources: [RoyalDev 2026-10 0:00](https://youtu.be/DLqlgL_7XrY?t=0). Newest source 2026-10-10.
+- **Make product decisions for players, not investors** (single-mention): Madsen says decisions are made for players rather than for an investor or executive board, and credits product-first choices (a good game for players over business decisions) for resonating with the community. Self-reported indie view. Sources: [GamesBeat 2025-08](https://gamesbeat.com/?p=305182), [GamesBeat 2025-08](https://gamesbeat.com/?p=305182). Newest source 2025-08-00.
+- **Expect fast replacement and cannibalisation in trend genres** (single-mention): Players stay loyal to a genre rather than to individual games, so new entrants in a trending genre can replace older hits quickly. Plan for cannibalisation of your player base by new releases rather than assuming a hit stays on top. Low-advice tracker-blog source, so weight it below first-party data. Sources: [RoWatcher (tracker blog) 2026-02](https://rowatcher.com/news/is-the-brainrot-trend-dying-what-ccu-data-from-three-top-games-reveals). Newest source 2026-02-18.
+- **Give AI tools a way to verify their output** (one-creator-repeated): When using AI to build or edit a game, set up a check the AI can run (tests, validation scripts, playtest or output comparison) so it can confirm its work. Roblox's 2026-10 guidance says this was the pattern in every workflow that stuck. Verify before you trust the result. Sources: [Roblox 2026-10 27:38](https://youtu.be/KB5iAzy86Fo?t=1658), [Roblox 2026-10 27:38](https://youtu.be/KB5iAzy86Fo?t=1658). Newest source 2026-10-12.
+- **Build in Studio yourself, not by passive watching** (single-mention): Learning sticks only when you actively build in Studio. Watching tutorials passively skips the struggle that creates skill. Pair each tutorial with a small build you make yourself. Sources: [RoyalDev 2026-08 2:06](https://youtu.be/7cRCq-sJa_Q?t=126). Newest source 2026-08-31.
+- **Keep your own judgement when using AI** (multiple-creators): Don't expect AI to produce a finished game from one prompt, and don't let it write code you don't understand. Direct, test, and read what it produces. This extends the existing AI rule with an explicit warning against outsourcing the build. Sources: [RoyalDev 2026-08 2:06](https://youtu.be/7cRCq-sJa_Q?t=126), [MonarchDev 2026-10 11:32](https://youtu.be/QwdZRB6xRKk?t=692). Newest source 2026-10-12.
+- **Reuse one niche's assets and systems to ship variants faster** (single-mention): Staying in one niche lets you reuse assets and systems, so variants ship and get tested faster than efforts scattered across genres. This fits the volume rule: many variants inside one niche, not many unrelated genres. Sources: [Alex Builds Games 2026-10 4:03](https://youtu.be/ntjVykMw0As?t=243). Newest source 2026-10-09.
+- **Spread UGC items across several product groups** (single-mention): Split the catalogue into groups such as avatar items and emotes instead of relying on one product line. A weak group then doesn't stall all income. Pair this with the diversification rule. Sources: [Xaiyne 2026-10 1:23](https://youtu.be/WIkCweVdd88?t=83). Newest source 2026-10-30.
+- **Judge outcomes by game quality, not luck** (single-mention): One creator argues success comes from making the game good, not from chance. Treat each release as something to improve. Note the counterpoint that a single hit can change results, so keep shipping to create more chances. Sources: [Alex Builds Games 2026-10 1:32](https://youtu.be/ntjVykMw0As?t=92), [RoyalDev 2026-09 2:06](https://youtu.be/7FSqZeirnjs?t=126). Newest source 2026-10-09.
+- **Work in 15/5 focused blocks** (single-mention): Work for 15 minutes on one focused task, then take a 5-minute break, and repeat. Keep breaks shorter than work blocks. This is one creator's suggested rhythm and is not independently tested. Sources: [Emancyphur 2021-02 5:22](https://youtu.be/0B1Q2IZSlU8?t=322). Newest source 2021-02-12.
+- **Take notes on each fundamentals resource** (single-mention): Write brief notes on the key concept from each tutorial or doc so that no single concept overwhelms you. Reviewing your notes makes gaps easier to spot before they block a build. Sources: [Emancyphur 2021-02 3:18](https://youtu.be/0B1Q2IZSlU8?t=198). Newest source 2021-02-12.
+- **Learn through projects you find interesting** (one-creator-repeated): Tie each learning topic to a small project you personally want to build, and keep exploring unfamiliar areas. The creator argues intrinsic curiosity sustains learning and carries you through debugging slumps better than external pressure does. Sources: [Emancyphur 2021-02 3:18](https://youtu.be/0B1Q2IZSlU8?t=198), [Emancyphur 2021-02 16:18](https://youtu.be/0B1Q2IZSlU8?t=978). Newest source 2021-02-12.
+- **Judge AI-assisted games on quality, not virality** (single-mention): AI can help a Roblox game go viral, but it does not make the game good. Evaluate AI-assisted output on gameplay and craft, and do not treat a viral spike as proof of quality. Sources: [Duckable 2025-08 12:11](https://youtu.be/Em5H7sNWN7I?t=731). Newest source 2025-08-29.
+- **Double down on winning ad creatives instead of fixing losers** (single-mention): When an ad underperforms, stop spending time repairing it. Move effort and budget into the creatives and games that already convert, and dig deeper into what makes the winners work. Sources: [GameMakers 2022-03 35:58](https://youtu.be/t-jpyaQffYE?t=2158). Newest source 2022-03-01.
+- **Confirm product-market fit before moving to live ops** (single-mention): Treat new-game development as a search for product-market fit: healthy retention plus high-converting ad creatives at a competitive CPI. Only shift to live ops and scaled spending once both signals are present. Sources: [GameMakers 2022-08 19:42](https://youtu.be/JVCao-Yhu2M?t=1182). Newest source 2022-08-30.
+- **Don't marry a theme; switch when it loses flavour** (single-mention): Creative themes run out of novelty. When a theme goes stale, move to a fresh concept rather than forcing it, since good new concepts are scarce and worth actively searching for. Sources: [GameMakers 2022-03 35:17](https://youtu.be/t-jpyaQffYE?t=2117). Newest source 2022-03-01.
+- **Choose a monetization position that matches your balance sheet** (single-mention): Smaller studios without a strong cash reserve carry more risk when going player-friendly (fewer aggressive monetization tactics). Pick the monetization stance your finances can survive, not the one a bigger studio uses. Sources: [GameMakers 2022-11 12:57](https://youtu.be/NaR3-VIg5-I?t=777). Newest source 2022-11-24.
+- **Give consistency 30-60 days before judging growth** (multiple-creators): Consistent posting and shipping is the main growth driver; creators report the difference becomes visible within roughly 30-60 days of steady output. Do not quit or change course during the first weeks of low numbers. Sources: [SmartyRBX 2023-02 2:58](https://youtu.be/Wh2B4cQn4Zs?t=178), [{EISABOOS} "RBX" 2025-12 1:26](https://youtu.be/fy3Z0P9mG3Y?t=86), [{EISABOOS} "RBX" 2025-12 1:26](https://youtu.be/fy3Z0P9mG3Y?t=86). Newest source 2025-12-03.
+- **Stick to one content niche until you have an audience** (single-mention): Mixing unrelated topics confuses both the recommendation system and your viewers. Build one clear niche first, and branch into other topics only after an audience is established. Sources: [SmartyRBX 2024-11 18:14](https://youtu.be/Pwy9U0B8tJk?t=1094). Newest source 2024-11-04.
+- **Plan for stress after a successful release** (single-mention): Success brings pressure and criticism. Expect it, keep listening to the community, and ship the best update you can while accepting that some players will still complain. Sources: [janisjanis01 2026-08 11:33](https://youtu.be/fjlOaEALWmg?t=693). Newest source 2026-08-02.
+- **Keep core features as permanent pillars, not seasonal add-ons** (single-mention): Creators report the strongest-performing strategies make a feature a permanent part of the game rather than a temporary seasonal add-on. Build core systems to persist, and use seasons to extend them. Sources: [Deconstructor of Fun 2026-06 4:47](https://youtu.be/2BsMLCk8FEU?t=287). Newest source 2026-06-01.
+- **Value experiment learnings as much as direct ROI** (single-mention): Spending on tests (ads, features, experiments) buys learnings that compound into later projects. Judge spend partly on what you learned, not only on immediate return. Sources: [Deconstructor of Fun 2026-06 43:13](https://youtu.be/2BsMLCk8FEU?t=2593), [janisjanis01 2026-08 12:14](https://youtu.be/fjlOaEALWmg?t=734). Newest source 2026-08-02.
+- **Scale paid spend only after an organic baseline exists** (single-mention): GameMakers (2024-10) says larger scale can lift organic coverage and k-factor and can unlock better ad-network terms, but the bet is risky if the strategy is wrong. Confirm retention and organic traction before committing larger paid budgets. Sources: [GameMakers 2024-10 50:16](https://youtu.be/uhj_oQDScy0?t=3016). Newest source 2024-10-24.
+- **When growth stalls, diagnose with data, not random tactics** (one-creator-repeated): rasdev (2026-05) says stalled growth should not be met with harder work on random tactics. Look at real player data to find the actual bottleneck, then act on that. Works alongside the existing 'Diagnose a flop' rule. Sources: [rasdev 2026-05 2:43](https://youtu.be/wGRgITzP18c?t=163), [rasdev 2026-05 2:43](https://youtu.be/wGRgITzP18c?t=163). Newest source 2026-05-07.
+
+## Checklist
+- [ ] Ship a small first game; expect it to be bad
+- [ ] Set a volume target (e.g. several simple games per year)
+- [ ] Work daily, even 30 minutes or 5 minutes
+- [ ] Schedule breaks; sleep
+- [ ] Set tangible goals (players, earnings) and milestones 10/50/100
+- [ ] Write a hypothesis before checking data
+- [ ] Make each update target one stat
+- [ ] Study top games and note what they do right
+- [ ] Plan promotion before release
+- [ ] Build a studio brand and audience off-platform
+- [ ] Talk to players in Discord
+- [ ] Diagnose bad metrics rather than blaming
+- [ ] Reinvest simple-game earnings into team
+- [ ] Learn scripting and design
+- [ ] Keep updating games with traction
+- [ ] Reassess if a game fails to catch on after about two weeks
+- [ ] Get brand deals' communication terms in writing
+- [ ] Contact Dev Relations early
+- [ ] Don't check CCU for self-worth
+- [ ] Playtest your own games
+- [ ] Before launch, write a one-line shared vision for the game and confirm it matters more than revenue targets.
+- [ ] Plan retention for high-spending players, since a small share of players drives most revenue (dated 2019 figure; verify).
+- [ ] Schedule a realistic update cadence and events, which correlate with reach under merit-based discovery.
+- [ ] Cap studio sessions and sleep; if sessions reach roughly 10 hours with 5 hours of sleep, schedule rest now (low-advice source).
+- [ ] Measure several signals over time (retention, replays, engagement) rather than one headline metric.
+- [ ] Decide whether to spend Robux on games rather than hoard it, then re-check current Robux economics.
+- [ ] Keep a concise portfolio on two or more public channels.
+- [ ] Document progress as a journey (challenges, milestones) to build an audience.
+- [ ] Verify the game works well on mobile before adding PC-only features.
+- [ ] Include accessibility basics (readable text, clear controls) from the first prototype.
+- [ ] Log what you learned from each release, even failures, before starting the next project.
+- [ ] Confirm your team, schedule and update frequency are realistic before committing to scope.
+- [ ] Before starting a new project, write down the personal reason and a one-sentence per-project goal.
+- [ ] Define the simplest version that delivers the core loop and set a ship date for it.
+- [ ] Cut any feature that players won't use before building it.
+- [ ] Use the design document to park extra ideas; work only on the current session's goal.
+- [ ] Ask at least three peers for help before escalating to the lead.
+- [ ] After a flop, check thumbnail, core loop and mechanic in that order before deciding to drop the project.
+- [ ] Check whether a concept is original or a clone; if cloning, extract the principle rather than copying the game.
+- [ ] Spend time playing in the Roblox ecosystem to learn what players care about.
+- [ ] Reserve about $50-100 for advertising once a game is finished.
+- [ ] Prefer one focused project at a time; record any extra ideas for later.
+- [ ] Use AI for help but attempt the hard problems yourself first.
+- [ ] Ignore hostile comments after release and continue building.
+- [ ] Publish a playable rough version early and collect player feedback before polishing.
+- [ ] Assume your first game is training; scope it to your current skill and finish it.
+- [ ] Pick a game you can finish; define the end state before starting.
+- [ ] Set a 14-day checkpoint after launch: if no home recommendations or algorithm pickup, diagnose discovery versus stickiness, then decide to fix or move on.
+- [ ] Log each release's outcome (discovery, stickiness, monetisation) to guide the next game.
+- [ ] Compare current builds to your own older builds to measure progress.
+- [ ] Multiply development time estimates several times before committing to a schedule.
+- [ ] Save a budget before funding a project.
+- [ ] Set staged CCU targets (for example 10K, 100K, 200K) and track them against progress.
+- [ ] Track average CCU over months, not peak, when judging a game's longevity.
+- [ ] Plan sustained monthly updates for any game that hits, expecting 1-2 month lifespans for trend hits.
+- [ ] Diversify income across games, commissions and store packs.
+- [ ] Stack promotion channels together (paid ads plus short-form video) and measure the combined effect.
+- [ ] Check the Creator Programs page for eligibility and track award milestones.
+- [ ] Find a mentor or accountability partner for structured learning.
+- [ ] Separate leadership ability from craft ability when choosing or training leads.
+- [ ] Move your phone out of the workspace to reduce distraction friction.
+- [ ] When stuck, ask a specific question, step away for a day or two, then resume building.
+- [ ] Protect focus by working in efficient, focused blocks rather than long days.
+- [ ] Improve a little each day and keep a log of small wins.
+- [ ] Keep a release cadence after a big payout instead of coasting.
+- [ ] Discount claims of easy money or quick builds; check against your own data.
+- [ ] Before committing to a game idea, spend real research time and check it against your filter.
+- [ ] Cap side-project work at roughly 10-15 hours a week unless you are funded full time.
+- [ ] Put scheduled days off on the calendar for every long team build.
+- [ ] Start new scripting skills with small template edits or experiments before a large project.
+- [ ] Post on your channels at least every two days while building an audience.
+- [ ] Plan a ~12-month payback horizon for UGC and fund development accordingly.
+- [ ] Keep adding UGC items rather than relying on a single item to pay back.
+- [ ] Reserve recurring time to maintain shipped games after platform changes.
+- [ ] Time-box a new format or genre experiment to about one month before judging it.
+- [ ] Ask whether enjoyment is still driving the project; if only obligation remains, consider handing off.
+- [ ] Get hype-independent feedback from people not tied to development.
+- [ ] After finishing a planned scope, diagnose the result before deciding next steps.
+- [ ] Before letting an AI agent change game code, define how it will check its own output (tests, validation, playtest) and make that check part of the workflow.
+- [ ] If an AI-generated change cannot be verified, treat it as unfinished and review it manually before merging.
+- [ ] After each tutorial, open Studio and rebuild the concept yourself before moving on.
+- [ ] Use AI for specific pieces only; run the code and read it before it goes into your game.
+- [ ] Before starting a new game, list which assets and systems from the previous game you can reuse.
+- [ ] Plan variants inside one niche to test ideas faster than starting new genres.
+- [ ] Build UGC across at least two product groups, such as avatar items and emotes.
+- [ ] After a failed release, write down one lesson and start the next build instead of quitting.
+- [ ] Run focused sessions in 15-minute blocks with 5-minute breaks, keeping breaks shorter than work blocks.
+- [ ] Write one short note per fundamentals resource covering the key concept and what you still find unclear.
+- [ ] Set a concrete micro-goal for each session (for example, change an object's colour on a specific event) before starting.
+- [ ] Choose the small learning project you build around something you personally find interesting.
+- [ ] Keep a list of your recurring weaknesses and revisit it periodically to track improvement.
+- [ ] When evaluating AI-assisted work, check gameplay quality separately from any viral traffic it gets.
+- [ ] After an ad test, stop fixing the weak variants and reallocate budget to the best-performing creative.
+- [ ] Before scaling spend or moving to live ops, check that retention is healthy and that CPI-efficient conversion is working.
+- [ ] When a creative theme loses novelty, plan a fresh concept instead of extending the old one.
+- [ ] Set your monetization intensity based on how long your funds can cover development and downtime.
+- [ ] Commit to a consistent posting or shipping cadence for 30-60 days before judging whether it works.
+- [ ] Keep early content in one niche until a core audience exists.
+- [ ] Schedule a post-release buffer for stress and community feedback after a successful launch.
+- [ ] Log what each ad test or experiment taught you, even when it fails.
+- [ ] When growth stalls, pull real retention, session and traffic data before changing tactics.
+- [ ] Pair every goal with a written plan of concrete steps (a goal without a plan is just a wish).
+- [ ] Track growth by player-count stage and note when returning players flatten (rasdev's stages: 10-50, 100-500, and a ~200 returning-player plateau).
+- [ ] Before a larger paid push, confirm organic signals and retention are holding up.
+- [ ] Before abandoning a stalled game, decide explicitly between a bounded fix window and a restart, and record the reason.
+
+## Numbers and benchmarks
+
+| Metric | Value | Context | Sources |
+|---|---|---|---|
+| First-attempt first-page hit rate | ~1-1.5 of a room's raised hands |  | [Roblox 2018-07 14:20](https://youtu.be/NmyzbBbrBS4?t=860) |
+| Early player milestones | 10, 50, 100 |  | [AlvinBlox 2025-04 7:21](https://youtu.be/f63stwpsaXw?t=441), [AlvinBlox 2025-04 8:03](https://youtu.be/f63stwpsaXw?t=483) |
+| Living wage threshold (claim) | ~200 players |  | [SmartyRBX 2025-06 15:44](https://youtu.be/tpVRSnWwZWI?t=944), [SmartyRBX 2025-06 15:44](https://youtu.be/tpVRSnWwZWI?t=944) |
+| Realistic CCU for 20% change to proven genre | 1-5K, maybe 10K; 100K needs stacked innovations |  | [Tizzy 2026-09 15:42](https://youtu.be/CRCcsYEB_6A?t=942) |
+| Learning time estimates (waveshine) | 1-2 weeks before commissions, ~2 months before gimmick game |  | [waveshine 2024-10 2:54](https://youtu.be/zW0VdnOqxMk?t=174) |
+| Day to reassess game | 14 days |  | [MoseyTube 2026-08 6:21](https://youtu.be/xIBc5He_sy4?t=381) |
+| Spin or Die lag after ads | ~4 months |  | [kra_DeZ 2026-10 14:56](https://youtu.be/lrubtajkaeI?t=896) |
+| Brand activation rating target | 80-85+ thumbs up |  | [Roblox Creators 2022-05 58:14](https://youtu.be/14RMDByrG1U?t=3494) |
+| Games per year | 10 simple vs 1 risky |  | [AlvinBlox 2025-04 6:37](https://youtu.be/f63stwpsaXw?t=397) |
+| Spending example | 10 users x 100 Robux beats 1 x 1,000 |  | [Roblox 2025-09 22:36](https://youtu.be/MJ-zYfL10Ew?t=1356), [Roblox 2025-09 22:36](https://youtu.be/MJ-zYfL10Ew?t=1356) |
+| waveshine outcomes (self-reported) | Steel Time 163 visits; Rarity Rumble thousands in first week; ~100,000 Robux lost; ~$30,000 earned, 100M+ visits |  | [waveshine 2025-08 2:21](https://youtu.be/xnlaYLnCtFc?t=141), [waveshine 2025-08 3:03](https://youtu.be/xnlaYLnCtFc?t=183), [waveshine 2025-08 0:54](https://youtu.be/xnlaYLnCtFc?t=54) |
+| Income goal (SmartyRBX personal) | $100,000/year minimum |  | [SmartyRBX 2025-06 5:08](https://youtu.be/skcp4P68i84?t=308) |
+| Ragdoll Universe players | ~1,000 on a good day |  | [Creators on the Blox 2026-03 48:53](https://youtu.be/VyBSvWSIkao?t=2933), [Creators on the Blox 2026-03 48:53](https://youtu.be/VyBSvWSIkao?t=2933) |
+| Ranking needed to earn a living | Top-10 in 2016 vs top-1000 now |  | [Creators on the Blox 2026-06 59:11](https://youtu.be/5vJCBrxPHmY?t=3551) |
+| AlvinBlox places | 900+ places |  | [AlvinBlox 2021-01 10:56](https://youtu.be/lW3BgRRUEvI?t=656) |
+| Leif games plays (claim) | 150M+ |  | [Leif 2025-05 0:00](https://youtu.be/IJDg6tRJmHo?t=0) |
+| Revenue concentration (whales) | ~75% of revenue from 1-5% of players | Roblox DevForum, OFFICIAL, 2019-03. Typical pattern cited for planning monetization; dated. | [Roblox DevForum 2019-03](https://devforum.roblox.com/t/monetisation-101-how-to-effectively-generate-revenue-in-your-roblox-game/246902) |
+| Early game failure expectation | First 3-4 games a close-to-complete flop | Indie self-reported, 2023-08. Consistent with existing expectation to keep shipping. | [Roblox DevForum 2023-08](https://devforum.roblox.com/t/how-to-successfully-grow-your-game-ft-senseideveloper-vikinglaw-promoting-and-advertising-your-game/2535279) |
+| Failures per success | A couple dozen failures per success | Indie self-reported, 2026-04. Rough ratio the creator reports across their own projects. | [Deconstructor of Fun 2026-04 42:22](https://youtu.be/PNeLRjewQns?t=2542) |
+| CCU gap attributed to behavior | 50 CCU vs 50,000 CCU | Indie self-reported, 2026-03. Gap attributed mostly to behavioral design, not code quality. | [Roblox DevForum 2026-03](https://devforum.roblox.com/t/why-your-technically-superior-game-isn%E2%80%99t-succeeding-on-roblox-and-why-the-algorithm-ignores-it/4461606) |
+| Burnout signal | About 5 hours sleep per night with 10-hour studio sessions, unsustainable by day 50 | Indie self-reported, low-advice, 2025-11. Anecdote, not a benchmark. | [DitchyDevelopments 2025-11 2:03](https://youtu.be/3Pa8QmFB_TE?t=123), [DitchyDevelopments 2025-11 2:03](https://youtu.be/3Pa8QmFB_TE?t=123) |
+| Mobile share of players | Large majority of players on mobile (no exact %) | Indie self-reported, 2025-04. No precise figure given. | [Stewiepfing 2025-04 0:00](https://youtu.be/e48wgHQll2Y?t=0) |
+| Idea failure rate | 70%+ (80-90% for active creators) | Roblox official, 2018-07; speaker's estimate, not measured data. | [Roblox 2018-07 10:49](https://youtu.be/EDY-8V943IE?t=649), [Roblox 2018-07 10:49](https://youtu.be/EDY-8V943IE?t=649) |
+| Hit ratio for top teams | 30-40% at most | Roblox official, 2018-07; speaker's estimate for the best developers. | [Roblox 2018-07 14:13](https://youtu.be/EDY-8V943IE?t=853), [Roblox 2018-07 14:13](https://youtu.be/EDY-8V943IE?t=853) |
+| Advertising budget for a finished game | $50-100 | Yann, 2026-05; self-reported as the cheapest scalable investment. | [Yann 2026-05 8:52](https://youtu.be/yw32DZtz4mQ?t=532), [Yann 2026-05 8:52](https://youtu.be/yw32DZtz4mQ?t=532) |
+| Sustainable active player count | ~200 active players can earn meaningful Robux | bubDEV, 2025-08; self-reported; no 10K CCU requirement. | [bubDEV 2025-08 6:51](https://youtu.be/Iv80MDXZBXU?t=411) |
+| Early milestone before ambitious ideas | A few hundred consistent players | 1Coal, 2023-08; speaker's suggested milestone. | [1Coal 2023-08 0:20](https://youtu.be/YBSsksqfxo0?t=20) |
+| Recovery after fix | Abandoned game reached ~3,000 players after the fix | janisjanis01, 2026-02; self-reported single case. | [janisjanis01 2026-02 15:08](https://youtu.be/2gr2TUGdNAk?t=908) |
+| Time to first successful game | 5 years (creator's own); 'way less' with focus | Duckable, 2026-05; self-reported. | [Duckable 2026-05 16:17](https://youtu.be/X9YYjb_mY5w?t=977) |
+| Failed subscriber challenge | 10,000 subs in 30 days (not reached) | janisjanis01, 2025-08; illustrates an unrealistic short target. | [janisjanis01 2025-08 0:00](https://youtu.be/5iIIYKztamo?t=0) |
+| Flop example | 1 active player, ~13.4k visits (source text reads '13.4,000') | janisjanis01, 2025-07; figure is garbled in source; treat as approximate. | [janisjanis01 2025-07 12:14](https://youtu.be/Sgs36l6K5EU?t=734) |
+| Failed games before first decent hit | 15+ (Oct 2026); 30-40 (Jun 2026) | Same creator, different counts; treat as approximate. Self-reported. | [VuukStudios 2026-10 12:14](https://youtu.be/4vuXAQt0PuQ?t=734), [VuukStudios 2026-06 0:00](https://youtu.be/catPKgFIZbQ?t=0) |
+| Typical hit lifespan before algorithm moves on | About 1-2 months | Non-classic games; trend games can last only weeks (T13943). | [VuukStudios 2026-06 19:33](https://youtu.be/catPKgFIZbQ?t=1173), [VuukStudios 2026-06 19:33](https://youtu.be/catPKgFIZbQ?t=1173) |
+| Longevity vs peak comparison | 5-8K avg CCU for a year beats a 20K peak dying in 15 days | Creator's stated view. | [VuukStudios 2026-09 14:31](https://youtu.be/d5YHwCqwgYM?t=871) |
+| Recent game peak and average | 24K peak, ~12K average over a month | Recent game, claimed; no revenue given. | [VuukStudios 2026-08 0:00](https://youtu.be/m7015JSIrpw?t=0) |
+| Stated CCU goal | 100K CCU by end of year (Ride Storm target) | A goal, not an achieved result. | [VuukStudios 2026-08 17:54](https://youtu.be/aw0PmBkakb4?t=1074) |
+| CCU ladder after reaching ~10K | Next targets 100K, then 200K | Stated goals. | [VuukStudios 2026-10 18:07](https://youtu.be/4vuXAQt0PuQ?t=1087), [VuukStudios 2026-10 16:44](https://youtu.be/4vuXAQt0PuQ?t=1004) |
+| Earnings gap between 10K and 50K CCU | Roughly 10x | Creator's claim. | [VuukStudios 2026-10 13:47](https://youtu.be/DTJeR2gJSZo?t=827) |
+| Slow growth then revamp lift | Sat at 50-300 CCU for months, then 10-20K CCU after several updates | Single game, self-reported. | [VuukStudios 2026-10 6:43](https://youtu.be/DTJeR2gJSZo?t=403) |
+| Development time overrun | Estimated 2 days, took about 30 | Single project. | [PineappleDev 2025-03 0:17](https://youtu.be/IEAr0I_sUV4?t=17) |
+| Cloned trend game profit | ~1,200 Robux | Small profit; creator concluded enjoyment matters more. | [Erthlord 2025-09 9:31](https://youtu.be/fdDscQ6CWIs?t=571) |
+| Prior three games total revenue | $2 | Illustrates early-flop economics. | [MonarchDev 2026-10 0:00](https://youtu.be/bbCmt98O9MA?t=0) |
+| Kill window after fixes | 14 days without algorithm pickup | Creator's rule of thumb. | [VuukStudios 2026-08 17:49](https://youtu.be/Tk0qXybUK0E?t=1069) |
+| Compounding 1% daily | About 37.8x over a year (1.01^365, arithmetic from the claim) | Illustrative math, not a measured result. | [VuukStudios 2025-11 8:20](https://youtu.be/U4nduRcszJ4?t=500) |
+| Efficiency trade-off | One efficient hour can beat eight inefficient hours | Advice from a forum post. | [Roblox DevForum 2021-02](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259) |
+| Visits reported by one creator | 100,000 visits over a short period, no revenue given | Not enough to judge earnings. | [Erthlord 2026-01 14:45](https://youtu.be/69IBB6O4o4c?t=885) |
+| Scripting practice time | 10 minutes a day | Speaker's suggested daily practice amount for scripting; small daily practice builds logic faster than only watching tutorials. Self-reported. | [LovJak 2025-05 2:48](https://youtu.be/M-o5hLZbjGY?t=168), [LovJak 2025-05 2:48](https://youtu.be/M-o5hLZbjGY?t=168) |
+| Side-project weekly hours | 10-15 hours per week | Recommended part-time hobby load to avoid burnout. Self-reported. | [Last Level Studios 2021-08 29:14](https://youtu.be/3djSOjdGaE8?t=1754) |
+| Posting cadence | At least every 2 days; ~5 months of near-daily posting before breakout | Speaker's own experience. Self-reported. | [#7Phantom 2025-07 0:52](https://youtu.be/xjZXsHxKerE?t=52) |
+| UGC payback point | ~12 months; profit ~35,966 vs ~34,900 Robux spent | ThePurpleGuy's UGC breakeven. Self-reported; low-advice source. | [ThePurpleGuy 2026-07 0:00](https://youtu.be/zurNJYYXVhk?t=0) |
+| Early UGC income | $0 for first six months | Britt Drake's early UGC income while following poor advice. Self-reported; low-advice source. | [Britt Drake 2025-12 10:47](https://youtu.be/ncZn8_hopuc?t=647) |
+| New format experiment window | About one month | Suggested time to try VR or another new format before judging. Self-reported. | [Last Level Studios 2021-12 41:40](https://youtu.be/v_TGu45AD_g?t=2500), [Last Level Studios 2021-12 39:36](https://youtu.be/v_TGu45AD_g?t=2376) |
+| Games made before a hit (Madsen) | 30-40 games made, about 5-6 rated good | Self-reported indie figure; lessons from each game were applied to the next. Supports the existing volume and low-hit-ratio rules. | [GamesBeat 2025-08](https://gamesbeat.com/?p=305182) |
+| Solo creator agent team (hypothetical) | 30 agents per person; ~120-person studio equivalent for 4 people | Speaker's hypothetical scenario with four creators, not a measured benchmark or recommendation. Do not use as a planning figure. | [Roblox 2026-04 21:59](https://youtu.be/8IcYpOl4Sdk?t=1319) |
+| Roblox platform age | 20 years (anniversary in 2026-09) | Stated as a milestone only, not a performance or player metric. | [Roblox 2026-09 1:23](https://youtu.be/FDHEqxCLFPo?t=83) |
+| Failed games before a success | 4 failures before a success | Self-reported by RoyalDev; used to illustrate that most games fail and that one success can change outcomes. | [RoyalDev 2026-09 2:06](https://youtu.be/7FSqZeirnjs?t=126) |
+| Focus block length (15/5 rule) | 15 min work / 5 min break | Creator-suggested cycle for focused work; breaks shorter than work blocks. Not independently verified. | [Emancyphur 2021-02 5:22](https://youtu.be/0B1Q2IZSlU8?t=322) |
+| Claimed plays from workflow | over 150 million plays | Self-reported by Leif for games made with their workflow; unverified and not a benchmark for typical results. | [Leif 2025-05 0:00](https://youtu.be/IJDg6tRJmHo?t=0) |
+| Developer experience at time of video | about 2 years of development | Speaker's stated experience level (ByteBlox, 2025-01); self-reported context for judging their advice. | [ByteBlox 2025-01 0:00](https://youtu.be/29B9AV_xM_k?t=0) |
+| Time to get traction as a creator (no prior experience) | at least 1 year | SmartyRBX's estimate, flagged low-advice; treat as a rough expectation, not a benchmark. | [SmartyRBX 2024-11 0:00](https://youtu.be/Pwy9U0B8tJk?t=0) |
+| Consistency window before seeing a big difference | 30-60 days | EISABOOS's claim for steady output; self-reported. | [{EISABOOS} "RBX" 2025-12 1:26](https://youtu.be/fy3Z0P9mG3Y?t=86) |
+| Presenter track record (context only) | ~8 years, 15,000+ players, 1B+ visits | VuukStudios' self-reported background for credibility; not a success benchmark for other developers. | [VuukStudios 2026-03 0:00](https://youtu.be/ba1raV5HE-c?t=0) |
+| Build challenge timeline | 114 days | janisjanis01's 2025-03 public proof-of-concept challenge to build a 'next big Roblox game'. Self-reported personal goal, not a benchmark; outcome not captured. | [janisjanis01 2025-03 0:00](https://youtu.be/OAsW5osz46o?t=0), [janisjanis01 2025-03 0:00](https://youtu.be/OAsW5osz46o?t=0) |
+| Early growth goal | 1,000+ live active users within 7 days | janisjanis01 (2025-09) self-set target. Compare with the file's ~200 active players sustainable benchmark; this is an aspiration, not a norm. | [janisjanis01 2025-09 0:00](https://youtu.be/uNLDi_GO2MA?t=0) |
+| Growth-stage player counts | 10-50 players (stage 3); 100-500 players (stage 4); ~200 returning players where growth stalls (stage 4) | rasdev (2026-05). Speaker's own stage labels and associations; use as rough orientation only. | [rasdev 2026-05 0:00](https://youtu.be/wGRgITzP18c?t=0), [rasdev 2026-05 2:43](https://youtu.be/wGRgITzP18c?t=163) |
+| Audience sentiment on the games industry vs last year | 57% chose top or bottom two boxes, leaning negative | Deconstructor of Fun (2026-07) informal audience poll. Sentiment, not market data; sample size and method not given. | [Deconstructor of Fun 2026-07 0:45](https://youtu.be/i6F_0YVzhz8?t=45) |
+| Audience forecast: GTA 6 sales by end of 2027 | 41% picked 'holy sales' (beat expectations) | Deconstructor of Fun (2026-07) informal poll. Off-platform, not Roblox data; do not use as a planning figure. | [Deconstructor of Fun 2026-07 1:10](https://youtu.be/i6F_0YVzhz8?t=70) |
+
+## Where creators agree
+- Early flops are normal; keep shipping (AlvinBlox, SmartyRBX, TheDankDeveloper, waveshine, Roblox staff, kra_DeZ)
+- More releases raise odds of a hit (AlvinBlox, SmartyRBX, MoseyTube, Tizzy)
+- Discipline over motivation (SmartyRBX, Tizzy, Creators on the Blox)
+- Rest and mental health matter (Roblox staff, SmartyRBX, Creators on the Blox)
+- Execution beats ideas (Tizzy, MoseyTube)
+- Retention precedes monetization (Roblox staff, MoseyTube)
+- Long-term presence beats short-term stats (Roblox staff, Zyonic, MoseyTube)
+- Early games often fail and creators should keep shipping (T3373, Q703, Q763, T3796).
+- Consistency and discipline matter more than motivation (T3519, T3838).
+- Vision and enjoyment should come before money (T3419, Q684, Q760).
+- Don't optimize a single metric; measure value over time (T3842, Q777, T3757).
+- Burnout and unrealistic schedules must be managed (T3724, N1681, T4574).
+- Failure is expected and normal; keep iterating rather than quitting after one flop (multiple creators, including Roblox official).
+- Don't abandon a game after one flop; diagnose the cause first (rasdev, janisjanis01).
+- Understand the Roblox platform and its players before expecting results (Yann, rasdev).
+- Growth and virality take patience; don't chase a single short-term target (janisjanis01, Roblox official).
+- Passion and skill-building compound across projects (Duckable, janisjanis01).
+- Expect most releases to fail and ship many games (VuukStudios T13826, T13942, T13020; ArTheDev T13348; PineappleDev T12307).
+- Persistence and consistency matter more than talent (Generalist Programmer T13502, Q1385; VuukStudios T13052; Arow T12784).
+- Enjoying the work supports consistency (Arow T12784; Erthlord Q1339; Roblox DevForum Q1136-era advice).
+- Earnings scale with player volume and retention, and revenue arrives after traction (Matt The Method T13067, Q1348; VuukStudios T13437, Q1378).
+- Diagnose and learn from flops rather than repeating them (MonarchDev T13797; VuukStudios T13826; ArTheDev T13349).
+- Long builds cause burnout; scheduled breaks or part-time pacing help (Last Level Studios T15911, T15944; Lnor Roblox T16351, Q1572).
+- Early UGC or new-product income is slow; payback takes months (ThePurpleGuy T16501, Xaiyne T16777, Britt Drake N6469).
+- Start small and learn with small projects before going big (Last Level Studios T15738, T15748; LovJak T16158).
+- Consistency over time, not one burst, drives results (#7Phantom T16212, T16382; Xaiyne T16777; RoyalDev T16738).
+- Keep your own hands on the build; AI assists but doesn't replace your judgement (RoyalDev, MonarchDev).
+- Persistence and game quality together drive results (RoyalDev urges not giving up; Alex Builds Games says make the best game).
+- Consistency drives growth: SmartyRBX (T18479) and EISABOOS (Q1905, N7961) both say steady output beats short bursts.
+- Put players first: GameMakers (Q1883) and SmartyRBX (T18551, Q1897) both say making what players want is the core of success.
+- Failure is paid learning: janisjanis01 (T18722) and the existing first-game rule agree that a flop still yields transferable skills.
+- Keep the hobby from harming obligations: EISABOOS (T18613, Q1906) echoes the existing rule to cap side-project hours.
+- Sustained consistency is needed before earnings or results appear, not a single attempt (PolarBear T18782, Q1945); consistent with the existing 'Persistence beats talent' and 'Give consistency 30-60 days' rules.
+
+## Where creators disagree
+- **Passion vs strategy**
+  - SmartyRBX: strategy first, passion for components, drop hobbyist mindset
+  - AlvinBlox, Daiorg, Creators on the Blox, Roblox staff: build what you love; money-first hurts
+  - Tizzy: use slop to stack cash then passion projects
+- **Persist vs move on**
+  - Zyonic, AlvinBlox, Roblox staff: keep updating, don't quit
+  - kra_DeZ, MoseyTube: move on after ~14 days or years of failure
+- **Cash-grab games**
+  - SmartyRBX: study them, don't dismiss
+  - TheDankDeveloper, Zyonic: effort beats cash grabs; low returns
+- **Role of luck versus merit in getting discovered**
+  - Roblox DevForum indie (T3553): luck matters; prepare your game so you are ready when a trend or gap appears.
+  - Roblox DevForum OFFICIAL (T3570, Q710): discovery is merit-based; quality and updates drive reach, so focus on building.
+- **Front-page expectations for first games**
+  - TheDevKing (T3373, 2020): your first game probably won't reach the front page; keep iterating.
+  - Roblox DevForum OFFICIAL (T3570, 2024): discovery is merit-based; updates and events correlate with reach. Newer official framing supersedes chasing front-page luck.
+- **Volume of projects versus focus on one game**
+  - Existing rule favours volume: many simple games over one big bet.
+  - janisjanis01 (2026: T6632, T6580, Q1044, Q1054) says focus on one game and polish it; juggling raises the risk of dropping critical work.
+  - janisjanis01 (2024: T6021) advised committing to a single large update on a proven existing game.
+- **Cloning proven formulas versus original concepts**
+  - bubDEV (T6322, T6339, Q1003, Q1005) says originals are the top long-term earners; clones earn but rarely outperform the original; cash-grab templates are a reliable short-term earner.
+  - janisjanis01 (T6580) says cloning a proven formula can work but is hard to repeat.
+  - rasdev (T6777) says learn the principle of a successful game rather than copy it.
+- **Passion projects versus making what players want**
+  - Duckable (T6554) says passion projects can coexist with trend games and selling out means making games you hate.
+  - Duckable (Q1040) says your dream game shouldn't be made for Robux, but to succeed you must adapt to what people want to play.
+- **How much AI should do**
+  - Crusherfire (T6909) says AI lowers the barrier for beginners; they should still struggle through problems.
+  - Duckable (Q1067) says nothing feels satisfying when AI does everything.
+- **Focus on one game versus volume of games**
+  - Existing file rule 'Focus on one game and polish it (current view)' favours depth.
+  - VuukStudios (T13433, T13826, T12500) favours making many games and not getting stuck on one.
+  - Existing 'Favor volume' rule and the newer 2026 VuukStudios advice favour volume; the newest advice should be preferred, while keeping longevity (T13837).
+- **When to stop a non-performing game**
+  - Existing 'Diagnose a flop before abandoning' rule (MonarchDev T13797) says diagnose first.
+  - VuukStudios (T13709, T13433, Q1423) says stop after about 14 days of fixes without pickup.
+  - Resolution: diagnose within the 14-day window, then decide.
+- **CCU target ambition**
+  - Existing 'Set small milestones and realistic CCU targets' rule advises realistic goals.
+  - VuukStudios (T13945, Q1457, T13877, N5492) argues to aim for top-5 scale with staged targets (10K, 100K, 200K).
+  - Newer advice leans toward aiming high; combine with small staged milestones.
+- **Easy-money claims**
+  - Perstile (Q1321) claims a game built with AI in 7 days is basically free money.
+  - Erthlord (Q1397) says UGC is much harder than it looks, and T12978 reports a small clone-game profit.
+  - Evidence favours caution; discount the Perstile claim.
+- **Failure count from the same creator**
+  - VuukStudios reported 30-40 flopped games before decent hits in Jun 2026 (N5204).
+  - The same creator reported 15+ failed games in Oct 2026 (N5491).
+  - Treat counts as approximate; the creator's own figures are inconsistent.
+- **Whether to finish or cut a failing game**
+  - RoyalDev (T16738, 2026-10): finish every game you start, even if it fails; he credits this with continued shipping.
+  - Existing file rule: set a 14-day fix window, then cut or move on. Cut losses on dead projects.
+- **Whether outcomes come from merit or from luck**
+  - Alex Builds Games (Q1825): success comes from making the best game; it is not RNG.
+  - RoyalDev (T17862): one successful game can change outcomes, which implies high variance and reliance on hits.
+- **Whether to chase the platform algorithm**
+  - SmartyRBX (T18551, Q1897, 2024-11, low-advice): don't chase algorithms; quality drives the recommendation signal on its own.
+  - janisjanis01 (Q1926, 2026-08): the front page is an algorithm that rewards developers who know what they are doing, so learning its mechanics matters.
+- **Whether to abandon a stalled game for a new one**
+  - janisjanis01 (T18799, Q1948, 2024-10): only work on passion projects, and if a game stalls, start a new one rather than endlessly patching it.
+  - rasdev (T18946, 2026-05): avoid abandoning projects halfway for new ideas; finish and iterate on one game.
+  - Existing file: 'Focus on one game and polish it (current view)' and 'Fix before restarting' side with rasdev; 'Set a 14-day fix window, then cut or move on' gives a bounded middle path.
+
+## Date context (what may be outdated)
+- 2018 official talks on first-attempt odds and role choice predate 2025-26 indie views
+- 2025-26 SmartyRBX strategy-first framing follows Grow a Garden hit; may shift with trends
+- 2026 claim of top-1000 viability updates the 2016 top-10 requirement
+- AI-generated and vibe-coded games discussed 2025-26; evolving
+- Indie numbers are self-reported
+- 2019 whale figure (T3343) is old; verify against current monetization data before using it.
+- 2022 Robux advice (T3454) predates later Robux and DevEx changes; re-check before acting.
+- 2024 official merit-based discovery (T3570, Q710) is the most recent platform guidance and should take priority over older luck-based or front-page-chasing advice (T3373, T3553).
+- 2025-2026 burnout and failure figures (T3724, N1681, Q763, T3757) are self-reported and low-advice; treat as anecdotes.
+- Current date is 2026-10; recent indie items (2026) are self-reported and not verified.
+- Roblox official figures (70%+ idea failure, 30-40% hit ratio) are from 2018-07 and are speaker estimates; treat them as rough benchmarks, not current data.
+- Newest advice (2026) favours focusing on one game; the 2024 advice favoured a single large update on a proven game and the older knowledge file favoured volume. Prefer the 2026 view where they conflict.
+- 2025 claims that viral games are 'easier than ever' (Q1001) are self-reported hype and not verified.
+- Ad budget figure ($50-100, 2026-05) reflects one creator's view; ad costs and platform ad tools change.
+- AI-tool advice dates from 2026-08 to 2026-10 and reflects fast-moving tools; re-check specifics.
+- Roblox Creator Docs items (2026-10) are the most recent official sources in this batch.
+- Most recent (2026) advice from VuukStudios and Raul/Matt The Method supersedes older guidance on CCU ambition and kill timing; prefer Oct 2026 statements where they conflict.
+- Game Fund guidance (T11070, Jul 2021) is old; verify the program is still active and its current priorities before designing around it.
+- DevForum advice from 2019-2021 (T10531, T10940, T10998, T11002) predates current discovery systems; the general habits likely still hold, but verify platform specifics.
+- Creator Programs and award thresholds (T14417, T15333, Oct 2026) reflect current official docs; numeric thresholds were not in the source notes.
+- Raul's Jul 2026 comment on the 'good old days' suggests earlier discovery was easier; don't assume past popularity patterns apply.
+- Low-advice flagged items (for example Perstile, Raul, GnomeCode, Arow, Erthlord, Matt The Method) are anecdotal or hype-adjacent; weight them lower than official docs or repeated multi-creator evidence.
+- Most indie figures are self-reported and survivorship-biased; they show what happened to a few creators, not base rates.
+- Last Level Studios advice spans 2019-2023 and predates current Roblox monetisation and UGC dynamics. Treat its platform-specific claims (e.g., feature depreciation, 2021) as dated and verify against current docs.
+- The newest items (2025-2026: #7Phantom, Lnor Roblox, ThePurpleGuy, Xaiyne, RoyalDev) focus on UGC and recent posting cadence. Where they conflict with older advice, prefer the newer advice and say so. The 2026-10 RoyalDev stance on finishing games is the newest on that point, but it is single-source.
+- UGC payback timelines are indie self-reports from 2025-2026; treat them as one data point, not a platform benchmark.
+- New items range from 2025-08 to 2026-05. The 2026 items (T17438, T17451, T17474, Q1736, Q1746) are flagged low-advice and should be weighted below older, higher-confidence sources.
+- No new item overrides an existing rule, so no recency conflict is recorded.
+- 2026-10: Roblox official guidance emphasises AI workflows that include a self-verification step; this is the most recent advice on AI-assisted building in this batch.
+- 2026-09: Roblox marked 20 years as a platform; this is a milestone, not a performance indicator.
+- The 30-agents-per-person figure (2026-04) is a hypothetical from a speaker, so it may be outdated or not representative.
+- These items are dated August to October 2026. The newest advice (Alex Builds Games, Xaiyne, October 2026) favours niche reuse and multiple UGC product groups.
+- The niche-reuse advice complements the existing volume rule and the 'focus on one game' view; it does not reverse them. Apply niche reuse when building variants, not as a reason to chase unrelated genres.
+- The AI cautions (RoyalDev, MonarchDev) are recent. They refine the older AI rule without contradicting it.
+- Emancyphur's tips (T18010–T18020) are from 2021-02 and may predate current Studio tooling and workflows; verify tool-specific details before applying them.
+- ByteBlox (2025-01), Leif (2025-05), and Duckable (2025-08) are more recent; no direct conflicts with existing rules were found, so no recency override is needed.
+- GameMakers ad and monetization advice (2022) is the oldest here; ad tooling and CPI conditions have changed, so verify numbers before reuse.
+- SmartyRBX (2024-11) items are marked low-advice; prefer the newer 2025-12 and 2026 sources where they overlap.
+- janisjanis01 (2026-08) and Deconstructor of Fun (2026-06) are the most recent; where they conflict with older guidance on algorithms, the 2026 framing (algorithm rewards know-how) takes priority.
+- No outright reversal of existing rules was found in these additions.
+- Most recent guidance on stalled projects is rasdev (2026-05), which favors finishing and iterating on one game. janisjanis01's restart advice dates from 2024-10. Per the recency rule, prefer rasdev where they conflict.
+- janisjanis01 numbers (2025) are personal challenge goals from a specific period, not current benchmarks.
+- GameMakers (2024-10) scale and paid-spend remarks are generic industry talk, not Roblox-specific; check current Roblox ad and creator tooling before applying them.
+- Deconstructor of Fun poll items (2026-07) reflect sentiment at that time and will age quickly.
+- No [OFFICIAL] platform items in this batch.
+
+## Instructions for an agent using this file
+- If user is a beginner, then advise scoping a small game, shipping, and expecting flops
+- If a user asks how to succeed, then recommend volume of simple games plus iterating
+- If a user wants passion vs money advice, then present both camps and suggest funding via simple games then passion projects
+- If a game has no traction by ~14 days, then suggest diagnosing and possibly moving on, noting late exceptions
+- If a game has traction, then recommend continued updates and retention work
+- If the user is burnt out, then suggest a break or switching projects
+- If user blames algorithm or players, then redirect to diagnosing own metrics
+- If quoting income or CCU figures, then label them self-reported and unverified
+- If monetization is asked, then put retention first, then spending breadth
+- If user relies on commissions or does brand work, then outline an income ladder and define success metrics and long-term updates up front
+- If the user asks how to get discovered, prioritize official merit-based guidance (Q710) and update/event cadence (T3570) over luck.
+- If the user is chasing one metric (CCU, visits), redirect them to replayability and multi-signal measurement (Q777, T3842).
+- If the user plans a schedule, check for realistic cadence and rest; flag burnout warning signs (T4574, N1681).
+- If the user asks about monetization, mention whale concentration (T3343) but note it is dated and should be verified.
+- If the user asks about Robux strategy, present the 2022 advice (T3454) as dated and recommend checking current economics.
+- If the user is building an audience, suggest journey framing and consistent community work (T3834, T3838).
+- Label self-reported figures as indie-sourced; do not present low-advice items as authoritative.
+- If the user is discouraged by early failure, reinforce the expectation of flops and continued shipping (Q703, Q763).
+- If the user asks about team or solo development, note both are viable if the user balances game and community work (T3838).
+- Do not treat luck as a substitute for quality; combine preparation with merit-based fundamentals (T3553, Q710).
+- If a user plans many parallel projects, recommend focusing on one game first, and note that older advice favoured volume.
+- If a game flops, diagnose thumbnail, then core loop, then mechanic before advising abandonment.
+- If a user asks about cloning, present the trade-off: clones can earn short-term but originals are the long-term top earners.
+- If a user sets a CCU or subscriber target, benchmark against ~200 active players rather than 10K.
+- If a user asks about AI tools, encourage doing the hard problems themselves and warn against over-configuring the setup.
+- If a user faces hostile comments, advise ignoring hostility and staying focused on building.
+- Label indie figures as self-reported and Roblox 2018 figures as dated speaker estimates.
+- Do not present any single creator's viral claim as a general rule.
+- If a user asks how long until success, give a range and cite that most releases fail and many attempts are normal; do not promise a timeline.
+- If a user's game has no recommendations or algorithm pickup after about 14 days of fixes, help them diagnose discovery versus stickiness before recommending a stop.
+- If a user is planning their first game, scope it small, frame it as training, and steer toward a finishable project.
+- If a user asks for CCU targets, offer a staged ladder and note these are aspirational creator claims.
+- If a user claims easy money from AI or quick builds, respond with caution and ask for their own measured data.
+- If a user asks about hiring or leading, separate leadership skill from coding skill.
+- If a user is stuck on code, ask them to frame a specific question and suggest a short break before iterating.
+- If a user plans a budget, recommend saving before funding development and multiply their time estimates.
+- If a user asks about income, distinguish pre-recommendation revenue from post-traction revenue and cite that early earnings are small.
+- If a source is tagged low-advice or is a single self-reported claim, label it as anecdotal and cite the date.
+- If the user is starting a first project, recommend small template edits or experiments before a large game.
+- If the user plans full-time work on a side project, flag burnout risk and suggest a weekly hour cap around 10-15 hours.
+- If the user is in a long team build, recommend scheduled days off.
+- If the user is planning UGC income, present a ~12-month payback horizon as a self-reported benchmark and not a guarantee.
+- If the user reports losing enjoyment or feeling only obligation, suggest a motivation check and consider handoff.
+- If the user asks about finishing vs cutting a failing game, present both views (RoyalDev vs the existing cut-after-14-days rule) and advise diagnosing first.
+- Label low-advice items as lower-confidence and cite them alongside higher-confidence sources.
+- Do not treat indie figures as platform ground truth; no official sources were provided for this batch.
+- Skip any new item that repeats an existing rule. Only merge new rules, numbers or gaps.
+- For items tagged low-advice or indie self-reported, record them as single-mention and do not promote them to multiple-creators strength without corroboration.
+- Treat concurrency and top-chart observations as signals to study rather than as guaranteed durability, consistent with existing guidance on peak CCU and retention.
+- If the user asks about using AI to build Roblox games, recommend giving the AI a verification method (tests, checks, playtest) before relying on its output.
+- If the user asks about team size or agent-team scale, note that the 30-agents-per-person figure is a hypothetical and not a benchmark.
+- If the user asks about Roblox's age or history, state it as a milestone (20 years, 2026) and do not present it as evidence of success.
+- Do not treat novelty-focused guidance as new; link it to existing rules on original concepts and building unique games.
+- If a user asks whether AI can build their whole game, say no. Explain that they need to direct, test, and understand the code.
+- If a user wants to learn Roblox quickly, recommend building in Studio actively instead of only watching videos.
+- If a user plans a second game, suggest reusing assets and systems from a niche they already know before choosing a new genre.
+- If a user plans UGC income, suggest at least two product groups (for example avatar items and emotes).
+- Mark failure counts and income claims from these creators as self-reported, not verified.
+- Do not present luck versus merit as settled; note that creators disagree.
+- Repeat existing rules only when the user asks; don't add duplicate advice.
+- If the user asks about focus or productivity, offer the 15/5 block cycle as one option to try, and label it as an unverified creator suggestion.
+- If the user asks about learning motivation, prioritise projects they personally find interesting over external pressure.
+- If a claim about AI tools is mentioned, separate virality from game quality when giving advice.
+- Treat claimed play counts and self-reported experience levels as unverified; do not use them as benchmarks without caveats.
+- If a learning resource has many concepts, advise the user to take short notes per resource so concepts stay manageable.
+- If an ad creative underperforms, stop tweaking it and shift budget to the winners.
+- If a game or content theme loses novelty, switch concept rather than forcing it.
+- Before scaling spend or live ops, verify retention and CPI-efficient conversion.
+- Choose monetization intensity that your runway can support.
+- Judge creator growth only after roughly 30-60 days of consistent output.
+- Stay in one content niche until an audience exists; then branch out.
+- Don't rely on algorithm tricks alone; prioritize content and game quality.
+- Count experiment learnings as a return on the spend that produced them.
+- If a developer asks whether to drop a stalled game, first check data for the bottleneck and apply the 14-day fix window; prefer finishing and iterating on one game (rasdev 2026-05) over restarting, unless the fix window has failed.
+- If a developer proposes a larger paid push, check organic signals and retention first, and frame the spend as a risky bet with a clear kill criterion (T18796).
+- Treat janisjanis01's 114-day and 1,000-users-in-7-days figures as personal goals, not benchmarks, and say so when citing them.
+- Treat Deconstructor of Fun poll results as audience sentiment, not market data; do not use them to justify planning decisions.
+- When a user asks for a goal, pair it with a plan and milestones instead of stating the goal alone (Q1940).
+
+## Not covered here (research elsewhere)
+- No verified data on success rates or income distributions
+- Little on legal, tax and payout aspects of treating it as a business
+- Little concrete guidance on team management and hiring costs
+- No detail on how AI tools affect long-term strategy
+- Roblox algorithm and discovery changes need official research
+- Limited coverage of non-English markets and age targeting
+- No current (2026) quantitative discovery or algorithm thresholds from official sources.
+- No recent Robux, DevEx or payout-rate data to validate the 2022 Robux advice.
+- No benchmarks for typical revenue, income ladder timing, or time-to-profit.
+- No guidance on hiring, contracts or team management beyond T4574 and T3838.
+- No mental-health resources or support beyond general burnout warnings.
+- No exact mobile percentage of the Roblox player base.
+- No detailed accessibility implementation guidance beyond the principle in N1541.
+- T4365 (copyright and harassment reporting) is off-topic for this mindset file; handle under moderation/legal topics.
+- No measured data on retention, CCU or revenue by genre; numbers are anecdotal or speaker estimates.
+- Monetisation math (DevEx rate, Robux per player, whale spend) is not covered in this batch.
+- Ad ROI data beyond the single $50-100 recommendation is missing.
+- Team structure, hiring and contracts are only briefly touched (team brainstorming, peer help).
+- Educator eligibility (T7486) and enforcement appeals (T8501) belong to education and trust-and-safety topics, not mindset.
+- No benchmarks for how long a 'finish within weeks' scope should take.
+- Roblox 2018 figures should be checked against current official data before reuse.
+- Strategy for choosing between clone and original is anecdotal and needs more evidence.
+- Current status and eligibility for Game Fund (last source is 2021).
+- Numeric thresholds for Creator Rewards and Developer Awards (MAU, rolling 12-month Robux, lifetime play hours).
+- How home recommendations and algorithm pickup work and how to improve odds of them.
+- Retention benchmarks (D1, D7, D30) and what counts as good for Roblox games.
+- Base rates for hit rates and lifespans across genres; current sources are mostly self-reported survivorship samples.
+- Team structure, hiring, compensation and contracts for lead roles.
+- Legal and tax treatment of Robux or DevEx income.
+- Mentorship sourcing, costs and how to vet mentors.
+- Burnout recovery specifics beyond the existing health rule.
+- Cost and effectiveness of paid ads by genre and audience size; sources give no ROI figures.
+- No official Roblox sources in this batch; platform depreciation and UGC monetisation claims need verification against DevForum and creator docs.
+- No benchmarks for team size, salary, or grant amounts beyond the single UGC example.
+- No data on how long it takes to reach 200 active players or specific CCU targets from these sources.
+- No guidance on handling burnout symptoms beyond scheduled days off.
+- No evidence on whether finishing failed games or cutting them yields better long-term outcomes; the sources conflict and are self-reported.
+- No information on hiring, contracts, or role transitions beyond the self-driven portfolio point.
+- No hit-rate or cannibalisation data beyond the single tracker-blog claim; sources do not quantify how fast trend-genre replacement happens.
+- Sources do not give retention curves or the time after launch when novelty typically fades.
+- No official Roblox guidance on product or genre trends is included in these items.
+- The sources do not say which concrete verification methods Roblox recommends (for example automated tests, Studio playtests, or specific tooling).
+- No outcome data is given on how much verification improves AI-built Roblox games.
+- No creator reports actual results from multi-agent or solo-studio workflows; the 30-agent figure is hypothetical.
+- No source gives the exact Roblox guidance on novelty beyond a GamesBeat report (T17592, indie, self-reported), so verify it against official Roblox material if needed.
+- No official Roblox guidance on AI-assisted development or niche strategy was included in these sources.
+- No measured data (retention, sales, or time saved) supports the niche-reuse or product-group tactics.
+- Each new item comes from a single creator, so the sample is small.
+- No specific guidance on how to verify AI-generated Luau code safely, or on the Roblox AI tools available.
+- No benchmarks for how long building variants in one niche takes compared with starting new genres.
+- No evidence on whether the 15/5 focus rhythm improves output compared with other work-break patterns.
+- Leif's 150 million claimed plays are unverified; no breakdown of workflow, time invested, or genre is provided.
+- No data on how many hours or how long ByteBlox's 2 years of experience translated into shipped games.
+- No guidance on note-taking formats or tools beyond the single tip.
+- No quantitative data on how much intrinsic motivation affects long-term project completion.
+- No CPI, retention, or conversion benchmark figures for Roblox ads or games.
+- 'Permanent pillar' vs seasonal add-on is not defined with examples or metrics.
+- No official Roblox guidance on the front page or recommendation algorithm; claims are creator opinions.
+- The 1-year traction estimate and 30-60 day consistency window are self-reported, not measured.
+- No data on how monetization stance affects long-term retention for small studios.
+- No official guidance on balancing studies or work with game development.
+- No specifics on which data metrics rasdev uses to diagnose stalled growth (retention, sessions, funnel); research Roblox analytics docs separately.
+- No Roblox-specific data on how paid spend affects organic reach or ad-network terms (T18796 is generic).
+- The claim that a game without monetization cannot go viral (Q1962, janisjanis01) is unsupported in this batch; verify before advising.
+- Stage labels in N8139 ('level 3', 'level 4') are not defined; treat as the speaker's own taxonomy.
+- Outcome of janisjanis01's 114-day challenge and the 1,000-user goal is not captured; no follow-up data.
+- Methodology and sample size of the Deconstructor of Fun polls are not given.
+- No official Roblox guidance on creator growth, Creator Rewards milestones, or live-ops stats is present in this batch.
+
+## Quotes (near-verbatim)
+- "if you put yourself down by one failure you're not gonna succeed you just got to keep trying" ([Roblox 2018-07 14:20](https://youtu.be/NmyzbBbrBS4?t=860))
+- "if you find yourself caught up in one thing you're gonna miss in one failure you're gonna miss so many potential successes" ([Roblox 2018-07 8:58](https://youtu.be/NmyzbBbrBS4?t=538))
+- "If you don't tell us anything then we will not get better so talk to us." ([Roblox 2018-07 34:18](https://youtu.be/rBrILsiVdtQ?t=2058))
+- "Most projects fail because they don't get started. The best idea is worthless if it is not put to action." ([Roblox DevForum 2019-06 ](https://devforum.roblox.com/t/how-to-make-a-game/287493))
+- "Try not to personally ride the hypetrain, delegate this to people who are disconnected from the development." ([Last Level Studios 2019-09 12:55](https://youtu.be/hnCm955Du8w?t=775))
+- "What sets poor and excellent students isn't necessarily intelligence, but their willingness to put in work and always seeking new ways to become better at what they do." ([Roblox DevForum 2019-11 ](https://devforum.roblox.com/t/lua-scripting-starter-guide/394618))
+- "Your first game might be terrible but you can't make your 50th game without making your first." ([Last Level Studios 2020-02 4:24](https://youtu.be/HU4JJOft4Pw?t=264))
+- "Don't just jump straight into a project because you will encounter bugs along the way; start small and build your way out." ([Last Level Studios 2020-02 9:43](https://youtu.be/_LdpUJ41cso?t=583))
+- "If you try and just make something because everyone else is doing it, it's not going to be as well-made." ([Last Level Studios 2020-02 25:06](https://youtu.be/_LdpUJ41cso?t=1506))
+- "The truth is your first game probably won't reach the front page and you can't be discouraged from that." ([TheDevKing 2020-05 10:47](https://youtu.be/AZTDrfuk9ME?t=647))
+- "Don't get mad at your customers!" ([Roblox DevForum 2020-05 ](https://devforum.roblox.com/t/game-design-theory-project-management-with-devops-analytics-and-pipelines-for-successful-games-and-productive-teams/568057))
+- "A common misconception is that the better someone is at their field, the more likely they are to be a good leader." ([Roblox DevForum 2020-07 ](https://devforum.roblox.com/t/game-design-theory-becoming-a-leader-for-project-management-and-team-building/690475))
+- "don't use free models in your games because people will just be able to tell" ([AlvinBlox 2021-01 10:56](https://youtu.be/lW3BgRRUEvI?t=656))
+- "I kind of grinded them out without updating like with a bunch of clips... the progress was kind of boring." ([B Ricey 2021-01 18:42](https://youtu.be/xwaCg7SWUhc?t=1122))
+- "I'm kind of also losing motivation for this project; I just need to work on it." ([B Ricey 2021-01 19:24](https://youtu.be/xwaCg7SWUhc?t=1164))
+- "Your end goal can't just be money. You have to have a solid vision that drives you, and if you make a good game then the money will come." ([GameMakers 2021-01 58:38](https://youtu.be/y8H_GRdGaJw?t=3518))
+- "Your first game may be awful, but you can't make your 50th game without making your first." ([AlvinBlox 2021-01 6:32](https://youtu.be/fivk8yp-VT4?t=392))
+- "Learning scripting shouldn't be a chore, it should be something you enjoy." ([AlvinBlox 2021-01 5:22](https://youtu.be/fivk8yp-VT4?t=322))
+- "DO NOT rely off of YouTube for ALL of your learning – it's oftentimes better to make YouTube a supplementary resource/visual aid for learning." ([Roblox DevForum 2021-02 ](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259))
+- "People that dislikes your game are here to test your patience, it's up to you to decide either ignore it or take it personal and give up." ([Roblox DevForum 2021-03 ](https://devforum.roblox.com/t/developing-expert-developers-advice-from-all-around-the-world/1134437))
+- "Your first game wouldn't be that interesting and cool, but you can't make your 50th game without it." ([Roblox DevForum 2021-03 ](https://devforum.roblox.com/t/developing-expert-developers-advice-from-all-around-the-world/1134437))
+- "Having my passions follow me as in I love what I do for Roblox and as long as I could financially support doing it, I'll keep doing it as a part-time hobby." ([Last Level Studios 2021-08 29:14](https://youtu.be/3djSOjdGaE8?t=1754))
+- "it's better to have easy-to-use UI that looks awful than UI that looks good but is impossible to use." ([Roblox Creators 2021-09 10:53](https://youtu.be/AG-3o_GdqKI?t=653))
+- "Mostly just trying to not limit a player in their roleplay experience because we can over gamify a lot of things." ([Roblox Creators 2021-09 4:15](https://youtu.be/UlKAoiFLgUo?t=255))
+- "Providing players with a lot of content straight out of the gate because that's what players are looking for." ([Roblox Creators 2021-09 1:24:15](https://youtu.be/UlKAoiFLgUo?t=5055))
+- "What you do very, very much matters. Every time you interact with someone, you change that person's life in some small way." ([Roblox Creators 2021-12 12:50](https://youtu.be/TLRakuu4vd0?t=770))
+- "There are massive implications to not caring about your UX: lower average play time, lost revenue, poor ratings, lackluster accessibility." ([Roblox Creators 2021-12 1:26](https://youtu.be/cY1B5_x4RoU?t=86))
+- "Your health is important, your mental health is very very important, so take care of yourself first." ([Roblox Creators 2021-12 22:10](https://youtu.be/wrf6DRlfoO8?t=1330))
+- "Give it like a month just to kick around... just try new things and don't be too afraid of what you might make." ([Last Level Studios 2021-12 39:36](https://youtu.be/v_TGu45AD_g?t=2376))
+- "our biggest social wins have been in places like the pizza place where it's just like a completely abstract concept" ([Roblox Creators 2022-02 53:32](https://youtu.be/BkQL2_DY9Mc?t=3212))
+- "it's a good idea that you know algorithms change things like that so you can spread it out and grow an audience everywhere" ([Roblox Creators 2022-05 2:49](https://youtu.be/HxqWoF_wfMQ?t=169))
+- "Active income is money you make while working, passive income is money you make while sleeping." ([Roblox DevForum 2022-08 ](https://devforum.roblox.com/t/the-art-of-robux-getting/1922578))
+- "you want to stay having fun in it otherwise it's more likely that you're going to quit" ([SmartyRBX 2022-09 5:34](https://youtu.be/fxZ8Qv91LbY?t=334))
+- "creators independently get to decide what is fun to make and it really rings true if i have an idea i can bring it to life on roblox" ([Roblox 2022-09 0:58](https://youtu.be/ImH6XYqNJUs?t=58))
+- "the most important thing is player happiness" ([GameMakers 2022-11 32:14](https://youtu.be/NaR3-VIg5-I?t=1934))
+- "the one thing that separates top devs from all the other devs is that they never quit" ([SmartyRBX 2023-02 2:35](https://youtu.be/rdWyuDEpGyk?t=155))
+- "We can always change something as da Vinci once said, art is never finished, only abandoned." ([AlexDev 2023-03 4:34](https://youtu.be/bYyD6tyz6Dg?t=274))
+- "If you have a great idea, just keep shooting them out. If you find your end, it's going to get easier and easier." ([Roblox Creators 2023-05 2:07](https://youtu.be/3Y4_B5-EHjY?t=127))
+- "Don't mock them, give them a guiding hand because they don't know what they're doing." ([GnomeCode 2023-05 20:01](https://youtu.be/TJnV2ycnXZc?t=1201))
+- "Brands came in and supported Esports or gaming... the fans would get so excited if it was a partnership done well." ([Roblox 2023-07 20:26](https://youtu.be/RNwPOSY8NjI?t=1226))
+- "You can expect for first 3-4 games to be a close-to complete flop. You will have to embrace failure and be humble." ([Roblox DevForum 2023-08 ](https://devforum.roblox.com/t/how-to-successfully-grow-your-game-ft-senseideveloper-vikinglaw-promoting-and-advertising-your-game/2535279))
+- "take care of yourself first so you don't experience burnout or stress" ([Roblox 2023-09 22:12](https://youtu.be/9eaev-ypgWo?t=1332))
+- "This logo slap or opportunistic moment doesn't work... otherwise it's just a campaign, it's just an ad." ([Roblox 2023-09 9:12](https://youtu.be/S8ORVEKec_4?t=552))
+- "Our learnings into one phrase is to really just show that you care." ([Roblox 2023-09 14:20](https://youtu.be/UVq0045HNQ4?t=860))
+- "The most successful Roblox apps have games that didn't take off but the thing about these Roblox devs are they don't give up." ([TheDankDeveloper 2023-10 2:03](https://youtu.be/DJsRZ2FfoMk?t=123))
+- "just because my ad failed once doesn't mean it's going to fail every time just learn from your mistakes" ([janisjanis01 2023-10 3:27](https://youtu.be/5E5pj7CB4mM?t=207))
+- "The last couple of years have been driven by not wanting to let down friends... rather than out of enjoyment for the project itself." ([Last Level Studios 2023-12 6:40](https://youtu.be/kQ6JMjjGvow?t=400))
+- "Start off working for free... that is called Sweat Equity, you're going to be building your own portfolio." ([VuukStudios 2023-12 4:51](https://youtu.be/fEcFzlBQew8?t=291))
+- "Merit-based Discovery: every creation should reach an audience based on its quality... This allows you to focus on building instead of finding an audience." ([Roblox DevForum 2024-02 ](https://devforum.roblox.com/t/discovery-on-roblox-past-present-and-future-vision/2859111))
+- "a goal without a plan is just a wish" ([janisjanis01 2024-03 0:00](https://youtu.be/9gBS7nhaC3c?t=0))
+- "Roblox has been a really great way to express myself. Sometimes I'll have a random idea that I really want to flesh out, and I can hop into Studio and just start creating." ([Roblox DevForum 2024-05 ](https://devforum.roblox.com/t/creator-spotlight-meet-ahlvie-the-environmental-artist-behind-fantastical-worlds/2964648))
+- "this is a new marketing method and it's really rare that we see new marketing methods come up on Roblox" ([SmartyRBX 2024-06 5:51](https://youtu.be/0jUL69PGeV4?t=351))
+- "Your Roblox game won't become viral overnight, all developers start at zero." ([janisjanis01 2024-06 7:15](https://youtu.be/NWyK_PbFdxE?t=435))
+- "everything will take consistency to earn roox you just have to really stick with it" ([PolarBear 2024-07 10:04](https://youtu.be/yYp23GK9RI4?t=604))
+- "putting lots of hard work and time into your games is ultimately what is going to get you the best results" ([ItsZyonic 2024-07 6:22](https://youtu.be/Cd6mpD4doGs?t=382))
+- "Even if your second, third or fourth game fails, you still got something more valuable than Robux, and it's your skills." ([janisjanis01 2024-08 2:26](https://youtu.be/RECJIE0_CzE?t=146))
+- "Burning out can ruin your development career if you don't have the discipline to keep going." ([janisjanis01 2024-08 5:02](https://youtu.be/RECJIE0_CzE?t=302))
+- "it's okay to not have popular games on Roblox it can take a long time to make a popular Roblox game" ([PineappleDev 2024-09 5:33](https://youtu.be/UBs1bebPu0s?t=333))
+- "If developers were to cater solely to player feedback it would only result in a flood of similar formulaic experiences." ([Roblox 2024-09 21:53](https://youtu.be/DxrLfwsfV1I?t=1313))
+- "if you're focused on acquisition without strong retention or engagement you know you're growing like a leaky bucket" ([Roblox 2024-09 26:44](https://youtu.be/QC6XWgJRJEM?t=1604))
+- "The moment you give up is the moment you let someone else win." ([waveshine 2024-10 3:03](https://youtu.be/zW0VdnOqxMk?t=183))
+- "It takes the potential of the Roblox engine to its maximum capacity. Yes, it's still rough around the edges, but the developers will have enough time to master the craft." ([Daiorg 2024-10 23:42](https://youtu.be/LXRBAzLaxwQ?t=1422))
+- "you shouldn't work on a game you have no passion for go out there take that risk develop a new game and you'll have more chances of succeeding" ([janisjanis01 2024-10 7:16](https://youtu.be/ZyQ73kfh_b4?t=436))
+- "if you just start focusing on making what people want to see the algorithm will naturally reward you" ([SmartyRBX 2024-11 16:13](https://youtu.be/Pwy9U0B8tJk?t=973))
+- "this framework does not interfere with your style of programming" ([Suphi Kaner 2024-11 0:58](https://youtu.be/SVLFkdeh6c8?t=58))
+- "motivation is a liar" ([SmartyRBX 2024-12 4:06](https://youtu.be/_-LugzuCA38?t=246))
+- "momentum is created by action not the other way around" ([SmartyRBX 2024-12 4:48](https://youtu.be/_-LugzuCA38?t=288))
+- "it's kind of like throwing darts on a board, the more darts you throw the more likely you hit the bullseye" ([VuukStudios 2024-12 6:20](https://youtu.be/xBPJnMgLoUE?t=380))
+- "I decided that I was going to start making brain rot games and just put no effort into him at all and just see what happens" ([PineappleDev 2025-01 0:11](https://youtu.be/OzqyuEoN7t8?t=11))
+- "If your game is good it will easily make those Investments Back" ([janisjanis01 2025-01 6:08](https://youtu.be/hxjumUFspP0?t=368))
+- "in 100 days I'm going to turn it into a viral game that will sit on your front page" ([janisjanis01 2025-03 0:00](https://youtu.be/EJ8qN7EKafM?t=0))
+- "I kind of just like hit the lottery cuz this game is not good in any way I'll be honest" ([PineappleDev 2025-03 3:13](https://youtu.be/a4PQqMC8ruA?t=193))
+- "I'm on a mission to create the next big Roblox game in 114 days." ([janisjanis01 2025-03 0:00](https://youtu.be/OAsW5osz46o?t=0))
+- "I want to show proof that you don't have to be a big developer with millions of visits to make your game blow up." ([janisjanis01 2025-03 0:00](https://youtu.be/OAsW5osz46o?t=0))
+- "If you don't build with the market in mind the market will ignore you." ([SmartyRBX 2025-03 1:58](https://youtu.be/_wqZyaTEsHQ?t=118))
+- "Almost four months ago, I decided to make a boxing game which ended up gaining thousands of players. But my goal is to reach the front page." ([janisjanis01 2025-03 0:00](https://youtu.be/Pruto1wqxAU?t=0))
+- "A fun game should just be able to naturally take off. It shouldn't require thousands and thousands of Robux." ([AlvinBlox 2025-04 4:02](https://youtu.be/f63stwpsaXw?t=242))
+- "all of it is self-taught... you can just go on YouTube, look up how to do digital art" ([Roblox Creators 2025-04 1:29](https://youtu.be/Zb1BJow0NV4?t=89))
+- "The large majority of players on Roblox are playing on mobile devices. That's why it's essential to optimize and design our games with mobile users in mind." ([Stewiepfing 2025-04 0:00](https://youtu.be/e48wgHQll2Y?t=0))
+- "The best Roblox games are made by developers who are addicted to playing their own games." ([AlvinBlox 2025-04 2:31](https://youtu.be/Le4QhC3dDGk?t=151))
+- "I wanted to prove to myself and other developers that I'm capable of creating a successful Roblox game." ([Duckable 2025-05 0:00](https://youtu.be/Wc8wjiy1oYk?t=0))
+- "It turns out there's a lot more I need to learn about Roblox game development... I can pinpoint exactly what I need to improve on." ([Duckable 2025-05 12:06](https://youtu.be/Wc8wjiy1oYk?t=726))
+- "I just made a Roblox game in 7 days with AI and it is basically free money. Anybody can do this." ([Perstile 2025-05 3:21](https://youtu.be/ET3fRqaFmFc?t=201))
+- "I honestly don't know how this happened because this game is such low quality compared to my other games. It's a complete ripoff of something bigger." ([janisjanis01 2025-06 8:31](https://youtu.be/B409dMcW-pw?t=511))
+- "Find a topic or a game you're passionate about, write a little script for it and make the video because what's stopping you?" ([Daiorg 2025-06 6:42](https://youtu.be/tMNQooZtTQo?t=402))
+- "If you don't have fun doing what you like, is it even worth it?" ([Daiorg 2025-06 10:49](https://youtu.be/tMNQooZtTQo?t=649))
+- "You must at a certain point level up beyond just commissions if you want to make this more than just another job." ([SmartyRBX 2025-06 2:24](https://youtu.be/BMS5iYw_8Vk?t=144))
+- "You can make a living from Roblox with 200 players." ([SmartyRBX 2025-06 15:44](https://youtu.be/tpVRSnWwZWI?t=944))
+- "Stop blinding yourself to the reality of what makes a successful Roblox game by labeling things that are doing well with the cash grab label." ([SmartyRBX 2025-06 17:29](https://youtu.be/Lplz7ZFcKlQ?t=1049))
+- "You need to stay consistent and keep posting content. Eventually, one video will blow up." ([janisjanis01 2025-06 13:39](https://youtu.be/5LMGVfslAYs?t=819))
+- "You can have big goals, but you got to be realistic about what you can make at your current skill level." ([SmartyRBX 2025-06 3:09](https://youtu.be/MAnvGNgBKgQ?t=189))
+- "If you don't like Grow a Garden, you don't have to play it. But if you want to be a successful developer, you need to be able to learn from it." ([SmartyRBX 2025-07 4:28](https://youtu.be/ddfqOQ7H_h8?t=268))
+- "Being a strategy first developer means not judging these games. It means learning from it." ([SmartyRBX 2025-07 4:06](https://youtu.be/vBllyv2fnWw?t=246))
+- "Roblox is a competitive war zone. So player psychology runs the front page of Roblox." ([SmartyRBX 2025-07 12:25](https://youtu.be/zXzXOw5605E?t=745))
+- "Using player psychology is not manipulative. It is empowering. You are giving players what they want." ([SmartyRBX 2025-07 6:00](https://youtu.be/zXzXOw5605E?t=360))
+- "A game without monetization simply cannot go viral." ([janisjanis01 2025-07 0:00](https://youtu.be/pD8fKkzF8O8?t=0))
+- "It's really not hard. You just need patience to be honest." ([#7Phantom 2025-07 11:16](https://youtu.be/xjZXsHxKerE?t=676))
+- "You do not deserve money just for making something." ([SmartyRBX 2025-07 0:41](https://youtu.be/exOJsFcer1Q?t=41))
+- "Devs who make money have a mindset of self-responsibility." ([SmartyRBX 2025-07 1:31](https://youtu.be/exOJsFcer1Q?t=91))
+- "Roblox is powering business first, then imagination." ([SmartyRBX 2025-07 6:55](https://youtu.be/exOJsFcer1Q?t=415))
+- "The sad reality is that this game flopped. It has one active player and only 13.4,000 visits." ([janisjanis01 2025-07 12:14](https://youtu.be/Sgs36l6K5EU?t=734))
+- "I didn't make any profit. But on the bright side, I got experience, which is priceless." ([janisjanis01 2025-07 12:55](https://youtu.be/Sgs36l6K5EU?t=775))
+- "Our decisions are made for players, not necessarily some investor or an executive board." ([GamesBeat 2025-08 ](https://gamesbeat.com/?p=305182))
+- "Those things took us like years to figure out." ([Roblox Creators 2025-08 1:08:19](https://youtu.be/D64IOXAb6SM?t=4099))
+- "That's a mistake I made when I was first starting out is I was really scared to make things very intense." ([Roblox Creators 2025-08 1:01:43](https://youtu.be/D64IOXAb6SM?t=3703))
+- "Nobody is going to play your first games." ([waveshine 2025-08 0:54](https://youtu.be/xnlaYLnCtFc?t=54))
+- "Momentum feels amazing, but it's also a trap." ([waveshine 2025-08 5:34](https://youtu.be/xnlaYLnCtFc?t=334))
+- "I would definitely give you an A." ([Roblox Creators 2025-08 44:33](https://youtu.be/xU3ikvnA5OM?t=2673))
+- "Growing on YouTube is really hard and takes a lot of time. Every video you post gives you more experience that you can use in the long run." ([janisjanis01 2025-08 15:47](https://youtu.be/5iIIYKztamo?t=947))
+- "Can AI make a Roblox game go viral? Yes. But can AI make a good Roblox game? No." ([Duckable 2025-08 12:11](https://youtu.be/Em5H7sNWN7I?t=731))
+- "It has never been easier to make a viral game. You can't miss this opportunity." ([janisjanis01 2025-09 13:05](https://youtu.be/YVKHlrlWn-k?t=785))
+- "you're stuck in a low leverage system... find ways to earn so you can build up to making complex games or building a studio." ([SmartyRBX 2025-09 1:05](https://youtu.be/ysqeKxPqBXA?t=65))
+- "The top Roblox games are always going to be the ones that were original game concepts." ([bubDEV 2025-09 4:33](https://youtu.be/kg_h09_x7no?t=273))
+- "Obviously, you can't create front page successful Roblox games with no effort. If you want to create Roblox games, you obviously need to have some skill in something." ([TheDankDeveloper 2025-09 5:01](https://youtu.be/pRfzkw-wHgA?t=301))
+- "10 users spending a 100 Robux is better for your games long term than one user spending 1,000 Robux" ([Roblox 2025-09 22:36](https://youtu.be/MJ-zYfL10Ew?t=1356))
+- "Making games shouldn't always be about profit. It should be about having fun, creating something that you really enjoy." ([Erthlord 2025-09 9:31](https://youtu.be/fdDscQ6CWIs?t=571))
+- "It's hard to judge a game in such a short time." ([janisjanis01 2025-10 16:58](https://youtu.be/MML_z-jpmF4?t=1018))
+- "I haven't had a burnout since 2024. There is no more fear of like is this going to blow up? I have people who are going to watch it." ([Creators on the Blox 2025-10 1:08:51](https://youtu.be/WODeLtB2YH4?t=4131))
+- "I think don't try to be Roblox 293. Try to be you." ([Creators on the Blox 2025-10 1:35:37](https://youtu.be/WODeLtB2YH4?t=5737))
+- "I would say the top earning games on Roblox are the ones that are original games. Those are the better games to be honest with you." ([bubDEV 2025-10 10:39](https://youtu.be/N-u2gI4DUyw?t=639))
+- "Regrettator the restaurant is coming 2036 and let's just say there's a lot of peanuts." ([Creators on the Blox 2025-10 2:01:17](https://youtu.be/XtWTnz56ZpM?t=7277))
+- "I stopped way too soon on it." ([Creators on the Blox 2025-10 46:57](https://youtu.be/XtWTnz56ZpM?t=2817))
+- "it doesn't feel like 1 million is my end goal. It's just like a stepping stone on the way." ([Creators on the Blox 2025-11 1:03:08](https://youtu.be/f9BmInLHotA?t=3788))
+- "Not to avoid problems, not to rush, and to have fun with what you do." ([Duckable 2025-11 19:32](https://youtu.be/F9sfnpkzcPw?t=1172))
+- "I often thought about giving up and I regretted buying the academy. But then after a few more days of hard work, I actually started making money." ([VuukStudios 2025-11 4:20](https://youtu.be/U4nduRcszJ4?t=260))
+- "If you can figure out retention, yes, it is a volume game. You need a lot of players to make significant money." ([Matt The Method 2025-12 3:20](https://youtu.be/MPHPumDvMIs?t=200))
+- "Working non-stop on a game for this long will make you hate it. We were taking days off to relax." ([Lnor Roblox 2025-12 5:32](https://youtu.be/Nywo2NwQPNo?t=332))
+- "Consistency is the real growth key." ([{EISABOOS} "RBX" 2025-12 1:26](https://youtu.be/fy3Z0P9mG3Y?t=86))
+- "Do YouTube as your hobby in your free time. Don't affect your studies or work." ([{EISABOOS} "RBX" 2025-12 5:35](https://youtu.be/fy3Z0P9mG3Y?t=335))
+- "I've always done this as a joke, but what if I took this seriously?" ([Poke 2025-12 0:00](https://youtu.be/VSVCfNHK2IE?t=0))
+- "I'm not a good programmer. I'm a terrible programmer and that's why I work with Forex, my teammate." ([Daiorg 2025-12 1:08](https://youtu.be/JCMIb008Y6E?t=68))
+- "If you're working on a Roblox game and you're not having proper sleep or everything, what are you doing?" ([Creators on the Blox 2025-12 44:35](https://youtu.be/LyJ04iE6K1M?t=2675))
+- "The best games are built by creators with passion, who build their dream project and refuse to settle for good enough." ([Tubefilter 2026-00 ](https://www.tubefilter.com/?p=194084))
+- "A live concurrency chart measures attention at one moment, not long-term durability." ([Player.One 2026-00 ](https://www.player.one/robloxs-steal-egg-beating-some-platforms-biggest-games-164086))
+- "game development is a marathon, not a sprint. Unless you're working on a trend game, in which case, it is kind of a sprint." ([ItsZyonic 2026-01 7:34](https://youtu.be/4-ge-E9WvM4?t=454))
+- "We've done everything we can. Over the past little while, we've gained 100,000 visits." ([Erthlord 2026-01 14:45](https://youtu.be/69IBB6O4o4c?t=885))
+- "If you want to start making Roblox games as a solo developer with no experience, this is what you can expect to get out of it." ([Matt The Method 2026-02 1:12](https://youtu.be/TEENlwjuKWI?t=72))
+- "The most important thing is that you never give up." ([janisjanis01 2026-02 15:08](https://youtu.be/2gr2TUGdNAk?t=908))
+- "these types of games were the games I started on and this is where this is the genre where I made my first million Robux from." ([1_Bruce 2026-03 12:08](https://youtu.be/9ZoyhYqBkcI?t=728))
+- "If I was only in it for the Robux, I'd have been far off better making a brain rot simulator and calling it a day." ([DitchyDevelopments 2026-03 4:51](https://youtu.be/O9fIqTik9ik?t=291))
+- "Not relying on things like motivation in a way of like the bulk of what you need to do." ([Creators on the Blox 2026-03 46:24](https://youtu.be/LWaw0KNwxyM?t=2784))
+- "Anything you do is the right answer. You're not cheating." ([Creators on the Blox 2026-03 54:37](https://youtu.be/LWaw0KNwxyM?t=3277))
+- "For every one success I have, I have a couple dozen failures I don't want to talk about." ([Deconstructor of Fun 2026-04 42:22](https://youtu.be/PNeLRjewQns?t=2542))
+- "I'm still a very small Roblox developer compared to the top studios out there who are literally making hundreds of times more than I am." ([Quez 2026-04 2:44](https://youtu.be/i4XHn84ahyc?t=164))
+- "Study them as engineering, not as fandom." ([StudioKrew (agency blog, GGAID data) 2026-05 ](https://studiokrew.com/blog/top-roblox-games-may-2026/))
+- "It took me 5 years to make a successful game. I guarantee with some focus, it will take you way less." ([Duckable 2026-05 16:17](https://youtu.be/X9YYjb_mY5w?t=977))
+- "Writing code was never the hard part. What people actually struggle with is knowing what to write." ([ArTheDev 2026-05 0:24](https://youtu.be/3FB6ZzAON8I?t=24))
+- "Instead of working harder, they start working smarter, and they stop guessing and look at real-life data." ([rasdev 2026-05 2:43](https://youtu.be/wGRgITzP18c?t=163))
+- "Motivation and discipline are two different things. Discipline is something you actually have to force upon yourself, but motivation comes and goes." ([Creators on the Blox 2026-05 19:26](https://youtu.be/JsiEVtWLwnA?t=1166))
+- "Every failure is a lesson that teaches you how to avoid it next time." ([janisjanis01 2026-05 11:50](https://youtu.be/BLOToGi2Qt4?t=710))
+- "You can improve everything and still not get the results you expect." ([Lnor Roblox 2026-05 2:43](https://youtu.be/QOS7dQowyRk?t=163))
+- "A lot of people like to think of Roblox as like some untapped method, but honestly, it takes so much skill and you have to know the platform so well" ([Yann 2026-05 6:09](https://youtu.be/dbNA3K8lt2w?t=369))
+- "Game ideas are everywhere. They're super abundant. What's actually difficult is execution and making sure that people do what they're going to say they're going to do." ([Tizzy 2026-05 13:55](https://youtu.be/8q6kdFVL_fY?t=835))
+- "a game that stabilizes at even a few hundred concurrent players and keeps them coming back is honestly worth way more long-term than a game that spikes and completely dies in two weeks" ([MoseyTube 2026-05 2:44](https://youtu.be/JG37MoDpOTw?t=164))
+- "I didn't know what worked, but I know a million things that didn't work." ([Roblox 2026-05 0:44](https://youtu.be/-14vhiLL4xE?t=44))
+- "There is a simpler way to learn game design. And this is what I wish someone showed me day one before I ever launched my first game." ([Tizzy 2026-05 0:40](https://youtu.be/0pMW1T0rdUI?t=40))
+- "You should still 100% launch your own games. It's a must. Don't just sit in theory world all day." ([Tizzy 2026-05 13:40](https://youtu.be/0pMW1T0rdUI?t=820))
+- "If you can't afford $50 to $100 to advertise the project you just worked for weeks and months on, you have a way bigger issue on your plate." ([Yann 2026-05 8:52](https://youtu.be/yw32DZtz4mQ?t=532))
+- "Your dream game shouldn't be made for Robux. It should be made for passion. If you want to be successful... you need to adapt and start making what the people want to play." ([Duckable 2026-05 19:30](https://youtu.be/52srr65Mksc?t=1170))
+- "Selling out would be making a game that I hated every second of. But I didn't. I love making games." ([Duckable 2026-05 24:43](https://youtu.be/52srr65Mksc?t=1483))
+- "The winning strategies are the ones that have been having it as a permanent pillar and not as just a seasonal add-on." ([Deconstructor of Fun 2026-06 4:47](https://youtu.be/2BsMLCk8FEU?t=287))
+- "You need to invest to get those learnings. Learnings are as valuable as getting your ROI." ([Deconstructor of Fun 2026-06 43:13](https://youtu.be/2BsMLCk8FEU?t=2593))
+- "Learnings are as valuable as getting your ROI; you need to invest to get those learnings." ([Deconstructor of Fun 2026-06 43:13](https://youtu.be/2BsMLCk8FEU?t=2593))
+- "I remember telling myself Jailbreak could end next week and I'd still be happy." ([Creators on the Blox 2026-06 4:47](https://youtu.be/5vJCBrxPHmY?t=287))
+- "Maybe it's better to focus on one thing, polish it, and watch it grow." ([janisjanis01 2026-06 12:51](https://youtu.be/CltiB53QTHw?t=771))
+- "A simple concept executed well will always beat a complex concept executed poorly." ([MoseyTube 2026-06 3:56](https://youtu.be/2rLYGu0v490?t=236))
+- "Instead of asking, 'What game should I make that succeeds?' ask, 'What game can I actually finish?'" ([ArTheDev 2026-06 4:08](https://youtu.be/wG9XzLnJC5k?t=248))
+- "The real money starts after you hit home recommendations. Everything before that is just like pennies." ([VuukStudios 2026-06 18:52](https://youtu.be/catPKgFIZbQ?t=1132))
+- "People love following a journey." ([DitchyDevelopments 2026-06 2:44](https://youtu.be/cfLbW2j2VLs?t=164))
+- "Even if your game doesn't blow up, you can still make some Robux." ([Raul 2026-06 0:00](https://youtu.be/kKavvUDtHOg?t=0))
+- "The next video will be massive." ([Raul 2026-06 6:56](https://youtu.be/kKavvUDtHOg?t=416))
+- "The earners aren't the most talented developers. They're the ones who kept showing up." ([Generalist Programmer 2026-07 7:03](https://youtu.be/CFohgybeybM?t=423))
+- "The more things you're juggling, the greater the risk of dropping something. I should have fully focused on one game." ([janisjanis01 2026-07 12:10](https://youtu.be/OL1FJ17wzZE?t=730))
+- "Dude, if I made videos like this in the good old days, I would be massive right now. But those times have passed." ([Raul 2026-07 0:16](https://youtu.be/qTgTt9uWVLA?t=16))
+- "Volume, volume, volume." ([Tizzy 2026-07 17:42](https://youtu.be/LZOohZHsJus?t=1062))
+- "UGC is a lot harder than it looks." ([Erthlord 2026-07 0:00](https://youtu.be/57GCHQtyuZQ?t=0))
+- "You don't need a genius or original idea to make real money on Roblox. You need a simple, instantly understandable concept, and then layer enough systems on top." ([MoseyTube 2026-07 4:31](https://youtu.be/a170E9klbP4?t=271))
+- "usa la rice per crescere ma costruisci sempre su terreno tuo (use algorithm trends to grow but always build on your own ground)" ([Roblox Creators 2026-07 18:09](https://youtu.be/yv3GO5AHwJk?t=1089))
+- "There's a reason why games get pushed further. After all, the front page is an algorithm that rewards those who know what they're doing." ([janisjanis01 2026-08 0:00](https://youtu.be/fjlOaEALWmg?t=0))
+- "Nothing you do ever feels accomplishing or satisfying when AI does everything for you." ([Duckable 2026-08 3:18](https://youtu.be/Cc7HT3uNjeQ?t=198))
+- "In this case, it's the player is always right. Usually, let me add, usually, right?" ([Tizzy 2026-08 1:22](https://youtu.be/TVdqb9O0RMw?t=82))
+- "Your first priority isn't to optimize a single metric. It's to build a game people want to play again." ([Roblox DevForum 2026-08 ](https://devforum.roblox.com/t/boost-your-discovery-by-building-games-people-want-to-play/4779042))
+- "Just keep making games. My goal with all of these games was for them to become viral." ([Raul 2026-08 2:29](https://youtu.be/NE8OWWbAia8?t=149))
+- "After you get a big amount of Robux, you shouldn't just chill completely, or you will become lazy and unmotivated." ([Raul 2026-08 2:35](https://youtu.be/NE8OWWbAia8?t=155))
+- "Most Roblox games that get made never get a single real player, and that's not because the idea was bad." ([MoseyTube 2026-08 0:00](https://youtu.be/xIBc5He_sy4?t=0))
+- "The people making the most money aren't necessarily going to be the best programmers. They're going to be the people who can find good ideas and build them the fastest." ([Matt The Method 2026-08 2:37](https://youtu.be/1mYF-cWJPmQ?t=157))
+- "If it did not get the user engagement, you're cutting the game off." ([VuukStudios 2026-08 8:12](https://youtu.be/m7015JSIrpw?t=492))
+- "If I fail, then you bet your ass that I'm trying again." ([Duckable 2026-08 22:37](https://youtu.be/3XX3Y74hzq0?t=1357))
+- "It's not the algorithm's fault that you're not getting players, you're not getting money. It's your fault." ([rasdev 2026-09 0:00](https://youtu.be/IyEqyPOjEvU?t=0))
+- "All you need is just one game. I'm telling you, do not give up." ([RoyalDev 2026-09 1:24](https://youtu.be/7FSqZeirnjs?t=84))
+- "The moment that you choose, simply choose. Dive into it." ([MonarchDev 2026-09 8:10](https://youtu.be/haYW1hXahOM?t=490))
+- "Find an idea, prove it works by play testing, and do not give up on it." ([ItsZyonic 2026-09 7:49](https://youtu.be/RIWPfMJyVhQ?t=469))
+- "I'm someone that believes people need skills. It makes life interesting. It makes hard work interesting." ([Duckable 2026-09 16:31](https://youtu.be/MBRNAqkDEFA?t=991))
+- "Roblox game business is all about shooting darts on a dartboard... This is a numbers game." ([VuukStudios 2026-09 8:29](https://youtu.be/eS0Vc7h0VW0?t=509))
+- "We're going to talk about the biggest addiction that Roblox developers have... and that is an addiction to copium." ([Tizzy 2026-09 0:00](https://youtu.be/E_tVm3bc5Xo?t=0))
+- "First and foremost, do what you say you're going to do. Discipline over motivation." ([Tizzy 2026-09 5:41](https://youtu.be/E_tVm3bc5Xo?t=341))
+- "Roblox is not too saturated. The competition is actually like this. It's not like this because people don't have this." ([Tizzy 2026-09 16:14](https://youtu.be/E_tVm3bc5Xo?t=974))
+- "Historically, whenever creative fields have been touched by new tools, the result has been more creators, not fewer." ([Roblox 2026-09 2:01:19](https://youtu.be/3a2RbLOAl4A?t=7279))
+- "He didn't need to understand fashion better than Gucci. He just needed to understand Roblox players better." ([rasdev 2026-09 5:30](https://youtu.be/ILhTEWqz2kU?t=330))
+- "No matter how good the thumbnails were, the quality, the gameplay, it just won't work." ([janisjanis01 2026-09 10:02](https://youtu.be/WJpNCB5J9bg?t=602))
+- "You have to take care of yourself, and we took the break. The game didn't die, because it has a great foundation." ([Roblox Creators 2026-09 42:48](https://youtu.be/hohwBQGQO7c?t=2568))
+- "Do not quit on one, two, even 10 games." ([VuukStudios 2026-10 12:14](https://youtu.be/4vuXAQt0PuQ?t=734))
+- "You either make it with your game, make it the best game, or you don't. It's not RNG." ([Alex Builds Games 2026-10 1:32](https://youtu.be/ntjVykMw0As?t=92))
+- "If something doesn't work, even if you put years and years into it just move on." ([kra_DeZ 2026-10 5:28](https://youtu.be/dE0njfPNsdY?t=328))
+- "In 2026, build the thing that checks your work first. If you give the AI the ability to check its work, you can empower it to build great things." ([Roblox 2026-10 27:38](https://youtu.be/KB5iAzy86Fo?t=1658))
+- "Keep the soul in your game. Players will reward you for that." ([Roblox 2026-10 24:03](https://youtu.be/hoMbv_R8AMU?t=1443))
+- "Roblox is currently being taken over by AI... the games are literally either complete flop or just the same Steam copies over and over again." ([TheDankDeveloper 2026-10 0:00](https://youtu.be/4ojmHWn_rxY?t=0))
+- "Use slop, stack cash, and then work on those passion projects." ([Tizzy 2026-10 24:44](https://youtu.be/_JyiKfNNqls?t=1484))
+- "For the past almost seven years... I've neglected the most important aspects of a game... the fun of game design." ([Duckable 2026-10 25:04](https://youtu.be/EOUSVENUkr0?t=1504))
+- "Do not expect results right after your ad campaign is finished. It's different for every game." ([kra_DeZ 2026-10 14:56](https://youtu.be/lrubtajkaeI?t=896))
+- "There is no magic formula in this. It's hitting your head through a wall until it breaks." ([VuukStudios 2026-10 15:03](https://youtu.be/DTJeR2gJSZo?t=903))
+- "I'm aiming to be top like five, top one... you need to actually aim big." ([VuukStudios 2026-10 13:47](https://youtu.be/DTJeR2gJSZo?t=827))
+- "Peak months for my game. Do not expect every single month to be like this." ([VuukStudios 2026-10 9:28](https://youtu.be/DTJeR2gJSZo?t=568))
+- "This is all I did today and I didn't even hit max limit." ([TheDankDeveloper 2026-10 12:19](https://youtu.be/5S_MYGBtmbM?t=739))
+- "Struggle is where learning actually happens." ([Crusherfire 2026-10 8:09](https://youtu.be/4n7thZAAF-E?t=489))
+- "This project might be a fail, but it'll definitely have a place in my heart." ([janisjanis01 2026-10 10:19](https://youtu.be/A2QD-eT3IG0?t=619))
+- "you guys honestly can do it, too. It's not that hard." ([Xaiyne 2026-10 1:23](https://youtu.be/WIkCweVdd88?t=83))
+
+## Appendix: every extracted tip on this topic
+
+- 2018-05-01 Roblox DevForum [page](https://devforum.roblox.com/t/how-to-cooperate-with-a-development-team/122601): Discuss game aspects together with all team members; combined perspectives produce more unique game ideas than one person alone.
+- 2018-07-24 Roblox [10:49](https://youtu.be/EDY-8V943IE?t=649): Expect most ideas to fail; assume roughly 70% or more of ideas won't work, even ones you feel sure about.
+- 2018-07-24 Roblox [13:32](https://youtu.be/EDY-8V943IE?t=812): Build lasting value beyond one game: invest in team, reusable tools/analytics pipelines, and IP/characters/community that outlive any single title.
+- 2018-07-24 Roblox [14:13](https://youtu.be/EDY-8V943IE?t=853): Plan for a 30-40% hit ratio at best; a successful game doesn't guarantee the next one, so keep iterating.
+- 2018-07-24 Roblox [16:18](https://youtu.be/EDY-8V943IE?t=978): Don't assume success transfers to unfamiliar genres just because you analysed them; you'll miss the small details players care about.
+- 2018-07-24 Roblox [3:27](https://youtu.be/NmyzbBbrBS4?t=207): Decide your role (solo, team member, freelancer) but know you can change it; try one, and if it fails, learn and repeat.
+- 2018-07-24 Roblox [8:58](https://youtu.be/NmyzbBbrBS4?t=538): Don't put all eggs in one basket; being absorbed in one project causes you to miss other opportunities.
+- 2018-07-24 Roblox [15:42](https://youtu.be/NmyzbBbrBS4?t=942): Stay on top of new Roblox features via DevForum, DevHub and wiki so you can add them to your game early.
+- 2018-07-24 Roblox [5:20](https://youtu.be/a2DaoXERzhE?t=320): Make platform, language and age-targeting decisions intentionally with data, since each choice sets your long-term market ceiling.
+- 2019-03-01 Roblox DevForum [page](https://devforum.roblox.com/t/monetisation-101-how-to-effectively-generate-revenue-in-your-roblox-game/246902): Plan for whales: about 75% of revenue typically comes from 1-5% of players, so retaining them decides a game's survival.
+- 2019-03-01 Roblox DevForum [page](https://devforum.roblox.com/t/monetisation-101-how-to-effectively-generate-revenue-in-your-roblox-game/246902): Study successful games' monetisation (Brawl Stars, Apex Legends, Runescape, Clash of Clans) and adapt the lessons.
+- 2019-06-02 Roblox DevForum [page](https://devforum.roblox.com/t/how-to-make-a-game/287493): Publish early, even if incomplete. Players give feedback and motivation; the author's team stalled for years until they launched a rough version.
+- 2019-09-13 Last Level Studios [58:38](https://youtu.be/h4W8yHxmxns?t=3518): To stand out for games roles, show persistence through self-driven projects like learning to code, making games and building in Roblox.
+- 2019-11-24 Roblox DevForum [page](https://devforum.roblox.com/t/lua-scripting-starter-guide/394618): Expect learning to take a lot of time and effort; patience and persistence separate strong developers from those who quit mid-project.
+- 2019-11-24 Roblox DevForum [page](https://devforum.roblox.com/t/lua-scripting-starter-guide/394618): Practise by building unique things yourself; repeated practice is the main path to becoming a better developer.
+- 2020-02-07 Last Level Studios [1:25](https://youtu.be/HU4JJOft4Pw?t=85): Start small: edit Roblox template games like Line Runner before attempting a large project; big first projects often demotivate beginners.
+- 2020-02-07 Last Level Studios [5:05](https://youtu.be/HU4JJOft4Pw?t=305): Your first game may be bad; you can't make a 50th game without making a first. Disliking old work is a sign you've improved.
+- 2020-02-14 Last Level Studios [9:43](https://youtu.be/_LdpUJ41cso?t=583): Start with small experimental projects to learn scripting; don't jump straight into a big game, since big projects set you up to fail.
+- 2020-02-14 Last Level Studios [25:06](https://youtu.be/_LdpUJ41cso?t=1506): Make games you genuinely care about; copying trending genres (clicker, lifting simulators) flopped and lost money.
+- 2020-02-14 Last Level Studios [31:17](https://youtu.be/_LdpUJ41cso?t=1877): Roblox development transfers to real game dev skills: server/client, UX, and monetisation design.
+- 2020-03-30 GameMakers [29:03](https://youtu.be/1q9Q6mRkciA?t=1743): Successful developers take time to understand what players on Roblox actually want, test ideas, and keep what works.
+- 2020-05-07 TheDevKing [10:47](https://youtu.be/AZTDrfuk9ME?t=647): Expect your first game may not reach the front page; keep iterating and releasing rather than giving up.
+- 2020-05-10 Roblox DevForum [page](https://devforum.roblox.com/t/game-design-theory-project-management-with-devops-analytics-and-pipelines-for-successful-games-and-productive-teams/568057): Treat players as paying customers who deserve respect; do not lash out at them when they ask about updates.
+- 2020-07-26 Roblox DevForum [page](https://devforum.roblox.com/t/game-design-theory-becoming-a-leader-for-project-management-and-team-building/690475): Strong developers do not automatically make strong managers; choose or train managers for communication, coordination and organisation.
+- 2020-07-26 Roblox DevForum [page](https://devforum.roblox.com/t/game-design-theory-becoming-a-leader-for-project-management-and-team-building/690475): Save a budget and build income before funding development; few professionals work without a budget.
+- 2021-01-04 B Ricey [18:42](https://youtu.be/xwaCg7SWUhc?t=1122): Consider that grinding out a big rework without progress clips may be less engaging for viewers; ask audience which they prefer.
+- 2021-01-21 GameMakers [58:38](https://youtu.be/y8H_GRdGaJw?t=3518): Do not make money the end goal; a clear shared vision is what makes games good, and money follows.
+- 2021-01-23 AlvinBlox [9:00](https://youtu.be/fivk8yp-VT4?t=540): Work on ideas you are passionate about; motivation comes from seeing your own work come to life.
+- 2021-01-23 AlvinBlox [5:22](https://youtu.be/fivk8yp-VT4?t=322): Treat Roblox development as a hobby while learning so scripting stays enjoyable rather than a chore.
+- 2021-01-23 AlvinBlox [6:32](https://youtu.be/fivk8yp-VT4?t=392): Expect your first game to be bad; every later game improves on the lessons from earlier ones.
+- 2021-02-12 Emancyphur [3:18](https://youtu.be/0B1Q2IZSlU8?t=198): Take notes on fundamentals from each resource so a concept doesn't overwhelm you.
+- 2021-02-12 Emancyphur [3:18](https://youtu.be/0B1Q2IZSlU8?t=198): Tie learning to something you find interesting and try to build a related project; this sustains motivation through debugging slumps.
+- 2021-02-12 Emancyphur [4:40](https://youtu.be/0B1Q2IZSlU8?t=280): Make the productive choice the path of least resistance: move phone or distractions farther away from your workspace.
+- 2021-02-12 Emancyphur [5:22](https://youtu.be/0B1Q2IZSlU8?t=322): Use the 15/5 rule: 15 minutes of focused work, then a 5-minute break, repeated. Keep breaks shorter than work blocks.
+- 2021-02-12 Emancyphur [6:02](https://youtu.be/0B1Q2IZSlU8?t=362): If burnt out, prefer working smart over long hours: one efficient hour a day can beat eight inefficient ones.
+- 2021-02-12 Emancyphur [6:46](https://youtu.be/0B1Q2IZSlU8?t=406): Set close, concrete goals (e.g., change an object's colour on a specific event) instead of distant ones like a front-page game, to track progress.
+- 2021-02-12 Emancyphur [10:07](https://youtu.be/0B1Q2IZSlU8?t=607): Ask specific questions when stuck ("what part of the script isn't working?") rather than vague ones ("why doesn't this work?").
+- 2021-02-12 Emancyphur [12:16](https://youtu.be/0B1Q2IZSlU8?t=736): Treat mistakes and questions as part of learning; stay aware of weaknesses and work on them over time.
+- 2021-02-12 Emancyphur [16:18](https://youtu.be/0B1Q2IZSlU8?t=978): Keep exploring unfamiliar areas; intrinsic motivation drives learning more than external pressure.
+- 2021-02-12 Roblox DevForum [page](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259): Ask specific questions when stuck ("what part of the script isn't working?", "what could I do to solve this?") instead of "why doesn't this work?".
+- 2021-02-12 Roblox DevForum [page](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259): Reduce distractions by moving your phone to another room so distracting actions take more effort, making productive work the path of least resistance.
+- 2021-02-12 Roblox DevForum [page](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259): Work smart rather than long: one efficient hour a day can beat eight inefficient hours if burnout is a risk.
+- 2021-02-12 Roblox DevForum [page](https://devforum.roblox.com/t/learn-to-script-learn-to-code-in-5-steps/1043259): Do not rely on YouTube alone; practise coding yourself, using videos as a supplementary visual aid.
+- 2021-03-27 Roblox DevForum [page](https://devforum.roblox.com/t/developing-expert-developers-advice-from-all-around-the-world/1134437): Compare current builds to your older builds rather than to other developers to measure real improvement.
+- 2021-03-27 Roblox DevForum [page](https://devforum.roblox.com/t/developing-expert-developers-advice-from-all-around-the-world/1134437): Don't start with a front-page-style game; simple originals avoid the demotivation of comparing against multi-year projects.
+- 2021-07-19 Roblox DevForum [page](https://devforum.roblox.com/t/introducing-the-game-fund/1361477): Game Fund prioritises multiplayer focus, cross-platform with mobile optimisation, social mechanics as core, and avatar/Metaverse item integration; design pitches around these.
+- 2021-07-29 Roblox Creators [8:07](https://youtu.be/HKLRLhHHHVc?t=487): Always bring a solution when raising a problem; critique ideas, never people.
+- 2021-08-12 Roblox Creators [42:42](https://youtu.be/4-vZkSrGAxI?t=2562): Respect the community; player goodwill is your most important currency, and communicate openly when releases miss the mark.
+- 2021-08-26 Roblox Creators [1:22:14](https://youtu.be/dBlP8NdJQM0?t=4934): Step away from the code or story with a walk when stuck; returning fresh resolves typos and writer's block faster.
+- 2021-08-27 Last Level Studios [29:14](https://youtu.be/3djSOjdGaE8?t=1754): Keep the game as a side hobby with about 10-15 hours a week rather than going full time, to avoid burnout and keep the enjoyment.
+- 2021-08-27 Last Level Studios [27:52](https://youtu.be/3djSOjdGaE8?t=1672): Plan for platform changes: Roblox can depreciate critical features, so keep some ongoing time for maintaining games.
+- 2021-09-09 Roblox Creators [10:53](https://youtu.be/AG-3o_GdqKI?t=653): Prioritise usability over looks: easy-to-use UI that looks plain beats attractive UI that players can't use. Polish after it functions.
+- 2021-09-16 Roblox Creators [1:36:22](https://youtu.be/k2gbQI-ggB4?t=5782): Expect the first balance to be wrong; balancing is about 50% math and 50% iteration with live players.
+- 2021-09-30 Roblox Creators [4:15](https://youtu.be/UlKAoiFLgUo?t=255): Let players be whoever they want from the start; avoid over-gamifying. Myzta says My Droplets failed by walling off content in an empty house.
+- 2021-09-30 Roblox Creators [1:24:15](https://youtu.be/UlKAoiFLgUo?t=5055): Learn from other Roblox games and identify what they miss, then build on it rather than copying.
+- 2021-11-18 Roblox Creators [1:06:56](https://youtu.be/rVr0IyfYkPg?t=4016): Accept failure as a normal part of learning and move on to the next project; some games only take off after a week of low numbers.
+- 2021-12-01 Roblox Creators [21:29](https://youtu.be/wrf6DRlfoO8?t=1289): Take breaks when needed and protect mental health; you must look after yourself before your community.
+- 2021-12-09 Last Level Studios [41:40](https://youtu.be/v_TGu45AD_g?t=2500): Give VR a month of experimentation first; expect modest earnings and treat it as uncharted territory, not a guaranteed hit.
+- 2022-01-07 Last Level Studios [26:25](https://youtu.be/v8S5puPQEw4?t=1585): Consistently releasing games is a skill in itself; most people never get a project released and popular.
+- 2022-01-07 Last Level Studios [4:17](https://youtu.be/v8S5puPQEw4?t=257): Keep creating things for fun, not just for payoff, to avoid burnout when Roblox becomes a job.
+- 2022-02-17 Roblox Creators [53:32](https://youtu.be/BkQL2_DY9Mc?t=3212): Get creative with social hooks; surprising abstract activities (pizza factory) beat generic friend menus for engagement.
+- 2022-03-01 GameMakers [35:58](https://youtu.be/t-jpyaQffYE?t=2158): Do not fixate on fixing underperforming ads. Put that time into doubling down on what works and dig deeper into winners.
+- 2022-03-01 GameMakers [35:17](https://youtu.be/t-jpyaQffYE?t=2117): Do not marry a creative idea or theme. Switch when it runs out of flavour, since fresh concepts are hard to find.
+- 2022-05-12 Roblox Creators [58:14](https://youtu.be/14RMDByrG1U?t=3494): Define success with the brand upfront: for marketing activations, reach and ratings (e.g., 80-85+ thumbs up); for licensed revenue games, revenue and user base for future deals.
+- 2022-05-12 Roblox Creators [58:56](https://youtu.be/14RMDByrG1U?t=3536): Early in a studio's life, brand projects are about building credibility and shots on goal, even if they are not profitable.
+- 2022-05-12 Roblox Creators [59:28](https://youtu.be/14RMDByrG1U?t=3568): Communicate constantly with the brand, stay humble, and get communication expectations written into the agreement.
+- 2022-05-19 Roblox Creators [2:49](https://youtu.be/HxqWoF_wfMQ?t=169): Do not rely on a single platform because algorithms change; spread the audience across several platforms.
+- 2022-05-19 Roblox Creators [3:30](https://youtu.be/HxqWoF_wfMQ?t=210): Build a studio brand even as a solo developer so the audience carries over from one experience to the next, compounding with each release and update.
+- 2022-06-16 Roblox Creators [42:40](https://youtu.be/hCT9zCJ1M5c?t=2560): Design for single-player fun first. Trying to make every feature work for a multiplayer crowd caused circular discussions and slow decisions.
+- 2022-06-28 Roblox [26:11](https://youtu.be/SOoe0E1Ql5M?t=1571): Roblox's engine and APIs are backward compatible: a 10-year-old experience still runs unchanged, so older work keeps paying off.
+- 2022-08-14 Roblox DevForum [page](https://devforum.roblox.com/t/the-art-of-robux-getting/1922578): Invest Robux into games rather than saving or hoarding them, since Robux held long-term loses value as developer-side Robux inflates.
+- 2022-08-14 Roblox DevForum [page](https://devforum.roblox.com/t/the-art-of-robux-getting/1922578): Pick a vocation you are genuinely good at and enjoy; your location (genre/community) can change later, your vocation cannot.
+- 2022-08-14 Roblox DevForum [page](https://devforum.roblox.com/t/the-art-of-robux-getting/1922578): Open multiple communication and portfolio channels (Discord, Twitter, Reddit, etc.) with a clear, concise public portfolio; avoid flashy presentation.
+- 2022-08-30 GameMakers [19:42](https://youtu.be/JVCao-Yhu2M?t=1182): Treat new game development as a search for product-market fit (retention plus high-converting ad creatives at a competitive CPI) before moving to live ops.
+- 2022-09-10 SmartyRBX [4:53](https://youtu.be/fxZ8Qv91LbY?t=293): Take regular breaks and keep the project fun; burnout and taking it too seriously are the main reasons developers quit before finishing.
+- 2022-09-20 Roblox [1:42](https://youtu.be/ImH6XYqNJUs?t=102): Keep making what you love; creators on Roblox decide independently what is fun to build.
+- 2022-09-23 B Ricey [19:19](https://youtu.be/MyK4o2pIpQw?t=1159): Over-complicating wastes time without improving productivity; find the simplest way to build the game and ship it.
+- 2022-11-24 GameMakers [12:57](https://youtu.be/NaR3-VIg5-I?t=777): Smaller studios without a strong balance sheet face more risk when going player-friendly. Choose a monetization position that fits your finances.
+- 2023-01-29 SmartyRBX [1:31](https://youtu.be/DOMuVNlHv8Y?t=91): Expect hard work and discipline; success is not overnight, so keep pushing through setbacks.
+- 2023-02-04 SmartyRBX [2:58](https://youtu.be/Wh2B4cQn4Zs?t=178): Be consistent; growing a Twitter following takes a lot of posting and time, but it is worth it.
+- 2023-02-08 SmartyRBX [2:35](https://youtu.be/rdWyuDEpGyk?t=155): Expect many failed projects before a hit; top developers keep making and improving games rather than quitting after one doesn't take off.
+- 2023-05-11 Roblox Creators [2:07](https://youtu.be/3Y4_B5-EHjY?t=127): Keep pitching brands persistently; it gets easier as your network and portfolio grow.
+- 2023-05-18 GnomeCode [20:01](https://youtu.be/TJnV2ycnXZc?t=1201): Keep enjoying the learning process; mocking beginners' code discourages them from continuing to build.
+- 2023-06-19 SmartyRBX [2:18](https://youtu.be/74VNexodi10?t=138): Start a YouTube or TikTok channel with entertaining plus informative content, giving viewers value before expecting loyalty.
+- 2023-06-29 ItsZyonic [2:39](https://youtu.be/ODh2jPEGWUc?t=159): Be aggressive in growth and don't give up; a well-made game can always be made to succeed.
+- 2023-07-18 Roblox [21:47](https://youtu.be/RNwPOSY8NjI?t=1307): Plan long-term sustainability rather than one-month activations; an experience that is live only briefly delivers little lasting value.
+- 2023-07-18 Roblox [23:49](https://youtu.be/RNwPOSY8NjI?t=1429): Stay present on the platform after launch rather than launching and disappearing; brand presence should persist in the ecosystem.
+- 2023-08-18 Roblox DevForum [page](https://devforum.roblox.com/t/how-to-successfully-grow-your-game-ft-senseideveloper-vikinglaw-promoting-and-advertising-your-game/2535279): Build personal discipline to work regardless of motivation; consistency matters more than inspiration.
+- 2023-08-29 janisjanis01 [3:08](https://youtu.be/fRBNHaMtvFs?t=188): Stay consistent and keep learning Studio, Blender and coding; viral success takes patience and skill.
+- 2023-09-09 Roblox DevForum [page](https://devforum.roblox.com/t/all-about-optimization/2586333): Think from the player's perspective and skip features players will not use.
+- 2023-09-19 Roblox [9:12](https://youtu.be/S8ORVEKec_4?t=552): Brand experiences need a long-term presence: keep updating seasonally and give players reasons to return, or it is just an ad campaign.
+- 2023-09-19 Roblox [14:20](https://youtu.be/UVq0045HNQ4?t=860): Show players you care: act on feedback, add attention to detail, Easter eggs and polish in every aspect of the experience.
+- 2023-09-19 Roblox [25:47](https://youtu.be/yUDvI8mGnn8?t=1547): Focus on your experience rather than marketing to platform staff; Roblox says it aims for democratized distribution through recommendations and ads.
+- 2023-09-19 Roblox [32:40](https://youtu.be/yUDvI8mGnn8?t=1960): Build for longevity, not short-term stats; think years ahead rather than only the next release.
+- 2023-09-19 Roblox [34:02](https://youtu.be/yUDvI8mGnn8?t=2042): Ask whether your experience could be more civil and connect people more safely; give Roblox feedback and ask them to test things.
+- 2023-10-20 TheDankDeveloper [2:44](https://youtu.be/DJsRZ2FfoMk?t=164): Don't be discouraged if your first game doesn't take off; successful devs keep shipping until one hits.
+- 2023-10-20 TheDankDeveloper [0:00](https://youtu.be/DJsRZ2FfoMk?t=0): Expect progress over years of practice; learn the basics in Roblox Studio via YouTube and documentation before building.
+- 2023-10-23 SmartyRBX [26:32](https://youtu.be/vemqKJ-5yRE?t=1592): Plan to promote the game after release; a released game with no promotion will not get players.
+- 2023-10-26 SmartyRBX [1:30](https://youtu.be/kGVYnAI5PVY?t=90): Treat your mindset as beliefs that drive action; limiting beliefs (e.g. 'I'm dumb') block skills like scripting before you start.
+- 2023-10-26 SmartyRBX [5:14](https://youtu.be/kGVYnAI5PVY?t=314): Model the beliefs of people who already succeeded at what you want, temporarily trusting their views over your own, then test them through action.
+- 2023-10-26 SmartyRBX [12:34](https://youtu.be/kGVYnAI5PVY?t=754): Write down each limiting belief's cause, effect and meaning to find the root belief worth changing.
+- 2023-10-26 SmartyRBX [16:41](https://youtu.be/kGVYnAI5PVY?t=1001): Reframe limiting beliefs, e.g. 'I'm not dumb, I just haven't tried enough things yet', and test the reframe against high-stakes context.
+- 2023-10-26 SmartyRBX [18:43](https://youtu.be/kGVYnAI5PVY?t=1123): Reinforce reframed beliefs by repeating them consistently over time until they align with your goal.
+- 2023-12-17 Last Level Studios [6:40](https://youtu.be/kQ6JMjjGvow?t=400): Watch motivation: if you feel obligation to players rather than enjoyment, it may be time to hand off the project, as a lingering duty can hold the game back.
+- 2023-12-25 VuukStudios [4:51](https://youtu.be/fEcFzlBQew8?t=291): Start by working free to build a portfolio of finished work; he calls this sweat equity.
+- 2023-12-25 VuukStudios [5:32](https://youtu.be/fEcFzlBQew8?t=332): Learn to full-stack (scripting, VFX, animation, building) rather than specialising in one skill, so you can deliver whole projects.
+- 2023-12-25 VuukStudios [17:11](https://youtu.be/fEcFzlBQew8?t=1031): Find a mentor or accountability structure; he says self-guided learning without one is why most people stall.
+- 2023-12-31 Roblox DevForum [page](https://devforum.roblox.com/t/understand-the-roblox-algorithm/2772921): Expect luck to matter: optimize concept, retention and monetization so you are ready when a trend or market gap appears.
+- 2024-02-28 Roblox DevForum [page](https://devforum.roblox.com/t/discovery-on-roblox-past-present-and-future-vision/2859111): Expect discovery to be merit-based: invest in updates and events, since they correlate with audience reach.
+- 2024-05-10 Roblox DevForum [page](https://devforum.roblox.com/t/creator-spotlight-meet-ahlvie-the-environmental-artist-behind-fantastical-worlds/2964648): Draw on real-life surroundings and personal hobbies as inspiration to give a world a distinctive identity.
+- 2024-06-23 janisjanis01 [0:00](https://youtu.be/e725ByFD8EI?t=0): Commit to a single large update built around a proven existing game rather than starting from scratch.
+- 2024-07-11 PolarBear [10:04](https://youtu.be/yYp23GK9RI4?t=604): Stay consistent; earning Robux takes sustained effort over time rather than a single attempt.
+- 2024-07-16 TheDankDeveloper [0:00](https://youtu.be/maRjVb1NAYc?t=0): Expect low returns from cash-grab style games; the creator's friend predicted only about 50 Robux and was closer to the real result.
+- 2024-07-30 ItsZyonic [6:22](https://youtu.be/Cd6mpD4doGs?t=382): Put real effort and time into the game; the creator concludes this drives better results than cheap cash-grab design.
+- 2024-08-07 Roblox Creators [10:09](https://youtu.be/2t_zhxyLOJ8?t=609): Contact the Roblox Dev Relations team early; they gave playtests and feedback that helped the team.
+- 2024-08-18 janisjanis01 [1:15](https://youtu.be/RECJIE0_CzE?t=75): Treat your first game as a learning project; the basics of Studio it teaches are needed for every later game.
+- 2024-08-18 janisjanis01 [2:26](https://youtu.be/RECJIE0_CzE?t=146): Expect months or years of iteration, not weeks; keep shipping games even after several failures.
+- 2024-08-18 janisjanis01 [5:02](https://youtu.be/RECJIE0_CzE?t=302): Watch for burnout from grinding updates on a game you no longer enjoy; pivot or delegate instead.
+- 2024-09-06 PineappleDev [6:10](https://youtu.be/UBs1bebPu0s?t=370): Expect slow growth; a popular Roblox game can take a long time, and not having a hit early is normal.
+- 2024-09-23 Roblox [21:12](https://youtu.be/DxrLfwsfV1I?t=1272): Balance player feedback with the original vision; it's fine to say no to feedback to avoid a flood of formulaic copies.
+- 2024-09-23 Roblox [26:44](https://youtu.be/QC6XWgJRJEM?t=1604): Prioritize engagement, then monetization, then acquisition; retention is the base since acquisition without it is a leaky bucket.
+- 2024-09-29 SmartyRBX [8:10](https://youtu.be/59AbBgxhfTA?t=490): Take action consistently; potential is worthless without execution. Combine games, commissions, asset sales and dev content for income.
+- 2024-10-12 waveshine [2:54](https://youtu.be/zW0VdnOqxMk?t=174): Expect roughly a week or two of Studio practice before doing commissions, and around two months before building a gimmick game (his estimate).
+- 2024-10-20 Daiorg [23:42](https://youtu.be/LXRBAzLaxwQ?t=1422): Deliver large updates with polished visuals and a satisfying core loop; the speaker calls DOORS' loop and visuals its main strengths despite rough edges.
+- 2024-10-24 GameMakers [50:16](https://youtu.be/uhj_oQDScy0?t=3016): At large scale, organic coverage and k-factor lift rise with paid spend; scale can unlock earned media and better ad-network terms, but the strategy is risky if wrong.
+- 2024-10-24 GameMakers [52:39](https://youtu.be/uhj_oQDScy0?t=3159): Expect lean, experimental marketing teams; the speaker's view is that results pressure will force brutal efficiency and experimentation.
+- 2024-10-27 janisjanis01 [7:16](https://youtu.be/ZyQ73kfh_b4?t=436): Only work on a game you have passion for; if a game stalls, be willing to start a new one rather than endlessly patching it.
+- 2024-11-04 SmartyRBX [16:13](https://youtu.be/Pwy9U0B8tJk?t=973): Focus on making content players want rather than chasing platform algorithms. Speaker argues quality drives the recommendation signal.
+- 2024-11-04 SmartyRBX [18:14](https://youtu.be/Pwy9U0B8tJk?t=1094): Stick to one niche early. Mixing unrelated content confuses both the algorithm and your audience; branch out only after you have an audience.
+- 2024-11-04 SmartyRBX [12:06](https://youtu.be/Pwy9U0B8tJk?t=726): Own your growth: blaming external factors stalls progress. Fix controllable inputs like quality, intros and thumbnails.
+- 2024-11-08 PineappleDev [2:44](https://youtu.be/Bgdqc4uAjtw?t=164): If stuck on how to implement something, step away for a day or two, then start building anyway and iterate.
+- 2024-12-01 SmartyRBX [4:06](https://youtu.be/_-LugzuCA38?t=246): Build discipline over waiting for motivation; even 5 minutes of work when you don't feel like it builds momentum.
+- 2024-12-01 SmartyRBX [7:36](https://youtu.be/_-LugzuCA38?t=456): Focus on progress over perfection; a first game is a stepping stone, not expected to be amazing.
+- 2024-12-12 VuukStudios [16:12](https://youtu.be/xBPJnMgLoUE?t=972): Expect years of work and many failures before a hit; consistency and patience are the prerequisites.
+- 2024-12-12 VuukStudios [6:20](https://youtu.be/xBPJnMgLoUE?t=380): Treat releases like darts: publish more games with good quality to raise odds of one hitting big.
+- 2025-01-15 CallMeDogey [8:08](https://youtu.be/USJC5l_wpuY?t=488): Expect big swings: revenue came in resurgences, and most of his games earned far less; he says the big success was an outlier.
+- 2025-01-19 janisjanis01 [6:08](https://youtu.be/hxjumUFspP0?t=368): Reinvest early revenue into the game if it is good; the creator says the income will cover the investment back.
+- 2025-01-31 ByteBlox [23:37](https://youtu.be/mpv1SyfcpGA?t=1417): Keep a narrative/hook design branching idea in mind for sequels, e.g. a bad ending if the player stops engaging for about a minute.
+- 2025-03-02 SmartyRBX [15:52](https://youtu.be/fz-0n9ed9xU?t=952): Dev content niche is less crowded than other YouTube niches; consistent posting can grow channels to hundreds or thousands of subs in months.
+- 2025-03-02 SmartyRBX [17:15](https://youtu.be/fz-0n9ed9xU?t=1035): Combine education with entertainment (edutainment) to hold viewers; pure entertainment like challenges gets the most views.
+- 2025-03-04 PineappleDev [0:17](https://youtu.be/IEAr0I_sUV4?t=17): Expect development to take far longer than estimated; the creator assumed 2 days and it took about 30.
+- 2025-03-22 AlvinBlox [6:16](https://youtu.be/dtRGRx-2WNg?t=376): Focus on quality over quantity for assets and keep them updated every few months to stay relevant.
+- 2025-03-22 AlvinBlox [8:31](https://youtu.be/dtRGRx-2WNg?t=511): Combine methods over your career: commissions first, then assets and games to sell, then your own original projects once you have funds.
+- 2025-03-23 SmartyRBX [0:26](https://youtu.be/_wqZyaTEsHQ?t=26): Think like a business owner, not just an artist; market demand matters more than your personal vision.
+- 2025-04-04 AlvinBlox [4:02](https://youtu.be/f63stwpsaXw?t=242): A fun game should snowball naturally; initial boost from friends' servers and promotion should be enough to reach the algorithm.
+- 2025-04-04 AlvinBlox [6:37](https://youtu.be/f63stwpsaXw?t=397): Making 10 simple games in a year beats one risky, unproven game taking a full year.
+- 2025-04-04 AlvinBlox [7:21](https://youtu.be/f63stwpsaXw?t=441): Don't quit after a week with no players; stay consistent while the project still feels enjoyable and progressing.
+- 2025-04-04 AlvinBlox [8:03](https://youtu.be/f63stwpsaXw?t=483): Set small milestones (10, then 50, then 100 players) and celebrate each win.
+- 2025-04-17 Roblox Creators [7:21](https://youtu.be/Zb1BJow0NV4?t=441): Don't give up when an item doesn't sell right away; some items sold zero initially and later became bestsellers as players discovered them.
+- 2025-04-28 AlvinBlox [2:31](https://youtu.be/Le4QhC3dDGk?t=151): Only build a game you enjoy playing yourself; you will test it thousands of times and must maintain it through updates.
+- 2025-04-28 AlvinBlox [2:31](https://youtu.be/Le4QhC3dDGk?t=151): Only build a game you enjoy playing yourself; you will play it thousands of times and must maintain it with updates.
+- 2025-05-03 LovJak [2:48](https://youtu.be/M-o5hLZbjGY?t=168): Practice small scripts daily; even 10 minutes a day builds logic and confidence faster than only watching tutorials.
+- 2025-05-09 CallMeDogey [1:20](https://youtu.be/ZAfE-Row9tU?t=80): Don't make big decisions about your game early in its life; wait until you understand its real potential.
+- 2025-05-25 Arow [1:12](https://youtu.be/cqi75Z70Urk?t=72): Enjoy making the game and keep working on it consistently; the speaker says lack of enjoyment or discipline is why people fail.
+- 2025-06-01 Daiorg [6:42](https://youtu.be/tMNQooZtTQo?t=402): Pick a game or topic you're passionate about, script a first version, and ship it rather than waiting for the perfect idea.
+- 2025-06-01 Daiorg [10:49](https://youtu.be/tMNQooZtTQo?t=649): Prioritise having fun building the game; the speaker argues fun, not money alone, is what makes Roblox projects resonate with players.
+- 2025-06-07 AlvinBlox [9:48](https://youtu.be/Y93DRfB-Deo?t=588): If unknown with no budget, avoid going all-in on one project; build passion projects and commissions to grow skills and connections.
+- 2025-06-22 SmartyRBX [2:24](https://youtu.be/BMS5iYw_8Vk?t=144): Plan a career path beyond your first in-studio skill; commissions alone trade time directly for money and cap income.
+- 2025-06-23 SmartyRBX [14:22](https://youtu.be/tpVRSnWwZWI?t=862): Release many games rather than one: more titles means higher odds one takes off.
+- 2025-06-23 SmartyRBX [15:44](https://youtu.be/tpVRSnWwZWI?t=944): You can earn a living from Roblox with around 200 players; you do not need front-page success.
+- 2025-06-23 SmartyRBX [17:07](https://youtu.be/tpVRSnWwZWI?t=1027): If one path fails (e.g., zero commission orders), diagnose it first, such as weak promotion, then try a fallback path.
+- 2025-06-23 SmartyRBX [21:47](https://youtu.be/tpVRSnWwZWI?t=1307): Put strategy before passion: plan a long-term career path rather than betting everything on passion projects.
+- 2025-06-23 SmartyRBX [24:41](https://youtu.be/tpVRSnWwZWI?t=1481): Think long term: learn skills that let you finish full games (scripting) rather than only maps (building), even if you enjoy building more.
+- 2025-06-24 SmartyRBX [25:54](https://youtu.be/skcp4P68i84?t=1554): Think like the CEO (strategy) guiding the artist (passion); let passion be fuel within a structured long-term plan.
+- 2025-06-28 SmartyRBX [18:10](https://youtu.be/Lplz7ZFcKlQ?t=1090): Study successful games objectively and extract what they do right instead of dismissing them as cash-grab or slop.
+- 2025-06-28 SmartyRBX [21:35](https://youtu.be/Lplz7ZFcKlQ?t=1295): Reinvest earnings from simple games into funding your own projects, paying scripters, builders, modelers and UI designers.
+- 2025-06-29 SmartyRBX [1:06](https://youtu.be/MAnvGNgBKgQ?t=66): Temper idealism: keep big goals but scope your first game to your current skill level.
+- 2025-06-29 SmartyRBX [5:29](https://youtu.be/MAnvGNgBKgQ?t=329): Monetize simple games to earn Robux, then reinvest that money in hiring devs for bigger projects.
+- 2025-06-29 SmartyRBX [10:52](https://youtu.be/MAnvGNgBKgQ?t=652): Set tangible goals like earnings or player counts; passion plus results-focused action beats hobbyist mindset.
+- 2025-06-29 SmartyRBX [13:39](https://youtu.be/MAnvGNgBKgQ?t=819): Think like an entrepreneur: treat games as products that must fulfill market needs and wants.
+- 2025-06-29 SmartyRBX [17:06](https://youtu.be/MAnvGNgBKgQ?t=1026): Study successful games like Grow a Garden by playing them and identifying what they do right.
+- 2025-07-04 SmartyRBX [0:00](https://youtu.be/ddfqOQ7H_h8?t=0): Treat Roblox development as both art and business; pursue money deliberately, not just passion, and set concrete goals.
+- 2025-07-04 SmartyRBX [11:15](https://youtu.be/ddfqOQ7H_h8?t=675): Analyse why each win succeeded (tapped player desire, simple fun game) rather than attributing it to luck or the algorithm.
+- 2025-07-06 SmartyRBX [13:22](https://youtu.be/Gml4to_jXQ0?t=802): Drop the hobbyist mindset and treat development as a business with a planned career timeline.
+- 2025-07-09 SmartyRBX [4:47](https://youtu.be/vBllyv2fnWw?t=287): Play trending games objectively and take notes on what works instead of dismissing them as low quality.
+- 2025-07-09 SmartyRBX [5:48](https://youtu.be/vBllyv2fnWw?t=348): Avoid spending years on a complex dream game before shipping; a smaller, realistic project teaches more.
+- 2025-07-11 SmartyRBX [5:28](https://youtu.be/zXzXOw5605E?t=328): Treat Roblox as a supply-and-demand market; differentiate by making the game more fun and better aligned with player psychology.
+- 2025-07-11 SmartyRBX [8:44](https://youtu.be/zXzXOw5605E?t=524): Use strategy first for the overall game concept and marketing, and put passion into components like models, assets and UI.
+- 2025-07-18 #7Phantom [0:52](https://youtu.be/xjZXsHxKerE?t=52): Post consistently, at least every two days minimum; speaker said it took about 5 months of near-daily posting to break out.
+- 2025-07-21 SmartyRBX [2:11](https://youtu.be/exOJsFcer1Q?t=131): Take responsibility for results; when metrics are bad, diagnose what you did wrong and change it rather than blaming players.
+- 2025-08-00 GamesBeat [page](https://gamesbeat.com/?p=305182): Focus on making a good game for players rather than business decisions; Madsen credits product-first decisions for resonating with the community.
+- 2025-08-00 GamesBeat [page](https://gamesbeat.com/?p=305182): Expect to make many games before a hit; Madsen made 30-40 games, with about 5-6 good ones, and applied lessons from each to the next.
+- 2025-08-04 waveshine [2:15](https://youtu.be/xnlaYLnCtFc?t=135): Expect your first few games to flop; keep making games (second, third, fourth) because a hit often comes after several releases.
+- 2025-08-04 waveshine [5:34](https://youtu.be/xnlaYLnCtFc?t=334): Do not let daily player counts set your mood; momentum is fragile and obsessing over stats erodes self-worth and decisions.
+- 2025-08-04 waveshine [6:36](https://youtu.be/xnlaYLnCtFc?t=396): When players leave, diagnose why by reading feedback and running experiments; separate ego from the game and ask what you can fix.
+- 2025-08-04 waveshine [0:54](https://youtu.be/xnlaYLnCtFc?t=54): Plan for weeks to years of learning, not a quick win; game success requires skills in marketing, design, retention, monetisation and balancing.
+- 2025-08-07 PineappleDev [3:35](https://youtu.be/tsmsTtrlT8Y?t=215): Revenue varies widely with monetisation strategy; visits alone don't predict earnings.
+- 2025-08-08 bubDEV [6:51](https://youtu.be/Iv80MDXZBXU?t=411): Don't assume you need 10K concurrent players; a game with ~200 active players can still earn meaningful Robux.
+- 2025-08-12 Roblox Creators [22:30](https://youtu.be/xU3ikvnA5OM?t=1350): Try to fix problems first; start over only when you can't restore an earlier state to your vision.
+- 2025-08-24 janisjanis01 [15:47](https://youtu.be/5iIIYKztamo?t=947): Expect slow growth. The creator says growing on YouTube takes years, and each video builds experience for later results.
+- 2025-08-26 Arow [0:00](https://youtu.be/yM28oinpQIo?t=0): Keep uploading consistently; the creator says the older group keeps earning by continuously adding new items.
+- 2025-09-09 SmartyRBX [1:05](https://youtu.be/ysqeKxPqBXA?t=65): Treat commissions as a low-leverage starting income, then move to games and teams as capital allows; your time is the bottleneck.
+- 2025-09-09 SmartyRBX [7:13](https://youtu.be/ysqeKxPqBXA?t=433): Even if wealthy, start small with hires to build project-management and leadership skills before funding a full team.
+- 2025-09-09 SmartyRBX [7:53](https://youtu.be/ysqeKxPqBXA?t=473): Plan the progression deliberately rather than expecting a large Robux balance to produce a studio overnight.
+- 2025-09-13 bubDEV [4:33](https://youtu.be/kg_h09_x7no?t=273): Prioritise original concepts. Clones can earn money but rarely outperform the original game that defined the concept.
+- 2025-09-23 TheDankDeveloper [5:01](https://youtu.be/pRfzkw-wHgA?t=301): Recognize that AI-generated games with no skill investment are unlikely to become front-page successes.
+- 2025-09-26 Roblox [22:36](https://youtu.be/MJ-zYfL10Ew?t=1356): Treat monetization as engagement: 10 users spending 100 Robux beats one user spending 1,000 Robux for long-term retention and discovery.
+- 2025-09-26 Roblox [1:43](https://youtu.be/Z3T33q4-Y_A?t=103): Be clear on why you want to sell (liquidity, freeing time, needing expertise) so you can pick the right deal structure and buyer.
+- 2025-09-26 Roblox [7:21](https://youtu.be/Z3T33q4-Y_A?t=441): Reflect on whether you are comfortable with deadlines, budgets and consistency, since investors expect commitment and may limit frequent direction changes.
+- 2025-09-26 Erthlord [9:31](https://youtu.be/fdDscQ6CWIs?t=571): Profit from cloned trend games was small (~1,200 Robux); the creator concluded enjoyment and building something personal matter more.
+- 2025-10-18 Creators on the Blox [1:08:51](https://youtu.be/WODeLtB2YH4?t=4131): Make releases feel low-stakes by building an audience that expects the output; he reports no burnout since 2024 with this approach.
+- 2025-10-19 bubDEV [10:39](https://youtu.be/N-u2gI4DUyw?t=639): Treat cash-grab templates as a reliable short-term earner, but original games are the speaker's view of the top-earning long-term titles.
+- 2025-10-25 Creators on the Blox [46:57](https://youtu.be/XtWTnz56ZpM?t=2817): Do not stop updating a successful game too early; Yeucc regrets abandoning The Sun Experiment after it took off, which killed its players.
+- 2025-10-25 Creators on the Blox [1:17:27](https://youtu.be/XtWTnz56ZpM?t=4647): Derivative inspiration is fine; make characters personal and differentiated from source designs, and avoid direct copying.
+- 2025-10-25 Creators on the Blox [1:56:58](https://youtu.be/XtWTnz56ZpM?t=7018): Motivation should come from caring about the work, not money alone; he argues money-first developers hurt the industry.
+- 2025-11-02 Creators on the Blox [36:43](https://youtu.be/f9BmInLHotA?t=2203): When burnt out, keep working but switch to a different, enjoyable project rather than forcing the same task.
+- 2025-11-02 Creators on the Blox [38:05](https://youtu.be/f9BmInLHotA?t=2285): Only do creative work you enjoy; she says she avoids art block by sticking to what she likes.
+- 2025-11-02 Creators on the Blox [29:13](https://youtu.be/f9BmInLHotA?t=1753): Don't let audience size raise pressure; keep doing what worked before and focus on the current video.
+- 2025-11-06 VuukStudios [5:03](https://youtu.be/AbjI7ygMnao?t=303): Expect most releases to miss; success comes from making many games and refining methods, like throwing many darts at a board.
+- 2025-11-07 DitchyDevelopments [2:03](https://youtu.be/3Pa8QmFB_TE?t=123): Watch for burnout: 5 hours of sleep and 10-hour studio sessions were unsustainable by day 50.
+- 2025-11-10 Creators on the Blox [47:04](https://youtu.be/Qn0uVUSxG8I?t=2824): Stop caring too much about fan and celebrity attention; Zeal says it can break you mentally.
+- 2025-11-10 Creators on the Blox [40:29](https://youtu.be/Qn0uVUSxG8I?t=2429): Use the revenue to fund the team that makes a better next game, instead of optimizing around a game you do not like.
+- 2025-11-28 VuukStudios [4:51](https://youtu.be/U4nduRcszJ4?t=291): Don't give up in the first few months; Kusho made almost nothing initially, then started earning after sustained daily work.
+- 2025-11-28 VuukStudios [8:20](https://youtu.be/U4nduRcszJ4?t=500): Improve about 1% every day; consistent practice compounds, per Elves.
+- 2025-12-01 Matt The Method [3:20](https://youtu.be/MPHPumDvMIs?t=200): Expect a volume game: significant money needs many players, but once traffic compounds the flywheel is hard to stop; focus on retention first.
+- 2025-12-03 Lnor Roblox [5:32](https://youtu.be/Nywo2NwQPNo?t=332): Expect burnout during long solo or duo builds. Scheduled days off restored focus and productivity for the team.
+- 2025-12-03 {EISABOOS} "RBX" [5:35](https://youtu.be/fy3Z0P9mG3Y?t=335): Keep it a hobby that does not disrupt studies or work; don't quit when early views are low, since growth can come suddenly.
+- 2025-12-21 Daiorg [1:08](https://youtu.be/JCMIb008Y6E?t=68): Learn programming yourself, even if not brilliant; he says top games are all made by people who can code, and it is essential early on.
+- 2025-12-21 Daiorg [25:54](https://youtu.be/JCMIb008Y6E?t=1554): Make games you yourself want to play; his ambition is a game that families and friends of all ages can enjoy together.
+- 2025-12-22 #7Phantom [1:43](https://youtu.be/peTkfSG79rM?t=103): Consistency with clothing and ads is what drove results, per his summary.
+- 2025-12-25 Creators on the Blox [34:00](https://youtu.be/LyJ04iE6K1M?t=2040): Make games you genuinely enjoy; he says his hits came from games he personally loved playing, like Local Official.
+- 2026-00-00 Player.One [page](https://www.player.one/robloxs-steal-egg-beating-some-platforms-biggest-games-164086): Treat concurrency as a snapshot of attention, not durability; a breakout must prove it retains players once novelty fades.
+- 2026-01-05 ItsZyonic [6:53](https://youtu.be/4-ge-E9WvM4?t=413): Treat Roblox development as a marathon: keep updating a fun game consistently rather than abandoning it after early numbers disappoint.
+- 2026-01-23 Erthlord [14:45](https://youtu.be/69IBB6O4o4c?t=885): Stacking many channels at once compounded results; the highest-yield gains came from paid ads plus short videos running together.
+- 2026-02-08 janisjanis01 [15:08](https://youtu.be/2gr2TUGdNAk?t=908): Keep pushing through setbacks; the speaker said the game went from abandoned to 3,000 players after the fix.
+- 2026-02-18 RoWatcher (tracker blog) [page](https://rowatcher.com/news/is-the-brainrot-trend-dying-what-ccu-data-from-three-top-games-reveals): Expect fast replacement cycles in trend genres; players are loyal to the genre, not individual games, so plan for cannibalisation by new entrants.
+- 2026-02-20 ThePurpleGuy [2:05](https://youtu.be/EDHExZQHk4I?t=125): Growth from UGC takes time, good ideas and consistency; a single item rarely pays back its costs quickly.
+- 2026-02-20 1_Bruce [5:17](https://youtu.be/i3RQXxZeVYc?t=317): Expect sustained discipline and sacrifice. Vibe-coding a game does not reliably make it blow up.
+- 2026-03-02 Roblox DevForum [page](https://devforum.roblox.com/t/why-your-technically-superior-game-isn%E2%80%99t-succeeding-on-roblox-and-why-the-algorithm-ignores-it/4461606): Treat behavioral design as the main lever for growth; the author attributes a 50 CCU vs 50,000 CCU gap mostly to engineering around human behavior, not code quality.
+- 2026-03-09 GamesBeat [page](https://gamesbeat.com/roblox-unveils-jumpstart-and-incubator-programs-to-help-creators-expand-possibilities-exclusive/): Roblox says it prioritises novel games: new genres, deep gameplay mechanics, and distinct visual styles that make players think 'Wait, that's Roblox?'
+- 2026-03-14 Creators on the Blox [48:53](https://youtu.be/VyBSvWSIkao?t=2933): Keep shipping projects; skill and reputation build over years. Ragdoll Universe pulled about 1,000 players on a good day before Doors hit.
+- 2026-03-27 Creators on the Blox [47:05](https://youtu.be/LWaw0KNwxyM?t=2825): Do not rely on motivation to carry a large project; have clear examples and ready direction for collaborators so they can execute your vision.
+- 2026-04-06 Deconstructor of Fun [42:22](https://youtu.be/PNeLRjewQns?t=2542): Treat Roblox as a new platform: approach it as a beginner regardless of past experience. Past success does not guarantee the next hit.
+- 2026-04-12 janisjanis01 [7:02](https://youtu.be/xqHXDYbuF2w?t=422): Ignore critics after release; criticism is constant once a game grows.
+- 2026-05-00 StudioKrew (agency blog, GGAID data) [page](https://studiokrew.com/blog/top-roblox-games-may-2026/): Study top-chart games as engineering references: note their loops, economies and update cadence rather than copying their genre.
+- 2026-05-04 ArTheDev [3:28](https://youtu.be/3FB6ZzAON8I?t=208): Accept that first games will be messy; keep building and iterating rather than abandoning after bad early results.
+- 2026-05-04 ArTheDev [4:08](https://youtu.be/3FB6ZzAON8I?t=248): Stay consistent and learn from mistakes instead of avoiding them; repeated practice builds pattern recognition.
+- 2026-05-07 rasdev [2:43](https://youtu.be/wGRgITzP18c?t=163): When growth stalls, stop working harder on random tactics and work with better data to find the actual problem.
+- 2026-05-07 rasdev [2:43](https://youtu.be/wGRgITzP18c?t=163): Avoid abandoning projects halfway for new ideas; focus on finishing and iterating on one game.
+- 2026-05-09 Creators on the Blox [16:42](https://youtu.be/JsiEVtWLwnA?t=1002): Fans judge only what they see; be transparent about delays rather than assuming they will understand the process.
+- 2026-05-11 Tizzy [3:05](https://youtu.be/BNdHkeKRUdE?t=185): As a new dev, aim for a first small win that lasts months rather than a viral breakout hit.
+- 2026-05-12 Yann [0:00](https://youtu.be/dbNA3K8lt2w?t=0): Understand the platform deeply before expecting success; the creator says it takes skill and platform knowledge.
+- 2026-05-19 Tizzy [13:55](https://youtu.be/8q6kdFVL_fY?t=835): Treat game ideas as abundant; the hard part is execution and finding reliable talented devs.
+- 2026-05-25 MoseyTube [2:44](https://youtu.be/JG37MoDpOTw?t=164): Build many games and treat each as a learning step; the speaker argues more releases raise the odds that one hits.
+- 2026-05-26 Tizzy [2:03](https://youtu.be/7tYPvXYlif8?t=123): Build in public on Twitter/YouTube to build hiring reputation, even if posts look foolish early on.
+- 2026-05-26 Tizzy [0:40](https://youtu.be/7tYPvXYlif8?t=40): Ideas are cheap; execution decides outcomes on Roblox.
+- 2026-05-29 Tizzy [2:03](https://youtu.be/0pMW1T0rdUI?t=123): Before checking data, write a hypothesis on whether the game will grow, with reasons, so you can score your judgment later.
+- 2026-05-29 Tizzy [13:40](https://youtu.be/0pMW1T0rdUI?t=820): Study games this way for intuition, but still launch your own games; theory alone is not enough.
+- 2026-05-30 Yann [8:52](https://youtu.be/yw32DZtz4mQ?t=532): Budget $50-100 for advertising a finished game; the speaker considers it the cheapest scalable investment available.
+- 2026-05-31 Duckable [21:31](https://youtu.be/52srr65Mksc?t=1291): Release every game you start, even small ones, instead of abandoning them; the creator had five years of coding with no released game.
+- 2026-05-31 Duckable [24:43](https://youtu.be/52srr65Mksc?t=1483): Make games you enjoy; the creator says selling out means making games you hate, and passion projects can coexist with trend games.
+- 2026-05-31 Duckable [5:10](https://youtu.be/52srr65Mksc?t=310): Expect motivation to burn out on large plans; plan scope so you can finish within weeks.
+- 2026-06-05 Creators on the Blox [55:04](https://youtu.be/5vJCBrxPHmY?t=3304): Limit time on social media; it makes criticism feel personal. Separate the critique from the person giving it.
+- 2026-06-05 Creators on the Blox [33:12](https://youtu.be/5vJCBrxPHmY?t=1992): Build every day, even if only 30 minutes. Asimo says daily practice is what makes you improve quickly.
+- 2026-06-05 Creators on the Blox [58:31](https://youtu.be/5vJCBrxPHmY?t=3511): Don't resent popular low-effort genres; the audience decides, and there is room for every type of game to find success.
+- 2026-06-05 Creators on the Blox [59:11](https://youtu.be/5vJCBrxPHmY?t=3551): Top-10 placement was needed to earn a living in 2016; now a top-1000 game can be financially viable, so it's a good time to make a quality game.
+- 2026-06-06 janisjanis01 [12:51](https://youtu.be/CltiB53QTHw?t=771): Cloning a proven formula can work, but it is hard to repeat; focus on one game and polish it instead of many clones.
+- 2026-06-07 MoseyTube [3:56](https://youtu.be/2rLYGu0v490?t=236): Execution quality matters as much as the idea; a simple concept executed well beats a complex concept executed poorly.
+- 2026-06-07 ArTheDev [0:56](https://youtu.be/wG9XzLnJC5k?t=56): Don't make your dream game first; expectations far above your skill level make early development painful and lead to quitting.
+- 2026-06-07 ArTheDev [4:08](https://youtu.be/wG9XzLnJC5k?t=248): Treat the first game as training: its job is to teach you, not to make money or go viral.
+- 2026-06-07 ArTheDev [2:13](https://youtu.be/wG9XzLnJC5k?t=133): Build repeatedly instead of planning or watching tutorials; repetition is what stops you Googling every problem.
+- 2026-06-15 Tizzy [14:12](https://youtu.be/zoz3PSMqets?t=852): Run a loop: research, form hypothesis, launch update, check results, keep or revert. Repeat it continuously.
+- 2026-06-16 VuukStudios [14:48](https://youtu.be/catPKgFIZbQ?t=888): Don't get stuck on one game; if it never gets home recommendations, abandon it and make another, since time is limited.
+- 2026-06-16 VuukStudios [18:52](https://youtu.be/catPKgFIZbQ?t=1132): Most revenue comes after home recommendations hit; earlier revenue is minimal, so judge a game by that milestone.
+- 2026-06-16 VuukStudios [19:33](https://youtu.be/catPKgFIZbQ?t=1173): Expect most hits to last about one to two months; make many games quickly rather than relying on one long-lived title.
+- 2026-06-18 DitchyDevelopments [2:44](https://youtu.be/cfLbW2j2VLs?t=164): Frame content around a personal journey or challenge (e.g. a beginner becoming a Roblox dev, front-page in 30 days) so people follow even if they don't care about the game.
+- 2026-06-18 DitchyDevelopments [3:25](https://youtu.be/cfLbW2j2VLs?t=205): Stay consistent and balance building the game with building its community; working with other devs helps but solo is possible.
+- 2026-06-19 Yann [0:14](https://youtu.be/zWeDpmrjhUM?t=14): Define your personal reasons for making Roblox games and set per-project goals; goals change over time and should match your skill and experience.
+- 2026-06-20 Tizzy [7:29](https://youtu.be/pu2o80prNV8?t=449): Make each update target one specific stat, and iterate by reading data and analysing competitors.
+- 2026-07-03 Generalist Programmer [1:14](https://youtu.be/CFohgybeybM?t=74): Consistently update a game people want to play week after week; persistence, not talent or tools, is what separates earners early on.
+- 2026-07-04 Duckable [21:54](https://youtu.be/eRhFPgj8tc4?t=1314): Expect community hostility and negative actors; keep focus on building and supportive communities rather than responding to threats.
+- 2026-07-04 ThePurpleGuy [0:00](https://youtu.be/zurNJYYXVhk?t=0): Expect UGC sales to take about a year to recoup upload and promotion costs; the creator only turned a profit at 12 months (~35,966 vs ~34,900 Robux spent).
+- 2026-07-05 janisjanis01 [12:10](https://youtu.be/OL1FJ17wzZE?t=730): Focus on one game. Juggling multiple projects increases the risk of dropping something critical.
+- 2026-07-06 Tizzy [9:17](https://youtu.be/EZzztgpSaTU?t=557): Treat underperformance as your responsibility: set the quality standard and fix training, hiring, or standards rather than blaming the team.
+- 2026-07-07 Generalist Programmer [5:41](https://youtu.be/pbt3ui5om8I?t=341): Build a game people return to first, then monetise gently with a few well-placed passes and products that are not pay-to-win.
+- 2026-07-08 rasdev [3:24](https://youtu.be/fPT2GCkK1QM?t=204): Don't abandon a game after one flop; a weak thumbnail, core loop or mechanic is the likelier cause.
+- 2026-07-09 MoseyTube [3:26](https://youtu.be/1Oicl2fFt3o?t=206): Still learn game design (core loops, why players return, monetization); AI removes the coding barrier but not the need for design knowledge.
+- 2026-07-13 Tizzy [20:16](https://youtu.be/nggNvUILQ1I?t=1216): Expect economy tuning to be ongoing. The creator nerfed the economy several times and called it only the beginning.
+- 2026-07-20 Tizzy [11:04](https://youtu.be/LZOohZHsJus?t=664): Apply e-commerce UX and funnel analysis to Roblox game decisions: heatmaps, session recordings and funnel data.
+- 2026-07-20 Tizzy [20:17](https://youtu.be/LZOohZHsJus?t=1217): Stay locked in and talk to players in your Discord for feedback and ideas. He says he declines many offers to focus on this game.
+- 2026-07-24 MoseyTube [4:31](https://youtu.be/a170E9klbP4?t=271): Aim for multiple reasons to stay, multiple reasons to return tomorrow, and multiple reasons to spend, per the speaker's formula.
+- 2026-07-27 waveshine [9:27](https://youtu.be/hQ1lrFLEF1c?t=567): Treat failed and scrapped projects as tuition; consistent shipping matters more than any single hit.
+- 2026-07-28 Tizzy [18:34](https://youtu.be/FnsIL4zPCQg?t=1114): Integrate all five traits; he claims this makes at least 10K CCU likely, though this is an unsupported assertion.
+- 2026-07-30 Roblox Creators [10:29](https://youtu.be/yv3GO5AHwJk?t=629): Don't chase trends only for views; views without a community don't convert into players.
+- 2026-07-30 Roblox Creators [11:53](https://youtu.be/yv3GO5AHwJk?t=713): Build a recognizable identity: consistent colors, editing style, voice, characters and format so viewers recognize you while scrolling.
+- 2026-07-30 Roblox Creators [14:00](https://youtu.be/yv3GO5AHwJk?t=840): Show the game itself as the main hook; the gameplay moment should make viewers want to play with friends.
+- 2026-07-30 Roblox Creators [18:09](https://youtu.be/yv3GO5AHwJk?t=1089): Use algorithm trends to get noticed, but build on owned ground: a community you can reach beats relying on platform recommendations.
+- 2026-08-02 janisjanis01 [11:33](https://youtu.be/fjlOaEALWmg?t=693): Expect stress after success; listen to the community and ship the best update you can, accepting that some players will complain.
+- 2026-08-02 janisjanis01 [12:14](https://youtu.be/fjlOaEALWmg?t=734): Treat a failed game as paid learning: skills in building and marketing carry over to the next project.
+- 2026-08-06 VuukStudios [9:26](https://youtu.be/aw0PmBkakb4?t=566): Aim for a long-lived niche game with a loyal fanbase rather than a fad cash grab; long-lived games can be sold for significant sums later.
+- 2026-08-06 Roblox DevForum [page](https://devforum.roblox.com/t/boost-your-discovery-by-building-games-people-want-to-play/4779042): Do not chase a single metric; Home considers a range of signals measuring value over time.
+- 2026-08-12 rasdev [4:42](https://youtu.be/17DGro3FUlM?t=282): Expect the first attempt to fail; great ideas come from constant volume of attempts, not one perfect idea.
+- 2026-08-12 RoyalDev [6:51](https://youtu.be/LpqqLed1dBU?t=411): Ship and iterate publicly rather than endlessly planning; document the process, failures included.
+- 2026-08-16 VuukStudios [17:49](https://youtu.be/Tk0qXybUK0E?t=1069): If the game has not picked up the algorithm after 14 days of fixes, consider stopping and moving on.
+- 2026-08-20 Raul [2:35](https://youtu.be/NE8OWWbAia8?t=155): Once a commission is accepted, finish it; don't stop building consistently after earning a large Robux amount.
+- 2026-08-21 Business of Creators [8:35](https://youtu.be/lpIzMycpiKo?t=515): Don't optimise for growth multiples; keep the goal of making better games. Investor growth expectations pushed hiring of the wrong people too fast.
+- 2026-08-25 MoseyTube [6:21](https://youtu.be/xIBc5He_sy4?t=381): If the algorithm has not picked up the game by day 14, seriously reconsider pushing that specific game, though late pop-offs happen.
+- 2026-08-25 MoseyTube [7:02](https://youtu.be/xIBc5He_sy4?t=422): You do not need to hit every benchmark; hitting enough of them (he says) puts a game in the roughly 10% that gets players.
+- 2026-08-26 Matt The Method [5:06](https://youtu.be/1mYF-cWJPmQ?t=306): Winning developers are those who find good ideas and build them fastest, not necessarily the best programmers.
+- 2026-08-30 Duckable [22:37](https://youtu.be/3XX3Y74hzq0?t=1357): Pursue a passion project you care about, since it sustains effort through long, error-heavy stretches.
+- 2026-08-31 RoyalDev [2:06](https://youtu.be/7cRCq-sJa_Q?t=126): Avoid passive watching and avoid relying on AI to write code; you must be in Studio actively building for the learning to stick.
+- 2026-09-04 RoyalDev [2:06](https://youtu.be/7FSqZeirnjs?t=126): Expect most games to fail; the speaker's own four failures were treated as learning, and one successful game can change outcomes.
+- 2026-09-04 RoyalDev [2:06](https://youtu.be/7FSqZeirnjs?t=126): Keep shipping new games and trying new ideas rather than quitting after failures.
+- 2026-09-06 MonarchDev [7:29](https://youtu.be/haYW1hXahOM?t=449): If the prototype fails your test, repeat research with an idea as different as possible; if it's too similar, the problem is likely execution, not the idea.
+- 2026-09-06 MonarchDev [8:10](https://youtu.be/haYW1hXahOM?t=490): Commit to an idea once filtered instead of endlessly re-deciding; an unmade game never gets played, so you can't learn if it works.
+- 2026-09-08 ItsZyonic [7:49](https://youtu.be/RIWPfMJyVhQ?t=469): Find an idea, prove it works through playtesting, and keep improving it rather than giving up.
+- 2026-09-11 MonarchDev [4:47](https://youtu.be/LD7LGP10dRc?t=287): Expect failure early; the creator judged that the three games failed on discovery and stickiness, so diagnose those before adding features.
+- 2026-09-13 rasdev [4:05](https://youtu.be/Df5ebFGEOXY?t=245): Packaging alone won't sell; if the gameplay is bad, retention and revenue will not follow.
+- 2026-09-13 rasdev [0:00](https://youtu.be/Df5ebFGEOXY?t=0): Learn the principle behind a successful game (its packaging formula), not the game itself.
+- 2026-09-13 VuukStudios [8:29](https://youtu.be/eS0Vc7h0VW0?t=509): Treat Roblox releases as a numbers game: ship many games, learn from each flop, and adjust aim each time rather than spending years on one.
+- 2026-09-13 VuukStudios [11:37](https://youtu.be/eS0Vc7h0VW0?t=697): Consistency alone is not enough; efficiency over time is what produces results, so focus on the highest-leverage work.
+- 2026-09-14 Tizzy [5:41](https://youtu.be/E_tVm3bc5Xo?t=341): Build discipline over motivation: do what you say you will do, since motivation fades and habits sustain output.
+- 2026-09-14 Tizzy [8:25](https://youtu.be/E_tVm3bc5Xo?t=505): Stop watching old games' declining CCU and competitors' success; focus on your own goals and build.
+- 2026-09-14 Tizzy [10:08](https://youtu.be/E_tVm3bc5Xo?t=608): When a project underperforms, ask what you can improve in yourself rather than blaming the algorithm, devs or saturation.
+- 2026-09-17 Roblox [2:01:19](https://youtu.be/3a2RbLOAl4A?t=7279): Expect the platform to reward games that keep players returning; the recommender now prioritises long-term retention and engagement over short-term bookings.
+- 2026-09-18 RoyalDev [4:11](https://youtu.be/nLuxSFg5viw?t=251): Idea selection takes substantial research time; don't pick a game just because it looks cool.
+- 2026-09-22 rasdev [3:39](https://youtu.be/ILhTEWqz2kU?t=219): Release a small version, watch for a real player signal, and double down only if people are engaging. You don't need a finished product first.
+- 2026-09-22 rasdev [5:30](https://youtu.be/ILhTEWqz2kU?t=330): Spend time as an active player in the platform's ecosystem; understanding Roblox players beats outspending large brands on marketing.
+- 2026-09-22 rasdev [5:48](https://youtu.be/ILhTEWqz2kU?t=348): Follow a repeatable cycle: observe what players care about, find friction, build, release, watch response, then double down or drop.
+- 2026-09-23 Tizzy [15:42](https://youtu.be/CRCcsYEB_6A?t=942): Set realistic goals: a 20% change to a proven genre targets 1-5K, maybe 10K CCU. 100K CCU needs stacked innovations across multiple blocks.
+- 2026-09-23 VuukStudios [14:31](https://youtu.be/d5YHwCqwgYM?t=871): Optimise for longevity: a game averaging 5-8K CCU for a year beats a 20K-peak game that dies in 15 days, in his view.
+- 2026-09-23 VuukStudios [16:33](https://youtu.be/d5YHwCqwgYM?t=993): Keep shipping games; markets shift, so good ideas can still fail. Expect that one of several releases will hit.
+- 2026-09-30 Roblox Creators [36:43](https://youtu.be/hohwBQGQO7c?t=2203): Take breaks before burnout; dread about working on a game hurt quality, and the rested team returned more productive.
+- 2026-09-30 Roblox Creators [47:01](https://youtu.be/hohwBQGQO7c?t=2821): Expect many failures; learn from each and keep making new games rather than treating one flop as a verdict on yourself.
+- 2026-10-03 VuukStudios [12:14](https://youtu.be/4vuXAQt0PuQ?t=734): Expect many failures; creator claims 15+ failed games before this hit. Keep shipping rather than quitting after a few failures.
+- 2026-10-03 VuukStudios [14:02](https://youtu.be/4vuXAQt0PuQ?t=842): Build multiple income streams (e.g. games, commissions, store packs) rather than relying on one product.
+- 2026-10-03 VuukStudios [16:44](https://youtu.be/4vuXAQt0PuQ?t=1004): Set concrete CCU targets (10K, then 100K, 200K) and track progress against them.
+- 2026-10-09 Alex Builds Games [4:03](https://youtu.be/ntjVykMw0As?t=243): Stick to one niche so assets and systems can be reused, letting you ship and test variants faster rather than scattering effort across genres.
+- 2026-10-10 RoyalDev [0:00](https://youtu.be/DLqlgL_7XrY?t=0): Finish every game you start, even if it fails; he claims this habit is what keeps him shipping.
+- 2026-10-11 VuukStudios [14:14](https://youtu.be/0ENzqNB_EUo?t=854): Aim for longer-lived games with sustained revenue rather than quick low-quality releases that die within weeks.
+- 2026-10-11 kra_DeZ [5:28](https://youtu.be/dE0njfPNsdY?t=328): If a game isn't working, move on rather than pouring years and earnings into it. He reinvested most earnings into ads to keep it alive, with declining results.
+- 2026-10-11 kra_DeZ [12:23](https://youtu.be/dE0njfPNsdY?t=743): Failed projects still build skills (organisation, scripting). Keep shipping and learning rather than quitting out of frustration.
+- 2026-10-12 Roblox [27:38](https://youtu.be/KB5iAzy86Fo?t=1658): Build the thing that checks your work first; giving the AI a way to verify its output was the pattern in every workflow that stuck.
+- 2026-10-12 MonarchDev [11:32](https://youtu.be/QwdZRB6xRKk?t=692): Don't expect AI to deliver a finished game from one prompt; the creator's own judgement is still needed.
+- 2026-10-12 Roblox [24:03](https://youtu.be/hoMbv_R8AMU?t=1443): Keep the core game experience and player retention at the centre; monetisation follows only if players stay engaged.
+- 2026-10-12 Roblox [25:27](https://youtu.be/hoMbv_R8AMU?t=1527): Be passionate about the game; sustained update cadence over years depends on genuine drive.
+- 2026-10-20 kra_DeZ [14:56](https://youtu.be/lrubtajkaeI?t=896): Don't expect immediate results after a campaign; growth can lag. Spin or Die grew about 4 months after ads via a major mechanic update.
+- 2026-10-21 VuukStudios [6:43](https://youtu.be/DTJeR2gJSZo?t=403): Expect slow growth: his game sat at 50-300 CCU for months before revamp and climbed to 10-20K CCU after several updates.
+- 2026-10-21 VuukStudios [8:08](https://youtu.be/DTJeR2gJSZo?t=488): Expect that most releases fail; one hit (his 31st game example) can recoup many failed games. Plan for many attempts.
+- 2026-10-21 VuukStudios [9:28](https://youtu.be/DTJeR2gJSZo?t=568): Treat peak earnings as temporary; hits often last only months, sometimes weeks for trend games. Plan for sustained development.
+- 2026-10-21 VuukStudios [13:47](https://youtu.be/DTJeR2gJSZo?t=827): Aim big: target top-5 scale rather than 1-2K CCU, because the gap between 10K and 50K CCU is roughly 10x earnings.
+- 2026-10-21 VuukStudios [15:03](https://youtu.be/DTJeR2gJSZo?t=903): There is no magic formula for ad spend, thumbnails, descriptions or settings; learn game design by shipping many games and iterating.
+- 2026-10-21 Xaiyne [0:41](https://youtu.be/wkfCP_09CI8?t=41): Keep adding new UGC items consistently; creator says earnings scaled slowly over months after posting more items.
+- 2026-10-24 Crusherfire [8:09](https://youtu.be/4n7thZAAF-E?t=489): Beginners should let AI lower the barrier but still struggle through problems yourself; the struggle is where learning happens.
+- 2026-10-24 Crusherfire [5:04](https://youtu.be/4n7thZAAF-E?t=304): Don't over-optimise your AI setup (endless skills, plugins, hooks); it can replace time spent actually building the game.
+- 2026-10-28 Roblox Creator Docs [page](https://create.roblox.com/docs/education/lesson-plans/roblox-developer/roblox-developer-3): When goals grow too big, write extra ideas in the design document and focus on the current session's goal.
+- 2026-10-28 Roblox Creator Docs [page](https://create.roblox.com/docs/education/resources/collaboration-best-practices): Encourage peers to help each other first (ask three peers before the lead) to build independence and reduce bottlenecks.
+- 2026-10-28 Roblox Creator Docs [page](https://create.roblox.com/docs/creator-programs/learn-explore-sort): Make the educational value clear to an educator, since eligibility depends on it being evident without explanation.
+- 2026-10-28 Roblox Creator Docs [page](https://create.roblox.com/docs/creator-programs): Check the Creator Programs page to see which support programs you qualify for, such as Creator Rewards or Developer Awards.
+- 2026-10-28 Roblox Creator Docs [page](https://create.roblox.com/docs/production/publishing/ip-guidelines): If a copyright dispute leads to harassment or threats, report immediately; safety issues are handled separately under Community Standards.
+- 2026-10-28 Roblox Creator Docs [page](https://create.roblox.com/docs/projects/group-guidelines): If enforcement action is wrong, you can appeal it.
+- 2026-10-28 Roblox Creator Docs [page](https://create.roblox.com/docs/production/game-design/liveops-essentials): Be realistic about team strengths, schedules, and update frequency to keep a healthy work-life balance; work on features that inspire you to avoid burnout.
+- 2026-10-28 Roblox Creator Docs [page](https://create.roblox.com/docs/creator-programs/developer-awards): Track milestones that trigger awards (MAU, rolling 12-month Robux, lifetime play hours) as long-term growth targets; awards are granted automatically with no application.
+- 2026-10-30 Xaiyne [1:23](https://youtu.be/WIkCweVdd88?t=83): Spread work across several groups (one for avatar items, one for emotes) rather than relying on a single product.
+
+Index: [[README]] | Master: [[master-playbook]]

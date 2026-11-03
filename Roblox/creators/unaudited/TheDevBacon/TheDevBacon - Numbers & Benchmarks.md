@@ -1,0 +1,12 @@
+---
+title: TheDevBacon - Numbers & Benchmarks
+tags: [roblox, thedevbacon]
+creator_trust: INSUFFICIENT
+---
+
+> [!note] Trust: UNAUDITED (fewer than 4 checkable claims verified): credibility unknown, treat as unverified, not as bad; confirm before relying. See [[creator-credibility]].
+
+# TheDevBacon: Numbers & Benchmarks
+
+| Date | Topic | Metric | Value | Context | Source |
+|---|---|---|---|---|---|

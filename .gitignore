@@ -1,0 +1,7 @@
+.DS_Store
+workspace*.json
+.trash/
+*.lock
+.obsidian/cache/
+Assets/
+My Research/

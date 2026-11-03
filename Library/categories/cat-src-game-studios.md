@@ -1,0 +1,129 @@
+---
+tags: [moc]
+---
+# Category: src-game-studios
+
+122 items. Back: [[_Home]]
+
+- [a] [[A--game-studios--accessibility-specialist|game-studios/accessibility-specialist]] - Accessibility standards and assistive features — remapping, text scaling, colorblind modes, screen reader supp
+- [a] [[A--game-studios--ai-programmer|game-studios/ai-programmer]] - Implements game AI — behavior trees, state machines, pathfinding, perception, decision-making, NPC and enemy b
+- [a] [[A--game-studios--analytics-engineer|game-studios/analytics-engineer]] - Telemetry and analytics — event tracking, player behavior, A/B test frameworks, dashboard specification, data 
+- [a] [[A--game-studios--art-director|game-studios/art-director]] - Owns visual identity — style guides, art bible, asset standards, color palettes, UI visual direction.
+- [a] [[A--game-studios--audio-director|game-studios/audio-director]] - Owns sonic identity — music direction, sound palette, audio implementation strategy, mix balance.
+- [a] [[A--game-studios--community-manager|game-studios/community-manager]] - Player-facing communication — patch notes, social posts, community updates, feedback collection, player bug tr
+- [a] [[A--game-studios--creative-director|game-studios/creative-director]] - Highest creative authority — vision, tone, aesthetic direction. Use when a decision affects game identity or d
+- [a] [[A--game-studios--devops-engineer|game-studios/devops-engineer]] - Build pipelines, CI/CD configuration, version control workflow, branching strategy, automated test pipelines, 
+- [a] [[A--game-studios--economy-designer|game-studios/economy-designer]] - Resource economies — loot tables, sink/faucet analysis, progression curve calibration, economic balance.
+- [a] [[A--game-studios--engine-programmer|game-studios/engine-programmer]] - Core engine systems — rendering pipeline, physics, memory, resource loading, scene management, performance-cri
+- [a] [[A--game-studios--game-designer|game-studios/game-designer]] - Mechanical and systems design — core loops, progression, combat, economy, player-facing rules. Mechanics-level
+- [a] [[A--game-studios--gameplay-programmer|game-studios/gameplay-programmer]] - Implements designed mechanics as code — player systems, combat, interactive features, gameplay system code.
+- [a] [[A--game-studios--godot-csharp-specialist|game-studios/godot-csharp-specialist]] - Godot 4 C# quality — .NET patterns, attribute-based exports, signal delegates, async patterns, type-safe node 
+- [a] [[A--game-studios--godot-gdextension-specialist|game-studios/godot-gdextension-specialist]] - Native code integration with Godot — GDExtension API, godot-cpp and godot-rust bindings, custom node types, th
+- [a] [[A--game-studios--godot-gdscript-specialist|game-studios/godot-gdscript-specialist]] - GDScript code quality — static typing enforcement, signal architecture, coroutine patterns, GDScript idioms, t
+- [a] [[A--game-studios--godot-shader-specialist|game-studios/godot-shader-specialist]] - Godot rendering customization — shading language, visual shaders, material setup, particle shaders, post-proce
+- [a] [[A--game-studios--godot-specialist|game-studios/godot-specialist]] - Authority on Godot-specific patterns and APIs — node/scene architecture, signals, resources; guides GDScript v
+- [a] [[A--game-studios--lead-programmer|game-studios/lead-programmer]] - Lead programmer — code-level architecture, coding standards, code review, API design, refactoring strategy, as
+- [a] [[A--game-studios--live-ops-designer|game-studios/live-ops-designer]] - Post-launch content — seasonal events, battle passes, content cadence, retention, engagement analytics. Keeps 
+- [a] [[A--game-studios--localization-lead|game-studios/localization-lead]] - Internationalization architecture — i18n system design, string extraction workflows, locale testing, locale-sp
+- [a] [[A--game-studios--narrative-director|game-studios/narrative-director]] - Story architecture, world-building, character design, dialogue strategy. Narrative structure and direction rat
+- [a] [[A--game-studios--network-programmer|game-studios/network-programmer]] - Multiplayer networking — state replication, lag compensation, matchmaking, network protocol, netcode and bandw
+- [a] [[A--game-studios--performance-analyst|game-studios/performance-analyst]] - Performance analyst — profiling, bottlenecks, memory analysis, frame time investigation, recommends optimizati
+- [a] [[A--game-studios--producer|game-studios/producer]] - Production concerns — sprint planning, milestone tracking, risk, scope, cross-department coordination when mul
+- [a] [[A--game-studios--prototyper|game-studios/prototyper]] - Throwaway builds — concept prototypes after brainstorm to test an idea is fun before GDDs; vertical slices pre
+- [a] [[A--game-studios--qa-lead|game-studios/qa-lead]] - Test strategy and process — test plan creation, bug severity assessment, regression planning, release quality 
+- [a] [[A--game-studios--qa-tester|game-studios/qa-tester]] - Writes test cases, bug reports, and checklists — test case generation, regression checklist creation, executio
+- [a] [[A--game-studios--release-manager|game-studios/release-manager]] - Release pipeline — certification checklists, store submissions and page prep, platform requirements, version n
+- [a] [[A--game-studios--security-engineer|game-studios/security-engineer]] - Protects against cheating, exploits, breaches — anti-cheat measures, secure save data and network comms, playe
+- [a] [[A--game-studios--sound-designer|game-studios/sound-designer]] - SFX specifications and spec sheets — audio event documentation, mixing parameters, sound category definitions.
+- [a] [[A--game-studios--systems-designer|game-studios/systems-designer]] - Detailed subsystem mechanics — combat formulas, progression curves, crafting recipes, status effect interactio
+- [a] [[A--game-studios--technical-artist|game-studios/technical-artist]] - Technical artist bridging art and engineering — shaders, VFX, rendering optimization, art pipeline tools, art-
+- [a] [[A--game-studios--technical-director|game-studios/technical-director]] - High-level technical decisions — engine architecture, technology choices, performance strategy, technical risk
+- [a] [[A--game-studios--tools-programmer|game-studios/tools-programmer]] - Internal dev tools — editor extensions, content authoring tools, debug utilities, pipeline automation, editor 
+- [a] [[A--game-studios--ue-blueprint-specialist|game-studios/ue-blueprint-specialist]] - Blueprint architecture and Blueprint/C++ boundary — optimization, maintainable graphs. Prevents Blueprint spag
+- [a] [[A--game-studios--ue-gas-specialist|game-studios/ue-gas-specialist]] - Gameplay Ability System — abilities, gameplay effects, attribute sets, tags, ability tasks, prediction. Preven
+- [a] [[A--game-studios--ue-replication-specialist|game-studios/ue-replication-specialist]] - Unreal networking — property replication, RPCs, client prediction, relevancy, net serialization, bandwidth. Se
+- [a] [[A--game-studios--ue-umg-specialist|game-studios/ue-umg-specialist]] - Unreal UI implementation — UMG widget hierarchy, data binding, CommonUI input routing, widget styling, UI opti
+- [a] [[A--game-studios--ui-programmer|game-studios/ui-programmer]] - Implements user interface systems — menus, HUDs, inventory screens, dialogue boxes, UI framework code, screen 
+- [a] [[A--game-studios--unity-addressables-specialist|game-studios/unity-addressables-specialist]] - Unity asset management — Addressable groups, loading/unloading, content catalogs, remote delivery, asset bundl
+- [a] [[A--game-studios--unity-dots-specialist|game-studios/unity-dots-specialist]] - Unity Data-Oriented Technology Stack — Entity Component System, Jobs, Burst compiler optimization, hybrid rend
+- [a] [[A--game-studios--unity-shader-specialist|game-studios/unity-shader-specialist]] - Unity rendering — Shader Graph, custom HLSL, VFX Graph, render pipeline customization (URP/HDRP), post-process
+- [a] [[A--game-studios--unity-specialist|game-studios/unity-specialist]] - Authority on Unity-specific patterns and APIs — guides MonoBehaviour vs DOTS/ECS, Unity subsystems including A
+- [a] [[A--game-studios--unity-ui-specialist|game-studios/unity-ui-specialist]] - Unity UI implementation — UI Toolkit (UXML/USS), UGUI Canvas, data binding, runtime UI performance, cross-plat
+- [a] [[A--game-studios--unreal-specialist|game-studios/unreal-specialist]] - Authority on Unreal-specific patterns and APIs — guides Blueprint vs C++, UE subsystems (GAS, Enhanced Input, 
+- [a] [[A--game-studios--ux-designer|game-studios/ux-designer]] - User experience flows, interaction design, information architecture — user flow mapping, interaction pattern d
+- [a] [[A--game-studios--world-builder|game-studios/world-builder]] - World builder for lore — factions, cultures, history, geography, ecology, world rules. Faction design, lore co
+- [a] [[A--game-studios--writer|game-studios/writer]] - Writer of player-facing text — dialogue, lore entries, item and ability descriptions, environmental text.
+- [s] [[S--game-studios--adopt|game-studios/adopt]] - Brownfield audit — do existing artifacts actually work? Numbered migration plan. Unlike /project-stage-detect,
+- [s] [[S--game-studios--architecture-decision|game-studios/architecture-decision]] - Create an ADR documenting a technical decision: context, alternatives considered, consequences.
+- [s] [[S--game-studios--architecture-review|game-studios/architecture-review]] - Traceability matrix mapping GDD requirements to ADRs. Finds gaps, cross-ADR conflicts, engine compatibility. P
+- [s] [[S--game-studios--art-bible|game-studios/art-bible]] - Author the Art Bible — visual identity gating asset production. Run before /map-systems.
+- [s] [[S--game-studios--asset-audit|game-studios/asset-audit]] - Audit assets against naming conventions, file size budgets, format standards. Finds orphaned assets, missing r
+- [s] [[S--game-studios--asset-spec|game-studios/asset-spec]] - Per-asset visual specs plus AI generation prompts from GDDs and character profiles. After the art bible.
+- [s] [[S--game-studios--balance-check|game-studios/balance-check]] - Find balance outliers, broken progressions, degenerate strategies, economy imbalances in formulas and data. 'C
+- [s] [[S--game-studios--brainstorm|game-studios/brainstorm]] - Guides the user through finding and choosing a game concept. Use when the user wants game ideas, a new concept
+- [s] [[S--game-studios--bug-report|game-studios/bug-report]] - Structured bug report from a description, or analyze code for potential bugs. Reproduction steps, severity.
+- [s] [[S--game-studios--bug-triage|game-studios/bug-triage]] - Re-evaluate open bugs — priority vs severity, assign to sprints, surface systemic trends. Run when the count g
+- [s] [[S--game-studios--changelog|game-studios/changelog]] - Auto-generate a changelog from git commits and sprint data. Internal and player-facing versions.
+- [s] [[S--game-studios--code-review|game-studios/code-review]] - Architectural code review — coding standards, SOLID, testability, performance concerns.
+- [s] [[S--game-studios--consistency-check|game-studios/consistency-check]] - Scan GDDs against the entity registry for cross-document conflicts. Grep-first approach targets conflicting se
+- [s] [[S--game-studios--content-audit|game-studios/content-audit]] - Audit GDD content counts against what's implemented — planned vs built.
+- [s] [[S--game-studios--create-architecture|game-studios/create-architecture]] - Author the architecture blueprint before code is written. Validates decisions against the pinned engine, flags
+- [s] [[S--game-studios--create-control-manifest|game-studios/create-control-manifest]] - Builds a short list of must-do and never-do coding rules per system from accepted ADRs. Use when the user want
+- [s] [[S--game-studios--create-epics|game-studios/create-epics]] - Turns the GDDs and architecture into epics, one per architectural module. Use when the user wants to break the
+- [s] [[S--game-studios--create-stories|game-studios/create-stories]] - Breaks one epic into implementable stories with acceptance criteria. Use when the user wants stories for an ep
+- [s] [[S--game-studios--day-one-patch|game-studios/day-one-patch]] - Day-one launch patch — focused fix for known issues found after gold master. Mini-sprint with QA gate and roll
+- [s] [[S--game-studios--design-review|game-studios/design-review]] - Reviews one design document for completeness, internal consistency, implementability, and design standards. Be
+- [s] [[S--game-studios--design-system|game-studios/design-system]] - Section-by-section GDD authoring for one system — walks through each required section, cross-references depend
+- [s] [[S--game-studios--dev-story|game-studios/dev-story]] - Implements one story in code with tests, following its ADRs. Use when the user says to build, implement or sta
+- [s] [[S--game-studios--estimate|game-studios/estimate]] - Estimate task effort from complexity, dependencies, velocity, risk. Structured estimate with confidence levels
+- [s] [[S--game-studios--gate-check|game-studios/gate-check]] - Ready to advance between development phases? PASS/CONCERNS/NOT ASSESSED/FAIL with blockers and required artifa
+- [s] [[S--game-studios--help|game-studios/help]] - What should I do next? Use when stuck or you don't know what to do.
+- [s] [[S--game-studios--hotfix|game-studios/hotfix]] - Emergency fix bypassing normal sprint process — hotfix branch, approvals tracked, backport verified, full audi
+- [s] [[S--game-studios--launch-checklist|game-studios/launch-checklist]] - Launch readiness across every department: code, content, store, marketing, community, infrastructure, legal, g
+- [s] [[S--game-studios--localize|game-studios/localize]] - Localization pipeline — find hardcoded strings, extract string tables, cultural review, VO, RTL, enforce strin
+- [s] [[S--game-studios--map-systems|game-studios/map-systems]] - Decompose a concept into individual systems, map dependencies, prioritize design order, create the systems ind
+- [s] [[S--game-studios--milestone-review|game-studios/milestone-review]] - Milestone progress review — completeness, quality metrics, risk, go/no-go recommendation. At checkpoints or be
+- [s] [[S--game-studios--onboard|game-studios/onboard]] - Onboarding doc for a new contributor or agent — project state, conventions, priorities relevant to the specifi
+- [s] [[S--game-studios--patch-notes|game-studios/patch-notes]] - Player-facing patch notes from git history and changelogs. Translates developer language into player communica
+- [s] [[S--game-studios--perf-profile|game-studios/perf-profile]] - Performance profiling — find bottlenecks, measure against budgets, produce ranked optimization recommendations
+- [s] [[S--game-studios--playtest-report|game-studios/playtest-report]] - Structured playtest report template, or turn existing playtest notes into structured feedback.
+- [s] [[S--game-studios--project-stage-detect|game-studios/project-stage-detect]] - Analyze project state, detect stage, identify gaps, recommend next steps. 'Where are we in development?'
+- [s] [[S--game-studios--propagate-design-change|game-studios/propagate-design-change]] - Finds architecture decisions (ADRs) made stale by a changed GDD and walks through resolving each. Use when the
+- [s] [[S--game-studios--prototype|game-studios/prototype]] - Concept prototype before GDDs — throwaway HTML, Engine or Paper build, PROCEED/PIVOT/KILL/NOT ASSESSED. After 
+- [s] [[S--game-studios--qa-plan|game-studios/qa-plan]] - QA test plan for a sprint — classifies stories by Logic/Integration/Visual/UI, covers automated tests, manual 
+- [s] [[S--game-studios--quick-design|game-studios/quick-design]] - Lightweight spec for small changes — tuning adjustments, minor mechanics. Embeds directly into stories; skips 
+- [s] [[S--game-studios--regression-suite|game-studios/regression-suite]] - Map test coverage to GDD critical paths, find fixed bugs lacking regression tests, flag drift from new feature
+- [s] [[S--game-studios--release-checklist|game-studios/release-checklist]] - Pre-release checklist — build verification, certification requirements, store metadata, launch readiness.
+- [s] [[S--game-studios--retrospective|game-studios/retrospective]] - Sprint or milestone retrospective from completed work, velocity, blockers. Actionable insights for the next it
+- [s] [[S--game-studios--reverse-document|game-studios/reverse-document]] - Generate missing design or architecture docs from existing implementation — works backwards from code and prot
+- [s] [[S--game-studios--review-all-gdds|game-studios/review-all-gdds]] - Holistic cross-GDD review — contradictions between systems, dominant strategies, economic imbalance, cognitive
+- [s] [[S--game-studios--scope-check|game-studios/scope-check]] - Scope creep check — current scope versus the original plan. Flags additions, quantifies bloat, recommends cuts
+- [s] [[S--game-studios--security-audit|game-studios/security-audit]] - Security audit — save tampering, cheat vectors, network exploits, data exposure, input validation. Before publ
+- [s] [[S--game-studios--settings|game-studios/settings]] - View or change project config — effective merged values, or set locally in project.local.yaml.
+- [s] [[S--game-studios--setup-engine|game-studios/setup-engine]] - Configure engine and version. Pins it in CLAUDE.md; WebSearch fills reference docs when the version is beyond 
+- [s] [[S--game-studios--skill-improve|game-studios/skill-improve]] - Improve a skill via a test-fix-retest loop — static checks, targeted fixes, keep or revert on score change.
+- [s] [[S--game-studios--skill-test|game-studios/skill-test]] - Validate skill files for structural compliance and behavioral correctness. Four modes: static linter, spec, ca
+- [s] [[S--game-studios--smoke-check|game-studios/smoke-check]] - Critical-path smoke gate before QA hand-off — runs the automated suite. A failed check means the build is not 
+- [s] [[S--game-studios--soak-test|game-studios/soak-test]] - Soak test protocol for extended play — what to observe and log for slow leaks, fatigue, late-appearing edge ca
+- [s] [[S--game-studios--sprint-plan|game-studios/sprint-plan]] - New or updated sprint plan from the current milestone, completed work, and available capacity.
+- [s] [[S--game-studios--sprint-status|game-studios/sprint-status]] - Fast, concise sprint snapshot — burndown and emerging risks for situational awareness. 'How is the sprint goin
+- [s] [[S--game-studios--start|game-studios/start]] - Guides a first-time user through onboarding and picks the right workflow. Use when the user is new, just clone
+- [s] [[S--game-studios--story-done|game-studios/story-done]] - Closes a finished story: verifies each acceptance criterion, checks for design or ADR deviations and updates i
+- [s] [[S--game-studios--story-readiness|game-studios/story-readiness]] - Checks whether a story is ready to implement: clear acceptance criteria, no open questions, valid ADR and depe
+- [s] [[S--game-studios--team-audio|game-studios/team-audio]] - Orchestrate the audio team — audio-director, sound-designer, technical-artist, gameplay-programmer — direction
+- [s] [[S--game-studios--team-combat|game-studios/team-combat]] - Orchestrate the combat team — game-designer, gameplay-programmer, ai-programmer, technical-artist, sound-desig
+- [s] [[S--game-studios--team-level|game-studios/team-level]] - Orchestrate the level team — level-designer, narrative-director, world-builder, art-director, systems-designer
+- [s] [[S--game-studios--team-live-ops|game-studios/team-live-ops]] - Orchestrate the live-ops team — live-ops-designer, economy-designer, analytics-engineer, community-manager, wr
+- [s] [[S--game-studios--team-narrative|game-studios/team-narrative]] - Orchestrate the narrative team — narrative-director, writer, world-builder, level-designer — for story, world 
+- [s] [[S--game-studios--team-polish|game-studios/team-polish]] - Orchestrate the polish team — performance-analyst, technical-artist, sound-designer, qa-tester — to optimize a
+- [s] [[S--game-studios--team-qa|game-studios/team-qa]] - Orchestrate the QA team through a full testing cycle — qa-lead strategy and test plan, qa-tester case writing,
+- [s] [[S--game-studios--team-release|game-studios/team-release]] - Orchestrate the release team — release-manager, qa-lead, devops-engineer, producer — to execute a release from
+- [s] [[S--game-studios--team-ui|game-studios/team-ui]] - Orchestrate the UI team through the UX pipeline — authoring, visual design, implementation, review, polish. Us
+- [s] [[S--game-studios--tech-debt|game-studios/tech-debt]] - Track, categorize and prioritize technical debt across the codebase — scans for debt indicators, maintains a r
+- [s] [[S--game-studios--test-evidence-review|game-studios/test-evidence-review]] - Quality review of test files and evidence — goes beyond existence, evaluates assertion coverage. ADEQUATE/INCO
+- [s] [[S--game-studios--test-flakiness|game-studios/test-flakiness]] - Find flaky tests from CI logs — aggregates pass rates, spots intermittent failures, recommends quarantine. Aft
+- [s] [[S--game-studios--test-helpers|game-studios/test-helpers]] - Generate engine-specific test helper libraries — assertion utilities, factory functions, mocks in the engine's
+- [s] [[S--game-studios--test-setup|game-studios/test-setup]] - Scaffold the test framework and CI — tests/ directory, engine test runner, GitHub Actions workflow. Once, befo
+- [s] [[S--game-studios--ux-design|game-studios/ux-design]] - Section-by-section UX spec authoring for a screen, flow or HUD. Reads the player journey to provide context; a
+- [s] [[S--game-studios--ux-review|game-studios/ux-review]] - Validate a UX spec, HUD design or pattern library — accessibility, GDD alignment, readiness. APPROVED / NOT AS
+- [s] [[S--game-studios--vertical-slice|game-studios/vertical-slice]] - Pre-production validation — end-to-end build to confirm the full loop is achievable before committing to Produ

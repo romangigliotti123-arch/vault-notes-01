@@ -1,0 +1,94 @@
+---
+tags: [moc]
+---
+# Category: src-hermetic-gamedev
+
+87 items. Back: [[_Home]]
+
+- [a] [[A--hermetic-gamedev--animation-engineer|hermetic-gamedev/animation-engineer]] - Use this agent when setting up or debugging character animation in a game: blend trees and state machines, inv
+- [a] [[A--hermetic-gamedev--asset-pipeline-engineer|hermetic-gamedev/asset-pipeline-engineer]] - Use this agent when configuring how art and audio get into a game: Godot import settings, Unity AssetDatabase 
+- [a] [[A--hermetic-gamedev--cloud-architect|hermetic-gamedev/cloud-architect]] - Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC (Terrafor
+- [a] [[A--hermetic-gamedev--game-ai-engineer|hermetic-gamedev/game-ai-engineer]] - Use this agent when designing, implementing, or debugging NPC or enemy AI in a game: choosing between behavior
+- [a] [[A--hermetic-gamedev--game-architect|hermetic-gamedev/game-architect]] - Use this agent when structuring or refactoring a game codebase: game loop and fixed timestep design, ECS versu
+- [a] [[A--hermetic-gamedev--game-perf-engineer|hermetic-gamedev/game-perf-engineer]] - Use this agent when a game drops frames, stutters, or runs out of memory: profiling with the Godot Profiler, R
+- [a] [[A--hermetic-gamedev--game-ui-designer|hermetic-gamedev/game-ui-designer]] - Use this agent when designing or building game UI: diegetic versus HUD overlays, Godot Control layout and anch
+- [a] [[A--hermetic-gamedev--godot-engineer|hermetic-gamedev/godot-engineer]] - Use this agent when working on a Godot 4 project: designing Node trees and scenes, choosing signals or direct 
+- [a] [[A--hermetic-gamedev--input-engineer|hermetic-gamedev/input-engineer]] - Use this agent when building or fixing game input: Godot InputMap, Unity Input System action assets, Unreal En
+- [a] [[A--hermetic-gamedev--localization-engineer|hermetic-gamedev/localization-engineer]] - Use this agent when preparing a game for other languages: Godot TranslationServer with CSV or PO files, the ge
+- [a] [[A--hermetic-gamedev--MARS|hermetic-gamedev/MARS]] - Multi-Agent Research Synthesis - Universal orchestration agent for systems-level intelligence and complex oper
+- [a] [[A--hermetic-gamedev--MERCURIO|hermetic-gamedev/MERCURIO]] - Mixture of Experts Research Convergence Intelligently Unified Orchestrator - Expert multi-perspective agent pr
+- [a] [[A--hermetic-gamedev--mercurio-orchestrator|hermetic-gamedev/mercurio-orchestrator]] - Use this agent when you need comprehensive research synthesis, strategic orchestration of complex multi-dimens
+- [a] [[A--hermetic-gamedev--meta2|hermetic-gamedev/meta2]] - Universal meta-meta-prompt generator that discovers domain structures and produces comprehensive meta-promptin
+- [a] [[A--hermetic-gamedev--monetization-advisor|hermetic-gamedev/monetization-advisor]] - Use this agent when designing or reviewing how a game makes money: store and IAP design, battle passes, loot m
+- [a] [[A--hermetic-gamedev--network-engineer|hermetic-gamedev/network-engineer]] - Use this agent when adding or debugging multiplayer: choosing rollback, lockstep, or an authoritative server, 
+- [a] [[A--hermetic-gamedev--physics-engineer|hermetic-gamedev/physics-engineer]] - Use this agent when setting up or debugging game physics: choosing CharacterBody or RigidBody, collision layer
+- [a] [[A--hermetic-gamedev--playtest-coordinator|hermetic-gamedev/playtest-coordinator]] - Use this agent when planning or analyzing playtests: session structure, observation or think-aloud protocols, 
+- [a] [[A--hermetic-gamedev--procgen-engineer|hermetic-gamedev/procgen-engineer]] - Use this agent when generating game content procedurally: noise-based terrain, BSP rooms, drunk-walk or cellul
+- [a] [[A--hermetic-gamedev--save-system-engineer|hermetic-gamedev/save-system-engineer]] - Use this agent when designing or fixing game persistence: JSON or binary serialization, schema versioning and 
+- [a] [[A--hermetic-gamedev--shader-programmer|hermetic-gamedev/shader-programmer]] - Use this agent when writing, debugging, or optimizing shaders for a game: Godot spatial, canvas_item, or parti
+- [a] [[A--hermetic-gamedev--unity-engineer|hermetic-gamedev/unity-engineer]] - Use this agent when working on a Unity project: choosing MonoBehaviour or ECS/DOTS, picking URP or HDRP, movin
+- [a] [[A--hermetic-gamedev--unreal-developer|hermetic-gamedev/unreal-developer]] - Use this agent when working in Unreal Engine 5: Gameplay Framework classes, Blueprint or C++ tradeoffs, actor 
+- [s] [[S--hermetic-gamedev--angular-migration|hermetic-gamedev/angular-migration]] - Migrate from AngularJS to Angular using hybrid mode, incremental component rewriting, and dependency injection
+- [s] [[S--hermetic-gamedev--animation-patterns|hermetic-gamedev/animation-patterns]] - Animation code patterns: Godot BlendSpace2D locomotion, AnimationNodeStateMachine transitions, root motion int
+- [s] [[S--hermetic-gamedev--api-design-principles|hermetic-gamedev/api-design-principles]] - Master REST and GraphQL API design principles to build intuitive, scalable, and maintainable APIs that delight
+- [s] [[S--hermetic-gamedev--architecture-patterns|hermetic-gamedev/architecture-patterns]] - Implement proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, and Domai
+- [s] [[S--hermetic-gamedev--asset-pipeline-patterns|hermetic-gamedev/asset-pipeline-patterns]] - Asset pipeline patterns: Godot per-directory import overrides, a Unity AssetPostprocessor for texture standard
+- [s] [[S--hermetic-gamedev--async-python-patterns|hermetic-gamedev/async-python-patterns]] - Master Python asyncio, concurrent programming, and async/await patterns for high-performance applications. Use
+- [s] [[S--hermetic-gamedev--audio-patterns|hermetic-gamedev/audio-patterns]] - Game audio code patterns: a Godot bus layout, an audio player pool, randomized one-shot playback, vertical-rem
+- [s] [[S--hermetic-gamedev--auth-implementation-patterns|hermetic-gamedev/auth-implementation-patterns]] - Master authentication and authorization patterns including JWT, OAuth2, session management, and RBAC to build 
+- [s] [[S--hermetic-gamedev--bash-defensive-patterns|hermetic-gamedev/bash-defensive-patterns]] - Master defensive Bash programming techniques for production-grade scripts. Use when writing robust shell scrip
+- [s] [[S--hermetic-gamedev--bats-testing-patterns|hermetic-gamedev/bats-testing-patterns]] - Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing tests for
+- [s] [[S--hermetic-gamedev--billing-automation|hermetic-gamedev/billing-automation]] - Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning managem
+- [s] [[S--hermetic-gamedev--category-master|hermetic-gamedev/category-master]] - Expert-level category theory knowledge for rigorous mathematical reasoning. Use when working with categorical 
+- [s] [[S--hermetic-gamedev--code-review-excellence|hermetic-gamedev/code-review-excellence]] - Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledg
+- [s] [[S--hermetic-gamedev--debugging-strategies|hermetic-gamedev/debugging-strategies]] - Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently track down bug
+- [s] [[S--hermetic-gamedev--defi-protocol-templates|hermetic-gamedev/defi-protocol-templates]] - Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and lending systems. U
+- [s] [[S--hermetic-gamedev--dependency-upgrade|hermetic-gamedev/dependency-upgrade]] - Manage major dependency version upgrades with compatibility analysis, staged rollout, and comprehensive testin
+- [s] [[S--hermetic-gamedev--discopy-categorical-computing|hermetic-gamedev/discopy-categorical-computing]] - Category theory for compositional computing with string diagrams, quantum circuits, and QNLP. Covers monoidal 
+- [s] [[S--hermetic-gamedev--distributed-tracing|hermetic-gamedev/distributed-tracing]] - Implement distributed tracing with Jaeger and Tempo to track requests across microservices and identify perfor
+- [s] [[S--hermetic-gamedev--e2e-testing-patterns|hermetic-gamedev/e2e-testing-patterns]] - Master end-to-end testing with Playwright and Cypress to build reliable test suites that catch bugs, improve c
+- [s] [[S--hermetic-gamedev--error-handling-patterns|hermetic-gamedev/error-handling-patterns]] - Master error handling patterns across languages including exceptions, Result types, error propagation, and gra
+- [s] [[S--hermetic-gamedev--ethical-monetization-patterns|hermetic-gamedev/ethical-monetization-patterns]] - Ethical monetization patterns: a dark pattern audit checklist, a cosmetics-only store, battle pass design, a G
+- [s] [[S--hermetic-gamedev--fastapi-templates|hermetic-gamedev/fastapi-templates]] - Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensive error ha
+- [s] [[S--hermetic-gamedev--game-ai-patterns|hermetic-gamedev/game-ai-patterns]] - Game AI code patterns: behavior tree node types, FSM transition tables, utility AI consideration curves, GOAP 
+- [s] [[S--hermetic-gamedev--game-arch-patterns|hermetic-gamedev/game-arch-patterns]] - Game architecture code patterns: a fixed timestep loop with accumulator, an EventBus, ECS-style composition in
+- [s] [[S--hermetic-gamedev--game-perf-patterns|hermetic-gamedev/game-perf-patterns]] - Game performance patterns: MultiMeshInstance3D batching, a custom performance monitor, a generic object pool, 
+- [s] [[S--hermetic-gamedev--game-ui-patterns|hermetic-gamedev/game-ui-patterns]] - Game UI code patterns: a HUD health bar, a menu state stack, an inventory grid with drag and drop, a typewrite
+- [s] [[S--hermetic-gamedev--git-advanced-workflows|hermetic-gamedev/git-advanced-workflows]] - Master advanced Git workflows including rebasing, cherry-picking, bisect, worktrees, and reflog to maintain cl
+- [s] [[S--hermetic-gamedev--godot-development|hermetic-gamedev/godot-development]] - Godot 4 reference patterns: signal-vs-call and physics-body decision tables, resource sharing traps, input han
+- [s] [[S--hermetic-gamedev--helm-chart-scaffolding|hermetic-gamedev/helm-chart-scaffolding]] - Design, organize, and manage Helm charts for templating and packaging Kubernetes applications with reusable co
+- [s] [[S--hermetic-gamedev--input-patterns|hermetic-gamedev/input-patterns]] - Game input code patterns: Godot InputMap actions, a scaled radial deadzone, jump buffer with coyote time, rebi
+- [s] [[S--hermetic-gamedev--javascript-testing-patterns|hermetic-gamedev/javascript-testing-patterns]] - Implement comprehensive testing strategies using Jest, Vitest, and Testing Library for unit tests, integration
+- [s] [[S--hermetic-gamedev--k8s-manifest-generator|hermetic-gamedev/k8s-manifest-generator]] - Create production-ready Kubernetes manifests for Deployments, Services, ConfigMaps, and Secrets following best
+- [s] [[S--hermetic-gamedev--langchain-architecture|hermetic-gamedev/langchain-architecture]] - Design LLM applications using the LangChain framework with agents, memory, and tool integration patterns. Use 
+- [s] [[S--hermetic-gamedev--level-design-patterns|hermetic-gamedev/level-design-patterns]] - Level construction patterns: Godot TileMap configuration, NavigationRegion3D bake parameters, background-loade
+- [s] [[S--hermetic-gamedev--localization-patterns|hermetic-gamedev/localization-patterns]] - Localization code patterns: Godot tr() and TranslationServer usage, PO file structure, ICU plurals, font fallb
+- [s] [[S--hermetic-gamedev--microservices-patterns|hermetic-gamedev/microservices-patterns]] - Design microservices architectures with service boundaries, event-driven communication, and resilience pattern
+- [s] [[S--hermetic-gamedev--modern-javascript-patterns|hermetic-gamedev/modern-javascript-patterns]] - Master ES6+ features including async/await, destructuring, spread operators, arrow functions, promises, module
+- [s] [[S--hermetic-gamedev--monorepo-management|hermetic-gamedev/monorepo-management]] - Master monorepo management with Turborepo, Nx, and pnpm workspaces to build efficient, scalable multi-package 
+- [s] [[S--hermetic-gamedev--multi-cloud-architecture|hermetic-gamedev/multi-cloud-architecture]] - Design multi-cloud architectures using a decision framework to select and integrate services across AWS, Azure
+- [s] [[S--hermetic-gamedev--multiplayer-networking|hermetic-gamedev/multiplayer-networking]] - Netcode reference patterns: a model comparison, a common mistakes catalog (rubber-banding, desync, bandwidth),
+- [s] [[S--hermetic-gamedev--nft-standards|hermetic-gamedev/nft-standards]] - Implement NFT standards (ERC-721, ERC-1155) with proper metadata handling, minting strategies, and marketplace
+- [s] [[S--hermetic-gamedev--nodejs-backend-patterns|hermetic-gamedev/nodejs-backend-patterns]] - Build production-ready Node.js backend services with Express/Fastify, implementing middleware patterns, error 
+- [s] [[S--hermetic-gamedev--paypal-integration|hermetic-gamedev/paypal-integration]] - Integrate PayPal payment processing with support for express checkout, subscriptions, and refund management. U
+- [s] [[S--hermetic-gamedev--pci-compliance|hermetic-gamedev/pci-compliance]] - Implement PCI DSS compliance requirements for secure handling of payment card data and payment systems. Use wh
+- [s] [[S--hermetic-gamedev--physics-patterns|hermetic-gamedev/physics-patterns]] - Game physics code patterns: collision layer configuration, a full CharacterBody3D controller, RigidBody3D inte
+- [s] [[S--hermetic-gamedev--playtest-patterns|hermetic-gamedev/playtest-patterns]] - Playtest instrumentation patterns: death heatmap collection, an analytics event schema, a time-per-zone tracke
+- [s] [[S--hermetic-gamedev--procgen-patterns|hermetic-gamedev/procgen-patterns]] - Procedural generation code: FastNoiseLite terrain, a BSP dungeon generator, a cellular automata cave generator
+- [s] [[S--hermetic-gamedev--python-packaging|hermetic-gamedev/python-packaging]] - Create distributable Python packages with proper project structure, setup.py/pyproject.toml, and publishing to
+- [s] [[S--hermetic-gamedev--python-performance-optimization|hermetic-gamedev/python-performance-optimization]] - Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when de
+- [s] [[S--hermetic-gamedev--python-testing-patterns|hermetic-gamedev/python-testing-patterns]] - Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven development. Use wh
+- [s] [[S--hermetic-gamedev--rag-implementation|hermetic-gamedev/rag-implementation]] - Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases and semantic sea
+- [s] [[S--hermetic-gamedev--react-modernization|hermetic-gamedev/react-modernization]] - Upgrade React applications to latest versions, migrate from class components to hooks, and adopt concurrent fe
+- [s] [[S--hermetic-gamedev--save-system-patterns|hermetic-gamedev/save-system-patterns]] - Save system code patterns: a core save manager, a save data model, slot metadata for load screens, and setting
+- [s] [[S--hermetic-gamedev--shader-patterns|hermetic-gamedev/shader-patterns]] - Godot shader code: dissolve, 2D outline, fresnel hologram, scrolling water, a pixelate post-process on a SubVi
+- [s] [[S--hermetic-gamedev--shellcheck-configuration|hermetic-gamedev/shellcheck-configuration]] - Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting up lintin
+- [s] [[S--hermetic-gamedev--slo-implementation|hermetic-gamedev/slo-implementation]] - Define and implement Service Level Indicators (SLIs) and Service Level Objectives (SLOs) with error budgets an
+- [s] [[S--hermetic-gamedev--solidity-security|hermetic-gamedev/solidity-security]] - Master smart contract security best practices to prevent common vulnerabilities and implement secure Solidity 
+- [s] [[S--hermetic-gamedev--sql-optimization-patterns|hermetic-gamedev/sql-optimization-patterns]] - Master SQL query optimization, indexing strategies, and EXPLAIN analysis to dramatically improve database perf
+- [s] [[S--hermetic-gamedev--stripe-integration|hermetic-gamedev/stripe-integration]] - Implement Stripe payment processing for robust, PCI-compliant payment flows including checkout, subscriptions,
+- [s] [[S--hermetic-gamedev--typescript-advanced-types|hermetic-gamedev/typescript-advanced-types]] - Master TypeScript's advanced type system including generics, conditional types, mapped types, template literal
+- [s] [[S--hermetic-gamedev--unity-development|hermetic-gamedev/unity-development]] - Unity 6 reference patterns: an architecture decision tree, render pipeline and Addressables migration recipes,
+- [s] [[S--hermetic-gamedev--unreal-patterns|hermetic-gamedev/unreal-patterns]] - Unreal Engine 5 C++ patterns: an ACharacter subclass with Enhanced Input, Blueprint interfaces, server RPCs fo
+- [s] [[S--hermetic-gamedev--web3-testing|hermetic-gamedev/web3-testing]] - Test smart contracts comprehensively using Hardhat and Foundry with unit tests, integration tests, and mainnet
+- [s] [[S--hermetic-gamedev--workflow-orchestration-patterns|hermetic-gamedev/workflow-orchestration-patterns]] - Design durable workflows with Temporal for distributed systems. Covers workflow vs activity separation, saga p

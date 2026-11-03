@@ -1,0 +1,83 @@
+---
+tags: [moc]
+---
+# Category: src-gamedev-agent-skills
+
+76 items. Back: [[_Home]]
+
+- [s] [[S--gamedev-agent-skills--ai-behavior-trees-utility-ai|gamedev-agent-skills/ai-behavior-trees-utility-ai]] - Build a production behavior-tree runtime (Blackboard, action/condition leaves, sequence/selector/parallel comp
+- [s] [[S--gamedev-agent-skills--audio-design|gamedev-agent-skills/audio-design]] - Implement game audio practice — bus/mixer architecture and gain in decibels, ducking (sidechain), adaptive/dyn
+- [s] [[S--gamedev-agent-skills--bevy-ecs|gamedev-agent-skills/bevy-ecs]] - Structure a Bevy app around its Entity Component System: build the App with plugins, define Component/Resource
+- [s] [[S--gamedev-agent-skills--camera-systems|gamedev-agent-skills/camera-systems]] - Build game cameras that feel good — 2D follow with a deadzone, look-ahead, smoothing, and level-bounds clampin
+- [s] [[S--gamedev-agent-skills--card-game|gamedev-agent-skills/card-game]] - Build a card game: card data, deck/hand/discard zones, draw/shuffle/reshuffle, a turn structure, costs, and ef
+- [s] [[S--gamedev-agent-skills--create-game-assets|gamedev-agent-skills/create-game-assets]] - Plan, generate, source, normalize, and validate cohesive visual game assets. Use for art direction, style bibl
+- [s] [[S--gamedev-agent-skills--defold-core|gamedev-agent-skills/defold-core]] - Build and debug the core of a Defold game in Lua: game.project settings, collections, game objects and compone
+- [s] [[S--gamedev-agent-skills--dialogue-systems|gamedev-agent-skills/dialogue-systems]] - Build branching dialogue and narrative — a node/choice graph with conditions, variables, and localization hook
+- [s] [[S--gamedev-agent-skills--ebitengine-game|gamedev-agent-skills/ebitengine-game]] - Create, improve, debug and package playable 2D games in Go with Ebitengine (github.com/hajimehoshi/ebiten/v2).
+- [s] [[S--gamedev-agent-skills--fps-shooter|gamedev-agent-skills/fps-shooter]] - Build a first-person shooter: move+mouse-look controller, hitscan or projectile shooting, weapons, health, and
+- [s] [[S--gamedev-agent-skills--game-ai|gamedev-agent-skills/game-ai]] - Design NPC and enemy decision-making with finite state machines, behavior trees, steering behaviors, and A* pa
+- [s] [[S--gamedev-agent-skills--game-feel|gamedev-agent-skills/game-feel]] - Add "juice" and game feel that makes actions satisfying — screen shake, hit-stop/freeze frames, tweened/eased 
+- [s] [[S--gamedev-agent-skills--game-jam|gamedev-agent-skills/game-jam]] - Plan and ship a game under a jam deadline: lock scope to the clock, schedule the hours, cut features, and subm
+- [s] [[S--gamedev-agent-skills--game-ui-ux|gamedev-agent-skills/game-ui-ux]] - Design and build game UI/UX — HUDs, menus, and overlays — that survive every screen: anchor- based responsive 
+- [s] [[S--gamedev-agent-skills--godot-2d-movement|gamedev-agent-skills/godot-2d-movement]] - Implement 2D kinematic character movement in Godot 4.7 with CharacterBody2D and move_and_slide(): platformer r
+- [s] [[S--gamedev-agent-skills--godot-3d-essentials|gamedev-agent-skills/godot-3d-essentials]] - Set up a Godot 4.7 3D scene: Node3D transforms, Camera3D, lighting (DirectionalLight3D/OmniLight3D), WorldEnvi
+- [s] [[S--gamedev-agent-skills--godot-animation|gamedev-agent-skills/godot-animation]] - Animate in Godot 4.7 three ways: AnimationPlayer for keyframed clips (incl. Call Method tracks), AnimationTree
+- [s] [[S--gamedev-agent-skills--godot-audio|gamedev-agent-skills/godot-audio]] - Play and mix audio in Godot 4.7: AudioStreamPlayer (2D/3D variants), audio buses with volume/mute and effects,
+- [s] [[S--gamedev-agent-skills--godot-csharp|gamedev-agent-skills/godot-csharp]] - Use C#/.NET in Godot 4.7: partial classes extending nodes, the PascalCase lifecycle (_Ready/_Process/_PhysicsP
+- [s] [[S--gamedev-agent-skills--godot-export|gamedev-agent-skills/godot-export]] - Export and build a Godot 4.7 project for distribution: install export templates, define export presets (Window
+- [s] [[S--gamedev-agent-skills--godot-gdscript|gamedev-agent-skills/godot-gdscript]] - Write idiomatic GDScript for Godot 4.7: static typing, the node lifecycle (_ready/_process/_physics_process), 
+- [s] [[S--gamedev-agent-skills--godot-gdscript-headless-testing|gamedev-agent-skills/godot-gdscript-headless-testing]] - Run GDScript test suites from the command line with `godot --headless`, using a SceneTree/MainLoop runner scri
+- [s] [[S--gamedev-agent-skills--godot-multiplayer|gamedev-agent-skills/godot-multiplayer]] - Build networked games with Godot 4.7 high-level multiplayer: set up an ENetMultiplayerPeer server/client, defi
+- [s] [[S--gamedev-agent-skills--godot-nodes-scenes|gamedev-agent-skills/godot-nodes-scenes]] - Structure a Godot 4.7 project with the scene tree and node composition: build reusable scenes, instance Packed
+- [s] [[S--gamedev-agent-skills--godot-physics|gamedev-agent-skills/godot-physics]] - Use Godot 4.7 physics bodies and detection in 2D and 3D: RigidBody, StaticBody, Area, and CharacterBody; colli
+- [s] [[S--gamedev-agent-skills--godot-resources|gamedev-agent-skills/godot-resources]] - Design data-driven Godot 4.7 games with custom Resource classes: define typed data with class_name + @export, 
+- [s] [[S--gamedev-agent-skills--godot-shaders|gamedev-agent-skills/godot-shaders]] - Write Godot 4.7 shaders in the Godot Shading Language: canvas_item shaders for 2D and spatial shaders for 3D, 
+- [s] [[S--gamedev-agent-skills--godot-signals-groups|gamedev-agent-skills/godot-signals-groups]] - Build event-driven, decoupled Godot 4.7 gameplay with signals and node groups: declare and emit custom signals
+- [s] [[S--gamedev-agent-skills--godot-tilemap|gamedev-agent-skills/godot-tilemap]] - Build and edit tile-based 2D levels in Godot 4.7 with TileMapLayer and TileSet: paint layers, set up collision
+- [s] [[S--gamedev-agent-skills--godot-ui-control|gamedev-agent-skills/godot-ui-control]] - Build Godot 4.7 user interfaces with Control nodes: anchors and offsets for responsive layout, Container nodes
+- [s] [[S--gamedev-agent-skills--input-systems|gamedev-agent-skills/input-systems]] - Architect game input — action mapping (abstracting keys into named actions), rebinding with conflict detection
+- [s] [[S--gamedev-agent-skills--itch-publish|gamedev-agent-skills/itch-publish]] - Publish and update a game on itch.io: create the project page and upload builds with the butler CLI (butler pu
+- [s] [[S--gamedev-agent-skills--level-design|gamedev-agent-skills/level-design]] - Design and build playable levels — the blockout/whitebox-to-playable workflow, player metrics and grid layout,
+- [s] [[S--gamedev-agent-skills--love2d-core|gamedev-agent-skills/love2d-core]] - Structure and debug a LÖVE (Love2D) game in Lua: the love.load/update/draw loop, delta-time movement, input, a
+- [s] [[S--gamedev-agent-skills--performance-optimization|gamedev-agent-skills/performance-optimization]] - Find and fix game performance problems methodically — measure with the engine profiler first, reason about the
+- [s] [[S--gamedev-agent-skills--phaser-arcade-physics|gamedev-agent-skills/phaser-arcade-physics]] - Use Phaser 4 Arcade Physics: enable the world, give sprites bodies, set velocity/acceleration/gravity, and res
+- [s] [[S--gamedev-agent-skills--phaser-core|gamedev-agent-skills/phaser-core]] - Set up and debug a Phaser 4 game: the Game config, the Scene lifecycle (init/preload/create/update), the asset
+- [s] [[S--gamedev-agent-skills--physics-tuning|gamedev-agent-skills/physics-tuning]] - Tune game physics for stable, good-feeling motion — fixed vs variable timestep, render interpolation, mass/gra
+- [s] [[S--gamedev-agent-skills--pixijs-rendering|gamedev-agent-skills/pixijs-rendering]] - Build a PixiJS v8 render layer: create the async Application, load textures with Assets, compose the scene gra
+- [s] [[S--gamedev-agent-skills--platformer|gamedev-agent-skills/platformer]] - Build a 2D platformer: run/jump control with coyote time, jump buffering, and variable jump height, wall slide
+- [s] [[S--gamedev-agent-skills--procedural-gen|gamedev-agent-skills/procedural-gen]] - Generate game content procedurally — seeded deterministic RNG, value/Perlin/ Simplex noise for terrain and hei
+- [s] [[S--gamedev-agent-skills--prototype-fast|gamedev-agent-skills/prototype-fast]] - Build a playable prototype in about an hour to answer one question — is it fun? — with greybox primitives, a h
+- [s] [[S--gamedev-agent-skills--puzzle|gamedev-agent-skills/puzzle]] - Build a puzzle game: grid/board state, move input, rule-based resolution (match-3 cascades, sokoban pushes, ti
+- [s] [[S--gamedev-agent-skills--pygame-core|gamedev-agent-skills/pygame-core]] - Structure a pygame (pygame-ce) game in Python: the init/event/update/draw loop, delta-time movement, Surface/R
+- [s] [[S--gamedev-agent-skills--roblox-characters|gamedev-agent-skills/roblox-characters]] - Build respawn-safe Roblox character systems around Players, CharacterAdded/CharacterRemoving, Humanoid, Humano
+- [s] [[S--gamedev-agent-skills--roblox-datastores|gamedev-agent-skills/roblox-datastores]] - Persist player data in Roblox with DataStoreService: GetDataStore, GetAsync/ SetAsync/UpdateAsync/IncrementAsy
+- [s] [[S--gamedev-agent-skills--roblox-networking|gamedev-agent-skills/roblox-networking]] - Design and harden Roblox client/server networking with RemoteEvent, RemoteFunction, and UnreliableRemoteEvent;
+- [s] [[S--gamedev-agent-skills--roblox-simulator-economy|gamedev-agent-skills/roblox-simulator-economy]] - Design, balance, and implement the economy of a Roblox simulator, tycoon, clicker, or idle game in Luau: upgra
+- [s] [[S--gamedev-agent-skills--roblox-studio-workflow|gamedev-agent-skills/roblox-studio-workflow]] - Modify living Roblox Studio projects safely: inspect Explorer and execution locations, preserve existing struc
+- [s] [[S--gamedev-agent-skills--roblox-ui|gamedev-agent-skills/roblox-ui]] - Build production Roblox interfaces with ScreenGui/PlayerGui lifecycle, responsive UDim2 layouts, safe insets, 
+- [s] [[S--gamedev-agent-skills--roguelike|gamedev-agent-skills/roguelike]] - Build a roguelike: turn-based grid movement, procedural dungeons, permadeath, field-of-view, and loot tables. 
+- [s] [[S--gamedev-agent-skills--router|gamedev-agent-skills/router]] - Routes any game-development request to the right specialized skill(s): it detects the engine (Godot, Unity, Un
+- [s] [[S--gamedev-agent-skills--rpg|gamedev-agent-skills/rpg]] - Build an RPG: stats and leveling, inventory and equipment, quests, branching dialogue, save/load, and combat. 
+- [s] [[S--gamedev-agent-skills--save-systems|gamedev-agent-skills/save-systems]] - Design save/load for game state — choosing what to serialize, file formats, save slots, atomic crash-safe writ
+- [s] [[S--gamedev-agent-skills--shader-programming|gamedev-agent-skills/shader-programming]] - Write game shaders from cross-engine fundamentals — the vertex→fragment pipeline, coordinate spaces, UV math, 
+- [s] [[S--gamedev-agent-skills--steam-publish|gamedev-agent-skills/steam-publish]] - Publish or update a game on Steam with Steamworks and SteamPipe: configure depots and packages, upload builds 
+- [s] [[S--gamedev-agent-skills--survival-crafting|gamedev-agent-skills/survival-crafting]] - Build a survival-crafting game: resource gathering, inventory, crafting and a tech tree, needs (hunger/thirst/
+- [s] [[S--gamedev-agent-skills--threejs-gltf-loading|gamedev-agent-skills/threejs-gltf-loading]] - Load glTF/GLB models in three.js with GLTFLoader and play their skinned animations with AnimationMixer, includ
+- [s] [[S--gamedev-agent-skills--threejs-materials-lighting|gamedev-agent-skills/threejs-materials-lighting]] - Light and shade a three.js scene: choose materials (MeshStandardMaterial PBR vs unlit MeshBasicMaterial), add 
+- [s] [[S--gamedev-agent-skills--threejs-scene-setup|gamedev-agent-skills/threejs-scene-setup]] - Stand up a three.js scene: import maps and the three/addons path, the Scene/PerspectiveCamera/WebGLRenderer tr
+- [s] [[S--gamedev-agent-skills--tower-defense|gamedev-agent-skills/tower-defense]] - Build a tower defense: enemies pathing along lanes, wave spawning, towers that auto-target and fire, an econom
+- [s] [[S--gamedev-agent-skills--unity-animation|gamedev-agent-skills/unity-animation]] - Drive Unity 6.3 LTS character animation with Animator Controllers: states, transitions, parameters, blend tree
+- [s] [[S--gamedev-agent-skills--unity-build-pipeline|gamedev-agent-skills/unity-build-pipeline]] - Build and ship Unity 6.3 LTS players: build settings and scenes, player/quality settings, the IL2CPP vs Mono s
+- [s] [[S--gamedev-agent-skills--unity-csharp-scripting|gamedev-agent-skills/unity-csharp-scripting]] - Write Unity 6.3 LTS C# gameplay scripts: the MonoBehaviour lifecycle (Awake/OnEnable/Start/Update/FixedUpdate/
+- [s] [[S--gamedev-agent-skills--unity-input-system|gamedev-agent-skills/unity-input-system]] - Wire player input in Unity 6.3 LTS with the Input System package: Input Actions, action maps, the PlayerInput 
+- [s] [[S--gamedev-agent-skills--unity-navmesh|gamedev-agent-skills/unity-navmesh]] - Add AI navigation in Unity 6.3 LTS: bake a NavMesh with the AI Navigation package (NavMeshSurface), move agent
+- [s] [[S--gamedev-agent-skills--unity-physics|gamedev-agent-skills/unity-physics]] - Set up 3D physics in Unity 6.3 LTS: Rigidbody movement and forces, colliders, triggers vs collisions, layer-ba
+- [s] [[S--gamedev-agent-skills--unity-scriptableobjects|gamedev-agent-skills/unity-scriptableobjects]] - Architect Unity 6.3 LTS data and decoupling with ScriptableObjects: config/data assets, shared runtime variabl
+- [s] [[S--gamedev-agent-skills--unity-tilemap-2d|gamedev-agent-skills/unity-tilemap-2d]] - Build and script 2D tilemaps in Unity 6.3 LTS: the Grid + Tilemap components, the Tile Palette, tilemap collid
+- [s] [[S--gamedev-agent-skills--unreal-behavior-trees|gamedev-agent-skills/unreal-behavior-trees]] - Build NPC AI in Unreal Engine 5 with Behavior Trees and Blackboards: composites (Selector/Sequence), tasks, de
+- [s] [[S--gamedev-agent-skills--unreal-blueprints|gamedev-agent-skills/unreal-blueprints]] - Build Unreal Engine 5 gameplay with Blueprint visual scripting: Blueprint Classes, the Event Graph and Constru
+- [s] [[S--gamedev-agent-skills--unreal-cpp-gameplay|gamedev-agent-skills/unreal-cpp-gameplay]] - Write Unreal Engine 5 C++ gameplay code: the UCLASS/UPROPERTY/UFUNCTION reflection macros, the Gameplay Framew
+- [s] [[S--gamedev-agent-skills--unreal-enhanced-input|gamedev-agent-skills/unreal-enhanced-input]] - Set up player input in Unreal Engine 5 with Enhanced Input: Input Actions, Input Mapping Contexts, modifiers a
+- [s] [[S--gamedev-agent-skills--unreal-niagara|gamedev-agent-skills/unreal-niagara]] - Create and control VFX in Unreal Engine 5 with Niagara: systems and emitters, modules and the spawn/update sta
+- [s] [[S--gamedev-agent-skills--unreal-packaging|gamedev-agent-skills/unreal-packaging]] - Package and ship an Unreal Engine 5 project: the Platforms menu Package Project flow, build configurations (De
+- [s] [[S--gamedev-agent-skills--visual-novel|gamedev-agent-skills/visual-novel]] - Build a visual novel: a branching script, character and background display, a text box with choices, save/load

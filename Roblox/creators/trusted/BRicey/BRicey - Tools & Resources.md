@@ -1,0 +1,134 @@
+---
+title: BRicey - Tools & Resources
+tags: [roblox, bricey]
+creator_trust: TRUSTED
+creator_score: 8.0
+---
+
+> [!note] Trust: TRUSTED (credibility audit score 8.0): usable as a primary source; official Roblox docs still win on numbers and limits. See [[creator-credibility]].
+
+# BRicey: Tools & Resources
+
+## Tools mentioned
+- **Roblox Studio**: [[2024-03-30 - How to create a Plot Placement System in Roblox 3 - Validation|How to create a Plot Placement System in Roblox #3]], [[2020-09-27 - All about the NEW Raycasting Functions in Roblox Studio (workspaceRayc|All about the NEW Raycasting Functions in Roblox S]], [[2022-04-30 - How to make a Tycoon in Roblox Studio 12 - Dev Products|How to make a Tycoon in Roblox Studio #12 - Dev Pr]], [[2020-12-23 - My CUSTOM Remote Event & Function Module in Roblox Studio|My CUSTOM Remote Event & Function Module in Roblox]], [[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]], [[2020-04-10 - OOP in Roblox 4 - Metatables in Module Scripts|OOP in Roblox #4 - Metatables in Module Scripts]], [[2024-02-17 - How to create a Plot Placement System in Roblox 1 - Plots & Players|How to create a Plot Placement System in Roblox #1]], [[2021-04-03 - Composition Over Inheritance - OOP in Roblox Studio|Composition Over Inheritance - OOP in Roblox Studi]], [[2022-09-23 - How to Organize & Style your Code in Roblox Development (and when to u|How to Organize & Style your Code in Roblox Develo]], [[2024-04-14 - How to create a Plot Placement System in Roblox 4 - Data Saving and Se|How to create a Plot Placement System in Roblox #4]], [[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]], [[2022-05-28 - How to use Badges in Roblox! (Plus some scripting tips)|How to use Badges in Roblox! (Plus some scripting ]], [[2021-08-09 - How to make a Tycoon in Roblox 8 - Saving Player Data READ PINNED COMM|How to make a Tycoon in Roblox #8 - Saving Player ]], [[2022-04-16 - How to make a Tycoon in Roblox 11 - Gamepasses|How to make a Tycoon in Roblox #11 - Gamepasses]], [[2020-12-21 - Intro to Remote Events & Functions (and Sanity Checks)|Intro to Remote Events & Functions (and Sanity Che]], [[2020-05-13 - Advanced Datastore Tutorial - Roblox Studio|Advanced Datastore Tutorial - Roblox Studio]], [[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]], [[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]], [[2021-06-29 - How to make a Tycoon in Roblox 2 - Component Organization System|How to make a Tycoon in Roblox #2 - Component Orga]]
+- **Luau**: [[2024-03-30 - How to create a Plot Placement System in Roblox 3 - Validation|How to create a Plot Placement System in Roblox #3]], [[2020-12-23 - My CUSTOM Remote Event & Function Module in Roblox Studio|My CUSTOM Remote Event & Function Module in Roblox]], [[2024-02-17 - How to create a Plot Placement System in Roblox 1 - Plots & Players|How to create a Plot Placement System in Roblox #1]], [[2021-04-03 - Composition Over Inheritance - OOP in Roblox Studio|Composition Over Inheritance - OOP in Roblox Studi]], [[2022-09-23 - How to Organize & Style your Code in Roblox Development (and when to u|How to Organize & Style your Code in Roblox Develo]], [[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]]
+- **CollectionService**: [[2022-05-28 - How to use Badges in Roblox! (Plus some scripting tips)|How to use Badges in Roblox! (Plus some scripting ]], [[2022-04-16 - How to make a Tycoon in Roblox 11 - Gamepasses|How to make a Tycoon in Roblox #11 - Gamepasses]], [[2021-06-12 - Organizing your Game with Tags and CollectionService - Roblox Studio|Organizing your Game with Tags and CollectionServi]], [[2021-06-29 - How to make a Tycoon in Roblox 2 - Component Organization System|How to make a Tycoon in Roblox #2 - Component Orga]], [[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]]
+- **DataStoreService**: [[2024-04-14 - How to create a Plot Placement System in Roblox 4 - Data Saving and Se|How to create a Plot Placement System in Roblox #4]], [[2021-08-09 - How to make a Tycoon in Roblox 8 - Saving Player Data READ PINNED COMM|How to make a Tycoon in Roblox #8 - Saving Player ]], [[2020-05-13 - Advanced Datastore Tutorial - Roblox Studio|Advanced Datastore Tutorial - Roblox Studio]]
+- **Tag Editor plugin**: [[2021-08-09 - How to make a Tycoon in Roblox 8 - Saving Player Data READ PINNED COMM|How to make a Tycoon in Roblox #8 - Saving Player ]], [[2021-06-29 - How to make a Tycoon in Roblox 2 - Component Organization System|How to make a Tycoon in Roblox #2 - Component Orga]], [[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]]
+- **ModuleScript**: [[2024-02-17 - How to create a Plot Placement System in Roblox 1 - Plots & Players|How to create a Plot Placement System in Roblox #1]], [[2020-05-13 - Advanced Datastore Tutorial - Roblox Studio|Advanced Datastore Tutorial - Roblox Studio]]
+- **pcall**: [[2022-04-30 - How to make a Tycoon in Roblox Studio 12 - Dev Products|How to make a Tycoon in Roblox Studio #12 - Dev Pr]], [[2020-05-13 - Advanced Datastore Tutorial - Roblox Studio|Advanced Datastore Tutorial - Roblox Studio]]
+- **RaycastParams**: [[2020-09-27 - All about the NEW Raycasting Functions in Roblox Studio (workspaceRayc|All about the NEW Raycasting Functions in Roblox S]], [[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]]
+- **Visual Studio Code**: [[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]], [[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]]
+- **Rojo**: [[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]], [[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]]
+- **MarketplaceService**: [[2022-04-30 - How to make a Tycoon in Roblox Studio 12 - Dev Products|How to make a Tycoon in Roblox Studio #12 - Dev Pr]], [[2022-04-16 - How to make a Tycoon in Roblox 11 - Gamepasses|How to make a Tycoon in Roblox #11 - Gamepasses]]
+- **Trove**: [[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]], [[2022-06-19 - How to use Promises (and why you should) in Roblox Development|How to use Promises (and why you should) in Roblox]]
+- **Janitor**: [[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]], [[2022-06-19 - How to use Promises (and why you should) in Roblox Development|How to use Promises (and why you should) in Roblox]]
+- **ContextActionService**: [[2024-02-17 - How to create a Plot Placement System in Roblox 1 - Plots & Players|How to create a Plot Placement System in Roblox #1]], [[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]]
+- **RemoteFunction**: [[2024-02-17 - How to create a Plot Placement System in Roblox 1 - Plots & Players|How to create a Plot Placement System in Roblox #1]], [[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]]
+- **workspace:Raycast()**: [[2020-09-27 - All about the NEW Raycasting Functions in Roblox Studio (workspaceRayc|All about the NEW Raycasting Functions in Roblox S]]
+- **RaycastResult**: [[2020-09-27 - All about the NEW Raycasting Functions in Roblox Studio (workspaceRayc|All about the NEW Raycasting Functions in Roblox S]]
+- **Collision Groups editor**: [[2020-09-27 - All about the NEW Raycasting Functions in Roblox Studio (workspaceRayc|All about the NEW Raycasting Functions in Roblox S]]
+- **Remote Messenger module (creator's own, linked in description)**: [[2020-12-23 - My CUSTOM Remote Event & Function Module in Roblox Studio|My CUSTOM Remote Event & Function Module in Roblox]]
+- **Knit framework**: [[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]]
+- **Roact**: [[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]]
+- **Maid utility (from Knit)**: [[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]]
+- **Terrain Editor (height/color map import, convert parts)**: [[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]]
+- **Roblox Studio Attributes**: [[2021-01-17 - How to use Attributes to create CUSTOM properties in Roblox Studio|How to use Attributes to create CUSTOM properties ]]
+- **HttpService JSONEncode/JSONDecode**: [[2021-01-17 - How to use Attributes to create CUSTOM properties in Roblox Studio|How to use Attributes to create CUSTOM properties ]]
+- **Command Bar**: [[2021-01-17 - How to use Attributes to create CUSTOM properties in Roblox Studio|How to use Attributes to create CUSTOM properties ]]
+- **FastCast: Redux (EtiTheSpirit)**: [[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]]
+- **RemoteEvent**: [[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]]
+- **Debris service**: [[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]]
+- **Built-in Roblox mouse**: [[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]]
+- **Toolbox**: [[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]]
+- **Git**: [[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]]
+- **GitHub Desktop**: [[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]]
+- **Rojo VS Code extension**: [[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]]
+- **Rojo Studio plugin**: [[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]]
+- **IntelliCode**: [[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]]
+- **Tag Window / Tag Editor plugin (Studio)**: [[2021-06-12 - Organizing your Game with Tags and CollectionService - Roblox Studio|Organizing your Game with Tags and CollectionServi]]
+- **Knit component system**: [[2021-06-12 - Organizing your Game with Tags and CollectionService - Roblox Studio|Organizing your Game with Tags and CollectionServi]]
+- **World View plugin**: [[2021-06-29 - How to make a Tycoon in Roblox 2 - Component Organization System|How to make a Tycoon in Roblox #2 - Component Orga]]
+- **GitHub repository (code samples)**: [[2021-06-29 - How to make a Tycoon in Roblox 2 - Component Organization System|How to make a Tycoon in Roblox #2 - Component Orga]]
+- **Server Storage**: [[2021-08-09 - How to make a Tycoon in Roblox 8 - Saving Player Data READ PINNED COMM|How to make a Tycoon in Roblox #8 - Saving Player ]]
+- **RunService:IsStudio**: [[2021-08-09 - How to make a Tycoon in Roblox 8 - Saving Player Data READ PINNED COMM|How to make a Tycoon in Roblox #8 - Saving Player ]]
+- **Roblox Creator Dashboard**: [[2022-04-16 - How to make a Tycoon in Roblox 11 - Gamepasses|How to make a Tycoon in Roblox #11 - Gamepasses]]
+- **StarterGui / ScreenGui / UIListLayout**: [[2022-04-16 - How to make a Tycoon in Roblox 11 - Gamepasses|How to make a Tycoon in Roblox #11 - Gamepasses]]
+- **PromptProductPurchase**: [[2022-04-30 - How to make a Tycoon in Roblox Studio 12 - Dev Products|How to make a Tycoon in Roblox Studio #12 - Dev Pr]]
+- **BadgeService**: [[2022-05-28 - How to use Badges in Roblox! (Plus some scripting tips)|How to use Badges in Roblox! (Plus some scripting ]]
+- **Tag plugin (Tag Manager)**: [[2022-05-28 - How to use Badges in Roblox! (Plus some scripting tips)|How to use Badges in Roblox! (Plus some scripting ]]
+- **BindableEvent**: [[2022-05-28 - How to use Badges in Roblox! (Plus some scripting tips)|How to use Badges in Roblox! (Plus some scripting ]]
+- **Promise library (promise.lua from GitHub releases)**: [[2022-06-19 - How to use Promises (and why you should) in Roblox Development|How to use Promises (and why you should) in Roblox]]
+- **TweenService**: [[2022-06-19 - How to use Promises (and why you should) in Roblox Development|How to use Promises (and why you should) in Roblox]]
+- **Maid**: [[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]]
+- **Dumpster**: [[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]]
+- **Wally**: [[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]]
+- **Knit**: [[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]]
+- **RunService**: [[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]]
+- **AlignPosition**: [[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]]
+- **AlignOrientation**: [[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]]
+- **Attachments**: [[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]]
+- **Luau tables**: [[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]]
+- **workspace:Raycast**: [[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]]
+- **GetPartBoundsInRadius**: [[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]]
+- **HingeConstraint**: [[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]]
+- **RunService.Stepped**: [[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]]
+- **CFrame.PointToObjectSpace**: [[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]]
+- **Vector3:Angle**: [[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]]
+- **PivotTo**: [[2024-02-17 - How to create a Plot Placement System in Roblox 1 - Plots & Players|How to create a Plot Placement System in Roblox #1]]
+- **RunService:BindToRenderStep**: [[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]]
+- **UserInputService**: [[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]]
+- **Workspace:Raycast**: [[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]]
+- **OverlapParams**: [[2024-03-30 - How to create a Plot Placement System in Roblox 3 - Validation|How to create a Plot Placement System in Roblox #3]]
+- **workspace:GetPartBoundsInBox**: [[2024-03-30 - How to create a Plot Placement System in Roblox 3 - Validation|How to create a Plot Placement System in Roblox #3]]
+- **PlayerRemoving**: [[2024-04-14 - How to create a Plot Placement System in Roblox 4 - Data Saving and Se|How to create a Plot Placement System in Roblox #4]]
+- **BindToClose**: [[2024-04-14 - How to create a Plot Placement System in Roblox 4 - Data Saving and Se|How to create a Plot Placement System in Roblox #4]]
+- **NumberValue**: [[2024-04-14 - How to create a Plot Placement System in Roblox 4 - Data Saving and Se|How to create a Plot Placement System in Roblox #4]]
+
+## Points viewers to (candidates for further study)
+- OOP in Roblox #3 (previous video in series) ([[2020-04-10 - OOP in Roblox 4 - Metatables in Module Scripts|OOP in Roblox #4 - Metatables in Module Scripts]])
+- Roblox Developer Hub DataStore article (linked in description) ([[2020-05-13 - Advanced Datastore Tutorial - Roblox Studio|Advanced Datastore Tutorial - Roblox Studio]])
+- Speaker's earlier DataStore videos ([[2020-05-13 - Advanced Datastore Tutorial - Roblox Studio|Advanced Datastore Tutorial - Roblox Studio]])
+- Author's light-reflection simulation videos (normal explanation) ([[2020-09-27 - All about the NEW Raycasting Functions in Roblox Studio (workspaceRayc|All about the NEW Raycasting Functions in Roblox S]])
+- Knit framework ([[2020-12-23 - My CUSTOM Remote Event & Function Module in Roblox Studio|My CUSTOM Remote Event & Function Module in Roblox]])
+- creator's previous video on command-system security ([[2020-12-23 - My CUSTOM Remote Event & Function Module in Roblox Studio|My CUSTOM Remote Event & Function Module in Roblox]])
+- Knit framework by Sleitnick (Slate Nick) ([[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]])
+- Roact (Roblox UI library, React-style) ([[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]])
+- Creator's upcoming CollectionService tag tutorial ([[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]])
+- Creator's previous OOP video ([[2021-01-04 - Using Knit & Roact to COMPLETELY Rework my Roblox Game! - Tallest Towe|Using Knit & Roact to COMPLETELY Rework my Roblox ]])
+- FastCast: Redux module (Toolbox, EtiTheSpirit) ([[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]])
+- Creator's custom mouse module (linked in description) ([[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]])
+- Creator's raycasting video ([[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]])
+- Creator's upcoming PartCache video ([[2021-01-24 - How to make a REALISTIC Gun with FastCast Travel Time, Bullet Drop, an|How to make a REALISTIC Gun with FastCast: Travel ]])
+- git-scm.com ([[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]])
+- desktop.github.com ([[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]])
+- github.com ([[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]])
+- Rojo documentation ([[2021-03-21 - How to setup Rojo, VSCode, and Git for professional Roblox Studio Deve|How to setup Rojo, VSCode, and Git for professiona]])
+- Creator's own OOP series (metatables and modules) ([[2021-04-03 - Composition Over Inheritance - OOP in Roblox Studio|Composition Over Inheritance - OOP in Roblox Studi]])
+- Multiple inheritance video linked in description ([[2021-04-03 - Composition Over Inheritance - OOP in Roblox Studio|Composition Over Inheritance - OOP in Roblox Studi]])
+- Knit framework component system ([[2021-06-12 - Organizing your Game with Tags and CollectionService - Roblox Studio|Organizing your Game with Tags and CollectionServi]])
+- Tag Editor plugin (linked in description) ([[2021-06-12 - Organizing your Game with Tags and CollectionService - Roblox Studio|Organizing your Game with Tags and CollectionServi]])
+- CollectionService API documentation ([[2021-06-12 - Organizing your Game with Tags and CollectionService - Roblox Studio|Organizing your Game with Tags and CollectionServi]])
+- Tag Editor plugin install link (description) ([[2021-06-29 - How to make a Tycoon in Roblox 2 - Component Organization System|How to make a Tycoon in Roblox #2 - Component Orga]])
+- Video on CollectionService (linked) ([[2021-06-29 - How to make a Tycoon in Roblox 2 - Component Organization System|How to make a Tycoon in Roblox #2 - Component Orga]])
+- Video on the component pattern/composition (linked) ([[2021-06-29 - How to make a Tycoon in Roblox 2 - Component Organization System|How to make a Tycoon in Roblox #2 - Component Orga]])
+- Advanced DataStore tutorial by the same creator (linked in video card) ([[2021-08-09 - How to make a Tycoon in Roblox 8 - Saving Player Data READ PINNED COMM|How to make a Tycoon in Roblox #8 - Saving Player ]])
+- Creator's Discord server (linked in description) ([[2021-08-09 - How to make a Tycoon in Roblox 8 - Saving Player Data READ PINNED COMM|How to make a Tycoon in Roblox #8 - Saving Player ]])
+- Next video in series on developer products ([[2022-04-16 - How to make a Tycoon in Roblox 11 - Gamepasses|How to make a Tycoon in Roblox #11 - Gamepasses]])
+- Roblox Developer Hub (MarketplaceService receipt info) ([[2022-04-30 - How to make a Tycoon in Roblox Studio 12 - Dev Products|How to make a Tycoon in Roblox Studio #12 - Dev Pr]])
+- Game Programming Patterns (book, observer pattern article) ([[2022-05-28 - How to use Badges in Roblox! (Plus some scripting tips)|How to use Badges in Roblox! (Plus some scripting ]])
+- Speaker's CollectionService and tagging video ([[2022-05-28 - How to use Badges in Roblox! (Plus some scripting tips)|How to use Badges in Roblox! (Plus some scripting ]])
+- Promise library GitHub repository and documentation (linked in video description) ([[2022-06-19 - How to use Promises (and why you should) in Roblox Development|How to use Promises (and why you should) in Roblox]])
+- Promise module (covered in another video by the speaker) ([[2022-08-21 - Maid, Trove, Janitor - Cleanup Modules you never knew you needed in Ro|Maid, Trove, Janitor - Cleanup Modules you never k]])
+- Knit framework ([[2022-09-23 - How to Organize & Style your Code in Roblox Development (and when to u|How to Organize & Style your Code in Roblox Develo]])
+- Matter ECS ([[2022-09-23 - How to Organize & Style your Code in Roblox Development (and when to u|How to Organize & Style your Code in Roblox Develo]])
+- Video critiquing OOP (unnamed creator) ([[2022-09-23 - How to Organize & Style your Code in Roblox Development (and when to u|How to Organize & Style your Code in Roblox Develo]])
+- Creator's earlier video on AlignPosition ([[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]])
+- Creator's video on Luau tables ([[2023-04-14 - Creating an Intelligent Delivery Drone with Finite State Machines 1 -|Creating an Intelligent Delivery Drone with Finite]])
+- Speaker's hinge tutorial video ([[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]])
+- Speaker's weld tutorial video ([[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]])
+- Speaker's Vector3 angle video ([[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]])
+- Speaker's CFrame object-space video ([[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]])
+- Part 2 of the series (shooting and AI) ([[2023-06-10 - How to make an AI LASER TURRET in Roblox Studio 1 - Turret Setup and K|How to make an AI LASER TURRET in Roblox Studio #1]])
+- Author's Minecraft-style placement series (earlier video) ([[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]])
+- Author's plot setup video (part 1) ([[2024-03-02 - How to create a Plot Placement System in Roblox 2 - Placing stuff!|How to create a Plot Placement System in Roblox #2]])

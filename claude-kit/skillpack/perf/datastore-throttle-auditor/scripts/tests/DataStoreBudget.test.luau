@@ -1,0 +1,43 @@
+--!nocheck
+-- Run: lune run DataStoreBudget.test.luau   (from the kit's systems folder, see check-scripts.sh)
+local t = require("../../../../../systems/_check/harness")
+local DataStoreBudget = require("../DataStoreBudget")
+
+t.test("experience budgets follow the documented formulas", function()
+	local b = DataStoreBudget.experienceBudget(100)
+	t.eq(b.read, 4300)
+	t.eq(b.write, 2300)
+	t.eq(b.list, 500)
+	t.eq(b.orderedWrite, 2300)
+end)
+
+t.test("server budgets follow the documented formulas", function()
+	local s = DataStoreBudget.serverBudget(20)
+	t.eq(s.readWrite, 860)
+	t.eq(s.orderedWrite, 130)
+end)
+
+t.test("utilisation names the metric nearest its limit", function()
+	local util = DataStoreBudget.utilisation({ reads = 1000, writes = 2500 }, 100)
+	local key, val, status = DataStoreBudget.worst(util)
+	t.eq(key, "write")
+	t.truthy(val > 1)
+	t.eq(status, "over")
+	local _, _, ok = DataStoreBudget.worst(DataStoreBudget.utilisation({ reads = 10, writes = 10 }, 100))
+	t.eq(ok, "ok")
+end)
+
+t.test("autosave interval grows slower than the player count shrinks the budget", function()
+	local i = DataStoreBudget.minSaveInterval(20)
+	t.truthy(math.abs(i - 60 * 20 / 430) < 1e-9)
+	t.truthy(DataStoreBudget.minSaveInterval(1) < 60) -- one player can save every few seconds
+end)
+
+t.test("per-key write cap rounds the size up to KB", function()
+	t.eq(DataStoreBudget.maxWritesPerMinutePerKey(100), 4096)
+	t.eq(DataStoreBudget.maxWritesPerMinutePerKey(1025), 2048)
+	t.truthy(DataStoreBudget.fitsValueLimit(4194304))
+	t.falsy(DataStoreBudget.fitsValueLimit(4194305))
+end)
+
+t.done()

@@ -1,0 +1,6 @@
+{
+ "_note": "USD per million tokens. Rough defaults used ONLY when the claude CLI does not report a cost; verify against current Anthropic pricing and edit. Estimates, not billing.",
+ "haiku": {"in": 1.0, "out": 5.0},
+ "sonnet": {"in": 3.0, "out": 15.0},
+ "opus": {"in": 5.0, "out": 25.0}
+}

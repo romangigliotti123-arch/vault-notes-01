@@ -1,0 +1,64 @@
+---
+title: "Opportunity-cost loadout"
+type: concept
+patterns:
+  - opportunity-cost-loadout
+related_patterns:
+  - loadout-as-budget
+  - grid-inventory
+  - bonus-with-drawback
+---
+
+# Opportunity-cost loadout
+
+> **Lemma:** Equipping power for X means *not* equipping power for Y. Every loadout choice forecloses other choices. The forecast is forced, there's no "take all of it."
+
+## What it solves
+
+When loadout is purely additive (more upgrades = more power), the design slowly drowns:
+
+- Every run accumulates more bonuses; difficulty has to chase.
+- Choices feel cosmetic: "they're all good, I'll just take them all later."
+- Identity flattens: every player ends up with the same kitchen-sink build.
+
+Opportunity-cost loadout fixes this by **making the player explicitly trade.** Take more health, take less damage. Take the map-vision relic, lose the slot for an attack relic. The constraint can be space, energy, slots, hand size, what matters is that *commit one thing → close another.*
+
+This is closely related to [`loadout-as-budget`](./loadout-as-budget.md), opportunity cost is what budgets *create*. The lemma here is the player-experience side: every loadout decision is felt as a sacrifice.
+
+## Variants across games
+
+| Game | The forced trade | What's being chosen between |
+|---|---|---|
+| **[Sparklite](/games/sparklite/patch-board)** | Every cell on the patch board holds one effect; bigger patches eat more cells | Damage vs. HP vs. defense vs. map markers vs. energy |
+| **[Moonlighter 2](/games/moonlighter-2/backpack-puzzle)** | Every backpack cell can only hold one relic; placement triggers one synergy | Which 3–4 target relics to stack quality on; everything else is fuel |
+| **[Hollow Knight](/games/hollow-knight/charms-and-notches)** | Every charm slotted is a charm not slotted; 11-notch budget vs. ~45 charms with integer costs | Damage vs. healing speed vs. soul economy vs. movement vs. compass / map markers |
+| **[Nier: Automata](/games/nier-automata/chip-system)** | Every chip equipped is a chip not equipped; the HUD is in the same budget | Combat power vs. accessibility (Auto-*) vs. **the HUD itself**: show the minimap or take an Auto-Heal? |
+| **[Mina the Hollower](/games/mina-the-hollower/trinkets)** | A few trinket slots from a pool of 60, plus exactly one equipped sidearm at a time | Glass-cannon vs. wall-burrow traversal vs. parry-counter vs. defense: and which single sidearm to field for *this* stretch |
+| **[Psychonauts 2](/games/psychonauts-2/psi-powers)** | Four bound PSI powers from ~9, where **traversal powers occupy the same four slots as combat powers**; swapping costs a pause-menu rebind | Glide and grapple vs. damage types vs. puzzle utility. Enemies carry hard counters (Regrets take damage only from PSI Blast, Doubts want Pyrokinesis, Enablers want Time Bubble), so the wrong four slots means an enemy you cannot hurt |
+| **[Clair Obscur: Expedition 33](/games/clair-obscur-expedition-33/pictos-and-luminas)** | 3 Picto slots per character, each physical copy wearable by only one character; 6 equipped skills from a full tree; Lumina Points spent on one premium passive are 20 cheap ones foregone | Stat lines vs. unlearned passives (wearing mastered Pictos wastes the learning counter); which character gets the contested copy; build-defining 30–40 point Luminas vs. swarms of utilities |
+
+The spatial ones (Sparklite, Moonlighter 2) make you *feel* the trade as physical space; the rest, Hollow Knight's notches, Mina's trinket slots, Nier's chip storage, make you feel it as an abstract budget. Psychonauts 2 is the outlier that puts *movement* in the combat budget: slotting a fourth damage power costs you the glide, which is a trade no other entry here forces. Nier: Automata is the unusual case where the trade includes UI elements, the player decides whether seeing the HUD is worth the storage cost. Mina is the unusual case where the same slot system swaps *between encounters*, so the build is re-chosen situationally rather than locked for a run.
+
+## When to use this pattern
+
+- **Run-based games** where each run wants its own identity.
+- **Build-defining loot** where you want commitment, not collection.
+- **Boss-tier rewards** that should warp the run rather than just add to it.
+- **Class / archetype designs** that should feel different to play, not just stat-different.
+
+Avoid when:
+- The fantasy is power accumulation (Diablo-style "I want all the items").
+- The game is short enough that trades don't get to pay off.
+
+## Pitfalls
+
+- **One option strictly dominates**: if there's a "best" trade, the choice is illusory. Spire's metrics-driven balance is what keeps cards/relics from settling into a single optimal path.
+- **Trades feel arbitrary**: the player has to *understand* what they're giving up. Synergies need to be visible (Sparklite shows you the patch you couldn't fit; Moonlighter 2 shows arrows pointing at the relics that would have triggered).
+- **Reverse-engineerable optimum**: if the best build is mathematically derivable, the choice flattens after one online guide. Some randomness in what's *offered* per run helps.
+- **Punishing first-time players**: if you have to know the meta to make good trades, new players are excluded. Spire's drafts always include a skip option to soften this.
+
+## Adjacent patterns
+
+- [`loadout-as-budget`](./loadout-as-budget.md): the broader budget mechanic that creates opportunity cost.
+- [`grid-inventory`](./grid-inventory.md): the spatial-budget version.
+- [`bonus-with-drawback`](./bonus-with-drawback.md): extreme version: one item carries explicit upside *and* downside.

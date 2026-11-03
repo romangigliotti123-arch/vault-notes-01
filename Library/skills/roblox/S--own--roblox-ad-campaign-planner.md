@@ -1,0 +1,61 @@
+---
+id: "roblox-ad-campaign-planner"
+type: skill
+category: "roblox"
+source: "own"
+license: "first-party"
+repo_path: "skills/roblox/roblox-ad-campaign-planner/SKILL.md"
+description: "Plans a Roblox sponsored-experience ad test with a readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, with arithmetic done by a calculator and every rule sourced from the Roblox knowledge base. Use when the user asks to plan, budget or evaluate Roblox ads, \"plan a $100 ad test\", whether a game is ready for ads, or when to stop ads. Plans only; never runs or pays for ads."
+orig_name: "roblox-ad-campaign-planner"
+tags: [lib/skill, cat/roblox, src/own]
+---
+
+# roblox-ad-campaign-planner
+
+> Plans a Roblox sponsored-experience ad test with a readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, with arithmetic done by a calculator and every rule sourced from the Roblox knowledge base. Use when the user asks to plan, budget or evaluate Roblox ads, "plan a $100 ad test", whether a game is ready for ads, or when to stop ads. Plans only; never runs or pays for ads.
+
+Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
+Repo file: `skills/roblox/roblox-ad-campaign-planner/SKILL.md` (extra files, if any, sit beside it in the repo)
+
+Related: [[S--own--roblox-metrics-benchmarks]], [[S--own--youtube-learn]]
+
+---
+# Roblox ad campaign planner
+
+Output: a campaign plan (gate, budget table, schedule, creatives, KPIs, stop rules) with sources. Never spends money or touches Ads Manager.
+
+## Procedure
+
+1. Inputs (assume and state): game, genre, budget cap (or total), launch date, current D1 / first-play bounce / PTR / session length, existing thumbnails, age of game (new vs lapsed).
+2. Evidence:
+   ```
+   K="python ~/claude-library/tools/roblox-kb/kbq.py"
+   $K section ads-and-sponsored-experiences instructions
+   $K section ads-and-sponsored-experiences disagree
+   $K find "budget per day duration objective targeting" -t ads-and-sponsored-experiences -n 8
+   $K find "stop ads organic recommendations sponsored impressions" -n 5
+   $K find "creative thumbnail test CTR" -t thumbnails-icons,ads-and-sponsored-experiences -n 6
+   ```
+   Also grep `~/claude-host/youtube-learn/out/roblox-kb/_tools/AD-PLAYBOOK.md` for the section you need.
+3. Gate first: run `python ~/claude-library/skills/roblox/roblox-metrics-benchmarks/compare.py --d1 <x> --session <x> ...`. If D1, first-session funnel or PTR are below band, the plan is "fix first, retest on <date>"; still produce the plan to run after the gate passes. Official stance in the KB: ads are retrieval and seed data; only organic Home recommendation plays train ranking, so ads cannot rescue a weak game.
+4. Arithmetic: `python ~/claude-library/skills/roblox/roblox-ad-campaign-planner/adcalc.py --total <usd> --days <n> [--cost-per-play 0.01 --ctr 2.5 --d1 12 --payer 1.5 --arppu 300]`. Copy its scenario table and checkpoints; they are ESTIMATES.
+5. Compose the plan and cite each rule.
+
+## Output template
+
+```
+Gate: pass/fail per metric (yours | KB band | flag | source)
+Plan: objective, daily vs lifetime budget (sources disagree: show both, pick one), $/day x days = total, targeting, devices/regions
+Creatives: 3-5 variants, one variable at a time, equal budget, kill any below ~1% CTR; max active creatives per campaign per docs
+Schedule: Day 0 prep, Day 1/3/5/7/10 checkpoints (go / no-go, from adcalc)
+Stop rules: organic Home impressions exceed sponsored; no restart loops; pause if D1 of the ad cohort is far below band
+Cost: total = ESTIMATE with arithmetic; scenarios good/base/poor
+Off-platform add-ons (optional): short video, Discord, creators (cite)
+Evidence table: claim | link | flag | date
+```
+
+## Rules
+
+- Dollar figures from indie creators are self-reported; label them. Official docs and the live Ads Manager UI override.
+- Roblox guidance in the KB: run at least 1-2 weeks, judge after 3-5 days minimum; do not run a 1-2 day test and judge it.
+- Never present ROAS or play forecasts as promises.

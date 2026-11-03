@@ -1,0 +1,11 @@
+*.rbxl.lock
+*.rbxlx.lock
+Packages/
+sourcemap.json
+.DS_Store
+
+*.rbxl
+*.rbxlx
+.env
+*.key
+build/

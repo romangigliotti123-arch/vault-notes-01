@@ -1,0 +1,172 @@
+---
+title: vuukstudios7635 - Numbers & Benchmarks
+tags: [roblox, vuukstudios7635]
+creator_trust: MIXED
+creator_score: 7.4
+---
+
+> [!note] Trust: MIXED (credibility audit score 7.4): do not rely on this creator alone; confirm a recommendation with a second source. See [[creator-credibility]].
+
+# vuukstudios7635: Numbers & Benchmarks
+
+| Date | Topic | Metric | Value | Context | Source |
+|---|---|---|---|---|---|
+| 2023-09-24 | community-and-discord | Subscribers | 3,000 | Creator's channel milestone mentioned at start | [0:00](https://youtu.be/dcJtZnan7i8?t=0) |
+| 2023-09-24 | combat-and-gameplay-systems | Ability cooldown | 5 seconds | Mobile ability button cooldown in example | [6:48](https://youtu.be/dcJtZnan7i8?t=408) |
+| 2023-09-24 | core-loops-and-game-design | Count reset wait | 0.05 seconds | task.wait before resetting toggle count | [9:57](https://youtu.be/dcJtZnan7i8?t=597) |
+| 2023-12-25 | business-and-payouts | Yearly revenue (claimed) | Blox Fruits ~$100M, Evade ~$80M, Adopt Me ~$150M | Speaker's claim of yearly USD income for front-page games; unverified | [1:26](https://youtu.be/fEcFzlBQew8?t=86) |
+| 2023-12-25 | pricing | Percentage deal example | 6% of a game making $100k/month = $6k/month | Hypothetical equity example for 5-6k daily players | [13:34](https://youtu.be/fEcFzlBQew8?t=814) |
+| 2023-12-25 | analytics-metrics | Front-page daily players (claimed) | 200-300k players/day ≈ $100M/yr | Speaker's rough revenue estimate for a front-page game | [16:29](https://youtu.be/fEcFzlBQew8?t=989) |
+| 2023-12-25 | business-and-payouts | Angel investor income (claimed) | $100-200k/month | Speaker's claim for investors in proven-developer games | [15:02](https://youtu.be/fEcFzlBQew8?t=902) |
+| 2023-12-25 | pricing | Academy subscription price | $20-50/month | Speaker's paid community pricing; promotional | [22:02](https://youtu.be/fEcFzlBQew8?t=1322) |
+| 2023-12-25 | monetisation-other | Pack price vs commission | Packs $10-40 vs commissions $100-200 | Speaker's suggested price ladder for store packs | [8:56](https://youtu.be/fEcFzlBQew8?t=536) |
+| 2024-01-22 | business-and-payouts | Commission earnings | 123 CAD in 3 days (student, under 1 month in academy) | Self-reported by student from commissions alone | [1:51](https://youtu.be/a3w0s1fBg5M?t=111) |
+| 2024-01-22 | business-and-payouts | Past-work sales | about $400 in first 2 weeks | Student selling old work; projected about $800/month | [8:12](https://youtu.be/a3w0s1fBg5M?t=492) |
+| 2024-01-22 | business-and-payouts | Commission earnings | about $5K then $4-5K same night (Robux-equivalent unclear) | Animation commissions, first day; student claim | [4:29](https://youtu.be/a3w0s1fBg5M?t=269) |
+| 2024-01-22 | business-and-payouts | Commission earnings | $500 total in under a week, from $35/month before | Student claim; one commission was $50 | [10:49](https://youtu.be/a3w0s1fBg5M?t=649) |
+| 2024-01-22 | team-and-budget | Map commission price | 145,000 Robux (about $350-500) | Map maker secured a map deal; student claim | [11:32](https://youtu.be/a3w0s1fBg5M?t=692) |
+| 2024-01-22 | business-and-payouts | Group revenue | 2 million Robux in first 2 months | Group a student joined as partner; claim | [13:21](https://youtu.be/a3w0s1fBg5M?t=801) |
+| 2024-01-22 | business-and-payouts | Robux earnings | 12K Robux in 3 days after 11 months at 100-450 Robux/year | Student claim after joining academy | [14:03](https://youtu.be/a3w0s1fBg5M?t=843) |
+| 2024-01-22 | business-and-payouts | Robux earnings | 5K Robux on day two of commissions | Student claim | [15:25](https://youtu.be/a3w0s1fBg5M?t=925) |
+| 2024-03-16 | analytics-metrics | Blox Fruits concurrent players | ~500,000 CCU | Speaker's stated figure; game earnings estimated, not verified | [0:39](https://youtu.be/rbVG7YBwY2k?t=39) |
+| 2024-03-16 | monetisation-gamepasses | Blox Fruits estimated annual revenue | ~$100M/yr (estimate) | Speaker's estimate; attributed to game passes and retention | [0:39](https://youtu.be/rbVG7YBwY2k?t=39) |
+| 2024-03-16 | analytics-metrics | Strongest Battlegrounds daily players | ~150,000 DAU | Speaker's stated figure; not monetised heavily | [2:01](https://youtu.be/rbVG7YBwY2k?t=121) |
+| 2024-03-16 | monetisation-other | Strongest Battlegrounds estimated monthly profit | ~$100,000+/month (estimate) | Speaker says developers are not optimistic; numbers may be inaccurate | [2:01](https://youtu.be/rbVG7YBwY2k?t=121) |
+| 2024-03-16 | monetisation-gamepasses | Brookhaven developer claimed monthly game purchases | >$300,000 USD/month | Developer statement quoted by speaker; excludes brand deals and retention | [2:26](https://youtu.be/rbVG7YBwY2k?t=146) |
+| 2024-03-16 | business-and-payouts | Roblox Q1 2023 revenue | $665M | Platform revenue cited by speaker | [3:06](https://youtu.be/rbVG7YBwY2k?t=186) |
+| 2024-03-16 | analytics-metrics | Roblox daily players | ~66M | Platform-wide daily active players cited by speaker | [3:06](https://youtu.be/rbVG7YBwY2k?t=186) |
+| 2024-03-16 | business-and-payouts | Roblox valuation | $45B | Valuation cited by speaker | [3:06](https://youtu.be/rbVG7YBwY2k?t=186) |
+| 2024-03-25 | team-and-budget | Years as professional developer | 6+ years |  | [0:00](https://youtu.be/g_LzK7caXBY?t=0) |
+| 2024-03-25 | community-and-discord | Academy student count | 150+ students |  | [10:33](https://youtu.be/g_LzK7caXBY?t=633) |
+| 2024-07-23 | pricing | DevEx rate | 5,000 Robux ≈ $12 | Stated as a rough DevEx conversion example | [2:10](https://youtu.be/NfXvHlAdIsI?t=130) |
+| 2024-07-23 | analytics-metrics | Brookhaven revenue | ~$150,000/day, ~$55M/year | Speaker's estimate; ~800k daily players | [7:13](https://youtu.be/NfXvHlAdIsI?t=433) |
+| 2024-07-23 | analytics-metrics | Bloxburg revenue | ~$40M–$100M/year | Speaker's estimate; unverified, data not public | [7:53](https://youtu.be/NfXvHlAdIsI?t=473) |
+| 2024-07-23 | analytics-metrics | Adopt Me revenue | ~$30M–$40M/year | Speaker's estimate; excludes plushies and merch | [8:34](https://youtu.be/NfXvHlAdIsI?t=514) |
+| 2024-07-23 | analytics-metrics | Small game earnings | 5–6K average players ≈ $500–$1,000/day | Speaker's claimed range for smaller games | [8:34](https://youtu.be/NfXvHlAdIsI?t=514) |
+| 2024-07-23 | analytics-metrics | Overwatch player count reference | ~20,000 players | Used as example of a successful game's scale | [7:53](https://youtu.be/NfXvHlAdIsI?t=473) |
+| 2024-08-30 | business-and-payouts | Blox Fruits estimated annual earnings | 50–100M Robux/yr (estimate, speaker cites reports) | Speaker's estimate from reports; unverified | [1:41](https://youtu.be/3J7Vp6NgYf4?t=101) |
+| 2024-08-30 | business-and-payouts | Second popular game estimated annual earnings | 20–50M/yr | Unnamed game; speaker's estimate | [1:41](https://youtu.be/3J7Vp6NgYf4?t=101) |
+| 2024-08-30 | analytics-metrics | Blox Fruits daily player count | 300k to 1M players/day | Speaker's stated range | [0:59](https://youtu.be/3J7Vp6NgYf4?t=59) |
+| 2024-08-30 | business-and-payouts | DevEx cashout threshold | 30,000 Robux earned | Minimum earnings before DevEx invite | [5:13](https://youtu.be/3J7Vp6NgYf4?t=313) |
+| 2024-08-30 | business-and-payouts | Minimum age for DevEx | 13 years | Speaker started at 12 but earned nothing until 15–16 | [5:55](https://youtu.be/3J7Vp6NgYf4?t=355) |
+| 2024-08-30 | monetisation-other | Premium subscription cost | about $5/month | Speaker's approximate figure | [4:00](https://youtu.be/3J7Vp6NgYf4?t=240) |
+| 2024-08-30 | analytics-metrics | Student-reported game performance | 6.2k CCU, ~500k Robux daily | Anecdotal screenshot from academy student | [10:07](https://youtu.be/3J7Vp6NgYf4?t=607) |
+| 2024-12-12 | business-and-payouts | Creator total earnings | Over $300,000 from Roblox over ~7 years |  | [0:00](https://youtu.be/xBPJnMgLoUE?t=0) |
+| 2024-12-12 | team-and-budget | Share of creator's income from commissions | More than 50-60% |  | [8:00](https://youtu.be/xBPJnMgLoUE?t=480) |
+| 2024-12-12 | monetisation-other | Typical game revenue at 5-10k active players | About $1,000-2,000 per day |  | [3:33](https://youtu.be/xBPJnMgLoUE?t=213) |
+| 2024-12-12 | analytics-metrics | Brook Haven 2024 earnings | About $56 million |  | [18:56](https://youtu.be/xBPJnMgLoUE?t=1136) |
+| 2024-12-12 | business-and-payouts | Tommy's 20k-player game, one month earnings | About 50 million Robux, sold to an investor |  | [21:35](https://youtu.be/xBPJnMgLoUE?t=1295) |
+| 2024-12-12 | business-and-payouts | Creator dev start and paid start | Started developing at 12; began taking paid commissions about 2 years before the video |  | [16:12](https://youtu.be/xBPJnMgLoUE?t=972) |
+| 2024-12-12 | pricing | DevEx conversion example | 1,000 Robux is roughly $1 at DevEx rates |  | [12:06](https://youtu.be/xBPJnMgLoUE?t=726) |
+| 2024-12-12 | business-and-payouts | Typical revenue cut for team members on percentage deals | 30-40% (creator's characterization) |  | [22:16](https://youtu.be/xBPJnMgLoUE?t=1336) |
+| 2025-11-06 | ads-and-sponsored-experiences | Ad budget | 30k-60k Robux (about 100+ ad credits) | Savings suggested before running ads | [12:14](https://youtu.be/AbjI7ygMnao?t=734) |
+| 2025-11-06 | ads-and-sponsored-experiences | Ad credits per campaign | 100-200 over 1-2 weeks | Speaker's typical campaign size | [12:14](https://youtu.be/AbjI7ygMnao?t=734) |
+| 2025-11-06 | ads-and-sponsored-experiences | CTR | >1.5% very good; aim 2-3%+; <1% thumbnail problem | Example campaign showed 3.79% CTR on 520k impressions | [13:36](https://youtu.be/AbjI7ygMnao?t=816) |
+| 2025-11-06 | ads-and-sponsored-experiences | Play-through rate | 1-1.5% good; 2% very good | Example campaign showed about 1.79% | [14:16](https://youtu.be/AbjI7ygMnao?t=856) |
+| 2025-11-06 | analytics-metrics | Average playtime | 10-15 min ideal; 12+ min target; 25+ min insane | Example game at 4 min judged failed | [17:30](https://youtu.be/AbjI7ygMnao?t=1050) |
+| 2025-11-06 | analytics-metrics | Day-7 retention | Key stat for home page recommendations | Speaker says it is the most important metric | [17:30](https://youtu.be/AbjI7ygMnao?t=1050) |
+| 2025-11-06 | development-process-and-speed | Dev time for starter game | 2 weeks to 1 month, max 2-4 weeks | Recommended scope for beginners | [5:03](https://youtu.be/AbjI7ygMnao?t=303) |
+| 2025-11-06 | thumbnails-icons | Thumbnail cost | $20-$50 each | Speaker's estimate for commissioned thumbnails | [7:45](https://youtu.be/AbjI7ygMnao?t=465) |
+| 2025-11-06 | genre-mechanics | Example 2-player obby visits | almost 4 million visits | Speaker's own game made about a year earlier | [9:51](https://youtu.be/AbjI7ygMnao?t=591) |
+| 2025-11-28 | business-and-payouts | Monthly commission income (Kusho, 16) | $2,000-3,000/month | Self-reported, from academy commissions, after ~10 months | [2:15](https://youtu.be/U4nduRcszJ4?t=135) |
+| 2025-11-28 | business-and-payouts | First commission (Kusho) | 700 Robux | Earned before joining academy, in Robux | [3:38](https://youtu.be/U4nduRcszJ4?t=218) |
+| 2025-11-28 | business-and-payouts | Average commission (Kusho) | ~$300 | Current average per commission request | [4:20](https://youtu.be/U4nduRcszJ4?t=260) |
+| 2025-11-28 | business-and-payouts | Daily commission income (Elves, 15) | ~10 requests/day | Approx. 10 commission requests per day, $300+ each | [6:56](https://youtu.be/U4nduRcszJ4?t=416) |
+| 2025-11-28 | business-and-payouts | Monthly profit (Django, 18) | ~$500/month | Within about a month of joining, after watching all courses | [10:22](https://youtu.be/U4nduRcszJ4?t=622) |
+| 2025-11-28 | first-session-onboarding | Time to first commission (Elves) | ~1 month | Watched videos for weeks before taking commissions | [5:33](https://youtu.be/U4nduRcszJ4?t=333) |
+| 2026-02-10 | community-and-discord | Discord community size | ~30,000 members in the speaker's server | Speaker's hiring server, used for marketplace posts | [6:12](https://youtu.be/JQqhUWZUGDQ?t=372) |
+| 2026-02-10 | team-and-budget | Student first commission | $50 to ~$1,100 | Academy student first-commission examples cited by speaker | [10:53](https://youtu.be/JQqhUWZUGDQ?t=653) |
+| 2026-02-10 | pricing | Commission example | $175 = 32K Robux | Student commission example, Robux conversion stated | [10:53](https://youtu.be/JQqhUWZUGDQ?t=653) |
+| 2026-02-10 | business-and-payouts | Monthly commission income | Kestro ~$5K/month, sometimes ~$10K; Corntello ~$20K/month | Academy student income claims, speaker-reported | [10:12](https://youtu.be/JQqhUWZUGDQ?t=612) |
+| 2026-02-10 | business-and-payouts | Student Robux milestone | 1 million Robux cashed out on DevEx | Student result reported by speaker | [10:12](https://youtu.be/JQqhUWZUGDQ?t=612) |
+| 2026-06-16 | mindset-and-strategy | Experience history | 30-40 flopped games before decent hits | Speaker's own track record | [0:00](https://youtu.be/catPKgFIZbQ?t=0) |
+| 2026-06-16 | analytics-metrics | Peak CCU | 15,000+ CCU across games | Speaker's claimed past results | [0:00](https://youtu.be/catPKgFIZbQ?t=0) |
+| 2026-06-16 | game-ideas-and-genres | Idea vs execution weight | Idea ~60-70%, execution/timing ~30-40% | Speaker's rough estimate | [1:32](https://youtu.be/catPKgFIZbQ?t=92) |
+| 2026-06-16 | core-loops-and-game-design | Minimum playtime at launch | 10-12 min; 20+ min for big game | Target average session length | [4:15](https://youtu.be/catPKgFIZbQ?t=255) |
+| 2026-06-16 | discovery-algorithm | Time to home recommendations | 7-14 days; fastest seen 6 days | Window after launch with ads running | [14:06](https://youtu.be/catPKgFIZbQ?t=846) |
+| 2026-06-16 | discovery-algorithm | Organic growth example | 200 to 100 active daily, then 5K CCU after home recs | Speaker's game before/after home recommendations | [15:28](https://youtu.be/catPKgFIZbQ?t=928) |
+| 2026-06-16 | thumbnails-icons | Thumbnail CTR | 3-4% good; one game reached 10% | Click-through rate on thumbnails | [17:32](https://youtu.be/catPKgFIZbQ?t=1052) |
+| 2026-06-16 | monetisation-other | Daily Robux at peak | ~300k Robux/day | Speaker's game during home recommendations peak | [18:52](https://youtu.be/catPKgFIZbQ?t=1132) |
+| 2026-06-16 | mindset-and-strategy | Typical hit lifespan | About one to two months | Non-classic games before algorithm moves on | [19:33](https://youtu.be/catPKgFIZbQ?t=1173) |
+| 2026-06-29 | business-and-payouts | DevEx cashout | 1,200,000 Robux (~$5,000 USD) | Group payout from Concrete Cleaning Simulator, split 50/50 with co-owner | [0:42](https://youtu.be/nvnSmeP3_xM?t=42) |
+| 2026-06-29 | business-and-payouts | Game revenue over ~1.5 weeks | ~$10,000 | Concrete Cleaning Simulator, from one game | [0:57](https://youtu.be/nvnSmeP3_xM?t=57) |
+| 2026-06-29 | analytics-metrics | Peak concurrent players | ~5,000 | Concrete Cleaning Simulator, died off within weeks | [0:57](https://youtu.be/nvnSmeP3_xM?t=57) |
+| 2026-06-29 | development-process-and-speed | Build time | 4-5 days full release (~2 days maps) | Simple game, scripting and maps built in parallel | [0:57](https://youtu.be/nvnSmeP3_xM?t=57) |
+| 2026-06-29 | business-and-payouts | Creator rewards pending | ~1M Robux expected after ~2 months | Lands roughly 60 days after release, paid gradually | [2:36](https://youtu.be/nvnSmeP3_xM?t=156) |
+| 2026-06-29 | business-and-payouts | DevEx minimum balance | 30K Robux | Required earned balance to apply for DevEx | [4:18](https://youtu.be/nvnSmeP3_xM?t=258) |
+| 2026-06-29 | business-and-payouts | DevEx review time | 5-8 days | Speaker's experience from US; payout takes 5-7 days after cashout | [4:58](https://youtu.be/nvnSmeP3_xM?t=298) |
+| 2026-06-29 | analytics-metrics | Competitor CCU vs speaker's game | ~2,000 vs ~5,000 | Carpet Cleaning competitor; speaker hit more CCU and earned more | [13:24](https://youtu.be/nvnSmeP3_xM?t=804) |
+| 2026-06-29 | development-process-and-speed | Minimum play loop | 10+ minutes | Speaker's guideline for getting into the algorithm | [12:01](https://youtu.be/nvnSmeP3_xM?t=721) |
+| 2026-07-17 | age-ratings-moderation-and-tos | Highly engaged players needed to unlock all-ages | 500 | Age-verified 16+ users who bought Robux in last 60 days | [1:18](https://youtu.be/Oo3sCq-TQXs?t=78) |
+| 2026-07-17 | monetisation-other | Publishing fee (refundable after 3 months) | 100,000 Robux | Refunded only if game stays in good standing | [4:13](https://youtu.be/Oo3sCq-TQXs?t=253) |
+| 2026-07-17 | business-and-payouts | Publishing fee review and processing time | ~48h review + 1-2 days processing | Speaker bought fee after already hitting 500 players | [5:35](https://youtu.be/Oo3sCq-TQXs?t=335) |
+| 2026-07-17 | analytics-metrics | Time to reach 500 engaged players | ~1 week ideal, up to ~2 weeks | Audience counter lags ~2-3 days behind | [7:05](https://youtu.be/Oo3sCq-TQXs?t=425) |
+| 2026-07-17 | core-loops-and-game-design | Average session playtime | 13-15 minutes | Speaker says above 10 minutes needed for algorithm | [8:28](https://youtu.be/Oo3sCq-TQXs?t=508) |
+| 2026-07-17 | analytics-metrics | Play-through rate | 2.3% (2-3% very good, 4% amazing) | Speaker's game, about 10 days old | [9:52](https://youtu.be/Oo3sCq-TQXs?t=592) |
+| 2026-07-17 | retention-d1-d7 | Day 7 vs day 1 retention | Day 7 higher than day 1 | Speaker's game; interpreted as strong return signal | [10:33](https://youtu.be/Oo3sCq-TQXs?t=633) |
+| 2026-07-29 | business-and-payouts | Experience | 8+ years developing, 10-15k peak players on own games | Speaker's own track record | [0:00](https://youtu.be/Bltv__PoNcA?t=0) |
+| 2026-07-29 | game-ideas-and-genres | Players | Brookhaven RP ~400,000 vs Pine Ridge ~600 | Two RP games compared on simplicity of concept | [1:21](https://youtu.be/Bltv__PoNcA?t=81) |
+| 2026-07-29 | ads-and-sponsored-experiences | Ad spend | 30k-60k Robux after core loop is done | Suggested post-core-loop ad budget | [6:31](https://youtu.be/Bltv__PoNcA?t=391) |
+| 2026-07-29 | thumbnails-icons | CTR | ~5% own games; ~10% friend's game with RoThumb's | AI-generated thumbnails vs hired artist | [8:44](https://youtu.be/Bltv__PoNcA?t=524) |
+| 2026-07-29 | analytics-metrics | CCU | 15K CCU | Right Storm game, cited as thumbnail case study | [8:44](https://youtu.be/Bltv__PoNcA?t=524) |
+| 2026-07-29 | updates-live-ops | Feedback window | 2 weeks of daily updates after base release | Test period before judging idea | [5:07](https://youtu.be/Bltv__PoNcA?t=307) |
+| 2026-08-06 | analytics-metrics | Peak CCU | 24K (about 15 days before recording); earlier peak 20K+ | Ride Storm, lead developer's game | [0:00](https://youtu.be/aw0PmBkakb4?t=0) |
+| 2026-08-06 | analytics-metrics | Average CCU past month | Over 11K | Ride Storm | [0:00](https://youtu.be/aw0PmBkakb4?t=0) |
+| 2026-08-06 | business-and-payouts | Peak monthly revenue | About $60K USD per month | Ride Storm peak month; revenue split among team | [1:56](https://youtu.be/aw0PmBkakb4?t=116) |
+| 2026-08-06 | retention-d1-d7 | Average session length | 30-40 minutes, peaking near 50 minutes | Ride Storm player sessions | [6:04](https://youtu.be/aw0PmBkakb4?t=364) |
+| 2026-08-06 | business-and-payouts | Offer valuation | Over $2M full buyout; offers of 20-30% also received | Ride Storm, after more than a year live | [10:06](https://youtu.be/aw0PmBkakb4?t=606) |
+| 2026-08-06 | analytics-metrics | Driving Empire CCU | 20-30K typical, about 50K, up to about 80K on big updates | Niche driving game cited as example | [10:47](https://youtu.be/aw0PmBkakb4?t=647) |
+| 2026-08-06 | analytics-metrics | Concrete Cleaning CCU and revenue | 5K CCU peak, 15-20K per month, then about 500 players | Game died after hype ended and updates stopped | [11:28](https://youtu.be/aw0PmBkakb4?t=688) |
+| 2026-08-06 | mindset-and-strategy | Stated CCU goal | 100K CCU by end of year | Ride Storm target | [17:54](https://youtu.be/aw0PmBkakb4?t=1074) |
+| 2026-08-16 | analytics-metrics | Peak CCU | 24K (Right Swarm) | Case-study title discussed as main example | [1:25](https://youtu.be/Tk0qXybUK0E?t=85) |
+| 2026-08-16 | analytics-metrics | Playtime during ads | 10+ minutes minimum | Below this he expects the game to be unlikely to hit the algorithm | [13:25](https://youtu.be/Tk0qXybUK0E?t=805) |
+| 2026-08-16 | analytics-metrics | Playtime on algorithm | 20+ minutes | Target once the game is on the home page | [14:09](https://youtu.be/Tk0qXybUK0E?t=849) |
+| 2026-08-16 | retention-d1-d7 | D1 retention | 12-15% | Stated as a very good target | [14:09](https://youtu.be/Tk0qXybUK0E?t=849) |
+| 2026-08-16 | retention-d1-d7 | D7 retention | 2-3% | Stated as pretty good | [14:50](https://youtu.be/Tk0qXybUK0E?t=890) |
+| 2026-08-16 | analytics-metrics | Pay conversion / CVR / QPTR | 2-3% | Target for good algorithm stats | [14:50](https://youtu.be/Tk0qXybUK0E?t=890) |
+| 2026-08-16 | social-features-and-virality | Concurrent players from friend joins | 5-6K CCU peak range | Concrete Simulator, driven by friends joining friends | [15:30](https://youtu.be/Tk0qXybUK0E?t=930) |
+| 2026-08-16 | first-session-onboarding | Time to show full core loop | 2-5 minutes | Player should know what to do next by then | [4:38](https://youtu.be/Tk0qXybUK0E?t=278) |
+| 2026-08-16 | core-loops-and-game-design | Goal attainable time | 10-15 minutes | Each reward stacked after the previous one | [6:01](https://youtu.be/Tk0qXybUK0E?t=361) |
+| 2026-08-16 | updates-live-ops | Critical post-release window | 7-14 days | Make-or-break period after release | [16:27](https://youtu.be/Tk0qXybUK0E?t=987) |
+| 2026-08-26 | mindset-and-strategy | Peak CCU | 24K peak, ~12K average over a month (recent game, claimed) |  | [0:00](https://youtu.be/m7015JSIrpw?t=0) |
+| 2026-08-26 | ads-and-sponsored-experiences | Ad budget | 30K-60K Robux (~$100-200) over 1-2 weeks |  | [1:45](https://youtu.be/m7015JSIrpw?t=105) |
+| 2026-08-26 | discovery-algorithm | Home recs trajectory | 5K -> 15K -> 25K -> 50K -> 100K per day for a successful game; flat 1-5K = flop |  | [9:33](https://youtu.be/m7015JSIrpw?t=573) |
+| 2026-08-26 | business-and-payouts | Solo game earnings | Concrete Cleaning: 5K+ CCU peak, ~$15-20K/month |  | [11:37](https://youtu.be/m7015JSIrpw?t=697) |
+| 2026-08-26 | development-process-and-speed | Build time | Fastest solo game: 4-5 days |  | [11:37](https://youtu.be/m7015JSIrpw?t=697) |
+| 2026-09-01 | analytics-metrics | Top day revenue | ~634,000 Robux (~$2,500 USD) | Recent team game, around 5K CCU | [0:00](https://youtu.be/2Q4NqQikzsY?t=0) |
+| 2026-09-01 | analytics-metrics | Peak hourly spend | ~600,000-800,000 Robux | Screenshot of stats page for a 5K CCU game | [1:22](https://youtu.be/2Q4NqQikzsY?t=82) |
+| 2026-09-01 | ads-and-sponsored-experiences | Hard push earnings | ~$1,000-$3,000 per day; some games grossed over 20K CCU | Speaker's past games during algorithm hard push | [3:23](https://youtu.be/2Q4NqQikzsY?t=203) |
+| 2026-09-01 | pricing | 18+ DevEx rate uplift | 42% more | Compared to standard DevEx rate, for 18+ qualified users | [4:04](https://youtu.be/2Q4NqQikzsY?t=244) |
+| 2026-09-13 | analytics-metrics | Peak CCU (own game) | ~5.6K across ~536 servers | Single game shown on dashboard, same-day | [0:00](https://youtu.be/eS0Vc7h0VW0?t=0) |
+| 2026-09-13 | analytics-metrics | CCU (partner game, lead dev) | ~18K | Creator's other game with partner | [0:00](https://youtu.be/eS0Vc7h0VW0?t=0) |
+| 2026-09-13 | analytics-metrics | Example CCU cap estimate | 5–6 CCU during ads → ~10–15 peak | Creator's rough heuristic from ad-run performance | [8:04](https://youtu.be/eS0Vc7h0VW0?t=484) |
+| 2026-09-13 | common-mistakes | Games released before first real traction | ~10 games before reaching 2–3 CCU | Creator's own experience before the 20K game | [9:09](https://youtu.be/eS0Vc7h0VW0?t=549) |
+| 2026-09-13 | ads-and-sponsored-experiences | Recommended Roblox ad run length | 1–2 weeks | Before judging whether to continue or cut the game | [6:41](https://youtu.be/eS0Vc7h0VW0?t=401) |
+| 2026-09-23 | analytics-metrics | Storm peak CCU | 18K peak, averaging 5-8K CCU, living ~1.5 years |  | [0:00](https://youtu.be/d5YHwCqwgYM?t=0) |
+| 2026-09-23 | trend-research-and-validation | Boo Studios top games | peaks of 4K, 5K, 24K CCU (12K average on one) |  | [0:41](https://youtu.be/d5YHwCqwgYM?t=41) |
+| 2026-09-23 | ads-and-sponsored-experiences | Test budget | 30k-60k Robux (~$100-$200) over 1-2 weeks |  | [13:08](https://youtu.be/d5YHwCqwgYM?t=788) |
+| 2026-09-23 | development-process-and-speed | Build time | 1-3 weeks, 4 weeks maximum |  | [9:46](https://youtu.be/d5YHwCqwgYM?t=586) |
+| 2026-09-23 | retention-d1-d7 | Typical hit lifespan | Many hits last only 15-40 days |  | [14:31](https://youtu.be/d5YHwCqwgYM?t=871) |
+| 2026-09-23 | community-and-discord | Subscribers | Approaching 40K |  | [19:46](https://youtu.be/d5YHwCqwgYM?t=1186) |
+| 2026-10-03 | analytics-metrics | Hourly Robux revenue | 1.4M Robux per 72 hours (~$5,416 per 3 days, ~$54K/month) | Single game, creator's claim; DevEx excludes 18+ users | [0:00](https://youtu.be/4vuXAQt0PuQ?t=0) |
+| 2026-10-03 | analytics-metrics | Concurrent users | ~9-10K CCU (about 11K during regular hours) | Current figure at time of recording | [0:41](https://youtu.be/4vuXAQt0PuQ?t=41) |
+| 2026-10-03 | pricing | Revenue change after price cut | ~600K to ~1.2-1.4M Robux per 72 hours (over 2x) | After halving all gamepass and dev product prices based on demographics | [3:24](https://youtu.be/4vuXAQt0PuQ?t=204) |
+| 2026-10-03 | mindset-and-strategy | Failed games before success | 15+ | Creator's own count before this game | [12:14](https://youtu.be/4vuXAQt0PuQ?t=734) |
+| 2026-10-03 | mindset-and-strategy | Next CCU targets | 100K, then 200K | Stated goals after reaching ~10K CCU | [18:07](https://youtu.be/4vuXAQt0PuQ?t=1087) |
+| 2026-10-11 | analytics-metrics | Monthly Robux revenue | ~$95,110/mo (~$9,500 per 3 days, times 10) |  | [0:00](https://youtu.be/0ENzqNB_EUo?t=0) |
+| 2026-10-11 | analytics-metrics | Revenue over 3 days | ~2.5M Robux (previous video ~1.2M) |  | [0:00](https://youtu.be/0ENzqNB_EUo?t=0) |
+| 2026-10-11 | analytics-metrics | 18+ share of Robux | >30% |  | [0:40](https://youtu.be/0ENzqNB_EUo?t=40) |
+| 2026-10-11 | analytics-metrics | Current CCU | ~10K |  | [0:00](https://youtu.be/0ENzqNB_EUo?t=0) |
+| 2026-10-11 | analytics-metrics | US share of players | 4%; Mexico is the main audience |  | [4:20](https://youtu.be/0ENzqNB_EUo?t=260) |
+| 2026-10-11 | pricing | Revenue change after halving prices | ~5x |  | [5:01](https://youtu.be/0ENzqNB_EUo?t=301) |
+| 2026-10-11 | community-and-discord | Discord server size | 50K |  | [5:35](https://youtu.be/0ENzqNB_EUo?t=335) |
+| 2026-10-11 | ads-and-sponsored-experiences | Concrete Cleaning revived after ads | ~4K CCU |  | [2:46](https://youtu.be/0ENzqNB_EUo?t=166) |
+| 2026-10-11 | analytics-metrics | Concrete Cleaning peak revenue | $10-15K/mo, died in 1-2 months |  | [14:26](https://youtu.be/0ENzqNB_EUo?t=866) |
+| 2026-10-11 | retention-d1-d7 | Average daily playtime per join | Pretty good for genre; below games at 40+ min |  | [8:39](https://youtu.be/0ENzqNB_EUo?t=519) |
+| 2026-10-11 | social-features-and-virality | YouTube subscribers | ~33K (goal 100K) |  | [15:50](https://youtu.be/0ENzqNB_EUo?t=950) |
+| 2026-10-21 | business-and-payouts | Revenue | ~2.1M Robux per 72 hours, about $8,000 DevEx per 3 days, ~$79,920/month | Rise of the Storm, shared with two partners | [0:00](https://youtu.be/DTJeR2gJSZo?t=0) |
+| 2026-10-21 | analytics-metrics | CCU | 7K-15K weekday/weekend | Rise of the Storm at peak | [0:00](https://youtu.be/DTJeR2gJSZo?t=0) |
+| 2026-10-21 | business-and-payouts | Player base 18+ | ~30% | Higher DevEx rate applies; true figure estimated ~90-100K+ per month | [0:41](https://youtu.be/DTJeR2gJSZo?t=41) |
+| 2026-10-21 | analytics-metrics | CCU history | 50-300 CCU for months, then 500 to 1K, 2K, then 10-20K after release | Revamped game that was previously dead | [6:43](https://youtu.be/DTJeR2gJSZo?t=403) |
+| 2026-10-21 | business-and-payouts | Pre-revamp monthly earnings | ~10-12K per month max | Before big revamp and changes | [9:28](https://youtu.be/DTJeR2gJSZo?t=568) |
+| 2026-10-21 | analytics-metrics | CCU scale comparison | 10K CCU vs 50K CCU roughly 10x earnings | Creator's estimate of earnings gap | [13:47](https://youtu.be/DTJeR2gJSZo?t=827) |

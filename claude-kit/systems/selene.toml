@@ -1,0 +1,4 @@
+std = "../tools/roblox-project-template/roblox"
+
+[lints]
+mixed_table = "allow"

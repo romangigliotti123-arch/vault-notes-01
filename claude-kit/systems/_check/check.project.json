@@ -1,0 +1,14 @@
+{
+  "name": "SystemsCheck",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "PlayerData": { "$path": "../PlayerData/src" },
+      "Shop": { "$path": "../Shop/src" },
+      "DailyRewards": { "$path": "../DailyRewards/src" },
+      "Analytics": { "$path": "../Analytics/src" },
+      "Admin": { "$path": "../Admin/src" }
+    }
+  }
+}
