@@ -1,5 +1,5 @@
 #!/bin/bash
-# vault-update.sh - update this vault on demand (macOS/Linux): self-healing fetch + fast-forward, then the kit refresh, then the asset sync (<vault>/Assets, from the host share).
+# vault-update.sh - update this vault on demand (macOS/Linux): self-healing fetch + fast-forward, then the kit refresh, then the asset sync (<vault>/Assets, from the public vault-assets repositories).
 # Same steps the login agent/timer runs (it passes --quiet). Nothing runs every 15 minutes any more.
 # Usage: bash vault-update.sh [--quiet] [--no-kit] [--no-assets] [--no-ai-vault] [--full-view on|off]
 #        The companion AI Library Vault (next to this vault, folder ai-library-vault) is updated together with this vault by ai-vault-sync.sh; --no-ai-vault skips it.

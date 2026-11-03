@@ -107,7 +107,7 @@ def main():
     if not a.no_fetch:
         rc, _, err = git(vault, "fetch", "--quiet", a.remote)
         if rc != 0:
-            print("update-check: cannot reach the remote (%s). Tailscale off or no network? Nothing was changed." % (err.splitlines()[-1] if err else "fetch failed"))
+            print("update-check: cannot reach the remote (%s). No network? Nothing was changed." % (err.splitlines()[-1] if err else "fetch failed"))
             return 3
     rc, up, _ = git(vault, "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}")
     if rc != 0:

@@ -452,6 +452,7 @@ def print_plan(P, keep_final, keep_note, a, real_run):
     for t in ("credentials (.credentials.json and logins)", "all other skills, agents, settings.json content, MCP servers",
               "Rokit / Luau / Rojo tools and anything else outside config, kit and vault",
               "CLAUDE.md (lines listed below are never edited)",
+              "settings.json.*-bak-* files next to settings.json (the hook installers' own copies of YOUR settings; delete them yourself if you do not need them)",
               "the companion AI Library Vault folder (ai-library-vault next to the vault), if you have one",
               "Obsidian itself and environment variables such as CLAUDES_VAULT / ROBLOX_PROJECTS"):
         say("  - " + t)

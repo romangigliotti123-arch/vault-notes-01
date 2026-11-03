@@ -16,9 +16,9 @@ H="${CLAUDE_KIT_HOME:-$HOME}"; DRY=0; HOOKS=""; MODS_ON=0
 while [ $# -gt 0 ]; do
   case "$1" in --home) H="$2"; shift 2;; --dry-run) DRY=1; shift;; --with-hooks) HOOKS=install-hooks; shift;; --remove-hooks) HOOKS=uninstall-hooks; shift;; --with-mods) MODS_ON=1; shift;; *) shift;; esac
 done
-C="$H/.claude"; MAN="$C/claude-kit/installed.tsv"; TMP="$(mktemp)"
+C="$H/.claude"; MAN="$C/claude-kit/installed.tsv"; TMP="$(mktemp "${TMPDIR:-/tmp}/claude-kit.XXXXXX")"
 if command -v sha256sum >/dev/null 2>&1; then SHA="sha256sum"; else SHA="shasum -a 256"; fi
-sha() { local o; o="$($SHA "$1")"; printf '%s' "${o%% *}"; }
+sha() { local o; o="$($SHA "$1")"; o="${o#\\}"; printf '%s' "${o%% *}"; }   # GNU sha256sum starts the line with a backslash when the file name contains one (Windows-style --home)
 MANTXT=""; [ -s "$MAN" ] && MANTXT=1      # old manifest present: look entries up with awk
 n_new=0; n_upd=0; n_same=0; n_repl=0; first_wf=0; BK="$C/claude-kit/backup/$(date +%Y-%m-%d)"
 SM="claude-kit/vault-mode"; AO="load-vault unload-vault vault-update update-check uninstall"
@@ -50,6 +50,18 @@ put() { # put <src> <rel under ~/.claude>
   [ -n "$rec" ] && printf '%s\t%s\n' "$rel" "$rec" >> "$TMP"
 }
 
+# FAST PATH (default): one Python process does the whole copy loop (tools/kit-install-files.py; the shell loop below spawned ~7 processes per file: ~4 minutes on Git Bash).
+FASTPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then FASTPY="$p"; break; fi; done
+FASTDONE=0
+if [ -n "$FASTPY" ] && [ -f "$KIT/tools/kit-install-files.py" ] && [ "${CLAUDE_KIT_SLOW:-0}" != 1 ]; then
+  fo="$("$FASTPY" -I "$KIT/tools/kit-install-files.py" --kit "$KIT" --config "$C" --always-on "$AO" $([ $DRY = 1 ] && echo --dry-run) 2>&1)"
+  case "$fo" in
+    *"RESULT new="*) r="$(printf '%s\n' "$fo" | grep '^RESULT new=' | tail -1)"
+       n_new="${r#*new=}"; n_new="${n_new%% *}"; n_upd="${r#*upd=}"; n_upd="${n_upd%% *}"; n_same="${r#*same=}"; n_same="${n_same%% *}"; n_repl="${r#*repl=}"; n_repl="${n_repl%% *}"; FASTDONE=1;;
+    *) echo "claude-kit: fast installer failed, using the slow shell loop ($(printf '%s' "$fo" | tail -1 | cut -c1-160))";;
+  esac
+fi
+if [ $FASTDONE = 0 ]; then
 for sub in agents skills mode tools systems skillpack; do
   [ -d "$KIT/$sub" ] || continue
   while IFS= read -r f; do
@@ -64,8 +76,10 @@ for sub in agents skills mode tools systems skillpack; do
   done < <(find "$KIT/$sub" -type f ! -path '*/__pycache__/*' ! -name '*.pyc' | sort)
 done
 
+fi
+
 if [ $DRY = 0 ]; then
-  mkdir -p "$(dirname "$MAN")"; sort -u "$TMP" > "$MAN"
+  [ $FASTDONE = 1 ] || { mkdir -p "$(dirname "$MAN")"; sort -u "$TMP" > "$MAN"; }
   chmod +x "$C/claude-kit/tools/roblox-project-template/luau-check.sh" "$C/claude-kit/tools/studio-setup.sh" 2>/dev/null || true
 fi
 # move an older always-on layout into the store (idempotent; silent when there is nothing to move)

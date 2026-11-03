@@ -1,8 +1,8 @@
 # kit-refresh.ps1 - run right after the vault update (self-healing fetch + fast-forward) (by vault-update.ps1, the logon task, or by hand) so installed copies of the kit
-# (agents, skills such as /game-dev-workflow, tools) refresh whenever the vault updates, and then syncs <vault>\Assets from the host share.
+# (agents, skills such as /game-dev-workflow, tools) refresh whenever the vault updates, and then syncs <vault>\Assets from the public vault-assets repositories.
 # 1) install.ps1 (idempotent; kit wins: a file you changed is backed up to claude-kit/backup/<date>/ and replaced). Env CLAUDE_KIT_SKIP=1 skips this part.
 # 2) tools\assets-sync.py --vault <this vault>: downloads only new/changed asset files (about 2.7 GB the first time), deletes removed ones.
-#    Quiet unless something changed; skips with one line when the share is unreachable (Tailscale off). Env CLAUDE_ASSETS_SKIP=1 skips this part.
+#    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools\refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>\claude-kit\roblox-reference and
 #    writes <claude config dir>\claude-kit\reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
 # 4) tools\learn.py flush --quiet: sends the notes queued by /vault-learn to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write

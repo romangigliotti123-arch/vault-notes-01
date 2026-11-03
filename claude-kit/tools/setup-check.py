@@ -184,7 +184,7 @@ def rk(tool):
         p = which(tool, ROKIT_BIN)
         if not p:
             return None
-        out = re.sub(r"\[[0-9;]*m", "", run([p, "--version"], 15, sysdir()) or "")
+        out = re.sub(r"\x1b\[[0-9;]*m", "", run([p, "--version"], 15, sysdir()) or "")
         if not out or "ERROR" in out or "Failed" in out:
             return None
         return "%s  (%s)" % (first_line(out), p)

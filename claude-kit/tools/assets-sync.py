@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""assets-sync.py - keep <vault>/Assets in sync with the asset mirror on the host PC's Tailscale-only share (stdlib only; Windows/macOS/Linux).
+"""assets-sync.py - keep <vault>/Assets in sync with the public asset repositories (vault-assets-NN release files, listed in repos.json) or, for the owner, the host PC's share (stdlib only; Windows/macOS/Linux).
 
   python assets-sync.py --vault <vault folder> [--base URL ...] [--verify] [--dry-run] [--jobs 6] [--verbose]
 
 What it does: fetches assets-manifest.json from the share (path, size, sha256 per file), compares it with <vault>/Assets, downloads only new or
 changed files (to <file>.part with HTTP Range resume, sha256-verified, then renamed atomically), and deletes files that the previous sync tracked but the
 manifest no longer lists (only inside <vault>/Assets). Share mode never uses git or GitHub; website mode (below) downloads the zips from the GitHub Release files listed in repos.json.
-Quiet when nothing changed (no output). One line if the share is unreachable (Tailscale off): the sync is skipped and the exit code is still 0.
+Quiet when nothing changed (no output). One line if no source is reachable (offline): the sync is skipped and the exit code is still 0.
 
 WEBSITE (zip) MODE: with --base <url> (or a base remembered from an earlier run) the tool first reads <base>/repos.json (the vault's list of asset sources: each
 entry is a folder URL holding SHA256SUMS and <type>.zip, for example a GitHub release or the website's /assets folder; adding a source never needs a client change),
@@ -314,7 +314,7 @@ def remove_file(path):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Sync <vault>/Assets from the host share.")
+    ap = argparse.ArgumentParser(description="Sync <vault>/Assets from the public vault-assets repositories (or the owner's share).")
     ap.add_argument("--vault", required=True)
     ap.add_argument("--base", action="append", help="base URL (repeatable or comma separated): the vault-kit raw URL or the website (they list the asset sources in repos.json), or the private share; default: the built-in list")
     ap.add_argument("--verify", action="store_true", help="re-hash every local file instead of trusting the saved state")
@@ -347,7 +347,7 @@ def main():
             mode, base, vline = "zip", zb, (sums, where)
             break
     if base is None:
-        say("assets-sync: no asset source reachable (offline? the private share needs Tailscale); skipped, Assets unchanged")
+        say("assets-sync: no asset source reachable (offline?); skipped, Assets unchanged")
         return 0
     os.makedirs(fs(assets), exist_ok=True)
     ensure_exclude(vault)
