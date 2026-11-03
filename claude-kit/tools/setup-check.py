@@ -248,7 +248,7 @@ def table():
          inst("winget install --id yt-dlp.yt-dlp -e", "brew install yt-dlp", pkg("yt-dlp"))),
         ("GitHub CLI (gh)", "GitHub rate limits, GitHub login for the vault", False, lambda: cli("gh"),
          inst("winget install --id GitHub.cli -e", "brew install gh", pkg("github-cli", "gh", "gh"))),
-        ("Tailscale", "the vault share and the Assets sync", False, tailscale,
+        ("Tailscale", "only for the owner's private share (not needed: vault and assets come from GitHub)", False, tailscale,
          inst("winget install --id Tailscale.Tailscale -e", "brew install --cask tailscale",
               "curl -fsSL https://tailscale.com/install.sh | sh   (or: " + pkg("tailscale") + ")")),
     ]

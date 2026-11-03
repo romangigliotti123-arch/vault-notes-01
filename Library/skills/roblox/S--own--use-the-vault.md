@@ -45,7 +45,7 @@ The vault is a read-only, generated copy of the owner's knowledge. Search it; do
 - `Manager/`: research on how to run and brief agents (`Manager-README.md`, `PROPOSALS.md`, `kb-conventions.md`, `src-*.md` source notes). Read `Manager-README.md` first.
 - `Imported/`: public knowledge vaults (Roblox Creator docs, Luau site, game mechanics); start at `Imported/Imported-Vaults-INDEX.md`.
 - `claude-kit/`: installer, agents, skills and tools for using all this (see its INSTALL.md).
-- Assets are in `<vault>/Assets` (synced from the host share by /vault-update, never in git; fallbacks: env `ROBLOX_ASSETS`, `~/roblox-assets`) (`INDEX.md`, `catalog/`, `code/`, `3d-models/`, `audio/`, `textures/`, `hdris/`).
+- Assets are in `<vault>/Assets` (downloaded from the public vault-assets GitHub repos by /vault-update, never in git; licences in THIRD-PARTY-NOTICES.md; fallbacks: env `ROBLOX_ASSETS`, `~/roblox-assets`) (`INDEX.md`, `catalog/`, `code/`, `3d-models/`, `audio/`, `textures/`, `hdris/`).
 
 ## Make a game
 For "make me a Roblox game" or "continue my game" use `/game-dev-workflow` (stage tracker, critic gate, weekly numbers `/game-dev-weekly`, launch `/game-dev-launch-kit`, save reusable work `/game-dev-harvest`); the make-roblox-game skill (agent roblox-game-builder) is the build engine it uses. Worked example of the whole flow: `Guides/Worked-Example-Idea-To-Live-Ops.md`.

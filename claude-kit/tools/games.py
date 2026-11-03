@@ -477,7 +477,7 @@ def cmd_contribute(a):
             for fn in files:
                 full = os.path.join(d, fn)
                 z.write(full, os.path.join(a.name, os.path.relpath(full, src)))
-    print("BUNDLE=%s\nNothing was uploaded. To contribute it, send this file to the vault owner (Tailscale file share / scp to the host) and ask them to review it." % zp)
+    print("BUNDLE=%s\nNothing was uploaded. To contribute it, send this file to the vault owner (scp or a file share, ask the owner where) and ask them to review it." % zp)
 
 
 def main():
