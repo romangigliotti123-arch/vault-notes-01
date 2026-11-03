@@ -37,7 +37,7 @@ def marker_path(c):
 
 
 def hook_cmd(event):
-    return '"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/low-usage-mode/scripts/lum" hook ' + event
+    return '"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/vault-mode/.claude/skills/low-usage-mode/scripts/lum" hook ' + event
 
 
 def wanted():

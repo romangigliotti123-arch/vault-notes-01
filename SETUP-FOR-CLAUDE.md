@@ -10,14 +10,14 @@ If you are a person: open the viewer at [https://vault-hhmi60uo.netlify.app/](ht
 
 ## What the vault is
 
-The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is a private Obsidian vault named `claudes-vault` with about 7,522 notes in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 15 Roblox agents, 60 skills / slash commands, helper tools) and about 1.0 GB of **assets** (zip downloads; 1.4 GB extracted) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
+The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is a private Obsidian vault named `claudes-vault` with about 7,522 notes in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 15 Roblox agents, 62 skills / slash commands, helper tools) that is installed **but switched off by default**: a normal Claude Code session loads nothing from the vault, and `/load-vault` turns on "Roblox dev mode" for one project folder and about 1.0 GB of **assets** (zip downloads; 1.4 GB extracted) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
 
 ## What this changes on the computer (nothing else)
 
 - Creates or updates one folder: `~/Obsidian/claudes-vault` (Windows `%USERPROFILE%\Obsidian\claudes-vault`) using git. Pull-only: you never commit or push.
 - Creates `<vault>/Assets/<type>/` from verified zip files (`<vault>/Assets` is git-ignored).
 - When an agent records a verified finding (`/vault-learn`), it creates `~/.claude/claude-kit/learnings-queue/` with small note files. They are scanned for secrets, personal data and instruction-like text first, and the kit refresh sends them to the public inbox repository `https://github.com/romangigliotti123-arch/vault-learnings.git` only from computers that have write access to it (nobody else's); otherwise they stay local. Nothing else is ever sent.
-- Copies kit files to `~/.claude/agents`, `~/.claude/skills`, `~/.claude/claude-kit`. A file the user edited is never overwritten (the kit version is saved next to it as `<file>.new`). It never edits `settings.json`, environment variables, MCP config or any other global setting.
+- Copies kit files to `~/.claude/claude-kit` only: the vault skills and agents go to an on-demand store (`~/.claude/claude-kit/vault-mode/`) that normal Claude sessions do not read, so they do not appear in unrelated sessions. Only five small commands go to `~/.claude/skills`: `/load-vault`, `/unload-vault`, `/vault-update`, `/update-check`, `/uninstall`. `/load-vault` copies the store's skills and agents into the **current project folder's** `.claude/` (hidden from git, listed in `.claude/vault-mode.json`), `/unload-vault` removes exactly those copies. A file the user edited is replaced by the kit version only after it was copied to `~/.claude/claude-kit/backup/<date>/`. An older install (kit skills and agents directly in `~/.claude/skills` and `/agents`) is moved to the store on the next install or `/vault-update`: unchanged kit files go to a backup folder (reversible with `vault-mode.py migrate --revert`), the user's own skills, agents and `CLAUDE.md` are not touched. It never edits `settings.json`, `CLAUDE.md`, environment variables, MCP config or any other global setting, and it installs no hooks and no plugins (those are opt-in flags).
 - No scheduled task, no sudo or admin rights (unless git or Python must be installed), no tokens or passwords, no network access except github.com and raw.githubusercontent.com (the repositories) and `https://vault-hhmi60uo.netlify.app` (the website; today also the asset zips).
 - `My Research/` (and any folder containing `PROTECTED-RESEARCH.md`) in the vault belongs to the user and is never deleted or overwritten.
 
@@ -46,7 +46,7 @@ echo "OS: $(uname -s) $(uname -m)"; git --version 2>&1 | head -1; (python3 --ver
 V="$HOME/Obsidian/claudes-vault"
 [ -d "$V/.git" ] && echo "vault: present ($(git -C "$V" log -1 --format=%cd --date=short), origin $(git -C "$V" remote get-url origin 2>/dev/null))" || echo "vault: not present"
 [ -d "$V/Assets" ] && du -sh "$V/Assets" 2>/dev/null | cut -f1 | sed 's/^/assets: /' || echo "assets: not present"
-[ -d "$HOME/.claude/skills/game-dev-workflow" ] && echo "kit: installed" || echo "kit: not installed"
+{ [ -d "$HOME/.claude/claude-kit/vault-mode/.claude/skills/game-dev-workflow" ] || [ -d "$HOME/.claude/skills/game-dev-workflow" ]; } && echo "kit: installed" || echo "kit: not installed"
 ```
 [PowerShell]
 ```powershell
@@ -54,7 +54,7 @@ V="$HOME/Obsidian/claudes-vault"
 $V="$env:USERPROFILE\Obsidian\claudes-vault"
 if (Test-Path "$V\.git") { "vault: present (origin $(git -C $V remote get-url origin 2>$null))" } else { "vault: not present" }
 if (Test-Path "$V\Assets") { "assets: present" } else { "assets: not present" }
-if (Test-Path "$env:USERPROFILE\.claude\skills\game-dev-workflow") { "kit: installed" } else { "kit: not installed" }
+if ((Test-Path "$env:USERPROFILE\.claude\claude-kit\vault-mode\.claude\skills\game-dev-workflow") -or (Test-Path "$env:USERPROFILE\.claude\skills\game-dev-workflow")) { "kit: installed" } else { "kit: not installed" }
 ```
 
 ## Step 1. Install git and Python 3 if missing (silent, no questions)
@@ -119,7 +119,7 @@ The note count should be about 7,522. The clone is about 110 MB and the first cl
 
 ## Step 4. Install the kit (agents, skills, slash commands)
 
-The kit comes from the kit repository (the same files are inside the vault clone's `claude-kit/`, which `/vault-update` uses later). The installer only copies files and you can read it first.
+The kit comes from the kit repository (the same files are inside the vault clone's `claude-kit/`, which `/vault-update` uses later). The installer only copies files and you can read it first. It installs the kit **switched off**: the vault skills and agents are put in an on-demand store and are not loaded by any Claude session until the user types `/load-vault` (see "Roblox dev mode" below). Do not copy them into `~/.claude/skills` or `~/.claude/agents` yourself.
 
 [bash]
 ```bash
@@ -133,7 +133,17 @@ git clone -q --depth 1 $KIT "$T\vault-kit"
 if ($LASTEXITCODE -eq 0) { powershell -NoProfile -ExecutionPolicy Bypass -File "$T\vault-kit\claude-kit\install.ps1" } else { "kit clone failed: not installed" }
 Remove-Item -Recurse -Force $T -ErrorAction SilentlyContinue
 ```
-Expected last line: `claude-kit: installed N new, updated N, unchanged N, kept-your-version N`. The installer is idempotent, silent and needs no admin rights.
+Expected line: `claude-kit: installed N new, updated N, unchanged N, replaced-yours N`, then (first install) a short text saying the kit is off by default and `/load-vault` turns it on. If the computer had the older always-on layout, one more line says `vault-mode: moved N vault skills and M agents ... into the on-demand store` (backup path included). The installer is idempotent and needs no admin rights. It does not install the `/hud` and `/graph` plugins or any hook unless the user asked (`--with-mods` / `-WithMods`, `--with-hooks` / `-WithHooks`).
+
+## Roblox dev mode (what the user does after setup)
+
+In the folder of the Roblox project, start Claude Code and type **`/load-vault`**. It copies the vault skills and agents into that folder's `.claude/`, hides them from git, and prints `Roblox dev mode on: N skills, M agents, reference images ready (308), learn step on`; the session then follows the mode rules (art direction and visual QA before a game is done, reference screenshots, the learn step, vault search). **`/unload-vault`** removes exactly those copies again. Other folders and other Claude sessions never see them.
+
+- If the folder had no `.claude/skills` when the session started, Claude Code reads the new skills only at the next start: `/load-vault` says so, and the user types `/exit` and runs `claude -c` (continues the conversation). Until then the mode already works (the skills are used from their files). Agents are listed at the next start in every case; until then they run as general-purpose subagents with the agent file as the brief.
+- The user's own skills or agents with the same name are never replaced: those names are skipped and the user's win. A file the user changed inside a loaded copy is kept on unload.
+- Session-only alternative (nothing written to the project): start Claude with `claude --add-dir ~/.claude/claude-kit/vault-mode` (Windows: `%USERPROFILE%\.claude\claude-kit\vault-mode`); the skills and agents are listed at once, then `/load-vault` only prints the mode rules (`--no-link`).
+- Optional auto-load (the user's choice; nothing adds it for them): `python ~/.claude/claude-kit/tools/vault-mode.py autoload-snippet` prints a SessionStart hook for `settings.json`; it loads the mode only in folders that contain a Roblox project marker (`default.project.json`, `*.rbxl`, `rokit.toml`, ...). Never add it unless the user asks.
+- `/vault-update` refreshes the loaded folders too and reports the mode (`vault-mode.py status`).
 
 ## Step 5. Download the assets (zip files, sha256-verified, extracted atomically) and the reference screenshots
 
@@ -183,72 +193,76 @@ The text it prints (for reference, do not re-type it): see the output of the com
 
 ## Slash commands installed by the kit
 
-- `/clarify-before-build` - Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of done is clear, then o
-- `/deep-topic-research` - Use when the user gives a topic and wants it researched deeply across GitHub, YouTube, Reddit, blogs, docs and papers: find the best creators and publishers per source, r
-- `/game-dev-ads` - Ads tutorial and best-way-to-run-ads plan for a specific Roblox game, built from the vault's ads notes, AD-PLAYBOOK and the newest notes every run, then live-checked beca
-- `/game-dev-art-direction` - Writes the art direction for a Roblox game BEFORE anything visual is built, so the UI, models, lighting and effects look designed instead of default: palette, one UI styl
-- `/game-dev-critic` - The independent quality gate of the Roblox game workflow. Before anything is called done, a stage advances or a build is handed over, a separate critic agent plays/inspec
-- `/game-dev-harvest` - Saves anything reusable Claude built or found good while making a Roblox game (a system, module, UI, pattern, prompt, tool) into the protected Games/_Reusable/<name>/ fol
-- `/game-dev-launch-kit` - Launch kit for a Roblox game, triggered by the stage gate from playtest to launch (and runnable alone as /game-dev-launch-kit): chains the existing thumbnail/icon brief, 
-- `/game-dev-plan` - Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptan
-- `/game-dev-playtest` - Playtests a Roblox game and returns a bug and feel report with severities and fixes. Uses Roblox Studio MCP when it is connected; otherwise a deterministic path that need
-- `/game-dev-rate` - Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook, fluidity and feel, virality and co-play, monetisation fit,
-- `/game-dev-thumbnail` - Creates image prompts, reference-photo guidance and the actual images for a Roblox game's icon, thumbnails and store screenshots using Google's newest Nano Banana (Gemini
-- `/game-dev-update` - Plans and writes future updates for a Roblox game: content cadence, live-ops loops, retention levers mapped to D1/D7/D30, an event and season calendar, player-facing patc
-- `/game-dev-visual-qa` - The mandatory visual gate and definition of done for a Roblox game: screenshots the running game (3 moments, phone and desktop), runs a layout/overlap check at phone, tab
-- `/game-dev-weekly` - Weekly numbers check for a live or launching Roblox game. The user pastes Creator Dashboard numbers (or, later, Open Cloud analytics); the skill compares them with the va
-- `/game-dev-workflow` - Flagship end-to-end Roblox game workflow and the single entry for every game, run with /game-dev-workflow. It finds or creates the game (Games/<game>/ in the vault, prote
-- `/game-idea` - Run /game-idea to get ONE short, evidence-backed Roblox game idea that fits what is working on Roblox right now. It checks live sources (official Charts/Discover, RoMonit
-- `/karpathy-coding-guidelines` - Installs and applies four coding-agent behaviour rules in a project CLAUDE.md: think before coding and ask when unclear, simplicity first (minimum code), surgical changes
-- `/kit-list` - Run /kit-list to see everything the kit installed on this computer: skills, agents and mods (with installed state), plus a pointer to the /rbx pack skills. Read-only. Use
-- `/light-mode-off` - Turn Obsidian light mode OFF (full view) for the claudes-vault on this computer: everything except Assets becomes visible in Obsidian (slower, about 14,000 more notes). S
-- `/light-mode-on` - Turn Obsidian light mode ON for the claudes-vault on this computer: hides Imported, Library, Assets and source notes so Obsidian opens fast. Switch only, no update, works
-- `/low-usage-mode` - Keep Claude in low usage mode for the rest of the session and every later one until turned off: cheapest model that fits, no opus, one subagent at most, short replies, sm
-- `/make-roblox-game` - Use when the user says make/build/create me a Roblox game (with or without an idea), 'use the vault to build', 'give me game ideas that would do well', or wants a Roblox 
-- `/manager-mode` - Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model and effort (haiku/sonnet/opus), brief workers, check their re
-- `/rate-anything-1-10` - General-purpose 1.00-10.00 rater for any thing the user wants judged (an idea, plan, pitch, prompt, design, document, landing page, product, code, skill): picks 5-8 relev
-- `/rbx` - Router for the Roblox skill pack (300+ focused skills kept outside the skills folder, e.g. thumbnail-maker, gamepass-maker, model-cleaner, game-optimizer). /rbx <name> [a
-- `/roblox-ad-campaign-planner` - Plans a Roblox sponsored-experience ad test with a readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, with arithmetic done 
-- `/roblox-ad-thumbnail-brief` - Creative brief and test plan for a Roblox experience's icon, thumbnails and sponsored ad creatives: concept options, text rules, size specs, A/B plan. Use when preparing 
-- `/roblox-analytics-review` - Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) that ends in a ranked list of changes to t
-- `/roblox-asset-finder` - Given a Roblox dev need (low-poly trees, datastore wrapper, UI framework, SFX, PBR textures, open-source game example, Luau docs), searches the local roblox-assets index 
-- `/roblox-code-rate` - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority and exploit resistance, data safety, correctness, error handling, performance, structure and read
-- `/roblox-datastore-safe-save` - Pattern and review checklist for saving player data in Roblox DataStores without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema ve
-- `/roblox-game-ideas` - Generates, scores and plans Roblox game concepts for a solo or small team. Takes an optional seed idea, gets current patterns from roblox-trend-research, scores 8 candida
-- `/roblox-gdd-template` - Fills in a one-to-three page game design document (GDD) for a Roblox experience from a concept, using the Roblox knowledge base for core-loop, onboarding, economy, retent
-- `/roblox-kb-answer` - Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs/sessions plus 25 creators), without spawning agents 
-- `/roblox-launch-checklist` - Builds an interactive, phone-friendly launch checklist (self-contained HTML plus markdown) tailored to one specific Roblox game, merged from the Roblox knowledge base che
-- `/roblox-leaderboards-and-events` - Implement Roblox global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when adding competition, badges or recurring events to a 
-- `/roblox-luau-style` - Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no legacy APIs. Use when writing, reviewing or refactoring Luau.
-- `/roblox-metrics-benchmarks` - One sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, rewarded-video opt-in, FPS) from th
-- `/roblox-monetisation-setup` - Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, plus ethical-pricing checks. Use when adding purch
-- `/roblox-monetization-audit` - Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium/subscriptions, ProcessReceipt security, pay-to-win and RNG ri
-- `/roblox-npc-pathfinding` - Implement Roblox NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any mov
-- `/roblox-performance-pass` - Find and fix performance problems in a Roblox experience: server and client frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblo
-- `/roblox-playtest-checklist` - Checklist and bug-report format for playtesting a Roblox experience (first 30 seconds through multiplayer and exploits).
-- `/roblox-publish-checklist` - Pre-launch checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use before th
-- `/roblox-remote-security` - Server-authoritative design and exploit review for Roblox RemoteEvents/RemoteFunctions: validate every argument, rate-limit, never trust client state. Use when writing cl
-- `/roblox-rojo-project-setup` - Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau can be edited and reviewed as plain files. Use when starting a Roblox project that Claude sh
-- `/roblox-round-based-game-loop` - Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use when building minigame, batt
-- `/roblox-studio-connect` - Connects Claude Code to Roblox Studio and the Roblox toolchain, and says how to use the connection as evidence. Covers Roblox's official built-in Studio MCP server (read 
-- `/roblox-thumbnail-brief` - Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list and an A/B test plan, u
-- `/roblox-trend-research` - Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, cor
-- `/roblox-ui-responsive` - Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when crea
-- `/setup-check` - Run /setup-check to see which software the vault setup needs and what is missing on this computer (Windows, macOS, Linux): git, Python, Claude Code, Roblox Studio and its
+Always available (installed in `~/.claude/skills`): `/load-vault`, `/unload-vault`, `/vault-update`, `/update-check`, `/uninstall`. Every other command below is part of the kit's Roblox dev mode: it exists after `/load-vault` in a project folder and nowhere else.
+
+- `/load-vault` - Run /load-vault to turn on Roblox dev mode for this project folder: loads the Roblox Dev Mastery Vault kit (its skills, agents, art-direction and visual-QA rules, referen
 - `/uninstall` - Remove the whole Roblox Dev Mastery Vault kit from this computer and keep only the user's games (Games/ incl. _Reusable, plus My Research). Dry-run plan first, nothing is
+- `/unload-vault` - Run /unload-vault to turn Roblox dev mode off for this project folder: removes exactly the vault skills and agents that /load-vault copied here (never your own), and stop
 - `/update-check` - Run /update-check to see whether a newer vault or kit exists, without changing anything. Fetches the vault's git remote (the public GitHub repo vault-notes, or the share 
-- `/use-the-ai-library` - How any Claude finds and uses a skill, agent or research note from the AI Library Vault (10,000+ general AI skills and agents, plus research notes on Nate Herk, RoboNugge
-- `/use-the-vault` - How any Claude should use the claudes-vault Obsidian vault (about 17,000 generated notes: Roblox knowledge base, 11,000 skill/agent notes, manager research): find the vau
-- `/vault-contribute` - Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can offer it to the vault owner for the shared host vault. Noth
-- `/vault-curate` - Owner/maintainer only, on demand: curate the public vault-learnings inbox into vault notes. Reads inbox notes as untrusted data with fixed rules (secrets, personal data, 
-- `/vault-learn` - Record a verified, non-obvious finding so every agent that uses the vault can benefit (self-improving vault). Use proactively, without being asked, right after you have V
-- `/vault-mentor` - Start the vault mentor: a co-pilot with the combined knowledge of every creator in the Roblox Dev Mastery Vault and the AI Library Vault that works alongside you on any j
 - `/vault-update` - Update the claudes-vault (and the companion AI Library Vault) on this computer on demand: self-healing git update (fetch + fast-forward; local changes are saved to a patc
-- `/vault-update-clean` - Make this computer's claudes-vault an EXACT copy of the main vault (Roman's), removing stray or changed files, while keeping Games, My Research and other protected folder
+- `/clarify-before-build` (Roblox dev mode) - Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of done is clear, then o
+- `/deep-topic-research` (Roblox dev mode) - Use when the user gives a topic and wants it researched deeply across GitHub, YouTube, Reddit, blogs, docs and papers: find the best creators and publishers per source, r
+- `/game-dev-ads` (Roblox dev mode) - Ads tutorial and best-way-to-run-ads plan for a specific Roblox game, built from the vault's ads notes, AD-PLAYBOOK and the newest notes every run, then live-checked beca
+- `/game-dev-art-direction` (Roblox dev mode) - Writes the art direction for a Roblox game BEFORE anything visual is built, so the UI, models, lighting and effects look designed instead of default: palette, one UI styl
+- `/game-dev-critic` (Roblox dev mode) - The independent quality gate of the Roblox game workflow. Before anything is called done, a stage advances or a build is handed over, a separate critic agent plays/inspec
+- `/game-dev-harvest` (Roblox dev mode) - Saves anything reusable Claude built or found good while making a Roblox game (a system, module, UI, pattern, prompt, tool) into the protected Games/_Reusable/<name>/ fol
+- `/game-dev-launch-kit` (Roblox dev mode) - Launch kit for a Roblox game, triggered by the stage gate from playtest to launch (and runnable alone as /game-dev-launch-kit): chains the existing thumbnail/icon brief, 
+- `/game-dev-plan` (Roblox dev mode) - Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptan
+- `/game-dev-playtest` (Roblox dev mode) - Playtests a Roblox game and returns a bug and feel report with severities and fixes. Uses Roblox Studio MCP when it is connected; otherwise a deterministic path that need
+- `/game-dev-rate` (Roblox dev mode) - Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook, fluidity and feel, virality and co-play, monetisation fit,
+- `/game-dev-thumbnail` (Roblox dev mode) - Creates image prompts, reference-photo guidance and the actual images for a Roblox game's icon, thumbnails and store screenshots using Google's newest Nano Banana (Gemini
+- `/game-dev-update` (Roblox dev mode) - Plans and writes future updates for a Roblox game: content cadence, live-ops loops, retention levers mapped to D1/D7/D30, an event and season calendar, player-facing patc
+- `/game-dev-visual-qa` (Roblox dev mode) - The mandatory visual gate and definition of done for a Roblox game: screenshots the running game (3 moments, phone and desktop), runs a layout/overlap check at phone, tab
+- `/game-dev-weekly` (Roblox dev mode) - Weekly numbers check for a live or launching Roblox game. The user pastes Creator Dashboard numbers (or, later, Open Cloud analytics); the skill compares them with the va
+- `/game-dev-workflow` (Roblox dev mode) - Flagship end-to-end Roblox game workflow and the single entry for every game, run with /game-dev-workflow. It finds or creates the game (Games/<game>/ in the vault, prote
+- `/game-idea` (Roblox dev mode) - Run /game-idea to get ONE short, evidence-backed Roblox game idea that fits what is working on Roblox right now. It checks live sources (official Charts/Discover, RoMonit
+- `/karpathy-coding-guidelines` (Roblox dev mode) - Installs and applies four coding-agent behaviour rules in a project CLAUDE.md: think before coding and ask when unclear, simplicity first (minimum code), surgical changes
+- `/kit-list` (Roblox dev mode) - Run /kit-list to see everything the kit installed on this computer: skills, agents and mods (with installed state), plus a pointer to the /rbx pack skills. Read-only. Use
+- `/light-mode-off` (Roblox dev mode) - Turn Obsidian light mode OFF (full view) for the claudes-vault on this computer: everything except Assets becomes visible in Obsidian (slower, about 14,000 more notes). S
+- `/light-mode-on` (Roblox dev mode) - Turn Obsidian light mode ON for the claudes-vault on this computer: hides Imported, Library, Assets and source notes so Obsidian opens fast. Switch only, no update, works
+- `/low-usage-mode` (Roblox dev mode) - Keep Claude in low usage mode for the rest of the session and every later one until turned off: cheapest model that fits, no opus, one subagent at most, short replies, sm
+- `/make-roblox-game` (Roblox dev mode) - Use when the user says make/build/create me a Roblox game (with or without an idea), 'use the vault to build', 'give me game ideas that would do well', or wants a Roblox 
+- `/manager-mode` (Roblox dev mode) - Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model and effort (haiku/sonnet/opus), brief workers, check their re
+- `/rate-anything-1-10` (Roblox dev mode) - General-purpose 1.00-10.00 rater for any thing the user wants judged (an idea, plan, pitch, prompt, design, document, landing page, product, code, skill): picks 5-8 relev
+- `/rbx` (Roblox dev mode) - Router for the Roblox skill pack (300+ focused skills kept outside the skills folder, e.g. thumbnail-maker, gamepass-maker, model-cleaner, game-optimizer). /rbx <name> [a
+- `/roblox-ad-campaign-planner` (Roblox dev mode) - Plans a Roblox sponsored-experience ad test with a readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, with arithmetic done 
+- `/roblox-ad-thumbnail-brief` (Roblox dev mode) - Creative brief and test plan for a Roblox experience's icon, thumbnails and sponsored ad creatives: concept options, text rules, size specs, A/B plan. Use when preparing 
+- `/roblox-analytics-review` (Roblox dev mode) - Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) that ends in a ranked list of changes to t
+- `/roblox-asset-finder` (Roblox dev mode) - Given a Roblox dev need (low-poly trees, datastore wrapper, UI framework, SFX, PBR textures, open-source game example, Luau docs), searches the local roblox-assets index 
+- `/roblox-code-rate` (Roblox dev mode) - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority and exploit resistance, data safety, correctness, error handling, performance, structure and read
+- `/roblox-datastore-safe-save` (Roblox dev mode) - Pattern and review checklist for saving player data in Roblox DataStores without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema ve
+- `/roblox-game-ideas` (Roblox dev mode) - Generates, scores and plans Roblox game concepts for a solo or small team. Takes an optional seed idea, gets current patterns from roblox-trend-research, scores 8 candida
+- `/roblox-gdd-template` (Roblox dev mode) - Fills in a one-to-three page game design document (GDD) for a Roblox experience from a concept, using the Roblox knowledge base for core-loop, onboarding, economy, retent
+- `/roblox-kb-answer` (Roblox dev mode) - Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs/sessions plus 25 creators), without spawning agents 
+- `/roblox-launch-checklist` (Roblox dev mode) - Builds an interactive, phone-friendly launch checklist (self-contained HTML plus markdown) tailored to one specific Roblox game, merged from the Roblox knowledge base che
+- `/roblox-leaderboards-and-events` (Roblox dev mode) - Implement Roblox global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when adding competition, badges or recurring events to a 
+- `/roblox-luau-style` (Roblox dev mode) - Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no legacy APIs. Use when writing, reviewing or refactoring Luau.
+- `/roblox-metrics-benchmarks` (Roblox dev mode) - One sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, rewarded-video opt-in, FPS) from th
+- `/roblox-monetisation-setup` (Roblox dev mode) - Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, plus ethical-pricing checks. Use when adding purch
+- `/roblox-monetization-audit` (Roblox dev mode) - Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium/subscriptions, ProcessReceipt security, pay-to-win and RNG ri
+- `/roblox-npc-pathfinding` (Roblox dev mode) - Implement Roblox NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any mov
+- `/roblox-performance-pass` (Roblox dev mode) - Find and fix performance problems in a Roblox experience: server and client frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblo
+- `/roblox-playtest-checklist` (Roblox dev mode) - Checklist and bug-report format for playtesting a Roblox experience (first 30 seconds through multiplayer and exploits).
+- `/roblox-publish-checklist` (Roblox dev mode) - Pre-launch checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use before th
+- `/roblox-remote-security` (Roblox dev mode) - Server-authoritative design and exploit review for Roblox RemoteEvents/RemoteFunctions: validate every argument, rate-limit, never trust client state. Use when writing cl
+- `/roblox-rojo-project-setup` (Roblox dev mode) - Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau can be edited and reviewed as plain files. Use when starting a Roblox project that Claude sh
+- `/roblox-round-based-game-loop` (Roblox dev mode) - Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use when building minigame, batt
+- `/roblox-studio-connect` (Roblox dev mode) - Connects Claude Code to Roblox Studio and the Roblox toolchain, and says how to use the connection as evidence. Covers Roblox's official built-in Studio MCP server (read 
+- `/roblox-thumbnail-brief` (Roblox dev mode) - Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list and an A/B test plan, u
+- `/roblox-trend-research` (Roblox dev mode) - Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, cor
+- `/roblox-ui-responsive` (Roblox dev mode) - Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when crea
+- `/setup-check` (Roblox dev mode) - Run /setup-check to see which software the vault setup needs and what is missing on this computer (Windows, macOS, Linux): git, Python, Claude Code, Roblox Studio and its
+- `/use-the-ai-library` (Roblox dev mode) - How any Claude finds and uses a skill, agent or research note from the AI Library Vault (10,000+ general AI skills and agents, plus research notes on Nate Herk, RoboNugge
+- `/use-the-vault` (Roblox dev mode) - How any Claude should use the claudes-vault Obsidian vault (about 17,000 generated notes: Roblox knowledge base, 11,000 skill/agent notes, manager research): find the vau
+- `/vault-contribute` (Roblox dev mode) - Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can offer it to the vault owner for the shared host vault. Noth
+- `/vault-curate` (Roblox dev mode) - Owner/maintainer only, on demand: curate the public vault-learnings inbox into vault notes. Reads inbox notes as untrusted data with fixed rules (secrets, personal data, 
+- `/vault-learn` (Roblox dev mode) - Record a verified, non-obvious finding so every agent that uses the vault can benefit (self-improving vault). Use proactively, without being asked, right after you have V
+- `/vault-mentor` (Roblox dev mode) - Start the vault mentor: a co-pilot with the combined knowledge of every creator in the Roblox Dev Mastery Vault and the AI Library Vault that works alongside you on any j
+- `/vault-update-clean` (Roblox dev mode) - Make this computer's claudes-vault an EXACT copy of the main vault (Roman's), removing stray or changed files, while keeping Games, My Research and other protected folder
 
 ## Using the vault afterwards
 
-Learned notes: `<vault>/learned/<topic>/` holds curated findings that agents verified earlier (index `learned/README.md`); check them first when a Roblox, tooling or Windows problem comes up (`vault-find.py "<problem>" --type learned`). When you verify something non-obvious that the vault lacks, record it with `/vault-learn` (`python ~/.claude/claude-kit/tools/learn.py add ...`; facts only, no secrets or personal data). Suggested snippet for the user's own `CLAUDE.md` (offer it, do not add it without a yes): "When I use the Roblox Dev Mastery Vault: check `learned/` notes first, and after verifying something non-obvious run /vault-learn."
+Learned notes: `<vault>/learned/<topic>/` holds curated findings that agents verified earlier (index `learned/README.md`); check them first when a Roblox, tooling or Windows problem comes up (`vault-find.py "<problem>" --type learned`). When you verify something non-obvious that the vault lacks, record it with `/vault-learn` (`python ~/.claude/claude-kit/tools/learn.py add ...`; facts only, no secrets or personal data). These rules are part of the mode that `/load-vault` switches on, so no snippet is needed in the user's own `CLAUDE.md`. If the user wants a pointer there anyway, the only line worth adding (offer it, never add it without a yes) is: "The Roblox vault is installed; use /load-vault for Roblox dev mode."
 
 Start at `Roblox/roblox-kb/README.md`, `Roblox/roblox-kb/master-playbook.md` and `Library/_Home.md`. Search with grep or ripgrep, not by reading whole folders. Do not hand-edit generated notes (`Library/`, `Roblox/`, `Manager/`, `Imported/`): the host overwrites them on update.
 

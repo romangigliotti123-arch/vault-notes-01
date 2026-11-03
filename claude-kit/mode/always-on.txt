@@ -1,0 +1,5 @@
+load-vault
+unload-vault
+vault-update
+update-check
+uninstall

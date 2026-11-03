@@ -20,8 +20,8 @@ Output: a campaign plan (gate, budget table, schedule, creatives, KPIs, stop rul
    $K find "creative thumbnail test CTR" -t thumbnails-icons,ads-and-sponsored-experiences -n 6
    ```
    Also grep `<KB>/_tools/AD-PLAYBOOK.md` for the section you need.
-3. Gate first: run `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/skills/roblox-metrics-benchmarks/compare.py" --d1 <x> --session <x> ...`. If D1, first-session funnel or PTR are below band, the plan is "fix first, retest on <date>"; still produce the plan to run after the gate passes. Official stance in the KB: ads are retrieval and seed data; only organic Home recommendation plays train ranking, so ads cannot rescue a weak game.
-4. Arithmetic: `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/skills/roblox-ad-campaign-planner/adcalc.py" --total <usd> --days <n> [--cost-per-play 0.01 --ctr 2.5 --d1 12 --payer 1.5 --arppu 300]`. Copy its scenario table and checkpoints; they are ESTIMATES.
+3. Gate first: run `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/vault-mode/.claude/skills/roblox-metrics-benchmarks/compare.py" --d1 <x> --session <x> ...`. If D1, first-session funnel or PTR are below band, the plan is "fix first, retest on <date>"; still produce the plan to run after the gate passes. Official stance in the KB: ads are retrieval and seed data; only organic Home recommendation plays train ranking, so ads cannot rescue a weak game.
+4. Arithmetic: `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/vault-mode/.claude/skills/roblox-ad-campaign-planner/adcalc.py" --total <usd> --days <n> [--cost-per-play 0.01 --ctr 2.5 --d1 12 --payer 1.5 --arppu 300]`. Copy its scenario table and checkpoints; they are ESTIMATES.
 5. Compose the plan and cite each rule.
 
 ## Output template

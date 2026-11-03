@@ -104,8 +104,17 @@ def main():
         print("kit-list: no kit manifest at %s (kit not installed here; run /vault-update)." % man)
         return 1
     rels = [l.split("\t")[0] for l in open(man, encoding="utf-8", errors="replace").read().splitlines() if l.strip()]
-    skills = sorted({r.split("/")[1] for r in rels if r.startswith("skills/") and r.endswith("/SKILL.md")})
-    agents = sorted({r[len("agents/"):-3] for r in rels if r.startswith("agents/") and r.endswith(".md")})
+    SM = "claude-kit/vault-mode/.claude/"
+    always = sorted({r.split("/")[1] for r in rels if r.startswith("skills/") and r.endswith("/SKILL.md")})
+    stored = sorted({r[len(SM + "skills/"):].split("/")[0] for r in rels if r.startswith(SM + "skills/") and r.endswith("/SKILL.md")})
+    skills = always + stored
+    agents = sorted({r[len(SM + "agents/"):-3] for r in rels if r.startswith(SM + "agents/") and r.endswith(".md")} | {r[len("agents/"):-3] for r in rels if r.startswith("agents/") and r.endswith(".md")})
+    def skill_path(s):
+        sp = os.path.join(config, "skills", s, "SKILL.md")
+        return sp if os.path.isfile(sp) else os.path.join(config, "claude-kit", "vault-mode", ".claude", "skills", s, "SKILL.md")
+    def agent_path(g):
+        ap_ = os.path.join(config, "agents", g + ".md")
+        return ap_ if os.path.isfile(ap_) else os.path.join(config, "claude-kit", "vault-mode", ".claude", "agents", g + ".md")
     w = min(a.width, 90)
     dash = "—"
 
@@ -113,14 +122,20 @@ def main():
         return max(45, min(w, 110 - len(name) - 8))
 
     out = ["Installed from the Roblox Dev Mastery Vault kit.", ""]
-    out += ["## Skills (%d)" % len(skills), ""]
-    for s in skills:
-        sp = os.path.join(config, "skills", s, "SKILL.md")
+    out += ["Everything except the always-on commands is OFF in normal Claude sessions: type /load-vault in a project folder to turn on Roblox dev mode (/unload-vault turns it off).", ""]
+    out += ["## Always-on commands (%d)" % len(always), ""]
+    for s in always:
+        sp = skill_path(s)
         d = one_line(frontmatter_field(sp, "summary"), W(s)) or FALLBACK.get(s) or one_line(desc(sp), W(s)) or "(no description)"
         out += ["- **/%s** %s %s" % (s, dash, d), ""]
-    out += ["## Agents (%d)" % len(agents), ""]
+    out += ["## Skills in Roblox dev mode (%d; usable after /load-vault)" % len(stored), ""]
+    for s in stored:
+        sp = skill_path(s)
+        d = one_line(frontmatter_field(sp, "summary"), W(s)) or FALLBACK.get(s) or one_line(desc(sp), W(s)) or "(no description)"
+        out += ["- **/%s** %s %s" % (s, dash, d), ""]
+    out += ["## Agents in Roblox dev mode (%d)" % len(agents), ""]
     for g in agents:
-        out += ["- **%s** %s %s" % (g, dash, one_line(desc(os.path.join(config, "agents", g + ".md")), W(g)) or "(no description)"), ""]
+        out += ["- **%s** %s %s" % (g, dash, one_line(desc(agent_path(g)), W(g)) or "(no description)"), ""]
     mods = find_mods(a.mods, config)
     cnt = 0
     lines = []

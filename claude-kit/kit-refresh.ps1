@@ -22,6 +22,19 @@ if ($env:CLAUDE_KIT_SKIP -ne '1') {
     }
   }
 }
+# 1b) tools\vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/load-vault) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips it.
+$vmode = if ($env:CLAUDE_CONFIG_DIR) { Join-Path $env:CLAUDE_CONFIG_DIR 'claude-kit\tools\vault-mode.py' } elseif ($env:CLAUDE_KIT_HOME) { Join-Path $env:CLAUDE_KIT_HOME '.claude\claude-kit\tools\vault-mode.py' } else { Join-Path $env:USERPROFILE '.claude\claude-kit\tools\vault-mode.py' }
+if (($env:CLAUDE_MODE_SKIP -ne '1') -and (Test-Path -LiteralPath $vmode)) {
+  try {
+    foreach ($c in @(@('python'), @('python3'), @('py', '-3'))) {
+      $exe = (Get-Command $c[0] -ErrorAction SilentlyContinue | Select-Object -First 1)
+      if (-not $exe) { continue }
+      $pre = @(); if ($c.Count -gt 1) { $pre = $c[1..($c.Count - 1)] }
+      & $exe.Source @pre -c "import sys" *> $null
+      if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $vmode, 'sync', '--quiet')); break }
+    }
+  } catch { }
+}
 $sync = Join-Path $d 'tools\assets-sync.py'
 $refs = Join-Path $d 'tools\refs-sync.py'
 $doAssets = ($env:CLAUDE_ASSETS_SKIP -ne '1') -and (Test-Path -LiteralPath $sync)

@@ -209,11 +209,24 @@ def read_manifest(config, vault):
         # no manifest: derive the expected files from the kit source in the vault (files that differ count as edited)
         src = "kit source in vault (installed.tsv missing)"
         kit = os.path.join(vault, "claude-kit")
-        for sub in ("agents", "skills", "tools", "systems", "skillpack"):
+        ao = ["load-vault", "unload-vault", "vault-update", "update-check", "uninstall"]
+        try:
+            ao = [x.strip() for x in open(os.path.join(kit, "mode", "always-on.txt"), encoding="utf-8") if x.strip() and not x.startswith("#")] or ao
+        except OSError:
+            pass
+        sm = "claude-kit/vault-mode"
+        for sub in ("agents", "skills", "mode", "tools", "systems", "skillpack"):
             for r, a in walk_files(os.path.join(kit, sub)):
                 if "__pycache__" in r or r.endswith(".pyc"):
                     continue
-                rel = ("claude-kit/%s/%s" % (sub, r)) if sub in ("tools", "systems", "skillpack") else ("%s/%s" % (sub, r))
+                if sub in ("tools", "systems", "skillpack"):
+                    rel = "claude-kit/%s/%s" % (sub, r)
+                elif sub == "mode":
+                    rel = "%s/%s" % (sm, r)
+                elif sub == "agents":
+                    rel = "%s/.claude/agents/%s" % (sm, r)
+                else:
+                    rel = ("skills/%s" % r) if r.split("/")[0] in ao else ("%s/.claude/skills/%s" % (sm, r))
                 ent[rel] = sha(a)
     return ent, src
 
@@ -223,6 +236,8 @@ def area_of(rel):
         return "agents"
     if rel.startswith("skills/"):
         return "skills"
+    if rel.startswith("claude-kit/vault-mode/"):
+        return "on-demand store (vault skills/agents)"
     if rel.startswith("claude-kit/tools/"):
         return "tools"
     if rel.startswith("claude-kit/systems/"):
@@ -300,10 +315,16 @@ def plan(a, home, config, vault, keep_final):
     if os.path.isdir(kitroot):
         for r, f in walk_files(kitroot):
             rel = "claude-kit/" + r
-            if rel in ent or r == "installed.tsv" or "__pycache__" in r or r.endswith(".pyc"):
+            if rel in ent or r in ("installed.tsv", "installed.tsv.pre-mode") or "__pycache__" in r or r.endswith(".pyc"):
                 continue
+            if r in ("vault-mode/loaded.json", "vault-mode/layout.json", "vault-mode/migration-last.json"):
+                continue            # the mode's own bookkeeping, not user data
             extras.append(rel)
     P["extras"] = extras
+    try:
+        P["mode_projects"] = sorted(json.load(open(os.path.join(kitroot, "vault-mode", "loaded.json"), encoding="utf-8")).get("projects", {}).keys())
+    except (OSError, ValueError):
+        P["mode_projects"] = []
     st = []
     for n in ("low-usage-mode.on", "mentor-hook.off"):
         if os.path.isfile(os.path.join(config, "state", n)):
@@ -408,7 +429,8 @@ def print_plan(P, keep_final, keep_note, a, real_run):
     say("  kit files by area : %s" % (", ".join("%s %d" % (k, v) for k, v in sorted(P["areas"].items())) or "none"))
     say("  total kit files   : %d present (%d listed but already missing)" % (len(P["present"]), len(P["missing"])))
     say("  leftovers         : %d .new files, %d state files, %d unlisted files under <config>/claude-kit" % (len(P["new_files"]), len(P["state_files"]), len(P["extras"])))
-    say("  <config>/claude-kit folder (tools, systems, skillpack, installed.tsv)")
+    say("  <config>/claude-kit folder (tools, systems, skillpack, the on-demand store of vault skills/agents, installed.tsv)")
+    say("  Roblox dev mode copies (/load-vault) in project folders: %d%s (removed first, only files that are still unchanged)" % (len(P["mode_projects"]), (" -> " + ", ".join(P["mode_projects"][:5])) if P["mode_projects"] else ""))
     say("  hooks in settings.json (low-usage-mode + vault-mentor): %s" % ("found" if P["hooks"] else "none found") + ("" if P.get("settings_valid", True) else "  WARNING: settings.json is not valid JSON, hooks will NOT be removed"))
     say("  kit mods (plugins): %s" % ("skipped in --home test" if a.home else "claude plugin uninstall workflow-hud@%s; claude plugin uninstall vault-graph@%s; claude plugin marketplace remove %s (before the vault is deleted)" % (MARKET, MARKET, MARKET)))
     for k, v in P["sys"]:
@@ -483,8 +505,10 @@ def remove_hooks(P, keep_final):
     shutil.copy2(sj, bak)
     say("settings.json backed up to %s" % bak)
     ok = True
-    for rel, sub in (("skills/low-usage-mode/scripts/lum.py", "skills/low-usage-mode/scripts/lum.py"), ("claude-kit/tools/mentor-hook.py", "tools/mentor-hook.py")):
+    for rel, sub in (("claude-kit/vault-mode/.claude/skills/low-usage-mode/scripts/lum.py", "skills/low-usage-mode/scripts/lum.py"), ("skills/low-usage-mode/scripts/lum.py", "skills/low-usage-mode/scripts/lum.py"), ("claude-kit/tools/mentor-hook.py", "tools/mentor-hook.py")):
         s = os.path.join(config, rel.replace("/", os.sep))
+        if not os.path.isfile(s) and rel.startswith("skills/") and os.path.isfile(os.path.join(config, "claude-kit", "vault-mode", ".claude", "skills", "low-usage-mode", "scripts", "lum.py")):
+            continue            # already handled through the store copy above
         if not os.path.isfile(s):
             s = os.path.join(vault, "claude-kit", sub.replace("/", os.sep))
         if not os.path.isfile(s):
@@ -606,6 +630,13 @@ def run_real(a, P, keep_final, keep_note):
         return 1
     # 2 hooks + auto-sync
     say("[2/6] removing hooks and auto-sync")
+    vm = os.path.join(config, "claude-kit", "tools", "vault-mode.py")
+    if os.path.isfile(vm) and P["mode_projects"]:
+        try:
+            code, out = py_run(vm, ["unload", "--all", "--config", config], config)
+            say("      Roblox dev mode: %s" % (" | ".join(out.splitlines()[-3:]) if out else "exit %d" % code))
+        except Exception as e:
+            say("      Roblox dev mode: could not unload (%s); the copies in your project folders' .claude are listed in %s" % (e, os.path.join(config, "claude-kit", "vault-mode", "loaded.json")))
     hooks_ok = remove_hooks(P, keep_final)
     remove_sync(P)
     remove_mods(a, config)

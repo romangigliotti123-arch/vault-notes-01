@@ -42,7 +42,13 @@ def kit_stale(vault, config):
             inst[p[0]] = p[1]
     kit = os.path.join(vault, "claude-kit")
     differ, new, names = 0, 0, set()
-    for sub in ("agents", "skills", "tools", "systems", "skillpack"):
+    ao = ["load-vault", "unload-vault", "vault-update", "update-check", "uninstall"]
+    try:
+        ao = [x.strip() for x in open(os.path.join(kit, "mode", "always-on.txt"), encoding="utf-8") if x.strip() and not x.startswith("#")] or ao
+    except OSError:
+        pass
+    sm = "claude-kit/vault-mode"
+    for sub in ("agents", "skills", "mode", "tools", "systems", "skillpack"):
         root = os.path.join(kit, sub)
         for d, dirs, files in os.walk(root):
             dirs[:] = [x for x in dirs if x != "__pycache__"]
@@ -51,7 +57,14 @@ def kit_stale(vault, config):
                     continue
                 full = os.path.join(d, fn)
                 r = os.path.relpath(full, kit).replace(os.sep, "/")
-                rel = ("claude-kit/" + r) if sub in ("tools", "systems", "skillpack") else r
+                if sub in ("tools", "systems", "skillpack"):
+                    rel = "claude-kit/" + r
+                elif sub == "mode":
+                    rel = sm + "/" + r[len("mode/"):]
+                elif sub == "agents":
+                    rel = sm + "/.claude/" + r
+                else:
+                    rel = r if r.split("/")[1] in ao else sm + "/.claude/" + r
                 if rel not in inst:
                     new += 1
                 elif inst[rel] != sha(full):

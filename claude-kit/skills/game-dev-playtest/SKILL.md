@@ -19,7 +19,7 @@ Input: the PROJECT folder (default `$PWD`; look for `default.project.json`, `gam
 ## 2. Static checks (evidence, not opinion)
 Full ladder, seeded-bad-snippet sensor test and milestone loop: `references/verification-ladder.md`. Run computational checks before any LLM review.
 1. `bash <project>/luau-check.sh <project>/src` if the project has it, else `bash ~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh <project>/src`. SKIPPED tools = "tools missing: not verified", never a pass (exit 2 = none available: say so and rely on 2.2 and the code-walk).
-2. `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/skills/game-dev-playtest/scripts/static_scan.py <project>/src`: red-flag table (remote handlers without checks, DataStore without pcall or BindToClose, ProcessReceipt without a receipt check, loadstring, deprecated wait/spawn, non-zero asset ids, infinite loops). Every hit is a lead: open the lines and confirm or dismiss it, and say which.
+2. `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/vault-mode/.claude/skills/game-dev-playtest/scripts/static_scan.py <project>/src`: red-flag table (remote handlers without checks, DataStore without pcall or BindToClose, ProcessReceipt without a receipt check, loadstring, deprecated wait/spawn, non-zero asset ids, infinite loops). Every hit is a lead: open the lines and confirm or dismiss it, and say which.
 3. Structure checks: `rg -n "RemoteEvent|RemoteFunction" <project>/src | head -30` (list every remote with its handler); `rg -n "PlayerAdded|PlayerRemoving|BindToClose" <project>/src | head`; config ids `rg -n "= 0\b|rbxassetid" <project>/src/shared | head`.
 
 ## 3. Scripted test checklist
