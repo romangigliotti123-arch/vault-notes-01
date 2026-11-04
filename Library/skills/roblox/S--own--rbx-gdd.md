@@ -5,15 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-gdd/SKILL.md"
-description: "Fills in a one-to-three page game design document (GDD) for a Roblox experience from a concept, using the Roblox knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use when the user wants a GDD, game design doc, design one-pager, concept document, or to turn a chosen idea into a build-ready design."
+description: "Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document."
 orig_name: "rbx-gdd"
-orig_description: "Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-gdd
 
-> Fills in a one-to-three page game design document (GDD) for a Roblox experience from a concept, using the Roblox knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use when the user wants a GDD, game design doc, design one-pager, concept document, or to turn a chosen idea into a build-ready design.
+> Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-gdd/SKILL.md` (extra files, if any, sit beside it in the repo)

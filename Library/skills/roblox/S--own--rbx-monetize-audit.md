@@ -5,15 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-monetize-audit/SKILL.md"
-description: "Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium/subscriptions, ProcessReceipt security, pay-to-win and RNG risks) against the merged knowledge-base checklist and returns a pass/fail scorecard, fixes and three price experiments. Use when the user asks to audit, review, fix or price their Roblox game's monetisation, passes or products."
+description: "Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium, ProcessReceipt security, pay-to-win and RNG risks) against the knowledge-base checklist: scorecard, fixes, three price experiments. Use to check what you sell and how it is priced."
 orig_name: "rbx-monetize-audit"
-orig_description: "Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium, ProcessReceipt security, pay-to-win and RNG risks) against the knowledge-base checklist: scorecard, fixes, three price experiments. Use to check what you sell and how it is priced."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-monetize-audit
 
-> Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium/subscriptions, ProcessReceipt security, pay-to-win and RNG risks) against the merged knowledge-base checklist and returns a pass/fail scorecard, fixes and three price experiments. Use when the user asks to audit, review, fix or price their Roblox game's monetisation, passes or products.
+> Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium, ProcessReceipt security, pay-to-win and RNG risks) against the knowledge-base checklist: scorecard, fixes, three price experiments. Use to check what you sell and how it is priced.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-monetize-audit/SKILL.md` (extra files, if any, sit beside it in the repo)

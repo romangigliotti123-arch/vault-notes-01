@@ -5,15 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-rojo/SKILL.md"
-description: "Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau can be edited and reviewed as plain files. Use when starting a Roblox project that Claude should edit outside Studio."
+description: "Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau lives as plain files under version control, edited and reviewed outside Studio. Use for project structure, where scripts live, git or VS Code with Roblox."
 orig_name: "rbx-rojo"
-orig_description: "Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau lives as plain files under version control, edited and reviewed outside Studio. Use for project structure, where scripts live, git or VS Code with Roblox."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-rojo
 
-> Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau can be edited and reviewed as plain files. Use when starting a Roblox project that Claude should edit outside Studio.
+> Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau lives as plain files under version control, edited and reviewed outside Studio. Use for project structure, where scripts live, git or VS Code with Roblox.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-rojo/SKILL.md` (extra files, if any, sit beside it in the repo)

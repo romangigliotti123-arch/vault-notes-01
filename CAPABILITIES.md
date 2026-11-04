@@ -66,10 +66,10 @@ Job-based router for AI agents (generated 2026-11-05 from the claude-library; do
   - [[A--own--rbx-predelivery|rbx-predelivery]] (agent) `Library/agents/roblox/A--own--rbx-predelivery.md` - Pre-delivery reviewer for Roblox tools, plugins and scripts handed to a client or published: predicts what the client would reject or delete and what...
 - **review a big codebase in parallel (one reviewer per area)**
   - [[A--own--parallel-audit-fanout|parallel-audit-fanout]] (agent) `Library/agents/orchestration/A--own--parallel-audit-fanout.md` - Orchestrator for open-ended audits of a codebase before release: splits the code into areas, runs one capped parallel auditor per area, spawns a veri...
-  - [[A--own--rbx-auditor|rbx-auditor]] (agent) `Library/agents/roblox/A--own--rbx-auditor.md` - Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes, DataStore and economy, gameplay...
+  - [[A--own--rbx-auditor|rbx-auditor]] (agent) `Library/agents/roblox/A--own--rbx-auditor.md` - Orchestrator for a pre-release audit or full bug sweep of a whole Roblox game or Luau codebase: splits it into areas (remotes, DataStore and economy,...
 - **rate code quality 1-10 with the evidence (severity-ranked sharp-edges checklist, generated vs tested evidence ladder, code-quality scorecard gate)**
-  - [[S--own--rbx-code-rate|rbx-code-rate]] (skill) `Library/skills/roblox/S--own--rbx-code-rate.md` - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structure, testa... Also installed by the kit as `/rbx-code-rate`.
-  - rbx-rate-any (skill, in the AI Library Vault) - General 1.00-10.00 rater for anything the user wants judged (idea, plan, prompt, design, document, product, c... Also installed by the kit as `/rbx-rate-any`.
+  - [[S--own--rbx-code-rate|rbx-code-rate]] (skill) `Library/skills/roblox/S--own--rbx-code-rate.md` - Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server authority, exploits, data safety, correctnes... Also installed by the kit as `/rbx-code-rate`.
+  - [[S--own--rbx-rate-any|rbx-rate-any]] (skill) `Library/skills/testing/S--own--rbx-rate-any.md` - General 1.00-10.00 rater for anything else the user wants judged (plan, prompt, design, document, product, code, skill; a Roblox game idea is rbx-rat... Also installed by the kit as `/rbx-rate-any`.
 - **check game code for stray comments (the vault rule: no code comments by default, a one-line why only); scored, never blocks**
   - `/rbx-critic` (slash command, claude-kit) - Independent quality gate: a separate critic agent scores 10 factors with evidence and returns GOOD / NOT YET / BAD with the top 3 fixes.
   - tool: claude-kit/skills/rbx-critic/scripts/comment_scan.py|comment density per file as JSON, scorecard gate comment-scan
@@ -125,10 +125,10 @@ Job-based router for AI agents (generated 2026-11-05 from the claude-library; do
 ## Rate, grade and verify
 
 - **rate something 1 to 10 (ideas, drafts, designs, answers)**
-  - rbx-rate-any (skill, in the AI Library Vault) - General 1.00-10.00 rater for anything the user wants judged (idea, plan, prompt, design, document, product, c... Also installed by the kit as `/rbx-rate-any`.
+  - [[S--own--rbx-rate-any|rbx-rate-any]] (skill) `Library/skills/testing/S--own--rbx-rate-any.md` - General 1.00-10.00 rater for anything else the user wants judged (plan, prompt, design, document, product, code, skill; a Roblox game idea is rbx-rat... Also installed by the kit as `/rbx-rate-any`.
   - llm-answer-grader (skill, in the AI Library Vault) - Grades LLM or agent answers against a reference set: objective items checked by code first, then a fixed judg...
   - `/rbx-rate` (slash command, claude-kit) - Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit......
-  - [[S--own--rbx-code-rate|rbx-code-rate]] (skill) `Library/skills/roblox/S--own--rbx-code-rate.md` - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structure, testa... Also installed by the kit as `/rbx-code-rate`.
+  - [[S--own--rbx-code-rate|rbx-code-rate]] (skill) `Library/skills/roblox/S--own--rbx-code-rate.md` - Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server authority, exploits, data safety, correctnes... Also installed by the kit as `/rbx-code-rate`.
 - **check that claims in a report or answer are true**
   - [[A--own--rbx-verifier|rbx-verifier]] (agent) `Library/agents/research/A--own--rbx-verifier.md` - Verifier subagent for research and reverse-engineering findings: takes findings with their sources, checks each against the source, and labels it see...
   - [[A--own--adversarial-verifier|adversarial-verifier]] (agent) `Library/agents/orchestration/A--own--adversarial-verifier.md` - Read-only falsifier: tries to prove a worker's claims false against real state (files, services, tasks, git, remote hosts); use for R2/R3 jobs before...
@@ -260,7 +260,7 @@ Job-based router for AI agents (generated 2026-11-05 from the claude-library; do
 - **is my game good (not just working)? honest verdict before moving on, hit-vs-flop quality model**
   - `/rbx-critic` (slash command, claude-kit) - Independent quality gate: a separate critic agent scores 10 factors with evidence and returns GOOD / NOT YET / BAD with the top 3 fixes.
   - [[A--own--rbx-judge|rbx-judge]] (agent) `Library/agents/game-dev/A--own--rbx-judge.md` - Independent critic for a Roblox game idea, prototype, playtest build, launch kit or live game: inspects the real files (and Studio output when connec...
-  - [[S--own--rbx-rate|rbx-rate]] (skill) `Library/skills/game-dev/S--own--rbx-rate.md` - Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook, fluidity and feel, virality and co-pl... Also installed by the kit as `/rbx-rate`.
+  - [[S--own--rbx-rate|rbx-rate]] (skill) `Library/skills/game-dev/S--own--rbx-rate.md` - Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...... Also installed by the kit as `/rbx-rate`.
 - **a model floats, is buried, crooked, faces the wrong way, overlaps a wall, falls over or does not line up; check placement and rotation of every model I create, insert or move in the map**
   - `/rbx-placement` (slash command, claude-kit) - Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flag...
   - [[S--own--rbx-studio|rbx-studio]] (skill) `Library/skills/roblox/S--own--rbx-studio.md` - Connects Claude Code to Roblox Studio and the toolchain and says how to use the connection as evidence: official Studio MCP server (scripts, run Luau... Also installed by the kit as `/rbx-studio`.
@@ -286,14 +286,14 @@ Job-based router for AI agents (generated 2026-11-05 from the claude-library; do
   - `/rbx-launch-kit` (slash command, claude-kit) - Launch kit at the playtest-to-launch gate (or alone): thumbnail/icon brief, title and description, ad budget, update calendar and launch checklists c...
   - [[S--own--rbx-launch-check|rbx-launch-check]] (skill) `Library/skills/roblox/S--own--rbx-launch-check.md` - Builds an interactive, phone-friendly launch checklist (self-contained HTML plus markdown) for one Roblox game, merged from the knowledge base checkl... Also installed by the kit as `/rbx-launch-check`.
   - [[S--own--rbx-ad-plan|rbx-ad-plan]] (skill) `Library/skills/roblox/S--own--rbx-ad-plan.md` - Plans a Roblox sponsored-experience ad test: readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, arithm... Also installed by the kit as `/rbx-ad-plan`.
-  - [[S--own--rbx-publish|rbx-publish]] (skill) `Library/skills/roblox/S--own--rbx-publish.md` - Pre-launch checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, ro... Also installed by the kit as `/rbx-publish`.
+  - [[S--own--rbx-publish|rbx-publish]] (skill) `Library/skills/roblox/S--own--rbx-publish.md` - Checklist for publishing, going live or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, r... Also installed by the kit as `/rbx-publish`.
 - **save a finished system or pattern for future games / reuse what I built before (Games/_Reusable)**
   - `/rbx-harvest` (slash command, claude-kit) - Saves anything reusable built or found good in a game to Games/_Reusable/<name>/ with a README, linked from systems.md so the next game uses it first.
   - tool: python ~/.claude/claude-kit/tools/vault-find.py "<system>" --type reusable
 - **let Claude run and test my game in Roblox Studio: write scripts into the place, playtest, read errors (Studio MCP, Rojo, Roblox toolchain setup, opt-in)**
   - `/rbx-studio` (slash command, claude-kit) - Connects Claude Code to Roblox Studio and the toolchain and says how to use the connection as evidence: official Studio MCP server (scripts, run Luau...
   - tool: powershell -File ~/.claude/claude-kit/tools/studio-setup.ps1 -DryRun   (macOS/Linux: bash studio-setup.sh --dry-run)
-  - [[S--own--rbx-rojo|rbx-rojo]] (skill) `Library/skills/roblox/S--own--rbx-rojo.md` - Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau can be edited and reviewed as plain files. Also installed by the kit as `/rbx-rojo`.
+  - [[S--own--rbx-rojo|rbx-rojo]] (skill) `Library/skills/roblox/S--own--rbx-rojo.md` - Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau lives as plain files under version control, edited and reviewed outside... Also installed by the kit as `/rbx-rojo`.
   - tool: python ~/.claude/claude-kit/tools/games.py init <slug> --rojo
 - **drop-in tested systems for a game: safe data saving with session locking, shop / game passes / dev products, daily rewards, analytics events, admin commands**
   - tool: python ~/.claude/claude-kit/tools/vault-find.py "<system>" --type system
@@ -306,10 +306,10 @@ Job-based router for AI agents (generated 2026-11-05 from the claude-library; do
 - **remove the whole kit and the vault from this computer but keep only my games (shows a plan, asks first)**
   - `/rbx-uninstall` (slash command, claude-kit) - Remove the whole Roblox Dev Mastery Vault kit from this computer, keeping only the user's games (Games/ incl.
 - **game ideas, trends, benchmarks**
-  - [[S--own--rbx-ideas|rbx-ideas]] (skill) `Library/skills/roblox/S--own--rbx-ideas.md` - Generates, scores and plans Roblox game concepts for a solo or small team. Also installed by the kit as `/rbx-ideas`.
+  - [[S--own--rbx-ideas|rbx-ideas]] (skill) `Library/skills/roblox/S--own--rbx-ideas.md` - Generates, scores and plans Roblox game concepts for a solo or small team ('what should I build next'): patterns from rbx-trends, 8 candidates on a f... Also installed by the kit as `/rbx-ideas`.
   - [[S--own--rbx-trends|rbx-trends]] (skill) `Library/skills/roblox/S--own--rbx-trends.md` - Market research on Roblox only. Also installed by the kit as `/rbx-trends`.
   - [[S--own--rbx-metrics|rbx-metrics]] (skill) `Library/skills/roblox/S--own--rbx-metrics.md` - One sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, FPS) with an o... Also installed by the kit as `/rbx-metrics`.
-  - [[S--own--rbx-kb|rbx-kb]] (skill) `Library/skills/roblox/S--own--rbx-kb.md` - Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs plus 25 creators) without spawn... Also installed by the kit as `/rbx-kb`.
+  - [[S--own--rbx-kb|rbx-kb]] (skill) `Library/skills/roblox/S--own--rbx-kb.md` - Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Also installed by the kit as `/rbx-kb`.
 - **Roblox exploits, remote security, anti-cheat**
   - [[S--own--rbx-remote-sec|rbx-remote-sec]] (skill) `Library/skills/roblox/S--own--rbx-remote-sec.md` - Server-authoritative design and exploit review for RemoteEvents/RemoteFunctions: validate every argument, rate-limit, never trust client state. Also installed by the kit as `/rbx-remote-sec`.
   - [[anti-exploit-and-security]] (note) `Roblox/roblox-kb/anti-exploit-and-security.md` - anti-exploit playbook
@@ -318,7 +318,7 @@ Job-based router for AI agents (generated 2026-11-05 from the claude-library; do
   - [[S--own--rbx-datastore|rbx-datastore]] (skill) `Library/skills/roblox/S--own--rbx-datastore.md` - Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema ve... Also installed by the kit as `/rbx-datastore`.
 - **monetisation, passes, economy**
   - [[S--own--rbx-monetize|rbx-monetize]] (skill) `Library/skills/roblox/S--own--rbx-monetize.md` - Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, ethical pricing. Also installed by the kit as `/rbx-monetize`.
-  - [[S--own--rbx-monetize-audit|rbx-monetize-audit]] (skill) `Library/skills/roblox/S--own--rbx-monetize-audit.md` - Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium/subscriptions, ProcessReceipt security,... Also installed by the kit as `/rbx-monetize-audit`.
+  - [[S--own--rbx-monetize-audit|rbx-monetize-audit]] (skill) `Library/skills/roblox/S--own--rbx-monetize-audit.md` - Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium, ProcessReceipt security, pay-to-win and... Also installed by the kit as `/rbx-monetize-audit`.
   - [[A--own--rbx-economist|rbx-economist]] (agent) `Library/agents/roblox/A--own--rbx-economist.md` - Designs and balances a Roblox game's economy (currencies, sources and sinks, progression curve, pricing) with a simulation spreadsheet before any cod...
   - [[PRICE-LADDER]] (note) `Roblox/roblox-kb/_tools/PRICE-LADDER.md` - price ladder
 - **ads, thumbnails, launch, updates**
@@ -326,7 +326,7 @@ Job-based router for AI agents (generated 2026-11-05 from the claude-library; do
   - `/rbx-thumbnail` (slash command, claude-kit) - Image prompts and the images for a Roblox game's icon, thumbnails and store screenshots with Google's newest Nano Banana (Gemini image) model from th...
   - `/rbx-game-update` (slash command, claude-kit) - Plans future updates for a Roblox game: cadence, live-ops loops, retention levers (D1/D7/D30), event and season calendar, patch notes, A/B ideas, rol...
   - [[S--own--rbx-launch-check|rbx-launch-check]] (skill) `Library/skills/roblox/S--own--rbx-launch-check.md` - Builds an interactive, phone-friendly launch checklist (self-contained HTML plus markdown) for one Roblox game, merged from the knowledge base checkl... Also installed by the kit as `/rbx-launch-check`.
-  - [[S--own--rbx-publish|rbx-publish]] (skill) `Library/skills/roblox/S--own--rbx-publish.md` - Pre-launch checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, ro... Also installed by the kit as `/rbx-publish`.
+  - [[S--own--rbx-publish|rbx-publish]] (skill) `Library/skills/roblox/S--own--rbx-publish.md` - Checklist for publishing, going live or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, r... Also installed by the kit as `/rbx-publish`.
 - **playtest and review a game**
   - `/rbx-playtest` (slash command, claude-kit) - Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reproduce, fix, prove green, ledger).
   - [[S--own--rbx-playtest-list|rbx-playtest-list]] (skill) `Library/skills/roblox/S--own--rbx-playtest-list.md` - Checklist and bug-report format for playtesting a Roblox experience (first 30 seconds through multiplayer and exploits). Also installed by the kit as `/rbx-playtest-list`.
@@ -494,7 +494,7 @@ Start at [[Manager-README]] (`Manager/Manager-README.md`), then [[PROPOSALS]]. T
 - `rbx-tester` - Runs a structured Roblox playtest on this computer (Studio, a client or a published place), finds bugs, balance and fir...
 - `rbx-verifier` - Verifier subagent for research and reverse-engineering findings: checks each finding against its source and labels it s...
 
-## Top picks per job (from PICKS; 63 jobs have items in this vault)
+## Top picks per job (from PICKS; 64 jobs have items in this vault)
 
 [a] = agent. Full list with reasons: [[PICKS]].
 
@@ -558,6 +558,7 @@ Start at [[Manager-README]] (`Manager/Manager-README.md`), then [[PROPOSALS]]. T
 - Vague request, before building: [[S--own--rbx-clarify|rbx-clarify]]
 - Audit a whole repo for bugs: [[A--own--parallel-audit-fanout|parallel-audit-fanout]] [a]
 - Roblox exploit and bug sweep: [[A--own--rbx-auditor|rbx-auditor]] [a]
+- Rate anything 1-10: [[S--own--rbx-rate-any|rbx-rate-any]]
 - Fact-check findings before building: [[A--own--rbx-verifier|rbx-verifier]] [a]
 - Keep the main context clean: [[A--own--digest-scout|digest-scout]] [a]
 - Big build split among workers: [[A--own--phased-build-orchestrator|phased-build-orchestrator]] [a]

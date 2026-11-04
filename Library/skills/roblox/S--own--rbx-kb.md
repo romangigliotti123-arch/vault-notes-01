@@ -5,15 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-kb/SKILL.md"
-description: "Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs plus 25 creators) without spawning agents or reading big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, benchmarks). Not for full plans or live market data."
+description: "Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, thumbnails, live ops, benchmarks). Not for plans, pricing or audits of your own game, or live market data."
 orig_name: "rbx-kb"
-orig_description: "Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, thumbnails, live ops, benchmarks). Not for plans, pricing or audits of your own game, or live market data."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-kb
 
-> Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs plus 25 creators) without spawning agents or reading big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, benchmarks). Not for full plans or live market data.
+> Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, thumbnails, live ops, benchmarks). Not for plans, pricing or audits of your own game, or live market data.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-kb/SKILL.md` (extra files, if any, sit beside it in the repo)

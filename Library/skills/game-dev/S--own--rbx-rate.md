@@ -5,16 +5,15 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/rbx-rate/SKILL.md"
-description: "Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook, fluidity and feel, virality and co-play, monetisation fit, discoverability and thumbnail-ability, scope and production cost, differentiation, trend fit, ad-ability, update potential), each 1-10 with a cited one-line evidence note, plus strengths, weaknesses, concrete fixes and a what-is-doing-well-right-now check against the vault and a live search. Use when the user says rate my game idea, score this idea, is this idea good, how likely is this game to succeed, compare ideas, or when rbx-workflow reaches Stage 3. Callable alone as /rbx-rate."
+description: "Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence, strengths, weaknesses and fixes, checked against the vault and a live search."
 orig_name: "rbx-rate"
-orig_description: "Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence, strengths, weaknesses and fixes, checked against the vault and a live search."
 orig_argument_hint: "[game idea or path to docs/elaboration.md]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---
 
 # rbx-rate
 
-> Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook, fluidity and feel, virality and co-play, monetisation fit, discoverability and thumbnail-ability, scope and production cost, differentiation, trend fit, ad-ability, update potential), each 1-10 with a cited one-line evidence note, plus strengths, weaknesses, concrete fixes and a what-is-doing-well-right-now check against the vault and a live search. Use when the user says rate my game idea, score this idea, is this idea good, how likely is this game to succeed, compare ideas, or when rbx-workflow reaches Stage 3. Callable alone as /rbx-rate.
+> Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence, strengths, weaknesses and fixes, checked against the vault and a live search.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/rbx-rate/SKILL.md` (extra files, if any, sit beside it in the repo)

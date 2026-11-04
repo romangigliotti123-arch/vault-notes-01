@@ -5,15 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-rounds/SKILL.md"
-description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigame, battle, obby-race or party-style experiences."
+description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigames, battle, obby-race, social deduction (Among Us or Murder Mystery style) or party games with timed rounds."
 orig_name: "rbx-rounds"
-orig_description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigames, battle, obby-race, social deduction (Among Us or Murder Mystery style) or party games with timed rounds."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-rounds
 
-> Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigame, battle, obby-race or party-style experiences.
+> Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigames, battle, obby-race, social deduction (Among Us or Murder Mystery style) or party games with timed rounds.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-rounds/SKILL.md` (extra files, if any, sit beside it in the repo)

@@ -5,15 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-datastore/SKILL.md"
-description: "Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing Luau that persists progress, currency or purchases."
+description: "Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing Luau that persists progress, currency or purchases, or when progress or items vanish or duplicate on rejoin."
 orig_name: "rbx-datastore"
-orig_description: "Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing Luau that persists progress, currency or purchases, or when progress or items vanish or duplicate on rejoin."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-datastore
 
-> Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing Luau that persists progress, currency or purchases.
+> Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing Luau that persists progress, currency or purchases, or when progress or items vanish or duplicate on rejoin.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-datastore/SKILL.md` (extra files, if any, sit beside it in the repo)

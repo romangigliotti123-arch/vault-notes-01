@@ -5,15 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-ui/SKILL.md"
-description: "Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when creating or fixing Roblox UI."
+description: "Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when creating or fixing Roblox UI, menus, HUD or shop screens with broken layout on phones."
 orig_name: "rbx-ui"
-orig_description: "Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when creating or fixing Roblox UI, menus, HUD or shop screens with broken layout on phones."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-ui
 
-> Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when creating or fixing Roblox UI.
+> Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when creating or fixing Roblox UI, menus, HUD or shop screens with broken layout on phones.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-ui/SKILL.md` (extra files, if any, sit beside it in the repo)

@@ -180,7 +180,7 @@ Best 10 from the Nate Herk / RoboNuggets / Karpathy research (job | item | why).
 Vague request, before building | [[S--own--rbx-clarify|rbx-clarify]] | 3-7 multiple-choice questions with defaults, then one spec with success criteria
 Audit a whole repo for bugs | [[A--own--parallel-audit-fanout|parallel-audit-fanout]] [a] | parallel auditors per area, a verifier per finding, HTML report, unverified findings dropped
 Roblox exploit and bug sweep | [[A--own--rbx-auditor|rbx-auditor]] [a] | area auditors using rbx-reviewer, repro per exploit, remote inventory table
-Rate anything 1-10 | rbx-rate-any (in AI Library Vault) | weighted criteria with anchors, evidence per score, script-computed total, ordered fixes (Roblox ideas: rbx-rate; Luau code: rbx-code-rate)
+Rate anything 1-10 | [[S--own--rbx-rate-any|rbx-rate-any]] | weighted criteria with anchors, evidence per score, script-computed total, ordered fixes (Roblox ideas: rbx-rate; Luau code: rbx-code-rate)
 Verified multi-angle research | research-lens-panel [a] (in AI Library Vault) | five expert lenses, contradiction map, peer review, every citation checked
 Fact-check findings before building | [[A--own--rbx-verifier|rbx-verifier]] [a] | labels each finding seen / inferred / unknown
 Smaller diffs, no unrelated edits | rbx-karpathy (in AI Library Vault) | think first, minimum code, surgical changes, success criteria

@@ -28,10 +28,10 @@ tags: [moc]
 - [s] [[S--own--rbx-lighting|rbx-lighting]] - Mandatory lighting gate: apply the genre lighting preset early (LightingKit.apply), scan the place against 12 
 - [s] [[S--own--rbx-placement|rbx-placement]] - Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded,
 - [s] [[S--own--rbx-plan|rbx-plan]] - Turns a rated Roblox idea into game-plan.md: assumptions, systems (build vs library), milestones with pass/fai
-- [s] [[S--own--rbx-playtest|rbx-playtest]] - Playtests a Roblox game: bug and feel report with severities and fixes; fixes bugs red-first (reproduce, fix, 
-- [s] [[S--own--rbx-rate|rbx-rate]] - Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook
+- [s] [[S--own--rbx-playtest|rbx-playtest]] - Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reprod
+- [s] [[S--own--rbx-rate|rbx-rate]] - Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, vira
 - [s] [[S--own--rbx-thumbnail|rbx-thumbnail]] - Creates image prompts, reference-photo guidance and the actual images for a Roblox game's icon, thumbnails and
 - [s] [[S--own--rbx-tune|rbx-tune]] - Metric-gated tuning loop: pick ONE number (gate score, economy simulation, frame cost), baseline it, single-ch
 - [s] [[S--own--rbx-visual|rbx-visual]] - Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and 
 - [s] [[S--own--rbx-weekly|rbx-weekly]] - Weekly numbers check for a live or launching Roblox game. The user pastes Creator Dashboard numbers (or, later
-- [s] [[S--own--rbx-workflow|rbx-workflow]] - Flagship Roblox game workflow, the single entry for every game: finds or creates Games/<game>/, detects the re
+- [s] [[S--own--rbx-workflow|rbx-workflow]] - Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<g

@@ -5,16 +5,15 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/rbx-workflow/SKILL.md"
-description: "Flagship Roblox game workflow, the single entry for every game: finds or creates Games/<game>/, detects the real stage from evidence, resumes the next step, manages specialist workers. A critic must say GOOD before a stage advances; never done without visual, placement and lighting gates."
+description: "Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<game>/, detects the stage from evidence, resumes the next step, runs workers. A critic must say GOOD before a stage advances; not done without visual, placement and lighting gates."
 orig_name: "rbx-workflow"
-orig_description: "Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<game>/, detects the stage from evidence, resumes the next step, runs workers. A critic must say GOOD before a stage advances; not done without visual, placement and lighting gates."
 orig_argument_hint: "[your game idea, or leave empty]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---
 
 # rbx-workflow
 
-> Flagship Roblox game workflow, the single entry for every game: finds or creates Games/<game>/, detects the real stage from evidence, resumes the next step, manages specialist workers. A critic must say GOOD before a stage advances; never done without visual, placement and lighting gates.
+> Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<game>/, detects the stage from evidence, resumes the next step, runs workers. A critic must say GOOD before a stage advances; not done without visual, placement and lighting gates.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/rbx-workflow/SKILL.md` (extra files, if any, sit beside it in the repo)

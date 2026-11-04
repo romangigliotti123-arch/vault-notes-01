@@ -5,9 +5,8 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "agents/roblox/rbx-auditor.md"
-description: "Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), runs a reviewer per area in parallel, spawns a verifier per finding to reproduce it, dedupes and ranks, and writes a standalone HTML report of exploits and bugs with file lines and fixes."
+description: "Orchestrator for a pre-release audit or full bug sweep of a whole Roblox game or Luau codebase: splits it into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), a reviewer per area in parallel and a verifier per finding, dedupes, ranks, writes an HTML report."
 orig_name: "rbx-auditor"
-orig_description: "Orchestrator for a pre-release audit or full bug sweep of a whole Roblox game or Luau codebase: splits it into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), a reviewer per area in parallel and a verifier per finding, dedupes, ranks, writes an HTML report."
 orig_model: "sonnet"
 orig_effort: "high"
 orig_tools: "Read, Grep, Glob, Bash, Agent, Write"
@@ -16,7 +15,7 @@ tags: [lib/agent, cat/roblox, src/own]
 
 # rbx-auditor
 
-> Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), runs a reviewer per area in parallel, spawns a verifier per finding to reproduce it, dedupes and ranks, and writes a standalone HTML report of exploits and bugs with file lines and fixes.
+> Orchestrator for a pre-release audit or full bug sweep of a whole Roblox game or Luau codebase: splits it into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), a reviewer per area in parallel and a verifier per finding, dedupes, ranks, writes an HTML report.
 
 Type: agent | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `agents/roblox/rbx-auditor.md` (extra files, if any, sit beside it in the repo)

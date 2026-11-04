@@ -5,21 +5,20 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-code-rate/SKILL.md"
-description: "Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploitable remotes or data-loss bugs, scripted total, ordered fixes."
+description: "Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server authority, exploits, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploits, scripted total, fixes."
 orig_name: "rbx-code-rate"
-orig_description: "Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server authority, exploits, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploits, scripted total, fixes."
 orig_argument_hint: "<script path or folder> [what it does]"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-code-rate
 
-> Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploitable remotes or data-loss bugs, scripted total, ordered fixes.
+> Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server authority, exploits, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploits, scripted total, fixes.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-code-rate/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--rbx-auditor]], [[A--own--rbx-reviewer]], [[S--own--rbx-bench]], [[S--own--rbx-critic]], [[S--own--rbx-datastore]], [[S--own--rbx-remote-sec]]
+Related: [[A--own--rbx-auditor]], [[A--own--rbx-reviewer]], [[S--own--rbx-bench]], [[S--own--rbx-critic]], [[S--own--rbx-datastore]], [[S--own--rbx-rate-any]], [[S--own--rbx-remote-sec]]
 
 ---
 # rbx-code-rate

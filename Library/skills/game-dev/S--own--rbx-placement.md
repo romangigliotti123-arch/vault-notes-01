@@ -5,16 +5,15 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/rbx-placement/SKILL.md"
-description: "Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic."
+description: "Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; fixes floating, buried, clipping or tilted models; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic."
 orig_name: "rbx-placement"
-orig_description: "Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; fixes floating, buried, clipping or tilted models; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic."
 orig_argument_hint: "[game slug or project folder]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---
 
 # rbx-placement
 
-> Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic.
+> Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; fixes floating, buried, clipping or tilted models; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/rbx-placement/SKILL.md` (extra files, if any, sit beside it in the repo)

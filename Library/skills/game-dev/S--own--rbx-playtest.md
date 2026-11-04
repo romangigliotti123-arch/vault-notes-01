@@ -5,16 +5,15 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/rbx-playtest/SKILL.md"
-description: "Playtests a Roblox game: bug and feel report with severities and fixes; fixes bugs red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of the first 30 seconds and core loop. Never launches Studio or a GUI app."
+description: "Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of first 30 seconds, core loop. Never launches Studio or GUI apps."
 orig_name: "rbx-playtest"
-orig_description: "Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of first 30 seconds, core loop. Never launches Studio or GUI apps."
 orig_argument_hint: "[project folder, default current folder]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---
 
 # rbx-playtest
 
-> Playtests a Roblox game: bug and feel report with severities and fixes; fixes bugs red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of the first 30 seconds and core loop. Never launches Studio or a GUI app.
+> Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of first 30 seconds, core loop. Never launches Studio or GUI apps.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/rbx-playtest/SKILL.md` (extra files, if any, sit beside it in the repo)

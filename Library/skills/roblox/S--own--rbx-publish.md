@@ -5,15 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-publish/SKILL.md"
-description: "Pre-launch checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use before Roman publishes or ships a major update."
+description: "Checklist for publishing, going live or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use for go live and final release checks, before publishing or a major update."
 orig_name: "rbx-publish"
-orig_description: "Checklist for publishing, going live or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use for go live and final release checks, before publishing or a major update."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-publish
 
-> Pre-launch checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use before Roman publishes or ships a major update.
+> Checklist for publishing, going live or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use for go live and final release checks, before publishing or a major update.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-publish/SKILL.md` (extra files, if any, sit beside it in the repo)
