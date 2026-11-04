@@ -17,7 +17,7 @@ tags: [lib/skill, cat/src-roblox-skills-ashexplained, src/roblox-skills-ashexpla
 Type: skill | Category: [[categories/cat-src-roblox-skills-ashexplained|src-roblox-skills-ashexplained]] | Source: [[sources/src-roblox-skills-ashexplained|roblox-skills-ashexplained]] | License: MIT
 Repo file: `sources/roblox-skills-ashexplained/skills/roblox-triage/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--roblox-skills-ashexplained--roblox-combat-systems]], [[S--roblox-skills-ashexplained--roblox-datastore-persistence]], [[S--roblox-skills-ashexplained--roblox-debugging-bugfix]], [[S--roblox-skills-ashexplained--roblox-game-development-lifecycle]], [[S--roblox-skills-ashexplained--roblox-game-ux]], [[S--roblox-skills-ashexplained--roblox-luau-architecture]], [[S--roblox-skills-ashexplained--roblox-mobile-playtest]], [[S--roblox-skills-ashexplained--roblox-playtest-qa]], [[S--roblox-skills-ashexplained--roblox-ui-implementation]], [[S--roblox-skills-ashexplained--setup-roblox-skills]]
+Related: [[S--roblox-skills-ashexplained--roblox-combat-systems]], [[S--roblox-skills-ashexplained--roblox-datastore-persistence]], [[S--roblox-skills-ashexplained--roblox-debugging-bugfix]], [[S--roblox-skills-ashexplained--roblox-game-development-lifecycle]], [[S--roblox-skills-ashexplained--roblox-game-ideas]], [[S--roblox-skills-ashexplained--roblox-game-ux]], [[S--roblox-skills-ashexplained--roblox-luau-architecture]], [[S--roblox-skills-ashexplained--roblox-mobile-playtest]], [[S--roblox-skills-ashexplained--roblox-playtest-qa]], [[S--roblox-skills-ashexplained--roblox-ui-implementation]], [[S--roblox-skills-ashexplained--setup-roblox-skills]]
 
 ---
 # Roblox Triage

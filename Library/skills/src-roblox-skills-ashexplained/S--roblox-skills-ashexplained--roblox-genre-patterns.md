@@ -17,7 +17,7 @@ tags: [lib/skill, cat/src-roblox-skills-ashexplained, src/roblox-skills-ashexpla
 Type: skill | Category: [[categories/cat-src-roblox-skills-ashexplained|src-roblox-skills-ashexplained]] | Source: [[sources/src-roblox-skills-ashexplained|roblox-skills-ashexplained]] | License: MIT
 Repo file: `sources/roblox-skills-ashexplained/skills/roblox-genre-patterns/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--roblox-skills-ashexplained--roblox-game-ux]], [[S--roblox-skills-ashexplained--roblox-to-prd]]
+Related: [[S--roblox-skills-ashexplained--roblox-game-ideas]], [[S--roblox-skills-ashexplained--roblox-game-ux]], [[S--roblox-skills-ashexplained--roblox-to-prd]]
 
 ---
 # Roblox Genre Patterns

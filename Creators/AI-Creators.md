@@ -7,7 +7,7 @@ Research on 4 AI creators (Nate Herk, RoboNuggets, Andrej Karpathy, Theo (t3.gg)
 
 ## Their methods in one place
 
-The combined brain ([[Combined-Brain]], `Mentor/Combined-Brain.md`) merges what these three and the Roblox creators teach, by job, with trust labels and the points where they disagree. Start there, or run `/mentor-rbxdev-vault` (claude-kit) to work with it.
+The combined brain ([[Combined-Brain]], `Mentor/Combined-Brain.md`) merges what these three and the Roblox creators teach, by job, with trust labels and the points where they disagree. Start there, or run `/rbx-mentor` (claude-kit) to work with it.
 
 - **Nate Herk** (366 videos): start with the simplest layer that works, wireframe before building, add one sentence to the prompt per observed error, context engineering as the main lever, verification loops with checkable goals, human approval on risky actions, sell outcomes not agents.
 - **RoboNuggets**: you are the CEO of an agency of agents; A.G.E.N.T. prompt framework (Ask, Guidelines/Goal, Examples, Notation/Negations, Tools); direct model access through aggregators; thin CLAUDE.md router with progressive disclosure; reuse proven formats. Income claims in his videos are marketing, not evidence.
@@ -15,7 +15,7 @@ The combined brain ([[Combined-Brain]], `Mentor/Combined-Brain.md`) merges what 
 
 Full hubs, one note per video and the idea catalogue are in the AI Library Vault (`Creators/hubs/`, `Creators/videos/`, `Creators/catalogue/`).
 
-## Built items that live in this vault (10)
+## Built items that live in this vault (7)
 
 - [[A--own--digest-scout|digest-scout]] (agent) - Context-isolated read-heavy subagent: gets a narrow brief and a set of files, docs or articles, reads them in its own clean context, and ret
 - [[A--own--parallel-audit-fanout|parallel-audit-fanout]] (agent) - Orchestrator for open-ended audits of a codebase before release: splits the code into areas, runs one capped parallel auditor per area, spaw
@@ -24,9 +24,6 @@ Full hubs, one note per video and the idea catalogue are in the AI Library Vault
 - [[S--own--agent-platform-map|agent-platform-map]] (skill) - Designs or audits an agent platform: maps each process step, marks decision points and variability, scores deterministic versus non-determin
 - [[S--own--confidence-escalation-router|confidence-escalation-router]] (skill) - Pattern and code template for routing AI answers inside an automation: auto-accept when confidence is at or above a threshold (for example 8
 - [[S--own--plan-then-build|plan-then-build]] (skill) - Gate and procedure for big builds: use plan mode for setup and large work (skip it for simple fixes), ask clarifying questions, write a spec
-- [[A--own--roblox-pre-delivery-reviewer|roblox-pre-delivery-reviewer]] (agent) - Pre-delivery reviewer for Roblox tools, plugins and scripts handed to a client or published: predicts what the client would reject or delete
-- [[A--own--roblox-audit-fanout|roblox-audit-fanout]] (agent) - Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes, DataStore and economy,
-- [[S--own--roblox-code-rate|roblox-code-rate]] (skill) - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structu
 
 ## Manager research from the creators
 
@@ -34,4 +31,4 @@ Rules for delegating, verifying, context, cost and permissions are in the Manage
 
 ## Other built items
 
-The other 29 built items (general AI, writing, devops, testing, frontend) are in the AI Library Vault: see its `Creators/BUILT.md`.
+The other 32 built items (general AI, writing, devops, testing, frontend) are in the AI Library Vault: see its `Creators/BUILT.md`.

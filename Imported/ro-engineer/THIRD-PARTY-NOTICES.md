@@ -24,4 +24,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-The vault's own skills (roblox-architecture-choice, roblox-luau-style, roblox-code-rate, roblox-pre-delivery-reviewer, roblox-monetization-audit, game-dev-rate) are rewritten in the vault's own words and are not copies; they credit the source ideas here.
+The vault's own skills (rbx-arch, rbx-luau, rbx-code-rate, rbx-predelivery, rbx-monetize-audit, rbx-rate) are rewritten in the vault's own words and are not copies; they credit the source ideas here.

@@ -4,11 +4,11 @@ description: "Hub of the Roblox folder: entry points, trust-weighted creator lis
 ---
 # Roblox knowledge
 
-Read-only mirror of the Roblox research (4527 notes, synced 2026-11-04): the knowledge base, per-creator playbooks and themes, official Creator Docs and DevForum notes. Generated; do not edit here.
+Read-only mirror of the Roblox research (4527 notes, synced 2026-11-05): the knowledge base, per-creator playbooks and themes, official Creator Docs and DevForum notes. Generated; do not edit here.
 
 ## Start here
 
-- [[Combined-Brain]]: principles, methods and disagreements of every creator by job, trust-labelled (use `/mentor-rbxdev-vault`).
+- [[Combined-Brain]]: principles, methods and disagreements of every creator by job, trust-labelled (use `/rbx-mentor`).
 - [[master-playbook]]: the whole method in one note (pipeline, decision rules, where creators disagree, prompt starters).
 - [[creator-credibility]]: who to trust (TRUSTED / MIXED / WEAK / unaudited) and why.
 - Quick sheets: [[DECISION-RULES]], [[BENCHMARKS]], [[PRICE-LADDER]], [[AD-PLAYBOOK]], [[CHECKLIST-launch]], [[CHECKLIST-monetization]], [[HOW-TO-USE]].

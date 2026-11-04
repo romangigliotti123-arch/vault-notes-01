@@ -4,7 +4,7 @@ description: "The vault's combined brain: working principles, methods, decision 
 ---
 # Combined brain
 
-Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) plus rules extracted from the Roblox knowledge base and the AI-creators research by `tools/mentor_brain.py`. Do not edit here. Used by the `mentor-rbxdev-vault` agent and the `/mentor-rbxdev-vault` skill.
+Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) plus rules extracted from the Roblox knowledge base and the AI-creators research by `tools/mentor_brain.py`. Do not edit here. Used by the `rbx-mentor` agent and the `/rbx-mentor` skill.
 
 ## How to read this note (cheap order)
 
@@ -23,18 +23,18 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 
 | Job | Section | Start with |
 |---|---|---|
-| Designing a game | Job: designing a game | `/game-dev-workflow`, `/game-dev-rate`, `/roblox-game-ideas` |
-| Scripting and Luau | Job: scripting and Luau | `/roblox-luau-style`, `/roblox-remote-security`, agent `roblox-luau-engineer` |
-| Monetisation | Job: monetisation | `/roblox-monetisation-setup`, `/roblox-monetization-audit`, agent `roblox-economy-designer` |
-| Ads, thumbnails, packaging | Job: ads, thumbnails and packaging | `/game-dev-ads`, `/game-dev-thumbnail`, `/roblox-ad-campaign-planner` |
-| Retention and analytics | Job: retention and analytics | `/roblox-analytics-review`, `/roblox-metrics-benchmarks`, agent `roblox-game-doctor` |
-| Live-ops | Job: live-ops | `/game-dev-update`, `/roblox-leaderboards-and-events`, agent `roblox-liveops-planner` |
+| Designing a game | Job: designing a game | `/rbx-workflow`, `/rbx-rate`, `/rbx-ideas` |
+| Scripting and Luau | Job: scripting and Luau | `/rbx-luau`, `/rbx-remote-sec`, agent `rbx-engineer` |
+| Monetisation | Job: monetisation | `/rbx-monetize`, `/rbx-monetize-audit`, agent `rbx-economist` |
+| Ads, thumbnails, packaging | Job: ads, thumbnails and packaging | `/rbx-ads`, `/rbx-thumbnail`, `/rbx-ad-plan` |
+| Retention and analytics | Job: retention and analytics | `/rbx-analytics`, `/rbx-metrics`, agent `rbx-doctor` |
+| Live-ops | Job: live-ops | `/rbx-game-update`, `/rbx-leaderboard`, agent `rbx-liveops` |
 | 3D models and Blender | Job: 3D models and Blender | `/rbx model-rebuild`, `/rbx accessory-fitting-guide`, `/rbx rig-checker` |
-| Running a game project | Job: running a game project | `/game-dev-plan`, `/game-dev-playtest`, `/roblox-launch-checklist` |
-| Using agents and skills | Job: using agents and skills | `/use-ai-library-rbxdev-vault`, `/manager-mode-rbxdev-vault`, `/clarify-before-build-rbxdev-vault` |
-| Coding with AI | Job: coding with AI | `/karpathy-coding-guidelines-rbxdev-vault`, agent `claim-verifier-rbxdev-vault`, `/rate-anything-1-10-rbxdev-vault` |
-| Research | Job: research | `/deep-topic-research-rbxdev-vault`, `/roblox-trend-research`, agent `claim-verifier-rbxdev-vault` |
-| Running a project with agents | Job: running a project with agents | `/manager-mode-rbxdev-vault`, `/low-usage-mode-rbxdev-vault`, `/clarify-before-build-rbxdev-vault` |
+| Running a game project | Job: running a game project | `/rbx-plan`, `/rbx-playtest`, `/rbx-launch-check` |
+| Using agents and skills | Job: using agents and skills | `/rbx-ailib`, `/rbx-manager`, `/rbx-clarify` |
+| Coding with AI | Job: coding with AI | `/rbx-karpathy`, agent `rbx-verifier`, `/rbx-rate-any` |
+| Research | Job: research | `/rbx-research`, `/rbx-trends`, agent `rbx-verifier` |
+| Running a project with agents | Job: running a project with agents | `/rbx-manager`, `/rbx-low-usage`, `/rbx-clarify` |
 | "What would <creator> do?" | Creator cards | the cards at the end of this note |
 
 ## Job: designing a game
@@ -47,7 +47,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Social design: never split friends into isolated servers or penalise solo players (official). Packaging text: literal title, at most 2 emojis, thumbnail 1920x1080 (official; critic-checks).
 - Official docs beat indie advice on platform mechanics. Nobody knows for certain what will sell; validation reduces risk, it does not remove it.
 
-**Use:** `/game-dev-workflow` (idea, rating, plan, build), `/game-dev-rate`, `/roblox-game-ideas`, `/roblox-gdd-template`, `/roblox-trend-research`; agent `roblox-game-designer`. Notes: [[core-loops-and-game-design]], [[game-ideas-and-genres]], [[trend-research-and-validation]], [[first-session-onboarding]], [[player-psychology-and-game-feel]], [[common-mistakes]].
+**Use:** `/rbx-workflow` (idea, rating, plan, build), `/rbx-rate`, `/rbx-ideas`, `/rbx-gdd`, `/rbx-trends`; agent `rbx-designer`. Notes: [[core-loops-and-game-design]], [[game-ideas-and-genres]], [[trend-research-and-validation]], [[first-session-onboarding]], [[player-psychology-and-game-feel]], [[common-mistakes]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -75,7 +75,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Prompt AI per feature, playtest after each prompt, paste errors back to fix them (see the coding-with-AI job).
 - When the KB conflicts with current Creator Docs, the docs win; check deprecations.
 
-**Use:** `/roblox-luau-style`, `/roblox-architecture-choice`, `/roblox-remote-security`, `/roblox-datastore-safe-save`, `/roblox-performance-pass`, `/roblox-rojo-project-setup`, `/roblox-code-rate`, `/roblox-npc-pathfinding`, `/roblox-ui-responsive`; agents `roblox-luau-engineer`, `roblox-luau-reviewer`. Notes: [[luau-language-and-types]], [[scripting-and-performance]], [[client-server-and-remotes]], [[data-persistence]], [[anti-exploit-and-security]], [[code-architecture-and-frameworks]].
+**Use:** `/rbx-luau`, `/rbx-arch`, `/rbx-remote-sec`, `/rbx-datastore`, `/rbx-perf`, `/rbx-rojo`, `/rbx-code-rate`, `/rbx-npc`, `/rbx-ui`; agents `rbx-engineer`, `rbx-reviewer`. Notes: [[luau-language-and-types]], [[scripting-and-performance]], [[client-server-and-remotes]], [[data-persistence]], [[anti-exploit-and-security]], [[code-architecture-and-frameworks]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -104,7 +104,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - One server `ProcessReceipt`, `PurchaseGranted` only after the grant; cheapest tier 25-100 Robux; offers to players in their first 10-30 minutes cheap or hidden (official, mixed).
 - Run sales rarely; frequent sales train players to wait. Keep hard currency scarce and protect the economy.
 
-**Use:** `/roblox-monetisation-setup`, `/roblox-monetization-audit`; agents `roblox-economy-designer`, `roblox-monetization-consultant`. Notes: [[monetisation-devproducts]], [[monetisation-gamepasses]], [[monetisation-other]], [[pricing]], [[ugc-and-avatar-economy]], [[business-and-payouts]].
+**Use:** `/rbx-monetize`, `/rbx-monetize-audit`; agents `rbx-economist`, `rbx-money`. Notes: [[monetisation-devproducts]], [[monetisation-gamepasses]], [[monetisation-other]], [[pricing]], [[ugc-and-avatar-economy]], [[business-and-payouts]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -130,7 +130,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Title literal, icon and thumbnails show real gameplay, one focal point, high contrast, legible at mobile size. If a thumbnail or title misleads, change it: bounces hurt recommendations.
 - Description: genre, objective and keywords in the first 160 characters.
 
-**Use:** `/game-dev-ads`, `/game-dev-thumbnail`, `/roblox-ad-campaign-planner`, `/roblox-thumbnail-brief`, `/roblox-thumbnail-brief`; agents `roblox-launch-marketing-manager`. Notes: [[ads-and-sponsored-experiences]], [[thumbnails-icons]], [[titles-descriptions]], [[trailers-and-video-marketing]], [[influencer-and-creator-marketing]], [[ads-stats-monetisation-playbook]].
+**Use:** `/rbx-ads`, `/rbx-thumbnail`, `/rbx-ad-plan`, `/rbx-thumb-brief`, `/rbx-thumb-brief`; agents `rbx-marketer`. Notes: [[ads-and-sponsored-experiences]], [[thumbnails-icons]], [[titles-descriptions]], [[trailers-and-video-marketing]], [[influencer-and-creator-marketing]], [[ads-stats-monetisation-playbook]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -157,7 +157,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Read metrics by cohort, platform and device; change one thing per test and use Experiments for significance.
 - Treat indie CCU, revenue and CTR numbers as unverified; use official benchmarks and [[all-numbers-and-benchmarks]] with their flags.
 
-**Use:** `/roblox-analytics-review`, `/roblox-metrics-benchmarks`; agent `roblox-game-doctor`. Notes: [[retention-d1-d7]], [[analytics-metrics]], [[discovery-algorithm]], [[ab-testing-and-experiments]].
+**Use:** `/rbx-analytics`, `/rbx-metrics`; agent `rbx-doctor`. Notes: [[retention-d1-d7]], [[analytics-metrics]], [[discovery-algorithm]], [[ab-testing-and-experiments]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -183,7 +183,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Space event announcements at least 3 days apart; refresh packaging at major updates.
 - Community (Discord about a month before launch) is part of live-ops, not a side task.
 
-**Use:** `/game-dev-update`, `/roblox-leaderboards-and-events`; agent `roblox-liveops-planner`. Notes: [[updates-live-ops]], [[events-and-seasonal-content]], [[community-and-discord]], [[social-features-and-virality]].
+**Use:** `/rbx-game-update`, `/rbx-leaderboard`; agent `rbx-liveops`. Notes: [[updates-live-ops]], [[events-and-seasonal-content]], [[community-and-discord]], [[social-features-and-virality]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -218,7 +218,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Check release requirements (age gates, tax and DevEx eligibility) before launch; soft-launch quietly, fix D1, then spend.
 - Protect against burnout; reinvest and diversify income; decide keep versus sell with escrow and due diligence.
 
-**Use:** `/game-dev-plan`, `/game-dev-playtest`, `/roblox-launch-checklist`, `/roblox-publish-checklist`, `/roblox-playtest-checklist`; agents `roblox-studio-lead`, `roblox-playtest-runner`, `roblox-pre-delivery-reviewer`. Notes: [[development-process-and-speed]], [[team-and-budget]], [[playtesting-and-feedback]], [[mindset-and-strategy]], [[business-and-payouts]], [[age-ratings-moderation-and-tos]].
+**Use:** `/rbx-plan`, `/rbx-playtest`, `/rbx-launch-check`, `/rbx-publish`, `/rbx-playtest-list`; agents `rbx-lead`, `rbx-tester`, `rbx-predelivery`. Notes: [[development-process-and-speed]], [[team-and-budget]], [[playtesting-and-feedback]], [[mindset-and-strategy]], [[business-and-payouts]], [[age-ratings-moderation-and-tos]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -245,7 +245,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Hardcode stable lookups into the skill; delegate searching.
 - Find a ready-made skill or agent before writing one: `vault-find`, then read the one note and follow it.
 
-**Use:** `/use-ai-library-rbxdev-vault`, `/use-rbxdev-vault`, `/manager-mode-rbxdev-vault`, `/clarify-before-build-rbxdev-vault`; notes: [[topic-orchestration-patterns]], [[topic-context-engineering]], [[topic-claude-code-features]], hubs `nate-herk`, `robonuggets`, `andrej-karpathy`.
+**Use:** `/rbx-ailib`, `/rbx-use`, `/rbx-manager`, `/rbx-clarify`; notes: [[topic-orchestration-patterns]], [[topic-context-engineering]], [[topic-claude-code-features]], hubs `nate-herk`, `robonuggets`, `andrej-karpathy`.
 
 **Evidence (AI creators; tag = how the creator backed it; sources are the video notes):**
 
@@ -274,7 +274,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Loops stop on a measurable metric plus an iteration cap, never "until satisfied". Add an instruction-file line only for a repeated mistake, after trying to fix the code or add a check (Nate Herk, RoboNuggets; Theo MIXED + Anthropic docs).
 - Reset context when the topic changes; long context costs more and lowers accuracy.
 
-**Use:** `/karpathy-coding-guidelines-rbxdev-vault`, `/clarify-before-build-rbxdev-vault`, `/rate-anything-1-10-rbxdev-vault`; agents `claim-verifier-rbxdev-vault`, `self-verifying-game-builder-rbxdev-vault`, `roblox-luau-reviewer`. Notes: [[ai-and-tools]], [[topic-llm-judge-and-adversarial-verification]], [[topic-brief-prompt-engineering]].
+**Use:** `/rbx-karpathy`, `/rbx-clarify`, `/rbx-rate-any`; agents `rbx-verifier`, `rbx-selfbuilder`, `rbx-reviewer`. Notes: [[ai-and-tools]], [[topic-llm-judge-and-adversarial-verification]], [[topic-brief-prompt-engineering]].
 
 **Evidence (AI creators; tag = how the creator backed it; sources are the video notes):**
 
@@ -296,7 +296,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Verify a recommendation with a second independent source before it drives a decision (MIXED creators need this; TRUSTED creators still defer to official docs on numbers).
 - Roblox market research: use trend research with current data; study transferable patterns, never copy content.
 
-**Use:** `/deep-topic-research-rbxdev-vault`, `/roblox-trend-research`, `/roblox-kb-answer`; agent `claim-verifier-rbxdev-vault`; search: `vault-find`, `kbq`. Notes: [[creator-credibility]], [[trend-research-and-validation]], [[topic-report-formats-and-verification]].
+**Use:** `/rbx-research`, `/rbx-trends`, `/rbx-kb`; agent `rbx-verifier`; search: `vault-find`, `kbq`. Notes: [[creator-credibility]], [[trend-research-and-validation]], [[topic-report-formats-and-verification]].
 
 ## Job: running a project with agents
 
@@ -304,10 +304,10 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Plan, then execute; brief the lead as a project manager (do not execute, delegate to cheaper sub-agents, parallelise independent work, log progress, flag open issues).
 - Verification loops and independent verifiers beat self-reported success. Ask for evidence, not claims.
 - Permissions and guardrails matter more as autonomy grows; keep a human in the loop for irreversible actions.
-- Control cost: cheapest model that fits, one subagent at a time when usage is tight, short outputs, `/low-usage-mode-rbxdev-vault`.
+- Control cost: cheapest model that fits, one subagent at a time when usage is tight, short outputs, `/rbx-low-usage`.
 - Failure handling: read the error, fix the script, retest, then update the workflow so it does not repeat.
 
-**Use:** `/manager-mode-rbxdev-vault`, `/low-usage-mode-rbxdev-vault`, `/clarify-before-build-rbxdev-vault`; agents `claim-verifier-rbxdev-vault`, `roblox-audit-fanout`. Notes: [[Manager-README]], [[topic-orchestration-patterns]], [[topic-model-effort-routing-cost]], [[topic-agent-security]], [[topic-long-running-always-on-agents]].
+**Use:** `/rbx-manager`, `/rbx-low-usage`, `/rbx-clarify`; agents `rbx-verifier`, `rbx-auditor`. Notes: [[Manager-README]], [[topic-orchestration-patterns]], [[topic-model-effort-routing-cost]], [[topic-agent-security]], [[topic-long-running-always-on-agents]].
 
 **Evidence (AI creators; tag = how the creator backed it; sources are the video notes):**
 

@@ -6,7 +6,7 @@ tags: [moc]
 Best 1-3 items per common manager job. Format: job | id(s) | why. Own items (no slash) come first, then imports (`source/name`). Agents are marked `[a]`, everything else is a skill. Find the file with `powershell -File tools\find.ps1 <id words>`; read that one file only. For anything not listed: `find.ps1 <keywords>`.
 
 ## Work with the vault (start here)
-work alongside an adviser that knows every creator in both vaults and suggests tools as I go | vault-mentor, vault-mentor [a] | /vault-mentor reads CAPABILITIES.md and Mentor/Combined-Brain.md, then suggests the skill, agent, note or creator method for each step
+work alongside an adviser that knows every creator in both vaults and suggests tools as I go | [[S--own--rbx-mentor|rbx-mentor]], [[S--own--rbx-mentor|rbx-mentor]] | /rbx-mentor reads CAPABILITIES.md and Mentor/Combined-Brain.md, then suggests the skill, agent, note or creator method for each step
 
 ## Build and fix code
 code review | code-reviewer [a] (in AI Library Vault), code-review-checklist (in AI Library Vault), anthropic-knowledge-work/code-review (in AI Library Vault) | own agent does it end to end; checklist for a quick pass; AKW skill for security/perf/correctness structure
@@ -30,18 +30,18 @@ React / TypeScript UI | wshobson/react-state-management (in AI Library Vault), a
 Python code | wshobson/python-testing-patterns (in AI Library Vault), wshobson/python-error-handling (in AI Library Vault), 0xfurai-subagents/python-expert [a] (in AI Library Vault) | idiomatic tests, errors, style
 mobile (iOS / Android) | 0xfurai-subagents/ios-expert [a] (in AI Library Vault), 0xfurai-subagents/android-expert [a] (in AI Library Vault), gstack/ios-qa (in AI Library Vault) | build and live-device QA
 game dev (Unity / Godot) | [[S--jeffallan--game-developer|jeffallan/game-developer]], [[A--agency-agents--Godot-Gameplay-Scripter|agency-agents/Godot Gameplay Scripter]] [a] | systems and performance
-Roblox build | [[A--own--roblox-luau-engineer|roblox-luau-engineer]] [a], [[A--agency-agents--Roblox-Systems-Scripter|agency-agents/Roblox Systems Scripter]] [a] | secure client/server Luau
-Roblox test | [[A--own--roblox-playtest-runner|roblox-playtest-runner]] [a], [[S--own--roblox-playtest-checklist|roblox-playtest-checklist]] | playtest first 30 s through multiplayer and exploits
+Roblox build | [[A--own--rbx-engineer|rbx-engineer]] [a], [[A--agency-agents--Roblox-Systems-Scripter|agency-agents/Roblox Systems Scripter]] [a] | secure client/server Luau
+Roblox test | [[A--own--rbx-tester|rbx-tester]] [a], [[S--own--rbx-playtest-list|rbx-playtest-list]] | playtest first 30 s through multiplayer and exploits
 Roblox design / monetisation | [[A--agency-agents--Roblox-Experience-Designer|agency-agents/Roblox Experience Designer]] [a] | engagement loop, DataStore progression, monetisation
-Roblox (any request) | [[A--own--roblox-studio-lead|roblox-studio-lead]] [a] | router: picks specialists, runs them, merges one sourced plan (KB: ~/claude-host/youtube-learn/out/roblox-kb/_tools/HOW-TO-USE.md)
-Roblox quick fact / "what do creators say" | [[S--own--roblox-kb-answer|roblox-kb-answer]] | 2-4 cheap cited KB queries, no agents
-Roblox game idea / GDD | [[A--own--roblox-game-designer|roblox-game-designer]] [a], [[S--own--roblox-gdd-template|roblox-gdd-template]], [[S--own--roblox-game-ideas|roblox-game-ideas]] | scored concepts, build-ready GDD, evidence table
-Roblox pricing / passes / products | [[A--own--roblox-monetization-consultant|roblox-monetization-consultant]] [a], [[S--own--roblox-monetization-audit|roblox-monetization-audit]] | offer catalogue with Robux prices and trigger moments; audit scorecard
-Roblox ads / thumbnails / launch | [[A--own--roblox-launch-marketing-manager|roblox-launch-marketing-manager]] [a], [[S--own--roblox-ad-campaign-planner|roblox-ad-campaign-planner]], [[S--own--roblox-thumbnail-brief|roblox-thumbnail-brief]] | budget and schedule with calculator, packaging brief, Discord plan
-Roblox game underperforming (metrics) | [[A--own--roblox-game-doctor|roblox-game-doctor]] [a], [[S--own--roblox-metrics-benchmarks|roblox-metrics-benchmarks]] | KB benchmark comparison, prioritised fix list, 14-day test plan
-Roblox updates / events calendar | [[A--own--roblox-liveops-planner|roblox-liveops-planner]] [a] | cadence by team size, 12-week calendar, rollback rules
-Roblox Luau system (secure, performant) | [[A--own--roblox-luau-engineer|roblox-luau-engineer]] [a], [[S--own--roblox-remote-security|roblox-remote-security]], [[S--own--roblox-datastore-safe-save|roblox-datastore-safe-save]] | server-authoritative code with doc-verified APIs
-Roblox launch readiness | [[S--own--roblox-launch-checklist|roblox-launch-checklist]] | interactive tailored checklist from the merged KB checklists
+Roblox (any request) | [[A--own--rbx-lead|rbx-lead]] [a] | router: picks specialists, runs them, merges one sourced plan (KB: ~/claude-host/youtube-learn/out/roblox-kb/_tools/HOW-TO-USE.md)
+Roblox quick fact / "what do creators say" | [[S--own--rbx-kb|rbx-kb]] | 2-4 cheap cited KB queries, no agents
+Roblox game idea / GDD | [[A--own--rbx-designer|rbx-designer]] [a], [[S--own--rbx-gdd|rbx-gdd]], [[S--own--rbx-ideas|rbx-ideas]] | scored concepts, build-ready GDD, evidence table
+Roblox pricing / passes / products | [[A--own--rbx-money|rbx-money]] [a], [[S--own--rbx-monetize-audit|rbx-monetize-audit]] | offer catalogue with Robux prices and trigger moments; audit scorecard
+Roblox ads / thumbnails / launch | [[A--own--rbx-marketer|rbx-marketer]] [a], [[S--own--rbx-ad-plan|rbx-ad-plan]], [[S--own--rbx-thumb-brief|rbx-thumb-brief]] | budget and schedule with calculator, packaging brief, Discord plan
+Roblox game underperforming (metrics) | [[A--own--rbx-doctor|rbx-doctor]] [a], [[S--own--rbx-metrics|rbx-metrics]] | KB benchmark comparison, prioritised fix list, 14-day test plan
+Roblox updates / events calendar | [[A--own--rbx-liveops|rbx-liveops]] [a] | cadence by team size, 12-week calendar, rollback rules
+Roblox Luau system (secure, performant) | [[A--own--rbx-engineer|rbx-engineer]] [a], [[S--own--rbx-remote-sec|rbx-remote-sec]], [[S--own--rbx-datastore|rbx-datastore]] | server-authoritative code with doc-verified APIs
+Roblox launch readiness | [[S--own--rbx-launch-check|rbx-launch-check]] | interactive tailored checklist from the merged KB checklists
 Roblox Studio control (read/edit places) | docs: mcp/roblox-studio-mcp.md | built-in Studio MCP server, project-scoped config only
 
 ## Design, UX, docs
@@ -59,7 +59,7 @@ diagrams | trailofbits/diagramming-code (in AI Library Vault), gstack/diagram (i
 
 ## Research, product, marketing
 deep research | [[A--own--deep-researcher|deep-researcher]] [a], [[S--own--research-method|research-method]], alirezarezvani/deep-research (in AI Library Vault) | cited, dated, confidence-rated
-deep topic research across GitHub/YouTube/Reddit/blogs | deep-topic-research, [[S--own--research-method|research-method]] | asks usage/time/worker caps first, ranks best creators, reads their whole back-catalogue, resumable, writes a cited vault; shareable zip, own YouTube transcript tool
+deep topic research across GitHub/YouTube/Reddit/blogs | [[S--own--rbx-research|rbx-research]], [[S--own--research-method|research-method]] | asks usage/time/worker caps first, ranks best creators, reads their whole back-catalogue, resumable, writes a cited vault; shareable zip, own YouTube transcript tool
 quick lookup | [[A--own--quick-researcher|quick-researcher]] [a], mattpocock/research (in AI Library Vault) | one or two sources, fast
 competitive analysis | competitive-analyst [a] (in AI Library Vault), anthropic-knowledge-work/product-management/competitive-brief (in AI Library Vault), pm-skills/competitor-analysis (in AI Library Vault) | positioning gaps, battlecards
 SEO audit | seo-analyst [a] (in AI Library Vault), anthropic-knowledge-work/seo-audit (in AI Library Vault), marketing-skills/seo-audit (in AI Library Vault) | prioritised quick wins
@@ -132,38 +132,38 @@ git workflow | superpowers/using-git-worktrees (in AI Library Vault), superpower
 ## Orchestration (manager habits)
 split a big goal | [[A--own--task-decomposer|task-decomposer]] [a], task-planner [a] (in AI Library Vault), superpowers/writing-plans (in AI Library Vault) | independent jobs with briefs
 parallel workers | superpowers/dispatching-parallel-agents (in AI Library Vault), superpowers/subagent-driven-development (in AI Library Vault), superpowers/executing-plans (in AI Library Vault) | fan-out and review loops
-act as a manager (any session) | manager-mode | one skill: size the job, pick model/effort, brief, check reports, usage cap, ledger, verifier; /manager-mode install-presets adds sonnet-worker/haiku-scout/opus-builder
-keep Claude cheap / low usage for the whole session | low-usage-mode | /low-usage-mode on|off|status; marker + UserPromptSubmit/SessionStart hooks keep it on after compaction; every reply starts 'low usage mode enabled.'
+act as a manager (any session) | [[S--own--rbx-manager|rbx-manager]] | one skill: size the job, pick model/effort, brief, check reports, usage cap, ledger, verifier; /rbx-manager install-presets adds sonnet-worker/haiku-scout/opus-builder
+keep Claude cheap / low usage for the whole session | rbx-low-usage | /rbx-low-usage on|off|status; marker + UserPromptSubmit/SessionStart hooks keep it on after compaction; every reply starts 'low usage mode enabled.'
 brief a worker | [[S--own--worker-brief-template|worker-brief-template]], [[S--own--worker-report-format|worker-report-format]], [[S--own--model-routing|model-routing]] | self-contained AI-to-AI briefs; pick model/effort
 verify a claim | [[A--own--verifier|verifier]] [a], superpowers/verification-before-completion (in AI Library Vault) | re-run checks before reporting success
 hand off long results | [[S--own--artifact-handoff|artifact-handoff]], phone-friendly-reporting (in AI Library Vault), mattpocock/handoff (in AI Library Vault) | link plus short summary
 
 ## Roblox and game development (added 2026-10-29)
-make a game / plan a game | [[S--own--game-dev-workflow|game-dev-workflow]], [[S--own--game-dev-plan|game-dev-plan]], [[S--own--game-dev-rate|game-dev-rate]] | /game-dev-workflow: asks only for the idea, elaborates from the vault, rates 1.00-10.00, plans (skills/agents/models/cap), asks Ready to build, then a head manager builds and playtests
-rate a game idea | [[S--own--game-dev-rate|game-dev-rate]], [[S--own--roblox-game-ideas|roblox-game-ideas]] | 12 weighted criteria with vault-derived weights, computed score, strengths/weaknesses/fixes, what is hot now
-Roblox ads plan / tutorial | [[S--own--game-dev-ads|game-dev-ads]], [[S--own--roblox-ad-campaign-planner|roblox-ad-campaign-planner]] | reads newest ad notes and live-checks costs and policy every run; never spends
-Roblox update roadmap / patch notes | [[S--own--game-dev-update|game-dev-update]], [[A--own--roblox-liveops-planner|roblox-liveops-planner]] [a] | cadence, events calendar, retention levers, A/B ideas, patch notes; reads newest live-ops notes
-Roblox icon / thumbnail images with Nano Banana | [[S--own--game-dev-thumbnail|game-dev-thumbnail]], [[S--own--roblox-thumbnail-brief|roblox-thumbnail-brief]] | looks up the newest image model from the user's own key, prompts + reference guidance + content-rules checklist
-Roblox playtest without Studio | [[S--own--game-dev-playtest|game-dev-playtest]], [[A--own--roblox-playtest-runner|roblox-playtest-runner]] [a] | Studio MCP if present, else luau-check + static scan + code-walk; bug and feel report
-Roblox DataStore / saving | [[S--own--roblox-datastore-safe-save|roblox-datastore-safe-save]], [[S--roblox-brain--roblox-server-data|roblox-brain/roblox-server-data]], [[S--luau-skills--roblox-data|luau-skills/roblox-data]] | safe UpdateAsync + session lock + test list; sourced KB; API detail
-Roblox exploit review | [[S--own--roblox-remote-security|roblox-remote-security]], [[A--own--roblox-luau-reviewer|roblox-luau-reviewer]] [a], [[S--roblox-brain--roblox-security|roblox-brain/roblox-security]] | remote validation table; severity-ranked review agent
-Roblox monetisation | [[S--own--roblox-monetisation-setup|roblox-monetisation-setup]], [[S--roblox-brain--roblox-monetization|roblox-brain/roblox-monetization]], [[S--roblox-skills-ashexplained--roblox-monetization-optimization|roblox-skills-ashexplained/roblox-monetization-optimization]] | ProcessReceipt done right plus ethical pricing
-Roblox economy design | [[A--own--roblox-economy-designer|roblox-economy-designer]] [a], [[S--own--game-economy-simulation|game-economy-simulation]], [[S--roblox-skills-ashexplained--roblox-economy-balancing|roblox-skills-ashexplained/roblox-economy-balancing]] | simulate before coding
-Roblox Luau style | [[S--own--roblox-luau-style|roblox-luau-style]], [[S--luau-skills--luau-core|luau-skills/luau-core]], [[S--luau-skills--luau-types|luau-skills/luau-types]] | strict typing, task library, lifecycle and leak cleanup
-Roblox architecture (OOP / components / ECS / pooling) | [[S--own--roblox-architecture-choice|roblox-architecture-choice]] | evidence-based pattern choice with Luau examples
-Roblox bug fix (reproduce first) | game-dev-playtest (Fix loop) | red check before the edit, same check green after, RED and GREEN ledger
-Roblox balance / optimise with a number | [[S--own--game-dev-tune|game-dev-tune]] | baseline, one change per experiment, keep or revert, ledger checked by tune_check.py
-Roblox code gates (comments, stubs, security) | game-dev-critic (code_gates.py) | scored never blocking; the critic must run them before GOOD
-Roblox project setup (Rojo) | [[S--own--roblox-rojo-project-setup|roblox-rojo-project-setup]], [[S--roblox-skills-el4cteo--roblox-studio-mcp|roblox-skills-el4cteo/roblox-studio-mcp]] | file-based workflow Claude can edit
-Roblox UI | [[S--own--roblox-ui-responsive|roblox-ui-responsive]], [[S--roblox-brain--roblox-gui|roblox-brain/roblox-gui]] | phone-first scaling and safe areas
-Roblox performance | [[S--own--roblox-performance-pass|roblox-performance-pass]], [[S--roblox-brain--roblox-performance|roblox-brain/roblox-performance]] | measure first; MicroProfiler
-Roblox round / minigame loop | [[S--own--roblox-round-based-game-loop|roblox-round-based-game-loop]], [[S--roblox-skills-el4cteo--roblox-teleport-matchmaking|roblox-skills-el4cteo/roblox-teleport-matchmaking]] | state machine and cleanup
-Roblox NPC / enemy AI | [[S--own--roblox-npc-pathfinding|roblox-npc-pathfinding]], [[S--roblox-brain--roblox-npc-ai|roblox-brain/roblox-npc-ai]] | pathfinding with network ownership
-Roblox leaderboards / events | [[S--own--roblox-leaderboards-and-events|roblox-leaderboards-and-events]] | OrderedDataStore, badges, daily rewards
-Roblox launch | [[S--own--roblox-publish-checklist|roblox-publish-checklist]], [[S--roblox-brain--roblox-publish-checklist|roblox-brain/roblox-publish-checklist]], [[A--own--roblox-playtest-runner|roblox-playtest-runner]] [a] | go / no-go for Roman to publish
-Roblox analytics | [[S--own--roblox-analytics-review|roblox-analytics-review]], [[A--own--roblox-game-doctor|roblox-game-doctor]] [a], [[S--roblox-brain--roblox-analytics|roblox-brain/roblox-analytics]] | ranked experiments with thresholds
-Roblox icon / thumbnails / ads | [[S--own--roblox-thumbnail-brief|roblox-thumbnail-brief]], [[A--own--roblox-launch-marketing-manager|roblox-launch-marketing-manager]] [a] | briefs and A/B plan; never spends Robux
-Game design doc | [[A--own--game-design-doc-writer|game-design-doc-writer]] [a], [[S--own--roblox-game-ideas|roblox-game-ideas]], [[S--game-studios--brainstorm|game-studios/brainstorm]] | pitch to GDD
+make a game / plan a game | [[S--own--rbx-workflow|rbx-workflow]], [[S--own--rbx-plan|rbx-plan]], [[S--own--rbx-rate|rbx-rate]] | /rbx-workflow: asks only for the idea, elaborates from the vault, rates 1.00-10.00, plans (skills/agents/models/cap), asks Ready to build, then a head manager builds and playtests
+rate a game idea | [[S--own--rbx-rate|rbx-rate]], [[S--own--rbx-ideas|rbx-ideas]] | 12 weighted criteria with vault-derived weights, computed score, strengths/weaknesses/fixes, what is hot now
+Roblox ads plan / tutorial | [[S--own--rbx-ads|rbx-ads]], [[S--own--rbx-ad-plan|rbx-ad-plan]] | reads newest ad notes and live-checks costs and policy every run; never spends
+Roblox update roadmap / patch notes | [[S--own--rbx-game-update|rbx-game-update]], [[A--own--rbx-liveops|rbx-liveops]] [a] | cadence, events calendar, retention levers, A/B ideas, patch notes; reads newest live-ops notes
+Roblox icon / thumbnail images with Nano Banana | [[S--own--rbx-thumbnail|rbx-thumbnail]], [[S--own--rbx-thumb-brief|rbx-thumb-brief]] | looks up the newest image model from the user's own key, prompts + reference guidance + content-rules checklist
+Roblox playtest without Studio | [[S--own--rbx-playtest|rbx-playtest]], [[A--own--rbx-tester|rbx-tester]] [a] | Studio MCP if present, else luau-check + static scan + code-walk; bug and feel report
+Roblox DataStore / saving | [[S--own--rbx-datastore|rbx-datastore]], [[S--roblox-brain--roblox-server-data|roblox-brain/roblox-server-data]], [[S--luau-skills--roblox-data|luau-skills/roblox-data]] | safe UpdateAsync + session lock + test list; sourced KB; API detail
+Roblox exploit review | [[S--own--rbx-remote-sec|rbx-remote-sec]], [[A--own--rbx-reviewer|rbx-reviewer]] [a], [[S--roblox-brain--roblox-security|roblox-brain/roblox-security]] | remote validation table; severity-ranked review agent
+Roblox monetisation | [[S--own--rbx-monetize|rbx-monetize]], [[S--roblox-brain--roblox-monetization|roblox-brain/roblox-monetization]], [[S--roblox-skills-ashexplained--roblox-monetization-optimization|roblox-skills-ashexplained/roblox-monetization-optimization]] | ProcessReceipt done right plus ethical pricing
+Roblox economy design | [[A--own--rbx-economist|rbx-economist]] [a], [[S--own--game-economy-simulation|game-economy-simulation]], [[S--roblox-skills-ashexplained--roblox-economy-balancing|roblox-skills-ashexplained/roblox-economy-balancing]] | simulate before coding
+Roblox Luau style | [[S--own--rbx-luau|rbx-luau]], [[S--luau-skills--luau-core|luau-skills/luau-core]], [[S--luau-skills--luau-types|luau-skills/luau-types]] | strict typing, task library, lifecycle and leak cleanup
+Roblox architecture (OOP / components / ECS / pooling) | [[S--own--rbx-arch|rbx-arch]] | evidence-based pattern choice with Luau examples
+Roblox bug fix (reproduce first) | rbx-playtest (Fix loop) | red check before the edit, same check green after, RED and GREEN ledger
+Roblox balance / optimise with a number | [[S--own--rbx-tune|rbx-tune]] | baseline, one change per experiment, keep or revert, ledger checked by tune_check.py
+Roblox code gates (comments, stubs, security) | rbx-critic (code_gates.py) | scored never blocking; the critic must run them before GOOD
+Roblox project setup (Rojo) | [[S--own--rbx-rojo|rbx-rojo]], [[S--roblox-skills-el4cteo--roblox-studio-mcp|roblox-skills-el4cteo/roblox-studio-mcp]] | file-based workflow Claude can edit
+Roblox UI | [[S--own--rbx-ui|rbx-ui]], [[S--roblox-brain--roblox-gui|roblox-brain/roblox-gui]] | phone-first scaling and safe areas
+Roblox performance | [[S--own--rbx-perf|rbx-perf]], [[S--roblox-brain--roblox-performance|roblox-brain/roblox-performance]] | measure first; MicroProfiler
+Roblox round / minigame loop | [[S--own--rbx-rounds|rbx-rounds]], [[S--roblox-skills-el4cteo--roblox-teleport-matchmaking|roblox-skills-el4cteo/roblox-teleport-matchmaking]] | state machine and cleanup
+Roblox NPC / enemy AI | [[S--own--rbx-npc|rbx-npc]], [[S--roblox-brain--roblox-npc-ai|roblox-brain/roblox-npc-ai]] | pathfinding with network ownership
+Roblox leaderboards / events | [[S--own--rbx-leaderboard|rbx-leaderboard]] | OrderedDataStore, badges, daily rewards
+Roblox launch | [[S--own--rbx-publish|rbx-publish]], [[S--roblox-brain--roblox-publish-checklist|roblox-brain/roblox-publish-checklist]], [[A--own--rbx-tester|rbx-tester]] [a] | go / no-go for Roman to publish
+Roblox analytics | [[S--own--rbx-analytics|rbx-analytics]], [[A--own--rbx-doctor|rbx-doctor]] [a], [[S--roblox-brain--roblox-analytics|roblox-brain/roblox-analytics]] | ranked experiments with thresholds
+Roblox icon / thumbnails / ads | [[S--own--rbx-thumb-brief|rbx-thumb-brief]], [[A--own--rbx-marketer|rbx-marketer]] [a] | briefs and A/B plan; never spends Robux
+Game design doc | [[A--own--game-design-doc-writer|game-design-doc-writer]] [a], [[S--own--rbx-ideas|rbx-ideas]], [[S--game-studios--brainstorm|game-studios/brainstorm]] | pitch to GDD
 Game feel / level design | [[S--own--game-feel-checklist|game-feel-checklist]], [[S--own--level-design-review|level-design-review]] | polish and review checklists
 Playtest feedback | [[S--own--playtest-feedback-synthesis|playtest-feedback-synthesis]], [[S--game-studios--playtest-report|game-studios/playtest-report]] | themes to ranked fixes
 Game balance | [[A--own--game-balance-tester|game-balance-tester]] [a], [[S--game-studios--balance-check|game-studios/balance-check]] | simulate with numbers
@@ -177,13 +177,13 @@ Manager: failed automation | [[A--own--incident-triager|incident-triager]] [a] |
 
 ## AI-creator ideas (added 2026-11-01)
 Best 10 from the Nate Herk / RoboNuggets / Karpathy research (job | item | why).
-Vague request, before building | clarify-before-build | 3-7 multiple-choice questions with defaults, then one spec with success criteria
+Vague request, before building | [[S--own--rbx-clarify|rbx-clarify]] | 3-7 multiple-choice questions with defaults, then one spec with success criteria
 Audit a whole repo for bugs | [[A--own--parallel-audit-fanout|parallel-audit-fanout]] [a] | parallel auditors per area, a verifier per finding, HTML report, unverified findings dropped
-Roblox exploit and bug sweep | [[A--own--roblox-audit-fanout|roblox-audit-fanout]] [a] | area auditors using roblox-luau-reviewer, repro per exploit, remote inventory table
-Rate anything 1-10 | rate-anything-1-10 | weighted criteria with anchors, evidence per score, script-computed total, ordered fixes (Roblox ideas: game-dev-rate; Luau code: roblox-code-rate)
+Roblox exploit and bug sweep | [[A--own--rbx-auditor|rbx-auditor]] [a] | area auditors using rbx-reviewer, repro per exploit, remote inventory table
+Rate anything 1-10 | rbx-rate-any (in AI Library Vault) | weighted criteria with anchors, evidence per score, script-computed total, ordered fixes (Roblox ideas: rbx-rate; Luau code: rbx-code-rate)
 Verified multi-angle research | research-lens-panel [a] (in AI Library Vault) | five expert lenses, contradiction map, peer review, every citation checked
-Fact-check findings before building | claim-verifier [a] | labels each finding seen / inferred / unknown
-Smaller diffs, no unrelated edits | karpathy-coding-guidelines | think first, minimum code, surgical changes, success criteria
+Fact-check findings before building | [[A--own--rbx-verifier|rbx-verifier]] [a] | labels each finding seen / inferred / unknown
+Smaller diffs, no unrelated edits | rbx-karpathy (in AI Library Vault) | think first, minimum code, surgical changes, success criteria
 Unattended scheduled Claude task | scheduled-claude-routine-design (in AI Library Vault) | one skill holds the steps, tiny routine prompt, idempotent status file
 Keep the main context clean | [[A--own--digest-scout|digest-scout]] [a] | cheap isolated reader that returns a capped digest
 Big build split among workers | [[A--own--phased-build-orchestrator|phased-build-orchestrator]] [a] | exclusive file ownership, stronger model for design/review, verified status table

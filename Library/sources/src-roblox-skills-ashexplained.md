@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Source: roblox-skills-ashexplained
 
-License: MIT. 38 items. Back: [[_Home]]
+License: MIT. 39 items. Back: [[_Home]]
 
 ## SOURCE.md
 
@@ -40,6 +40,7 @@ License: MIT. 38 items. Back: [[_Home]]
 - [[S--roblox-skills-ashexplained--roblox-debugging-bugfix|roblox-skills-ashexplained/roblox-debugging-bugfix]]
 - [[S--roblox-skills-ashexplained--roblox-economy-balancing|roblox-skills-ashexplained/roblox-economy-balancing]]
 - [[S--roblox-skills-ashexplained--roblox-game-development-lifecycle|roblox-skills-ashexplained/roblox-game-development-lifecycle]]
+- [[S--roblox-skills-ashexplained--roblox-game-ideas|roblox-skills-ashexplained/roblox-game-ideas]]
 - [[S--roblox-skills-ashexplained--roblox-game-ux|roblox-skills-ashexplained/roblox-game-ux]]
 - [[S--roblox-skills-ashexplained--roblox-genre-patterns|roblox-skills-ashexplained/roblox-genre-patterns]]
 - [[S--roblox-skills-ashexplained--roblox-growth-marketing|roblox-skills-ashexplained/roblox-growth-marketing]]

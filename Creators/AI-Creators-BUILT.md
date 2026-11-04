@@ -44,9 +44,9 @@ Source: BUILD-SHORTLIST.md (36 NEW ideas) + 3 game-dev/general variants. Library
 | design-system-capture | skill | design-system-capture (AI Library Vault) | ai | idea-0083 Design System Capture | Nate Herk, RoboNuggets |
 | annotation-fix-loop | skill | annotation-fix-loop (AI Library Vault) | ai | idea-0105 Visual Annotation Fix Workflow | Nate Herk, RoboNuggets |
 | self-verifying-game-builder | agent | `agents/game-dev/self-verifying-game-builder.md` | roblox | idea-0119 Self-Verifying Game Builder | RoboNuggets |
-| roblox-pre-delivery-reviewer | agent | [[A--own--roblox-pre-delivery-reviewer]] | roblox | idea-0040 Offloaded Pre-Delivery Review | Nate Herk |
-| roblox-audit-fanout | agent | [[A--own--roblox-audit-fanout]] | roblox | idea-0029 Parallel Code Review Fan-Out; idea-0025 Phased Build Orchestrator | Nate Herk, RoboNuggets |
-| roblox-code-rate | skill | [[S--own--roblox-code-rate]] | roblox | idea-0071 LLM Answer Grader | Karpathy, Nate Herk |
+| roblox-pre-delivery-reviewer | agent | `agents/roblox/roblox-pre-delivery-reviewer.md` | roblox | idea-0040 Offloaded Pre-Delivery Review | Nate Herk |
+| roblox-audit-fanout | agent | `agents/roblox/roblox-audit-fanout.md` | roblox | idea-0029 Parallel Code Review Fan-Out; idea-0025 Phased Build Orchestrator | Nate Herk, RoboNuggets |
+| roblox-code-rate | skill | `skills/roblox/roblox-code-rate/SKILL.md` | roblox | idea-0071 LLM Answer Grader | Karpathy, Nate Herk |
 
 Counts: agent/ai=4, agent/roblox=7, skill/ai=22, skill/roblox=6
 

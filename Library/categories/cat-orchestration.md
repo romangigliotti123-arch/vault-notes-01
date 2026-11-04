@@ -10,11 +10,11 @@ tags: [moc]
 - [a] [[A--own--haiku-scout|haiku-scout]] - Cheap read-only lookups: find a file/setting, triage a log, check a status, summarise long text. Never edits, 
 - [a] [[A--own--incident-triager|incident-triager]] - Diagnoses a failed or stuck automation job from logs and state, finds the root cause and proposes the smallest
 - [a] [[A--own--library-curator|library-curator]] - Imports, vets, categorizes and de-duplicates third-party skills/agents into the library with licenses recorded
-- [a] [[A--own--mentor-rbxdev-vault|mentor-rbxdev-vault]] - The vault mentor: works alongside the user on any job (designing, scripting, monetising, advertising, running 
 - [a] [[A--own--opus-builder|opus-builder]] - Use ONLY for the toughest builds or architecture (complete game/app from scratch, large multi-file builds, har
 - [a] [[A--own--parallel-audit-fanout|parallel-audit-fanout]] - Orchestrator for open-ended audits of a codebase before release: splits the code into areas, runs one capped p
 - [a] [[A--own--parallel-job-splitter|parallel-job-splitter]] - Splits a large request into independent jobs for parallel workers, assigning model and effort to each and list
 - [a] [[A--own--phased-build-orchestrator|phased-build-orchestrator]] - Orchestrator for a large build or a long bug/vulnerability list: plans phases, gives each worker one narrow ta
+- [a] [[A--own--rbx-coach|rbx-coach]] - The vault mentor: works alongside the user on any job (designing, scripting, monetising, advertising, running 
 - [a] [[A--own--remote-device-runner|remote-device-runner]] - Runs a headless Claude (or plain commands) on another machine over SSH, supervises it, and returns its report;
 - [a] [[A--own--report-auditor|report-auditor]] - Checks a worker's final report against the original brief and the real artifacts, and returns accept, re-brief
 - [a] [[A--own--sonnet-worker|sonnet-worker]] - Default worker for any real job. Use for multi-step work, installs and setup, SSH/Wake-on-LAN/Linux machine ta
@@ -28,13 +28,13 @@ tags: [moc]
 - [s] [[S--own--confirm-first-guard|confirm-first-guard]] - PreToolUse guard hook that makes the 'Always confirm first' list mechanical (publish, send-as-user, security/f
 - [s] [[S--own--job-ledger|job-ledger]] - File-based job ledger, side-effect idempotency keys, hook event log and daily digest for a 24/7 manager (state
 - [s] [[S--own--library-search|library-search]] - How to browse the claude-library cheaply (names, then descriptions, then the file) and use a found agent or sk
-- [s] [[S--own--low-usage-mode-rbxdev-vault|low-usage-mode-rbxdev-vault]] - Keep Claude in low usage mode for this session and every later one until turned off: cheapest model that fits,
-- [s] [[S--own--manager-mode-rbxdev-vault|manager-mode-rbxdev-vault]] - Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model a
 - [s] [[S--own--master-session-hygiene|master-session-hygiene]] - Runbook for keeping a 24/7 master session healthy: compaction thresholds, compact-instructions block, ledger r
-- [s] [[S--own--mentor-rbxdev-vault|mentor-rbxdev-vault]] - Start the vault mentor: a co-pilot with the combined knowledge of every creator in the Roblox Dev Mastery Vaul
 - [s] [[S--own--model-routing|model-routing]] - Decision rules for choosing haiku, sonnet or opus and the effort level for a delegated job.
 - [s] [[S--own--plan-then-build|plan-then-build]] - Gate and procedure for big builds: use plan mode for setup and large work (skip it for simple fixes), ask clar
 - [s] [[S--own--publish-now|publish-now]] - Last step of any task that adds or changes a skill, agent, library item, vault note or setup doc: run publish-
+- [s] [[S--own--rbx-low-usage|rbx-low-usage]] - Keep Claude in low usage mode for this session and every later one until turned off: cheapest model that fits,
+- [s] [[S--own--rbx-manager|rbx-manager]] - Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model a
+- [s] [[S--own--rbx-mentor|rbx-mentor]] - Start the vault mentor: a co-pilot with the combined knowledge of every creator in the Roblox Dev Mastery Vaul
 - [s] [[S--own--remote-claude-run|remote-claude-run]] - Run a headless Claude Code agent on another machine (Roman's Linux PC) over SSH, detached with a log, and coll
 - [s] [[S--own--report-reading-protocol|report-reading-protocol]] - Use when a worker or remote agent reports back: read order, claim extraction, one-command spot checks by claim
 - [s] [[S--own--sequential-agent-pipeline|sequential-agent-pipeline]] - Runs a multi-stage task as separate small agents or sessions in order (for example research, then draft, then 

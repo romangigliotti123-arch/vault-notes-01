@@ -5,14 +5,14 @@ category: "orchestration"
 source: "own"
 license: "first-party"
 repo_path: "skills/orchestration/brief-preflight-checklist/SKILL.md"
-description: "Use before every Agent/worker spawn or remote claude -p run: the 6-block brief template (context, task, scope, done-when, budget, report) plus a 12-item pre-send checklist; catches the gaps that cause partial or fabricated worker results."
+description: "Use before every Agent/worker spawn or remote claude -p run: the 6-block brief template (context, task, scope, done-when, budget, report) plus a 13-item pre-send checklist; catches the gaps that cause partial or fabricated worker results."
 orig_name: "brief-preflight-checklist"
 tags: [lib/skill, cat/orchestration, src/own]
 ---
 
 # brief-preflight-checklist
 
-> Use before every Agent/worker spawn or remote claude -p run: the 6-block brief template (context, task, scope, done-when, budget, report) plus a 12-item pre-send checklist; catches the gaps that cause partial or fabricated worker results.
+> Use before every Agent/worker spawn or remote claude -p run: the 6-block brief template (context, task, scope, done-when, budget, report) plus a 13-item pre-send checklist; catches the gaps that cause partial or fabricated worker results.
 
 Type: skill | Category: [[categories/cat-orchestration|orchestration]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/orchestration/brief-preflight-checklist/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -53,6 +53,7 @@ Pick model/effort per job (see `model-routing`): haiku-scout for read-only looku
 10. Is the confirm-first list quoted, with the TRUST line set?
 11. Is the library lookup done (PICKS/find.ps1) and the chosen preset named, or "none fits"?
 12. Is it the right model/effort, and is another worker already writing the same files?
+13. Does the job change the vault (kit, notes, site)? Then the brief carries: "run `python -I netlify-site/tools/vault_budget.py check` and the rule inventory diff; no publish if red" (no-bloat guard; waivers only with reason, owner, date).
 
 High-stakes, remote, destructive or Opus-builder jobs: write the checklist answers in two lines each before sending. Routine jobs: skip the write-up, keep the habit.
 

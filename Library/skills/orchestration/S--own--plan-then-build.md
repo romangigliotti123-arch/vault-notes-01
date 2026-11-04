@@ -18,7 +18,7 @@ tags: [lib/skill, cat/orchestration, src/own]
 Type: skill | Category: [[categories/cat-orchestration|orchestration]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/orchestration/plan-then-build/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--phased-build-orchestrator]], [[S--own--clarify-before-build-rbxdev-vault]]
+Related: [[A--own--phased-build-orchestrator]], [[S--own--rbx-clarify]]
 
 Creator videos (notes are in the AI Library Vault, Creators/videos): 2026-01-16-build-anything-with-claude-code-n8n-beginner-s-guide, 2026-04-12-this-one-plugin-just-10x-d-claude-code, 2026-10-02-how-to-actually-build-sell-software-with-ai-as-a-non-techie, 2026-10-11-i-tried-100-github-repos-for-claude-these-6-are-the-best
 
@@ -30,7 +30,7 @@ Plan when: new project or setup, more than ~3 files, unclear requirements, anyth
 
 ## Steps
 1. **Plan mode**: read-only exploration of the repo; no edits.
-2. **Clarify**: run clarify-before-build-rbxdev-vault (3-7 questions with defaults).
+2. **Clarify**: run rbx-clarify (3-7 questions with defaults).
 3. **Spec**: write `SPEC.md`: goal, users, scope in/out, requirements as testable statements, stack choices with reasons, risks.
 4. **Tasks**: `TASKS.md`, each task small (under ~1 hour or one commit), with id, goal, files, acceptance check (command or observable), dependencies. Order so each task leaves the project runnable.
 5. **Approval gate**: show spec and task list; wait for yes. Changes loop back to step 3.
@@ -47,7 +47,7 @@ Spec items map to tasks; every task has a check that can fail; TASKS.md reflects
 - Giant tasks that hide failures: split them.
 
 ## Related
-clarify-before-build-rbxdev-vault, spec-test-review-workflow (tests-first and two-stage review), phased-build-orchestrator (parallel workers), the library's planner/requirements skills.
+rbx-clarify, spec-test-review-workflow (tests-first and two-stage review), phased-build-orchestrator (parallel workers), the library's planner/requirements skills.
 
 ## Sources
 Idea from AI-creator research (catalogue ideas idea-0037). Credit and where it appears:

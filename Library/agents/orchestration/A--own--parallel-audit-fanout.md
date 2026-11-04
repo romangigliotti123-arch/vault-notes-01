@@ -20,7 +20,7 @@ tags: [lib/agent, cat/orchestration, src/own]
 Type: agent | Category: [[categories/cat-orchestration|orchestration]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `agents/orchestration/parallel-audit-fanout.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--adversarial-verifier]], [[A--own--phased-build-orchestrator]], [[A--own--roblox-audit-fanout]]
+Related: [[A--own--adversarial-verifier]], [[A--own--phased-build-orchestrator]], [[A--own--rbx-auditor]]
 
 Creator videos (notes are in the AI Library Vault, Creators/videos): 2025-05-19-i-built-a-24-7-viral-shorts-machine-with-no-code-free-n8n-te, 2026-03-27-everything-new-in-claude-code-explained-march-2026-edition, 2026-05-03-i-tried-100-claude-code-skills-these-6-are-the-best, 2026-05-28-claude-ultracode-will-10x-your-workflows, 2026-05-26-100-hours-testing-claude-code-vs-chatgpt-codex-honest-result
 
@@ -60,7 +60,7 @@ NEXT: top 3 fixes to make first
 ARTIFACTS: absolute path of the HTML report
 
 ## Related
-code-reviewer (single diff review), adversarial-verifier, roblox-audit-fanout (the Luau/game variant), phased-build-orchestrator (fixing the findings).
+code-reviewer (single diff review), adversarial-verifier, rbx-auditor (the Luau/game variant), phased-build-orchestrator (fixing the findings).
 
 ## Sources
 Idea from AI-creator research (catalogue ideas idea-0029). Credit and where it appears:

@@ -3,9 +3,9 @@ tags: [moc]
 ---
 # Claude Library
 
-758 items: 615 skills, 143 agents, 25 sources, 31 categories. Generated 2026-11-04 from the git repo claude-library (do not edit here).
+759 items: 616 skills, 143 agents, 25 sources, 31 categories. Generated 2026-11-05 from the git repo claude-library (do not edit here).
 
-- [[Combined-Brain]] - the vault mentor's brain: every creator's principles, methods and disagreements by job (start here with `/mentor-rbxdev-vault`)
+- [[Combined-Brain]] - the vault mentor's brain: every creator's principles, methods and disagreements by job (start here with `/rbx-mentor`)
 - [[CAPABILITIES]] - job router: I need to ... -> item, type, path
 - [[PICKS]] - best 1-3 items per common job
 - [[README]] - how this vault is built and queried
@@ -18,7 +18,7 @@ tags: [moc]
 - [[sources/src-hermetic-gamedev|hermetic-gamedev]] (87, MIT)
 - [[sources/src-gamedev-agent-skills|gamedev-agent-skills]] (76, Apache-2.0)
 - [[sources/src-godotprompter|godotprompter]] (69, MIT)
-- [[sources/src-roblox-skills-ashexplained|roblox-skills-ashexplained]] (38, MIT)
+- [[sources/src-roblox-skills-ashexplained|roblox-skills-ashexplained]] (39, MIT)
 - [[sources/src-roblox-brain|roblox-brain]] (21, MIT)
 - [[sources/src-codex-game-studio|codex-game-studio]] (19, MIT)
 - [[sources/src-agency-agents|agency-agents]] (18, MIT)
@@ -45,7 +45,7 @@ tags: [moc]
 - [[categories/cat-src-gamedev-agent-skills|src-gamedev-agent-skills]] (76)
 - [[categories/cat-src-godotprompter|src-godotprompter]] (69)
 - [[categories/cat-roblox|roblox]] (41)
-- [[categories/cat-src-roblox-skills-ashexplained|src-roblox-skills-ashexplained]] (38)
+- [[categories/cat-src-roblox-skills-ashexplained|src-roblox-skills-ashexplained]] (39)
 - [[categories/cat-orchestration|orchestration]] (36)
 - [[categories/cat-game-dev|game-dev]] (30)
 - [[categories/cat-src-roblox-brain|src-roblox-brain]] (21)

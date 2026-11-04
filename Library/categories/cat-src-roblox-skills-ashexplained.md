@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Category: src-roblox-skills-ashexplained
 
-38 items. Back: [[_Home]]
+39 items. Back: [[_Home]]
 
 - [s] [[S--roblox-skills-ashexplained--handoff|roblox-skills-ashexplained/handoff]] - Compact the current conversation into a durable handoff document for another agent or future session to pick u
 - [s] [[S--roblox-skills-ashexplained--roblox-admin-tools-observability|roblox-skills-ashexplained/roblox-admin-tools-observability]] - Design Roblox admin tools and observability systems. Use for safe grant/revoke tools, moderation commands, aud
@@ -18,6 +18,7 @@ tags: [moc]
 - [s] [[S--roblox-skills-ashexplained--roblox-debugging-bugfix|roblox-skills-ashexplained/roblox-debugging-bugfix]] - Debug and fix Roblox bugs through Studio MCP. Use for repro steps, console errors, script search/read/edit flo
 - [s] [[S--roblox-skills-ashexplained--roblox-economy-balancing|roblox-skills-ashexplained/roblox-economy-balancing]] - Balance Roblox economies and progression math. Use for currency sources and sinks, pricing, reward curves, upg
 - [s] [[S--roblox-skills-ashexplained--roblox-game-development-lifecycle|roblox-skills-ashexplained/roblox-game-development-lifecycle]] - Orchestrate the full Roblox game development lifecycle. Use as the umbrella entrypoint for broad requests like
+- [s] [[S--roblox-skills-ashexplained--roblox-game-ideas|roblox-skills-ashexplained/roblox-game-ideas]] - Generate or evaluate Roblox game ideas using retention, social, monetization, mobile-first, and first-session 
 - [s] [[S--roblox-skills-ashexplained--roblox-game-ux|roblox-skills-ashexplained/roblox-game-ux]] - Design and critique Roblox game UX, HUDs, menus, onboarding, mobile controls, and progression surfaces. Use wh
 - [s] [[S--roblox-skills-ashexplained--roblox-genre-patterns|roblox-skills-ashexplained/roblox-genre-patterns]] - Apply Roblox genre-specific design patterns. Use for simulator, tycoon, obby, RPG, adventure, pet collector, t
 - [s] [[S--roblox-skills-ashexplained--roblox-growth-marketing|roblox-skills-ashexplained/roblox-growth-marketing]] - Plan Roblox growth marketing and user acquisition. Use for launch campaigns, Roblox sponsored ads, trailers, T
