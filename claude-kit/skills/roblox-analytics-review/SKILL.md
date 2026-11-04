@@ -1,6 +1,6 @@
 ---
 name: roblox-analytics-review
-description: "Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) that ends in a ranked list of changes to test. Use when the user asks how a Roblox game is doing or what to change next."
+description: "Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) ending in a ranked list of changes to test. Use when asked how a game is doing or what to change next."
 ---
 
 # Roblox analytics review

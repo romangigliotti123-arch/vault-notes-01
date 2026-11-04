@@ -1,6 +1,6 @@
 ---
 name: rbx
-description: "Router for the Roblox skill pack (300+ focused skills kept outside the skills folder, e.g. thumbnail-maker, gamepass-maker, model-cleaner, game-optimizer). /rbx <name> [args] runs one, /rbx list [category], /rbx find <words>."
+description: "Router for the Roblox skill pack (300+ focused skills outside the skills folder, e.g. thumbnail-maker, gamepass-maker, model-cleaner, game-optimizer). /rbx <name> [args] runs one, /rbx list [category], /rbx find <words>."
 argument-hint: "<skill-name> [args] | list [category] | find <words>"
 ---
 

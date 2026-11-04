@@ -40,13 +40,8 @@ Only one worker at a time may use the Studio MCP (mark `serial`). Never launch o
 6. **Surfaces check** before marking a job DONE: the worker lists the user-visible surfaces it changed (HUD, shop, prompts, thumbnail text, sounds) and how each was checked; you spot-check one, and any unchecked surface stays `untested` in the ledger.
 
 ## 6b. Loop jobs (only when the user asks for a long unattended grind: port, optimise, polish to a reference)
-Default is the normal job loop above. Source: Theo (t3.gg), `NBCM_ZoWZo8` (MIXED, one creator's method, own numbers); the held-out check is from `Manager/src-gabor-evilgenie.md`.
-1. GOAL = a check the worker runs itself that prints PASS/FAIL or a number, plus the target ("`luau-check.sh` clean AND `lune run Sim.spec.luau` prints PASS AND join time under 8 s in 3 runs"). No machine check, no loop: a goal that needs a human look stalls it.
-2. Ratchet: when met, raise the bar in a NEW job (2x faster, old checks still green); do not widen the goal mid-run.
-3. Visual target: matched-state screenshots of our build vs the reference, scored by a fresh judge (no history, written rubric). Choose the reference deliberately (a wrong reference burns the budget polishing the wrong thing). Patterns only, never copy.
-4. Caps in the brief: iterations and spend per loop (the video's skybox polish ate about $800), and one held-out check the worker has not seen, to catch gaming the visible check.
-5. Unblock check-in: when throughput drops (two jobs without a new DONE, or a loop with no progress), spawn a read-only fresh haiku/sonnet: "read `jobs.md` and the logs: the single biggest blocker or slowdown, and what it needs." Fix the top item (queue, tool, access, smaller test) and ask again; it repeats, it is not one-and-done.
-6. After a reboot or crash, restart with "continue" plus the handoff file (`session-handoff`), not a re-explained brief.
+
+Default is the normal job loop above. [cold:game-dev-workflow/loop-jobs.md] read only when the user asks for a long unattended grind (port, optimise, polish to a reference).
 
 ## 7. Initiative: propose and run the next best jobs
 Visual order is fixed: J00 `game-dev-art-direction` (writes `art-direction.md`, installs the StyleKit) runs before the first UI, world, model or effect job; `game-dev-visual-qa` runs after the last feature job. Every visual brief lists `art-direction.md` in INPUTS, says "build UI only with StyleKit components" in DONE WHEN, and names the screenshot file in SURFACES CHECK.
@@ -70,4 +65,5 @@ All jobs resolved: run the `game-dev-placement-qa` full-map scan (fix and re-sca
 Every brief carries: "before you report run <decisive check> and paste the last lines" and "two identical failed edits in a row: stop and report". Models: plan/economy/architecture strongest allowed, high effort; Luau features sonnet medium-high; code/security review sonnet high, fresh context, read-only, binary pass/fail per criterion; lookups and greps haiku low. Dynamic workflow scripts only for one step over many items (audit every remote); never for design or feel. Source: `topic-managing-ai-agents-for-roblox-game-dev` (rules 3, 4, 6, 7, 8, A1-A4).
 
 ## 11. Upkeep (monthly)
-Once a month, or after a run with 2+ BLOCKED jobs, run the pack skill `workflow/failure-miner` (`skillpack.py path failure-miner`) over `jobs.md`, `briefs/` and critic files: it groups repeated failures into brief or routing fixes. Apply them to the brief template or `routing.md` (kit side: tell the user, do not edit the vault).
+
+[cold:game-dev-workflow/upkeep.md] read only once a month or after a run with 2+ BLOCKED jobs.

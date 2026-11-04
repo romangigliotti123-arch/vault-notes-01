@@ -1,6 +1,6 @@
 ---
 name: roblox-thumbnail-brief
-description: "Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list, A/B test plan and sponsored-ad creative briefs, using the knowledge base's CTR, PTR, specs and discovery rules. Use for thumbnails, icons, titles, descriptions or ad art. Briefs only; no image generation or upload."
+description: "Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, video shot list, A/B plan and sponsored-ad creative briefs from the knowledge base's CTR, PTR and discovery rules. Briefs only; no image generation."
 ---
 
 # Roblox thumbnail brief
@@ -51,8 +51,3 @@ Evidence table: claim | link | flag | date
 - Test one variable at a time (icon first, it drives most impressions), fixed period or impressions chosen in advance, judge CTR and D1 of the visitors each variant brought, log the winner with its date.
 - Paid ads: a small daily budget cap approved by the user (spending needs the user's yes); pause variants with the worst cost per retained visit. Budget plan: `roblox-ad-campaign-planner`.
 - Deliverable: brief text, prompt/spec sheet per variant, test table (variant | dates | impressions | clicks | CTR | D1).
-
-
-## Triggers (moved out of the description)
-
-Use when the user wants thumbnails, an icon, a title or description for a Roblox game, to raise CTR, or to refresh packaging after an update.

@@ -1,6 +1,6 @@
 ---
 name: game-dev-thumbnail
-description: "Creates image prompts, reference guidance and the actual images for a Roblox game's icon, thumbnails and store screenshots with Google's newest Nano Banana (Gemini image) model, looked up at run time from the user's own API key. Reads the newest vault notes each run, live-checks specs, gives A/B variants and a content-rules checklist. Without a key it writes the prompts and stops cleanly."
+description: "Image prompts and the images for a Roblox game's icon, thumbnails and store screenshots with Google's newest Nano Banana (Gemini image) model from the user's API key. A/B variants, content-rules checklist; without a key it writes the prompts only."
 argument-hint: "[game name or path to game-plan.md; optional reference photos]"
 ---
 
@@ -36,9 +36,4 @@ Never hard-code a model name, price or spec in outputs without this run's source
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says make a thumbnail, icon prompt, game art, nano banana, generate screenshots for my game, store page images, or after game-dev-workflow.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

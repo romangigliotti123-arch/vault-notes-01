@@ -1,6 +1,6 @@
 ---
 name: game-dev-ads
-description: "Ads plan and tutorial for a specific Roblox game, built from the vault's ads notes and AD-PLAYBOOK and live-checked because ad tools, costs and policy change: readiness gate, step-by-step sponsored-experience how-to, budget and schedule arithmetic, creative test matrix, targeting, KPIs, stop and scale rules, off-platform plan. Never spends money."
+description: "Ads plan and tutorial for one Roblox game, live-checked: readiness gate, sponsored-experience how-to, budget and schedule math, creative tests, KPIs, stop and scale rules. Never spends money."
 argument-hint: "[game name or path to its game-plan.md; optional budget and pasted metrics]"
 ---
 
@@ -32,9 +32,4 @@ Print the gate verdict, the 5-line plan summary, the total test budget range (es
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says how do I run ads for my game, plan an ad campaign, advertise my Roblox game, marketing plan for my game, best way to do Roblox ads, or after game-dev-workflow.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

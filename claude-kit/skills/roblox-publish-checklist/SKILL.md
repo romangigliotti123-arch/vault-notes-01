@@ -1,6 +1,6 @@
 ---
 name: roblox-publish-checklist
-description: "Pre-launch checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use before the user publishes or ships a major update."
+description: "Checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use before the user publishes or ships a major update."
 ---
 
 # Roblox publish checklist

@@ -1,6 +1,6 @@
 ---
 name: game-dev-weekly
-description: "Weekly numbers check for a live or launching Roblox game. The user pastes Creator Dashboard numbers; the skill compares them with the vault's benchmarks, diagnoses the weakest metric with the game doctor, and writes this week's update plan (changes to ship, ad and thumbnail tests, next event) to Games/<game>/weekly/<date>.md and the numbers row in GAME.md."
+description: "Weekly numbers check for a live Roblox game: the user pastes Creator Dashboard numbers; compared with vault benchmarks, weakest metric diagnosed, update plan written to Games/<game>/weekly/<date>.md and the row in GAME.md."
 argument-hint: "[game slug] [pasted numbers]"
 ---
 
@@ -23,9 +23,4 @@ Benchmarks are bands, not promises; flag (official/mixed/indie) shown next to ea
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says weekly check, here are my numbers, how is my game doing, what should I change this week, or pastes D1, D7, CCU, session length, PTR, conversion.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

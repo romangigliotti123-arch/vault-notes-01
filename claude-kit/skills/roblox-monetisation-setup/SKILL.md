@@ -1,6 +1,6 @@
 ---
 name: roblox-monetisation-setup
-description: "Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, plus ethical-pricing checks. Use when adding purchases to a Roblox game or auditing existing ones."
+description: "Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, ethical pricing. Use when adding purchases to a Roblox game or auditing existing ones."
 ---
 
 # Roblox monetisation setup

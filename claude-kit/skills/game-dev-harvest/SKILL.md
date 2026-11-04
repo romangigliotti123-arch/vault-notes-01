@@ -1,6 +1,6 @@
 ---
 name: game-dev-harvest
-description: "Saves anything reusable built or found good while making a Roblox game (system, module, UI, pattern, prompt, tool) into the protected Games/_Reusable/<name>/ folder with its code and a README (what, how to use, source game, tested, rating), links it from the game's systems.md and makes it findable so the next game uses it first."
+description: "Saves anything reusable built or found good in a game to Games/_Reusable/<name>/ with a README, linked from systems.md so the next game uses it first. Use after a system works, or on save this, reuse this, harvest."
 argument-hint: "[path of the code or folder] [short name]"
 ---
 
@@ -30,9 +30,4 @@ Only inside `Games/_Reusable/` and the game's `systems.md`. No overwriting a use
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use right after a system works and is tested, at the end of a stage, or when the user says save this for later, add that to my library, reuse this, harvest.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

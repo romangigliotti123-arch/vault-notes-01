@@ -1,6 +1,6 @@
 ---
 name: game-idea-rbxdev-vault
-description: "Run /game-idea-rbxdev-vault to get ONE short, evidence-backed Roblox game idea that fits what is working now. Checks live sources (Charts/Discover, trackers; date-stamped) plus the vault's case studies, returns hook, 30 s / 5 min / session loop, progression and monetisation fit, why now, a buildable solo scope and its critic score, iterates weak ideas, then offers 'start it'."
+description: "Run /game-idea-rbxdev-vault for ONE short, evidence-backed Roblox game idea that fits what is working now: hook, 30 s / 5 min / session loop, monetisation fit, why now, a solo scope and critic score; offers 'start it'."
 argument-hint: "[genre or seed, optional]"
 ---
 
@@ -28,8 +28,3 @@ Paths: `KIT` = `~/.claude/claude-kit`, else `$CLAUDE_KIT_HOME`, else the folder 
    - `CAVEATS:` one line each, at most 3 (unverified claims, tool gaps, stale notes).
    - `Start it?` reply "start it" to run `/game-dev-workflow` with this pitch (it creates `Games/<slug>/`, rates and plans). Do not start the build without the answer.
 6. Save nothing unless the user says "start it" (then the workflow's init stores the pitch).
-
-
-## Triggers (moved out of the description)
-
-Use when the user says give me a game idea, what should I make, what is hot on Roblox, or has no idea yet.

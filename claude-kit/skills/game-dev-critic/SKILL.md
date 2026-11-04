@@ -1,6 +1,6 @@
 ---
 name: game-dev-critic
-description: "Independent quality gate of the Roblox game workflow. A separate critic agent inspects the game as a stranger, scores 10 quality factors 1-10 with evidence, separates works (no bugs) from good (fun, retains, monetises) and looks (visual gate), and returns GOOD / NOT YET / BAD with the top 3 fixes. NOT YET or BAD blocks advancing; GOOD needs passing visual, placement and lighting gates."
+description: "Independent quality gate: a separate critic agent scores 10 factors with evidence and returns GOOD / NOT YET / BAD with the top 3 fixes. NOT YET or BAD blocks advancing; GOOD needs passing visual, placement and lighting gates."
 argument-hint: "[game slug or project folder] [stage]"
 ---
 
@@ -39,9 +39,4 @@ Sources: `~/.claude/claude-kit/vault-mode/.claude/skills/game-dev-workflow/refer
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says is it good, is this ready, can we move on, critique my game, honest opinion, or when game-dev-workflow wants to advance a stage or finish a build.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

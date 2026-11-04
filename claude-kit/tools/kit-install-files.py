@@ -9,7 +9,7 @@ install.sh used to spawn about seven processes per kit file (sha256sum twice, aw
 Layout (relative to CONFIGDIR = ~/.claude):
   tools|systems|skillpack/<r>   -> claude-kit/<sub>/<r>
   agents/<r>                    -> claude-kit/vault-mode/.claude/agents/<r>
-  mode/<r>                      -> claude-kit/vault-mode/<r>
+  mode/<r>                      -> claude-kit/vault-mode/<r>   (mode/cold/<topic>/<file> = the cold area: store only, never copied into a project)
   skills/<name>/<r>             -> skills/<name>/<r> when <name> is in --always-on, else claude-kit/vault-mode/.claude/skills/<name>/<r>
 Per file (kit wins, nothing of yours is lost): missing -> copy (new); identical -> unchanged; equal to the sha recorded in the old installed.tsv -> copy over (updated);
 anything else (you edited it) -> your version is copied to claude-kit/backup/<date>/<rel> (.2, .3 ... if that exists), then the kit version is copied (replaced-yours).

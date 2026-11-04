@@ -1,6 +1,6 @@
 ---
 name: unload-rbxdev-vault
-description: "Run /unload-rbxdev-vault to turn Roblox dev mode off for this project folder: removes exactly the vault skills and agents that /load-rbxdev-vault copied here (never your own), and stops following the vault mode rules. Use when the user says /unload-rbxdev-vault, unload the vault, leave Roblox dev mode, or turn the vault off."
+description: "Run /unload-rbxdev-vault to turn Roblox dev mode off for this folder: removes exactly the vault skills and agents /load-rbxdev-vault copied here (never your own). Use for unload the vault, leave Roblox dev mode, turn the vault off."
 ---
 
 # unload-rbxdev-vault

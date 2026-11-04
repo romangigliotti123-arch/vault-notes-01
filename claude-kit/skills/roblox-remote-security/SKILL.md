@@ -1,6 +1,6 @@
 ---
 name: roblox-remote-security
-description: "Server-authoritative design and exploit review for Roblox RemoteEvents/RemoteFunctions: validate every argument, rate-limit, never trust client state. Use when writing client-server Luau or auditing a game for exploits and cheating."
+description: "Server-authoritative design and exploit review for RemoteEvents/RemoteFunctions: validate every argument, rate-limit, never trust client state. Use when writing client-server Luau or auditing a game for exploits and cheating."
 ---
 
 # Roblox remote security
@@ -28,4 +28,5 @@ Assume every client is hostile. Anything on the client (LocalScripts, Replicated
 4. Patch the high-severity ones if asked; re-run the list afterwards.
 
 ## Sources
-The scored security gate (`game-dev-playtest/scripts/static_scan.py --gate`, SEC1-SEC5) takes its core principle (never trust the client, critical findings first) from Vibe Security (raroque, MIT), re-written in our own words.
+
+[cold:roblox-remote-security/sources.md] read only to verify the source of this idea or its licence/attribution.

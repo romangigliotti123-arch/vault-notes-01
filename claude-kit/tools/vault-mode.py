@@ -14,6 +14,8 @@ Only the names in <config>/claude-kit/vault-mode/always-on.txt (load-rbxdev-vaul
   auto   [--project DIR] [--always]                for an OPT-IN SessionStart hook: load when DIR looks like a Roblox project (or --always), print the mode rules; silent otherwise
   autoload-snippet                                 print the settings.json hook an owner can add by hand to enable auto
   mode-text                                        print the mode rules
+  cold   [TOPIC[/FILE]] [--path]                   cold area (<store>/cold: bulk that skills point to with [cold:TOPIC/FILE]; never copied into projects): no argument lists topics, TOPIC lists files,
+                                                   TOPIC/FILE prints the file (--path prints only its path)
 Config dir: --config DIR, else $CLAUDE_CONFIG_DIR, else $CLAUDE_KIT_HOME/.claude, else ~/.claude.
 """
 import argparse
@@ -45,7 +47,7 @@ def cfg_dir(a=None):
 def P(c):
     s = os.path.join(c, "claude-kit", "vault-mode")
     return {"c": c, "store": s, "sk": os.path.join(s, ".claude", "skills"), "ag": os.path.join(s, ".claude", "agents"), "rules": os.path.join(s, "CLAUDE.md"),
-            "always": os.path.join(s, "always-on.txt"), "reg": os.path.join(s, "loaded.json"), "layout": os.path.join(s, "layout.json")}
+            "cold": os.path.join(s, "cold"), "always": os.path.join(s, "always-on.txt"), "reg": os.path.join(s, "loaded.json"), "layout": os.path.join(s, "layout.json")}
 
 
 def sha(p):
@@ -429,6 +431,43 @@ def cmd_unload(a):
     return 0
 
 
+def cold_files(p):
+    out = {}
+    for rel in sorted(tree(p["cold"])) if os.path.isdir(p["cold"]) else []:
+        out.setdefault(rel.split("/")[0], []).append(rel)
+    return out
+
+
+def cmd_cold(a):
+    p = P(cfg_dir(a))
+    base = os.path.realpath(p["cold"])
+    arg = (a.target or "").strip().replace("\\", "/").strip("/")
+    files = cold_files(p)
+    if not files:
+        print("vault-mode: no cold area at %s (run /update-rbxdev-vault)." % p["cold"], file=sys.stderr)
+        return 2
+    if not arg:
+        for t, fs in files.items():
+            print("%s: %s" % (t, " ".join(f.split("/", 1)[1] for f in fs)))
+        return 0
+    full = os.path.realpath(os.path.join(base, *arg.split("/")))
+    if full != base and not full.startswith(base + os.sep):
+        print("vault-mode: %r is outside the cold area." % arg, file=sys.stderr)
+        return 2
+    if os.path.isdir(full):
+        print(chr(10).join(files.get(arg, [])) or "(empty)")
+        return 0
+    if not os.path.isfile(full):
+        print("vault-mode: no cold file %r. Topics: %s" % (arg, ", ".join(files)), file=sys.stderr)
+        return 2
+    if a.path:
+        print(full)
+        return 0
+    with open(full, encoding="utf-8", errors="replace") as f:
+        sys.stdout.write(f.read())
+    return 0
+
+
 def cmd_status(a):
     p = P(cfg_dir(a))
     proj = os.path.abspath(a.project or os.getcwd())
@@ -445,6 +484,8 @@ def cmd_status(a):
     if others:
         print("also loaded in: " + ", ".join(others[:8]) + (" ..." if len(others) > 8 else ""))
     print("always-on commands: " + ", ".join("/" + x for x in always_on(p)))
+    cf = cold_files(p)
+    print("cold area: %s (%d files in %d topics; read on demand, never copied into projects)" % (p["cold"], sum(len(v) for v in cf.values()), len(cf)))
     rl = jread(os.path.join(p["store"], "rename-last.json"), None)
     if rl and rl.get("moved"):
         print("commands renamed or merged on %s: every vault command now ends in -%s-vault (old -> new list: %s)" % (rl.get("at", "?"), rl.get("slug", "?"), os.path.join(p["c"], "claude-kit", "COMMANDS-RENAMED.txt")))
@@ -638,7 +679,7 @@ def main(argv):
     ap = argparse.ArgumentParser(prog="vault-mode.py", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name in ("load", "unload", "status", "sync", "migrate", "auto", "autoload-snippet", "mode-text"):
+    for name in ("load", "unload", "status", "sync", "migrate", "auto", "autoload-snippet", "mode-text", "cold"):
         s = sp.add_parser(name)
         s.add_argument("--config", default=argparse.SUPPRESS)
         if name in ("load", "unload", "status", "auto"):
@@ -657,8 +698,11 @@ def main(argv):
             s.add_argument("--old-manifest")
         if name == "auto":
             s.add_argument("--always", action="store_true")
+        if name == "cold":
+            s.add_argument("target", nargs="?")
+            s.add_argument("--path", action="store_true")
     a = ap.parse_args(argv)
-    fn = {"load": cmd_load, "unload": cmd_unload, "status": cmd_status, "sync": cmd_sync, "migrate": cmd_migrate, "auto": cmd_auto, "autoload-snippet": cmd_snippet, "mode-text": cmd_mode_text}[a.cmd]
+    fn = {"load": cmd_load, "unload": cmd_unload, "status": cmd_status, "sync": cmd_sync, "migrate": cmd_migrate, "auto": cmd_auto, "autoload-snippet": cmd_snippet, "mode-text": cmd_mode_text, "cold": cmd_cold}[a.cmd]
     try:
         return fn(a) or 0
     except Exception as e:      # never break a hook or the refresh

@@ -1,6 +1,6 @@
 ---
 name: roblox-game-builder
-description: "Single entry point for 'make me a Roblox game': takes a game idea (or nothing), researches the vault, scores a design, writes a build-ready GDD and a Rojo/Luau project (core loop, data saving, UI, monetisation hooks) using local assets and code libraries, checks it, and reports how to open it in Studio. Never asks the user questions."
+description: "Single entry point for 'make me a Roblox game': takes an idea (or nothing), researches the vault, scores a design, writes a build-ready GDD and a Rojo/Luau project (core loop, data saving, UI, monetisation hooks), checks it. Never asks the user questions."
 model: sonnet
 effort: high
 disallowedTools: Agent

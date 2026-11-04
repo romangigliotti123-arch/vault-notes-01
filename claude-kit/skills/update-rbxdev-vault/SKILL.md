@@ -1,6 +1,6 @@
 ---
 name: update-rbxdev-vault
-description: "Update the claudes-vault and the companion AI Library Vault on demand: self-healing git update (local changes saved to a patch), refresh the installed kit (its skills and agents stay OFF in normal sessions), sync the Assets folder (about 1 GB the first time). Use for /update-rbxdev-vault, 'update the vault', or stale or missing vault content. Your own research and games are kept."
+description: "Update the claudes-vault and the AI Library Vault on demand: self-healing git update (local changes saved to a patch), refresh the installed kit (skills and agents stay OFF in normal sessions), sync Assets (about 1 GB first time). Use for /update-rbxdev-vault, 'update the vault', stale vault content."
 ---
 
 # update-rbxdev-vault
@@ -25,8 +25,3 @@ The vault no longer polls every 15 minutes: it updates at logon and when you run
 Two commands: `/update-rbxdev-vault` (this one: safe, keeps everything of the user's; only tracked-file edits are patched and reset) and `/update-clean-rbxdev-vault` (exact copy of the main vault, still keeps Games and My Research; asks once).
 
 To only switch the Obsidian view without updating, use `/light-mode-on-rbxdev-vault` or `/light-mode-off-rbxdev-vault` (`-SetView light|full` / `--set-view light|full`).
-
-
-## Triggers (moved out of the description)
-
-Use when the user says /update-rbxdev-vault, update the vault, refresh my vault, sync the assets, or when assets/vault content looks stale or missing, or when a plain git pull in the vault is blocked by local changes.

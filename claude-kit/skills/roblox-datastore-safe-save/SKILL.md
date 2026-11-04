@@ -1,6 +1,6 @@
 ---
 name: roblox-datastore-safe-save
-description: "Pattern and review checklist for saving player data in Roblox DataStores without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing any Luau that persists player progress, currency or purchases."
+description: "Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing Luau that persists progress, currency or purchases."
 ---
 
 # Roblox DataStore: safe save

@@ -1,6 +1,6 @@
 ---
 name: roblox-gdd-template
-description: Fills in a one-to-three page game design document (GDD) for a Roblox experience from a concept, using the Roblox knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use when the user wants a GDD, game design doc, design one-pager, concept document, or to turn a chosen idea into a build-ready design.
+description: "Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design one-pager, concept document."
 ---
 
 # Roblox GDD template

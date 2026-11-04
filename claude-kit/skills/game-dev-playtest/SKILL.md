@@ -1,6 +1,6 @@
 ---
 name: game-dev-playtest
-description: "Playtests a Roblox game and returns a bug and feel report with severities and fixes; also fixes bugs red-first (reproduce, fix, prove green, ledger). Uses Studio MCP when connected; otherwise a deterministic path: Luau static checks, a red-flag scan, a scripted checklist and a code-walk of the first 30 seconds and core loop. Never launches Studio or a GUI app."
+description: "Playtests a Roblox game: bug and feel report with severities and fixes; fixes bugs red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of the first 30 seconds and core loop. Never launches Studio or a GUI app."
 argument-hint: "[project folder, default current folder]"
 ---
 
@@ -44,9 +44,4 @@ Only when a fix is ordered (the user, or the manager's fix round); the report ab
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says playtest my game, test the game, find bugs, is this ready to launch, check my game for exploits, review the feel, or at the end of game-dev-workflow.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

@@ -75,7 +75,7 @@ def kit_stale(vault, config):
                 if sub in ("skills", "agents") and len(parts) >= 2:
                     names.add(parts[1].replace(".md", "") if sub == "agents" else parts[1])
                 else:
-                    names.add(sub)
+                    names.add("cold" if r.startswith("mode/cold/") else sub)
     return differ, new, sorted(names)
 
 

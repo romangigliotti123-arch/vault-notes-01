@@ -1,6 +1,6 @@
 ---
 name: load-rbxdev-vault
-description: "Run /load-rbxdev-vault to turn on Roblox dev mode for this project folder: loads the vault kit (skills, agents, art-direction and visual-QA rules, reference images, learn step), which stays out of every other Claude session. Use when the user wants to make or work on a Roblox game and the vault skills are not loaded. /unload-rbxdev-vault turns it off."
+description: "Run /load-rbxdev-vault to turn on Roblox dev mode for this project folder: loads the vault kit (skills, agents, art-direction and visual-QA rules, reference images, learn step); other sessions stay clean. Use when the user wants to make or work on a Roblox game and the vault skills are not loaded."
 ---
 
 # load-rbxdev-vault
@@ -13,8 +13,3 @@ The vault kit is installed but NOT loaded by default, so unrelated Claude sessio
 4. If it says the kit is not installed, tell the user to run `/update-rbxdev-vault`. If it says the folder is the home or config folder, ask the user to open Claude in their project folder.
 
 It only writes inside this folder's `.claude/` (skills and agents it lists in `.claude/vault-mode.json`, hidden from git). It never edits `settings.json`, your global CLAUDE.md or your own skills; a skill or agent of yours with the same name is skipped and yours wins.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says /load-rbxdev-vault, load the vault, Roblox dev mode, enable the vault, or wants to make or work on a Roblox game and the vault skills are not loaded.

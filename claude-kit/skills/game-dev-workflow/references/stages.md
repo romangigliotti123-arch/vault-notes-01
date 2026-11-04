@@ -13,8 +13,7 @@ Six stages: **idea > prototype > playtest > launch > growth > live-ops**. The fa
 | growth | launch plus published plus real numbers in GAME.md or weekly reports |
 | live-ops | growth plus 4 or more weekly reports plus critic GOOD for growth |
 If GAME.md claims more than the evidence supports, say so in one line ("GAME.md says playtest, I only find a prototype: no playtest report") and work from the evidence stage; fix the claim only by doing the missing step. If the evidence is higher than GAME.md (user built things outside the flow), keep the claim and propose catching up through the critic.
-**Studio evidence hook** (skill `roblox-studio-connect`): if tools named `mcp__Roblox_Studio__*` exist in your tool list, add the open place to the evidence: `list_roblox_studios`, script count (`script_search`/`search_game_tree`), baseline `get_console_output`, a playtest (`start_stop_play`) while reading Output, errors quoted exactly, and write it to `Games/<slug>/playtests/<date>.md` (mode: Studio MCP). That run is the "works" evidence for prototype and playtest; no errors in a 3-minute run is the DoD line. If the tools do not exist: Rojo project files if `default.project.json` exists (evidence = static checks + `rojo build`, "checked, not run"), else hand code (everything needing a run is `untested`). Say which of the three modes you are in. Setup is opt-in and the user's choice (`studio-setup.ps1` / `.sh`). Never launch Studio yourself.
-
+Studio evidence hook (skill `roblox-studio-connect`): with `mcp__Roblox_Studio__*` tools the open place is evidence (Output errors quoted exactly, written to `Games/<slug>/playtests/<date>.md`); else Rojo project files (checked, not run), else hand code (run-based items `untested`); say which of the three modes you are in; never launch Studio yourself. [cold:game-dev-workflow/studio-evidence.md] read only to collect Studio evidence for the stage (open place, script count, console output, playtest) or to choose between Studio MCP, Rojo and hand-code mode.
 ## 2. Resume protocol (what /game-dev-workflow does on every run)
 1. Profile: `G profile` (first run only: onboarding, see `onboarding.md`).
 2. Find the game: argument slug, else `G list`; one game = resume it; several = ask which (AskUserQuestion; headless: the most recently changed); none = new game (`G init <slug> ...`, then Stage 1 of SKILL.md).
@@ -61,23 +60,7 @@ Without Studio/MCP the run-based prototype items are `untested`, F1/F2 timings `
 - Rubric: all ten factors; critical (min 6): F1, F2, F3, F4, F7, F9. Weighted mean 7.0 or more for GOOD.
 - Gate to launch: critic GOOD, plus the launch kit prepared (see launch). KB benchmark gate: if real session data exists, D1 at or above the "typical" band for the genre (Creator Hub similar-experience benchmark first, `compare.py` second); no data yet means say "no numbers, scored on observed play".
 
-### launch
-- Work: `game-dev-launch-kit` (icon and thumbnail brief, title and description, ad budget plan, update calendar, publish checklist). Publishing to Roblox, spending Robux or money, and posting are always the user's action: write the steps and the exact settings, never do them.
-- DoD: kit files exist in `Games/<slug>/launch.md` (links to each deliverable), `roblox-publish-checklist` and `roblox-launch-checklist` all checked or marked N/A with a reason, first 4 weeks of updates planned, ad plan has a stop rule (retention first: no ads while D1 is below "weak" band), the user confirmed publishing (`published: yes` in GAME.md and the place id recorded by the user).
-- Rubric: F8 (critical, min 7), F1, F7, F9 as shipped; plus kit completeness.
-- Gate to growth: game is live (user says so, GAME.md `published: yes`) AND first real numbers pasted into GAME.md.
-
-### growth
-- Work: weekly loop with `game-dev-weekly` (paste Creator Dashboard numbers; compare with benchmarks; plan the week: changes, ad/thumbnail tests, next event) into `Games/<slug>/weekly/<date>.md`.
-- DoD: 4 weekly reports; at least one change shipped for each weak metric found; packaging test run (2 icons/thumbnails) with a result; retention not "broken" (D1 not under the broken band); ad spend, if any, tied to a measured payback.
-- Rubric: the numbers table (section 4) plus F5, F6, F8. Critic compares the trend over weeks, not one week.
-- Gate to live-ops: critic GOOD on growth: D1 and session in typical band or better, or a written, evidence-backed reason and plan; content cadence of 1-2 weeks is running.
-
-### live-ops
-- Work: cadence updates (`game-dev-update`), events (`events-and-seasonal-content`), weekly checks continue, re-run the critic every 4 weeks.
-- DoD (continuing): cadence kept (1-2 weeks, max 2-3 weeks, `updates-live-ops`), each update has patch notes and a measured result, no regression in retention.
-- No further stage; the critic still runs before big updates.
-
+Stages launch, growth, live-ops: [cold:game-dev-workflow/stages-late.md] read only when the evidence stage is launch, growth or live-ops (work, Definition of Done, rubric and gate of each).
 ## 4. Verdict rules (used by game-dev-critic)
 - Weighted mean of the scored factors (equal weights unless the stage lists critical ones, which count double) plus the WORKS result.
 - **GOOD**: WORKS pass, mean 7.0 or more, every critical factor at its minimum, no hard-rule violation.

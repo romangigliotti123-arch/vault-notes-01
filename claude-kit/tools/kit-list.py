@@ -150,6 +150,8 @@ def main():
             cnt += 1
     out += ["## Mods (%d)" % cnt, ""]
     out += lines or ["- None found (the kit's mods folder is not in the vault clone yet)", ""]
+    cold = [r for r in rels if r.startswith("claude-kit/vault-mode/cold/")]
+    out += ["## Cold area (%d files in %d topics)" % (len(cold), len({r.split("/")[3] for r in cold})), "", "- Bulk that skills point to ([cold:topic/file]); not loaded into projects. `python claude-kit/tools/vault-mode.py cold` lists it.", ""]
     pack = os.path.join(config, "claude-kit", "skillpack")
     n = sum(1 for d, _, f in os.walk(pack) if "SKILL.md" in f) if os.path.isdir(pack) else 0
     out += ["## Roblox pack skills (%s)" % (n or "?"), "", "- Run `/rbx list` to browse them, or `/rbx find <words>` to search.", ""]

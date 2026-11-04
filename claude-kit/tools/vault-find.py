@@ -350,9 +350,37 @@ def rank(recs, query, picks):
     return scored
 
 
+def peek(path, vaults, lines):
+    """size, heading outline and the first lines of one note, so a whole note is read only when needed"""
+    cands = [path] + [os.path.join(v, *path.split("/")) for _, v in vaults]
+    f = next((c for c in cands if os.path.isfile(c)), None)
+    if not f:
+        print("vault-find: no such note %r" % path, file=sys.stderr)
+        return 2
+    with open(f, encoding="utf-8", errors="replace") as fh:
+        ls = fh.read().replace("\r\n", "\n").split("\n")
+    i = 0
+    if ls and ls[0].strip() == "---":
+        i = next((k for k in range(1, len(ls)) if ls[k].strip() == "---"), 0) + 1
+    print("%s: %d lines, %d bytes" % (f, len(ls), os.path.getsize(f)))
+    heads = [(k + 1, x) for k, x in enumerate(ls) if re.match(r"^#{1,4}\s", x)]
+    for k, x in heads[:30]:
+        print("  L%d %s" % (k, x[:90]))
+    print("--")
+    shown = 0
+    for k in range(i, len(ls)):
+        if ls[k].strip() and shown < lines:
+            print(ls[k][:200])
+            shown += 1
+    print("-- read more: Read offset=<L> limit=<n> on the path above")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description="ranked search over both vaults")
-    ap.add_argument("query", nargs="+")
+    ap.add_argument("query", nargs="*")
+    ap.add_argument("--peek", metavar="PATH", help="preview one note (outline + first lines) instead of searching")
+    ap.add_argument("--lines", type=int, default=8)
     ap.add_argument("-n", type=int, default=10)
     ap.add_argument("--type", default="any", choices=["any", "skill", "agent", "creator", "video", "manager", "kb", "brain", "imported", "game", "reusable", "system", "skillpack", "learned"])
     ap.add_argument("--side", default="both", choices=["both", "ai", "roblox"])
@@ -368,6 +396,10 @@ def main():
     if not vaults:
         print("vault-find: no vault found. Pass --vault <path> or set CLAUDES_VAULT / AI_LIBRARY_VAULT (default ~/Obsidian/claudes-vault, ~/Obsidian/ai-library-vault).", file=sys.stderr)
         return 2
+    if a.peek:
+        return peek(a.peek, vaults, a.lines)
+    if not a.query:
+        ap.error("give words to search, or --peek PATH")
     recs = []
     for side, v in vaults:
         for r in load_index(side, v, a.all, a.reindex) + (scan_games(side, v) + scan_systems(side) + scan_skillpack(side) if side == "roblox" else []):

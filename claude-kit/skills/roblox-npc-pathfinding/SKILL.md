@@ -1,6 +1,6 @@
 ---
 name: roblox-npc-pathfinding
-description: "Implement Roblox NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any moving AI character in Roblox."
+description: "Implement NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any moving AI character in Roblox."
 ---
 
 # Roblox NPC and pathfinding

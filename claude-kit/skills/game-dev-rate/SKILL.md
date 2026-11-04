@@ -1,6 +1,6 @@
 ---
 name: game-dev-rate
-description: "Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention, first-30-seconds hook, feel, virality, monetisation fit, discoverability, scope, differentiation, trend fit, ad-ability, update potential), each with a cited one-line evidence note, plus strengths, weaknesses, concrete fixes and a what-is-doing-well-now check against the vault and a live search."
+description: "Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence, strengths, weaknesses and fixes, checked against the vault and a live search."
 argument-hint: "[game idea or path to docs/elaboration.md]"
 ---
 
@@ -29,9 +29,4 @@ Cite a note path or link for every number. Patterns only: never rate or recommen
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says rate my game idea, score this idea, is this idea good, how likely is this game to succeed, compare ideas, or when game-dev-workflow reaches Stage 3.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

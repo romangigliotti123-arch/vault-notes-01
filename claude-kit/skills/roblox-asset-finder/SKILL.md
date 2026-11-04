@@ -1,6 +1,6 @@
 ---
 name: roblox-asset-finder
-description: "Given a Roblox dev need (low-poly trees, datastore wrapper, UI framework, SFX, PBR textures, open-source game example, Luau docs), searches the local roblox-assets index and returns the path, license and import steps."
+description: "Given a Roblox dev need (low-poly trees, datastore wrapper, UI framework, SFX, PBR textures, example game, Luau docs), searches the local roblox-assets index: path, license, import steps."
 ---
 
 # Roblox asset finder

@@ -1,6 +1,6 @@
 ---
 name: roblox-round-based-game-loop
-description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use when building minigame, battle, obby-race or party-style Roblox experiences."
+description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigame, battle, obby-race or party-style experiences."
 ---
 
 # Round-based game loop

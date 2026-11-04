@@ -1,6 +1,6 @@
 ---
 name: roblox-launch-checklist
-description: "Builds an interactive, phone-friendly launch checklist (self-contained HTML plus markdown) for one Roblox game, merged from the knowledge base checklists, with due dates relative to the launch date, priorities, owners and a source per item. Use for a launch checklist, pre-launch plan, release readiness or 'am I ready to launch'."
+description: "Builds a phone-friendly launch checklist (HTML plus markdown) for one Roblox game from the knowledge base: relative due dates, priorities, owners, a source per item. Use for a launch checklist, pre-launch plan, 'am I ready to launch'."
 ---
 
 # Roblox launch checklist
@@ -47,8 +47,3 @@ Only include phases that apply to the stated stage.
 - [ ] Every `must` has a source and flag; no invented numbers.
 - [ ] HTML built and the item count matches the JSON.
 - [ ] Items are tailored to the game, not a generic dump.
-
-
-## Triggers (moved out of the description)
-
-Use when the user asks for a launch checklist, a pre-launch plan, "am I ready to launch", release readiness, or a to-do list for shipping or relaunching a Roblox experience.

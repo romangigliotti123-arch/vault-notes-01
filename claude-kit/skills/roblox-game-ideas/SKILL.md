@@ -1,6 +1,6 @@
 ---
 name: roblox-game-ideas
-description: "Generates, scores and plans Roblox game concepts for a solo or small team. Takes an optional seed, gets current patterns from roblox-trend-research, scores 8 candidates on a fixed rubric, presents the top three, then expands the chosen one into a build plan (systems, milestones with acceptance tests, test plan, first three tasks). Reads the local knowledge base first, the web second."
+description: "Generates, scores and plans Roblox game concepts for a solo or small team: optional seed, patterns from roblox-trend-research, 8 candidates scored on a fixed rubric, top three presented, the chosen one expanded into a build plan (systems, milestones with acceptance tests, first three tasks)."
 ---
 
 # Roblox game ideas
@@ -138,9 +138,7 @@ Milestones: 4 to 6, sized to the stated time. Every acceptance test must be some
 
 ## Worked examples (shape only, no real metrics)
 
-1. "Give me a Roblox game idea." No seed: defaults assumed and Broad research reused or run; 8 candidates across 5+ genres; the reply opens `Pick: <Title>`, followed by 3 cards, the score table and 1 or 2 dropped ideas (for example, "Scope 1: needs custom vehicle physics").
-2. "Something about cooking with friends." The seed is kept and Focused research run on cooking and co-op; the 8 candidates are variations (a timed co-op kitchen, a cooking tycoon, a delivery obby...); social features use friends-only parties, so there is no stranger contact.
-3. "Plan #2." Phase B: the This week block comes first (for example, "Greybox the kitchen with Kenney kit pieces. Done when: a player can walk from the counter to the stove in under 5 s"). The Systems table shows Player data = ProfileStore (option), Order queue = Build, and UI = DECIDE.
+[cold:roblox-game-ideas/worked-examples.md] read only to see the expected shape of a reply for a seedless request, a seeded request and a 'Plan #2' follow-up.
 
 ## Self-check before replying
 
@@ -152,8 +150,3 @@ Milestones: 4 to 6, sized to the stated time. Every acceptance test must be some
 - [ ] Every library named is on the approved-options list and described as an option, not an install; no archived libraries.
 - [ ] Every milestone has a pass/fail acceptance test; the plan has exactly 3 tasks for this week.
 - [ ] No promise of success; each risk has a check that could prove it wrong.
-
-
-## Triggers (moved out of the description)
-
-Use proactively, without being asked for a skill by name, whenever the user wants to make a Roblox game, asks for a Roblox game idea or concept, wants a rough idea turned into a plan, asks which idea to build, or asks what kind of game would do well on Roblox.

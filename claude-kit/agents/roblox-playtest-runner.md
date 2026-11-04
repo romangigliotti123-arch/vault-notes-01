@@ -1,6 +1,6 @@
 ---
 name: roblox-playtest-runner
-description: "Runs a structured Roblox playtest on this computer (Studio, a client or a published place), finds bugs, balance and first-30-seconds problems, records them in the library's bug format with repro steps and returns a ship / do-not-ship verdict."
+description: "Runs a structured Roblox playtest on this computer (Studio, a client or a published place), finds bugs, balance and first-30-seconds problems, records them with repro steps and returns a ship / do-not-ship verdict."
 model: sonnet
 effort: high
 disallowedTools: Agent

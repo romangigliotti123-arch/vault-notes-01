@@ -4,14 +4,14 @@ This folder is a local plugin marketplace (`.claude-plugin/marketplace.json`, na
 
 | Mod | What it does |
 |---|---|
-| hud-rbxdev-vault | Side pane for the game dev workflow: tree of the master agent and its agents with status and elapsed time, plus a progress bar. `/hud-rbxdev-vault` toggles it. |
+| rbx-subagent-hud | Side pane: the master agent on top, its subagents below joined by flashing dotted lines (grey running, green done), `2/4 done` counter, `~N min left` estimate, click a subagent to see the prompt the master sent it. `/rbx-subagent-hud` toggles it. Replaces `hud-rbxdev-vault`. |
 | graph-rbxdev-vault | `/graph-rbxdev-vault` opens a side pane with the link graph of the vault: centre note, links in and out, search, preview. |
 
-INSTALL hud-rbxdev-vault: `claude plugin install hud-rbxdev-vault --marketplace <kit>/mods`
+INSTALL rbx-subagent-hud: `claude plugin install rbx-subagent-hud --marketplace <kit>/mods`
 
 INSTALL graph-rbxdev-vault: `claude plugin install graph-rbxdev-vault --marketplace <kit>/mods`
 
-UNINSTALL hud-rbxdev-vault: `claude plugin uninstall hud-rbxdev-vault@roblox-vault-kit-mods`
+UNINSTALL rbx-subagent-hud: `claude plugin uninstall rbx-subagent-hud@roblox-vault-kit-mods`
 
 UNINSTALL graph-rbxdev-vault: `claude plugin uninstall graph-rbxdev-vault@roblox-vault-kit-mods`
 

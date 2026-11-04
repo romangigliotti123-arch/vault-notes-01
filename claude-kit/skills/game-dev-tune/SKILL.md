@@ -1,6 +1,6 @@
 ---
 name: game-dev-tune
-description: "Metric-gated tuning loop for a Roblox game: pick ONE number (gate score, economy simulation, frame cost), baseline it, run single-change experiments, keep only strict improvements, revert the rest, log every run in a ledger. Use for balance, optimise, polish, make it better, tune the economy."
+description: "Metric-gated tuning loop: pick ONE number (gate score, economy simulation, frame cost), baseline it, single-change experiments, keep strict improvements, revert the rest, ledger. Use for balance, optimise, polish, make it better, tune the economy."
 argument-hint: "[what to improve] [metric]"
 ---
 
@@ -22,8 +22,5 @@ Change ONE thing, measure (twice when the number is noisy), keep it only if the 
 Stop at the budget, at the target, or after 3 non-improving experiments in a row (change the kind of change once, then stop). Report kept changes with before and after, discarded ideas (so nobody retries them), and the output of `tune_check.py check Games/<slug> --write Games/<slug>`. The critic runs the evaluator itself; a builder-made number is evidence only.
 
 ## Sources
-Loop idea (baseline, one change, keep or revert, ledger) from Andrej Karpathy's autoresearch (github.com/karpathy/autoresearch). The repository has no LICENSE file, so only the idea is used, written in our own words; its unbounded "never stop" mode and disabled permissions are not adopted.
 
-## Triggers (moved out of the description)
-
-Use when the user says balance the economy, tune, optimise, make it better, polish with a number, first upgrade too slow, or when a gate score is below the pass mark and fix rounds are needed.
+[cold:game-dev-tune/sources.md] read only to verify the source of this idea or its licence/attribution.

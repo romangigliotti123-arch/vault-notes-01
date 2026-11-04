@@ -1,6 +1,6 @@
 ---
 name: roblox-kb-answer
-description: "Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs plus 25 creators) without spawning agents or reading big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, benchmarks). Not for full plans or live market data."
+description: "Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, monetisation, pricing, ads, thumbnails, live ops, benchmarks). Not for full plans or live market data."
 ---
 
 # Roblox KB answer
@@ -53,9 +53,4 @@ At most 8 bullets. Every number or rule has a link and a flag (official | indie 
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use proactively for any factual or "what do the best creators/Roblox say about X" question about Roblox ideas, retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, DevEx/tax, platform changes, benchmarks.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

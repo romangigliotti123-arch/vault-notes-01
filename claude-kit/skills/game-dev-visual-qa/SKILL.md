@@ -1,6 +1,6 @@
 ---
 name: game-dev-visual-qa
-description: "Mandatory visual gate and definition of done for a Roblox game: screenshots the running game (3 moments, phone and desktop), checks layout and overlap at phone, tablet and desktop sizes, scores a 7-item rubric, fixes defects and re-shoots (max 3 rounds). A game is called done only after this gate passes with screenshots; otherwise 'playable prototype, visuals not polished'."
+description: "Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and overlap at three sizes, 7-item rubric, max 3 fix rounds. Done only after it passes with screenshots; else 'playable prototype, visuals not polished'."
 argument-hint: "[game slug or project folder]"
 ---
 
@@ -39,9 +39,4 @@ Why this exists: a game that runs and follows its design was repeatedly declared
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use before saying done, when the user says it looks bad, ugly, unfinished or asks for a visual check, UI overlap, polish pass or screenshot review, and whenever game-dev-workflow or game-dev-critic reaches a prototype or later stage.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

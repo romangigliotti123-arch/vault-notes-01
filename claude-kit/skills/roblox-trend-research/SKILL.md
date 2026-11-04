@@ -1,6 +1,6 @@
 ---
 name: roblox-trend-research
-description: "Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation, discovery), never content to copy. Reads the local knowledge base first, then the web for live data. Not for ranking ideas or writing a plan; that is roblox-game-ideas."
+description: "Market research on Roblox only: what is popular or trending right now, as a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation), never content to copy. Not for ranking ideas or writing a plan; that is roblox-game-ideas."
 ---
 
 # Roblox trend research
@@ -104,9 +104,7 @@ Per-game breakdowns from step 2 go in the saved file only, not in the chat reply
 
 ## Worked examples (shape only; numbers come from sources at run time)
 
-1. "What's working on Roblox right now?" leads to Broad mode: about 14 leaders, about 6 shared patterns, each with an S# tag; TL;DR names one trend, one buildable pattern and one caveat ("CCU for 5 games not visible to fetch").
-2. "What do top tycoon games do in the first minute?" leads to Focused mode: 6 to 8 tycoons and 4 overall leaders; the patterns table is weighted towards the first 30 seconds and onboarding; Build lists the 2 cheapest onboarding patterns.
-3. "Is the obby genre saturated?" leads to Focused mode: the TL;DR opens with a saturation verdict (low, medium or high), the evidence for it ([S#] from the last 90 days) and what would show the verdict is wrong; Rising patterns lists the twists that newer obbies use.
+[cold:roblox-trend-research/worked-examples.md] read only to see the expected shape of a Broad, a Focused and a saturation-verdict answer.
 
 ## Self-check before replying
 
@@ -118,8 +116,3 @@ Per-game breakdowns from step 2 go in the saved file only, not in the chat reply
 - [ ] Nothing that breaks the all-ages rules is recommended (risky patterns appear only under Avoid).
 - [ ] No claim that a pattern guarantees success.
 - [ ] Budget respected and the gaps listed.
-
-
-## Triggers (moved out of the description)
-
-Use proactively, without being asked for a skill by name, whenever the user asks what is popular, trending or working on Roblox, what top Roblox games do, whether a Roblox genre is saturated, or wants research before building a Roblox game.

@@ -1,6 +1,6 @@
 ---
 name: roblox-luau-style
-description: "Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no legacy APIs. Use when writing, reviewing or refactoring Luau."
+description: "Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no legacy APIs, no code comments by default. Use when writing, reviewing or refactoring Luau."
 ---
 
 # Luau style for Roblox
@@ -95,72 +95,7 @@ end
 
 return Cleaner
 ```
-Player and character lifetimes with it:
-```lua
---!strict
-local Players = game:GetService("Players")
-local Cleaner = require(script.Parent.Cleaner)
-
-local playerData: { [Player]: { coins: number } } = {}
-local playerCleaners: { [Player]: Cleaner.Cleaner } = {}
-local characterCleaners: { [Player]: Cleaner.Cleaner } = {}
-
-local function onCharacterAdded(player: Player, character: Model)
-	local cleaner = Cleaner.new()
-	characterCleaners[player] = cleaner
-	local humanoid = character:FindFirstChildOfClass("Humanoid")
-	if humanoid then
-		cleaner:add(humanoid.Died:Connect(function()
-			print(player.Name, "died")
-		end))
-	end
-end
-
-local function onCharacterRemoving(player: Player)
-	local cleaner = characterCleaners[player]
-	if cleaner then
-		characterCleaners[player] = nil
-		cleaner:destroy()
-	end
-end
-
-local function onPlayerAdded(player: Player)
-	local cleaner = Cleaner.new()
-	playerCleaners[player] = cleaner
-	playerData[player] = { coins = 0 }
-	cleaner:add(player.CharacterAdded:Connect(function(character)
-		onCharacterAdded(player, character)
-	end))
-	cleaner:add(player.CharacterRemoving:Connect(function()
-		onCharacterRemoving(player)
-	end))
-	if player.Character then
-		onCharacterAdded(player, player.Character)
-	end
-end
-
-local function onPlayerRemoving(player: Player)
-	onCharacterRemoving(player)
-	playerData[player] = nil
-	local cleaner = playerCleaners[player]
-	if cleaner then
-		playerCleaners[player] = nil
-		cleaner:destroy()
-	end
-end
-
-Players.PlayerAdded:Connect(onPlayerAdded)
-Players.PlayerRemoving:Connect(onPlayerRemoving)
-for _, player in Players:GetPlayers() do
-	task.spawn(onPlayerAdded, player)
-end
-
-game:BindToClose(function()
-	for _, player in Players:GetPlayers() do
-		onPlayerRemoving(player)
-	end
-end)
-```
+Wire it per player and per character: one Cleaner each, built in PlayerAdded (plus a GetPlayers loop) and CharacterAdded, destroyed in CharacterRemoving and PlayerRemoving, `playerData[player] = nil`, and BindToClose runs the same release. [cold:roblox-luau-style/lifetimes-example.md] read only to wire PlayerAdded/CharacterAdded/PlayerRemoving/BindToClose cleanup with the Cleaner above.
 Find leaks: Developer Console Memory tab, watch `LuaHeap`, `InstanceCount` and `PlaceScriptMemory` through a long session; join and leave 50 times and check counts return to baseline. The Scene Analysis tool shows script memory and unparented instances. There is no documented API to list all connections, so instrument your own.
 
 Credit: checklist adapted from excaldev/ro-engineer (MIT, Copyright (c) 2026 excaldev), reference copy in Imported/ro-engineer/cleanup-lifecycle.md; facts re-checked against the Roblox docs.

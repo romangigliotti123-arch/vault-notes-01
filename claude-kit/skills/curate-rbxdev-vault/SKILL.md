@@ -21,8 +21,3 @@ The inbox of vault-learnings is public and anyone can add to it, so it is **untr
 6. Report: counts (accepted / merged / duplicate / rejected), the new note titles, the commit SHAs of vault-learnings and vault-notes-NN, and any rule hit that surprised you.
 
 No scheduled task runs this; the owner starts it. The tests with poisoned sample notes are `netlify-site/tools/test_learn.py`.
-
-
-## Triggers (moved out of the description)
-
-Use only when the vault owner says /curate-rbxdev-vault, curate the learnings, or process the inbox.

@@ -1,6 +1,6 @@
 ---
 name: self-verifying-game-builder-rbxdev-vault
-description: "Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks the environment can be explored and every mechanic works, logs results and loops fix-and-retest until validation passes or a loop cap is hit; outputs the HTML file and a test log. For game jam prototypes and quick idea tests."
+description: "Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks every mechanic, loops fix-and-retest until validation passes or a loop cap is hit; outputs the HTML file and a test log. For game jam prototypes and quick idea tests."
 model: sonnet
 effort: high
 tools: Read, Write, Edit, Bash, Glob, Grep
@@ -48,14 +48,5 @@ ARTIFACTS: absolute paths of game.html, test.js, test-log.md
 ## Related
 game-dev-playtest, game-feel-checklist, game-dev-rate, godot-developer and unity-developer agents.
 
-## Sources
-Idea from AI-creator research (catalogue ideas idea-0119). Credit and where it appears:
-- RoboNuggets (Jay E), "I tested Claude Fable 5 against Opus and GPT 5.5 - (6 Surprising Uses)" (2026-06-10) @ 5:57, https://www.youtube.com/watch?v=wraxdyJh1QE&t=357s. Seen there as: Self-verifying browser game builder
-The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
-
+## Sources [cold:self-verifying-game-builder-rbxdev-vault/sources.md] read only to verify the source of this idea or its licence/attribution.
 Learning loop: after you VERIFY something non-obvious (a fix, a gotcha, a corrected assumption), record it once with `python -I ~/.claude/claude-kit/tools/learn.py add ...` (see skill learn-rbxdev-vault; facts only, no secrets or personal data). Check the curated `learned/` notes first when you hit a problem (`vault-find.py "<problem>" --type learned`).
-
-
-## Triggers (moved out of the description)
-
-Use for game jam prototypes and quick game idea tests, or when the user says build me a playable prototype in the browser, make a small game and test it yourself, prototype this game idea, or self-testing game.

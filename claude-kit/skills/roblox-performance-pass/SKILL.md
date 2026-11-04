@@ -1,6 +1,6 @@
 ---
 name: roblox-performance-pass
-description: "Find and fix performance problems in a Roblox experience: server and client frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblox game lags, crashes on phones or has high memory."
+description: "Find and fix performance problems in a Roblox experience: frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblox game lags, crashes on phones or has high memory."
 ---
 
 # Roblox performance pass

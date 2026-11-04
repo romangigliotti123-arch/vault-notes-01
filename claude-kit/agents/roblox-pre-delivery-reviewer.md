@@ -1,6 +1,6 @@
 ---
 name: roblox-pre-delivery-reviewer
-description: "Pre-delivery reviewer for Roblox tools, plugins and scripts handed to a client or published: predicts what the client would reject or delete and what would fail at runtime (Windows terminal encoding, missing services, Studio vs live), trims unneeded code, then runs original and trimmed versions side by side to prove the same problems are still caught. Every prediction is verified by execution."
+description: "Pre-delivery reviewer for Roblox tools, plugins and scripts handed to a client or published: predicts what the client would reject and what would fail at runtime, trims unneeded code, proves original and trimmed catch the same problems. Every prediction verified by execution."
 model: sonnet
 effort: high
 tools: Read, Grep, Glob, Bash, Edit, Write
@@ -44,13 +44,5 @@ ARTIFACTS: absolute paths of trimmed/ and the comparison table
 roblox-luau-reviewer (deeper Luau review), roblox-publish-checklist, roblox-remote-security, code-reviewer, roblox-code-rate.
 
 ## Sources
-Idea from AI-creator research (catalogue ideas idea-0040). Credit and where it appears:
-- Nate Herk, "18 Claude Code Token Hacks in 18 Minutes" (2026-04-02) @ 13:57, https://www.youtube.com/watch?v=49V-5Ock8LU&t=837s. Seen there as: Codex code reviewer
-- Nate Herk, "Every Level of Claude Explained in 21 Minutes" (2026-05-12) @ 15:56, https://www.youtube.com/watch?v=ZRb7D6R64hM&t=956s. Seen there as: PR code reviewer routine
-- Nate Herk, "I Built Another Andrej Karpathy Using Claude" (2026-10-05) @ 8:49, https://www.youtube.com/watch?v=bvGptCLDhyo&t=529s. Seen there as: Code review / ship-check agent
-The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
-
-## Triggers (moved out of the description)
-
-Use before handing a script, plugin or tool to a client or publishing it, or when the user says would the client accept this, what would they delete, trim this script, pre-delivery check, or final review before I send it.
+[cold:roblox-pre-delivery-reviewer/sources.md] read only to verify the source of this idea or its licence/attribution.

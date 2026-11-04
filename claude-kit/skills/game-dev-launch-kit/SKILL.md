@@ -1,6 +1,6 @@
 ---
 name: game-dev-launch-kit
-description: "Launch kit for a Roblox game, run at the stage gate from playtest to launch (or alone): chains the thumbnail/icon brief, title and description, ad budget plan, update calendar and publish/launch checklists into one Games/<game>/launch.md with the exact steps the user performs."
+description: "Launch kit at the playtest-to-launch gate (or alone): thumbnail/icon brief, title and description, ad budget, update calendar and launch checklists chained into Games/<game>/launch.md with the exact steps the user performs."
 argument-hint: "[game slug]"
 ---
 
@@ -26,9 +26,4 @@ Vault-first freshness protocol applies (ad costs, specs and policies are fast-mo
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when a game reaches the launch stage, or the user says launch kit, get ready to publish, plan my launch, prepare thumbnails and ads for launch.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

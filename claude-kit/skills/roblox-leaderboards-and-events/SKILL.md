@@ -1,6 +1,6 @@
 ---
 name: roblox-leaderboards-and-events
-description: "Implement Roblox global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when adding competition, badges or recurring events to a Roblox game."
+description: "Implement global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when adding competition, badges or recurring events."
 ---
 
 # Leaderboards, badges, live events

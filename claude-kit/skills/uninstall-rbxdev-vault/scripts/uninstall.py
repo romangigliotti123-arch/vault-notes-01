@@ -236,6 +236,8 @@ def area_of(rel):
         return "agents"
     if rel.startswith("skills/"):
         return "skills"
+    if rel.startswith("claude-kit/vault-mode/cold/"):
+        return "cold area (on-demand bulk read by pointers)"
     if rel.startswith("claude-kit/vault-mode/"):
         return "on-demand store (vault skills/agents)"
     if rel.startswith("claude-kit/tools/"):

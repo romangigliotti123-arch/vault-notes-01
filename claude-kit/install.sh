@@ -2,6 +2,7 @@
 # claude-kit installer for macOS/Linux (also works in Git Bash on Windows). Safe to run again. No questions, no sudo, sets nothing global.
 #   ON-DEMAND STORE (Roblox dev mode, not read by normal Claude sessions): agents/* -> ~/.claude/claude-kit/vault-mode/.claude/agents/   skills/* -> ~/.claude/claude-kit/vault-mode/.claude/skills/   mode/CLAUDE.md -> ~/.claude/claude-kit/vault-mode/CLAUDE.md
 #   /load-rbxdev-vault copies the store's skills+agents into the CURRENT PROJECT's .claude/ (tools/vault-mode.py); /unload-rbxdev-vault removes exactly those copies.
+#   COLD AREA: mode/cold/<topic>/* rides the mode/* mapping -> ~/.claude/claude-kit/vault-mode/cold/ (installed, refreshed, in installed.tsv, removed by uninstall; never copied into a project; read with tools/vault-mode.py cold).
 #   ALWAYS-ON (the only kit skills in ~/.claude/skills, listed in mode/always-on.txt): load-rbxdev-vault unload-rbxdev-vault update-rbxdev-vault update-check-rbxdev-vault uninstall-rbxdev-vault
 #   tools/* -> ~/.claude/claude-kit/tools/        systems/* -> ~/.claude/claude-kit/systems/        skillpack/* -> ~/.claude/claude-kit/skillpack/ (NOT skills: opened on demand by the /rbx router skill)
 # An older install (kit skills/agents directly in ~/.claude/skills and /agents) is migrated by tools/vault-mode.py migrate: kit files move to a backup folder, your own skills/agents/CLAUDE.md are untouched, idempotent, reversible.

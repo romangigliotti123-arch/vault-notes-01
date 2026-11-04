@@ -1,6 +1,6 @@
 ---
 name: make-roblox-game
-description: "Use when the user says make/build/create me a Roblox game (with or without an idea) or wants one designed and built from the vault, skills and assets without being asked questions; delegates to the roblox-game-builder agent, which researches the vault, writes a scored GDD and a Rojo/Luau project, checks it and reports how to open it in Studio."
+description: "Use when the user says make/build/create me a Roblox game (with or without an idea) without being asked questions; delegates to the roblox-game-builder agent: vault research, scored GDD, Rojo/Luau project, checks, how to open it in Studio."
 ---
 
 # make-roblox-game
@@ -25,9 +25,4 @@ Never publish to Roblox, spend Robux or money, or post anything. Never write int
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says make/build/create me a Roblox game (with or without an idea), 'use the vault to build', 'give me game ideas that would do well', or wants a Roblox game designed and built from the vault, skills and assets without being asked questions; delegates to the roblox-game-builder agent, which researches the vault, writes a scored GDD and a Rojo/Luau project, checks it and reports how to open it in Studio.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.
