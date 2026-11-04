@@ -23,7 +23,7 @@ import time
 
 BS = chr(92)
 WHY = re.compile(r"because|so that|otherwise|must|quirk|engine|replicat|order", re.I)
-TOOL = re.compile(r"^--\s*(stylua:|selene:|luau-lsp|@)")
+TOOL = re.compile(r"^--#?\s*(stylua:|selene:|luau-lsp|@)")
 LICENSE = re.compile(r"licen[sc]e|copyright|spdx|\(c\)|permission is hereby granted", re.I)
 GENERATED = re.compile(r"^--\s*GENERATED\b")
 SKIP_DIRS = {"packages", "node_modules", ".git", "benchmarks", "__pycache__", "_packages"}
