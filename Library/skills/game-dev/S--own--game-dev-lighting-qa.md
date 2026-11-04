@@ -5,7 +5,7 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/game-dev-lighting-qa/SKILL.md"
-description: "Mandatory lighting and atmosphere gate for a Roblox game. Applies the genre's lighting preset early (LightingKit.apply), then scans the place against 12 checks (not default Roblox, Atmosphere, Sky, effects, brightness, shadows, fog, interiors, mobile budget) with real Luau, a JSON report and auto-fix. Done only after lighting_gate.py prints LIGHTING GATE: PASS; run before visual QA and the critic."
+description: "Mandatory lighting gate: apply the genre lighting preset early (LightingKit.apply), scan the place against 12 checks (default Roblox, Atmosphere, Sky, effects, brightness, shadows, fog, interiors, mobile budget). Done only at LIGHTING GATE: PASS; run before visual QA and the critic."
 orig_name: "game-dev-lighting-qa"
 orig_argument_hint: "[game slug or project folder] [genre]"
 tags: [lib/skill, cat/game-dev, src/own]
@@ -13,7 +13,7 @@ tags: [lib/skill, cat/game-dev, src/own]
 
 # game-dev-lighting-qa
 
-> Mandatory lighting and atmosphere gate for a Roblox game. Applies the genre's lighting preset early (LightingKit.apply), then scans the place against 12 checks (not default Roblox, Atmosphere, Sky, effects, brightness, shadows, fog, interiors, mobile budget) with real Luau, a JSON report and auto-fix. Done only after lighting_gate.py prints LIGHTING GATE: PASS; run before visual QA and the critic.
+> Mandatory lighting gate: apply the genre lighting preset early (LightingKit.apply), scan the place against 12 checks (default Roblox, Atmosphere, Sky, effects, brightness, shadows, fog, interiors, mobile budget). Done only at LIGHTING GATE: PASS; run before visual QA and the critic.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-lighting-qa/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -56,9 +56,4 @@ Why this exists: a generated map with the engine's default lighting (flat grey a
 
 ## Learn
 
-When this run verifies something non-obvious (a value that looked right in Studio, a fix, a gotcha, a corrected assumption), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use right after art direction and before the first map is built, again before game-dev-visual-qa and game-dev-critic, and whenever a map looks flat, grey, dark, washed out, foggy, over-glowing or like default Roblox.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

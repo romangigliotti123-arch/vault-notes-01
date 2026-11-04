@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-npc-pathfinding/SKILL.md"
-description: "Implement Roblox NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any moving AI character in Roblox."
+description: "Implement NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any moving AI character in Roblox."
 orig_name: "roblox-npc-pathfinding"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-npc-pathfinding
 
-> Implement Roblox NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any moving AI character in Roblox.
+> Implement NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any moving AI character in Roblox.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-npc-pathfinding/SKILL.md` (extra files, if any, sit beside it in the repo)

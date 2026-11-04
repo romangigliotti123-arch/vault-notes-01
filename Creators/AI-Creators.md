@@ -26,7 +26,7 @@ Full hubs, one note per video and the idea catalogue are in the AI Library Vault
 - [[S--own--plan-then-build|plan-then-build]] (skill) - Gate and procedure for big builds: use plan mode for setup and large work (skip it for simple fixes), ask clarifying questions, write a spec
 - [[A--own--roblox-pre-delivery-reviewer|roblox-pre-delivery-reviewer]] (agent) - Pre-delivery reviewer for Roblox tools, plugins and scripts handed to a client or published: predicts what the client would reject or delete
 - [[A--own--roblox-audit-fanout|roblox-audit-fanout]] (agent) - Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes, DataStore and economy,
-- [[S--own--roblox-code-rate|roblox-code-rate]] (skill) - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority and exploit resistance, data safety, correctness, error handling, p
+- [[S--own--roblox-code-rate|roblox-code-rate]] (skill) - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structu
 
 ## Manager research from the creators
 

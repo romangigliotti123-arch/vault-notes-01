@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-performance-pass/SKILL.md"
-description: "Find and fix performance problems in a Roblox experience: server and client frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblox game lags, crashes on phones or has high memory."
+description: "Find and fix performance problems in a Roblox experience: frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblox game lags, crashes on phones or has high memory."
 orig_name: "roblox-performance-pass"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-performance-pass
 
-> Find and fix performance problems in a Roblox experience: server and client frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblox game lags, crashes on phones or has high memory.
+> Find and fix performance problems in a Roblox experience: frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblox game lags, crashes on phones or has high memory.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-performance-pass/SKILL.md` (extra files, if any, sit beside it in the repo)

@@ -5,7 +5,7 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/game-dev-placement-qa/SKILL.md"
-description: "Mandatory placement and orientation gate for a Roblox game. Every model created, inserted or moved is measured and fixed before work continues (pivot, size, grounded, upright, facing, overlap, physics flags, connections), and the whole map is scanned with real Luau in Studio. Done only after placement_gate.py prints PLACEMENT GATE: PASS; run before visual QA and the critic."
+description: "Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic."
 orig_name: "game-dev-placement-qa"
 orig_argument_hint: "[game slug or project folder]"
 tags: [lib/skill, cat/game-dev, src/own]
@@ -13,12 +13,12 @@ tags: [lib/skill, cat/game-dev, src/own]
 
 # game-dev-placement-qa
 
-> Mandatory placement and orientation gate for a Roblox game. Every model created, inserted or moved is measured and fixed before work continues (pivot, size, grounded, upright, facing, overlap, physics flags, connections), and the whole map is scanned with real Luau in Studio. Done only after placement_gate.py prints PLACEMENT GATE: PASS; run before visual QA and the critic.
+> Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-placement-qa/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--game-dev-critic]], [[S--own--game-dev-visual-qa]], [[S--own--roblox-luau-style]], [[S--own--roblox-studio-connect]]
+Related: [[S--own--game-dev-critic]], [[S--own--roblox-luau-style]], [[S--own--roblox-studio-connect]]
 
 ---
 # game-dev-placement-qa
@@ -55,9 +55,4 @@ Why this exists: models were repeatedly created or inserted and left floating, b
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use after every model create, insert or move, before game-dev-visual-qa and game-dev-critic, and when something floats, clips, faces the wrong way, is crooked, sunk or misaligned.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

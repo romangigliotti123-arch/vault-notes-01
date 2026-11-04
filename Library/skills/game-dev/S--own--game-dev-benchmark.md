@@ -5,7 +5,7 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/game-dev-benchmark/SKILL.md"
-description: "Measure whether vault changes make better Roblox games and what load mode costs. scorecard.py turns every gate result of a game (visual, placement, lighting, critic, new gates) into a 0-100 card, history CSV and before/after compare; 3 standard test games; vault_cost.py counts load-mode tokens; learn_stats.py reports learning-loop use."
+description: "Measures whether vault changes make better Roblox games and what load mode costs: scorecard.py (0-100 card, compare), 3 standard test games, vault_cost.py (load-mode tokens), learn_stats.py."
 orig_name: "game-dev-benchmark"
 orig_argument_hint: "[game folder | compare | cost | learn]"
 tags: [lib/skill, cat/game-dev, src/own]
@@ -13,7 +13,7 @@ tags: [lib/skill, cat/game-dev, src/own]
 
 # game-dev-benchmark
 
-> Measure whether vault changes make better Roblox games and what load mode costs. scorecard.py turns every gate result of a game (visual, placement, lighting, critic, new gates) into a 0-100 card, history CSV and before/after compare; 3 standard test games; vault_cost.py counts load-mode tokens; learn_stats.py reports learning-loop use.
+> Measures whether vault changes make better Roblox games and what load mode costs: scorecard.py (0-100 card, compare), 3 standard test games, vault_cost.py (load-mode tokens), learn_stats.py.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-benchmark/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -43,4 +43,4 @@ Why this exists: the gates (visual V1-V7, placement P1-P7, lighting, critic) pas
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

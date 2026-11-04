@@ -151,6 +151,9 @@ Roblox monetisation | [[S--own--roblox-monetisation-setup|roblox-monetisation-se
 Roblox economy design | [[A--own--roblox-economy-designer|roblox-economy-designer]] [a], [[S--own--game-economy-simulation|game-economy-simulation]], [[S--roblox-skills-ashexplained--roblox-economy-balancing|roblox-skills-ashexplained/roblox-economy-balancing]] | simulate before coding
 Roblox Luau style | [[S--own--roblox-luau-style|roblox-luau-style]], [[S--luau-skills--luau-core|luau-skills/luau-core]], [[S--luau-skills--luau-types|luau-skills/luau-types]] | strict typing, task library, lifecycle and leak cleanup
 Roblox architecture (OOP / components / ECS / pooling) | [[S--own--roblox-architecture-choice|roblox-architecture-choice]] | evidence-based pattern choice with Luau examples
+Roblox bug fix (reproduce first) | game-dev-playtest (Fix loop) | red check before the edit, same check green after, RED and GREEN ledger
+Roblox balance / optimise with a number | [[S--own--game-dev-tune|game-dev-tune]] | baseline, one change per experiment, keep or revert, ledger checked by tune_check.py
+Roblox code gates (comments, stubs, security) | game-dev-critic (code_gates.py) | scored never blocking; the critic must run them before GOOD
 Roblox project setup (Rojo) | [[S--own--roblox-rojo-project-setup|roblox-rojo-project-setup]], [[S--roblox-skills-el4cteo--roblox-studio-mcp|roblox-skills-el4cteo/roblox-studio-mcp]] | file-based workflow Claude can edit
 Roblox UI | [[S--own--roblox-ui-responsive|roblox-ui-responsive]], [[S--roblox-brain--roblox-gui|roblox-brain/roblox-gui]] | phone-first scaling and safe areas
 Roblox performance | [[S--own--roblox-performance-pass|roblox-performance-pass]], [[S--roblox-brain--roblox-performance|roblox-brain/roblox-performance]] | measure first; MicroProfiler

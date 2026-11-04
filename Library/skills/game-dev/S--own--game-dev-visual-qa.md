@@ -5,7 +5,7 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/game-dev-visual-qa/SKILL.md"
-description: "Mandatory visual gate and definition of done for a Roblox game: screenshots the running game (3 moments, phone and desktop), checks layout and overlap at phone, tablet and desktop sizes, scores a 7-item rubric, fixes defects and re-shoots (max 3 rounds). A game is called done only after this gate passes with screenshots; otherwise 'playable prototype, visuals not polished'."
+description: "Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and overlap at three sizes, 7-item rubric, max 3 fix rounds. Done only after it passes with screenshots; else 'playable prototype, visuals not polished'."
 orig_name: "game-dev-visual-qa"
 orig_argument_hint: "[game slug or project folder]"
 tags: [lib/skill, cat/game-dev, src/own]
@@ -13,12 +13,12 @@ tags: [lib/skill, cat/game-dev, src/own]
 
 # game-dev-visual-qa
 
-> Mandatory visual gate and definition of done for a Roblox game: screenshots the running game (3 moments, phone and desktop), checks layout and overlap at phone, tablet and desktop sizes, scores a 7-item rubric, fixes defects and re-shoots (max 3 rounds). A game is called done only after this gate passes with screenshots; otherwise 'playable prototype, visuals not polished'.
+> Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and overlap at three sizes, 7-item rubric, max 3 fix rounds. Done only after it passes with screenshots; else 'playable prototype, visuals not polished'.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-visual-qa/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--game-dev-art-direction]], [[S--own--game-dev-critic]], [[S--own--game-dev-lighting-qa]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-workflow]], [[S--own--roblox-luau-style]], [[S--own--roblox-studio-connect]]
+Related: [[S--own--game-dev-art-direction]], [[S--own--game-dev-critic]], [[S--own--game-dev-lighting-qa]], [[S--own--game-dev-placement-qa]], [[S--own--roblox-luau-style]], [[S--own--roblox-studio-connect]]
 
 ---
 # game-dev-visual-qa
@@ -56,9 +56,4 @@ Why this exists: a game that runs and follows its design was repeatedly declared
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use before saying done, when the user says it looks bad, ugly, unfinished or asks for a visual check, UI overlap, polish pass or screenshot review, and whenever game-dev-workflow or game-dev-critic reaches a prototype or later stage.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

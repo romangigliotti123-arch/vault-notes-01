@@ -5,17 +5,19 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-luau-style/SKILL.md"
-description: "Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no legacy APIs. Use when writing, reviewing or refactoring Luau."
+description: "Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no legacy APIs, no code comments by default. Use when writing, reviewing or refactoring Luau."
 orig_name: "roblox-luau-style"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-luau-style
 
-> Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no legacy APIs. Use when writing, reviewing or refactoring Luau.
+> Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no legacy APIs, no code comments by default. Use when writing, reviewing or refactoring Luau.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-luau-style/SKILL.md` (extra files, if any, sit beside it in the repo)
+
+Related: [[S--own--game-dev-critic]]
 
 ---
 # Luau style for Roblox
@@ -37,6 +39,9 @@ Apply when producing or reviewing Luau. Prefer small ModuleScripts with one job.
 
 ## Comments
 NO COMMENTS BY DEFAULT in any code you write (Luau, Lua, scripts, tests, examples). A one-line comment is allowed only to explain WHY something non-obvious is done (an engine quirk, ordering, replication timing, physics ownership), never WHAT the code does. Type annotations and Luau directives (`--!strict`, `--!native`, `--!optimize`, `--!nolint`) are not comments and stay. Name things so the code reads without notes; put design notes in the SKILL.md or reference, not in the file. Existing comments in code you only edit stay unless you rewrite that line.
+
+## Smallest complete change
+Build what was asked, nothing speculative, and finish it. Before writing code take the first rung that works: (1) does it need to exist at all (skip unrequested features and say what was skipped); (2) a vault system or `Games/_Reusable` module (`games.py system add PlayerData|Shop|DailyRewards|Analytics|Admin`) or an installed library from `$ASSETS/code`; (3) a Roblox built-in (CollectionService tags, Attributes, PathfindingService, TweenService, ProximityPrompt, leaderstats, Players events); (4) the minimum new code. Never cut: server validation, DataStore and receipt safety, mobile layout and accessibility, anything the user asked for (the user may still order a refactor). No stubs, TODOs, placeholder functions or modules nothing requires; a shortcut with a known limit gets one WHY line. In existing code touch only the lines the task needs. Check: `game-dev-critic/scripts/code_gates.py` scores orphan modules, stubs, rebuilt kit systems, unused exports and oversized files (scope SC1-SC5).
 
 ## Lifecycle and leak cleanup
 Leaks on a long-running server are connections, threads and tables keyed by objects that are gone.
@@ -107,74 +112,12 @@ end
 
 return Cleaner
 ```
-Player and character lifetimes with it:
-```lua
---!strict
-local Players = game:GetService("Players")
-local Cleaner = require(script.Parent.Cleaner)
-
-local playerData: { [Player]: { coins: number } } = {}
-local playerCleaners: { [Player]: Cleaner.Cleaner } = {}
-local characterCleaners: { [Player]: Cleaner.Cleaner } = {}
-
-local function onCharacterAdded(player: Player, character: Model)
-	local cleaner = Cleaner.new()
-	characterCleaners[player] = cleaner
-	local humanoid = character:FindFirstChildOfClass("Humanoid")
-	if humanoid then
-		cleaner:add(humanoid.Died:Connect(function()
-			print(player.Name, "died")
-		end))
-	end
-end
-
-local function onCharacterRemoving(player: Player)
-	local cleaner = characterCleaners[player]
-	if cleaner then
-		characterCleaners[player] = nil
-		cleaner:destroy()
-	end
-end
-
-local function onPlayerAdded(player: Player)
-	local cleaner = Cleaner.new()
-	playerCleaners[player] = cleaner
-	playerData[player] = { coins = 0 }
-	cleaner:add(player.CharacterAdded:Connect(function(character)
-		onCharacterAdded(player, character)
-	end))
-	cleaner:add(player.CharacterRemoving:Connect(function()
-		onCharacterRemoving(player)
-	end))
-	if player.Character then
-		onCharacterAdded(player, player.Character)
-	end
-end
-
-local function onPlayerRemoving(player: Player)
-	onCharacterRemoving(player)
-	playerData[player] = nil
-	local cleaner = playerCleaners[player]
-	if cleaner then
-		playerCleaners[player] = nil
-		cleaner:destroy()
-	end
-end
-
-Players.PlayerAdded:Connect(onPlayerAdded)
-Players.PlayerRemoving:Connect(onPlayerRemoving)
-for _, player in Players:GetPlayers() do
-	task.spawn(onPlayerAdded, player)
-end
-
-game:BindToClose(function()
-	for _, player in Players:GetPlayers() do
-		onPlayerRemoving(player)
-	end
-end)
-```
+Wire it per player and per character: one Cleaner each, built in PlayerAdded (plus a GetPlayers loop) and CharacterAdded, destroyed in CharacterRemoving and PlayerRemoving, `playerData[player] = nil`, and BindToClose runs the same release. [cold:roblox-luau-style/lifetimes-example.md] read only to wire PlayerAdded/CharacterAdded/PlayerRemoving/BindToClose cleanup with the Cleaner above.
 Find leaks: Developer Console Memory tab, watch `LuaHeap`, `InstanceCount` and `PlaceScriptMemory` through a long session; join and leave 50 times and check counts return to baseline. The Scene Analysis tool shows script memory and unparented instances. There is no documented API to list all connections, so instrument your own.
 
 Credit: checklist adapted from excaldev/ro-engineer (MIT, Copyright (c) 2026 excaldev), reference copy in Imported/ro-engineer/cleanup-lifecycle.md; facts re-checked against the Roblox docs.
 
 Review output: findings ordered by severity (leaks, race conditions, deprecated API, then style), each with file:line and the fix.
+
+## Sources
+Smallest complete change: ideas from Ponytail (DietrichGebert, MIT) and Unlazy (Leonxlnx, MIT), re-written in our own words; nothing copied.

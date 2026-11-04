@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-architecture-choice/SKILL.md"
-description: "Chooses how to structure a Roblox system: plain module, OOP class, components (CollectionService tags), ECS, state store or object pool, by evidence (existing code, lifetimes, profiler data), with Luau examples and lifecycle contracts. Use for 'should I use ECS or OOP', 'pool these', or a new multi-system feature."
+description: "Chooses how to structure a Roblox system (plain module, OOP class, CollectionService components, ECS, state store, object pool) by evidence: existing code, lifetimes, profiler data. Use for 'should I use ECS or OOP', 'pool these', or a new multi-system feature."
 orig_name: "roblox-architecture-choice"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-architecture-choice
 
-> Chooses how to structure a Roblox system: plain module, OOP class, components (CollectionService tags), ECS, state store or object pool, by evidence (existing code, lifetimes, profiler data), with Luau examples and lifecycle contracts. Use for 'should I use ECS or OOP', 'pool these', or a new multi-system feature.
+> Chooses how to structure a Roblox system (plain module, OOP class, CollectionService components, ECS, state store, object pool) by evidence: existing code, lifetimes, profiler data. Use for 'should I use ECS or OOP', 'pool these', or a new multi-system feature.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-architecture-choice/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -236,7 +236,3 @@ roblox-luau-style (lifecycle and cleanup), roblox-performance-pass (measure firs
 
 ## Credit
 Decision rules adapted in our own words from excaldev/ro-engineer (MIT, Copyright (c) 2026 excaldev); reference copies under Imported/ro-engineer.
-
-## Triggers (moved out of the description)
-
-Use when the user asks whether to use ECS, OOP, components or pooling, how to structure a new Roblox system, or before a refactor that adds a second architecture.

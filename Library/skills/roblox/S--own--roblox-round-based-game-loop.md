@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-round-based-game-loop/SKILL.md"
-description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use when building minigame, battle, obby-race or party-style Roblox experiences."
+description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigame, battle, obby-race or party-style experiences."
 orig_name: "roblox-round-based-game-loop"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-round-based-game-loop
 
-> Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use when building minigame, battle, obby-race or party-style Roblox experiences.
+> Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigame, battle, obby-race or party-style experiences.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-round-based-game-loop/SKILL.md` (extra files, if any, sit beside it in the repo)

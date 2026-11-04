@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/make-roblox-game/SKILL.md"
-description: "Use when the user says make/build/create me a Roblox game (with or without an idea) or wants one designed and built from the vault, skills and assets without being asked questions; delegates to the roblox-game-builder agent, which researches the vault, writes a scored GDD and a Rojo/Luau project, checks it and reports how to open it in Studio."
+description: "Use when the user says make/build/create me a Roblox game (with or without an idea) without being asked questions; delegates to the roblox-game-builder agent: vault research, scored GDD, Rojo/Luau project, checks, how to open it in Studio."
 orig_name: "make-roblox-game"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # make-roblox-game
 
-> Use when the user says make/build/create me a Roblox game (with or without an idea) or wants one designed and built from the vault, skills and assets without being asked questions; delegates to the roblox-game-builder agent, which researches the vault, writes a scored GDD and a Rojo/Luau project, checks it and reports how to open it in Studio.
+> Use when the user says make/build/create me a Roblox game (with or without an idea) without being asked questions; delegates to the roblox-game-builder agent: vault research, scored GDD, Rojo/Luau project, checks, how to open it in Studio.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/make-roblox-game/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -23,6 +23,7 @@ Related: [[A--own--roblox-game-builder]], [[S--own--game-dev-lighting-qa]], [[S-
 # make-roblox-game
 
 Code comments: none by default (see roblox-luau-style, Comments).
+Smallest complete change: see roblox-luau-style.
 
 One sentence from the user is enough. Do not ask the user anything.
 
@@ -41,9 +42,4 @@ Never publish to Roblox, spend Robux or money, or post anything. Never write int
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says make/build/create me a Roblox game (with or without an idea), 'use the vault to build', 'give me game ideas that would do well', or wants a Roblox game designed and built from the vault, skills and assets without being asked questions; delegates to the roblox-game-builder agent, which researches the vault, writes a scored GDD and a Rojo/Luau project, checks it and reports how to open it in Studio.
+Verified something non-obvious? Record it with `/learn-rbxdev-vault` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.

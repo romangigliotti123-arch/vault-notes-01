@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-monetisation-setup/SKILL.md"
-description: "Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, plus ethical-pricing checks. Use when adding purchases to a Roblox game or auditing existing ones."
+description: "Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, ethical pricing. Use when adding purchases to a Roblox game or auditing existing ones."
 orig_name: "roblox-monetisation-setup"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-monetisation-setup
 
-> Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, plus ethical-pricing checks. Use when adding purchases to a Roblox game or auditing existing ones.
+> Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, ethical pricing. Use when adding purchases to a Roblox game or auditing existing ones.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-monetisation-setup/SKILL.md` (extra files, if any, sit beside it in the repo)

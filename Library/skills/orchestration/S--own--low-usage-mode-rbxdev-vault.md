@@ -49,8 +49,3 @@ Read the `LUM` line above (`mode=on|off`, `hooks=installed|MISSING|partial`) and
 9. When the conversation is large (long session, many tool results), say once: "/compact now or /clear between tasks would save usage".
 
 Why hooks and not just this skill: a skill's text stays in context but fades in a long session and is only partly kept after auto-compaction. Details, sources and the install/uninstall-rbxdev-vault steps: `references/how-it-works.md`, `references/research.md`.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says /low-usage-mode-rbxdev-vault, low usage mode, save usage, stretch my limit, or stop burning my usage.
