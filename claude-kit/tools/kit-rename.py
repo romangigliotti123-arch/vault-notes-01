@@ -34,6 +34,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STORE = "claude-kit/vault-mode/.claude"
+COLD_BASE = "claude-kit/vault-mode"
 OLD_LUM_STATES = ["state/low-usage-mode.on", "state/low-usage-mode-rbxdev-vault.on"]     # state marker names of generation 1 and 2
 NEW_LUM_STATE = "state/rbx-low-usage.on"
 LUM_OLD = r"low-usage-mode(?:-rbxdev-vault)?/scripts/lum"                                   # hook paths of generation 1 and 2
@@ -118,10 +119,11 @@ def rmdirs_up(path, stop):
 def entries_for(item):
     """(prefix_or_exact list) of manifest keys that belong to an old-named item"""
     o = item["old"]
+    cold = "%s/cold/%s/" % (COLD_BASE, o)      # cold-area topic folder, named like the skill/agent it belongs to
     if item["kind"] == "skill":
-        return {"dir": ["skills/%s/" % o, "%s/skills/%s/" % (STORE, o)]}
+        return {"dir": ["skills/%s/" % o, "%s/skills/%s/" % (STORE, o), cold]}
     if item["kind"] == "agent":
-        return {"exact": ["agents/%s.md" % o, "%s/agents/%s.md" % (STORE, o)]}
+        return {"exact": ["agents/%s.md" % o, "%s/agents/%s.md" % (STORE, o)], "dir": [cold]}
     return None
 
 
@@ -339,7 +341,7 @@ def cmd_migrate(a):
               % (len(moved), len(kept), len(foreign), "; would repoint the low-usage hooks in settings.json" if st else ""))
         return 0
     for f in prune:
-        for stop in (os.path.join(c, "skills"), os.path.join(c, "agents"), os.path.join(c, *STORE.split("/"), "skills"), os.path.join(c, *STORE.split("/"), "agents")):
+        for stop in (os.path.join(c, "skills"), os.path.join(c, "agents"), os.path.join(c, *STORE.split("/"), "skills"), os.path.join(c, *STORE.split("/"), "agents"), os.path.join(c, *COLD_BASE.split("/"), "cold")):
             if os.path.realpath(f).startswith(os.path.realpath(stop) + os.sep):
                 rmdirs_up(os.path.dirname(f), stop)
                 break
