@@ -1,0 +1,729 @@
+-- adapter: the Roblox side of LightingKit. It reads Lighting, its post effects, the lights and a grid of surface samples into the plain state LightingCore
+-- understands, runs Core.verify, applies presets and fixes. Everything that needs the engine (ray casts, light and part queries, Color3, Technology,
+-- JSON) goes through `LightingKit.world`, so the tests can swap in a mock world.
+type Dict = { [string]: any }
+
+local canon = Core.canon
+
+type World = {
+	lighting: () -> Instance,
+	camera: () -> Instance?,
+	sunDirection: () -> { number }?,
+	raycast: (ox: number, oy: number, oz: number, dx: number, dy: number, dz: number, length: number) -> Dict?,
+	lights: () -> { Dict },
+	stats: () -> Dict,
+	largeParts: () -> { Instance },
+	toColor: (c: { number }) -> any,
+	fromColor: (c: any) -> { number },
+	setTechnology: (lighting: Instance, name: string) -> boolean,
+	getTechnology: (lighting: Instance) -> string,
+	theme: () -> Dict?,
+	isMobileClient: () -> boolean,
+	newInstance: (class: string) -> Instance,
+	jsonEncode: (v: any) -> string,
+	jsonDecode: (s: string) -> any,
+	now: () -> string,
+	datamodel: () -> string,
+}
+
+local function robloxWorld(): World
+	local function svc(name: string): any
+		return game:GetService(name)
+	end
+	local function characters(): { Instance }
+		local out = {}
+		for _, pl in svc("Players"):GetPlayers() do
+			if pl.Character then
+				table.insert(out, pl.Character)
+			end
+		end
+		return out
+	end
+	local function isLightClass(d: Instance): boolean
+		return d:IsA("PointLight") or d:IsA("SpotLight") or d:IsA("SurfaceLight")
+	end
+	return {
+		lighting = function()
+			return svc("Lighting")
+		end,
+		camera = function()
+			return workspace.CurrentCamera
+		end,
+		sunDirection = function()
+			local d = svc("Lighting"):GetSunDirection()
+			return { d.X, d.Y, d.Z }
+		end,
+		raycast = function(ox, oy, oz, dx, dy, dz, length)
+			local params = RaycastParams.new()
+			params.FilterType = Enum.RaycastFilterType.Exclude
+			params.FilterDescendantsInstances = characters()
+			params.RespectCanCollide = false
+			local res = workspace:Raycast(Vector3.new(ox, oy, oz), Vector3.new(dx, dy, dz).Unit * length, params)
+			if not res then
+				return nil
+			end
+			local inst = res.Instance
+			if inst:IsA("BasePart") and inst.Transparency >= 0.95 then
+				return nil
+			end
+			local color = { 0.5, 0.5, 0.5 }
+			local emissive = false
+			if inst:IsA("Terrain") then
+				local c3 = (inst :: any):GetMaterialColor(res.Material)
+				color = { c3.R, c3.G, c3.B }
+			elseif inst:IsA("BasePart") then
+				local c3 = inst.Color
+				color = { c3.R, c3.G, c3.B }
+				emissive = inst.Material == Enum.Material.Neon
+			end
+			return {
+				pos = { res.Position.X, res.Position.Y, res.Position.Z },
+				n = { res.Normal.X, res.Normal.Y, res.Normal.Z },
+				color = color,
+				emissive = emissive,
+			}
+		end,
+		lights = function()
+			local out = {}
+			for _, d in workspace:GetDescendants() do
+				if isLightClass(d) then
+					local pos = { 0, 0, 0 }
+					local parent = d.Parent
+					if parent and parent:IsA("BasePart") then
+						local p = parent.Position
+						pos = { p.X, p.Y, p.Z }
+					elseif parent and parent:IsA("Attachment") then
+						local p = parent.WorldPosition
+						pos = { p.X, p.Y, p.Z }
+					end
+					local l: any = d
+					table.insert(out, { inst = d, class = d.ClassName, pos = pos, Enabled = l.Enabled, Brightness = l.Brightness, Range = l.Range, Shadows = l.Shadows })
+				end
+			end
+			return out
+		end,
+		stats = function()
+			local minX, maxX, minZ, maxZ, top, bottom = math.huge, -math.huge, math.huge, -math.huge, -math.huge, math.huge
+			local large, noCast, seen = 0, 0, 0
+			local spawns = {}
+			for _, d in workspace:GetDescendants() do
+				if d:IsA("BasePart") and not d:IsA("Terrain") then
+					seen += 1
+					if seen > 20000 then
+						break
+					end
+					local p, s = d.Position, d.Size
+					local ext = math.max(s.X, s.Y, s.Z)
+					if ext >= 12 and d.Transparency < 1 then
+						large += 1
+						if not d.CastShadow then
+							noCast += 1
+						end
+					end
+					if d.Anchored and ext < 2000 then
+						minX, maxX = math.min(minX, p.X - s.X / 2), math.max(maxX, p.X + s.X / 2)
+						minZ, maxZ = math.min(minZ, p.Z - s.Z / 2), math.max(maxZ, p.Z + s.Z / 2)
+						top, bottom = math.max(top, p.Y + s.Y / 2), math.min(bottom, p.Y - s.Y / 2)
+					end
+					if d:IsA("SpawnLocation") and #spawns < 4 then
+						table.insert(spawns, { p.X, p.Y, p.Z })
+					end
+				end
+			end
+			local bounds = nil
+			if minX < maxX then
+				bounds = { minX = minX, maxX = maxX, minZ = minZ, maxZ = maxZ, top = top, bottom = bottom }
+			end
+			return { largeParts = large, largePartsNoShadow = noCast, bounds = bounds, spawns = spawns }
+		end,
+		largeParts = function()
+			local out: { Instance } = {}
+			for _, d in workspace:GetDescendants() do
+				if d:IsA("BasePart") and not d:IsA("Terrain") and math.max(d.Size.X, d.Size.Y, d.Size.Z) >= 12 and d.Transparency < 1 then
+					table.insert(out, d)
+				end
+			end
+			return out
+		end,
+		toColor = function(c)
+			return Color3.fromRGB(c[1], c[2], c[3])
+		end,
+		fromColor = function(c)
+			return { math.floor(c.R * 255 + 0.5), math.floor(c.G * 255 + 0.5), math.floor(c.B * 255 + 0.5) }
+		end,
+		setTechnology = function(lighting, name)
+			local ok = pcall(function()
+				(lighting :: any).Technology = (Enum.Technology :: any)[name]
+			end)
+			return ok
+		end,
+		getTechnology = function(lighting)
+			return (lighting :: any).Technology.Name
+		end,
+		theme = function()
+			local ok, theme = pcall(function()
+				local shared = svc("ReplicatedStorage"):FindFirstChild("Shared")
+				local kit = shared and shared:FindFirstChild("StyleKit")
+				local mod = kit and kit:FindFirstChild("Theme")
+				return if mod then (require :: any)(mod) else nil
+			end)
+			if not ok or type(theme) ~= "table" or type(theme.colors) ~= "table" then
+				return nil
+			end
+			local out: Dict = {}
+			for _, k in { "bg", "panel", "accent", "accent2" } do
+				local c3 = theme.colors[k]
+				if typeof(c3) == "Color3" then
+					out[k] = { math.floor(c3.R * 255 + 0.5), math.floor(c3.G * 255 + 0.5), math.floor(c3.B * 255 + 0.5) }
+				end
+			end
+			return out
+		end,
+		newInstance = function(class)
+			return Instance.new(class)
+		end,
+		isMobileClient = function()
+			local ok, r = pcall(function()
+				local UserInputService = svc("UserInputService")
+				return UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
+			end)
+			return ok and r == true
+		end,
+		jsonEncode = function(v)
+			return svc("HttpService"):JSONEncode(v)
+		end,
+		jsonDecode = function(s)
+			return svc("HttpService"):JSONDecode(s)
+		end,
+		now = function()
+			return os.date("!%Y-%m-%dT%H:%M:%SZ")
+		end,
+		datamodel = function()
+			local RunService = svc("RunService")
+			if RunService:IsServer() and RunService:IsRunning() then
+				return "Server"
+			elseif RunService:IsClient() and RunService:IsRunning() then
+				return "Client"
+			end
+			return "Edit"
+		end,
+	}
+end
+
+local LightingKit = {}
+LightingKit.Core = Core
+LightingKit.world = nil :: World?
+LightingKit.output = (print :: any) :: (string) -> () -- console lines go through here (tests replace it)
+-- Defaults of the project: edit once per game (or pass opts to every call). See references/api.md.
+LightingKit.config = {
+	grid = 8, -- samples per side over the play area (grid x grid) plus 4 around each SpawnLocation
+	maxSamples = 96,
+	regionCap = 400, -- studs: the sampled area is centred on the map and at most this wide
+	rayLift = 60, -- sample rays start this far above the highest anchored part
+	roofCheck = 80, -- a surface with something this close above it counts as indoor
+	maxLightE = 3,
+} :: Dict
+
+local function W(): World
+	if not LightingKit.world then
+		LightingKit.world = robloxWorld()
+	end
+	return LightingKit.world :: World
+end
+function LightingKit.getWorld(): World
+	return W()
+end
+
+local COLOR_PROPS = { Ambient = true, OutdoorAmbient = true, ColorShift_Top = true, ColorShift_Bottom = true, FogColor = true, Color = true, Decay = true, TintColor = true }
+local LIGHTING_PROPS =
+	{ "Brightness", "ClockTime", "GeographicLatitude", "Ambient", "OutdoorAmbient", "ColorShift_Top", "ColorShift_Bottom", "EnvironmentDiffuseScale", "EnvironmentSpecularScale", "ExposureCompensation", "GlobalShadows", "ShadowSoftness", "FogColor", "FogStart", "FogEnd" }
+-- state key, desired key, class, properties (Enabled first where the class has it)
+local SECTIONS = {
+	{ key = "atmospheres", sec = "atmosphere", class = "Atmosphere", props = { "Density", "Offset", "Color", "Decay", "Glare", "Haze" } },
+	{
+		key = "skies",
+		sec = "sky",
+		class = "Sky",
+		props = {
+			"SkyboxBk",
+			"SkyboxDn",
+			"SkyboxFt",
+			"SkyboxLf",
+			"SkyboxRt",
+			"SkyboxUp",
+			"SunTextureId",
+			"MoonTextureId",
+			"SunAngularSize",
+			"MoonAngularSize",
+			"StarCount",
+			"CelestialBodiesShown",
+		},
+	},
+	{ key = "blooms", sec = "bloom", class = "BloomEffect", props = { "Enabled", "Intensity", "Size", "Threshold" } },
+	{ key = "colorCorrections", sec = "colorCorrection", class = "ColorCorrectionEffect", props = { "Enabled", "Brightness", "Contrast", "Saturation", "TintColor" } },
+	{ key = "sunRays", sec = "sunRays", class = "SunRaysEffect", props = { "Enabled", "Intensity", "Spread" } },
+	{ key = "dofs", sec = "depthOfField", class = "DepthOfFieldEffect", props = { "Enabled", "FarIntensity", "FocusDistance", "InFocusRadius", "NearIntensity" } },
+	{ key = "blurs", sec = "blur", class = "BlurEffect", props = { "Enabled", "Size" } },
+}
+-- fix target prefix -> class
+local TARGET_CLASS = {
+	Atmosphere = "Atmosphere",
+	Sky = "Sky",
+	Bloom = "BloomEffect",
+	ColorCorrection = "ColorCorrectionEffect",
+	SunRays = "SunRaysEffect",
+	DepthOfField = "DepthOfFieldEffect",
+	Blur = "BlurEffect",
+}
+
+local function merge(...: Dict?): Dict
+	local out: Dict = {}
+	for _, t in { ... } do
+		for k, v in t :: Dict do
+			out[k] = v
+		end
+	end
+	return out
+end
+
+local function readProps(inst: Instance, props: { string }): Dict
+	local rec: Dict = {}
+	for _, p in props do
+		local ok, v = pcall(function()
+			return (inst :: any)[p]
+		end)
+		if ok and v ~= nil then
+			rec[p] = if COLOR_PROPS[p] then W().fromColor(v) else v
+		end
+	end
+	return rec
+end
+
+local function writeProps(inst: Instance, values: Dict, skipped: { string }?)
+	for p, v in values do
+		local ok = pcall(function()
+			(inst :: any)[p] = if COLOR_PROPS[p] then W().toColor(v) else v
+		end)
+		if not ok and skipped then
+			table.insert(skipped, inst.ClassName .. "." .. p)
+		end
+	end
+end
+
+local function effectChildren(parent: Instance?, class: string): { Instance }
+	local out = {}
+	if parent then
+		for _, c in parent:GetChildren() do
+			if c.ClassName == class then
+				table.insert(out, c)
+			end
+		end
+	end
+	return out
+end
+
+local function parentsOf(): { Instance }
+	local out: { Instance } = { W().lighting() }
+	local cam = W().camera()
+	if cam then
+		table.insert(out, cam)
+	end
+	return out
+end
+
+-- ------------------------------------------------------------------ snapshot
+local function lightStatsOf(lights: { Dict }): Dict
+	local total, shadowed, keyTotal, keyUnshadowed = 0, 0, 0, 0
+	for _, l in lights do
+		if l.Enabled then
+			total += 1
+			if l.Shadows then
+				shadowed += 1
+			end
+			if l.Range >= 16 and l.Brightness >= 1 then
+				keyTotal += 1
+				if not l.Shadows then
+					keyUnshadowed += 1
+				end
+			end
+		end
+	end
+	return { total = total, shadowed = shadowed, keyTotal = keyTotal, keyUnshadowed = keyUnshadowed }
+end
+
+local function collectSamples(opts: Dict, lights: { Dict }, st: Dict, sunDir: { number }?): { Dict }
+	local w = W()
+	local samples: { Dict } = {}
+	local b = st.bounds
+	local pts: { { number } } = {}
+	if b then
+		local cx, cz = (b.minX + b.maxX) / 2, (b.minZ + b.maxZ) / 2
+		local wx, wz = math.min(b.maxX - b.minX, opts.regionCap), math.min(b.maxZ - b.minZ, opts.regionCap)
+		local g = opts.grid
+		for i = 0, g - 1 do
+			for j = 0, g - 1 do
+				-- deterministic jitter so a regular grid does not hit only the same repeating tile
+				local jx = ((i * 7 + j * 3) % 5 - 2) / 5 * (wx / g) * 0.4
+				local jz = ((i * 3 + j * 11) % 5 - 2) / 5 * (wz / g) * 0.4
+				table.insert(pts, { cx - wx / 2 + (i + 0.5) * wx / g + jx, cz - wz / 2 + (j + 0.5) * wz / g + jz })
+			end
+		end
+		for _, sp in st.spawns do
+			for k = 0, 3 do
+				local ang = k * math.pi / 2
+				table.insert(pts, { sp[1] + math.cos(ang) * 10, sp[3] + math.sin(ang) * 10 })
+			end
+		end
+	end
+	local top = if b then b.top + opts.rayLift else 0
+	local floorY = if b then b.bottom - 200 else 0
+	for _, p in pts do
+		if #samples >= opts.maxSamples then
+			break
+		end
+		-- up to 4 rays down each column: the roof, then the floor of a room under it (surfaces closer than 6 studs to the last recorded one are skipped)
+		local y = top
+		local prevY = math.huge
+		for _ = 1, 4 do
+			if #samples >= opts.maxSamples then
+				break
+			end
+			local hit = w.raycast(p[1], y, p[2], 0, -1, 0, y - floorY)
+			if not hit then
+				break
+			end
+			local pos, n = hit.pos, hit.n
+			if prevY == math.huge or prevY - pos[2] >= 6 then
+				prevY = pos[2]
+				local lit = true
+				if sunDir and sunDir[2] > 0 then
+					local blocked = w.raycast(pos[1] + n[1] * 0.2, pos[2] + n[2] * 0.2, pos[3] + n[3] * 0.2, sunDir[1], sunDir[2], sunDir[3], 1000)
+					lit = blocked == nil
+				end
+				local roof = w.raycast(pos[1] + n[1] * 0.5, pos[2] + n[2] * 0.5, pos[3] + n[3] * 0.5, 0, 1, 0, opts.roofCheck)
+				local lightE = 0.0
+				for _, l in lights do
+					if l.Enabled and l.Range > 0 then
+						local dx, dy, dz = l.pos[1] - pos[1], l.pos[2] - pos[2], l.pos[3] - pos[3]
+						local d = math.sqrt(dx * dx + dy * dy + dz * dz)
+						if d < l.Range then
+							lightE += l.Brightness * (1 - d / l.Range) ^ 2
+						end
+					end
+				end
+				table.insert(samples, {
+					albedo = hit.color,
+					n = n,
+					lit = lit,
+					indoor = roof ~= nil,
+					emissive = hit.emissive == true,
+					lightE = math.min(lightE, opts.maxLightE),
+				})
+			end
+			y = pos[2] - 0.5
+		end
+	end
+	return samples
+end
+
+function LightingKit.snapshot(opts: Dict?): Dict
+	local o = merge(LightingKit.config, opts)
+	local w = W()
+	local lighting = w.lighting()
+	local lt = readProps(lighting, LIGHTING_PROPS)
+	lt.Technology = w.getTechnology(lighting)
+	local sd = w.sunDirection()
+	if sd then
+		lt.sunDir = sd
+	end
+	local state: Dict = { lighting = lt }
+	for _, sec in SECTIONS do
+		local list: { Dict } = {}
+		for _, parent in parentsOf() do
+			for _, inst in effectChildren(parent, sec.class) do
+				local rec = readProps(inst, sec.props)
+				rec.path = inst:GetFullName()
+				table.insert(list, rec)
+			end
+		end
+		state[sec.key] = list
+	end
+	local lights = w.lights()
+	local st = w.stats()
+	local ls = lightStatsOf(lights)
+	ls.largeParts, ls.largePartsNoShadow = st.largeParts, st.largePartsNoShadow
+	state.lightStats = ls
+	state.samples = if o.samples ~= nil then o.samples else collectSamples(o, lights, st, sd)
+	local mark = (lighting :: any):GetAttribute("LightingKitPreset")
+	if type(mark) == "string" then
+		local parts = string.split(mark, ":")
+		state.marks = { preset = parts[1], time = parts[2], mobile = parts[3] == "mobile" }
+	end
+	return state
+end
+
+-- ------------------------------------------------------------------ apply
+-- apply(presetName, overrides): make the Lighting service look like the preset. overrides.time ("day" | "golden" | "night"), overrides.mobile (true = the
+-- mobile-safe variant), plus any section override, e.g. { time = "night", bloom = { Intensity = 0.2 }, sunRays = false, sky = { SkyboxBk = "rbxassetid://..." } }.
+-- Run it in Edit mode (execute_luau / plugin): Lighting.Technology cannot be changed by a game script at runtime (it is reported in `skipped`).
+function LightingKit.apply(presetName: string, overrides: Dict?): Dict
+	local ov: Dict = merge(overrides)
+	local time, mobile = ov.time, ov.mobile
+	ov.time, ov.mobile = nil, nil
+	local res = Core.resolve(presetName, time, mobile, ov)
+	if not res then
+		error(string.format("unknown preset/time: %s / %s (presets: %s)", tostring(presetName), tostring(time), "obby, simulator (tycoon), tower_defense, horror, cartoony (anime), open_world (adventure), sci_fi"))
+	end
+	local w = W()
+	local lighting = w.lighting()
+	local d: Dict = res.desired
+	local skipped: { string } = {}
+	local applied: { string } = {}
+	local lv: Dict = merge(d.lighting)
+	local tech = lv.Technology
+	lv.Technology = nil
+	writeProps(lighting, lv, skipped)
+	if tech and not w.setTechnology(lighting, tech) then
+		table.insert(skipped, "Lighting.Technology (not scriptable here: set it in Studio, or run apply from the command bar/execute_luau in Edit mode)")
+	end
+	table.insert(applied, "Lighting")
+	for _, sec in SECTIONS do
+		local want = d[sec.sec]
+		local existing = effectChildren(lighting, sec.class)
+		if want == false then
+			for _, e in existing do
+				e:Destroy()
+			end
+			if #existing > 0 then
+				table.insert(applied, "removed " .. sec.class)
+			end
+		elseif type(want) == "table" then
+			local inst: Instance = existing[1] or w.newInstance(sec.class)
+			if not existing[1] then
+				inst.Name = sec.class
+				inst.Parent = lighting
+			end
+			for i = 2, #existing do
+				existing[i]:Destroy()
+			end
+			writeProps(inst, want, skipped)
+			table.insert(applied, sec.class)
+		end
+	end
+	;(lighting :: any):SetAttribute("LightingKitPreset", res.preset .. ":" .. res.time .. (if res.mobile then ":mobile" else ""))
+	return { preset = res.preset, time = res.time, mobile = res.mobile, applied = applied, skipped = skipped }
+end
+
+-- ------------------------------------------------------------------ verify / scan
+local function cfgOf(opts: Dict): Dict
+	local w = W()
+	local platform = opts.platform
+	if platform == nil then
+		platform = "both"
+	end
+	local cfg: Dict = { genre = opts.genre, time = opts.time, platform = platform, waive = opts.waive, bands = opts.bands }
+	cfg.theme = if opts.theme ~= nil then opts.theme else w.theme()
+	return cfg
+end
+
+function LightingKit.verify(opts: Dict?): Dict
+	local o = merge(LightingKit.config, opts)
+	local state = LightingKit.snapshot(o)
+	return Core.verify(state, cfgOf(o))
+end
+
+local function emitScan(scan: Dict)
+	local json = W().jsonEncode(scan)
+	local size = 7000
+	local n = math.max(1, math.ceil(#json / size))
+	for i = 1, n do
+		LightingKit.output(string.format("LIGHTING_SCAN_PART %d/%d %s", i, n, string.sub(json, (i - 1) * size + 1, i * size)))
+	end
+	local rep: Dict = scan.report
+	LightingKit.output(
+		string.format(
+			"LIGHTING: %s %d/%d checks pass%s",
+			string.upper(rep.status),
+			#Core.ORDER - #rep.failed,
+			#Core.ORDER,
+			if #rep.failed == 0 then "" else "; failing: " .. table.concat(rep.failed, ",")
+		)
+	)
+end
+
+-- scan(opts): snapshot + verify. opts.genre ("obby" | "simulator" | ...), opts.time, opts.platform ("both" | "pc" | "mobile"), opts.game, opts.scorer
+-- ("builder" | "critic"), opts.waive = { L5 = "reason of at least 10 characters" }. Prints LIGHTING_SCAN_PART lines + a LIGHTING: PASS|FAIL line and returns
+-- the scan table lighting_gate.py reads (save the console output and run `lighting_gate.py ingest`).
+function LightingKit.scan(opts: Dict?): Dict
+	local o = merge(LightingKit.config, opts)
+	local state = LightingKit.snapshot(o)
+	local cfg = cfgOf(o)
+	local report = Core.verify(state, cfg)
+	local scan: Dict = {
+		version = 1,
+		kind = "lighting-scan",
+		game = o.game,
+		scorer = o.scorer or "builder",
+		datamodel = W().datamodel(),
+		captured_at = W().now(),
+		config = cfg,
+		state = state,
+		report = report,
+	}
+	if o.emit ~= false then
+		emitScan(scan)
+	end
+	return scan
+end
+
+-- ------------------------------------------------------------------ fixes
+local function setTarget(target: string, value: any, skipped: { string }): boolean
+	local cls, prop = string.match(target, "^(%w+)%.([%w_]+)$")
+	if not cls or not prop then
+		return false
+	end
+	local w = W()
+	if cls == "Lighting" then
+		if prop == "Technology" then
+			return w.setTechnology(w.lighting(), value)
+		end
+		writeProps(w.lighting(), { [prop] = value }, skipped)
+		return true
+	end
+	local class = TARGET_CLASS[cls]
+	if not class then
+		return false
+	end
+	local n = 0
+	for _, parent in parentsOf() do
+		for _, inst in effectChildren(parent, class) do
+			writeProps(inst, { [prop] = value }, skipped)
+			n += 1
+		end
+	end
+	return n > 0
+end
+
+-- applyFixes(report): carry out the concrete fixes of the failed checks. Whole-look failures (L1, L2, L3, L5, L8, L11, or three failures and more) apply the
+-- preset once; the rest are single property changes. Fixes that need a person (add interior lights, change the genre) are returned in `manual`.
+function LightingKit.applyFixes(report: Dict, _opts: Dict?): Dict
+	local w = W()
+	local applied: { string } = {}
+	local manual: { string } = {}
+	local skipped: { string } = {}
+	local presetDone = false
+	local function applyPresetFix(f: Dict)
+		if presetDone then
+			return
+		end
+		if type(f.preset) ~= "string" or canon(f.preset) == nil then
+			table.insert(manual, "choose a genre first: " .. tostring(f.note))
+			return
+		end
+		LightingKit.apply(f.preset, { time = f.time, mobile = f.mobile })
+		presetDone = true
+		table.insert(applied, "applyPreset " .. f.preset .. " " .. tostring(f.time) .. (if f.mobile then " mobile" else ""))
+	end
+	local checks: Dict = report.checks
+	-- the preset first (it resets the look), then single changes on top of it
+	for _, cid in report.failed do
+		for _, f in checks[cid].fixes do
+			if f.action == "applyPreset" then
+				applyPresetFix(f)
+			end
+		end
+	end
+	for _, cid in report.failed do
+		for _, f in checks[cid].fixes do
+			if presetDone and (f.action == "set" or f.action == "remove" or f.action == "applyPreset") then
+				continue -- the preset already rewrote those
+			end
+			if f.action == "applyPreset" then
+				continue
+			end
+			if f.action == "set" then
+				if setTarget(f.target, f.value, skipped) then
+					table.insert(applied, string.format("%s = %s", f.target, w.jsonEncode(f.value)))
+				end
+			elseif f.action == "remove" then
+				local class = TARGET_CLASS[f.target]
+				local keep = f.keep or 0
+				if class then
+					local all: { Instance } = {}
+					for _, parent in parentsOf() do
+						for _, inst in effectChildren(parent, class) do
+							table.insert(all, inst)
+						end
+					end
+					for i = keep + 1, #all do
+						all[i]:Destroy()
+					end
+					table.insert(applied, string.format("removed %d extra %s", math.max(0, #all - keep), f.target))
+				end
+			elseif f.action == "setLights" then
+				local list = w.lights()
+				if f.filter == "key" then
+					for _, l in list do
+						if l.Enabled and l.Range >= 16 and l.Brightness >= 1 then
+							pcall(function()
+								(l.inst :: any).Shadows = f.value
+							end)
+						end
+					end
+				else
+					table.sort(list, function(a, b)
+						return a.Range * a.Brightness > b.Range * b.Brightness
+					end)
+					local kept = 0
+					for _, l in list do
+						if l.Enabled and l.Shadows then
+							kept += 1
+							if kept > (f.keep or 0) then
+								pcall(function()
+									(l.inst :: any).Shadows = false
+								end)
+							end
+						end
+					end
+				end
+				table.insert(applied, "setLights " .. tostring(f.property))
+			elseif f.action == "setParts" then
+				for _, p in w.largeParts() do
+					pcall(function()
+						(p :: any).CastShadow = true
+					end)
+				end
+				table.insert(applied, "CastShadow on for large parts")
+			else
+				table.insert(manual, string.format("%s: %s", cid, tostring(f.note or f.action)))
+			end
+		end
+	end
+	return { applied = applied, manual = manual, skipped = skipped, rescan = #applied > 0 }
+end
+
+
+-- fix(opts): scan, apply the fixes, scan again, up to opts.passes (default 3). Returns the last scan plus the log.
+function LightingKit.fix(opts: Dict?): Dict
+	local o = merge(opts)
+	o.emit = false
+	local log: { Dict } = {}
+	local scan = LightingKit.scan(o)
+	for _ = 1, o.passes or 3 do
+		if scan.report.status == "pass" then
+			break
+		end
+		local r = LightingKit.applyFixes(scan.report, o)
+		table.insert(log, r)
+		if not r.rescan then
+			break
+		end
+		scan = LightingKit.scan(o)
+	end
+	scan.fixLog = log
+	local rep: Dict = scan.report
+	LightingKit.output(string.format("LIGHTING: %s after fixes; failing: %s", string.upper(rep.status), table.concat(rep.failed, ",")))
+	return scan
+end
+
+LightingKit.canon = canon

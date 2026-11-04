@@ -1,0 +1,202 @@
+{
+ "id": "tower-defense",
+ "version": 1,
+ "title": "Standard test game 3: tower defense",
+ "stage_target": "prototype",
+ "prompt": "Make a Roblox tower-defense game for ages 8 to 14, one map. Enemies follow a waypoint path from a spawner to the player base. 10 waves with at least 3 enemy types (fast, tank, flying or armoured). 3 tower types (single target, area, slow) that the player buys with coins earned from kills and places on a grid of valid tower pads (snapped, no placing on the path or on another tower), upgrades once each, and can sell. Base health, wave counter and coin HUD, a start-wave button, win screen after wave 10 and a loss screen when base health reaches 0, then restart. It must be playable on phone and desktop. Name the models so a scan can find them: Spawn, Base, Waypoint_<n>, TowerPad_<n>, Tower_<kind>_<n>, Enemy_<kind>. No purchases, no pay-to-win. Report when it is playable; do not call it done unless the gates pass.",
+ "features": [
+  {
+   "id": "path",
+   "text": "enemies follow waypoints from spawner to base without getting stuck or cutting corners",
+   "weight": 2
+  },
+  {
+   "id": "waves",
+   "text": "10 waves, scaling difficulty, 3 or more enemy types with different behaviour",
+   "weight": 2
+  },
+  {
+   "id": "towers",
+   "text": "3 tower types with different roles (single, area, slow) that actually do what they say",
+   "weight": 2
+  },
+  {
+   "id": "placement",
+   "text": "towers snap to valid pads, cannot be placed on path or on another tower, rotate to face the path",
+   "weight": 2
+  },
+  {
+   "id": "economy",
+   "text": "coins from kills, buy/upgrade/sell, costs balanced so all 3 types are used",
+   "weight": 2
+  },
+  {
+   "id": "hud",
+   "text": "base health, wave counter, coins, start-wave button, readable on phone",
+   "weight": 1
+  },
+  {
+   "id": "winloss",
+   "text": "win after wave 10, loss at 0 base health, restart works",
+   "weight": 2
+  },
+  {
+   "id": "feedback",
+   "text": "tower fire effects, enemy hit/death feedback, damage numbers or health bars",
+   "weight": 1
+  },
+  {
+   "id": "server",
+   "text": "enemy and tower logic runs on the server; placement requests validated",
+   "weight": 2
+  },
+  {
+   "id": "perf",
+   "text": "no frame-rate collapse at the largest wave (enemy count capped, pooling or cleanup)",
+   "weight": 1
+  }
+ ],
+ "required_screenshots": [
+  {
+   "viewport": "desktop",
+   "moment": "spawn"
+  },
+  {
+   "viewport": "phone",
+   "moment": "spawn"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "action"
+  },
+  {
+   "viewport": "phone",
+   "moment": "action"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "effect"
+  },
+  {
+   "viewport": "phone",
+   "moment": "effect"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "wave"
+  },
+  {
+   "viewport": "phone",
+   "moment": "wave"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "placement"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "gameover"
+  }
+ ],
+ "scan_points": [
+  {
+   "id": "spawn",
+   "pattern": "(?i)spawn",
+   "min": 1,
+   "text": "an enemy Spawn model"
+  },
+  {
+   "id": "base",
+   "pattern": "(?i)base",
+   "min": 1,
+   "text": "a Base model"
+  },
+  {
+   "id": "waypoints",
+   "pattern": "(?i)waypoint",
+   "min": 6,
+   "text": "6 or more waypoints"
+  },
+  {
+   "id": "pads",
+   "pattern": "(?i)towerpad",
+   "min": 8,
+   "text": "8 or more tower pads"
+  },
+  {
+   "id": "towers",
+   "pattern": "(?i)tower_",
+   "min": 3,
+   "text": "3 or more placed towers in the scan (place at least one of each type before scanning)"
+  }
+ ],
+ "rubric": [
+  {
+   "id": "B1",
+   "name": "Core loop works",
+   "anchors": {
+    "3": "enemies stuck, towers do nothing, waves cannot be completed",
+    "7": "all 10 waves complete, win and loss screens work, restart works",
+    "9": "as 7 plus no console errors across a full run"
+   }
+  },
+  {
+   "id": "B2",
+   "name": "Balance and strategy",
+   "anchors": {
+    "3": "one tower type wins everything or the game is unwinnable",
+    "7": "each tower type has a role; mixing is needed from wave 6; winnable but not trivial",
+    "9": "as 7 plus a simulation of the economy and a meaningful upgrade choice"
+   }
+  },
+  {
+   "id": "B3",
+   "name": "Placement quality",
+   "anchors": {
+    "3": "towers float, sink, overlap pads or face away from the path",
+    "7": "placement gate passes: grounded, upright, facing the path, snapped, no overlap",
+    "9": "as 7 plus placement preview/ghost with valid/invalid colour"
+   }
+  },
+  {
+   "id": "B4",
+   "name": "Visual identity",
+   "anchors": {
+    "3": "grey blocks, no map theme",
+    "7": "map has a theme with path, pads and props distinct; towers and enemies are multi-part models",
+    "9": "could sit beside front-page tower defense games"
+   }
+  },
+  {
+   "id": "B5",
+   "name": "Feedback and juice",
+   "anchors": {
+    "3": "no shot effects, no hit reaction",
+    "7": "projectiles/beams, hit flash, death effect, wave-start banner, sounds",
+    "9": "as 7 plus camera shake on base hit and satisfying kill chains"
+   }
+  },
+  {
+   "id": "B6",
+   "name": "UI and mobile fitness",
+   "anchors": {
+    "3": "controls overlap, buttons tiny, tower menu unusable on phone",
+    "7": "clean at phone size, tap to select pad/tower, text >= 14 px",
+    "9": "as 7 plus drag-to-place with a thumb-safe layout"
+   }
+  },
+  {
+   "id": "B7",
+   "name": "Robustness and performance",
+   "anchors": {
+    "3": "errors, leaks, FPS collapse at wave 10",
+    "7": "server-authoritative logic, validated placement remotes, enemy cleanup, stable FPS",
+    "9": "as 7 plus pooling and a stress test with the cap raised"
+   }
+  }
+ ],
+ "budget": {
+  "suggested_minutes": 150,
+  "suggested_turns": 250
+ }
+}

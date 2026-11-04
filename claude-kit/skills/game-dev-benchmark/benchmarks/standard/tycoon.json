@@ -1,0 +1,209 @@
+{
+ "id": "tycoon",
+ "version": 1,
+ "title": "Standard test game 2: simulator/tycoon loop",
+ "stage_target": "prototype",
+ "prompt": "Make a Roblox click-and-collect simulator with tycoon upgrades for ages 8 to 14. Core loop: the player collects resources (click or walk-over nodes), sells them at a sell pad for coins, buys upgrades (more per click, bigger backpack, auto-collector), and can rebirth after reaching a coin goal for a permanent multiplier. A shop UI with at least 6 upgrades and clear prices, a coins/backpack/rebirth HUD, a leaderboard of coins, a daily reward, saved data (DataStore, pcall, session safe). Three areas unlock progressively. It must be playable on phone and desktop. Name the models so a scan can find them: Spawn, ResourceNode_<n>, SellPad, Shop, Area<n>_Gate, Collector_<n>. Hard rules: no pay-to-win, no paid randomness, no pressure timers, no real-money purchases in this test. Report when it is playable; do not call it done unless the gates pass.",
+ "features": [
+  {
+   "id": "collect",
+   "text": "collecting resources works by click or touch with visible and audible feedback",
+   "weight": 2
+  },
+  {
+   "id": "sell",
+   "text": "backpack fills, sell pad converts it to coins with a clear animation",
+   "weight": 2
+  },
+  {
+   "id": "shop",
+   "text": "shop UI with 6 or more upgrades, prices, affordability state, purchase feedback, no overlap at phone size",
+   "weight": 2
+  },
+  {
+   "id": "auto",
+   "text": "an auto-collector or helper that runs while the player does something else",
+   "weight": 1
+  },
+  {
+   "id": "rebirth",
+   "text": "rebirth at a goal with a permanent multiplier and a clear explanation",
+   "weight": 2
+  },
+  {
+   "id": "areas",
+   "text": "three areas that unlock progressively with gates and different resource values",
+   "weight": 2
+  },
+  {
+   "id": "save",
+   "text": "coins, upgrades, rebirths saved with DataStore + pcall, server-authoritative economy",
+   "weight": 2
+  },
+  {
+   "id": "leaderboard",
+   "text": "coins leaderboard visible in game",
+   "weight": 1
+  },
+  {
+   "id": "daily",
+   "text": "daily reward with a streak display and no pressure timer",
+   "weight": 1
+  },
+  {
+   "id": "economy",
+   "text": "progression pacing documented: time to first upgrade under 60 s, to first rebirth about 20-30 min; numbers from an economy simulation",
+   "weight": 2
+  },
+  {
+   "id": "security",
+   "text": "all purchases and currency changes happen on the server; remotes validated",
+   "weight": 2
+  }
+ ],
+ "required_screenshots": [
+  {
+   "viewport": "desktop",
+   "moment": "spawn"
+  },
+  {
+   "viewport": "phone",
+   "moment": "spawn"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "action"
+  },
+  {
+   "viewport": "phone",
+   "moment": "action"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "effect"
+  },
+  {
+   "viewport": "phone",
+   "moment": "effect"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "shop"
+  },
+  {
+   "viewport": "phone",
+   "moment": "shop"
+  },
+  {
+   "viewport": "desktop",
+   "moment": "rebirth"
+  }
+ ],
+ "scan_points": [
+  {
+   "id": "spawn",
+   "pattern": "(?i)spawn",
+   "min": 1,
+   "text": "a Spawn model"
+  },
+  {
+   "id": "nodes",
+   "pattern": "(?i)resourcenode",
+   "min": 8,
+   "text": "8 or more resource nodes"
+  },
+  {
+   "id": "sell",
+   "pattern": "(?i)sellpad",
+   "min": 1,
+   "text": "a SellPad"
+  },
+  {
+   "id": "shop",
+   "pattern": "(?i)shop",
+   "min": 1,
+   "text": "a Shop model"
+  },
+  {
+   "id": "gates",
+   "pattern": "(?i)gate",
+   "min": 2,
+   "text": "2 or more area gates"
+  },
+  {
+   "id": "collectors",
+   "pattern": "(?i)collector",
+   "min": 1,
+   "text": "an auto-collector model"
+  }
+ ],
+ "rubric": [
+  {
+   "id": "B1",
+   "name": "Core loop works and is fun for 5 minutes",
+   "anchors": {
+    "3": "loop breaks, soft-locks, or nothing to do after 1 minute",
+    "7": "collect, sell, upgrade, repeat works; a tester wants one more upgrade after 5 minutes",
+    "9": "as 7 plus the first rebirth decision is exciting and clearly explained"
+   }
+  },
+  {
+   "id": "B2",
+   "name": "Economy and pacing",
+   "anchors": {
+    "3": "numbers arbitrary, one upgrade dominates, grind wall before minute 5",
+    "7": "costs/gains follow a documented curve; first upgrade under 60 s; no dominant strategy",
+    "9": "as 7 plus a simulation output and a catch-up mechanic"
+   }
+  },
+  {
+   "id": "B3",
+   "name": "UI and shop clarity",
+   "anchors": {
+    "3": "overlapping panels, unclear prices, tiny text",
+    "7": "one component style, affordable/unaffordable states, purchase feedback, clean at phone size",
+    "9": "as 7 plus polished open/close tweens and icons for every upgrade"
+   }
+  },
+  {
+   "id": "B4",
+   "name": "Visual identity",
+   "anchors": {
+    "3": "grey blocks and default look",
+    "7": "three areas with distinct palette/lighting; hero objects are real models",
+    "9": "could sit beside front-page simulators"
+   }
+  },
+  {
+   "id": "B5",
+   "name": "Feedback and juice",
+   "anchors": {
+    "3": "silent numbers",
+    "7": "coin pop-ups, sell animation, sound for collect/sell/buy/rebirth",
+    "9": "as 7 plus screen-space effects and a satisfying rebirth sequence"
+   }
+  },
+  {
+   "id": "B6",
+   "name": "Robustness and security",
+   "anchors": {
+    "3": "client can grant itself coins, errors in output, data lost on rejoin",
+    "7": "server-authoritative, validated remotes, DataStore with pcall and retry, rejoin test passed",
+    "9": "as 7 plus rate limits and shutdown save verified"
+   }
+  },
+  {
+   "id": "B7",
+   "name": "Ethics and rules",
+   "anchors": {
+    "3": "pay-to-win, paid randomness, pressure timers or stranger contact",
+    "7": "none of the hard rules violated",
+    "9": "as 7 plus kid-friendly onboarding and no dark patterns"
+   }
+  }
+ ],
+ "budget": {
+  "suggested_minutes": 120,
+  "suggested_turns": 200
+ }
+}

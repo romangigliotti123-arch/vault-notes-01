@@ -1,0 +1,33 @@
+-- run: edit CONFIG, then paste the whole file into execute_luau (datamodel Edit for the built map; Server during a playtest for scripts that change the lighting).
+--   mode "scan"   snapshot + checks L1-L12 on the current Lighting: the scan the gate needs. Save the console output and run
+--                 `python lighting_gate.py ingest <file> --game <slug> --write Games/<slug>`.
+--   mode "apply"  set the Lighting service up from a preset (CONFIG.preset, CONFIG.time, CONFIG.mobile, CONFIG.overrides), then scan.
+--   mode "fix"    scan, apply the fixes of the failed checks, scan again (up to 3 passes).
+-- Output lines: LIGHTING_SCAN_PART i/n <json chunk> (reassembled by the gate), LIGHTING: PASS|FAIL ...
+local CONFIG = {
+	mode = "scan",
+	game = nil :: string?,
+	scorer = "builder", -- the critic runs its own scan with "critic"
+	genre = nil :: string?, -- obby | simulator | tower_defense | horror | cartoony | open_world | sci_fi (aliases: tycoon, anime, adventure, scifi ...)
+	time = nil :: string?, -- day | golden | night (apply) ; for scan the time of day is read from Lighting.ClockTime
+	platform = "both", -- both | pc | mobile
+	preset = nil :: string?, -- apply only; defaults to genre
+	mobile = false, -- apply only: the mobile-safe variant
+	overrides = {} :: { [string]: any }, -- apply only: section overrides, e.g. { bloom = { Intensity = 0.2 }, sunRays = false }
+	waive = {} :: { [string]: string }, -- { L5 = "deliberate neon look, approved in art-direction.md" }
+}
+
+local opts: { [string]: any } =
+	{ game = CONFIG.game, scorer = CONFIG.scorer, genre = CONFIG.genre, time = CONFIG.time, platform = CONFIG.platform, waive = CONFIG.waive }
+if CONFIG.mode == "apply" then
+	local ov: { [string]: any } = table.clone(CONFIG.overrides)
+	ov.time, ov.mobile = CONFIG.time, CONFIG.mobile
+	local r = LightingKit.apply(CONFIG.preset or CONFIG.genre or "", ov)
+	print("LIGHTING_APPLIED " .. LightingKit.getWorld().jsonEncode(r))
+	opts.genre = opts.genre or CONFIG.preset
+	opts.time = nil
+	return LightingKit.scan(opts)
+elseif CONFIG.mode == "fix" then
+	return LightingKit.fix(opts)
+end
+return LightingKit.scan(opts)

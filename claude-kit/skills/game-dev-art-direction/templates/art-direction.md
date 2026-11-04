@@ -34,6 +34,7 @@ Component set (build nothing else): panel, label, button (primary/secondary), st
 
 ## 6. Lighting and atmosphere (`lighting-preset-picker`, applied once, in the project, not by hand each run)
 Preset: {{mood}} | ClockTime | Brightness | Ambient / OutdoorAmbient | Atmosphere (density, haze, colour) | Sky | ColorCorrection (brightness, contrast, saturation, tint) | Bloom | SunRays | DepthOfField | Water colour/transparency | Shadows on/off for mobile.
+Genre preset (`game-dev-lighting-qa`: obby | simulator | tower_defense | horror | cartoony | open_world | sci_fi): {{genre_preset}} | time of day (day | golden | night): {{time_of_day}} | phone-first or both: {{platform}}. Applied EARLY with `LightingKit.apply`; the lighting gate checks the scene against this line and the palette above.
 
 ## 7. Juice list (one row per key event; each row needs >= 2 of particle / tween / sound / UI reaction; implemented with `StyleKit/Juice.luau`)
 | Event | Particle | Tween / motion | Sound (name in Theme.sounds) | UI reaction |

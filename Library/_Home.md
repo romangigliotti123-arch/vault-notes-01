@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Claude Library
 
-759 items: 612 skills, 147 agents, 25 sources, 31 categories. Generated 2026-11-04 from the git repo claude-library (do not edit here).
+761 items: 614 skills, 147 agents, 25 sources, 31 categories. Generated 2026-11-04 from the git repo claude-library (do not edit here).
 
 - [[Combined-Brain]] - the vault mentor's brain: every creator's principles, methods and disagreements by job (start here with `/mentor-rbxdev-vault`)
 - [[CAPABILITIES]] - job router: I need to ... -> item, type, path
@@ -13,7 +13,7 @@ tags: [moc]
 
 ## Sources
 - [[sources/src-game-studios|game-studios]] (122, MIT)
-- [[sources/src-own|own]] (119, first-party)
+- [[sources/src-own|own]] (121, first-party)
 - [[sources/src-scenario-labs|scenario-labs]] (97, MIT)
 - [[sources/src-hermetic-gamedev|hermetic-gamedev]] (87, MIT)
 - [[sources/src-gamedev-agent-skills|gamedev-agent-skills]] (76, Apache-2.0)
@@ -47,7 +47,7 @@ tags: [moc]
 - [[categories/cat-roblox|roblox]] (45)
 - [[categories/cat-src-roblox-skills-ashexplained|src-roblox-skills-ashexplained]] (38)
 - [[categories/cat-orchestration|orchestration]] (36)
-- [[categories/cat-game-dev|game-dev]] (27)
+- [[categories/cat-game-dev|game-dev]] (29)
 - [[categories/cat-src-roblox-brain|src-roblox-brain]] (21)
 - [[categories/cat-src-codex-game-studio|src-codex-game-studio]] (19)
 - [[categories/cat-src-agency-agents|src-agency-agents]] (18)

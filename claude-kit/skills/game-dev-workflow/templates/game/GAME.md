@@ -40,6 +40,10 @@ none yet
 
 ## Placement gate
 not run. Status: playable prototype, placement not verified. (`game-dev-placement-qa`: every model checked when placed; PASS needs the full-map scan with P1-P7 clean; report in `placement-qa/`.)
+
+## Lighting gate
+not run. Status: playable prototype, lighting not verified. (`game-dev-lighting-qa`: genre preset applied early, genre / time of day / platform recorded here; PASS needs the scan with L1-L12 clean; report in `lighting-qa/`.)
+
 ## Visual gate (LOOKS)
 not run. Status: playable prototype, visuals not polished. (`game-dev-visual-qa`: PASS needs V1-V7 >= 7 with screenshots; backlog in `polish-backlog.md`.)
 

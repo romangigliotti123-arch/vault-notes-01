@@ -1,0 +1,29 @@
+---
+name: game-dev-benchmark
+description: "Measure whether vault changes make better Roblox games and what load mode costs. scorecard.py turns every gate result of a game (visual, placement, lighting, critic, new gates) into a 0-100 card, history CSV and before/after compare; 3 standard test games; vault_cost.py counts load-mode tokens; learn_stats.py reports learning-loop use."
+argument-hint: "[game folder | compare | cost | learn]"
+---
+
+# game-dev-benchmark
+
+Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
+
+Why this exists: the gates (visual V1-V7, placement P1-P7, lighting, critic) pass or fail one game at a time, and nobody could tell whether a new vault version builds better games or what load mode costs every session. This skill reads what the gates already wrote, turns it into one comparable number per run, and measures the vault itself. It never changes a gate, a verdict or a game.
+
+## Three tools (stdlib Python, run with `claude-kit/tools/pyrun` or `python -I`)
+- **Score a game**: `python scripts/scorecard.py collect Games/<slug> [--spec obby|tycoon|tower-defense] [--require-critic]` writes `benchmarks/runs/<id>/scorecard.json` + `.md` (per-gate pass/fail, per-check scores, weighted overall 0-100, top 3 problems with fixes, integrity flags) and appends a row to `benchmarks/history.csv` (date, vault version, game, scores). Every `gate.json` / `gate-*.json` under the game folder is discovered, so a new gate appears without a code change.
+- **Compare**: `scorecard.py compare <A> <B>` (scorecard file, run id, `baseline`, `last`, `prev`); `baseline set <scorecard.json>`; `--strict` exits 1 on a regression. `history`, `verify` (were the scored gate files edited afterwards?), `spec show <id>`.
+- **Vault cost**: `python scripts/vault_cost.py --kit <kit> [--install-test]` (or `--config ~/.claude`): skills/agents loaded by `/load-rbxdev-vault`, estimated tokens of every description and of the mode rules (chars / 4, method stated in the report), install time, disk size, 10 heaviest skills, descriptions over the threshold. `python scripts/learn_stats.py [--clone PATH | --repo owner/name]`: queue and inbox counts, accepted/rejected ratio, notes per topic (read-only).
+
+## The standard benchmark
+`benchmarks/standard/{obby,tycoon,tower-defense}.json` (+ `.md` cards): fixed prompt, target features, required screenshots, scan points, rubric. Run the SAME prompt in every vault version you compare. How to run, save, score and avoid score gaming: `references/protocol.md` (read it before a benchmark build). Output formats: `references/scorecard-format.md`.
+
+## Rules
+- The builder never scores its own run. An independent critic reads the scorecard and fills `benchmark-scores.json`; scores need evidence text; the card flags builder-scored gates and blanket scores.
+- A scorecard is a measurement, not a target: never edit gate files, verdicts or specs to raise it, and never compare cards of different specs as if they were the same task.
+- Token numbers are chars/4 estimates for comparing versions, not a bill.
+- Do not edit anything outside the benchmark folder, the game folder's `benchmark-*.json` files and the report you were asked for.
+
+## Learn
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

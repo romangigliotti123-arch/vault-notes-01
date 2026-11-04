@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Category: game-dev
 
-27 items. Back: [[_Home]]
+29 items. Back: [[_Home]]
 
 - [a] [[A--own--game-balance-tester|game-balance-tester]] - Simulates game balance (damage, economy, spawn rates, difficulty) with scripts and reports outliers and tuning
 - [a] [[A--own--game-critic-rbxdev-vault|game-critic-rbxdev-vault]] - Independent critic for a Roblox game idea, prototype, playtest build, launch kit or live game: inspects the re
@@ -13,9 +13,11 @@ tags: [moc]
 - [s] [[S--own--contribute-rbxdev-vault|contribute-rbxdev-vault]] - Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can
 - [s] [[S--own--game-dev-ads|game-dev-ads]] - Ads tutorial and best-way-to-run-ads plan for a specific Roblox game, built from the vault's ads notes, AD-PLA
 - [s] [[S--own--game-dev-art-direction|game-dev-art-direction]] - Writes the art direction for a Roblox game BEFORE anything visual is built, so the UI, models, lighting and ef
+- [s] [[S--own--game-dev-benchmark|game-dev-benchmark]] - Measure whether vault changes make better Roblox games and what load mode costs. scorecard.py turns every gate
 - [s] [[S--own--game-dev-critic|game-dev-critic]] - The independent quality gate of the Roblox game workflow. Before anything is called done, a stage advances or 
 - [s] [[S--own--game-dev-harvest|game-dev-harvest]] - Saves anything reusable Claude built or found good while making a Roblox game (a system, module, UI, pattern, 
 - [s] [[S--own--game-dev-launch-kit|game-dev-launch-kit]] - Launch kit for a Roblox game, triggered by the stage gate from playtest to launch (and runnable alone as /game
+- [s] [[S--own--game-dev-lighting-qa|game-dev-lighting-qa]] - The mandatory lighting and atmosphere gate for a Roblox game: default Roblox lighting is what makes generated 
 - [s] [[S--own--game-dev-placement-qa|game-dev-placement-qa]] - The mandatory placement and orientation gate for a Roblox game: every model created, inserted (insert_asset, g
 - [s] [[S--own--game-dev-plan|game-dev-plan]] - Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, sy
 - [s] [[S--own--game-dev-playtest|game-dev-playtest]] - Playtests a Roblox game and returns a bug and feel report with severities and fixes. Uses Roblox Studio MCP wh

@@ -45,6 +45,23 @@ Status line if not pass: `playable prototype, visuals not polished`. Backlog: `G
 | P6 physics flags | | | |
 | P7 connections | | | |
 Scan: `Games/<slug>/placement-qa/scan-critic.json` (models, waived, ignored, fingerprint). Status line if not pass: `playable prototype, placement not verified`.
+
+## 2d. LIGHTING (lighting gate `game-dev-lighting-qa`: the critic's own scan, stage prototype or later) - pass | fail | skipped
+| Check | Measured | Tolerance | Fix |
+|---|---|---|---|
+| L1 not default Roblox look | | | |
+| L2 Atmosphere | | | |
+| L3 Sky | | | |
+| L4 effect ranges | | | |
+| L5 palette cohesion | | | |
+| L6 brightness (samples / screenshots) | | | |
+| L7 shadows | | | |
+| L8 fog density for the genre | | | |
+| L9 interiors | | | |
+| L10 performance budget | | | |
+| L11 duplicates | | | |
+| L12 time of day | | | |
+Scan: `Games/<slug>/lighting-qa/scan-critic.json`. Status line if not pass: `playable prototype, lighting not verified`.
 ## 3. What the hits in this genre have that this does not
 (2-4 bullets, each with a case-study note path, patterns only)
 

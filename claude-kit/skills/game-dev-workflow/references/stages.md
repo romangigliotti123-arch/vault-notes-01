@@ -35,6 +35,7 @@ Rubric = the factors scored 1-10 with evidence (see `game-dev-critic` for the re
 
 **LOOKS (visual gate) is a third requirement, not a factor:** from prototype on a verdict can be GOOD only if `game-dev-visual-qa` produced a passing gate (V1-V7 >= 7, zero layout findings at phone/tablet/desktop, >= 6 screenshots of the current build); the critic re-scores the screenshots itself (`verdict.py` input `visual_gate`). Without it the status is `playable prototype, visuals not polished`.
 **PLACEMENT (placement gate) is a fourth requirement:** from prototype on a verdict can be GOOD only if the critic's own fresh full-map scan (`game-dev-placement-qa`, `placement_gate.py --scorer critic`) passed: every model has a pivot, a sane size, rests on its surface, is upright, faces its target, overlaps nothing, is anchored and lines up with its neighbours (`verdict.py` input `placement_gate`). Without it the status is `playable prototype, placement not verified`.
+**LIGHTING (lighting gate) is a fifth requirement:** from prototype on a verdict can be GOOD only if the critic's own fresh scan (`game-dev-lighting-qa`, `lighting_gate.py --scorer critic`) passed checks L1-L12: not the default Roblox look, Atmosphere and Sky present, effects in sane ranges, grading cohesive with the palette, brightness neither crushed nor blown, shadows on, fog that suits the genre, lit interiors, within the mobile/PC budget, no duplicate effects, time of day coherent (`verdict.py` input `lighting_gate`). Without it the status is `playable prototype, lighting not verified`.
 
 Per-factor and per-stage pass/fail checks with numbers: `critic-checks.md` (the critic runs them; a failed check with no exception caps the factor at 5).
 
@@ -52,6 +53,7 @@ Without Studio/MCP the run-based prototype items are `untested`, F1/F2 timings `
 - Rubric: F1, F2 (critical, min 6 each), F3, F4, F9 (stability), F10. Others N/A.
 - Gate to playtest: WORKS pass (game-dev-playtest static scan + run) AND LOOKS pass (visual gate with screenshots) AND critic GOOD.
 - Gate to playtest (placement): every model placed in the map was checked when it was placed (`Games/<slug>/placement-qa/placements/`) and the full-map scan passed (`PLACEMENT GATE: PASS`).
+- Gate to playtest (lighting): the genre preset was applied early (`LightingKit.apply`, stamped on `Lighting`) and the lighting scan passed (`LIGHTING GATE: PASS`, `Games/<slug>/lighting-qa/gate.json`).
 
 ### playtest
 - Work: `game-dev-playtest` report into `Games/<slug>/playtests/<date>.md`; get real players if the user can (friends); fix the top issues; re-test. Measure first-session funnel when possible.
@@ -81,6 +83,7 @@ Without Studio/MCP the run-based prototype items are `untested`, F1/F2 timings `
 - **GOOD**: WORKS pass, mean 7.0 or more, every critical factor at its minimum, no hard-rule violation.
 - **LOOKS**: from prototype on, GOOD needs the visual gate PASS. Missing, skipped or failing gate = at most NOT YET, and the report carries `STATUS: playable prototype, visuals not polished`. `games.py advance` also refuses a verdict file without `visual: pass`.
 - **PLACEMENT**: from prototype on, GOOD also needs the placement gate PASS from a scan the critic made itself. Missing, skipped, stale or failing = at most NOT YET and `STATUS: playable prototype, placement not verified`. `games.py advance` refuses a verdict file without `placement: pass` (and without `visual: pass`).
+- **LIGHTING**: from prototype on, GOOD also needs the lighting gate PASS from a scan the critic made itself. Missing, skipped, stale or failing = at most NOT YET and `STATUS: playable prototype, lighting not verified`. `games.py advance` refuses a verdict file without `lighting: pass` (a verdict written before the lighting gate existed has no such line: run a fresh critic pass).
 - **NOT YET**: WORKS pass or fixable, mean 4.5 to 6.9, any critical factor under its minimum, or LOOKS not passed. Blocks advancing. The report lists the top 3 fixes with the factor each lifts.
 - **BAD**: mean under 4.5, or a hard-rule violation (pay-to-win, paid randomness for kids, pressure timers, stranger contact, copying another game's assets), or the core loop (F2) scored 3 or lower, or WORKS fails in a way that loses data or exposes players. Say it plainly and give the cheapest path: fix, pivot or stop.
 - The mean is computed with a script or shown arithmetic; do not eyeball it.

@@ -14,6 +14,9 @@ Score from the screenshots and the `ui_overlap` output, not from the code or the
 
 ## Prerequisite P0: placement gate
 Before any item is scored, the placement gate must be `pass` for the same build (`Games/<slug>/placement-qa/gate.json`, skill `game-dev-placement-qa`: every model in the map has a sane pivot and size, rests on its surface, is upright, faces its target, overlaps nothing, is anchored and lines up with its neighbours). `visual_gate.py --write` adds a reason and fails while it is missing or failing. V4 hard fails "objects floating with no shadow or support" and "repeated tile with no variation" are judged on a placement-clean map, so a floating model is fixed by the placement gate, not argued about here.
+
+## Prerequisite L0: lighting gate (L-checks before V-checks)
+The lighting gate must be `pass` for the same build (`Games/<slug>/lighting-qa/gate.json`, skill `game-dev-lighting-qa`, checks L1-L12: not the default Roblox look, Atmosphere, Sky, effects in sane ranges, palette-cohesive grading, brightness neither crushed nor blown, shadows, genre fog, lit interiors, mobile budget, no duplicate effects, time of day). V5 below is the by-eye judgement of what the L-checks cannot see (mood, focal lighting, taste) and is scored only after L0 passes; "flat", "dark", "washed out", "foggy" and "default sky" are L-failures with a measured value, not opinions. `visual_gate.py --require-lighting` fails the visual gate while it is missing or failing.
 ## How to run the checks
 - V1: `/rbx ui-kit-consistency-checker` or `ui_scan.luau` (dominant value per field) plus the screenshots side by side.
 - V2: `scripts/ui_overlap.luau` (rect checks at phone 844x390, tablet 1180x820, desktop 1920x1080), then look at the `render` preview screenshot at phone size. Findings are leads: open each one; a finding you cannot justify is a defect.

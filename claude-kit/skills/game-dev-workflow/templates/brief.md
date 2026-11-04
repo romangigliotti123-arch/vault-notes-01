@@ -17,6 +17,7 @@ DONE WHEN (checkable):
 1. <...>
 2. <...>
 PLACEMENT CHECK (any job that creates, inserts or moves a model): run `game-dev-placement-qa` (`Placement.place` / `verify`) after each one, fix what failed, re-verify, and attach the report path. A model without a passing report is `untested`; the job is not DONE with one open.
+LIGHTING CHECK (any job that builds map areas, interiors or light sources): build under the game's lighting preset (`game-dev-lighting-qa`, `LightingKit.apply` already run); give every room its own light source; do not change Lighting properties by hand, use `LightingKit.apply` overrides; attach the `LightingKit.scan` result for the area.
 SURFACES CHECK (before DONE): list every user-visible surface your change touched (HUD, shop, prompts, leaderboard, thumbnail text, sounds) and how you checked each (file/rg, luau-check, Studio, screenshot file path). Unchecked surface = `untested`. Visual jobs: attach a screenshot of the running result; you never write done/complete/polished about visuals, only the gate does (`game-dev-visual-qa`).
 PRE-REPORT CHECK: run <decisive check> and paste the last lines; if it fails fix and re-run. Two identical failed edits in a row: stop and report PARTIAL.
 BUDGET: <turns / tool calls>, no fan-out.

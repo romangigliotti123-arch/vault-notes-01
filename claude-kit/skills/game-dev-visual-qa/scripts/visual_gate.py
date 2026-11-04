@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """visual_gate.py: deterministic pass/fail of the visual gate (rubric V1-V7 in references/rubric.md). Nobody eyeballs the result.
 
-  python visual_gate.py <gate.json> [--project DIR] [--write Games/<slug>] [--require-placement]
+  python visual_gate.py <gate.json> [--project DIR] [--write Games/<slug>] [--require-placement] [--require-lighting]
 
 gate.json:
   {"game": "slug", "round": 1, "scorer": "builder" | "critic",
@@ -15,7 +15,10 @@ PASS needs ALL of: every V1-V7 score >= 7; no hard_fails; overlap == 0 for phone
 (png/jpg, >= 10 KB), covering viewports desktop AND phone and moments spawn, action and effect; and, when --project is given and it has Luau
 sources, no screenshot older than the newest source file (stale = the build changed after the picture). Paths are relative to --write's folder
 or the gate file's folder. With --write (or --require-placement) `<Games/slug>/placement-qa/gate.json` must say result pass (game-dev-placement-qa runs
-BEFORE the visual review). Importable: evaluate(gate_dict, base_dir, project, require_placement=False) -> dict(status, reasons, lowest, label).
+BEFORE the visual review). The lighting gate (game-dev-lighting-qa, checks L1-L12) is judged BEFORE the V-checks too: `<Games/slug>/lighting-qa/gate.json` is recorded
+in the result as `lighting_gate` (pass / fail / missing) and printed as a note; with --require-lighting a missing or failing lighting gate fails the visual gate (the skills
+call it that way; the critic's verdict needs `lighting: pass` in any case, see verdict.py).
+Importable: evaluate(gate_dict, base_dir, project, require_placement=False, require_lighting=False) -> dict(status, reasons, lowest, label, lighting_gate).
 """
 import hashlib
 import json
@@ -57,10 +60,27 @@ def _placement_reason(base_dir):
     return None
 
 
-def evaluate(gate, base_dir=".", project=None, require_placement=False):
+def _lighting_state(base_dir):
+    """-> (pass|fail|missing, reason text or None) from <Games/slug>/lighting-qa/gate.json (game-dev-lighting-qa)."""
+    p = os.path.join(base_dir, "lighting-qa", "gate.json")
+    if not os.path.isfile(p):
+        return "missing", "lighting gate not recorded (%s): run game-dev-lighting-qa (LightingKit.apply the genre preset, scan, lighting_gate.py) before the visual review" % p
+    try:
+        rec = json.load(open(p, encoding="utf-8-sig"))
+    except Exception as e:
+        return "missing", "lighting gate record unreadable: %s" % e
+    if rec.get("result") != "pass":
+        return "fail", "lighting gate is %s (lighting-qa/gate.json): fix the L-check failures first, then judge V5 lighting and atmosphere" % rec.get("result")
+    return "pass", None
+
+
+def evaluate(gate, base_dir=".", project=None, require_placement=False, require_lighting=False):
     reasons = []
     if not isinstance(gate, dict):
-        return dict(status="skipped", reasons=["no visual gate record"], lowest=[], label=NOT_POLISHED)
+        return dict(status="skipped", reasons=["no visual gate record"], lowest=[], label=NOT_POLISHED, lighting_gate="missing")
+    lstate, lwhy = _lighting_state(base_dir)
+    if require_lighting and lwhy:
+        reasons.append(lwhy)
     if require_placement:
         why = _placement_reason(base_dir)
         if why:
@@ -114,7 +134,7 @@ def evaluate(gate, base_dir=".", project=None, require_placement=False):
         if src and min(mt) < src - 1:
             reasons.append("stale screenshots: a Luau source changed after the oldest screenshot; re-capture")
     status = "pass" if not reasons else "fail"
-    return dict(status=status, reasons=reasons, lowest=low[:3], label=POLISHED if status == "pass" else NOT_POLISHED)
+    return dict(status=status, reasons=reasons, lowest=low[:3], label=POLISHED if status == "pass" else NOT_POLISHED, lighting_gate=lstate, lighting_note=lwhy)
 
 
 def main():
@@ -126,10 +146,12 @@ def main():
     out_dir = a[a.index("--write") + 1] if "--write" in a else None
     gdir = os.path.dirname(os.path.abspath(a[0]))
     base = out_dir or (os.path.dirname(gdir) if os.path.basename(gdir) == "visual-qa" else gdir)
-    r = evaluate(gate, base, project, require_placement=bool(out_dir) or "--require-placement" in a)
+    r = evaluate(gate, base, project, require_placement=bool(out_dir) or "--require-placement" in a, require_lighting="--require-lighting" in a)
     rnd = gate.get("round", 1)
     print("VISUAL GATE: %s | round %s | scorer %s" % (r["status"].upper(), rnd, gate.get("scorer", "?")))
     print("STATUS LABEL: " + r["label"])
+    if r.get("lighting_note") and "--require-lighting" not in a:
+        print("  NOTE (lighting, not blocking here; the critic verdict needs lighting: pass): " + r["lighting_note"])
     for x in r["reasons"]:
         print("  - " + x)
     if r["lowest"]:
@@ -139,7 +161,7 @@ def main():
     if out_dir:
         d = os.path.join(out_dir, "visual-qa")
         os.makedirs(d, exist_ok=True)
-        rec = dict(gate, result=r["status"], label=r["label"], reasons=r["reasons"])
+        rec = dict(gate, result=r["status"], label=r["label"], reasons=r["reasons"], lighting_gate=r.get("lighting_gate"))
         json.dump(rec, open(os.path.join(d, "gate.json"), "w", encoding="utf-8", newline="\n"), indent=1)
         print("WROTE " + os.path.join(d, "gate.json"))
     sys.exit(0 if r["status"] == "pass" else 1)

@@ -21,7 +21,7 @@ tags: [lib/agent, cat/game-dev, src/own]
 Type: agent | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `agents/game-dev/self-verifying-game-builder-rbxdev-vault.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--godot-developer]], [[A--own--roblox-playtest-runner]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-playtest]], [[S--own--game-dev-rate]], [[S--own--game-feel-checklist]]
+Related: [[A--own--godot-developer]], [[A--own--roblox-playtest-runner]], [[S--own--game-dev-lighting-qa]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-playtest]], [[S--own--game-dev-rate]], [[S--own--game-feel-checklist]]
 
 Creator videos (notes are in the AI Library Vault, Creators/videos): 2026-06-10-i-tested-claude-fable-5-against-opus-and-gpt-5-5-6-surprisin
 
@@ -38,6 +38,7 @@ One game description; optional constraints (2D/3D, controls, art style, max size
 4. **Loop**: any failure -> fix `game.html` (minimal change) -> rerun the whole test. Stop when all items pass or at the loop cap; report remaining failures honestly.
 5. **Play-feel check** (not automated): take 3 screenshots at start, mid-game and end; describe visible problems (unreadable text, camera clipping, nothing to do).
 5b. **Placement check** (the browser twin of `game-dev-placement-qa`): after every object the game spawns or moves, assert from `__game` state that it rests on its surface (no float, no sink), is upright, faces its target, sits inside the arena bounds and overlaps nothing it should not (add `__game.objects()` returning position, size, rotation and kind). Any object with a failing assertion is fixed and re-tested before the next one; list unchecked objects as `untested`.
+5c. **Lighting check** (browser prototypes): give the scene a deliberate look from the start (one directional light, ambient fill, a sky or background gradient, fog that suits the genre, no flat default) and note the genre preset the Roblox build will apply (`game-dev-lighting-qa`); the real lighting gate runs only in Studio.
 6. **Output**: `game.html`, `test-log.md` (round, failures, fixes, final table of mechanic | result | evidence).
 
 ## Checks
@@ -49,7 +50,7 @@ All mechanics have a passing assertion produced by running the test; console is 
 - Browser tooling missing: say `untested in browser` and fall back to a headless logic test of the state machine only.
 
 ## Roblox note
-For Roblox, the same idea applies with Studio playtests: see roblox-playtest-runner and game-dev-playtest. This agent is for fast browser prototypes of an idea before deciding to build it in Studio (rate the idea with game-dev-rate). If the prototype is rebuilt in Roblox Studio, every model created, inserted or moved there goes through `game-dev-placement-qa` (`Placement.place` / `verify`, full-map scan before done), and a stage cannot advance without `placement: pass`.
+For Roblox, the same idea applies with Studio playtests (lighting: set the `game-dev-lighting-qa` genre preset first, scan before done): see roblox-playtest-runner and game-dev-playtest. This agent is for fast browser prototypes of an idea before deciding to build it in Studio (rate the idea with game-dev-rate). If the prototype is rebuilt in Roblox Studio, every model created, inserted or moved there goes through `game-dev-placement-qa` (`Placement.place` / `verify`, full-map scan before done), and a stage cannot advance without `placement: pass`.
 
 ## Final report (exactly this format, nothing after it)
 RESULT: success | partial | failed
@@ -67,3 +68,5 @@ game-dev-playtest, game-feel-checklist, game-dev-rate, godot-developer and unity
 Idea from AI-creator research (catalogue ideas idea-0119). Credit and where it appears:
 - RoboNuggets (Jay E), "I tested Claude Fable 5 against Opus and GPT 5.5 - (6 Surprising Uses)" (2026-06-10) @ 5:57, https://www.youtube.com/watch?v=wraxdyJh1QE&t=357s. Seen there as: Self-verifying browser game builder
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
+
+Learning loop: after you VERIFY something non-obvious (a fix, a gotcha, a corrected assumption), record it once with `python -I ~/.claude/claude-kit/tools/learn.py add ...` (see skill learn-rbxdev-vault; facts only, no secrets or personal data). Check the curated `learned/` notes first when you hit a problem (`vault-find.py "<problem>" --type learned`).

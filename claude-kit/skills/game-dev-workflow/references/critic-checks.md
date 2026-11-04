@@ -39,6 +39,9 @@ Run a check only where the stage's evidence can show it. At the idea stage a det
 
 ## PLACEMENT (placement gate, stage prototype or later)
 - Checks P1-P7 and tolerances: `game-dev-placement-qa/references/checks.md`. Pass = the critic's own full-map scan (scorer critic, newer than the newest Luau source and the last placement) has every model pass or waived with a reason, waivers/ignores under 10%, and `placement_gate.py recheck` agrees with the stored inputs. A missing, builder-made, stale or failing scan caps the verdict at NOT YET.
+
+## LIGHTING (lighting gate, stage prototype or later)
+- Checks L1-L12 and tolerances: `game-dev-lighting-qa/references/checks.md`. Pass = the critic's own scan (scorer critic, newer than the newest Luau source) recomputed by `lighting_gate.py` has every check pass or waived with a reason (at most 2 waivers), brightness judged from sampled surfaces or screenshots, the genre passed from GAME.md. A missing, builder-made, stale or failing scan caps the verdict at NOT YET.
 ## LOOKS (visual gate, stage prototype or later)
 - Rubric V1-V7, hard fails and the screenshot set: `game-dev-visual-qa/references/rubric.md`. Pass = every item at least 7, no open hard fail, `ui_overlap` shows 0 findings at phone, tablet and desktop, at least 6 distinct screenshots (desktop and phone; spawn, action, effect) newer than the newest Luau source. Run by `visual_gate.py`; a missing gate caps the verdict at NOT YET.
 
