@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Category: game-dev
 
-26 items. Back: [[_Home]]
+27 items. Back: [[_Home]]
 
 - [a] [[A--own--game-balance-tester|game-balance-tester]] - Simulates game balance (damage, economy, spawn rates, difficulty) with scripts and reports outliers and tuning
 - [a] [[A--own--game-critic-rbxdev-vault|game-critic-rbxdev-vault]] - Independent critic for a Roblox game idea, prototype, playtest build, launch kit or live game: inspects the re
@@ -16,6 +16,7 @@ tags: [moc]
 - [s] [[S--own--game-dev-critic|game-dev-critic]] - The independent quality gate of the Roblox game workflow. Before anything is called done, a stage advances or 
 - [s] [[S--own--game-dev-harvest|game-dev-harvest]] - Saves anything reusable Claude built or found good while making a Roblox game (a system, module, UI, pattern, 
 - [s] [[S--own--game-dev-launch-kit|game-dev-launch-kit]] - Launch kit for a Roblox game, triggered by the stage gate from playtest to launch (and runnable alone as /game
+- [s] [[S--own--game-dev-placement-qa|game-dev-placement-qa]] - The mandatory placement and orientation gate for a Roblox game: every model created, inserted (insert_asset, g
 - [s] [[S--own--game-dev-plan|game-dev-plan]] - Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, sy
 - [s] [[S--own--game-dev-playtest|game-dev-playtest]] - Playtests a Roblox game and returns a bug and feel report with severities and fixes. Uses Roblox Studio MCP wh
 - [s] [[S--own--game-dev-rate|game-dev-rate]] - Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook

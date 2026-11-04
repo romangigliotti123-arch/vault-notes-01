@@ -21,7 +21,7 @@ tags: [lib/agent, cat/game-dev, src/own]
 Type: agent | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `agents/game-dev/self-verifying-game-builder-rbxdev-vault.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--godot-developer]], [[A--own--roblox-playtest-runner]], [[S--own--game-dev-playtest]], [[S--own--game-dev-rate]], [[S--own--game-feel-checklist]]
+Related: [[A--own--godot-developer]], [[A--own--roblox-playtest-runner]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-playtest]], [[S--own--game-dev-rate]], [[S--own--game-feel-checklist]]
 
 Creator videos (notes are in the AI Library Vault, Creators/videos): 2026-06-10-i-tested-claude-fable-5-against-opus-and-gpt-5-5-6-surprisin
 
@@ -37,6 +37,7 @@ One game description; optional constraints (2D/3D, controls, art style, max size
 3. **Drive it**: use the available browser tooling (Playwright via a node/python script if installed, or a Chrome automation tool) to open `file://.../game.html`. Write `test.js` that: loads the page, asserts no console errors, performs each mechanic via real input events, checks state after each, explores by walking/teleporting to every area marker, and records pass/fail per item.
 4. **Loop**: any failure -> fix `game.html` (minimal change) -> rerun the whole test. Stop when all items pass or at the loop cap; report remaining failures honestly.
 5. **Play-feel check** (not automated): take 3 screenshots at start, mid-game and end; describe visible problems (unreadable text, camera clipping, nothing to do).
+5b. **Placement check** (the browser twin of `game-dev-placement-qa`): after every object the game spawns or moves, assert from `__game` state that it rests on its surface (no float, no sink), is upright, faces its target, sits inside the arena bounds and overlaps nothing it should not (add `__game.objects()` returning position, size, rotation and kind). Any object with a failing assertion is fixed and re-tested before the next one; list unchecked objects as `untested`.
 6. **Output**: `game.html`, `test-log.md` (round, failures, fixes, final table of mechanic | result | evidence).
 
 ## Checks
@@ -48,7 +49,7 @@ All mechanics have a passing assertion produced by running the test; console is 
 - Browser tooling missing: say `untested in browser` and fall back to a headless logic test of the state machine only.
 
 ## Roblox note
-For Roblox, the same idea applies with Studio playtests: see roblox-playtest-runner and game-dev-playtest. This agent is for fast browser prototypes of an idea before deciding to build it in Studio (rate the idea with game-dev-rate).
+For Roblox, the same idea applies with Studio playtests: see roblox-playtest-runner and game-dev-playtest. This agent is for fast browser prototypes of an idea before deciding to build it in Studio (rate the idea with game-dev-rate). If the prototype is rebuilt in Roblox Studio, every model created, inserted or moved there goes through `game-dev-placement-qa` (`Placement.place` / `verify`, full-map scan before done), and a stage cannot advance without `placement: pass`.
 
 ## Final report (exactly this format, nothing after it)
 RESULT: success | partial | failed

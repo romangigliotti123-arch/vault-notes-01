@@ -18,7 +18,7 @@ tags: [lib/skill, cat/game-dev, src/own]
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-art-direction/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--game-dev-plan]], [[S--own--game-dev-visual-qa]], [[S--own--roblox-ui-responsive]]
+Related: [[S--own--game-dev-placement-qa]], [[S--own--game-dev-plan]], [[S--own--game-dev-visual-qa]], [[S--own--roblox-ui-responsive]]
 
 ---
 # game-dev-art-direction
@@ -35,6 +35,7 @@ Look is decided once, before building, and then enforced by code and by `game-de
 4. Install the StyleKit: copy `templates/stylekit/{Theme,UI,Juice}.luau` to `<project>/src/shared/StyleKit/` (Rojo) or ReplicatedStorage.Shared.StyleKit (Studio MCP `multi_edit`), then set the values in `Theme.luau` from sections 2-3. Check: `bash ~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh <project>/src/shared/StyleKit` (stylua, selene, luau-lsp). All game UI is then built only through `UI.hud()`, `UI.panel/label/button/stat/bar`, `UI.popup`, `UI.toast`; the existing UI is migrated, not left beside it (two styles in one HUD is a V1 hard fail).
 5. Apply lighting once with the preset (Studio MCP `execute_luau` Edit, or the Rojo-synced script) and record the property values in section 6.
 6. Hero objects: list them in section 5 and give each a model job in the plan (asset search first: `search_asset` / `insert_asset`, `generate_mesh`, `generate_procedural_model`, or a composed model). Ids come only from tool results or the user; never typed from memory; license check with `asset-license-checker` before shipping third-party models.
+6b. Placement promises: for every hero object and repeated prop write its intent in section 5 (kind, surface it rests on, what it faces, yaw grid, expected size) so builders can call `game-dev-placement-qa` (`Placement.place`) with it; every model job's DONE WHEN says "passing placement report attached".
 7. Brief rule for every UI, world, effect or model job afterwards: the brief's INPUTS lists `art-direction.md`; DONE WHEN says "uses StyleKit components only; hero objects follow section 5; screenshot attached"; SURFACES CHECK names the screenshot file.
 8. Report: the file path, the three one-line decisions (look, palette, lighting preset), the hero-object list, and `luau-check` output for the StyleKit. Anything needing the user (a custom font, paid assets, art they must supply) goes under NEEDS, never invented.
 

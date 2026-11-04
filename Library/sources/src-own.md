@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Source: own
 
-License: first-party. 118 items. Back: [[_Home]]
+License: first-party. 119 items. Back: [[_Home]]
 
 ## Items
 
@@ -28,6 +28,7 @@ License: first-party. 118 items. Back: [[_Home]]
 - [[S--own--game-dev-critic|game-dev-critic]]
 - [[S--own--game-dev-harvest|game-dev-harvest]]
 - [[S--own--game-dev-launch-kit|game-dev-launch-kit]]
+- [[S--own--game-dev-placement-qa|game-dev-placement-qa]]
 - [[S--own--game-dev-plan|game-dev-plan]]
 - [[S--own--game-dev-playtest|game-dev-playtest]]
 - [[S--own--game-dev-rate|game-dev-rate]]
