@@ -5,7 +5,7 @@ category: "research"
 source: "own"
 license: "first-party"
 repo_path: "agents/research/claim-verifier-rbxdev-vault.md"
-description: "Verifier subagent for research and reverse-engineering findings: takes a list of findings with their sources, checks each against the source, and labels it seen (with citation), inferred (with reasoning) or unknown, so guesses are never treated as facts and the builder relies only on seen items. Use after a research or reverse-engineering investigation and before building on it, or when the user says fact-check these findings, which of these claims are actually proven, label what is verified versus guessed, or verify my notes."
+description: "Verifier subagent for research and reverse-engineering findings: takes findings with their sources, checks each against the source, and labels it seen (with citation), inferred (with reasoning) or unknown, so guesses are never treated as facts and the builder relies only on seen items. Use after research and before building on it."
 orig_name: "claim-verifier-rbxdev-vault"
 orig_model: "sonnet"
 orig_effort: "medium"
@@ -16,7 +16,7 @@ tags: [lib/agent, cat/research, src/own]
 
 # claim-verifier-rbxdev-vault
 
-> Verifier subagent for research and reverse-engineering findings: takes a list of findings with their sources, checks each against the source, and labels it seen (with citation), inferred (with reasoning) or unknown, so guesses are never treated as facts and the builder relies only on seen items. Use after a research or reverse-engineering investigation and before building on it, or when the user says fact-check these findings, which of these claims are actually proven, label what is verified versus guessed, or verify my notes.
+> Verifier subagent for research and reverse-engineering findings: takes findings with their sources, checks each against the source, and labels it seen (with citation), inferred (with reasoning) or unknown, so guesses are never treated as facts and the builder relies only on seen items. Use after research and before building on it.
 
 Type: agent | Category: [[categories/cat-research|research]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `agents/research/claim-verifier-rbxdev-vault.md` (extra files, if any, sit beside it in the repo)
@@ -70,3 +70,8 @@ Idea from AI-creator research (catalogue ideas idea-0084). Credit and where it a
 - Nate Herk, "Anthropic Engineer Explains: What to Build Instead of AI Agents" (2026-09-13) @ 6:43, https://www.youtube.com/watch?v=HIRDzMtuWFk&t=403s. Seen there as: Research claim verifier
 - Nate Herk, "I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know." (2026-10-13) @ 9:39, https://www.youtube.com/watch?v=rL5tw6h78zo&t=579s. Seen there as: Seen/inferred/unknown tagger
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
+
+
+## Triggers (moved out of the description)
+
+Use after a research or reverse-engineering investigation and before building on it, or when the user says fact-check these findings, which of these claims are actually proven, label what is verified versus guessed, or verify my notes.

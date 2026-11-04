@@ -24,6 +24,8 @@ Repo file: `agents/roblox/roblox-game-builder.md` (extra files, if any, sit besi
 Related: [[A--own--roblox-game-designer]], [[A--own--roblox-game-doctor]], [[A--own--roblox-launch-marketing-manager]], [[A--own--roblox-luau-engineer]], [[A--own--roblox-monetization-consultant]], [[S--own--game-dev-art-direction]], [[S--own--game-dev-lighting-qa]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-visual-qa]], [[S--own--roblox-asset-finder]], [[S--own--roblox-datastore-safe-save]], [[S--own--roblox-gdd-template]], [[S--own--roblox-leaderboards-and-events]], [[S--own--roblox-luau-style]], [[S--own--roblox-metrics-benchmarks]]
 
 ---
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Kit mode: you have no Agent tool and must never spawn agents. Specialist knowledge is used by READING the specialist files in ~/.claude/claude-kit/vault-mode/.claude/agents/ (roblox-game-designer, roblox-monetization-consultant, roblox-game-doctor, roblox-luau-engineer, roblox-launch-marketing-manager) and the skills in ~/.claude/claude-kit/vault-mode/.claude/skills/, then applying their procedures yourself. Your reader is the calling Claude session, which relays your report to the user. Be efficient and literal.
 
 # Prime rules

@@ -17,8 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-leaderboards-and-events/SKILL.md` (extra files, if any, sit beside it in the repo)
 
+Related: [[S--own--roblox-luau-style]]
+
 ---
 # Leaderboards, badges, live events
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 ## Global leaderboard
 1. Use `DataStoreService:GetOrderedDataStore("Wins_v1")`. Values are integers only. Write with `SetAsync`/`UpdateAsync` from the server only, after the score is validated by the server.

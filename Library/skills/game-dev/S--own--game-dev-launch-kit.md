@@ -18,7 +18,7 @@ tags: [lib/skill, cat/game-dev, src/own]
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-launch-kit/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--game-dev-ads]], [[S--own--game-dev-critic]], [[S--own--game-dev-thumbnail]], [[S--own--game-dev-update]], [[S--own--game-dev-weekly]], [[S--own--game-dev-workflow]], [[S--own--roblox-ad-campaign-planner]], [[S--own--roblox-ad-thumbnail-brief]], [[S--own--roblox-launch-checklist]], [[S--own--roblox-monetization-audit]]
+Related: [[S--own--game-dev-ads]], [[S--own--game-dev-critic]], [[S--own--game-dev-thumbnail]], [[S--own--game-dev-update]], [[S--own--game-dev-weekly]], [[S--own--game-dev-workflow]], [[S--own--roblox-ad-campaign-planner]], [[S--own--roblox-launch-checklist]], [[S--own--roblox-monetization-audit]], [[S--own--roblox-thumbnail-brief]]
 
 ---
 # game-dev-launch-kit
@@ -29,7 +29,7 @@ Stage `launch` of game-dev-workflow. It adds no new advice of its own: it calls 
 `games.py detect <slug>` shows playtest evidence and `games.py verdict <slug> --stage playtest` is GOOD. If not, stop: "the playtest critic is NOT YET (path): fix those first". Retention first: with real session data, D1 under the "weak" band means no ad plan, only fixes.
 
 ## Do this (each step is an existing skill; pass the game's `design.md` and `GAME.md`)
-1. **Packaging** (F8 critical): `game-dev-thumbnail` (icon, thumbnails, trailer ideas; image generation only if the user's tooling is set up) and `roblox-ad-thumbnail-brief` for the ad creative; title and description from `titles-descriptions` (honest: shows real gameplay, matches the first 30-90 seconds). Output: briefs and prompts, never invented asset ids (use `0`, "SET IN CREATOR HUB").
+1. **Packaging** (F8 critical): `game-dev-thumbnail` (icon, thumbnails, trailer ideas; image generation only if the user's tooling is set up) and `roblox-thumbnail-brief` for the ad creative; title and description from `titles-descriptions` (honest: shows real gameplay, matches the first 30-90 seconds). Output: briefs and prompts, never invented asset ids (use `0`, "SET IN CREATOR HUB").
 2. **Ad plan**: `game-dev-ads` with `roblox-ad-campaign-planner` (`adcalc.py` does the arithmetic): budget, duration, checkpoints, creative test matrix, stop rules; the readiness gate says no ads before retention is acceptable.
 3. **Update calendar**: `game-dev-update`: first 4 weeks of cadence (1-2 week drops), one event, patch-note template.
 4. **Checklists**: `roblox-publish-checklist` and `roblox-launch-checklist` (`make_checklist.py` makes a phone-friendly HTML) tailored to this game; age rating and monetisation settings per `age-ratings-moderation-and-tos` and `roblox-monetization-audit`.

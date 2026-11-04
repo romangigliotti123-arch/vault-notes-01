@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-trend-research/SKILL.md"
-description: "Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation, discovery), never content to copy. Use proactively, without being asked for a skill by name, whenever the user asks what is popular, trending or working on Roblox, what top Roblox games do, whether a Roblox genre is saturated, or wants research before building a Roblox game. Also called by roblox-game-ideas. Not for generating or ranking game ideas or writing a game plan; that is roblox-game-ideas. Reads the local Roblox knowledge base first (sourced case studies and official docs), then the web only for live data."
+description: "Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation, discovery), never content to copy. Reads the local knowledge base first, then the web for live data. Not for ranking ideas or writing a plan; that is roblox-game-ideas."
 orig_name: "roblox-trend-research"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-trend-research
 
-> Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation, discovery), never content to copy. Use proactively, without being asked for a skill by name, whenever the user asks what is popular, trending or working on Roblox, what top Roblox games do, whether a Roblox genre is saturated, or wants research before building a Roblox game. Also called by roblox-game-ideas. Not for generating or ranking game ideas or writing a game plan; that is roblox-game-ideas. Reads the local Roblox knowledge base first (sourced case studies and official docs), then the web only for live data.
+> Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation, discovery), never content to copy. Reads the local knowledge base first, then the web for live data. Not for ranking ideas or writing a plan; that is roblox-game-ideas.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-trend-research/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -133,3 +133,8 @@ Per-game breakdowns from step 2 go in the saved file only, not in the chat reply
 - [ ] Nothing that breaks the all-ages rules is recommended (risky patterns appear only under Avoid).
 - [ ] No claim that a pattern guarantees success.
 - [ ] Budget respected and the gaps listed.
+
+
+## Triggers (moved out of the description)
+
+Use proactively, without being asked for a skill by name, whenever the user asks what is popular, trending or working on Roblox, what top Roblox games do, whether a Roblox genre is saturated, or wants research before building a Roblox game.

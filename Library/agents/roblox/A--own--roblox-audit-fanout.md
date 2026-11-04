@@ -5,7 +5,7 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "agents/roblox/roblox-audit-fanout.md"
-description: "Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes and security, DataStore and economy, gameplay loops, UI, performance, build and publish setup), runs a roblox-luau-reviewer-style auditor per area in parallel, spawns a verifier per finding to reproduce it (playtest, script trace, test), dedupes and ranks, and writes a standalone HTML report of exploits and bugs with file lines and fixes. Use when the user says audit my Roblox game for exploits and errors, find all bugs before launch, full Luau code review, exploit sweep, or pre-launch code audit."
+description: "Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), runs a reviewer per area in parallel, spawns a verifier per finding to reproduce it, dedupes and ranks, and writes a standalone HTML report of exploits and bugs with file lines and fixes."
 orig_name: "roblox-audit-fanout"
 orig_model: "sonnet"
 orig_effort: "high"
@@ -15,7 +15,7 @@ tags: [lib/agent, cat/roblox, src/own]
 
 # roblox-audit-fanout
 
-> Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes and security, DataStore and economy, gameplay loops, UI, performance, build and publish setup), runs a roblox-luau-reviewer-style auditor per area in parallel, spawns a verifier per finding to reproduce it (playtest, script trace, test), dedupes and ranks, and writes a standalone HTML report of exploits and bugs with file lines and fixes. Use when the user says audit my Roblox game for exploits and errors, find all bugs before launch, full Luau code review, exploit sweep, or pre-launch code audit.
+> Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), runs a reviewer per area in parallel, spawns a verifier per finding to reproduce it, dedupes and ranks, and writes a standalone HTML report of exploits and bugs with file lines and fixes.
 
 Type: agent | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `agents/roblox/roblox-audit-fanout.md` (extra files, if any, sit beside it in the repo)
@@ -76,3 +76,8 @@ Idea from AI-creator research (catalogue ideas idea-0029, idea-0025). Credit and
 - RoboNuggets (Jay E), "How to Build an Effective Agentic OS with Claude for 2027 (Full Breakdown)" (2026-10-21) @ 29:56, https://www.youtube.com/watch?v=s_1GPN-NXA0&t=1796s. Seen there as: /note
 - Nate Herk, "How to Build Claude Agent Teams Better Than 99% of People" (2026-03-23) @ 0:00, https://www.youtube.com/watch?v=vDVSGVpB2vc&t=0s. Seen there as: Front-end / back-end / QA agent team (Neuroflow demo)
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says audit my Roblox game for exploits and errors, find all bugs before launch, full Luau code review, exploit sweep, or pre-launch code audit.

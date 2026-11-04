@@ -17,10 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-datastore-safe-save/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--roblox-monetisation-setup]]
+Related: [[S--own--roblox-luau-style]], [[S--own--roblox-monetisation-setup]]
 
 ---
 # Roblox DataStore: safe save
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Use when a script loads or saves player data. Output: working Luau module plus the test list below, or a review verdict with line-level findings.
 
@@ -61,7 +63,7 @@ local function load(userId)
 			return old
 		end)
 	end)
-	return ok and data or nil -- nil = refuse to play, do not use defaults
+	return ok and data or nil
 end
 ```
 

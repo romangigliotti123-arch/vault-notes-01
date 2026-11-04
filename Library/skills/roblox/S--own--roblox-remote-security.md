@@ -17,8 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-remote-security/SKILL.md` (extra files, if any, sit beside it in the repo)
 
+Related: [[S--own--roblox-luau-style]]
+
 ---
 # Roblox remote security
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Assume every client is hostile. Anything on the client (LocalScripts, ReplicatedStorage code, character physics ownership) can be changed by an exploiter. Remotes are the attack surface.
 

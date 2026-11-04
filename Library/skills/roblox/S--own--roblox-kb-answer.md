@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-kb-answer/SKILL.md"
-description: "Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs/sessions plus 25 creators), without spawning agents or reading big files. Use proactively for any factual or \"what do the best creators/Roblox say about X\" question about Roblox ideas, retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, DevEx/tax, platform changes, benchmarks. Not for building a full plan (use the Roblox specialist agents) or live market data (roblox-trend-research)."
+description: "Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs plus 25 creators) without spawning agents or reading big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, benchmarks). Not for full plans or live market data."
 orig_name: "roblox-kb-answer"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-kb-answer
 
-> Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs/sessions plus 25 creators), without spawning agents or reading big files. Use proactively for any factual or "what do the best creators/Roblox say about X" question about Roblox ideas, retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, DevEx/tax, platform changes, benchmarks. Not for building a full plan (use the Roblox specialist agents) or live market data (roblox-trend-research).
+> Cheap, cited answers to Roblox game-making questions from the local Roblox knowledge base (516 sources: official docs plus 25 creators) without spawning agents or reading big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, benchmarks). Not for full plans or live market data.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-kb-answer/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -67,3 +67,8 @@ At most 8 bullets. Every number or rule has a link and a flag (official | indie 
 - [ ] Every number cites a source link and flag.
 - [ ] Conflicts and age (over 12 months) surfaced.
 - [ ] No more than about 4 kbq calls unless the question is broad.
+
+
+## Triggers (moved out of the description)
+
+Use proactively for any factual or "what do the best creators/Roblox say about X" question about Roblox ideas, retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, DevEx/tax, platform changes, benchmarks.

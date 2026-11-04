@@ -5,7 +5,7 @@ category: "productivity"
 source: "own"
 license: "first-party"
 repo_path: "skills/productivity/clarify-before-build-rbxdev-vault/SKILL.md"
-description: "Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of done is clear, then outputs one consolidated spec with success criteria. Use when the request is vague, before starting a new skill, project, automation, routine or Roblox/game system, or when the user says ask me questions first, grill me, interview me, clarify before you build, make sure you understand, or do not assume."
+description: "Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of done is clear, then outputs one consolidated spec with success criteria. Use when the request is vague, before a new skill, project, automation or game system, or when the user says grill me or do not assume."
 orig_name: "clarify-before-build-rbxdev-vault"
 orig_argument_hint: "[the vague request]"
 tags: [lib/skill, cat/productivity, src/own]
@@ -13,7 +13,7 @@ tags: [lib/skill, cat/productivity, src/own]
 
 # clarify-before-build-rbxdev-vault
 
-> Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of done is clear, then outputs one consolidated spec with success criteria. Use when the request is vague, before starting a new skill, project, automation, routine or Roblox/game system, or when the user says ask me questions first, grill me, interview me, clarify before you build, make sure you understand, or do not assume.
+> Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of done is clear, then outputs one consolidated spec with success criteria. Use when the request is vague, before a new skill, project, automation or game system, or when the user says grill me or do not assume.
 
 Type: skill | Category: [[categories/cat-productivity|productivity]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/productivity/clarify-before-build-rbxdev-vault/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -68,3 +68,8 @@ Idea from AI-creator research (catalogue ideas idea-0008, idea-0116). Credit and
 - RoboNuggets (Jay E), "Fable + Sol is a CHEAT CODE for Claude Code (Cheaper, more Powerful)" (2026-07-15) @ 4:45, https://www.youtube.com/watch?v=4kRdt18_dFY&t=285s. Seen there as: /align
 - Nate Herk, "18 Claude Code Token Hacks in 18 Minutes" (2026-04-02) @ 5:07, https://www.youtube.com/watch?v=49V-5Ock8LU&t=307s. Seen there as: Confidence-gate plan mode rule
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
+
+
+## Triggers (moved out of the description)
+
+Use when the request is vague, before starting a new skill, project, automation, routine or Roblox/game system, or when the user says ask me questions first, grill me, interview me, clarify before you build, make sure you understand, or do not assume.

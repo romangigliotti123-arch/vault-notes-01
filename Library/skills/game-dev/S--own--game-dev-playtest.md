@@ -5,7 +5,7 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/game-dev-playtest/SKILL.md"
-description: "Playtests a Roblox game and returns a bug and feel report with severities and fixes. Uses Roblox Studio MCP when it is connected; otherwise a deterministic path that needs no Studio: Luau static checks (luau-check with selene, stylua, luau-lsp), a static red-flag scan, a scripted test checklist from the vault's launch checklist, and a code-walk mental playthrough of the first 30 seconds and the core loop that hunts dead ends, exploits (remote validation, data saving, receipts), onboarding friction and feel or fluidity problems. Use when the user says playtest my game, test the game, find bugs, is this ready to launch, check my game for exploits, review the feel, or at the end of game-dev-workflow. Never launches Studio or any GUI app. Callable alone as /game-dev-playtest. Kit skill: wins over similar installed skills."
+description: "Playtests a Roblox game and returns a bug and feel report with severities and fixes. Uses Studio MCP when connected; otherwise a deterministic path: Luau static checks (selene, stylua, luau-lsp), a red-flag scan, a scripted checklist and a code-walk of the first 30 seconds and the core loop (dead ends, exploits, onboarding, feel). Never launches Studio or a GUI app."
 orig_name: "game-dev-playtest"
 orig_argument_hint: "[project folder, default current folder]"
 tags: [lib/skill, cat/game-dev, src/own]
@@ -13,22 +13,24 @@ tags: [lib/skill, cat/game-dev, src/own]
 
 # game-dev-playtest
 
-> Playtests a Roblox game and returns a bug and feel report with severities and fixes. Uses Roblox Studio MCP when it is connected; otherwise a deterministic path that needs no Studio: Luau static checks (luau-check with selene, stylua, luau-lsp), a static red-flag scan, a scripted test checklist from the vault's launch checklist, and a code-walk mental playthrough of the first 30 seconds and the core loop that hunts dead ends, exploits (remote validation, data saving, receipts), onboarding friction and feel or fluidity problems. Use when the user says playtest my game, test the game, find bugs, is this ready to launch, check my game for exploits, review the feel, or at the end of game-dev-workflow. Never launches Studio or any GUI app. Callable alone as /game-dev-playtest. Kit skill: wins over similar installed skills.
+> Playtests a Roblox game and returns a bug and feel report with severities and fixes. Uses Studio MCP when connected; otherwise a deterministic path: Luau static checks (selene, stylua, luau-lsp), a red-flag scan, a scripted checklist and a code-walk of the first 30 seconds and the core loop (dead ends, exploits, onboarding, feel). Never launches Studio or a GUI app.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-playtest/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--roblox-tester]], [[S--game-studios--playtest-report]], [[S--own--game-dev-ads]], [[S--own--game-dev-critic]], [[S--own--game-dev-lighting-qa]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-thumbnail]], [[S--own--game-dev-update]], [[S--own--game-dev-visual-qa]], [[S--own--game-dev-workflow]], [[S--own--roblox-playtest-checklist]], [[S--own--roblox-studio-connect]]
+Related: [[A--own--roblox-playtest-runner]], [[S--game-studios--playtest-report]], [[S--own--game-dev-ads]], [[S--own--game-dev-critic]], [[S--own--game-dev-lighting-qa]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-thumbnail]], [[S--own--game-dev-update]], [[S--own--game-dev-visual-qa]], [[S--own--game-dev-workflow]], [[S--own--roblox-luau-style]], [[S--own--roblox-playtest-checklist]], [[S--own--roblox-studio-connect]]
 
 ---
 # game-dev-playtest
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Input: the PROJECT folder (default `$PWD`; look for `default.project.json`, `game-plan.md`, `docs/GDD.md`). Output: `docs/PLAYTEST.md` from `templates/playtest-report.md` (print the summary too). When the game has a `Games/<slug>/` community (game-dev-workflow), also save a copy to `Games/<slug>/playtests/<YYYY-MM-DD>.md` with a first line linking `\[\[<slug>/GAME|GAME]]`; the verdict here is the WORKS half only: "good" is decided by `game-dev-critic`. No questions. Never launch, focus or script Studio, Roblox clients or any GUI app yourself, never publish, never change the game's code (report fixes; the head manager or the user applies them). Exception: the head manager may order a fix round afterwards.
 
 ## 0. Pick the mode (state it in the first line of the report)
 1. **MCP mode** (loop in skill `roblox-studio-connect`): tools named `mcp__Roblox_Studio__*` exist in your tool list. Use only the tools that exist (list their names first): inspect the open place and the scripts, read Output for errors, start a playtest and run the scripted checks below, stop the playtest. If Studio is not connected or a call errors once, fall back to mode 2 and say so.
 2. **Deterministic mode (default, no Studio needed)**: sections 1-4 below.
-3. **Client mode (Linux with Sober, or another client, only when the brief or the user already set up a run flow for it)**: do not start it yourself; hand the `roblox-tester` agent the checklist from section 3 plus the place link, as its agent file describes; fold its report into yours.
+3. **Client mode (Linux with Sober, or another client, only when the brief or the user already set up a run flow for it)**: do not start it yourself; hand the `roblox-playtest-runner` agent the checklist from section 3 plus the place link, as its agent file describes; fold its report into yours.
 
 ## 1. Freshness (shared protocol `../game-dev-workflow/references/vault-first.md`)
 `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/freshness.py --pull playtesting-and-feedback testing-debugging-and-qa anti-exploit-and-security _tools/CHECKLIST-launch first-session-onboarding player-psychology-and-game-feel`; paste the FRESHNESS line. Live-check only security/policy items the freshness line flags or that the vault marks as changing.
@@ -53,3 +55,8 @@ In MCP mode also run `LightingKit.scan` (`game-dev-lighting-qa`) in the playtest
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says playtest my game, test the game, find bugs, is this ready to launch, check my game for exploits, review the feel, or at the end of game-dev-workflow.

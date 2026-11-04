@@ -5,24 +5,24 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-thumbnail-brief/SKILL.md"
-description: "Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list and an A/B test plan, using the knowledge base's CTR, PTR, specs and discovery rules. Use when the user wants thumbnails, an icon, a title or description for a Roblox game, to raise CTR, or to refresh packaging after an update. Briefs only; does not generate or upload images."
+description: "Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list, A/B test plan and sponsored-ad creative briefs, using the knowledge base's CTR, PTR, specs and discovery rules. Use for thumbnails, icons, titles, descriptions or ad art. Briefs only; no image generation or upload."
 orig_name: "roblox-thumbnail-brief"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-thumbnail-brief
 
-> Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list and an A/B test plan, using the knowledge base's CTR, PTR, specs and discovery rules. Use when the user wants thumbnails, an icon, a title or description for a Roblox game, to raise CTR, or to refresh packaging after an update. Briefs only; does not generate or upload images.
+> Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list, A/B test plan and sponsored-ad creative briefs, using the knowledge base's CTR, PTR, specs and discovery rules. Use for thumbnails, icons, titles, descriptions or ad art. Briefs only; no image generation or upload.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-thumbnail-brief/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--roblox-ad-thumbnail-brief]]
+Related: [[S--own--roblox-ad-campaign-planner]]
 
 ---
 # Roblox thumbnail brief
 
-Related skill `roblox-ad-thumbnail-brief` covers ad creatives; this one is KB-grounded packaging for the experience page (icon, thumbnails, title, description, video).
+KB-grounded packaging for the experience page (icon, thumbnails, title, description, video) and for sponsored-ad creatives (section Ad creatives below).
 
 ## Procedure
 
@@ -59,3 +59,22 @@ Evidence table: claim | link | flag | date
 - One focal subject, high contrast, readable at phone size, authentic gameplay. Misleading packaging causes bounces that hurt recommendations (official).
 - Indie CTR numbers are self-reported. Official docs override on specs.
 - No uploading, posting or spending.
+
+
+## Triggers (moved out of the description)
+
+Use when the user wants thumbnails, an icon, a title or description for a Roblox game, to raise CTR, or to refresh packaging after an update.
+
+## Ad creatives (sponsored experiences)
+
+- Concept options: 3 distinct one-line scenes (action moment, reward moment, social moment); pick the one that reads clearest at phone thumbnail size. Keep key content in the centre so crops do not cut it.
+- Ad formats and sizes differ by placement in Ads Manager: check the live requirements, do not trust memory.
+- No fake counters, fake UI buttons, copied logos or "free Robux" text; all assets owned or original; all-ages safe.
+- Test one variable at a time (icon first, it drives most impressions), fixed period or impressions chosen in advance, judge CTR and D1 of the visitors each variant brought, log the winner with its date.
+- Paid ads: a small daily budget cap approved by the user (spending needs the user's yes); pause variants with the worst cost per retained visit. Budget plan: `roblox-ad-campaign-planner`.
+- Deliverable: brief text, prompt/spec sheet per variant, test table (variant | dates | impressions | clicks | CTR | D1).
+
+
+## Triggers (moved out of the description)
+
+Use when the user wants thumbnails, an icon, a title or description for a Roblox game, to raise CTR, or to refresh packaging after an update.

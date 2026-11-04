@@ -22,17 +22,159 @@ Repo file: `skills/roblox/roblox-luau-style/SKILL.md` (extra files, if any, sit 
 
 Apply when producing or reviewing Luau. Prefer small ModuleScripts with one job.
 
-1. Start every file with `--!strict`. Annotate function signatures, export types (`export type PlayerState = {...}`), avoid `any`.
+1. Start every file with `--!strict`. Annotate function signatures, export types (`export type PlayerState = {...}`), avoid `any`. Type untrusted input (remote arguments, decoded JSON) as `unknown` and narrow it with `typeof` checks before use.
 2. Get services once at the top with `game:GetService("X")`. Always `local`; no globals, no `_G`/`shared`.
 3. Use the `task` library: `task.wait`, `task.spawn`, `task.defer`, `task.delay`. Never `wait()`, `spawn()`, `delay()`.
-4. Connections and instances need cleanup. Keep a Maid/Janitor (or a table of connections) and disconnect on player leave or `Destroying`. No per-player connection leaks.
+4. Connections, threads and instances need cleanup: see Lifecycle and leak cleanup below. No per-player connection leaks.
 5. Prefer events and `:GetPropertyChangedSignal` over polling loops. Heartbeat/RenderStepped handlers must be cheap.
 6. `Instance.new(class)`, set properties, set `Parent` last. Use `CollectionService` tags to attach behaviour to many objects instead of one script per object.
 7. Structure: `ServerScriptService` (server logic), `ServerStorage` (server-only assets), `ReplicatedStorage` (shared modules, remotes), `StarterPlayerScripts` (client). One entry script per side that `require`s modules.
 8. `pcall` anything that can fail on the network or a service (DataStore, Marketplace, HTTP, `InsertService`); handle the false branch.
 9. `WaitForChild(name, timeout)` for objects that may not have replicated; never assume replication order on the client.
-10. Use `table.clone`, `table.freeze` for constants, `table.concat` for string building; avoid O(n^2) scans in hot paths; cache `workspace.CurrentCamera`.
+10. Use `table.clone`, `table.freeze` for constants (shallow: nested tables stay mutable), `table.concat` for string building; avoid O(n^2) scans in hot paths; cache `workspace.CurrentCamera`.
 11. Naming: PascalCase for modules/classes and Instances, camelCase for locals/functions, UPPER_SNAKE for constants.
-12. Comments explain why, not what. No dead code. Run `selene` and `stylua` or Studio Script Analysis if available and fix warnings.
+12. No comments by default (Comments below). No dead code. Run `selene` and `stylua` or Studio Script Analysis if available and fix warnings.
+
+## Comments
+NO COMMENTS BY DEFAULT in any code you write (Luau, Lua, scripts, tests, examples). A one-line comment is allowed only to explain WHY something non-obvious is done (an engine quirk, ordering, replication timing, physics ownership), never WHAT the code does. Type annotations and Luau directives (`--!strict`, `--!native`, `--!optimize`, `--!nolint`) are not comments and stay. Name things so the code reads without notes; put design notes in the SKILL.md or reference, not in the file. Existing comments in code you only edit stay unless you rewrite that line.
+
+## Lifecycle and leak cleanup
+Leaks on a long-running server are connections, threads and tables keyed by objects that are gone.
+
+| Thing | Release with |
+|---|---|
+| `RBXScriptConnection` | `:Disconnect()` |
+| `task.spawn/delay/defer` thread | `task.cancel(thread)` (errors on the running thread: guard or `pcall`); guard callbacks already running |
+| Tween | `:Cancel()`, drop the reference |
+| `RunService:BindToRenderStep` | `UnbindFromRenderStep(name)` |
+| Instance you created | `:Destroy()` or return it to a pool |
+| `data[player]` and other per-player tables | `= nil` on `PlayerRemoving` |
+| Store subscription | call the returned unsubscribe |
+
+Facts (Roblox docs, checked 2026-11-04):
+- `Destroy()` disconnects events of the destroyed instance. Connections to `Player`, a character or any other instance you do not destroy stay alive.
+- The engine does not destroy the `Player` or the character when a user leaves. Set `Workspace.PlayerCharacterDestroyBehavior` to destroy them, or call `Destroy` in `PlayerRemoving` / `CharacterRemoving` (use `task.defer`).
+- `Debris:AddItem` cannot be cancelled; use `task.delay` with a stored thread when you need control.
+- `Instance.Destroying` ties an object's cleanup to the instance's life.
+
+Rules:
+1. One cleaner per lifetime: object, player, character, round, UI screen. Add everything created for that lifetime; destroy it once at the end (idempotent).
+2. Handle players already in game: connect `PlayerAdded`, then loop `Players:GetPlayers()`.
+3. A character cleaner ends on `CharacterRemoving` or the next `CharacterAdded`, so respawns do not stack connections.
+4. `BindToClose` saves and releases every player (30 second window, run in parallel).
+5. Use the project's Maid, Janitor or Trove if present (current status of each is unverified); otherwise this is enough:
+```lua
+--!strict
+local Cleaner = {}
+Cleaner.__index = Cleaner
+
+type Item = RBXScriptConnection | Instance | thread | () -> () | { Destroy: (any) -> () }
+
+export type Cleaner = typeof(setmetatable({} :: { items: { Item } }, Cleaner))
+
+function Cleaner.new(): Cleaner
+	return setmetatable({ items = {} }, Cleaner)
+end
+
+function Cleaner.add(self: Cleaner, item: Item): Item
+	table.insert(self.items, item)
+	return item
+end
+
+function Cleaner.destroy(self: Cleaner)
+	local items = self.items
+	self.items = {}
+	for i = #items, 1, -1 do
+		local item = items[i]
+		local kind = typeof(item)
+		if kind == "RBXScriptConnection" then
+			local conn = item :: RBXScriptConnection
+			conn:Disconnect()
+		elseif kind == "Instance" then
+			local inst = item :: Instance
+			inst:Destroy()
+		elseif kind == "function" then
+			local fn = item :: () -> ()
+			fn()
+		elseif kind == "thread" then
+			pcall(task.cancel, item :: thread)
+		else
+			local obj = item :: { Destroy: (any) -> () }
+			obj:Destroy()
+		end
+	end
+end
+
+return Cleaner
+```
+Player and character lifetimes with it:
+```lua
+--!strict
+local Players = game:GetService("Players")
+local Cleaner = require(script.Parent.Cleaner)
+
+local playerData: { [Player]: { coins: number } } = {}
+local playerCleaners: { [Player]: Cleaner.Cleaner } = {}
+local characterCleaners: { [Player]: Cleaner.Cleaner } = {}
+
+local function onCharacterAdded(player: Player, character: Model)
+	local cleaner = Cleaner.new()
+	characterCleaners[player] = cleaner
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		cleaner:add(humanoid.Died:Connect(function()
+			print(player.Name, "died")
+		end))
+	end
+end
+
+local function onCharacterRemoving(player: Player)
+	local cleaner = characterCleaners[player]
+	if cleaner then
+		characterCleaners[player] = nil
+		cleaner:destroy()
+	end
+end
+
+local function onPlayerAdded(player: Player)
+	local cleaner = Cleaner.new()
+	playerCleaners[player] = cleaner
+	playerData[player] = { coins = 0 }
+	cleaner:add(player.CharacterAdded:Connect(function(character)
+		onCharacterAdded(player, character)
+	end))
+	cleaner:add(player.CharacterRemoving:Connect(function()
+		onCharacterRemoving(player)
+	end))
+	if player.Character then
+		onCharacterAdded(player, player.Character)
+	end
+end
+
+local function onPlayerRemoving(player: Player)
+	onCharacterRemoving(player)
+	playerData[player] = nil
+	local cleaner = playerCleaners[player]
+	if cleaner then
+		playerCleaners[player] = nil
+		cleaner:destroy()
+	end
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
+Players.PlayerRemoving:Connect(onPlayerRemoving)
+for _, player in Players:GetPlayers() do
+	task.spawn(onPlayerAdded, player)
+end
+
+game:BindToClose(function()
+	for _, player in Players:GetPlayers() do
+		onPlayerRemoving(player)
+	end
+end)
+```
+Find leaks: Developer Console Memory tab, watch `LuaHeap`, `InstanceCount` and `PlaceScriptMemory` through a long session; join and leave 50 times and check counts return to baseline. The Scene Analysis tool shows script memory and unparented instances. There is no documented API to list all connections, so instrument your own.
+
+Credit: checklist adapted from excaldev/ro-engineer (MIT, Copyright (c) 2026 excaldev), reference copy in Imported/ro-engineer/cleanup-lifecycle.md; facts re-checked against the Roblox docs.
 
 Review output: findings ordered by severity (leaks, race conditions, deprecated API, then style), each with file:line and the fix.

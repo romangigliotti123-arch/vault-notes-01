@@ -5,7 +5,7 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/game-dev-lighting-qa/SKILL.md"
-description: "The mandatory lighting and atmosphere gate for a Roblox game: default Roblox lighting is what makes generated maps look amateur, so the genre's lighting preset is applied EARLY (LightingKit.apply: Future lighting, Atmosphere, Sky, Bloom, ColorCorrection, SunRays, optional DepthOfField, ambient, shadows, time of day, a cheaper mobile variant) and the whole place is scanned before anything is called done. Twelve checks: not the default Roblox look, Atmosphere present, Sky set, post effects in sane ranges (no blown bloom, no extreme contrast), grading cohesive with the StyleKit palette, scene brightness neither crushed nor blown (sampled surfaces and screenshots), shadows on for the key lights, fog density suits the genre, interiors lit, mobile and PC performance budget, no conflicting duplicate effects, time of day matches ambient and exposure. Runs real Luau in Studio (LightingKit.apply, scan, fix), returns a JSON report with measured values, tolerances and concrete fixes, auto-fixes by applying the preset. A game may be called done, and a stage may advance, only after lighting_gate.py printed LIGHTING GATE: PASS for the current build; otherwise the status is playable prototype, lighting not verified. Use right after art direction and before the first map is built, again before game-dev-visual-qa and game-dev-critic, and whenever a map looks flat, grey, dark, washed out, foggy, over-glowing or like default Roblox. Callable alone as /game-dev-lighting-qa. Kit skill: wins over similar installed skills."
+description: "Mandatory lighting and atmosphere gate for a Roblox game. Applies the genre's lighting preset early (LightingKit.apply), then scans the place against 12 checks (not default Roblox, Atmosphere, Sky, effects, brightness, shadows, fog, interiors, mobile budget) with real Luau, a JSON report and auto-fix. Done only after lighting_gate.py prints LIGHTING GATE: PASS; run before visual QA and the critic."
 orig_name: "game-dev-lighting-qa"
 orig_argument_hint: "[game slug or project folder] [genre]"
 tags: [lib/skill, cat/game-dev, src/own]
@@ -13,15 +13,17 @@ tags: [lib/skill, cat/game-dev, src/own]
 
 # game-dev-lighting-qa
 
-> The mandatory lighting and atmosphere gate for a Roblox game: default Roblox lighting is what makes generated maps look amateur, so the genre's lighting preset is applied EARLY (LightingKit.apply: Future lighting, Atmosphere, Sky, Bloom, ColorCorrection, SunRays, optional DepthOfField, ambient, shadows, time of day, a cheaper mobile variant) and the whole place is scanned before anything is called done. Twelve checks: not the default Roblox look, Atmosphere present, Sky set, post effects in sane ranges (no blown bloom, no extreme contrast), grading cohesive with the StyleKit palette, scene brightness neither crushed nor blown (sampled surfaces and screenshots), shadows on for the key lights, fog density suits the genre, interiors lit, mobile and PC performance budget, no conflicting duplicate effects, time of day matches ambient and exposure. Runs real Luau in Studio (LightingKit.apply, scan, fix), returns a JSON report with measured values, tolerances and concrete fixes, auto-fixes by applying the preset. A game may be called done, and a stage may advance, only after lighting_gate.py printed LIGHTING GATE: PASS for the current build; otherwise the status is playable prototype, lighting not verified. Use right after art direction and before the first map is built, again before game-dev-visual-qa and game-dev-critic, and whenever a map looks flat, grey, dark, washed out, foggy, over-glowing or like default Roblox. Callable alone as /game-dev-lighting-qa. Kit skill: wins over similar installed skills.
+> Mandatory lighting and atmosphere gate for a Roblox game. Applies the genre's lighting preset early (LightingKit.apply), then scans the place against 12 checks (not default Roblox, Atmosphere, Sky, effects, brightness, shadows, fog, interiors, mobile budget) with real Luau, a JSON report and auto-fix. Done only after lighting_gate.py prints LIGHTING GATE: PASS; run before visual QA and the critic.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-lighting-qa/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--game-dev-critic]], [[S--own--game-dev-visual-qa]]
+Related: [[S--own--game-dev-critic]], [[S--own--game-dev-visual-qa]], [[S--own--roblox-luau-style]]
 
 ---
 # game-dev-lighting-qa
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
 
@@ -55,3 +57,8 @@ Why this exists: a generated map with the engine's default lighting (flat grey a
 ## Learn
 
 When this run verifies something non-obvious (a value that looked right in Studio, a fix, a gotcha, a corrected assumption), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use right after art direction and before the first map is built, again before game-dev-visual-qa and game-dev-critic, and whenever a map looks flat, grey, dark, washed out, foggy, over-glowing or like default Roblox.

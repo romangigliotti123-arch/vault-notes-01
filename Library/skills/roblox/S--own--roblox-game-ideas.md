@@ -5,7 +5,7 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-game-ideas/SKILL.md"
-description: "Generates, scores and plans Roblox game concepts for a solo or small team. Takes an optional seed idea, gets current patterns from roblox-trend-research, scores 8 candidates on a fixed 8-criterion rubric, presents the top three, then expands the chosen one into a build plan (systems with build-or-library decisions, milestones with acceptance tests, test plan, first three tasks). Use proactively, without being asked for a skill by name, whenever the user wants to make a Roblox game, asks for a Roblox game idea or concept, wants a rough idea turned into a plan, asks which idea to build, or asks what kind of game would do well on Roblox. For market research with no ideas or plan, use roblox-trend-research. Reads the local Roblox knowledge base first for evidence and benchmarks, the web second."
+description: "Generates, scores and plans Roblox game concepts for a solo or small team. Takes an optional seed, gets current patterns from roblox-trend-research, scores 8 candidates on a fixed rubric, presents the top three, then expands the chosen one into a build plan (systems, milestones with acceptance tests, test plan, first three tasks). Reads the local knowledge base first, the web second."
 orig_name: "roblox-game-ideas"
 alternatives: ["roblox-skills-ashexplained: roblox-skills-ashexplained/roblox-game-ideas"]
 tags: [lib/skill, cat/roblox, src/own]
@@ -13,7 +13,7 @@ tags: [lib/skill, cat/roblox, src/own]
 
 # roblox-game-ideas
 
-> Generates, scores and plans Roblox game concepts for a solo or small team. Takes an optional seed idea, gets current patterns from roblox-trend-research, scores 8 candidates on a fixed 8-criterion rubric, presents the top three, then expands the chosen one into a build plan (systems with build-or-library decisions, milestones with acceptance tests, test plan, first three tasks). Use proactively, without being asked for a skill by name, whenever the user wants to make a Roblox game, asks for a Roblox game idea or concept, wants a rough idea turned into a plan, asks which idea to build, or asks what kind of game would do well on Roblox. For market research with no ideas or plan, use roblox-trend-research. Reads the local Roblox knowledge base first for evidence and benchmarks, the web second.
+> Generates, scores and plans Roblox game concepts for a solo or small team. Takes an optional seed, gets current patterns from roblox-trend-research, scores 8 candidates on a fixed rubric, presents the top three, then expands the chosen one into a build plan (systems, milestones with acceptance tests, test plan, first three tasks). Reads the local knowledge base first, the web second.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-game-ideas/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -170,6 +170,11 @@ Milestones: 4 to 6, sized to the stated time. Every acceptance test must be some
 - [ ] Every library named is on the approved-options list and described as an option, not an install; no archived libraries.
 - [ ] Every milestone has a pass/fail acceptance test; the plan has exactly 3 tasks for this week.
 - [ ] No promise of success; each risk has a check that could prove it wrong.
+
+
+## Triggers (moved out of the description)
+
+Use proactively, without being asked for a skill by name, whenever the user wants to make a Roblox game, asks for a Roblox game idea or concept, wants a rough idea turned into a plan, asks which idea to build, or asks what kind of game would do well on Roblox.
 
 ---
 

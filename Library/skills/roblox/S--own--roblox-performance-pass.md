@@ -17,8 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-performance-pass/SKILL.md` (extra files, if any, sit beside it in the repo)
 
+Related: [[S--own--roblox-luau-style]]
+
 ---
 # Roblox performance pass
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Measure first, change one thing, measure again. Test on a low-end phone profile, not only the dev PC.
 

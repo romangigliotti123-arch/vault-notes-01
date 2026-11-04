@@ -18,10 +18,12 @@ tags: [lib/skill, cat/game-dev, src/own]
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-update/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--roblox-game-doctor]], [[S--game-studios--patch-notes]], [[S--own--game-dev-ads]], [[S--own--game-dev-thumbnail]], [[S--own--game-dev-workflow]], [[S--own--roblox-datastore-safe-save]], [[S--own--roblox-metrics-benchmarks]], [[S--own--roblox-remote-security]]
+Related: [[A--own--roblox-game-doctor]], [[S--game-studios--patch-notes]], [[S--own--game-dev-ads]], [[S--own--game-dev-thumbnail]], [[S--own--game-dev-workflow]], [[S--own--roblox-datastore-safe-save]], [[S--own--roblox-luau-style]], [[S--own--roblox-metrics-benchmarks]], [[S--own--roblox-remote-security]]
 
 ---
 # game-dev-update
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Outputs in the game's project folder: `docs/update-roadmap.md` (cadence + calendar + levers + A/B ideas + risks) and `docs/patch-notes-<version>.md` (templates in `templates/`). Planning and writing only: never publishes, posts, or changes the live game. No questions: assumptions are written down.
 

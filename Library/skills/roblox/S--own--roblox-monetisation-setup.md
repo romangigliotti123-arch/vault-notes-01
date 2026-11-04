@@ -17,10 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-monetisation-setup/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--roblox-analytics-review]]
+Related: [[S--own--roblox-analytics-review]], [[S--own--roblox-luau-style]]
 
 ---
 # Roblox monetisation setup
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Output: configured product list (names, purpose, price in Robux, grant logic) and working Luau, then a checklist verdict.
 
@@ -34,16 +36,16 @@ Output: configured product list (names, purpose, price in Robux, grant logic) an
 MarketplaceService.ProcessReceipt = function(info)
 	local player = Players:GetPlayerByUserId(info.PlayerId)
 	if not player then return Enum.ProductPurchaseDecision.NotProcessedYet end
-	local profile = getProfile(player)            -- from the DataStore module
+	local profile = getProfile(player)
 	if not profile then return Enum.ProductPurchaseDecision.NotProcessedYet end
-	if profile.receipts[info.PurchaseId] then     -- already granted
+	if profile.receipts[info.PurchaseId] then
 		return Enum.ProductPurchaseDecision.PurchaseGranted
 	end
 	local grant = grants[info.ProductId]
 	if not grant then return Enum.ProductPurchaseDecision.NotProcessedYet end
 	grant(player, profile)
-	profile.receipts[info.PurchaseId] = true      -- record with the grant
-	if not saveNow(player) then                   -- persist grant and receipt together
+	profile.receipts[info.PurchaseId] = true
+	if not saveNow(player) then
 		return Enum.ProductPurchaseDecision.NotProcessedYet
 	end
 	return Enum.ProductPurchaseDecision.PurchaseGranted

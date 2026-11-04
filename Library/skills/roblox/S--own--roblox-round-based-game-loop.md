@@ -17,8 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-round-based-game-loop/SKILL.md` (extra files, if any, sit beside it in the repo)
 
+Related: [[S--own--roblox-luau-style]]
+
 ---
 # Round-based game loop
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Server-authoritative state machine in one ModuleScript (`RoundService`), driven by a single loop, with state replicated through attributes or one RemoteEvent.
 

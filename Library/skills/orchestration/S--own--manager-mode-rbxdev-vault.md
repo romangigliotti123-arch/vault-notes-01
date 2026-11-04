@@ -5,14 +5,14 @@ category: "orchestration"
 source: "own"
 license: "first-party"
 repo_path: "skills/orchestration/manager-mode-rbxdev-vault/SKILL.md"
-description: "Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model and effort (haiku/sonnet/opus), brief workers, check their reports, and stay inside a usage cap. Use when the user says /manager-mode-rbxdev-vault, 'act as a manager', 'delegate this', 'run workers/agents', 'parallel agents', 'research this with a budget', or gives a large multi-step job. Also: /manager-mode-rbxdev-vault install-presets."
+description: "Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model and effort (haiku/sonnet/opus), brief workers, check their reports, and stay inside a usage cap. Use for large multi-step jobs, parallel agents or research with a budget. Also: /manager-mode-rbxdev-vault install-presets."
 orig_name: "manager-mode-rbxdev-vault"
 tags: [lib/skill, cat/orchestration, src/own]
 ---
 
 # manager-mode-rbxdev-vault
 
-> Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model and effort (haiku/sonnet/opus), brief workers, check their reports, and stay inside a usage cap. Use when the user says /manager-mode-rbxdev-vault, 'act as a manager', 'delegate this', 'run workers/agents', 'parallel agents', 'research this with a budget', or gives a large multi-step job. Also: /manager-mode-rbxdev-vault install-presets.
+> Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model and effort (haiku/sonnet/opus), brief workers, check their reports, and stay inside a usage cap. Use for large multi-step jobs, parallel agents or research with a budget. Also: /manager-mode-rbxdev-vault install-presets.
 
 Type: skill | Category: [[categories/cat-orchestration|orchestration]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/orchestration/manager-mode-rbxdev-vault/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -60,3 +60,8 @@ Stop and ask, naming the exact action, before: deleting or overwriting data that
 
 ## `/manager-mode-rbxdev-vault install-presets`
 Only when the user runs this; never automatically. Copy the three templates in `presets/` to `~/.claude/agents/` (`sonnet-worker.md`, `haiku-scout.md`, `opus-builder.md`). Never overwrite: if a target exists and differs, write `<name>.md.new` beside it and tell the user. Use the helper in this skill folder (`~/.claude/skills/manager-mode-rbxdev-vault`): `bash ~/.claude/skills/manager-mode-rbxdev-vault/presets/install-presets.sh` (macOS/Linux/Git Bash) or `powershell -NoProfile -File "$HOME\.claude\skills\manager-mode-rbxdev-vault\presets\install-presets.ps1"` (Windows). Then tell the user to start a new session or run `/agents` so the presets load.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says /manager-mode-rbxdev-vault, 'act as a manager', 'delegate this', 'run workers/agents', 'parallel agents', 'research this with a budget', or gives a large multi-step job.

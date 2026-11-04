@@ -17,10 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-rojo-project-setup/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--roblox-studio-connect]]
+Related: [[S--own--roblox-luau-style]], [[S--own--roblox-studio-connect]]
 
 ---
 # Roblox Rojo project setup
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Faster path: `python ~/.claude/claude-kit/tools/games.py init <slug> --rojo` scaffolds this whole layout; Studio connection and the toolchain installer are in the `roblox-studio-connect` skill.
 

@@ -27,7 +27,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 | Scripting and Luau | Job: scripting and Luau | `/roblox-luau-style`, `/roblox-remote-security`, agent `roblox-luau-engineer` |
 | Monetisation | Job: monetisation | `/roblox-monetisation-setup`, `/roblox-monetization-audit`, agent `roblox-economy-designer` |
 | Ads, thumbnails, packaging | Job: ads, thumbnails and packaging | `/game-dev-ads`, `/game-dev-thumbnail`, `/roblox-ad-campaign-planner` |
-| Retention and analytics | Job: retention and analytics | `/roblox-analytics-review`, `/roblox-metrics-benchmarks`, agent `roblox-analytics-reviewer` |
+| Retention and analytics | Job: retention and analytics | `/roblox-analytics-review`, `/roblox-metrics-benchmarks`, agent `roblox-game-doctor` |
 | Live-ops | Job: live-ops | `/game-dev-update`, `/roblox-leaderboards-and-events`, agent `roblox-liveops-planner` |
 | 3D models and Blender | Job: 3D models and Blender | `/rbx model-rebuild`, `/rbx accessory-fitting-guide`, `/rbx rig-checker` |
 | Running a game project | Job: running a game project | `/game-dev-plan`, `/game-dev-playtest`, `/roblox-launch-checklist` |
@@ -75,7 +75,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Prompt AI per feature, playtest after each prompt, paste errors back to fix them (see the coding-with-AI job).
 - When the KB conflicts with current Creator Docs, the docs win; check deprecations.
 
-**Use:** `/roblox-luau-style`, `/roblox-remote-security`, `/roblox-datastore-safe-save`, `/roblox-performance-pass`, `/roblox-rojo-project-setup`, `/roblox-code-rate`, `/roblox-npc-pathfinding`, `/roblox-ui-responsive`; agents `roblox-luau-engineer`, `roblox-luau-reviewer`. Notes: [[luau-language-and-types]], [[scripting-and-performance]], [[client-server-and-remotes]], [[data-persistence]], [[anti-exploit-and-security]], [[code-architecture-and-frameworks]].
+**Use:** `/roblox-luau-style`, `/roblox-architecture-choice`, `/roblox-remote-security`, `/roblox-datastore-safe-save`, `/roblox-performance-pass`, `/roblox-rojo-project-setup`, `/roblox-code-rate`, `/roblox-npc-pathfinding`, `/roblox-ui-responsive`; agents `roblox-luau-engineer`, `roblox-luau-reviewer`. Notes: [[luau-language-and-types]], [[scripting-and-performance]], [[client-server-and-remotes]], [[data-persistence]], [[anti-exploit-and-security]], [[code-architecture-and-frameworks]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -130,7 +130,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Title literal, icon and thumbnails show real gameplay, one focal point, high contrast, legible at mobile size. If a thumbnail or title misleads, change it: bounces hurt recommendations.
 - Description: genre, objective and keywords in the first 160 characters.
 
-**Use:** `/game-dev-ads`, `/game-dev-thumbnail`, `/roblox-ad-campaign-planner`, `/roblox-ad-thumbnail-brief`, `/roblox-thumbnail-brief`; agents `roblox-ad-creative-planner`, `roblox-launch-marketing-manager`. Notes: [[ads-and-sponsored-experiences]], [[thumbnails-icons]], [[titles-descriptions]], [[trailers-and-video-marketing]], [[influencer-and-creator-marketing]], [[ads-stats-monetisation-playbook]].
+**Use:** `/game-dev-ads`, `/game-dev-thumbnail`, `/roblox-ad-campaign-planner`, `/roblox-thumbnail-brief`, `/roblox-thumbnail-brief`; agents `roblox-launch-marketing-manager`. Notes: [[ads-and-sponsored-experiences]], [[thumbnails-icons]], [[titles-descriptions]], [[trailers-and-video-marketing]], [[influencer-and-creator-marketing]], [[ads-stats-monetisation-playbook]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -157,7 +157,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Read metrics by cohort, platform and device; change one thing per test and use Experiments for significance.
 - Treat indie CCU, revenue and CTR numbers as unverified; use official benchmarks and [[all-numbers-and-benchmarks]] with their flags.
 
-**Use:** `/roblox-analytics-review`, `/roblox-metrics-benchmarks`; agent `roblox-analytics-reviewer`. Notes: [[retention-d1-d7]], [[analytics-metrics]], [[discovery-algorithm]], [[ab-testing-and-experiments]].
+**Use:** `/roblox-analytics-review`, `/roblox-metrics-benchmarks`; agent `roblox-game-doctor`. Notes: [[retention-d1-d7]], [[analytics-metrics]], [[discovery-algorithm]], [[ab-testing-and-experiments]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 
@@ -218,7 +218,7 @@ Generated from `claude-library/mentor/combined-brain.md` (hand-written spine) pl
 - Check release requirements (age gates, tax and DevEx eligibility) before launch; soft-launch quietly, fix D1, then spend.
 - Protect against burnout; reinvest and diversify income; decide keep versus sell with escrow and due diligence.
 
-**Use:** `/game-dev-plan`, `/game-dev-playtest`, `/roblox-launch-checklist`, `/roblox-publish-checklist`, `/roblox-playtest-checklist`; agents `roblox-studio-lead`, `roblox-tester`, `roblox-playtest-runner`, `roblox-pre-delivery-reviewer`. Notes: [[development-process-and-speed]], [[team-and-budget]], [[playtesting-and-feedback]], [[mindset-and-strategy]], [[business-and-payouts]], [[age-ratings-moderation-and-tos]].
+**Use:** `/game-dev-plan`, `/game-dev-playtest`, `/roblox-launch-checklist`, `/roblox-publish-checklist`, `/roblox-playtest-checklist`; agents `roblox-studio-lead`, `roblox-playtest-runner`, `roblox-pre-delivery-reviewer`. Notes: [[development-process-and-speed]], [[team-and-budget]], [[playtesting-and-feedback]], [[mindset-and-strategy]], [[business-and-payouts]], [[age-ratings-moderation-and-tos]].
 
 **Evidence (top rules, trust-labelled; source topic note in brackets):**
 

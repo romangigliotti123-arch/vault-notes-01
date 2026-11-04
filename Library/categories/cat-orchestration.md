@@ -10,7 +10,7 @@ tags: [moc]
 - [a] [[A--own--haiku-scout|haiku-scout]] - Cheap read-only lookups: find a file/setting, triage a log, check a status, summarise long text. Never edits, 
 - [a] [[A--own--incident-triager|incident-triager]] - Diagnoses a failed or stuck automation job from logs and state, finds the root cause and proposes the smallest
 - [a] [[A--own--library-curator|library-curator]] - Imports, vets, categorizes and de-duplicates third-party skills/agents into the library with licenses recorded
-- [a] [[A--own--mentor-rbxdev-vault|mentor-rbxdev-vault]] - The vault mentor: works alongside the user on whatever job they are doing (designing, scripting, monetising, a
+- [a] [[A--own--mentor-rbxdev-vault|mentor-rbxdev-vault]] - The vault mentor: works alongside the user on any job (designing, scripting, monetising, advertising, running 
 - [a] [[A--own--opus-builder|opus-builder]] - Use ONLY for the toughest builds or architecture (complete game/app from scratch, large multi-file builds, har
 - [a] [[A--own--parallel-audit-fanout|parallel-audit-fanout]] - Orchestrator for open-ended audits of a codebase before release: splits the code into areas, runs one capped p
 - [a] [[A--own--parallel-job-splitter|parallel-job-splitter]] - Splits a large request into independent jobs for parallel workers, assigning model and effort to each and list
@@ -28,7 +28,7 @@ tags: [moc]
 - [s] [[S--own--confirm-first-guard|confirm-first-guard]] - PreToolUse guard hook that makes the 'Always confirm first' list mechanical (publish, send-as-user, security/f
 - [s] [[S--own--job-ledger|job-ledger]] - File-based job ledger, side-effect idempotency keys, hook event log and daily digest for a 24/7 manager (state
 - [s] [[S--own--library-search|library-search]] - How to browse the claude-library cheaply (names, then descriptions, then the file) and use a found agent or sk
-- [s] [[S--own--low-usage-mode-rbxdev-vault|low-usage-mode-rbxdev-vault]] - Keep Claude in low usage mode for the rest of the session and every later one until turned off: cheapest model
+- [s] [[S--own--low-usage-mode-rbxdev-vault|low-usage-mode-rbxdev-vault]] - Keep Claude in low usage mode for this session and every later one until turned off: cheapest model that fits,
 - [s] [[S--own--manager-mode-rbxdev-vault|manager-mode-rbxdev-vault]] - Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model a
 - [s] [[S--own--master-session-hygiene|master-session-hygiene]] - Runbook for keeping a 24/7 master session healthy: compaction thresholds, compact-instructions block, ledger r
 - [s] [[S--own--mentor-rbxdev-vault|mentor-rbxdev-vault]] - Start the vault mentor: a co-pilot with the combined knowledge of every creator in the Roblox Dev Mastery Vaul

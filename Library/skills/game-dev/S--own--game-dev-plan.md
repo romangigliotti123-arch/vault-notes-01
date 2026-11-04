@@ -5,7 +5,7 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/game-dev-plan/SKILL.md"
-description: "Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, assets from <vault>/Assets, libraries, and a vault Library search that picks the skills, agents and models for every job, ending in a routing table (job, skill or agent, model, effort, parallel or serial, budget) with a subagent cap. Only haiku (lookups) and sonnet (default) are used. Use when the user says plan my game, make a build plan, which agents and skills should build this, turn this idea into a plan for Claude, or when game-dev-workflow reaches Stage 4. Callable alone as /game-dev-plan. Kit skill: wins over similar installed skills."
+description: "Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, assets and libraries, and a routing table (job, skill or agent, model, effort, parallel or serial, budget) with a subagent cap. Only haiku (lookups) and sonnet (default) are used."
 orig_name: "game-dev-plan"
 orig_argument_hint: "[idea, or path to docs/elaboration.md and docs/rating.md]"
 tags: [lib/skill, cat/game-dev, src/own]
@@ -13,21 +13,23 @@ tags: [lib/skill, cat/game-dev, src/own]
 
 # game-dev-plan
 
-> Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, assets from <vault>/Assets, libraries, and a vault Library search that picks the skills, agents and models for every job, ending in a routing table (job, skill or agent, model, effort, parallel or serial, budget) with a subagent cap. Only haiku (lookups) and sonnet (default) are used. Use when the user says plan my game, make a build plan, which agents and skills should build this, turn this idea into a plan for Claude, or when game-dev-workflow reaches Stage 4. Callable alone as /game-dev-plan. Kit skill: wins over similar installed skills.
+> Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, assets and libraries, and a routing table (job, skill or agent, model, effort, parallel or serial, budget) with a subagent cap. Only haiku (lookups) and sonnet (default) are used.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-plan/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--game-dev-art-direction]], [[S--own--game-dev-lighting-qa]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-visual-qa]], [[S--own--game-dev-workflow]]
+Related: [[S--own--game-dev-art-direction]], [[S--own--game-dev-lighting-qa]], [[S--own--game-dev-placement-qa]], [[S--own--game-dev-visual-qa]], [[S--own--game-dev-workflow]], [[S--own--roblox-architecture-choice]], [[S--own--roblox-luau-style]]
 
 ---
 # game-dev-plan
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Stage 4 of game-dev-workflow, also standalone. Input: idea + `docs/elaboration.md` + `docs/rating.md` if they exist (if not, make the minimum: 5 vault queries from `../game-dev-workflow/references/elaborate.md`). Output: `game-plan.md` in the PROJECT folder (template `templates/game-plan.md`). Never asks the user anything; guesses become Assumptions.
 
 ## Steps
 1. **Freshness** (`../game-dev-workflow/references/vault-first.md`): `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/freshness.py --pull Library/PICKS.md Manager/Manager-README.md Manager/topic-orchestration-patterns.md Manager/topic-model-effort-routing-cost.md _tools/CHECKLIST-launch` and keep the line.
-2. **Systems and milestones** from the elaboration and rating fixes: list 6-12 systems, each `Build` or `Library` (name only from `roblox-game-ideas` Phase B approved-options list, or `$ASSETS/code` after `$ASSETS/INDEX.md` shows license and path); 4-6 milestones, each with a pass/fail acceptance test a person or a command can observe ("a new tester finishes 3 loops in 5 min; `luau-check.sh` ends clean"), never "works well". Reuse the Phase B template of `roblox-game-ideas` for shape. Always add J00 `game-dev-art-direction` before the first UI/world/effect job and make the last milestone's acceptance test "`game-dev-visual-qa` printed VISUAL GATE: PASS with screenshots" (otherwise the plan's status is `playable prototype, visuals not polished`). Add `game-dev-placement-qa` as the last step of EVERY job that creates, inserts or moves a model ("each placed model has a passing placement report") and a serial full-map placement scan job right before the visual QA job; the acceptance test of the last-but-one milestone is "`placement_gate.py` printed PLACEMENT GATE: PASS".
+2. **Systems and milestones** from the elaboration and rating fixes: list 6-12 systems, each `Build` or `Library` (name only from `roblox-game-ideas` Phase B approved-options list, or `$ASSETS/code` after `$ASSETS/INDEX.md` shows license and path); for a system with shared state, many entities or spawn churn, add the pattern chosen with `roblox-architecture-choice` (one line: OOP, components, store, pool; ECS only with a benchmark); 4-6 milestones, each with a pass/fail acceptance test a person or a command can observe ("a new tester finishes 3 loops in 5 min; `luau-check.sh` ends clean"), never "works well". Reuse the Phase B template of `roblox-game-ideas` for shape. Always add J00 `game-dev-art-direction` before the first UI/world/effect job and make the last milestone's acceptance test "`game-dev-visual-qa` printed VISUAL GATE: PASS with screenshots" (otherwise the plan's status is `playable prototype, visuals not polished`). Add `game-dev-placement-qa` as the last step of EVERY job that creates, inserts or moves a model ("each placed model has a passing placement report") and a serial full-map placement scan job right before the visual QA job; the acceptance test of the last-but-one milestone is "`placement_gate.py` printed PLACEMENT GATE: PASS".
 Lighting in the plan: record the genre preset, the time of day (day, golden, night) and phone-first or both (`game-dev-lighting-qa`); job J00b, right after art direction, applies it with `LightingKit.apply` and every map job builds under it.
 3. **Assets**: ASSETS = env `ROBLOX_ASSETS`, else `<vault>/Assets` (vault = `$CLAUDES_VAULT` or `~/Obsidian/claudes-vault`), else `~/roblox-assets` (`kbq.py where` prints it). If present read `$ASSETS/INDEX.md` head and `rg -il "<need>" $ASSETS/catalog | head`; list per need: pack, license, path, or `none: self-made`. If the folder is missing say "assets not synced (run /update-rbxdev-vault)" and list needs only; never invent asset ids.
 4. **Search the vault Library for skills, agents, models** (the point of this stage). Do these, small output each:
@@ -46,3 +48,8 @@ Never put a model other than haiku/sonnet in any table or brief. Every skill or 
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says plan my game, make a build plan, which agents and skills should build this, turn this idea into a plan for Claude, or when game-dev-workflow reaches Stage 4.

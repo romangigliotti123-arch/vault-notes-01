@@ -17,10 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-ui-responsive/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--game-dev-art-direction]], [[S--own--game-dev-visual-qa]]
+Related: [[S--own--game-dev-art-direction]], [[S--own--game-dev-visual-qa]], [[S--own--roblox-luau-style]]
 
 ---
 # Responsive Roblox UI
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 Most Roblox players are on phones. Design for a phone first, then enlarge.
 

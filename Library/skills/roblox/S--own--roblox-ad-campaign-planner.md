@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/roblox-ad-campaign-planner/SKILL.md"
-description: "Plans a Roblox sponsored-experience ad test with a readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, with arithmetic done by a calculator and every rule sourced from the Roblox knowledge base. Use when the user asks to plan, budget or evaluate Roblox ads, \"plan a $100 ad test\", whether a game is ready for ads, or when to stop ads. Plans only; never runs or pays for ads."
+description: "Plans a Roblox sponsored-experience ad test: readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, arithmetic by calculator, every rule sourced from the knowledge base. Use to plan, budget or evaluate Roblox ads ('plan a $100 ad test', 'is my game ready for ads', 'when to stop'). Plans only; never runs or pays for ads."
 orig_name: "roblox-ad-campaign-planner"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # roblox-ad-campaign-planner
 
-> Plans a Roblox sponsored-experience ad test with a readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, with arithmetic done by a calculator and every rule sourced from the Roblox knowledge base. Use when the user asks to plan, budget or evaluate Roblox ads, "plan a $100 ad test", whether a game is ready for ads, or when to stop ads. Plans only; never runs or pays for ads.
+> Plans a Roblox sponsored-experience ad test: readiness gate, budget and duration, day-by-day checkpoints, creative test matrix and stop rules, arithmetic by calculator, every rule sourced from the knowledge base. Use to plan, budget or evaluate Roblox ads ('plan a $100 ad test', 'is my game ready for ads', 'when to stop'). Plans only; never runs or pays for ads.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-ad-campaign-planner/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -59,3 +59,8 @@ Evidence table: claim | link | flag | date
 - Dollar figures from indie creators are self-reported; label them. Official docs and the live Ads Manager UI override.
 - Roblox guidance in the KB: run at least 1-2 weeks, judge after 3-5 days minimum; do not run a 1-2 day test and judge it.
 - Never present ROAS or play forecasts as promises.
+
+
+## Triggers (moved out of the description)
+
+Use when the user asks to plan, budget or evaluate Roblox ads, "plan a $100 ad test", whether a game is ready for ads, or when to stop ads.

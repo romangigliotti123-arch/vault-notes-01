@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Source: own
 
-License: first-party. 121 items. Back: [[_Home]]
+License: first-party. 117 items. Back: [[_Home]]
 
 ## Items
 
@@ -75,13 +75,10 @@ License: first-party. 121 items. Back: [[_Home]]
 - [[S--own--report-reading-protocol|report-reading-protocol]]
 - [[S--own--research-method|research-method]]
 - [[S--own--roblox-ad-campaign-planner|roblox-ad-campaign-planner]]
-- [[A--own--roblox-ad-creative-planner|roblox-ad-creative-planner]]
-- [[S--own--roblox-ad-thumbnail-brief|roblox-ad-thumbnail-brief]]
 - [[S--own--roblox-analytics-review|roblox-analytics-review]]
-- [[A--own--roblox-analytics-reviewer|roblox-analytics-reviewer]]
+- [[S--own--roblox-architecture-choice|roblox-architecture-choice]]
 - [[S--own--roblox-asset-finder|roblox-asset-finder]]
 - [[A--own--roblox-audit-fanout|roblox-audit-fanout]]
-- [[A--own--roblox-builder|roblox-builder]]
 - [[S--own--roblox-code-rate|roblox-code-rate]]
 - [[S--own--roblox-datastore-safe-save|roblox-datastore-safe-save]]
 - [[A--own--roblox-economy-designer|roblox-economy-designer]]
@@ -113,7 +110,6 @@ License: first-party. 121 items. Back: [[_Home]]
 - [[S--own--roblox-round-based-game-loop|roblox-round-based-game-loop]]
 - [[S--own--roblox-studio-connect|roblox-studio-connect]]
 - [[A--own--roblox-studio-lead|roblox-studio-lead]]
-- [[A--own--roblox-tester|roblox-tester]]
 - [[S--own--roblox-thumbnail-brief|roblox-thumbnail-brief]]
 - [[S--own--roblox-trend-research|roblox-trend-research]]
 - [[S--own--roblox-ui-responsive|roblox-ui-responsive]]

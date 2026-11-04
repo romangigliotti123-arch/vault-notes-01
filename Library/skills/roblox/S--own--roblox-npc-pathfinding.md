@@ -17,8 +17,12 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/roblox-npc-pathfinding/SKILL.md` (extra files, if any, sit beside it in the repo)
 
+Related: [[S--own--roblox-luau-style]]
+
 ---
 # Roblox NPC and pathfinding
+
+Code comments: none by default (see roblox-luau-style, Comments).
 
 1. Model: Humanoid-based rig (R15/R6) or a custom anchored mover. For many NPCs prefer a lightweight mover; Humanoids are costly in numbers.
 2. Server owns the NPC. Call `rootPart:SetNetworkOwner(nil)` so a nearby player's client does not drive it (and exploiters cannot).
