@@ -3,6 +3,8 @@
 Read by `rbx-judge` only for the factors the stage scores. Each line is a check with a number or a gotcha; DR = `Roblox/roblox-kb/_tools/DECISION-RULES.md` (topic in brackets). Trust: official or mixed (official and creators agree) only. A failed check with no cited exception caps that factor at 5; a pass is evidence for 7+. Re-check fast-moving numbers with `kbq.py` before quoting. Patterns only, never copy a game.
 Run a check only where the stage's evidence can show it. At the idea stage a detail the plan has not had to decide yet (pixel sizes, API names, texture caps) is a "to specify" note, not a cap; a plan that contradicts a check (a pay-to-win pass, paid randomness aimed at kids) is a fail. "Rescue from loss" = a loss the design engineers to sell the fix (spiked difficulty, pressure timer, lost-gear ransom); cheap optional revives in a fair game free players can finish are an F7 note, not a cap.
 
+Order: spec compliance (each acceptance line met, with evidence) is judged before style or polish; style never lifts a failed spec check. [cold:rbx-workflow/rulings.md] read only for the review-order rationale.
+
 ## F1 first 30 seconds
 - Time the first action from AFTER the age-check/ID step; that step is pre-play friction, not tutorial time (official 2026-01; DR first-session-onboarding).
 - Start currency is about 10 coins and the first purchase is reachable inside the first session (official; DR first-session-onboarding).

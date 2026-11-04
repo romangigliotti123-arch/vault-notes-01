@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """code_gates.py: the single runner of the code gates (stdlib only). One call, one line of result.
 
-  python code_gates.py <project folder> [--game ID] [--scorer builder|critic] [--write GAME_FOLDER] [--strict]
+  python code_gates.py <project folder> [--game ID] [--scorer builder|critic] [--write GAME_FOLDER] [--report FILE] [--strict]
 
 Runs, in this order: comment_scan (CM1-CM3), scope_scan (SC1-SC5), static_scan --gate (SEC1-SEC5), the fix-loop ledger check (FL1: every
-GAME_FOLDER/bugfix/<id>.md has a RED and a GREEN block) and tune_check (TN1-TN6, only when a tune/ folder or an unmeasured tuning claim exists).
+GAME_FOLDER/bugfix/<id>.md has a RED and a GREEN block), tune_check (TN1-TN6, only when a tune/ folder or an unmeasured tuning claim exists), the token-triggered
+checks of static_scan --triggers (TR1-TR4: SE-n leads by severity) and, with --report FILE, evidence_scan (EV1-EV3: hedge words and claims without evidence in that report).
 Prints one line, for example
-  CODE GATES: comment 9.2 pass | scope 8.1 pass | security 6.0 FAIL(2 S1) | fixes 10.0 pass | tune n/a
-and the worst findings under it. With --write GAME_FOLDER each gate saves its gate.json (comment-scan/, scope-scan/, security-scan/, bugfix/, tune/) where
+  CODE GATES: comment 9.2 pass | scope 8.1 pass | security 6.0 FAIL(2 S1) | fixes 10.0 pass | tune n/a | triggers 8.5 pass | evidence n/a
+and the worst findings under it. With --write GAME_FOLDER each gate saves its gate.json (comment-scan/, scope-scan/, security-scan/, bugfix/, tune/, trigger-scan/, evidence-scan/) where
 rbx-bench finds it, plus GAME_FOLDER/code-gates/run.json, the proof that the gates ran (scorer, time, per-gate score). Policy: the findings are SCORED and
 never block; "not run" is what verdict.py caps (at most NOT YET, `playable prototype, code gates not run`). The builder runs it with --scorer builder
 before reporting; the critic runs its own with --scorer critic. Exit 0 unless --strict.
@@ -68,7 +69,7 @@ def put(folder, sub, rec):
         fh.write("\n")
 
 
-def run(project, game=None, scorer="critic", folder=None):
+def run(project, game=None, scorer="critic", folder=None, report=None):
     recs, missing = {}, []
     cs = load("comment_scan", HERE)
     if cs:
@@ -85,6 +86,11 @@ def run(project, game=None, scorer="critic", folder=None):
         recs["security"] = ("security-scan", ss.gate(project, game, scorer))
     else:
         missing.append("security")
+    if ss and hasattr(ss, "trigger_gate"):
+        recs["triggers"] = ("trigger-scan", ss.trigger_gate(project, game, scorer))
+    es = load("evidence_scan", HERE)
+    if es and report and os.path.isfile(report):
+        recs["evidence"] = ("evidence-scan", es.build(open(report, encoding="utf-8", errors="replace").read(), game, scorer))
     if folder:
         fg = fix_gate(folder, game, scorer)
         if fg:
@@ -95,7 +101,7 @@ def run(project, game=None, scorer="critic", folder=None):
             if found:
                 recs["tune"] = ("tune", tg)
     parts = []
-    for name in ("comment", "scope", "security", "fixes", "tune"):
+    for name in ("comment", "scope", "security", "fixes", "tune", "triggers", "evidence"):
         if name not in recs:
             parts.append("%s %s" % (name, "NOT RUN" if name in missing else "n/a"))
             continue
@@ -122,9 +128,9 @@ def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
         return 0
-    opts, paths, i = {"game": None, "scorer": "critic", "write": None}, [], 0
+    opts, paths, i = {"game": None, "scorer": "critic", "write": None, "report": None}, [], 0
     while i < len(argv):
-        if argv[i] in ("--game", "--scorer", "--write"):
+        if argv[i] in ("--game", "--scorer", "--write", "--report"):
             opts[argv[i][2:]] = argv[i + 1]
             i += 2
             continue
@@ -134,7 +140,7 @@ def main(argv):
     if not paths or not os.path.exists(paths[0]):
         print("give the project folder", file=sys.stderr)
         return 2
-    line, recs = run(paths[0], opts["game"], opts["scorer"], opts["write"])
+    line, recs = run(paths[0], opts["game"], opts["scorer"], opts["write"], opts["report"])
     print(line)
     worst = []
     for _, (_, rec) in recs.items():

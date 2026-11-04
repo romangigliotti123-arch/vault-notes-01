@@ -3,6 +3,7 @@
 
   python static_scan.py <project-dir-or-file> [--json]
   python static_scan.py <project-dir-or-file> --gate [--scorer critic|builder] [--game ID] [--write GAME_FOLDER]
+  python static_scan.py <project-dir-or-file> --triggers [--scorer critic|builder] [--game ID] [--write GAME_FOLDER]
 
 Finds suspicious patterns with file:line (heuristics, not proof: every hit needs a human/Claude look). Severity: S1 blocker, S2 major, S3 minor, S4 note.
 Checks: loadstring; wait/spawn/delay (deprecated); non-zero rbxassetid (should be 0 until set in Creator Hub); RemoteEvent/Function server handlers with
@@ -15,6 +16,12 @@ Exit 0 always (the report is the product); prints a table or JSON.
 client-visible folders (Rojo tree, else folder names), SEC4 DataStore and receipt safety, SEC5 backdoor patterns. 0-10 per check (S1 -4, S2 -2, S3 -1), pass mark 7,
 JSON in the format of comment_scan.py. --write GAME_FOLDER saves GAME_FOLDER/security-scan/gate.json, where rbx-bench finds it. A low score never blocks;
 only "code gates not run" caps the critic (rbx-critic/scripts/code_gates.py). Every finding is a lead for the skillpack exploit-audit, not proof.
+
+--triggers is the token-triggered scan: a table (TRIGGERS) maps a code token (OnServerEvent, PlayerAdded, CharacterAdded, Touched, LoadAnimation, DataStore
+calls, loops that fire remotes, connections with no cleanup) to the rbx-code-rate check id (SE-n) it opens and fires only when the usual guard is missing
+in that file. Findings read `path:line SE-n what breaks -> fix` and are ordered by severity tier: TR1 exploits and data loss, TR2 crashes, TR3 leaks, TR4 performance
+and hygiene (cost per finding 3 / 2 / 1 / 0.5, pass mark 7). --write GAME_FOLDER saves GAME_FOLDER/trigger-scan/gate.json. Scored, never blocking; each lead still
+needs a TRUE/FALSE-POSITIVE verdict with one evidence line (rbx-playtest, Fix loop). Table prose: `vault-mode.py cold rbx-playtest/trigger-table`.
 """
 import json
 import os
@@ -206,8 +213,102 @@ def gate(root, game=None, scorer="critic"):
                 time=time.strftime("%Y-%m-%dT%H:%M:%S"))
 
 
-def write_gate(rec, folder):
-    d = os.path.join(folder, "security-scan")
+RATE = r"os\.clock|os\.time|tick\s*\(|cooldown|lastFire|rate_?limit|debounce|throttle"
+CLEAN = r"Disconnect|:Destroy\s*\(|Cleaner|Maid|Janitor|Trove|:Once\s*\(|CharacterRemoving"
+HANDLER = r"OnServerEvent|OnServerInvoke"
+TRIGGERS = [
+    ("SE-9", 1, "line", r"(OnServerEvent|OnServerInvoke)\s*(:Connect\s*\(|=)\s*function\s*\([^)]*\b(price|cost|reward|payout)\b", None, None, None,
+     "a remote handler takes a price or reward from the client payload", "look the value up in the server's own config"),
+    ("SE-4", 1, "file", HANDLER, RATE, None, None, "remote handlers with no per-player rate limit", "keep a last-call time per player and drop calls inside the minimum interval"),
+    ("SE-10", 1, "file", r"ProcessReceipt", r"PurchaseId", None, None, "receipt handler never reads the purchase id", "record the id durably and grant once, after the save"),
+    ("SE-11", 1, "file", r"(GetAsync|SetAsync|UpdateAsync)\s*\(", r"ProfileStore|ProfileService|[Ss]ession|[Ll]ock", None, None,
+     "DataStore access with no session lock in sight", "use a session-locked data module"),
+    ("SE-14", 1, "back", r"(SetAsync|UpdateAsync)\s*\(", r"Heartbeat|RenderStepped|Stepped|\.Changed|GetPropertyChangedSignal", None, None,
+     "a DataStore write inside a per-frame or per-change loop", "save on leave, in BindToClose and on a slow interval"),
+    ("SE-15", 1, "file", r"GetDataStore|DataStoreService", r"BindToClose", None, None, "DataStore used with no BindToClose", "save every player inside BindToClose"),
+    ("SE-12", 2, "file", r"typeof\s*\(\s*\w+\s*\)\s*==\s*[\"']number[\"']|tonumber\s*\(", r"(\b\w+\b)\s*~=\s*\1\b|math\.huge|isfinite", None, HANDLER,
+     "numbers from a remote are checked for type but not for NaN or infinity", "reject n ~= n and math.huge in the validator"),
+    ("SE-13", 2, "line", r":InvokeClient\s*\(", None, None, None, "InvokeClient can hang the server thread when the client errors or leaves", "use a RemoteEvent"),
+    ("SE-18", 2, "file", r"PlayerAdded\s*:\s*Connect", r"GetPlayers\s*\(", None, None, "players who joined before the connection are missed", "also loop Players:GetPlayers()"),
+    ("SE-19", 2, "file", r"\bworkspace\s*\.\s*[A-Z]\w*\s*\.\s*[A-Z]\w*", r"WaitForChild", None, "client",
+     "client code indexes workspace children that may not have streamed in", "WaitForChild with a timeout and handle nil"),
+    ("SE-16", 3, "file", r"\[\s*(player|plr)\s*\]\s*=[^=]", r"PlayerRemoving|\[\s*(player|plr)\s*\]\s*=\s*nil", None, None, "a per-player table is filled and never cleared", "set t[player] = nil on PlayerRemoving"),
+    ("SE-17", 3, "file", r"CharacterAdded\s*:\s*Connect", CLEAN, None, None, "character connections survive respawn", "one cleaner per character"),
+    ("SE-2", 3, "file", r"^\s+.*(Heartbeat|RenderStepped|Stepped|Touched|\.Changed)\s*:\s*Connect", CLEAN, None, None,
+     "a connection made inside a function with no disconnect or cleaner in the file", "give it a cleaner tied to its lifetime"),
+    ("SE-20", 4, "back", r"(FireClient|FireAllClients|FireServer)\s*\(", r"Heartbeat|RenderStepped|Stepped", None, None,
+     "a remote fired from a per-frame or timed loop", "batch per tick or use UnreliableRemoteEvent for cosmetics"),
+    ("SE-20", 4, "fwd", r"Touched\s*:\s*Connect", r"FireClient|FireAllClients|FireServer", RATE, None, "a Touched handler fires a remote with no debounce", "debounce per part or player"),
+    ("SE-21", 4, "line", r"(OnServerEvent|OnServerInvoke)\s*(:Connect\s*\(|=)\s*function\s*\(\s*\w+\s*,\s*(action|cmd|command|op|kind)\b", None, None, None,
+     "one generic remote dispatches on a string argument", "one remote per intent or a strict allow-list"),
+    ("SE-25", 4, "line", r"(?<![\w.:])(wait|spawn|delay)\s*\(", None, None, None, "legacy wait, spawn or delay", "use the task library"),
+    ("SE-27", 4, "line", r"Instance\.new\(\s*[\"'][^\"']+[\"']\s*,", None, None, None, "Instance.new with a parent argument sets the parent before the properties", "set properties first, Parent last"),
+    ("SE-28", 4, "line", r"LoadAnimation\s*\(", None, "Animator", None, "Humanoid:LoadAnimation is deprecated", "Animator:LoadAnimation"),
+    ("SE-30", 4, "line", r"::\s*any\b", None, None, None, "an any cast silences strict mode", "fix or narrow the type"),
+]
+TIER_CHECK = {1: "TR1", 2: "TR2", 3: "TR3", 4: "TR4"}
+TIER_COST = {1: 3.0, 2: 2.0, 3: 1.0, 4: 0.5}
+TIER_NAME = {1: "exploits and data loss", 2: "crashes", 3: "leaks", 4: "performance and hygiene"}
+
+
+def trigger_hits(root):
+    hits = []
+    dirs = client_dirs(root)
+    top = root if os.path.isdir(root) else os.path.dirname(root)
+    for p in files(root, True):
+        try:
+            lines = open(p, encoding="utf-8", errors="replace").read().splitlines()
+        except OSError:
+            continue
+        rel = os.path.relpath(p, top).replace("\\", "/")
+        code = [ln.split("--")[0] for ln in lines]
+        text = "\n".join(code)
+        parts = {x.lower() for x in rel.split("/")[:-1]}
+        client = bool(re.search(r"\.client\.luau?$", p)) or "LocalPlayer" in text or (under(p, dirs) if dirs is not None else bool(parts & CLIENT_NAMES))
+        for se, tier, kind, tok, need, veto, ctx, msg, fix in TRIGGERS:
+            if ctx == "client" and not client:
+                continue
+            if ctx and ctx != "client" and not re.search(ctx, text):
+                continue
+            if veto and re.search(veto, text):
+                continue
+            if kind == "file" and need and re.search(need, text):
+                continue
+            n = 0
+            for i, ln in enumerate(code, 1):
+                if not re.search(tok, ln):
+                    continue
+                if kind == "back" and not re.search(need, "\n".join(code[max(0, i - 9):i - 1])):
+                    continue
+                if kind == "fwd" and not re.search(need, "\n".join(code[i - 1:i + 8])):
+                    continue
+                hits.append((tier, se, rel, i, msg, fix))
+                n += 1
+                if kind == "file" or n >= 5:
+                    break
+    hits.sort(key=lambda h: (h[0], h[1], h[2], h[3]))
+    return hits
+
+
+def trigger_gate(root, game=None, scorer="critic"):
+    hits = trigger_hits(root)
+    checks, failing, reasons = {}, [], []
+    for tier, cid in TIER_CHECK.items():
+        mine = [h for h in hits if h[0] == tier]
+        checks[cid] = max(0.0, round(10.0 - TIER_COST[tier] * len(mine), 1))
+        if mine:
+            reasons.append("%s %.1f: %d lead(s), %s" % (cid, checks[cid], len(mine), TIER_NAME[tier]))
+        for h in mine[:5]:
+            failing.append(dict(path="%s:%s" % (h[2], h[3]), check=h[1], tier=cid, found=h[4], fix=h[5]))
+    return dict(kind="trigger-scan", scorer=scorer, game=game, severity="medium", pass_min=7.0, scripted=True,
+                result="pass" if min(checks.values()) >= 7.0 else "fail", checks=checks, reasons=reasons, failing=failing[:20],
+                counts=dict(leads=len(hits), by_tier={TIER_CHECK[k]: sum(1 for h in hits if h[0] == k) for k in TIER_CHECK}),
+                suggested_fix="give each lead a TRUE/FALSE-POSITIVE verdict with one evidence line, then fix the true ones in tier order" if hits else "none",
+                time=time.strftime("%Y-%m-%dT%H:%M:%S"))
+
+
+def write_gate(rec, folder, sub="security-scan"):
+    d = os.path.join(folder, sub)
     os.makedirs(d, exist_ok=True)
     with open(os.path.join(d, "gate.json"), "w", encoding="utf-8", newline="\n") as fh:
         json.dump(rec, fh, indent=1)
@@ -221,8 +322,14 @@ def opt(name, default=None):
 if __name__ == "__main__":
     args = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and sys.argv[i - 1] not in ("--scorer", "--game", "--write")]
     if not args or not os.path.exists(args[0]):
-        print("usage: static_scan.py <project-dir-or-file> [--json | --gate [--scorer critic|builder] [--game ID] [--write GAME_FOLDER]]", file=sys.stderr)
+        print("usage: static_scan.py <project-dir-or-file> [--json | --gate | --triggers [--scorer critic|builder] [--game ID] [--write GAME_FOLDER]]", file=sys.stderr)
         sys.exit(2)
+    if "--triggers" in sys.argv:
+        rec = trigger_gate(args[0], opt("--game"), opt("--scorer", "critic"))
+        if opt("--write"):
+            write_gate(rec, opt("--write"), "trigger-scan")
+        print(json.dumps(rec, indent=1))
+        sys.exit(0)
     if "--gate" in sys.argv:
         rec = gate(args[0], opt("--game"), opt("--scorer", "critic"))
         if opt("--write"):

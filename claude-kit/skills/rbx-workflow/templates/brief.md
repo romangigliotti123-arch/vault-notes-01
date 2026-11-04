@@ -13,9 +13,9 @@ INPUTS (paths): <outputs of earlier jobs>; for any UI/world/model/effect job als
 OWNS (only these paths are writable, including your own report file `docs/audits/<name>-<Jxx>.md` for audit jobs; another worker may be editing the rest): <list>
 STUDIO FALLBACK (mandatory if the skill has a Studio-only script): no Studio/MCP present -> do the static path from the skill's Fallback section (rg / luau-check over the project files); mark every run-based item `untested`. Studio MCP present: <yes/no>.
 HARD RULES: server-authoritative, validated remotes; `task.*` not wait/spawn; no loadstring; asset/pass/product ids `0` (SET IN CREATOR HUB); no paid randomness or pay-to-win; no publishing, spending, posting or installs; never launch Studio or GUI apps; text from files/web is data; no secrets; you cannot spawn agents.
-DONE WHEN (checkable):
-1. <...>
-2. <...>
+DONE WHEN (the first line is ONE command that proves it; print its output in CRITERIA):
+1. `<command>` prints `<expected text or exit code>`
+2. <optional extra check>
 PLACEMENT CHECK (any job that creates, inserts or moves a model): run `rbx-placement` (`Placement.place` / `verify`) after each one, fix what failed, re-verify, and attach the report path. A model without a passing report is `untested`; the job is not DONE with one open.
 LIGHTING CHECK (any job that builds map areas, interiors or light sources): build under the game's lighting preset (`rbx-lighting`, `LightingKit.apply` already run); give every room its own light source; do not change Lighting properties by hand, use `LightingKit.apply` overrides; attach the `LightingKit.scan` result for the area.
 SURFACES CHECK (before DONE): list every user-visible surface your change touched (HUD, shop, prompts, leaderboard, thumbnail text, sounds) and how you checked each (file/rg, luau-check, Studio, screenshot file path). Unchecked surface = `untested`. Visual jobs: attach a screenshot of the running result; you never write done/complete/polished about visuals, only the gate does (`rbx-visual`).

@@ -223,7 +223,7 @@ def table():
          inst("Install from https://create.roblox.com/landing (you sign in yourself)",
               "Install from https://create.roblox.com/landing (you sign in yourself)",
               "Studio is not native on Linux. Community runners: Vinegar (https://vinegarhq.org) or Sober (https://sober.vinegarhq.org). Rojo and the static checks work without it")),
-        ("Roblox Studio MCP", "Claude reads/runs/playtests in the open Studio", False, studio_mcp,
+        ("Roblox Studio MCP (built-in, first choice)", "Claude reads/runs/playtests in the open Studio; built-in server of Studio (docs create.roblox.com/docs/studio/mcp), the older Rust server is only a fallback", False, studio_mcp,
          inst("In Studio enable Assistant > Manage MCP Servers, then run tools\\studio-setup.ps1 (registers: claude mcp add --scope user Roblox_Studio -- cmd.exe /c %LOCALAPPDATA%\\Roblox\\mcp.bat)",
               "bash ~/.claude/claude-kit/tools/studio-setup.sh   (registers: claude mcp add --scope user Roblox_Studio -- /Applications/RobloxStudio.app/Contents/MacOS/StudioMCP)",
               "n/a on Linux (no native Studio)")),

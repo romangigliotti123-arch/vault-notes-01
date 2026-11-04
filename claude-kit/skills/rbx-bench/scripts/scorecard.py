@@ -54,7 +54,7 @@ GATE_RUN = {
     "placement": "Run rbx-placement: Placement.scan over the whole map, then placement_gate.py ingest <console output> --write Games/<slug> --scorer critic.",
     "critic": "Run rbx-critic: its own gate scans, then verdict.py <input.json> --write Games/<slug> so critic/<date>-<stage>.md exists.",
     "lighting": "Run rbx-lighting and keep its gate record in lighting-qa/.",
-    "code-gates": "Run python <skills>/rbx-critic/scripts/code_gates.py <project> --scorer critic --write Games/<slug>: it writes comment-scan, scope-scan, security-scan, bugfix and code-gates/run.json.",
+    "code-gates": "Run python <skills>/rbx-critic/scripts/code_gates.py <project> --scorer critic --write Games/<slug>: it writes comment-scan, scope-scan, security-scan, trigger-scan, bugfix and code-gates/run.json (add --report <final report> for evidence-scan).",
     "spec": "Fill benchmark-scores.json (features, rubric B1-B7 with evidence) from the standard test game card, then collect again with --spec.",
 }
 FIXES = {
