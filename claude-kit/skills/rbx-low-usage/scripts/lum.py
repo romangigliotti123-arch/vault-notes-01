@@ -84,8 +84,10 @@ def write_settings(path, data):
 
 def hooks_present(data):
     out = {}
+    hk = data.get("hooks")
+    hk = hk if isinstance(hk, dict) else {}
     for ev in ("UserPromptSubmit", "SessionStart"):
-        groups = (data.get("hooks") or {}).get(ev) or []
+        groups = hk.get(ev) or []
         out[ev] = any(is_ours(h) for g in groups if isinstance(g, dict) for h in (g.get("hooks") or []))
     return out
 

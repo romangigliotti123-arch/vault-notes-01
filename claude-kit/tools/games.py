@@ -66,8 +66,15 @@ def read(p):
 
 def write(p, txt):
     os.makedirs(os.path.dirname(p), exist_ok=True)
-    with open(p, "w", encoding="utf-8", newline="\n") as f:
+    tmp = "%s.%d.tmp" % (p, os.getpid())
+    with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         f.write(txt)
+    try:
+        os.replace(tmp, p)
+    except OSError:
+        with open(p, "w", encoding="utf-8", newline="\n") as f:
+            f.write(txt)
+        os.remove(tmp)
 
 
 def fm_of(text):

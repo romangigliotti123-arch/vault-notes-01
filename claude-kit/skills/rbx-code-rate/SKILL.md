@@ -1,6 +1,6 @@
 ---
 name: rbx-code-rate
-description: "Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploitable remotes or data-loss bugs, scripted total, ordered fixes."
+description: "Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server authority, exploits, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploits, scripted total, fixes."
 argument-hint: "<script path or folder> [what it does]"
 ---
 

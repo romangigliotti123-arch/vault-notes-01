@@ -125,7 +125,11 @@ def _names_to_redact():
         if os.environ.get(k):
             out.add(os.environ[k])
     skip = {"user", "users", "admin", "root", "administrator", "guest", "default", "pc", "home", "test", "localhost", "runner", "docker", "ubuntu", "claude"}
-    return sorted({n for n in out if n and len(n) >= 3 and n.lower() not in skip and re.match(r"^[\w.-]+$", n)}, key=len, reverse=True)
+    try:
+        out.add(os.path.basename(os.path.expanduser("~")))
+    except Exception:
+        pass
+    return sorted({n.strip() for n in out if n and len(n.strip()) >= 3 and n.strip().lower() not in skip and re.match(r"^[\w.-]+( [\w.-]+)*$", n.strip())}, key=len, reverse=True)
 
 
 RX_WINHOME = re.compile(r"(?i)[A-Z]:[\\/]+Users[\\/]+[^\\/\s\"'`<>|:*?)\]]+")
@@ -135,9 +139,20 @@ RX_EMAIL = re.compile(r"(?<![\w.%+-])([A-Za-z0-9._%+-]+)@([A-Za-z0-9-]+(?:\.[A-Z
 RX_IP = re.compile(r"(?<![\w.])(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})(?![\w]|\.\d)")
 
 
+def sub_home(name, text, n):
+    rx = re.compile(r"(?i)(?:[A-Z]:[\\/]+Users[\\/]+|(?<![\w.])/(?:Users|home)/)" + re.escape(name) + r"(?![\w-])")
+    text, k = rx.subn("~", text)
+    if k:
+        n["home-path"] += k
+    return text
+
+
 def redact(text):
     """-> (text, Counter of what was replaced). Personal/machine details are replaced, never kept."""
     n = collections.Counter()
+    for name in _names_to_redact():
+        if " " in name:
+            text = sub_home(name, text, n)
 
     def sub(rx, rep, t, key, fn=None):
         def r(m):
@@ -202,9 +217,14 @@ def jaccard(a, b):
     return len(a & b) / float(len(a | b))
 
 
+RESERVED = {"con", "prn", "aux", "nul"} | {"com%d" % i for i in range(1, 10)} | {"lpt%d" % i for i in range(1, 10)}
+
+
 def slugify(title, n=60):
     s = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
     s = s[:n].strip("-")
+    if s in RESERVED:
+        s += "-note"
     return s or "note"
 
 
@@ -251,7 +271,7 @@ def validate_fields(n):
     out = []
     if not (TITLE_MIN <= len(n["title"]) <= TITLE_MAX) or "\n" in n["title"]:
         out.append(("title-length", "title must be %d-%d characters on one line" % (TITLE_MIN, TITLE_MAX)))
-    if not TOPIC_RX.match(n["topic"]):
+    if not TOPIC_RX.match(n["topic"]) or any(seg in RESERVED for seg in n["topic"].split("/")):
         out.append(("topic-format", "topic must be 1-3 lowercase segments like roblox/ui or windows/powershell"))
     if n["confidence"] not in CONFIDENCE_OK:
         out.append(("confidence", "confidence must be high or medium (guesses are not recorded)"))
@@ -671,6 +691,11 @@ def cmd_status(a):
 
 
 def main(argv=None):
+    for st in (sys.stdout, sys.stderr):
+        try:
+            st.reconfigure(errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser(prog="learn.py", description="record verified findings and send them to the vault-learnings inbox")
     ap.add_argument("--queue")
     sp = ap.add_subparsers(dest="cmd")

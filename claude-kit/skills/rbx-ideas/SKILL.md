@@ -1,6 +1,6 @@
 ---
 name: rbx-ideas
-description: "Generates, scores and plans Roblox game concepts for a solo or small team: optional seed, patterns from rbx-trends, 8 candidates scored on a fixed rubric, top three presented, the chosen one expanded into a build plan (systems, milestones with acceptance tests, first three tasks)."
+description: "Generates, scores and plans Roblox game concepts for a solo or small team ('what should I build next'): patterns from rbx-trends, 8 candidates on a fixed rubric, top three, the chosen one expanded into a build plan (systems, milestones with acceptance tests, first three tasks)."
 ---
 
 # Roblox game ideas

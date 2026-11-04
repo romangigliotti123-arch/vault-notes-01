@@ -1,6 +1,6 @@
 ---
 name: rbx-rojo
-description: "Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau can be edited and reviewed as plain files. Use when starting a Roblox project that Claude should edit outside Studio."
+description: "Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau lives as plain files under version control, edited and reviewed outside Studio. Use for project structure, where scripts live, git or VS Code with Roblox."
 ---
 
 # Roblox Rojo project setup

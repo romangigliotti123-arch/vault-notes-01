@@ -314,6 +314,11 @@ def remove_file(path):
 
 
 def main():
+    for st in (sys.stdout, sys.stderr):
+        try:
+            st.reconfigure(errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser(description="Sync <vault>/Assets from the public vault-assets repositories (or the owner's share).")
     ap.add_argument("--vault", required=True)
     ap.add_argument("--base", action="append", help="base URL (repeatable or comma separated): the vault-kit raw URL or the website (they list the asset sources in repos.json), or the private share; default: the built-in list")
@@ -426,7 +431,10 @@ def rmtree_force(path):
         except OSError:
             pass
     if os.path.lexists(fs(path)):
-        shutil.rmtree(fs(path), onerror=onerr)
+        if sys.version_info >= (3, 12):
+            shutil.rmtree(fs(path), onexc=onerr)
+        else:
+            shutil.rmtree(fs(path), onerror=onerr)
 
 
 def download_zip(base, name, sha, cache_dir, verbose):

@@ -1,6 +1,6 @@
 ---
 name: rbx-workflow
-description: "Flagship Roblox game workflow, the single entry for every game: finds or creates Games/<game>/, detects the real stage from evidence, resumes the next step, manages specialist workers. A critic must say GOOD before a stage advances; never done without visual, placement and lighting gates."
+description: "Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<game>/, detects the stage from evidence, resumes the next step, runs workers. A critic must say GOOD before a stage advances; not done without visual, placement and lighting gates."
 argument-hint: "[your game idea, or leave empty]"
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: rbx-playtest
-description: "Playtests a Roblox game: bug and feel report with severities and fixes; fixes bugs red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of the first 30 seconds and core loop. Never launches Studio or a GUI app."
+description: "Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of first 30 seconds, core loop. Never launches Studio or GUI apps."
 argument-hint: "[project folder, default current folder]"
 ---
 

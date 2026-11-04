@@ -1,6 +1,6 @@
 ---
 name: rbx-monetize-audit
-description: "Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium, ProcessReceipt security, pay-to-win and RNG risks) against the knowledge-base checklist: scorecard, fixes, three price experiments."
+description: "Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium, ProcessReceipt security, pay-to-win and RNG risks) against the knowledge-base checklist: scorecard, fixes, three price experiments. Use to check what you sell and how it is priced."
 ---
 
 # Roblox monetisation audit

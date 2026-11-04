@@ -14,6 +14,7 @@ param([string]$KitHome = $(if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } el
 $ErrorActionPreference = 'Stop'
 $Kit = Split-Path -Parent $MyInvocation.MyCommand.Path
 $C = Join-Path $KitHome '.claude'
+if (-not $PSBoundParameters.ContainsKey('KitHome') -and -not $env:CLAUDE_KIT_HOME -and $env:CLAUDE_CONFIG_DIR) { $C = $env:CLAUDE_CONFIG_DIR }
 $Man = Join-Path $C 'claude-kit\installed.tsv'
 function Sha([string]$p) { (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() }
 
@@ -30,7 +31,7 @@ if (Test-Path -LiteralPath $Man) {
   foreach ($l in [IO.File]::ReadAllLines($Man)) { $p = $l -split "`t"; if ($p.Count -ge 2) { $old[$p[0]] = $p[1] } }
 }
 $new = New-Object System.Collections.Generic.List[string]
-$nNew = 0; $nUpd = 0; $nSame = 0; $nRepl = 0
+$nNew = 0; $nUpd = 0; $nSame = 0; $nRepl = 0; $nGone = 0; $nFail = 0
 $bkRoot = Join-Path $C ('claude-kit\backup\' + (Get-Date -Format 'yyyy-MM-dd'))
 
 # one-time rename migration (old generic command names -> <verb>-<slug>-vault; names in tools\vault-names.json): removes the OLD-named vault skills/agents that the kit installed and that are
@@ -63,7 +64,10 @@ foreach ($sub in 'agents', 'skills', 'mode', 'tools', 'systems', 'skillpack') {
       'skills' { $nm = $r.Split('/')[1]; if ($ao -contains $nm) { $r } else { "$SM/.claude/$r" } }
       default { "claude-kit/$r" } }
     $dst = Join-Path $C ($rel.Replace('/', '\'))
+    $rec = $null
+    try {
     $ns = Sha $_.FullName; $rec = $ns
+    if (Test-Path -LiteralPath $dst -PathType Container) { throw 'a folder is in the way' }
     if (-not (Test-Path -LiteralPath $dst)) {
       if (-not $DryRun) { New-Item -ItemType Directory -Force (Split-Path -Parent $dst) | Out-Null; Copy-Item -LiteralPath $_.FullName -Destination $dst }
       $nNew++
@@ -82,7 +86,34 @@ foreach ($sub in 'agents', 'skills', 'mode', 'tools', 'systems', 'skillpack') {
       }
       $nRepl++
     }
+    } catch {
+      $nFail++; $rec = $old[$rel]; Write-Output "FAILED ${rel}: $($_.Exception.Message)"
+    }
     if ($rec) { $new.Add("$rel`t$rec") }
+  }
+}
+$layOk = $true
+$layF = Join-Path $C 'claude-kit\vault-mode\layout.json'
+if (Test-Path -LiteralPath $layF) { try { $lay = Get-Content -LiteralPath $layF -Raw | ConvertFrom-Json; if ($lay.auto -eq $false -or $lay.rename_auto -eq $false) { $layOk = $false } } catch { } }
+if ($layOk) {
+  $seen = New-Object 'System.Collections.Generic.HashSet[string]'
+  foreach ($e in $new) { [void]$seen.Add(($e -split "`t")[0]) }
+  foreach ($rel in @($old.Keys | Sort-Object)) {
+    if ($seen.Contains($rel)) { continue }
+    $parts = $rel.Split('/')
+    if ($rel.StartsWith('/') -or ($parts -contains '..') -or $rel.Contains(':') -or $rel.Contains('\')) { continue }
+    if (-not ($rel.StartsWith('claude-kit/') -or ($rel.StartsWith('skills/') -and $parts.Count -gt 1 -and ($ao -contains $parts[1])))) { continue }
+    $f = Join-Path $C ($rel.Replace('/', '\'))
+    try {
+      if ((Test-Path -LiteralPath $f -PathType Leaf) -and -not ((Get-Item -LiteralPath $f -Force).Attributes -band [IO.FileAttributes]::ReparsePoint) -and ((Sha $f) -eq $old[$rel])) {
+        if (-not $DryRun) {
+          Remove-Item -LiteralPath $f -Force
+          $stop = Join-Path $C $parts[0]; $d = Split-Path -Parent $f
+          while ($d.Length -gt $stop.Length -and $d.StartsWith($stop + '\') -and -not (Get-ChildItem -LiteralPath $d -Force | Select-Object -First 1)) { Remove-Item -LiteralPath $d -Force; $d = Split-Path -Parent $d }
+        }
+        $nGone++
+      }
+    } catch { }
   }
 }
 if (-not $DryRun) {
@@ -101,7 +132,7 @@ if ($renamed -and -not $DryRun -and (Test-Path -LiteralPath $vm)) {
   # folders that have Roblox dev mode loaded: swap the old-named copies for the new-named ones (vault-mode.py sync is idempotent)
   foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $prevCfgS = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C; $ea1 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'; $so = (& $cmd.Source -I $vm sync --config $C 2>&1 | Out-String).Trim(); $ErrorActionPreference = $ea1; $env:CLAUDE_CONFIG_DIR = $prevCfgS; if (-not $prevCfgS) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }; if ($so) { Write-Output $so }; break } } catch { } } }
 }
-Write-Output "claude-kit: installed $nNew new, updated $nUpd, unchanged $nSame, replaced-yours $nRepl (into $C)"
+Write-Output ("claude-kit: installed $nNew new, updated $nUpd, unchanged $nSame, replaced-yours $nRepl" + $(if ($nGone) { ", removed $nGone no longer in the kit" }) + $(if ($nFail) { ", FAILED $nFail" }) + " (into $C)")
 if ($renameMsg) { Write-Output $renameMsg }
 if ($migrateOut) { Write-Output $migrateOut }
 if ($nRepl) { Write-Output "claude-kit: replaced $nRepl of your edited files with the kit version (kit wins); your originals are saved under $bkRoot" }
@@ -154,4 +185,5 @@ if ((Test-Path -LiteralPath (Join-Path $modsDir '.claude-plugin\marketplace.json
 }
 if ($firstWf -and -not $DryRun) { Write-Output 'The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (kept in the vault under Games/, never overwritten by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest /rbx-contribute; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)' }
 if ($env:CLAUDE_KIT_NOFOOTER -ne '1') { Write-Output ''; Write-Output '>>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains).' }
+if ($nFail) { exit 1 }
 exit 0

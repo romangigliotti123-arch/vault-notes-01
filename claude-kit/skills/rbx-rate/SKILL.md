@@ -1,6 +1,6 @@
 ---
 name: rbx-rate
-description: "Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence, strengths, weaknesses and fixes, checked against the vault and a live search."
+description: "Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence, strengths, weaknesses and fixes, checked against the vault and a live search."
 argument-hint: "[game idea or path to docs/elaboration.md]"
 ---
 

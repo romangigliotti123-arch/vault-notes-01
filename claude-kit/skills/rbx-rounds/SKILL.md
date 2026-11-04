@@ -1,6 +1,6 @@
 ---
 name: rbx-rounds
-description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigame, battle, obby-race or party-style experiences."
+description: "Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigames, battle, obby-race, social deduction (Among Us or Murder Mystery style) or party games with timed rounds."
 ---
 
 # Round-based game loop

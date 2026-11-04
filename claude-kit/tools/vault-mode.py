@@ -24,9 +24,11 @@ import fnmatch
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
+import time
 
 ALWAYS_ON_DEFAULT = ["rbx-load", "rbx-unload", "rbx-update", "rbx-check", "rbx-uninstall"]
 MB = "# >>> roblox-vault-mode (managed by /rbx-load, removed by /rbx-unload) >>>"
@@ -61,14 +63,15 @@ def sha(p):
 def jread(p, default):
     try:
         with open(p, "r", encoding="utf-8") as f:
-            return json.load(f)
+            v = json.load(f)
     except (OSError, ValueError):
         return default
+    return v if default is None or isinstance(v, type(default)) else default
 
 
 def jwrite(p, obj):
     os.makedirs(os.path.dirname(p), exist_ok=True)
-    tmp = p + ".tmp"
+    tmp = "%s.%d.tmp" % (p, os.getpid())
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         json.dump(obj, f, indent=1, sort_keys=True)
         f.write("\n")
@@ -174,13 +177,18 @@ def git_exclude(proj):
         return None
 
 
+def glob_escape(s):
+    return re.sub(r"([\\*?\[])", r"\\\1", s)
+
+
 def exclude_write(proj, keys):
     g = git_exclude(proj)
     if not g:
         return False
     ex, pre = g
+    pre = glob_escape(pre)
     try:
-        old = open(ex, encoding="utf-8").read() if os.path.exists(ex) else ""
+        old = open(ex, encoding="utf-8", errors="surrogateescape").read() if os.path.exists(ex) else ""
     except OSError:
         return False
     base = exclude_strip(old)
@@ -189,7 +197,7 @@ def exclude_write(proj, keys):
         base = (base.rstrip("\n") + "\n" if base.strip() else "") + "\n".join(lines) + "\n"
     try:
         os.makedirs(os.path.dirname(ex), exist_ok=True)
-        with open(ex, "w", encoding="utf-8", newline="\n") as f:
+        with open(ex, "w", encoding="utf-8", errors="surrogateescape", newline="\n") as f:
             f.write(base)
     except OSError:
         return False
@@ -245,6 +253,56 @@ def counts(keys):
     return sum(1 for k in keys if k.startswith("skills/")), sum(1 for k in keys if k.startswith("agents/"))
 
 
+class Lock(object):
+    """advisory lock file: waits up to 30 s for another run, takes over a lock older than 120 s, never blocks for good"""
+
+    def __init__(self, path):
+        self.path, self.have = path, False
+
+    def __enter__(self):
+        end = time.time() + 30
+        while True:
+            try:
+                os.makedirs(os.path.dirname(self.path), exist_ok=True)
+                fd = os.open(self.path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+                os.write(fd, str(os.getpid()).encode())
+                os.close(fd)
+                self.have = True
+                return self
+            except FileExistsError:
+                try:
+                    if time.time() - os.path.getmtime(self.path) > 120:
+                        os.remove(self.path)
+                        continue
+                except OSError:
+                    pass
+            except OSError:
+                return self
+            if time.time() > end:
+                return self
+            time.sleep(0.2)
+
+    def __exit__(self, *exc):
+        if self.have:
+            try:
+                os.remove(self.path)
+            except OSError:
+                pass
+        return False
+
+
+def put_file(s, d):
+    t = d + ".vmtmp"
+    if os.path.lexists(t):
+        os.remove(t)
+    shutil.copyfile(s, t)
+    try:
+        os.replace(t, d)
+    except PermissionError:
+        os.chmod(d, 0o644)
+        os.replace(t, d)
+
+
 def link(proj, p, quiet=False):
     """create/refresh the project copies. Returns (marker, notes, changed)"""
     items = store_items(p)
@@ -277,6 +335,10 @@ def link(proj, p, quiet=False):
         if not mine and os.path.exists(dst):
             notes.append("skipped %s: %s already exists and is not from the vault (left untouched)" % (key, dst))
             continue
+        if not mine:
+            marker["items"][key] = {"files": dict(files)}
+            jwrite(mpath, marker)
+            mine = marker["items"][key]
         rec = dict((mine or {}).get("files", {}))
         newrec = {}
         for rel, h in files.items():
@@ -290,7 +352,7 @@ def link(proj, p, quiet=False):
                 newrec[rel] = rec.get(rel, cur)
                 continue
             os.makedirs(os.path.dirname(fd), exist_ok=True)
-            shutil.copyfile(file_src(src, key, rel), fd)
+            put_file(file_src(src, key, rel), fd)
             newrec[rel] = h
             changed = True
         for rel, h in rec.items():          # file left the kit: remove if unchanged
@@ -317,6 +379,8 @@ def link(proj, p, quiet=False):
 
 def registry_set(p, proj, marker):
     reg = jread(p["reg"], {"projects": {}})
+    if not isinstance(reg.get("projects"), dict):
+        reg["projects"] = {}
     if marker is None:
         reg["projects"].pop(proj, None)
     else:
@@ -392,9 +456,11 @@ def cmd_unload(a):
             continue
         removed = kept = 0
         left = []
-        for key, rec in marker["items"].items():
-            for rel, h in rec["files"].items():
+        for key, rec in marker.get("items", {}).items():
+            for rel, h in (rec.get("files") or {}).items():
                 fd = file_dest(proj, key, rel)
+                if os.path.lexists(fd + ".vmtmp"):
+                    os.remove(fd + ".vmtmp")
                 if not os.path.isfile(fd):
                     continue
                 if sha(fd) == h:
@@ -404,7 +470,7 @@ def cmd_unload(a):
                     kept += 1
                     print("  kept %s (you changed it)" % os.path.relpath(fd, proj))
         os.remove(mpath)
-        for key in marker["items"]:
+        for key in marker.get("items", {}):
             d = dest_of(proj, key)
             if key.startswith("skills/") and not prune_empty(d) and not has_files(d):
                 left.append(d)
@@ -595,6 +661,10 @@ def cmd_migrate(a):
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     backup = os.path.join(c, "claude-kit", "backup", "mode-migration-" + stamp)
     moved, edited, dirs = [], [], set()
+    if not a.dry_run:
+        planned = [{"rel": rel, "edited": sha(os.path.join(c, *rel.split("/"))) != h, "sha": h} for rel, h in ents if os.path.isfile(os.path.join(c, *rel.split("/")))]
+        if planned:
+            jwrite(os.path.join(c, "claude-kit", "vault-mode", "migration-last.json"), {"at": stamp, "backup": backup, "moved": planned, "manifest": mfile})
     for rel, h in ents:
         f = os.path.join(c, *rel.split("/"))
         if not os.path.isfile(f):
@@ -676,6 +746,11 @@ def cmd_snippet(a):
 
 
 def main(argv):
+    for st in (sys.stdout, sys.stderr):
+        try:
+            st.reconfigure(errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser(prog="vault-mode.py", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config")
     sp = ap.add_subparsers(dest="cmd", required=True)
@@ -703,7 +778,11 @@ def main(argv):
             s.add_argument("--path", action="store_true")
     a = ap.parse_args(argv)
     fn = {"load": cmd_load, "unload": cmd_unload, "status": cmd_status, "sync": cmd_sync, "migrate": cmd_migrate, "auto": cmd_auto, "autoload-snippet": cmd_snippet, "mode-text": cmd_mode_text, "cold": cmd_cold}[a.cmd]
+    store = P(cfg_dir(a))["store"]
     try:
+        if a.cmd in ("load", "unload", "sync", "auto", "migrate") and os.path.isdir(store):
+            with Lock(os.path.join(store, ".mode.lock")):
+                return fn(a) or 0
         return fn(a) or 0
     except Exception as e:      # never break a hook or the refresh
         if a.cmd in ("auto", "sync"):

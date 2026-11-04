@@ -1,6 +1,6 @@
 ---
 name: rbx-kb
-description: "Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, monetisation, pricing, ads, thumbnails, live ops, benchmarks). Not for full plans or live market data."
+description: "Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for any factual or 'what do the best creators say about X' question (retention, thumbnails, live ops, benchmarks). Not for plans, pricing or audits of your own game, or live market data."
 ---
 
 # Roblox KB answer

@@ -30,7 +30,10 @@ def fetch_json(bases):
 
 def git(gd, wt, *a):
     cmd = ["git", "--git-dir", gd] + (["--work-tree", wt] if wt else []) + list(a)
-    return subprocess.run(cmd, capture_output=True, text=True, env=ENV, stdin=subprocess.DEVNULL)
+    try:
+        return subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", env=ENV, stdin=subprocess.DEVNULL, timeout=900)
+    except (OSError, subprocess.SubprocessError):
+        return subprocess.CompletedProcess(cmd, 1, "", "git not available or timed out")
 
 
 def main():
@@ -66,9 +69,11 @@ def main():
                 os.makedirs(gd, exist_ok=True)
                 if git(gd, None, "init", "-q", "--bare").returncode != 0:
                     print("vault-shards: git init failed for %s" % name)
+                    if not os.listdir(gd):
+                        os.rmdir(gd)
                     continue
                 git(gd, None, "config", "core.bare", "false")
-            for k, v in (("core.autocrlf", "false"), ("core.safecrlf", "false"), ("core.longpaths", "true")):
+            for k, v in (("core.autocrlf", "false"), ("core.safecrlf", "false"), ("core.longpaths", "true"), ("core.symlinks", "false")):
                 git(gd, vault, "config", k, v)
             before = git(gd, vault, "rev-parse", "-q", "--verify", "HEAD").stdout.strip()
             f = git(gd, vault, "fetch", "-q", url, "main")

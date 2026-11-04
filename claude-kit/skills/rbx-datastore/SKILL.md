@@ -1,6 +1,6 @@
 ---
 name: rbx-datastore
-description: "Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing Luau that persists progress, currency or purchases."
+description: "Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session lock, BindToClose, autosave, schema versioning. Use when writing or reviewing Luau that persists progress, currency or purchases, or when progress or items vanish or duplicate on rejoin."
 ---
 
 # Roblox DataStore: safe save

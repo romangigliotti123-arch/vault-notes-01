@@ -152,7 +152,12 @@ def main():
     stage = d.get("stage", "idea")
     if stage not in CRIT:
         sys.exit("unknown stage %r" % stage)
-    sc = {k: float(v) for k, v in d.get("scores", {}).items() if v is not None}
+    try:
+        sc = {k: float(v) for k, v in d.get("scores", {}).items() if v is not None}
+    except (TypeError, ValueError):
+        sys.exit("scores must be numbers from 0 to 10")
+    if any(not 0 <= v <= 10 for v in sc.values()):
+        sys.exit("scores must be numbers from 0 to 10 (got %s)" % ", ".join("%s=%g" % kv for kv in sc.items() if not 0 <= kv[1] <= 10))
     if not sc:
         sys.exit("no scores given: a verdict needs at least one scored factor with evidence")
     crit = CRIT[stage]

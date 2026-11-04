@@ -2,7 +2,7 @@
 # Installs the rbx-manager presets into ~/.claude/agents. Never overwrites a differing file: writes <name>.new instead.
 set -u
 src="$(cd "$(dirname "$0")" && pwd)"
-dst="${HOME}/.claude/agents"
+dst="${CLAUDE_CONFIG_DIR:-${HOME}/.claude}/agents"
 mkdir -p "$dst"
 for f in sonnet-worker haiku-scout opus-builder; do
   s="$src/$f.md"; t="$dst/$f.md"

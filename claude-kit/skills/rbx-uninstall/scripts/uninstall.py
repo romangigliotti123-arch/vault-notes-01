@@ -203,8 +203,9 @@ def read_manifest(config, vault):
     if os.path.isfile(man):
         for ln in open(man, encoding="utf-8", errors="replace").read().splitlines():
             p = ln.split("\t")
-            if len(p) >= 2 and p[0].strip():
-                ent[p[0].strip().replace("\\", "/")] = p[1].strip()
+            k = p[0].strip().replace("\\", "/") if len(p) >= 2 else ""
+            if k and not k.startswith("/") and ":" not in k and ".." not in k.split("/"):
+                ent[k] = p[1].strip()
     else:
         # no manifest: derive the expected files from the kit source in the vault (files that differ count as edited)
         src = "kit source in vault (installed.tsv missing)"
@@ -295,6 +296,7 @@ def plan(a, home, config, vault, keep_final):
             if n == "My Research" or os.path.isfile(os.path.join(d, "PROTECTED-RESEARCH.md")):
                 research.append(n)
     P["research"] = research
+    P["own"] = own_files(vault, research)
     # kit
     ent, src = read_manifest(config, vault)
     P["manifest_src"] = src
@@ -373,6 +375,22 @@ def plan(a, home, config, vault, keep_final):
     return P
 
 
+def own_files(vault, skip):
+    """files you added or changed in the vault outside Games/, Assets/ and the kept research folders (git: untracked + modified)"""
+    try:
+        r = subprocess.run(["git", "-C", vault, "-c", "core.quotepath=false", "ls-files", "-z", "-o", "-m", "--exclude-standard"], capture_output=True, timeout=120)
+    except (OSError, subprocess.SubprocessError):
+        return []
+    if r.returncode != 0:
+        return []
+    out = set()
+    for b in r.stdout.split(b"\0"):
+        rel = b.decode("utf-8", "replace")
+        if rel and not rel.startswith(("Games/", "Assets/", ".git/", ".obsidian/")) and not any(rel == s or rel.startswith(s + "/") for s in skip):
+            out.add(rel)
+    return sorted(out)
+
+
 def sys_items(a, home, vault):
     items = []
     if a.home:
@@ -425,6 +443,8 @@ def print_plan(P, keep_final, keep_note, a, real_run):
         say("  also kept (your own notes): %s -> %s" % (r, os.path.join(keep_final, r)))
     for slug, pp in P["external"]:
         say("  project of %s lives outside the vault, stays IN PLACE (not copied, not touched): %s" % (slug, pp))
+    if P["own"]:
+        say("  files you added or changed elsewhere in the vault (%d, e.g. %s) -> %s" % (len(P["own"]), ", ".join(P["own"][:3]), os.path.join(keep_final, "_vault-own-files")))
     say("  The copy is verified by file count, size and sha256 before anything is deleted.")
     say("")
     say("REMOVE")
@@ -618,6 +638,17 @@ def run_real(a, P, keep_final, keep_note):
         for r in P["research"]:
             n, s = copy_verified(os.path.join(vault, r), os.path.join(keep_final, r))
             say("      %s: %d files, %s verified" % (r, n, hsize(s)))
+        for rel in P["own"]:
+            src = os.path.join(vault, rel.replace("/", os.sep))
+            if not os.path.isfile(src):
+                continue
+            dst = os.path.join(keep_final, "_vault-own-files", rel.replace("/", os.sep))
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            shutil.copy2(src, dst)
+            if sha(src) != sha(dst):
+                raise RuntimeError("backup of %s does not match" % rel)
+        if P["own"]:
+            say("      %d of your own files in the vault copied to %s" % (len(P["own"]), os.path.join(keep_final, "_vault-own-files")))
         if not a.keep_edited:
             for rel in P["edited"] + P["extras"]:
                 src = os.path.join(config, rel.replace("/", os.sep))

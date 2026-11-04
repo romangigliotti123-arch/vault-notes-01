@@ -229,6 +229,10 @@ def main(argv):
     c = cfg_dir(cfg)
     if cmd == "hook":
         try:
+            try:
+                sys.stdin.reconfigure(encoding="utf-8", errors="replace")
+            except Exception:
+                pass
             raw = sys.stdin.read() if not sys.stdin.isatty() else ""
             prompt = json.loads(raw).get("prompt", "") if raw.strip() else ""
             out = suggest(prompt, c=c)

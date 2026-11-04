@@ -71,7 +71,7 @@ def jread(p, default):
 
 def jwrite(p, obj):
     os.makedirs(os.path.dirname(p), exist_ok=True)
-    tmp = p + ".tmp"
+    tmp = "%s.%d.tmp" % (p, os.getpid())
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         json.dump(obj, f, indent=1, sort_keys=True)
         f.write("\n")
@@ -156,6 +156,14 @@ def _repoint(node, new_path, counter):
             _repoint(v, new_path, counter)
 
 
+def write_settings(sp, data):
+    tmp = "%s.%d.tmp" % (sp, os.getpid())
+    with open(tmp, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    os.replace(tmp, sp)
+
+
 def lum_skill_name(names):
     for e in names["renamed"]:
         if e["kind"] == "skill" and e["old"] == "low-usage-mode":
@@ -182,9 +190,7 @@ def fix_settings(c, stamp, dry):
         return {"would": True}
     bk = sp + ".rename-bak-" + stamp
     shutil.copyfile(sp, bk)
-    with open(sp, "w", encoding="utf-8", newline="\n") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-        f.write("\n")
+    write_settings(sp, data)
     return {"backup": bk, "sha_after": sha(sp), "hooks": counter[0]}
 
 
@@ -218,9 +224,7 @@ def cmd_plugins(a):
         val = ep.pop(old)
         if new not in ep:
             ep[new] = val
-    with open(sp, "w", encoding="utf-8", newline="\n") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-        f.write("\n")
+    write_settings(sp, data)
     print("kit-rename: settings.json enabledPlugins renamed: %s (backup: %s)" % (", ".join("%s -> %s" % x for x in changes), bk))
     return 0
 
@@ -289,6 +293,17 @@ def cmd_migrate(a):
     backup = os.path.join(c, "claude-kit", "backup", "rename-migration-" + stamp)
     moved, kept, foreign, moved_items = [], [], [], {"skill": set(), "agent": set()}
     prune = []
+    if not a.dry_run:
+        planned = []
+        for item in all_items(names):
+            spec = entries_for(item)
+            if spec:
+                for rel, h in man.items():
+                    f = os.path.join(c, *rel.split("/"))
+                    if (any(rel.startswith(q) for q in spec.get("dir", [])) or rel in spec.get("exact", [])) and os.path.isfile(f) and sha(f) == h:
+                        planned.append({"rel": rel, "sha": h, "old": item["old"], "new": item["new"], "kind": item["kind"]})
+        if planned:
+            jwrite(last_path, {"at": stamp, "backup": backup, "moved": planned, "kept": [], "foreign": [], "state_moved": "", "settings": {}, "prefix": names.get("prefix")})
     for item in all_items(names):
         spec = entries_for(item)
         if not spec:
@@ -402,6 +417,11 @@ def revert(c, lay, lay_path, last_path):
 
 
 def main(argv):
+    for st in (sys.stdout, sys.stderr):
+        try:
+            st.reconfigure(errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser(prog="kit-rename.py", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest="cmd", required=True)
     s = sp.add_parser("migrate")

@@ -173,7 +173,7 @@ if (-not (Test-Path (Join-Path $Dest '.git'))) {
     if ($LASTEXITCODE -ne 0) { continue }
     Write-Output "Cloning from $b/vault.git (first time can take several minutes)..."
     for ($try = 1; $try -le 2 -and -not $cloned; $try++) {
-      if ((Test-Path (Join-Path $Dest 'My Research')) -or (Test-Path (Join-Path $Dest 'Games'))) { Write-Output "Refusing to clear ${Dest}: it holds a 'My Research' or 'Games' folder but is not a clone. Move it away and run again."; exit 1 }
+      if ((Test-Path (Join-Path $Dest 'My Research')) -or (Test-Path (Join-Path $Dest 'Games')) -or ($try -eq 1 -and (Test-Path -LiteralPath $Dest) -and (Get-ChildItem -LiteralPath $Dest -Force -ErrorAction SilentlyContinue | Select-Object -First 1))) { Write-Output "Refusing to clear ${Dest}: it is not a clone and it is not empty (your own files could be in it). Move it away and run again."; exit 1 }
       if (Test-Path $Dest) { Remove-Item -Recurse -Force $Dest -ErrorAction SilentlyContinue }
       & $git -c core.longpaths=true -c core.autocrlf=false -c core.safecrlf=false clone "$b/vault.git" $Dest
       if ($LASTEXITCODE -eq 0) { $cloned = $true }

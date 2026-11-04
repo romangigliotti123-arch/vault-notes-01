@@ -1,6 +1,6 @@
 ---
 name: rbx-rate-any
-description: "General 1.00-10.00 rater for anything the user wants judged (idea, plan, prompt, design, document, product, code, skill): 5-8 weighted criteria against written anchors with evidence, caps, script-computed total, ordered fixes."
+description: "General 1.00-10.00 rater for anything else the user wants judged (plan, prompt, design, document, product, code, skill; a Roblox game idea is rbx-rate): 5-8 weighted criteria against written anchors with evidence, caps, script-computed total, ordered fixes."
 argument-hint: "<thing to rate or path> [what it is for]"
 ---
 

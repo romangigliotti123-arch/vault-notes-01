@@ -11,7 +11,10 @@ ENV = dict(os.environ, GIT_TERMINAL_PROMPT="0", LC_ALL="C")
 
 
 def git(vault, *a, timeout=120):
-    p = subprocess.run(["git", "-C", vault] + list(a), capture_output=True, text=True, timeout=timeout, env=ENV, stdin=subprocess.DEVNULL)
+    try:
+        p = subprocess.run(["git", "-C", vault] + list(a), capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout, env=ENV, stdin=subprocess.DEVNULL)
+    except (OSError, subprocess.SubprocessError) as e:
+        return 127, "", "git not available or timed out (%s)" % type(e).__name__
     return p.returncode, (p.stdout or "").strip(), (p.stderr or "").strip()
 
 
@@ -91,6 +94,11 @@ def kit_names(paths):
 
 
 def main():
+    for st in (sys.stdout, sys.stderr):
+        try:
+            st.reconfigure(errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser()
     ap.add_argument("--vault"); ap.add_argument("--config"); ap.add_argument("--remote", default="origin"); ap.add_argument("--no-fetch", action="store_true")
     a = ap.parse_args()

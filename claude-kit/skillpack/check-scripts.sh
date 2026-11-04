@@ -19,7 +19,7 @@ cd "$KIT/systems" || exit 1
 n=0; fail=0
 for t in "${targets[@]}"; do
   while IFS= read -r f; do
-    n=$((n+1)); rel="$(python -c "import os,sys;print(os.path.relpath(sys.argv[1],sys.argv[2]))" "$f" "$KIT/systems")"
+    n=$((n+1)); rel="$(sh "$KIT/tools/pyrun" -c "import os,sys;print(os.path.relpath(sys.argv[1],sys.argv[2]))" "$f" "$KIT/systems")"
     res="$(lune run "$rel" 2>&1 | tail -1)"; echo "lune $(basename "$f"): $res"
     case "$res" in *" 0 failed"*) ;; *) fail=$((fail+1));; esac
   done < <(find "$t" -name '*.test.luau' | sort)

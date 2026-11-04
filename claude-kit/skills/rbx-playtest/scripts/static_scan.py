@@ -173,6 +173,8 @@ def gate_hits(root):
         in_client = under(p, dirs) if dirs is not None else bool(parts & CLIENT_NAMES)
         if re.search(r"\.client\.luau?$", p):
             in_client = True
+        elif re.search(r"\.server\.luau?$", p):
+            in_client = False
         for i, ln in enumerate(lines, 1):
             code = ln.split("--")[0]
             for sev, rx, msg, whole_line in SECRETS:
@@ -316,7 +318,8 @@ def write_gate(rec, folder, sub="security-scan"):
 
 
 def opt(name, default=None):
-    return sys.argv[sys.argv.index(name) + 1] if name in sys.argv else default
+    i = sys.argv.index(name) + 1 if name in sys.argv else 0
+    return sys.argv[i] if 0 < i < len(sys.argv) else default
 
 
 if __name__ == "__main__":

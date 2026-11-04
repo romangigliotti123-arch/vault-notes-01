@@ -13,15 +13,17 @@
 #   --with-hooks / --remove-hooks (opt-in, never automatic): merge into / remove from ~/.claude/settings.json the two /rbx-low-usage hooks and the rbx-mentor suggestion hook (backup first, idempotent, keeps all other settings).
 set -u
 KIT="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
-H="${CLAUDE_KIT_HOME:-$HOME}"; DRY=0; HOOKS=""; MODS_ON=0
+H="${CLAUDE_KIT_HOME:-$HOME}"; DRY=0; HOOKS=""; MODS_ON=0; HOME_GIVEN=0; [ -n "${CLAUDE_KIT_HOME:-}" ] && HOME_GIVEN=1
 while [ $# -gt 0 ]; do
-  case "$1" in --home) H="$2"; shift 2;; --dry-run) DRY=1; shift;; --with-hooks) HOOKS=install-hooks; shift;; --remove-hooks) HOOKS=uninstall-hooks; shift;; --with-mods) MODS_ON=1; shift;; *) shift;; esac
+  case "$1" in --home) [ $# -ge 2 ] || { echo "install.sh: --home needs a folder" >&2; exit 2; }; H="$2"; HOME_GIVEN=1; shift 2;; --dry-run) DRY=1; shift;; --with-hooks) HOOKS=install-hooks; shift;; --remove-hooks) HOOKS=uninstall-hooks; shift;; --with-mods) MODS_ON=1; shift;; *) shift;; esac
 done
-C="$H/.claude"; MAN="$C/claude-kit/installed.tsv"; TMP="$(mktemp "${TMPDIR:-/tmp}/claude-kit.XXXXXX")"
+C="$H/.claude"; [ $HOME_GIVEN = 0 ] && [ -n "${CLAUDE_CONFIG_DIR:-}" ] && C="$CLAUDE_CONFIG_DIR"
+MAN="$C/claude-kit/installed.tsv"; TMP="$(mktemp "${TMPDIR:-/tmp}/claude-kit.XXXXXX" 2>/dev/null)" || TMP="${TMPDIR:-/tmp}/claude-kit.$$"
+trap 'rm -f "$TMP"' EXIT
 if command -v sha256sum >/dev/null 2>&1; then SHA="sha256sum"; else SHA="shasum -a 256"; fi
 sha() { local o; o="$($SHA "$1")"; o="${o#\\}"; printf '%s' "${o%% *}"; }   # GNU sha256sum starts the line with a backslash when the file name contains one (Windows-style --home)
 MANTXT=""; [ -s "$MAN" ] && MANTXT=1      # old manifest present: look entries up with awk
-n_new=0; n_upd=0; n_same=0; n_repl=0; first_wf=0; BK="$C/claude-kit/backup/$(date +%Y-%m-%d)"
+n_new=0; n_upd=0; n_same=0; n_repl=0; n_gone=0; n_fail=0; first_wf=0; BK="$C/claude-kit/backup/$(date +%Y-%m-%d)"
 SM="claude-kit/vault-mode"; AO="rbx-load rbx-unload rbx-update rbx-check rbx-uninstall"
 [ -f "$KIT/mode/always-on.txt" ] && AO="$(grep -v '^#' "$KIT/mode/always-on.txt" | tr -d '\r' | tr '\n' ' ')"
 [ -f "$MAN" ] || first_wf=1      # fresh install: print the welcome text at the end
@@ -41,23 +43,24 @@ if [ -f "$KIT/tools/kit-rename.py" ] && [ -s "$MAN" ]; then
   else echo "kit-rename: no working Python 3, so old command names were not migrated; install Python 3 and run the update again"; fi
 fi
 
+cpf() { cp "$1" "$2" 2>/dev/null || { chmod u+w "$2" 2>/dev/null; cp "$1" "$2"; }; }
 put() { # put <src> <rel under ~/.claude>
   local src="$1" rel="$2" dst="$C/$2" ns old rec ds="" t
   ns="$(sha "$src")"; old=""; rec="$ns"
   [ -n "$MANTXT" ] && old="$(awk -F'\t' -v r="$rel" '$1==r{print $2; exit}' "$MAN" 2>/dev/null)"
   [ -e "$dst" ] && ds="$(sha "$dst")"
   if [ ! -e "$dst" ]; then
-    [ $DRY = 1 ] || { mkdir -p "$(dirname "$dst")"; cp "$src" "$dst"; }
+    [ $DRY = 1 ] || { mkdir -p "$(dirname "$dst")" && cpf "$src" "$dst"; } || { echo "claude-kit: could not write $rel"; n_fail=$((n_fail+1)); [ -n "$old" ] && printf '%s\t%s\n' "$rel" "$old" >> "$TMP"; return; }
     n_new=$((n_new+1))
   elif [ "$ds" = "$ns" ]; then
     n_same=$((n_same+1))
   elif [ -n "$old" ] && [ "$ds" = "$old" ]; then
-    [ $DRY = 1 ] || cp "$src" "$dst"
+    [ $DRY = 1 ] || cpf "$src" "$dst" || { echo "claude-kit: could not write $rel"; n_fail=$((n_fail+1)); printf '%s\t%s\n' "$rel" "$old" >> "$TMP"; return; }
     n_upd=$((n_upd+1))
   else
     if [ $DRY = 0 ]; then
       bk="$BK/$rel"; i=1; while [ -e "$bk" ]; do i=$((i+1)); bk="$BK/$rel.$i"; done
-      mkdir -p "$(dirname "$bk")"; cp -p "$dst" "$bk"; cp "$src" "$dst"
+      mkdir -p "$(dirname "$bk")"; cp -p "$dst" "$bk"; cpf "$src" "$dst" || { echo "claude-kit: could not write $rel"; n_fail=$((n_fail+1)); printf '%s\t%s\n' "$rel" "${old:-$ds}" >> "$TMP"; return; }
     fi
     n_repl=$((n_repl+1))
   fi
@@ -71,7 +74,9 @@ if [ -n "$FASTPY" ] && [ -f "$KIT/tools/kit-install-files.py" ] && [ "${CLAUDE_K
   fo="$("$FASTPY" -I "$KIT/tools/kit-install-files.py" --kit "$KIT" --config "$C" --always-on "$AO" $([ $DRY = 1 ] && echo --dry-run) 2>&1)"
   case "$fo" in
     *"RESULT new="*) r="$(printf '%s\n' "$fo" | grep '^RESULT new=' | tail -1)"
-       n_new="${r#*new=}"; n_new="${n_new%% *}"; n_upd="${r#*upd=}"; n_upd="${n_upd%% *}"; n_same="${r#*same=}"; n_same="${n_same%% *}"; n_repl="${r#*repl=}"; n_repl="${n_repl%% *}"; FASTDONE=1;;
+       n_new="${r#*new=}"; n_new="${n_new%% *}"; n_upd="${r#*upd=}"; n_upd="${n_upd%% *}"; n_same="${r#*same=}"; n_same="${n_same%% *}"; n_repl="${r#*repl=}"; n_repl="${n_repl%% *}"
+       case "$r" in *gone=*) n_gone="${r#*gone=}"; n_gone="${n_gone%% *}"; n_fail="${r#*fail=}"; n_fail="${n_fail%% *}";; esac
+       printf '%s\n' "$fo" | grep '^FAILED ' | head -5; FASTDONE=1;;
     *) echo "claude-kit: fast installer failed, using the slow shell loop ($(printf '%s' "$fo" | tail -1 | cut -c1-160))";;
   esac
 fi
@@ -108,7 +113,7 @@ if [ $RENAMED = 1 ] && [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/vault-mode.py" 
   MPY2=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then MPY2="$p"; break; fi; done
   [ -n "$MPY2" ] && CLAUDE_CONFIG_DIR="$C" "$MPY2" -I "$C/claude-kit/tools/vault-mode.py" sync --config "$C" 2>&1
 fi
-echo "claude-kit: installed $n_new new, updated $n_upd, unchanged $n_same, replaced-yours $n_repl (into $C)"
+echo "claude-kit: installed $n_new new, updated $n_upd, unchanged $n_same, replaced-yours $n_repl$([ "$n_gone" -gt 0 ] && echo ", removed $n_gone no longer in the kit")$([ "$n_fail" -gt 0 ] && echo ", FAILED $n_fail") (into $C)"
 [ -n "$RENAME_MSG" ] && printf '%s\n' "$RENAME_MSG"
 [ "$n_repl" -gt 0 ] && echo "claude-kit: replaced $n_repl of your edited files with the kit version (kit wins); your originals are saved under $BK"
 if [ -n "$HOOKS" ]; then
@@ -147,4 +152,5 @@ if [ -f "$MODS/.claude-plugin/marketplace.json" ] && [ $DRY = 0 ] && [ $MODS_ON 
 fi
 [ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (kept in the vault under Games/, never overwritten by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest /rbx-contribute; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"
 if [ "${CLAUDE_KIT_NOFOOTER:-0}" != 1 ]; then echo; echo ">>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains)."; fi
+[ "$n_fail" -gt 0 ] && exit 1
 exit 0

@@ -167,7 +167,7 @@ if [ ! -d "$DEST/.git" ]; then
     curl -fsS -m 8 -o /dev/null "$B/vault.git/HEAD" 2>/dev/null || continue
     echo "Cloning from $B/vault.git (first time can take several minutes)..."
     for TRY in 1 2; do
-      if [ -d "$DEST/My Research" ] || [ -d "$DEST/Games" ]; then echo "Refusing to clear $DEST: it holds a 'My Research' folder but is not a clone. Move it away and run again."; exit 1; fi
+      if [ -d "$DEST/My Research" ] || [ -d "$DEST/Games" ] || { [ "$TRY" = 1 ] && [ -n "$(ls -A "$DEST" 2>/dev/null)" ]; }; then echo "Refusing to clear $DEST: it is not a clone and it is not empty (your own files could be in it). Move it away and run again."; exit 1; fi
       rm -rf "$DEST"
       if "$GIT" -c core.autocrlf=false -c core.safecrlf=false clone "$B/vault.git" "$DEST"; then CLONED=1; break; fi
     done

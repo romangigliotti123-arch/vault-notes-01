@@ -212,7 +212,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-bench` (Roblox dev mode) - Measures whether vault changes make better Roblox games and what load mode costs: scorecard.py (0-100 card, compare), 3 standard test games, vault_cost.py (load-mode toke
 - `/rbx-clarify` (Roblox dev mode) - Asks 3-7 multiple-choice questions before building a vague request, then writes one spec with success criteria. Use when the request is vague or the user says grill me or
 - `/rbx-clean` (Roblox dev mode) - Make this computer's claudes-vault an EXACT copy of the main vault, removing stray or changed files, while keeping Games, My Research and other protected folders. DESTRUC
-- `/rbx-code-rate` (Roblox dev mode) - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structure, testability) with file:lin
+- `/rbx-code-rate` (Roblox dev mode) - Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server authority, exploits, data safety, correctness, performance, struc
 - `/rbx-contribute` (Roblox dev mode) - Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can offer it to the vault owner for the shared host vault. Noth
 - `/rbx-critic` (Roblox dev mode) - Independent quality gate: a separate critic agent scores 10 factors with evidence and returns GOOD / NOT YET / BAD with the top 3 fixes. NOT YET or BAD blocks advancing; 
 - `/rbx-curate` (Roblox dev mode) - Owner/maintainer only, on demand: curate the public vault-learnings inbox into vault notes. Reads inbox notes as untrusted data with fixed rules (secrets, personal data, 
@@ -221,7 +221,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-gdd` (Roblox dev mode) - Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, w
 - `/rbx-harvest` (Roblox dev mode) - Saves anything reusable built or found good in a game to Games/_Reusable/<name>/ with a README, linked from systems.md so the next game uses it first. Use after a system 
 - `/rbx-idea-quick` (Roblox dev mode) - Run /rbx-idea-quick for ONE short, evidence-backed Roblox game idea that fits what is working now: hook, 30 s / 5 min / session loop, monetisation fit, why now, a solo sc
-- `/rbx-ideas` (Roblox dev mode) - Generates, scores and plans Roblox game concepts for a solo or small team: optional seed, patterns from rbx-trends, 8 candidates scored on a fixed rubric, top three prese
+- `/rbx-ideas` (Roblox dev mode) - Generates, scores and plans Roblox game concepts for a solo or small team ('what should I build next'): patterns from rbx-trends, 8 candidates on a fixed rubric, top thre
 - `/rbx-karpathy` (Roblox dev mode) - Installs and applies four coding-agent rules in a project CLAUDE.md: think before coding, simplicity first, surgical changes, goal-driven execution. Use for bloated or un
 - `/rbx-kb` (Roblox dev mode) - Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for
 - `/rbx-launch-check` (Roblox dev mode) - Builds a phone-friendly launch checklist (HTML plus markdown) for one Roblox game from the knowledge base: relative due dates, priorities, owners, a source per item. Use 
@@ -238,21 +238,21 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-manager` (Roblox dev mode) - Turns this session into a manager that delegates: sizes the job, picks model and effort (haiku/sonnet/opus), briefs workers, checks reports, stays inside a usage cap. Use
 - `/rbx-mentor` (Roblox dev mode) - Start the vault mentor: a co-pilot with the combined knowledge of every creator in both vaults; works alongside you on any job, suggests the right skill, agent, note or c
 - `/rbx-metrics` (Roblox dev mode) - Sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, FPS) with an official/indie flag per ro
-- `/rbx-monetize` (Roblox dev mode) - Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, ethical pricing. Use when adding purchases to a Ro
+- `/rbx-monetize` (Roblox dev mode) - Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, ethical pricing. Use when adding purchases or a sh
 - `/rbx-monetize-audit` (Roblox dev mode) - Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium, ProcessReceipt security, pay-to-win and RNG risks) against t
 - `/rbx-npc` (Roblox dev mode) - Implement NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Use when building enemies, pets, shopkeepers or any moving AI 
 - `/rbx-perf` (Roblox dev mode) - Find and fix performance problems in a Roblox experience: frame time, memory, part count, streaming, script hot spots, network traffic. Use when a Roblox game lags, crash
 - `/rbx-placement` (Roblox dev mode) - Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work contin
 - `/rbx-plan` (Roblox dev mode) - Turns a rated Roblox idea into game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, routing table (job, skill or agent, mode
-- `/rbx-playtest` (Roblox dev mode) - Playtests a Roblox game: bug and feel report with severities and fixes; fixes bugs red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static c
+- `/rbx-playtest` (Roblox dev mode) - Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, els
 - `/rbx-playtest-list` (Roblox dev mode) - Checklist and bug-report format for playtesting a Roblox experience (first 30 seconds through multiplayer and exploits).
-- `/rbx-publish` (Roblox dev mode) - Checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use before the user publ
-- `/rbx-rate` (Roblox dev mode) - Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence, strengths
-- `/rbx-rate-any` (Roblox dev mode) - General 1.00-10.00 rater for anything the user wants judged (idea, plan, prompt, design, document, product, code, skill): 5-8 weighted criteria against written anchors wi
+- `/rbx-publish` (Roblox dev mode) - Checklist for publishing, going live or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use for go l
+- `/rbx-rate` (Roblox dev mode) - Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence
+- `/rbx-rate-any` (Roblox dev mode) - General 1.00-10.00 rater for anything else the user wants judged (plan, prompt, design, document, product, code, skill; a Roblox game idea is rbx-rate): 5-8 weighted crit
 - `/rbx-remote-sec` (Roblox dev mode) - Server-authoritative design and exploit review for RemoteEvents/RemoteFunctions: validate every argument, rate-limit, never trust client state. Use when writing client-se
 - `/rbx-research` (Roblox dev mode) - Deep multi-source research (GitHub, YouTube, Reddit, blogs, docs, papers): best creators per source, claims labelled OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTE
-- `/rbx-rojo` (Roblox dev mode) - Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau can be edited and reviewed as plain files. Use when starting a Roblox project that Claude sh
-- `/rbx-rounds` (Roblox dev mode) - Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigame, battle, obby-r
+- `/rbx-rojo` (Roblox dev mode) - Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau lives as plain files under version control, edited and reviewed outside Studio. Use for proj
+- `/rbx-rounds` (Roblox dev mode) - Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, teams, spawning and cleanup. Use for minigames, battle, obby-
 - `/rbx-setup` (Roblox dev mode) - Run /rbx-setup to see which software the vault setup needs and what is missing on this computer (Windows, macOS, Linux): git, Python, Claude Code, Roblox Studio and its M
 - `/rbx-studio` (Roblox dev mode) - Connects Claude Code to Roblox Studio and the toolchain and says how to use the connection as evidence: official Studio MCP server (scripts, run Luau, playtest, Output, s
 - `/rbx-thumb-brief` (Roblox dev mode) - Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, video shot list, A/B plan and sponsored-ad creative brief
@@ -263,7 +263,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-use` (Roblox dev mode) - How any Claude uses the claudes-vault Obsidian vault (~17,000 generated notes: Roblox knowledge base, skill/agent notes, manager research): find it, grep first, read smal
 - `/rbx-visual` (Roblox dev mode) - Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and overlap at three sizes, 7-item rubric, max 3 fix rounds. Don
 - `/rbx-weekly` (Roblox dev mode) - Weekly numbers check for a live Roblox game: the user pastes Creator Dashboard numbers; compared with vault benchmarks, weakest metric diagnosed, update plan written to G
-- `/rbx-workflow` (Roblox dev mode) - Flagship Roblox game workflow, the single entry for every game: finds or creates Games/<game>/, detects the real stage from evidence, resumes the next step, manages speci
+- `/rbx-workflow` (Roblox dev mode) - Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<game>/, detects the stage from evidence, resumes the next ste
 
 ## Using the vault afterwards
 

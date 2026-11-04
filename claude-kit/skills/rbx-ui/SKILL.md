@@ -1,6 +1,6 @@
 ---
 name: rbx-ui
-description: "Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when creating or fixing Roblox UI."
+description: "Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when creating or fixing Roblox UI, menus, HUD or shop screens with broken layout on phones."
 ---
 
 # Responsive Roblox UI

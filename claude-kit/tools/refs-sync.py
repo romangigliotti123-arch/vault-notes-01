@@ -121,7 +121,7 @@ def main():
                     os.rmdir(gd)
                 continue
             git(gd, None, "config", "core.bare", "false")
-        for k, v in (("core.autocrlf", "false"), ("core.safecrlf", "false"), ("core.longpaths", "true")):
+        for k, v in (("core.autocrlf", "false"), ("core.safecrlf", "false"), ("core.longpaths", "true"), ("core.symlinks", "false")):
             git(gd, dest, "config", k, v)
         before = git(gd, dest, "rev-parse", "-q", "--verify", "HEAD").stdout.strip()
         if git(gd, dest, "fetch", "-q", "--depth", "1", url, "main").returncode != 0:

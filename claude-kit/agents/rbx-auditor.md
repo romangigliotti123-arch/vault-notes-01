@@ -1,6 +1,6 @@
 ---
 name: rbx-auditor
-description: "Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits it into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), a reviewer per area in parallel and a verifier per finding, dedupes, ranks, writes an HTML report."
+description: "Orchestrator for a pre-release audit or full bug sweep of a whole Roblox game or Luau codebase: splits it into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), a reviewer per area in parallel and a verifier per finding, dedupes, ranks, writes an HTML report."
 model: sonnet
 effort: high
 tools: Read, Grep, Glob, Bash, Agent, Write

@@ -1,6 +1,6 @@
 ---
 name: rbx-publish
-description: "Checklist for publishing or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use before the user publishes or ships a major update."
+description: "Checklist for publishing, going live or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use for go live and final release checks, before publishing or a major update."
 ---
 
 # Roblox publish checklist
