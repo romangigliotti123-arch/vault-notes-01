@@ -23,6 +23,9 @@ Apply when producing or reviewing Luau. Prefer small ModuleScripts with one job.
 ## Comments
 NO COMMENTS BY DEFAULT in any code you write (Luau, Lua, scripts, tests, examples). A one-line comment is allowed only to explain WHY something non-obvious is done (an engine quirk, ordering, replication timing, physics ownership), never WHAT the code does. Type annotations and Luau directives (`--!strict`, `--!native`, `--!optimize`, `--!nolint`) are not comments and stay. Name things so the code reads without notes; put design notes in the SKILL.md or reference, not in the file. Existing comments in code you only edit stay unless you rewrite that line.
 
+## Smallest complete change
+Build what was asked, nothing speculative, and finish it. Before writing code take the first rung that works: (1) does it need to exist at all (skip unrequested features and say what was skipped); (2) a vault system or `Games/_Reusable` module (`games.py system add PlayerData|Shop|DailyRewards|Analytics|Admin`) or an installed library from `$ASSETS/code`; (3) a Roblox built-in (CollectionService tags, Attributes, PathfindingService, TweenService, ProximityPrompt, leaderstats, Players events); (4) the minimum new code. Never cut: server validation, DataStore and receipt safety, mobile layout and accessibility, anything the user asked for (the user may still order a refactor). No stubs, TODOs, placeholder functions or modules nothing requires; a shortcut with a known limit gets one WHY line. In existing code touch only the lines the task needs. Check: `game-dev-critic/scripts/code_gates.py` scores orphan modules, stubs, rebuilt kit systems, unused exports and oversized files (scope SC1-SC5).
+
 ## Lifecycle and leak cleanup
 Leaks on a long-running server are connections, threads and tables keyed by objects that are gone.
 
@@ -163,3 +166,6 @@ Find leaks: Developer Console Memory tab, watch `LuaHeap`, `InstanceCount` and `
 Credit: checklist adapted from excaldev/ro-engineer (MIT, Copyright (c) 2026 excaldev), reference copy in Imported/ro-engineer/cleanup-lifecycle.md; facts re-checked against the Roblox docs.
 
 Review output: findings ordered by severity (leaks, race conditions, deprecated API, then style), each with file:line and the fix.
+
+## Sources
+Smallest complete change: ideas from Ponytail (DietrichGebert, MIT) and Unlazy (Leonxlnx, MIT), re-written in our own words; nothing copied.

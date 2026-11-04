@@ -16,6 +16,8 @@ Pitch: <one sentence> · Rating: <x.xx>/10.00 (docs/rating.md) · Project folder
 ## 3. Milestones and acceptance tests
 | # | milestone | est. days | acceptance test (pass/fail, observable) | jobs |
 |---|---|---|---|---|
+M1 is the core loop alone (serial); nothing runs in parallel before its acceptance test passes.
+Tuning targets (optional): metric | evaluator | direction | target
 
 ## 4. Assets and libraries
 | need | pack / library | license | path | note |

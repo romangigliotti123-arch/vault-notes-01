@@ -8,7 +8,7 @@
 # Kit wins: a target file the user changed is replaced by the kit version, no question. The user's version is first copied to ~/.claude/claude-kit/backup/<date>/<relpath>, so nothing is lost.
 # User skills with other names are never touched or removed; similar ones are listed ("kit versions will be used") and the kit entry points say the kit skill wins at routing time.
 # Usage: bash install.sh [--home DIR] [--dry-run] [--with-hooks | --remove-hooks] [--with-mods]     (--home / env CLAUDE_KIT_HOME: install under DIR instead of $HOME, for tests)
-#   --with-mods (opt-in): also install the /hud-rbxdev-vault and /graph-rbxdev-vault Claude Code plugins (plugins load in every session, so they are no longer installed by default).
+#   --with-mods (opt-in): also install the /rbx-subagent-hud and /graph-rbxdev-vault Claude Code plugins (plugins load in every session, so they are no longer installed by default).
 #   --with-hooks / --remove-hooks (opt-in, never automatic): merge into / remove from ~/.claude/settings.json the two /low-usage-mode-rbxdev-vault hooks and the mentor-rbxdev-vault suggestion hook (backup first, idempotent, keeps all other settings).
 set -u
 KIT="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
@@ -120,27 +120,27 @@ if [ -n "$HOOKS" ]; then
 fi
 # similar user skills (other names) -> listed; the kit wins at routing time (precedence line in the kit entry points)
 if [ -f "$KIT/tools/similar-skills.py" ]; then for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then "$p" -I "$KIT/tools/similar-skills.py" --kit "$KIT" --config "$C" 2>/dev/null; break; fi; done; fi
-# kit mods (Claude Code plugins: /hud-rbxdev-vault workflow tree, /graph-rbxdev-vault vault graph) from <vault>/claude-kit/mods. OPT-IN (--with-mods): plugins load in every Claude session. Needs the claude CLI; idempotent (already installed = OK).
+# kit mods (Claude Code plugins: /rbx-subagent-hud workflow tree, /graph-rbxdev-vault vault graph) from <vault>/claude-kit/mods. OPT-IN (--with-mods): plugins load in every Claude session. Needs the claude CLI; idempotent (already installed = OK).
 MODS="$KIT/mods"; MK="roblox-vault-kit-mods"
 if [ -f "$MODS/.claude-plugin/marketplace.json" ] && [ $DRY = 0 ] && [ $MODS_ON = 1 ]; then
   if command -v claude >/dev/null 2>&1; then
     ok=1; why=""; export CLAUDE_CONFIG_DIR="$C"
     lst="$(claude plugin list --json 2>&1)"; have=0
-    if printf '%s' "$lst" | grep -q "hud-rbxdev-vault@$MK" && printf '%s' "$lst" | grep -q "graph-rbxdev-vault@$MK"; then have=1; fi
+    if printf '%s' "$lst" | grep -q "rbx-subagent-hud@$MK" && printf '%s' "$lst" | grep -q "graph-rbxdev-vault@$MK"; then have=1; fi
     # plugins installed under their previous names (before the vault-suffixed rename): uninstall them, refresh the marketplace listing, install the new ones below
-    oldmods=0; for om in workflow-hud vault-graph; do if printf '%s' "$lst" | grep -q "$om@$MK"; then claude plugin uninstall "$om@$MK" >/dev/null 2>&1; oldmods=1; fi; done  # legacy plugin names
+    oldmods=0; for om in workflow-hud vault-graph hud-rbxdev-vault; do if printf '%s' "$lst" | grep -q "$om@$MK"; then claude plugin uninstall "$om@$MK" >/dev/null 2>&1; oldmods=1; fi; done  # legacy plugin names
     [ $oldmods = 1 ] && claude plugin marketplace update "$MK" >/dev/null 2>&1
     if [ $have = 0 ]; then
       r="$(claude plugin marketplace add "$MODS" 2>&1)" || { printf '%s' "$r" | grep -qi already || { ok=0; why="marketplace add failed"; }; }
-      for m in hud-rbxdev-vault graph-rbxdev-vault; do
+      for m in rbx-subagent-hud graph-rbxdev-vault; do
         [ $ok = 1 ] || break
         r="$(claude plugin install "$m@$MK" 2>&1)" || { printf '%s' "$r" | grep -qi already || { ok=0; why="install of $m failed"; }; }
       done
     fi
-    if [ $ok = 1 ]; then echo "mods: hud-rbxdev-vault (/hud-rbxdev-vault), graph-rbxdev-vault (/graph-rbxdev-vault): installed"
-    else echo "mods: not installed ($why). In a Claude session run: /plugin marketplace add $MODS  then  /plugin install hud-rbxdev-vault@$MK  and  /plugin install graph-rbxdev-vault@$MK  then  /reload-plugins"; fi
+    if [ $ok = 1 ]; then echo "mods: rbx-subagent-hud (/rbx-subagent-hud), graph-rbxdev-vault (/graph-rbxdev-vault): installed"
+    else echo "mods: not installed ($why). In a Claude session run: /plugin marketplace add $MODS  then  /plugin install rbx-subagent-hud@$MK  and  /plugin install graph-rbxdev-vault@$MK  then  /reload-plugins"; fi
   else
-    echo "mods: claude CLI not found. In a Claude session run: /plugin marketplace add $MODS  then  /plugin install hud-rbxdev-vault@$MK  and  /plugin install graph-rbxdev-vault@$MK  then  /reload-plugins"
+    echo "mods: claude CLI not found. In a Claude session run: /plugin marketplace add $MODS  then  /plugin install rbx-subagent-hud@$MK  and  /plugin install graph-rbxdev-vault@$MK  then  /reload-plugins"
   fi
 fi
 [ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /load-rbxdev-vault: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /unload-rbxdev-vault turns it off again. Always available: /load-rbxdev-vault /unload-rbxdev-vault /update-rbxdev-vault /update-check-rbxdev-vault /uninstall-rbxdev-vault. After /load-rbxdev-vault: /game-idea-rbxdev-vault (one fresh idea) or /game-dev-workflow (idea, rating, plan, build); /make-roblox-game; judgement and your games (kept in the vault under Games/, never overwritten by updates): /game-dev-critic /game-dev-weekly /game-dev-launch-kit /game-dev-harvest /contribute-rbxdev-vault; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /game-dev-placement-qa /game-dev-lighting-qa /game-dev-art-direction /game-dev-visual-qa; measure the vault itself: /game-dev-benchmark; mentor: /mentor-rbxdev-vault; research: /deep-topic-research-rbxdev-vault; manager: /manager-mode-rbxdev-vault; vault: /update-clean-rbxdev-vault /setup-check-rbxdev-vault /light-mode-on-rbxdev-vault /light-mode-off-rbxdev-vault /list-rbxdev-vault; usage: /low-usage-mode-rbxdev-vault. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"

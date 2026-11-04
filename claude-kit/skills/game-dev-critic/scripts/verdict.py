@@ -7,6 +7,7 @@ input.json: {"stage": "playtest", "works": "pass"|"fail"|"fail-severe", "hard_ru
              "visual_gate": "<path to the critic's gate-critic.json>" | {gate dict},
              "placement_gate": "<path to the critic's fresh placement scan, Games/<slug>/placement-qa/scan-critic.json>" | {scan dict},
              "lighting_gate": "<path to the critic's fresh lighting scan, Games/<slug>/lighting-qa/scan-critic.json>" | {scan dict}, "genre": "obby" (optional), "platform": "both" (optional),
+             "code_gates": "<path to the critic's Games/<slug>/code-gates/run.json, written by code_gates.py --scorer critic --write>" | {run dict},
              "project": "<project folder, optional>"}
 LOOKS (the visual gate, game-dev-visual-qa/scripts/visual_gate.py) is the third axis next to WORKS and GOOD: from stage prototype on, a verdict can only be
 GOOD when the gate record passes; missing, skipped or failing = at most NOT YET and the status label "playable prototype, visuals not polished".
@@ -17,6 +18,9 @@ LIGHTING (game-dev-lighting-qa/scripts/lighting_gate.py) is the fifth: Lighting,
 ranges, brightness, shadows, genre fog, interiors, mobile budget and conflicts. From stage prototype on GOOD needs `lighting: pass` from a scan made by the CRITIC; missing,
 skipped or failing = at most NOT YET and the label "playable prototype, lighting not verified". The written verdict file carries `visual:`, `placement:` and `lighting:`
 lines; `games.py advance` refuses anything but pass for all three (a verdict file without a `lighting:` line counts as missing: run a fresh critic pass).
+CODE GATES (game-dev-critic/scripts/code_gates.py: comment, scope/stubs, security, bug ledgers) are the sixth: GOOD needs proof that the CRITIC ran them (`codegates: ran`);
+missing, builder-made, stale or incomplete = at most NOT YET and the label "playable prototype, code gates not run". Their findings are only SCORED (extra gates of
+game-dev-benchmark), a low score never changes the verdict. `games.py advance` needs `codegates: ran` (an older file without the line counts as missing).
 Only factors present in "scores" count (unscored = N/A for this stage). Critical factors per stage count double and need their minimum.
 --write DIR writes DIR/critic/<date>-<stage>.md with frontmatter (stage, verdict, date, score) + the body from --report. `games.py advance` reads that file.
 """
@@ -103,6 +107,43 @@ def lit(d, stage):
     return r["status"], r["label"], r["reasons"] + ["%s %s: %s" % (f["check"], f["name"], "; ".join(f["issues"][:1])) for f in r["failing"][:6]]
 
 
+CODE_LABEL = "playable prototype, code gates not run"
+CODE_REQUIRED = ("comment", "scope", "security")
+
+
+def newest_source(project):
+    best = 0.0
+    for d, dn, fn in os.walk(project):
+        dn[:] = [x for x in dn if x.lower() not in (".git", "packages", "node_modules", "vendor")]
+        for f in fn:
+            if f.endswith((".lua", ".luau")):
+                best = max(best, os.path.getmtime(os.path.join(d, f)))
+    return best
+
+
+def coding(d, stage):
+    """-> (status ran|skipped|n/a, label, reasons). Only proof that the critic ran the code gates counts; their scores never decide."""
+    if stage not in VISUAL_STAGES:
+        return "n/a", "", []
+    cg, path = d.get("code_gates"), None
+    if isinstance(cg, str):
+        path = cg
+        try:
+            cg = json.load(open(cg, encoding="utf-8-sig"))
+        except Exception as e:
+            return "skipped", CODE_LABEL, ["code gates run record unreadable: %s" % e]
+    if not cg or not isinstance(cg, dict):
+        return "skipped", CODE_LABEL, ["code gates not run: the critic cannot call this GOOD or done (run game-dev-critic/scripts/code_gates.py with --scorer critic --write Games/<slug>)"]
+    if str(cg.get("scorer", "")).lower() != "critic":
+        return "skipped", CODE_LABEL, ["code gates run by %r, not by the critic: the critic runs its own" % cg.get("scorer")]
+    miss = [g for g in CODE_REQUIRED if g not in (cg.get("ran") or [])]
+    if miss:
+        return "skipped", CODE_LABEL, ["code gate record lacks: " + ", ".join(miss)]
+    if path and d.get("project") and os.path.isdir(d["project"]) and os.path.getmtime(path) < newest_source(d["project"]) - 1:
+        return "skipped", CODE_LABEL, ["stale code gate run: a Luau source is newer than the run (re-run code_gates.py)"]
+    return "ran", "", []
+
+
 def main():
     a = [x for x in sys.argv[1:]]
     if not a:
@@ -125,6 +166,7 @@ def main():
     vstat, vlabel, vreasons = looks(d, stage)
     pstat, plabel, preasons = placing(d, stage)
     lstat, llabel, lreasons = lit(d, stage)
+    cstat, clabel, creasons = coding(d, stage)
     if d.get("hard_rule_violation"):
         verdict = "BAD"; reasons.append("hard-rule violation (pay-to-win, paid randomness for kids, pressure timers, stranger contact or copied assets)")
     elif works == "fail-severe":
@@ -133,8 +175,9 @@ def main():
         verdict = "BAD"; reasons.append("core loop F2 scored %s" % sc["F2"])
     elif mean < 4.5:
         verdict = "BAD"; reasons.append("mean %.2f is under 4.5" % mean)
-    elif works != "pass" or below or missing or mean < 7.0 or vstat in ("fail", "skipped") or pstat in ("fail", "skipped") or lstat in ("fail", "skipped"):
+    elif works != "pass" or below or missing or mean < 7.0 or vstat in ("fail", "skipped") or pstat in ("fail", "skipped") or lstat in ("fail", "skipped") or cstat == "skipped":
         verdict = "NOT YET"
+        if cstat == "skipped": reasons.append("CODE GATES = skipped: %s" % "; ".join(creasons[:3]))
         if vstat in ("fail", "skipped"): reasons.append("LOOKS = %s: %s" % (vstat, "; ".join(vreasons[:9])))
         if pstat in ("fail", "skipped"): reasons.append("PLACEMENT = %s: %s" % (pstat, "; ".join(preasons[:9])))
         if lstat in ("fail", "skipped"): reasons.append("LIGHTING = %s: %s" % (lstat, "; ".join(lreasons[:9])))
@@ -144,13 +187,15 @@ def main():
         if mean < 7.0: reasons.append("mean %.2f is under 7.00" % mean)
     else:
         verdict = "GOOD"; reasons.append("WORKS pass, mean %.2f, all critical factors at minimum" % mean)
-    print("VERDICT: %s | stage %s | mean %.2f | works %s | looks %s | placement %s | lighting %s" % (verdict, stage, mean, works, vstat, pstat, lstat))
+    print("VERDICT: %s | stage %s | mean %.2f | works %s | looks %s | placement %s | lighting %s | code gates %s" % (verdict, stage, mean, works, vstat, pstat, lstat, cstat))
     if vstat in ("fail", "skipped"):
         print("STATUS: " + vlabel + " (never call this game done, complete or ready)")
     if pstat in ("fail", "skipped"):
         print("STATUS: " + plabel + " (never call this game done, complete or ready)")
     if lstat in ("fail", "skipped"):
         print("STATUS: " + llabel + " (never call this game done, complete or ready)")
+    if cstat == "skipped":
+        print("STATUS: " + clabel + " (never call this game done, complete or ready)")
     for r in reasons:
         print("  - " + r)
     lows = sorted(sc.items(), key=lambda kv: kv[1])[:3]
@@ -164,7 +209,7 @@ def main():
         os.makedirs(os.path.join(gd, "critic"), exist_ok=True)
         p = os.path.join(gd, "critic", "%s-%s.md" % (date, stage))
         slug = d.get("game") or os.path.basename(os.path.abspath(gd))
-        head = "---\ntype: critic-verdict\ngame: %s\nstage: %s\nverdict: %s\ndate: %s\nscore: %.2f\nworks: %s\nvisual: %s\nplacement: %s\nlighting: %s\n---\n# Critic verdict: %s (%s, %s)\nBack to [[%s/GAME|GAME]] | [[%s/critic/README|all verdicts]]\n\n" % (slug, stage, verdict, date, mean, works, vstat, pstat, lstat, verdict, stage, date, slug, slug)
+        head = "---\ntype: critic-verdict\ngame: %s\nstage: %s\nverdict: %s\ndate: %s\nscore: %.2f\nworks: %s\nvisual: %s\nplacement: %s\nlighting: %s\ncodegates: %s\n---\n# Critic verdict: %s (%s, %s)\nBack to [[%s/GAME|GAME]] | [[%s/critic/README|all verdicts]]\n\n" % (slug, stage, verdict, date, mean, works, vstat, pstat, lstat, cstat, verdict, stage, date, slug, slug)
         with open(p, "w", encoding="utf-8", newline="\n") as f:
             f.write(head + "**Why:** " + "; ".join(reasons) + "\n\n" + body)
         print("WROTE " + p)

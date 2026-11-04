@@ -6,9 +6,9 @@
   "description": "Claude Code mods shipped with the Roblox vault kit.",
   "plugins": [
     {
-      "name": "hud-rbxdev-vault",
-      "source": "./hud-rbxdev-vault",
-      "description": "Side pane tree of the master agent and its spawned agents with a progress bar.",
+      "name": "rbx-subagent-hud",
+      "source": "./rbx-subagent-hud",
+      "description": "Side pane: the master agent with its subagents below it, connected by flashing dotted lines (grey running, green done), done count, time estimate, click a subagent to see its prompt.",
       "author": {
         "name": "Roman"
       }

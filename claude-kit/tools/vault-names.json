@@ -31,7 +31,8 @@
   {"old": "claim-verifier", "new": "claim-verifier-rbxdev-vault", "kind": "agent"},
   {"old": "game-critic", "new": "game-critic-rbxdev-vault", "kind": "agent"},
   {"old": "self-verifying-game-builder", "new": "self-verifying-game-builder-rbxdev-vault", "kind": "agent"},
-  {"old": "workflow-hud", "new": "hud-rbxdev-vault", "kind": "plugin", "command_old": "hud", "command_new": "hud-rbxdev-vault"},
+  {"old": "workflow-hud", "new": "rbx-subagent-hud", "kind": "plugin", "command_old": "hud", "command_new": "rbx-subagent-hud"},
+  {"old": "hud-rbxdev-vault", "new": "rbx-subagent-hud", "kind": "plugin", "command_old": "hud-rbxdev-vault", "command_new": "rbx-subagent-hud"},
   {"old": "vault-graph", "new": "graph-rbxdev-vault", "kind": "plugin", "command_old": "graph", "command_new": "graph-rbxdev-vault"}
  ],
  "removed": [
@@ -45,6 +46,7 @@
   "rbx", "make-roblox-game", "game-dev-* (all)", "roblox-* (all skills and agents)",
   "tool files in claude-kit/tools (vault-find.py, kbq.py, learn.py, ...): namespaced by the claude-kit folder, not slash commands or ~/.claude entries",
   "vault-update.sh/.ps1, win-sync-setup.ps1, mac/linux-sync-setup.sh at the vault root: file names inside the vault folder; the logon task calls vault-update.ps1 by path",
-  "plugin marketplace name roblox-vault-kit-mods (already vault specific)"
+  "plugin marketplace name roblox-vault-kit-mods (already vault specific)",
+  "plugin rbx-subagent-hud (Roblox specific prefix rbx-, like the rbx router)"
  ]
 }

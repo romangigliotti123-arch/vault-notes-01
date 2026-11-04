@@ -7,6 +7,7 @@ argument-hint: "[game name or path to game-plan.md; optionally paste your metric
 # game-dev-update
 
 Code comments: none by default (see roblox-luau-style, Comments).
+Smallest complete change: see roblox-luau-style.
 
 Outputs in the game's project folder: `docs/update-roadmap.md` (cadence + calendar + levers + A/B ideas + risks) and `docs/patch-notes-<version>.md` (templates in `templates/`). Planning and writing only: never publishes, posts, or changes the live game. No questions: assumptions are written down.
 

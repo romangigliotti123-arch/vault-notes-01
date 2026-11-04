@@ -1,0 +1,8 @@
+{
+  "name": "rbx-subagent-hud",
+  "version": "0.2.0",
+  "author": { "name": "Roman" },
+  "license": "MIT",
+  "description": "Side pane: the master agent at the top, its subagents below it joined by dotted lines (grey and flashing while running, green when done), done count, time estimate, and a click on a subagent shows the prompt the master sent it.",
+  "types": "./types/index.d.ts"
+}

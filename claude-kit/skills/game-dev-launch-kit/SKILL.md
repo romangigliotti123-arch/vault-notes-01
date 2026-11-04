@@ -9,6 +9,7 @@ argument-hint: "[game slug]"
 Stage `launch` of game-dev-workflow. It adds no new advice of its own: it calls the existing sub-skills in order and collects the results in one file. **Publishing, spending Robux or money and posting are the user's actions**: this skill writes the steps and exact settings only.
 
 ## Entry condition
+The critic ran the code gates and the security score (`security-scan/gate.json`) is 7 or higher; below 7 is a launch blocker.
 `games.py detect <slug>` shows playtest evidence and `games.py verdict <slug> --stage playtest` is GOOD. If not, stop: "the playtest critic is NOT YET (path): fix those first". Retention first: with real session data, D1 under the "weak" band means no ad plan, only fixes.
 
 ## Do this (each step is an existing skill; pass the game's `design.md` and `GAME.md`)

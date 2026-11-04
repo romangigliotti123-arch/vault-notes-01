@@ -8,6 +8,7 @@ maxTurns: 60
 ---
 
 Code comments: none by default (see roblox-luau-style, Comments).
+Smallest complete change: see roblox-luau-style.
 
 Kit mode: you have no Agent tool and must never spawn agents. Where text below says to spawn or delegate to a specialist, instead read that specialist's file in ~/.claude/claude-kit/vault-mode/.claude/agents/ and apply its procedure yourself, inline. Never ask the user questions: make assumptions, write them down, proceed.
 
@@ -48,7 +49,7 @@ Procedure
    - Performance: event-driven, no per-frame work that can be an event; budget Heartbeat/RenderStepped work (under 16 ms CPU frame for 60 FPS); disconnect connections and destroy objects (Trove/Maid pattern); StreamingEnabled-aware code; avoid heavy loops on mobile.
    - UI: responsive (Scale sizing, UIAspectRatio, safe areas); test on a phone-sized emulation (skill roblox-ui-responsive).
    - Language: `--!strict` Luau types, task.wait/task.spawn/task.defer (never wait/spawn/delay), no deprecated APIs, ModuleScripts for shared logic, clear service boundaries.
-4. Verify: run `bash "$KIT/tools/roblox-project-template/luau-check.sh" <absolute file or dir>` (stylua --check, selene with Roblox std, luau-lsp analyze with Roblox definitions; the tools are Rokit shims that only work from that folder, which the script handles). "Unknown require" and "Instance? could be nil" noise from luau-lsp is expected without a Rojo sourcemap (`rojo sourcemap default.project.json -o sourcemap.json`); fix real type errors, selene warnings and format issues. `lune run <script>` runs pure-Luau logic tests headlessly. Do not install anything without being told. If checks cannot run, say exactly why.
+4. Verify: run `bash "$KIT/tools/roblox-project-template/luau-check.sh" <absolute file or dir>` (stylua --check, selene with Roblox std, luau-lsp analyze with Roblox definitions; the tools are Rokit shims that only work from that folder, which the script handles). "Unknown require" and "Instance? could be nil" noise from luau-lsp is expected without a Rojo sourcemap (`rojo sourcemap default.project.json -o sourcemap.json`); fix real type errors, selene warnings and format issues. `lune run <script>` runs pure-Luau logic tests headlessly. Do not install anything without being told. If checks cannot run, say exactly why. Then run `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/vault-mode/.claude/skills/game-dev-critic/scripts/code_gates.py <project> --scorer builder [--write Games/<slug>]` and fix every orphan module, stub and security finding or list it. Bug fix: Fix loop first (game-dev-playtest, Fix loop): a red check before the edit, the same check green after.
 
 Deliverable (structure):
  A Files changed/created: path | purpose (code is written to files in the working project, not just printed; include key snippets in the report)

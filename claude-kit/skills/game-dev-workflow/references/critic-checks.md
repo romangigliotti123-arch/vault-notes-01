@@ -45,6 +45,12 @@ Run a check only where the stage's evidence can show it. At the idea stage a det
 ## LOOKS (visual gate, stage prototype or later)
 - Rubric V1-V7, hard fails and the screenshot set: `game-dev-visual-qa/references/rubric.md`. Pass = every item at least 7, no open hard fail, `ui_overlap` shows 0 findings at phone, tablet and desktop, at least 6 distinct screenshots (desktop and phone; spawn, action, effect) newer than the newest Luau source. Run by `visual_gate.py`; a missing gate caps the verdict at NOT YET.
 
+## CODE GATES, BUG FIXES AND PLAN (stage prototype or later)
+- `Games/<slug>/code-gates/run.json` exists with scorer critic and covers comment, scope and security; the one-line `CODE GATES:` result is in the report (not run = NOT YET, `playable prototype, code gates not run`). Findings are scored, never blocks.
+- Each bug reported fixed has `Games/<slug>/bugfix/<id>.md` with a RED and a GREEN block; otherwise the fix is `untested`.
+- A claim of balanced, tuned or optimised has a `tune/<run>/` ledger that `tune_check.py` accepts; otherwise a LOW unmeasured-claim finding.
+- The plan's M1 is the core loop, serial, with its own acceptance test, and no parallel job starts before it passes (manager.md, Core loop first).
+
 ## Stage and growth checks
 - Playtest: one goal per test and about one minute per check; a retention test is a time-boxed weekend or one week; start closed through a group, open Beta only when playable end to end on every target platform (official; DR playtesting-and-feedback).
 - Launch: before ads confirm eligibility, a stable build, a working onboarding funnel and age-rating settings; a campaign runs 1-2 weeks and is judged after 3-5 days (official; DR ads-and-sponsored-experiences).

@@ -6,6 +6,7 @@ description: "Use when the user says make/build/create me a Roblox game (with or
 # make-roblox-game
 
 Code comments: none by default (see roblox-luau-style, Comments).
+Smallest complete change: see roblox-luau-style.
 
 One sentence from the user is enough. Do not ask the user anything.
 

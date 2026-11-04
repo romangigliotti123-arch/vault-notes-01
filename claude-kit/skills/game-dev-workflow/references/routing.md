@@ -15,7 +15,7 @@ Pack skills are opened by a general worker (Agent tool) whose master brief says 
 | lighting preset (early) and the lighting scan | `game-dev-lighting-qa` (`LightingKit.apply` / `scan` / `fix` through Studio MCP, Edit mode) | the building worker (preset, job J00b), then a serial scan job | sonnet | serial, Studio MCP, preset before the first map job, scan before the visual gate |
 | visual gate and polish rounds | ui-kit-consistency-checker, safe-area-checker, game-feel-polisher | skill game-dev-visual-qa; fresh game-critic-rbxdev-vault re-scores | sonnet | serial, after the last feature job |
 | after prototype | playtest-bot-writer, lag-hunter, exploit-audit | roblox-playtest-runner, roblox-luau-reviewer (read-only) | sonnet; haiku for sweeps | parallel, no project edits (own `docs/audits/` report file each) |
-| fixes | skill of the finding (dupe-exploit-hunter, texture-budget-checker, model-cleaner ...) | roblox-luau-engineer | sonnet | serial |
+| fixes | skill of the finding (dupe-exploit-hunter, texture-budget-checker, model-cleaner ...); a bug follows the Fix loop of `game-dev-playtest` (red check first) | roblox-luau-engineer | sonnet | serial |
 | gate | game-dev-critic | game-critic-rbxdev-vault, roblox-pre-delivery-reviewer | sonnet, fresh context | after every milestone |
 | launch | thumbnail-maker, game-icon-maker, thumbnail-guideline-checker; ads/launch by find | game-dev-launch-kit, roblox-launch-marketing-manager | sonnet | parallel (disjoint docs) |
 | growth / live-ops | patch-notes-writer, update-announcement-writer; analytics by find | game-dev-weekly, game-dev-update, roblox-game-doctor, roblox-liveops-planner | sonnet | serial |
@@ -31,7 +31,7 @@ Models: haiku = lookups, listing, simple verification; sonnet = default. Writers
 | Vault facts for a job (kbq, grep, price lookups) | `use-rbxdev-vault`, `roblox-kb-answer` | haiku | low | parallel | 1 run, 10 turns |
 | Asset search in <vault>/Assets | `roblox-asset-finder` | haiku | low | parallel | 1 run, 10 turns |
 | GDD and balance of design | `roblox-game-designer`, `roblox-gdd-template` | sonnet | medium | serial | 1 run, 30 turns |
-| Economy numbers and simulation | `roblox-economy-designer`, `game-economy-simulation` | sonnet | high | serial | 1 run, 30 turns |
+| Economy numbers and simulation | `roblox-economy-designer`, `game-economy-simulation`, `game-dev-tune` (metric ledger) | sonnet | high | serial | 1 run, 30 turns |
 | Scaffold project (Rojo layout, Config, services) | `roblox-luau-engineer` + `roblox-rojo-project-setup` (or `roblox-game-builder` for a very small game) | sonnet | medium | serial | 1 run, 40 turns |
 | Core loop and game state | `roblox-luau-engineer` + `roblox-round-based-game-loop`, `roblox-luau-style`, `roblox-architecture-choice` | sonnet | high | serial (owns Services/GameLoop) | 1-2 runs, 60 turns |
 | Data saving | `roblox-luau-engineer` + `roblox-datastore-safe-save` | sonnet | high | serial | 1 run, 40 turns |
@@ -42,12 +42,15 @@ Models: haiku = lookups, listing, simple verification; sonnet = default. Writers
 | NPCs / enemies | `roblox-luau-engineer` + `roblox-npc-pathfinding` | sonnet | high | serial | 1 run |
 | Leaderboards, events, daily rewards | `roblox-luau-engineer` + `roblox-leaderboards-and-events` | sonnet | medium | serial | 1 run |
 | Map / world build from code | `roblox-luau-engineer`; Studio MCP when present for instances Rojo cannot hold | sonnet | medium | serial, `MCP` | 1 run |
-| Performance pass | `roblox-performance-pass` | sonnet | medium | serial | 1 run |
+| Performance pass | `roblox-performance-pass`, `game-dev-tune` (frame or part cost as the metric) | sonnet | medium | serial | 1 run |
 | Code review (exploits, data loss, leaks) | `roblox-luau-reviewer` | sonnet | high | parallel (read-only) | 1 run per milestone |
 | Static checks and banned-pattern greps | the manager itself, or a `haiku` checker with a 5-line brief | haiku | low | parallel | per job |
 | Placement scan (every model, fix, re-scan) | `game-dev-placement-qa` | sonnet | medium | serial, Studio MCP | up to 3 scans, 30 turns each |
 | Lighting preset + scan (apply, scan, fix, re-scan) | `game-dev-lighting-qa` | sonnet | medium | serial, Studio MCP | up to 3 scans, 20 turns each |
 | Visual QA round (capture, score, fix list) | `game-dev-visual-qa` | sonnet | medium | serial, Studio MCP | up to 3 rounds, 40 turns each |
+| Bug fix (reproduce first) | `game-dev-playtest` Fix loop + `roblox-luau-engineer` | sonnet | medium | serial | 1 run, 30 turns |
+| Tune, balance or polish with a metric | `game-dev-tune` | sonnet | medium | serial (owns the tuned files) | up to 10 experiments |
+| Code gates | `game-dev-critic/scripts/code_gates.py` (the manager runs it, or a haiku checker) | haiku | low | serial | per milestone |
 | Playtest and feel review | `game-dev-playtest` (+ `roblox-playtest-runner`) | sonnet | medium | serial | 1 run |
 | Launch checklist | `roblox-launch-checklist`, `roblox-publish-checklist` | haiku | low | serial | 1 run |
 | Icon, thumbnail, screenshots | `game-dev-thumbnail` (+ `roblox-launch-marketing-manager`) | sonnet | medium | parallel (no code files) | 1 run |

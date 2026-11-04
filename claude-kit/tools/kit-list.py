@@ -142,7 +142,7 @@ def main():
     if mods:
         data = json.load(open(os.path.join(mods, ".claude-plugin", "marketplace.json"), encoding="utf-8"))
         state = plugin_state(config)
-        cmd = {"hud-rbxdev-vault": "/hud-rbxdev-vault", "graph-rbxdev-vault": "/graph-rbxdev-vault"}
+        cmd = {"rbx-subagent-hud": "/rbx-subagent-hud", "graph-rbxdev-vault": "/graph-rbxdev-vault"}
         for p in sorted(data.get("plugins", []), key=lambda x: x["name"]):
             n = p["name"]
             inst = "unknown" if state is None else ("yes" if ("%s@%s" % (n, data.get("name", MARKET))) in state else "no")

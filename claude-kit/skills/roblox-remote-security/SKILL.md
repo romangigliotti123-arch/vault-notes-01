@@ -26,3 +26,6 @@ Assume every client is hostile. Anything on the client (LocalScripts, Replicated
 2. For each: who can fire it, what the server does with the args, the worst case if fired 1000 times a second with garbage.
 3. Report a table: remote | args validated | rate-limited | trust problem | fix, ordered by severity (currency/progress writes first, cosmetic last).
 4. Patch the high-severity ones if asked; re-run the list afterwards.
+
+## Sources
+The scored security gate (`game-dev-playtest/scripts/static_scan.py --gate`, SEC1-SEC5) takes its core principle (never trust the client, critical findings first) from Vibe Security (raroque, MIT), re-written in our own words.

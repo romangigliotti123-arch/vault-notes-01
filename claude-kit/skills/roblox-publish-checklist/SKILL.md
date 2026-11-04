@@ -8,7 +8,7 @@ description: "Pre-launch checklist for publishing or updating a Roblox experienc
 Claude never presses Publish or changes live settings; this list produces a go / no-go for the user, who does the publish (it is public and cannot be fully undone).
 
 1. Build: the exact place version/commit, changelog of what is new, a rollback plan (previous version restorable from Version History in Studio).
-2. Tests: roblox-playtest-checklist passed on phone-sized emulation and a Local Server with 2+ players; roblox-remote-security review has no Critical or High left; roblox-datastore-safe-save tests passed.
+2. Tests: roblox-playtest-checklist passed on phone-sized emulation and a Local Server with 2+ players; roblox-remote-security review has no Critical or High left; roblox-datastore-safe-save tests passed; `static_scan.py --gate` security score 7 or higher (below 7 is a launch blocker).
 3. Safety and policy: the experience questionnaire/maturity rating matches the content; no real-money gambling, no paid random rewards, no misleading claims; user text goes through Roblox filtering (`TextService:FilterStringAsync` / `TextChatService`); no personal data collected; third-party assets licensed.
 4. Store page: title, description, icon, 3+ thumbnails (roblox-thumbnail-brief), genre, devices, max players, access (public/friends/private) as intended; Social links optional.
 5. Monetisation: roblox-monetisation-setup verdict pass; every product has the correct id in the shipped build; prices as planned.

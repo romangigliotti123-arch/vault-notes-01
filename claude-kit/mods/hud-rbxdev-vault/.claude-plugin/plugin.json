@@ -1,8 +1,0 @@
-{
-  "name": "hud-rbxdev-vault",
-  "version": "0.1.0",
-  "author": { "name": "Roman" },
-  "license": "MIT",
-  "description": "Side pane for the game dev workflow: a tree of the master agent and the agents it spawned (status, elapsed time) with a progress bar for the current plan.",
-  "types": "./types/index.d.ts"
-}

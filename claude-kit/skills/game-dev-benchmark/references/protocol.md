@@ -15,6 +15,7 @@ Goal: answer "does vault version B build better games than version A, and at wha
 5. **Save** (what to save, all inside `Games/<slug>/`, nothing else is scored):
    - `visual-qa/` (gate.json, gate-critic.json, `r<N>/` screenshots incl. the spec's required ones: `<viewport>-<moment>.png`)
    - `placement-qa/` (scan-critic.json, gate-critic.json) and any other `<name>-qa/gate*.json` the gates wrote (lighting, model quality, ...)
+   - `comment-scan/`, `scope-scan/`, `security-scan/`, `bugfix/`, `tune/` (gate.json each) and `code-gates/run.json`, all written by `code_gates.py --scorer critic --write Games/<slug>`
    - `critic/<date>-<stage>.md` (written by `verdict.py --write`)
    - `benchmark-run.json` (effort) and the project source (for the staleness check: `--project`)
    - the console transcript/log of the final full run (errors count as evidence for rubric B5/B6/B7)

@@ -432,7 +432,7 @@ def print_plan(P, keep_final, keep_note, a, real_run):
     say("  <config>/claude-kit folder (tools, systems, skillpack, the on-demand store of vault skills/agents, installed.tsv)")
     say("  Roblox dev mode copies (/load-rbxdev-vault) in project folders: %d%s (removed first, only files that are still unchanged)" % (len(P["mode_projects"]), (" -> " + ", ".join(P["mode_projects"][:5])) if P["mode_projects"] else ""))
     say("  hooks in settings.json (low-usage-mode-rbxdev-vault + mentor-rbxdev-vault): %s" % ("found" if P["hooks"] else "none found") + ("" if P.get("settings_valid", True) else "  WARNING: settings.json is not valid JSON, hooks will NOT be removed"))
-    say("  kit mods (plugins): %s" % ("skipped in --home test" if a.home else "claude plugin uninstall hud-rbxdev-vault@%s; claude plugin uninstall graph-rbxdev-vault@%s; claude plugin marketplace remove %s (before the vault is deleted)" % (MARKET, MARKET, MARKET)))
+    say("  kit mods (plugins): %s" % ("skipped in --home test" if a.home else "claude plugin uninstall rbx-subagent-hud@%s; claude plugin uninstall graph-rbxdev-vault@%s; claude plugin marketplace remove %s (before the vault is deleted)" % (MARKET, MARKET, MARKET)))
     for k, v in P["sys"]:
         say("  auto-sync %-8s: %s" % (k, v))
     say("  the vault folder: %s (%d files, %s) - only after the games copy is verified" % (P["vault"], P["vault_files"], hsize(P["vault_bytes"])))
@@ -531,7 +531,7 @@ def remove_hooks(P, keep_final):
     return ok
 
 
-MODS = ("hud-rbxdev-vault", "graph-rbxdev-vault", "workflow-hud", "vault-graph")   # the last two = names before the vault-suffixed rename (uninstalled if still present)
+MODS = ("rbx-subagent-hud", "graph-rbxdev-vault", "hud-rbxdev-vault", "workflow-hud", "vault-graph")   # the last three = legacy names before the renames (uninstalled if still present)
 MARKET = "roblox-vault-kit-mods"
 
 
@@ -546,7 +546,7 @@ def remove_mods(a, config):
         return
     exe = shutil.which("claude")
     if not exe:
-        say("mods: claude CLI not found; if the kit mods are installed run /plugin uninstall hud-rbxdev-vault@%s, graph-rbxdev-vault@%s and /plugin marketplace remove %s" % (MARKET, MARKET, MARKET))
+        say("mods: claude CLI not found; if the kit mods are installed run /plugin uninstall rbx-subagent-hud@%s, graph-rbxdev-vault@%s and /plugin marketplace remove %s" % (MARKET, MARKET, MARKET))
         return
     env = dict(os.environ, CLAUDE_CONFIG_DIR=config)
     for c in mod_cmds():

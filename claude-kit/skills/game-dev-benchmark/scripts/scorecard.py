@@ -54,6 +54,7 @@ GATE_RUN = {
     "placement": "Run game-dev-placement-qa: Placement.scan over the whole map, then placement_gate.py ingest <console output> --write Games/<slug> --scorer critic.",
     "critic": "Run game-dev-critic: its own gate scans, then verdict.py <input.json> --write Games/<slug> so critic/<date>-<stage>.md exists.",
     "lighting": "Run game-dev-lighting-qa and keep its gate record in lighting-qa/.",
+    "code-gates": "Run python <skills>/game-dev-critic/scripts/code_gates.py <project> --scorer critic --write Games/<slug>: it writes comment-scan, scope-scan, security-scan, bugfix and code-gates/run.json.",
     "spec": "Fill benchmark-scores.json (features, rubric B1-B7 with evidence) from the standard test game card, then collect again with --spec.",
 }
 FIXES = {
@@ -302,7 +303,7 @@ def build_gate(name, path, rec, root):
             if isinstance(f, dict):
                 failing.append(dict(path=f.get("path") or f.get("name"), failed=f.get("failed") or ([f["check"]] if f.get("check") else None), fix=short(f.get("fix", ""), 200)))
     g = dict(name=name, status=status, score=round(score, 1), raw_score=round(raw, 1), weight=WEIGHTS.get(name, DEFAULT_WEIGHT),
-             required=name in REQUIRED, checks={k: (None if v is None else round(v, 2)) for k, v in checks.items()}, pass_min=pm,
+             required=name in REQUIRED, scripted=bool(rec.get("scripted")), checks={k: (None if v is None else round(v, 2)) for k, v in checks.items()}, pass_min=pm,
              reasons=reasons_of(rec), failing=failing, scorer=scorer, label=rec.get("label"), source=os.path.relpath(path, root).replace(os.sep, "/") if root else path,
              sha256=sha256_file(path), mtime=int(os.path.getmtime(path)))
     g.update({k: os.path.relpath(v, root).replace(os.sep, "/") if k == "scan_file" else v for k, v in extra.items()})
@@ -356,7 +357,7 @@ def build_critic(root):
     reasons = [short(fm["why"], 300)] if fm.get("why") and status != "pass" else []
     return dict(name="critic", status=status, score=round(score, 1), raw_score=round(base, 1), weight=WEIGHTS["critic"], required=True, checks={}, pass_min=7.0,
                 reasons=reasons, failing=[], scorer="critic", label="verdict " + v, source=os.path.relpath(p, root).replace(os.sep, "/"), sha256=sha256_file(p),
-                mtime=int(os.path.getmtime(p)), verdict=v, stage=fm.get("stage"), works=fm.get("works"), claims=dict(visual=fm.get("visual"), placement=fm.get("placement"), lighting=fm.get("lighting")),
+                mtime=int(os.path.getmtime(p)), verdict=v, stage=fm.get("stage"), works=fm.get("works"), claims=dict(visual=fm.get("visual"), placement=fm.get("placement"), lighting=fm.get("lighting"), codegates=fm.get("codegates")),
                 verdict_date=date)
 
 
@@ -508,6 +509,35 @@ def auto_version(kit=None):
         return "unknown"
 
 
+CODE_STAGES = ("prototype", "playtest", "launch", "growth", "live-ops")
+CODE_GATE_NAMES = ("comment-scan", "scope-scan", "security-scan")
+
+
+def code_gates_integrity(gates, root, integrity):
+    """a game with a prototype-or-later critic verdict must carry proof that the code gates ran; absent = an integrity note (the verdict itself is capped by verdict.py)."""
+    crit = gates.get("critic")
+    if not crit or crit.get("status") == "missing" or str(crit.get("stage") or "").lower() not in CODE_STAGES:
+        return
+    run_p = os.path.join(root, "code-gates", "run.json")
+    run = None
+    if os.path.isfile(run_p):
+        try:
+            run = jload(run_p)
+        except Exception:
+            run = None
+    claim = str((crit.get("claims") or {}).get("codegates") or "").lower()
+    if not isinstance(run, dict):
+        integrity.append("code gates have no run record (code-gates/run.json): a prototype-or-later game must run code_gates.py" + ("; the critic verdict claims codegates: ran" if claim == "ran" else ""))
+        return
+    if str(run.get("scorer", "")).lower() != "critic":
+        integrity.append("code gates were run by %r, not by the independent critic: advisory until the critic re-runs them" % run.get("scorer"))
+    miss = [n for n in CODE_GATE_NAMES if n not in gates]
+    if miss:
+        integrity.append("code-gates/run.json exists but the gate record(s) %s are missing" % ", ".join(miss))
+    if claim and claim != "ran":
+        integrity.append("critic verdict file says codegates: %s but code-gates/run.json exists (stale verdict: run a fresh critic)" % claim)
+
+
 def collect(root, game=None, spec_arg=None, scores_file=None, require_critic=False, project=None, version=None, kit=None, label="", date=None, now=None):
     root = os.path.abspath(root)
     if not os.path.isdir(root):
@@ -552,7 +582,7 @@ def collect(root, game=None, spec_arg=None, scores_file=None, require_critic=Fal
         if n not in ("critic", "spec") and g["status"] != "missing" and g["scorer"] != "critic":
             integrity.append("%s gate is scored by %r, not by the independent critic: advisory until the critic re-scores it" % (n, g["scorer"]))
         vals = [v for v in g["checks"].values() if v is not None]
-        if len(vals) >= 5 and len(set(vals)) == 1 and vals[0] >= 9:
+        if len(vals) >= 5 and len(set(vals)) == 1 and vals[0] >= 9 and not g.get("scripted"):
             integrity.append("%s gate: all %d checks have the identical score %g (looks like a blanket score, ask for evidence per item)" % (n, len(vals), vals[0]))
     if "critic" in gates and gates["critic"]["status"] != "missing":
         cl = gates["critic"].get("claims") or {}
@@ -561,6 +591,7 @@ def collect(root, game=None, spec_arg=None, scores_file=None, require_critic=Fal
             actual = gates.get(n, {}).get("status")
             if claimed == "pass" and actual not in ("pass",):
                 integrity.append("critic verdict file claims %s: pass but the %s gate record says %s" % (n, n, actual or "nothing (no record found)"))
+    code_gates_integrity(gates, root, integrity)
     if project:
         src = newest_source(project)
         for n, g in gates.items():
