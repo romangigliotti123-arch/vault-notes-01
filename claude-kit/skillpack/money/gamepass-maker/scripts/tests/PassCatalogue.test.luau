@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/gamepass-maker/scripts/tests/PassCatalogue.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Shop = require("../../../../../systems/Shop/src/Shop")
 local PassCatalogue = require("../PassCatalogue")
@@ -74,7 +73,7 @@ t.test("through the real Shop: ownership comes from Roblox, not from wasPurchase
 		end,
 		wait = function() end,
 	})
-	t.falsy(shop:OnPassPromptFinished(1, 900, true)) -- spoofed "purchased", Roblox says no
+	t.falsy(shop:OnPassPromptFinished(1, 900, true))
 	t.eq(granted, 0)
 	owned = true
 	t.truthy(shop:OnPassPromptFinished(1, 900, true))

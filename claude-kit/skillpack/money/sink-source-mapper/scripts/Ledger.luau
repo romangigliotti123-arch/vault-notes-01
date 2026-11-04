@@ -1,10 +1,4 @@
 --!strict
--- Ledger: server-side record of every currency source and sink, and a report that finds inflation and lopsided income.
--- Call Ledger.record at the ONE place each grant/spend happens (the same place that changes the balance), never from the client.
---   local ledger = Ledger.new()
---   Ledger.record(ledger, "source", "quest_reward", 150)
---   Ledger.record(ledger, "sink", "pet_upgrade", 120)
---   local report = Ledger.report(ledger)   -- report.flags lists problems in plain words
 local Ledger = {}
 
 export type Kind = "source" | "sink"
@@ -50,7 +44,6 @@ local function rows(bucket: { [string]: number }): ({ Row }, number)
 	return out, sum
 end
 
--- minRatio: sinks/sources below this = inflation risk (default 0.6, a heuristic). maxShare: one source above this share = fragile (default 0.6).
 function Ledger.report(l: Ledger, minRatio: number?, maxShare: number?): Report
 	local sources, sourceTotal = rows(l.source)
 	local sinks, sinkTotal = rows(l.sink)

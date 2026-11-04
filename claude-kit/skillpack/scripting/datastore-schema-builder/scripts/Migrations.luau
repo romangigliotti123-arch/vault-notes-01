@@ -1,11 +1,4 @@
 --!strict
--- Migrations: OFFLINE test and lint layer for a save schema (pure Luau, no Roblox globals, runs in Lune).
--- The runtime owner of loading, locking and migrating is the kit system PlayerData (systems/PlayerData): it takes
--- { template, version, migrations } and stores records as { v = version, data = table }. This module applies the SAME
--- rules to fixtures so the schema file you ship is tested before it ever touches a DataStore:
---   migrations[n] upgrades data from version n to n+1 and returns the table; a record newer than `target` is refused;
---   a missing step is an error; afterwards missing template keys are filled in.
--- Use the same Schema.luau (TEMPLATE, VERSION, MIGRATIONS) in the game and in tests/Schema.test.luau.
 local Migrations = {}
 
 export type Data = { [string]: any }
@@ -24,7 +17,6 @@ function Migrations.deepCopy<T>(value: T): T
 	return out :: any
 end
 
--- fill keys missing in data from template; nested dictionaries recurse, arrays (empty-table defaults) are left alone
 function Migrations.reconcile(data: Data, template: Data)
 	for key, def in template do
 		local cur = data[key]
@@ -36,7 +28,6 @@ function Migrations.reconcile(data: Data, template: Data)
 	end
 end
 
--- step numbers in [from, target-1] without a function (empty = the chain is complete)
 function Migrations.missingSteps(from: number, target: number, steps: Steps): { number }
 	local missing = {}
 	for n = from, target - 1 do
@@ -47,7 +38,6 @@ function Migrations.missingSteps(from: number, target: number, steps: Steps): { 
 	return missing
 end
 
--- apply the rules to one stored record. Returns data, nil or nil, reason ("newer", "missing migration N", "migration N failed: ...")
 function Migrations.migrate(record: Record, target: number, steps: Steps, template: Data): (Data?, string?)
 	local v = record.v or 1
 	if v > target then
@@ -80,7 +70,6 @@ local function isArray(t: { [any]: any }): boolean
 	return n == #t
 end
 
--- problems that DataStore serialisation or later migrations will hit; empty list = template is storable
 function Migrations.validateTemplate(template: Data): { string }
 	local problems = {}
 	local function walk(value: any, path: string, depth: number)

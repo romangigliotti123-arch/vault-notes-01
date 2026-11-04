@@ -1,11 +1,5 @@
 --!strict
--- naming_audit.luau: check names against the convention in scripts/NamingRules.luau (tested under Lune; the rules are inlined here
--- because Studio scripts cannot require a file). Audit-only by default.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- Renames are never automatic. After reviewing the report, copy the lines you approve into RENAMES as
---   ["Workspace.Map.Part3"] = "Wall_North",
--- (full path -> new name) and set APPLY = true. One undo step. Search scripts for the old name first (report says how).
-local ROOTS: { Instance }? = nil -- nil = Workspace and ReplicatedStorage
+local ROOTS: { Instance }? = nil
 local APPLY = false
 local RENAMES: { [string]: string } = {}
 local MAX_LIST = 15

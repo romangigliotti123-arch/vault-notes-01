@@ -1,7 +1,4 @@
 --!strict
--- list_assets.luau: read-only. Lists every distinct asset id referenced in the place, with a count, an example path and the property.
--- Use the list to check ownership, licence and moderation status of each asset before shipping. Studio command bar or MCP `execute_luau` (Edit).
--- ROOTS nil = the whole game except CoreGui-like services that are not accessible.
 local ROOTS: { Instance }? = nil
 
 local SERVICES = {
@@ -18,7 +15,6 @@ local SERVICES = {
 	"MaterialService",
 }
 
--- class -> properties that can hold an asset id
 local PROPS: { [string]: { string } } = {
 	MeshPart = { "MeshId", "TextureID" },
 	SpecialMesh = { "MeshId", "TextureId" },

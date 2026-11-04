@@ -1,21 +1,9 @@
 --!strict
--- StateMachine: explicit states, an allowed-transition table, enter/exit/update hooks, and a queue so a transition requested
--- from inside a hook cannot re-enter the machine. Pure logic: the same module runs an NPC on the server, a round loop or an
--- ability on a client. Authoritative machines (rounds, NPC, anything that changes game state) live on the server.
---   local m = StateMachine.new({
---       initial = "Idle",
---       states = {
---           Idle = { to = { "Chase" } },
---           Chase = { to = { "Idle", "Attack" }, enter = function(ctx, from) end, update = function(ctx, dt) end },
---           Attack = { to = { "Chase" }, exit = function(ctx, to) end },
---       },
---   }, ctx)
---   m:Transition("Chase")   m:Update(dt)   m:Is("Chase")   m:CanTransition("Attack")
 local StateMachine = {}
 StateMachine.__index = StateMachine
 
 export type State = {
-	to: { string }?, -- allowed targets; nil means any state may follow
+	to: { string }?,
 	enter: ((ctx: any, from: string?, ...any) -> ())?,
 	exit: ((ctx: any, to: string) -> ())?,
 	update: ((ctx: any, dt: number) -> ())?,
@@ -33,7 +21,6 @@ export type Machine = typeof(setmetatable(
 	StateMachine
 ))
 
--- constructor checks the definition up front so a typo in a state name fails at startup, not mid-game
 function StateMachine.validate(def: Definition): { string }
 	local problems: { string } = {}
 	if def.states[def.initial] == nil then
@@ -111,7 +98,6 @@ local function apply(self: Machine, to: string, args: { any })
 	end
 end
 
--- returns true when the machine is now in (or has queued a move to) the requested state
 function StateMachine.Transition(self: Machine, to: string, ...: any): boolean
 	if not self:CanTransition(to) then
 		return false
@@ -138,7 +124,6 @@ function StateMachine.Update(self: Machine, dt: number)
 		self._busy = true
 		update(self._ctx, dt)
 		self._busy = false
-		-- transitions requested during update run after it, in order
 		local queued = self._queue
 		self._queue = {}
 		for _, move in queued do

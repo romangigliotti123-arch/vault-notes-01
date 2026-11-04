@@ -1,8 +1,4 @@
 --!strict
--- Tiny test harness for Lune. Usage:
---   local t = require("../../_check/harness")
---   t.test("name", function() t.eq(a, b) end)
---   t.done()   -- prints summary, exits 1 on any failure
 local process = require("@lune/process")
 
 local passed, failed = 0, 0

@@ -1,15 +1,11 @@
 --!strict
--- PropKit: size a reusable prop kit and cost the scene it dresses. Pure logic, unit-tested under Lune.
--- Vault (optimization KB, Creator Docs estimates): about 1 second of load per 10,000 instances sent to the client, about 500 bytes of
--- client memory per instance, aim for about 150,000 client instances or fewer with streaming on; cloned MeshParts that reuse a
--- MeshId keep memory roughly constant (reuse beats unique art). Densities below are inputs, not recommendations.
 local PropKit = {}
 
 export type Prop = {
 	name: string,
-	variants: number, -- distinct meshes/looks in the kit
-	instancesPer: number, -- instances one placed copy adds (parts + attachments + decals + scripts...)
-	per1000: number, -- placed copies per 1000 studs^2 of dressed area
+	variants: number,
+	instancesPer: number,
+	per1000: number,
 }
 export type Result = {
 	placed: { [string]: number },
@@ -51,7 +47,6 @@ function PropKit.plan(areaStuds2: number, props: { Prop }, maxInstances: number?
 	}
 end
 
--- Reuse ratio: placed copies per unique mesh. Low ratios mean the kit is too varied to be cheap.
 function PropKit.reuse(r: Result): number
 	local copies = 0
 	for _, n in r.placed do

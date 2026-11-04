@@ -28,7 +28,6 @@ New to a codebase, before moving or deleting scripts, hunting a remote nobody ha
 8. Limits: matching is by the last identifier before the call, so aliased remotes (`local R = remotes.Buy`) appear under `R`; resolve those by hand and note them.
 
 ```lua
--- Lune runner (outside scripts/): lune run map.luau
 local fs = require("@lune/fs")
 local sources = {}
 local function walk(dir: string)

@@ -1,8 +1,4 @@
 --!nocheck
--- Run (from the kit's systems folder, where rokit.toml pins lune):
---   lune run ../skills/game-dev-placement-qa/scripts/tests/Placement.test.luau [fixtures.json] [--dump out.json]
--- Runs every case of fixtures.json through PlacementCore and asserts the hand-written expectations. --dump writes all reports as JSON so the Python
--- reference (placement_ref.py) can be compared field by field (netlify-site/tools/test_placement.py does that).
 local fs = require("@lune/fs")
 local process = require("@lune/process")
 local serde = require("@lune/serde")

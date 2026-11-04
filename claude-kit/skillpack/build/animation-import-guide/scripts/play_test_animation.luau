@@ -1,11 +1,6 @@
 --!strict
--- play_test_animation.luau: after uploading an animation, load it on a rig and report whether it plays, its length, looped flag,
--- priority and keyframe names, so the import is verified before it is wired into gameplay. Changes nothing in the place.
--- RUN IN PLAY MODE on the server (Studio MCP `start_stop_play`, then `execute_luau` with datamodel_type Server).
--- Set ANIMATION_ID to the uploaded asset ("rbxassetid://<number>"). It is left empty on purpose: never guess an id.
--- The rig's owner must own the animation (same account or group), otherwise it will not load: the script says so.
-local ANIMATION_ID = "" -- e.g. "rbxassetid://1234567890"
-local RIG: Model? = nil -- nil = first Model in Workspace that has an Animator
+local ANIMATION_ID = ""
+local RIG: Model? = nil
 local PLAY_SECONDS = 0.6
 
 local function findAnimator(): Animator?

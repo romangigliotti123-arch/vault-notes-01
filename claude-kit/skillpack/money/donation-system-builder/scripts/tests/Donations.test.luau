@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/donation-system-builder/scripts/tests/Donations.test.luau
 local t = require("../../../../../systems/_check/harness")
 local D = require("../Donations")
 

@@ -1,8 +1,4 @@
 --!strict
--- Graybox: validate a block-out spec before it is built, so the playtest tests the layout and not typos. Pure logic, Lune-tested.
--- Spec = list of axis-aligned boxes (centre x,y,z and size sx,sy,sz in studs, no rotation; rotate by hand after approval).
--- Vault (building KB): graybox before art; the avatar is about 6.5 studs tall, so size doorways and corridors from that; terrain
--- voxels are 4 studs, so a 4-stud grid keeps terrain and parts aligned. Clearance multipliers below are this skill's defaults.
 local Graybox = {}
 
 export type Box = {
@@ -13,7 +9,7 @@ export type Box = {
 	sx: number,
 	sy: number,
 	sz: number,
-	role: string?, -- "floor" | "wall" | "door" | "corridor" | "platform" | "cover" | "spawn"
+	role: string?,
 	allowOverlap: boolean?,
 }
 export type Issue = { box: string, kind: string, note: string }
@@ -73,7 +69,6 @@ function Graybox.validate(spec: { Box }, grid: number?): { Issue }
 	return issues
 end
 
--- Floor area and a rough part count for the playtest checklist header.
 function Graybox.stats(spec: { Box }): { boxes: number, floorArea: number }
 	local area = 0
 	for _, b in spec do

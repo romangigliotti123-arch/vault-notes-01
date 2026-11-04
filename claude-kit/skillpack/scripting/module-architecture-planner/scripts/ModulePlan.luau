@@ -1,11 +1,4 @@
 --!strict
--- ModulePlan: read a set of scripts and propose where each belongs (server service, client controller, shared) and which ones
--- should be split. Text only; a starting proposal for the human, never an automatic refactor.
---   local plan = ModulePlan.analyse(sources, RequireGraph)        -- RequireGraph from require-cycle-finder/scripts, passed in
---   plan.modules[name] = { lines, functions, side, mixed, splitReasons, requires }
---   plan.violations    = shared modules that require server/client code, client modules that require server code
--- "side" comes from the services and APIs a file uses (listed below); it is a hint. Server-only logic must never live in a
--- container clients can read (ReplicatedStorage): the vault's security notes say exploiters read everything replicated.
 local ModulePlan = {}
 
 export type Graph = {
@@ -15,7 +8,7 @@ export type Graph = {
 export type Module = {
 	lines: number,
 	functions: number,
-	side: string, -- "server" | "client" | "shared"
+	side: string,
 	mixed: boolean,
 	splitReasons: { string },
 	requires: { string },
@@ -63,7 +56,6 @@ local function countAny(code: string, markers: { string }): number
 	return n
 end
 
--- why a dependency from a `from`-side module on a `to`-side module is not allowed, or nil
 local FORBIDDEN: { [string]: { [string]: string } } = {
 	shared = {
 		server = "shared code must not depend on one side",
@@ -133,7 +125,6 @@ function ModulePlan.analyse(sources: { [string]: string }, graph: Graph): Plan
 	return { modules = modules, violations = violations, layout = layout }
 end
 
--- modules worth splitting, biggest first
 function ModulePlan.splitCandidates(plan: Plan): { string }
 	local names = {}
 	for name, m in plan.modules do

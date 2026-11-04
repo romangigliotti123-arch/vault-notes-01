@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/devproduct-handler/scripts/tests/Catalogue.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Shop = require("../../../../../systems/Shop/src/Shop")
 local Catalogue = require("../Catalogue")
@@ -93,7 +92,6 @@ t.test("verify flags a throwing grant, a no-op, a bad value and a refuse-after-c
 			refuseWith = { coins = 0 },
 		},
 	}
-	-- Throws 1, NoOp 1, Func 1, Sloppy 2 (fresh grant returns false, and it changed data before refusing)
 	t.eq(#Catalogue.verify(bad, TEMPLATE), 5)
 end)
 

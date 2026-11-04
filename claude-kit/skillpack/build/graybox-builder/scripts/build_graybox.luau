@@ -1,11 +1,6 @@
 --!strict
--- build_graybox.luau: validate a block-out SPEC and (opt-in) build it as plain grey anchored boxes in Workspace.Graybox, one undo step.
--- Validation logic mirrors scripts/Graybox.luau (tested under Lune): 4-stud grid, overlaps, doorway and corridor clearance from the
--- 6.5-stud avatar, duplicate names. Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (Edit).
--- BUILD is false by default (validate only). The sample SPEC is two rooms joined by a door: replace it with the layout the owner
--- approved. Boxes are axis-aligned (centre x,y,z; size sx,sy,sz); rotate by hand after the layout is signed off.
 local BUILD = false
-local REPLACE = false -- true: delete an existing Workspace.Graybox folder first (it is undone with the build)
+local REPLACE = false
 local GRID = 4
 local AVATAR_HEIGHT = 6.5
 

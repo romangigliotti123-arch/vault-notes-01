@@ -6,6 +6,8 @@ argument-hint: "[setup | status | playtest]"
 
 # roblox-studio-connect
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Three ways to work, best first; the workflow picks automatically and says which one it is in:
 1. **Studio MCP connected**: tools named `mcp__Roblox_Studio__*` are in your tool list. Write into the open place, start a playtest, read Output and errors; this is the strongest evidence.
 2. **Rojo project files** (always works): code is files in the project folder; the user runs `rojo serve` and the Rojo plugin syncs them into Studio. Checks with the toolchain, no run evidence.

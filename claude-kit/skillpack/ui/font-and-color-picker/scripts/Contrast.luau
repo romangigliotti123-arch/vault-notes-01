@@ -1,9 +1,4 @@
 --!strict
--- Contrast: WCAG 2.x relative luminance and contrast ratio, plus a palette check. This is the general web-accessibility standard
--- (4.5:1 normal text, 3:1 large text/UI components), used here as a readability yardstick: Roblox itself publishes no ratio.
--- Colours are 0-255 {r, g, b} tables (convert from Color3 with math.round(c.R * 255)). Gamma is sRGB.
---   Contrast.ratio({255,255,255}, {30,30,30})  -> 16.0+      Contrast.bestText(bg) -> white or near-black
---   Contrast.checkPalette({ {name="body", fg=..., bg=..., textPx=16} })  -> list of failures
 local Contrast = {}
 
 export type RGB = { number }
@@ -28,7 +23,6 @@ function Contrast.ratio(a: RGB, b: RGB): number
 	return (hi + 0.05) / (lo + 0.05)
 end
 
--- WCAG "large text": 24 px and up, or 18.66 px and up when bold.
 function Contrast.neededRatio(textPx: number, bold: boolean?, nonText: boolean?): number
 	if nonText then
 		return 3

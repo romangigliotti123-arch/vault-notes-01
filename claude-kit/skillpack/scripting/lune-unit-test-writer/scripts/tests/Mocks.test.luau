@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run Mocks.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local Mocks = require("../Mocks")
 local Cooldowns = require("../../../cooldown-manager-builder/scripts/Cooldowns")

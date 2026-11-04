@@ -1,13 +1,8 @@
 --!strict
--- DataLoss: failure-injection scenarios for a session-locking player-data module (the kit's PlayerData interface:
--- LoadAsync(key) -> session?, reason?; SaveAsync(session); ReleaseAsync(session); ReleaseAll(timeout); AutosaveDue()).
--- Runs headless under Lune with a fake DataStore and a fake clock, so outages, throttling and server crashes can be replayed in
--- milliseconds. It tests YOUR persistence layer's behaviour; it does not call the real DataStore. Template must be { coins = 0, ... }.
 local DataLoss = {}
 
 export type Db = { rows: { [string]: any }, failNext: number, failAll: boolean, calls: number }
 export type Clock = { t: number, wait: (seconds: number) -> () }
--- build a server: factory(jobId, store, clock, lostLog) must return a PlayerData-like object using store, clock.t as now() and clock.wait
 export type Factory = (jobId: string, store: any, clock: Clock, lostLog: { string }) -> any
 export type Result = { name: string, ok: boolean, detail: string }
 
@@ -37,7 +32,6 @@ function DataLoss.newClock(): Clock
 	return clock
 end
 
--- UpdateAsync like Roblox: transform(old) -> new | nil (cancel). Errors are injected by failNext / failAll.
 function DataLoss.store(db: Db): any
 	local s = {}
 	function s.UpdateAsync(_self: any, key: string, transform: (old: any) -> any): any
@@ -157,14 +151,14 @@ local SCENARIOS: { Scenario } = {
 			local s = a:LoadAsync("p1")
 			s.Data.coins = 10
 			a:SaveAsync(s)
-			s.Data.coins = 99 -- unsaved progress
+			s.Data.coins = 99
 			db.failAll = true
 			a:ReleaseAll(25)
 			db.failAll = false
 			if db.rows.p1.data.coins ~= 10 then
 				return false, `row changed to {db.rows.p1.data.coins} during an outage`
 			end
-			clock.t += 700 -- lock timeout passes
+			clock.t += 700
 			local b = server(f, "B", db, clock)
 			local s2 = b:LoadAsync("p1")
 			if s2 == nil then
@@ -181,7 +175,7 @@ local SCENARIOS: { Scenario } = {
 			local s = a:LoadAsync("p1")
 			s.Data.coins = 40
 			a:SaveAsync(s)
-			s.Data.coins = 41 -- never saved: the server dies here
+			s.Data.coins = 41
 			clock.t += 700
 			local b = server(f, "B", db, clock)
 			local s2 = b:LoadAsync("p1")
@@ -222,7 +216,7 @@ local SCENARIOS: { Scenario } = {
 			local a = server(f, "A", db, clock)
 			local s = a:LoadAsync("p1")
 			local earned = 0
-			for _ = 1, 40 do -- 40 ticks of 30 s = 20 minutes
+			for _ = 1, 40 do
 				clock.t += 30
 				earned += 1
 				s.Data.coins = earned

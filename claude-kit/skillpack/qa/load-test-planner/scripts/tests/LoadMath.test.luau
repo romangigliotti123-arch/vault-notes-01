@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/load-test-planner/scripts/tests/LoadMath.test.luau
 local t = require("../../../../../systems/_check/harness")
 local LoadMath = require("../LoadMath")
 

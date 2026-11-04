@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/spawn-system-builder/scripts/tests/Spawns.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Spawns = require("../Spawns")
 

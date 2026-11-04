@@ -18,7 +18,7 @@ The code counterpart of game-dev-rate (which rates game ideas). Rating is derive
 | perf | Performance (no per-frame waste, connection cleanup, instance/table growth) | 12 |
 | struct | Structure and readability (modules, naming, style per roblox-luau-style) | 10 |
 | test | Testability and verification (playtest script, assertions, observable checks; capped by the evidence ladder below) | 6 |
-| maint | Maintainability (config separated, no magic numbers, comments where needed) | 6 |
+| maint | Maintainability (config separated, no magic numbers, no narrating comments) | 6 |
 
 Anchors: 1-2 = broken or dangerous; 5 = works but with notable gaps; 8 = solid with only minor issues; 10 = exemplary and hard to improve.
 
@@ -65,6 +65,7 @@ Severity: CRITICAL (exploit, data loss, dupes) > HIGH (leak, outage, broken econ
 | SE-27 | LOW | `Instance.new(class, parent)` before properties are set | Properties first, `Parent` last |
 | SE-28 | LOW | `Humanoid:LoadAnimation` | `Animator:LoadAnimation` |
 | SE-30 | LOW | `:: any` casts to silence strict mode | Fix or narrow the type |
+| SE-31 | LOW | Narrating comments (comment lines that say WHAT the code does) | Delete them; keep one line only for a non-obvious WHY (roblox-luau-style, Comments). `comment_scan.py` in game-dev-critic/scripts counts them |
 
 Receipts, verified against the Roblox docs 2026-11-04: the `MarketplaceService.ProcessReceipt` callback (one script, server only) returns `Enum.ProductPurchaseDecision.PurchaseGranted` once the grant is saved and `NotProcessedYet` otherwise, which makes Roblox deliver the receipt again. The `MarketplaceService:BindReceiptHandler(receiptType, handler, filter)` handlers return `Enum.ReceiptDecision.Processed` or `NotProcessedYet`. Never mix the two enums, and dedupe by `PurchaseId` (or `TransferRequestId`).
 
@@ -88,7 +89,7 @@ When the code belongs to a game (`Games/<slug>/`), also write `code-quality/gate
   "result": "fail", "reasons": ["SE-9 Shop.server.luau:42 price from payload"],
   "failing": [{"path": "Shop.server.luau:42", "check": "SE-9", "fix": "read price from config"}]}
 ```
-Include only applicable ids. Passing item = 10; an open item scores CRITICAL 0, HIGH 3, MEDIUM 6, LOW 8. `result` is `fail` while any CRITICAL, HIGH or MEDIUM item is open.
+The comment scan is its own gate: `comment_scan.py <project> --write Games/<slug>` writes `comment-scan/gate.json` (checks CM1-CM3, weight 10 like any extra gate), a scored finding that never blocks. Include only applicable ids. Passing item = 10; an open item scores CRITICAL 0, HIGH 3, MEDIUM 6, LOW 8. `result` is `fail` while any CRITICAL, HIGH or MEDIUM item is open.
 
 Credit: checklist adapted from excaldev/ro-engineer `sharp-edges.md` and `testing.md` (MIT, Copyright (c) 2026 excaldev); reference copies in Imported/ro-engineer. Rows were re-checked against the Roblox docs.
 

@@ -1,10 +1,4 @@
 --!strict
--- TypeScan: find what is missing before a module can be --!strict. Text only; run it in Lune or the command bar.
---   local report = TypeScan.scan(source)
---   report.mode            "strict" | "nonstrict" | "nocheck" | "none"   (from the first --! line)
---   report.functions       one entry per declared function with untyped parameters or no return type
---   report.anyCount        explicit `any` annotations or casts (each one switches the checker off for that value)
--- The real answer is always `luau-lsp analyze` (or Studio's Script Analysis); this ranks where to start.
 local TypeScan = {}
 
 export type FunctionGap = { line: number, name: string, untyped: { string }, missingReturn: boolean }
@@ -23,7 +17,6 @@ function TypeScan.mode(source: string): string
 	return "none"
 end
 
--- split a parameter list at top-level commas (commas inside {} () <> belong to a type)
 local function splitParams(list: string): { string }
 	local out: { string } = {}
 	local depth, current = 0, ""
@@ -93,7 +86,6 @@ function TypeScan.scan(source: string): Report
 	return { mode = TypeScan.mode(source), functions = gaps, anyCount = anyCount, totalFunctions = total }
 end
 
--- one-line verdict for a ranking table: 0 means nothing left to annotate
 function TypeScan.score(report: Report): number
 	local s = report.anyCount
 	for _, g in report.functions do

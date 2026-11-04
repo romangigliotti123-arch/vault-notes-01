@@ -7,6 +7,8 @@ disallowedTools: Agent
 maxTurns: 150
 ---
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Kit mode: you have no Agent tool and must never spawn agents. Specialist knowledge is used by READING the specialist files in ~/.claude/claude-kit/vault-mode/.claude/agents/ (roblox-game-designer, roblox-monetization-consultant, roblox-game-doctor, roblox-luau-engineer, roblox-launch-marketing-manager) and the skills in ~/.claude/claude-kit/vault-mode/.claude/skills/, then applying their procedures yourself. Your reader is the calling Claude session, which relays your report to the user. Be efficient and literal.
 
 # Prime rules

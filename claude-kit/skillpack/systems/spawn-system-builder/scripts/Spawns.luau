@@ -1,9 +1,4 @@
 --!strict
--- Spawns: pick a spawn for a team that is far from enemies, and give a short protection window that ends when the player attacks.
--- Pure logic on plain {x,y,z} positions; the glue reads real part positions and sets the protection as a ForceField or a damage gate.
---   local spawns = Spawns.new({ protectSeconds = 3, now = os.clock })
---   local s = spawns:pick(list, "Red", enemyPositions)   -- list = { { id = "R1", team = "Red", pos = {x=,y=,z=} } }
---   spawns:protect(userId) ; spawns:isProtected(userId) ; spawns:attacked(userId)   -- attacking drops protection
 local Spawns = {}
 Spawns.__index = Spawns
 
@@ -28,7 +23,6 @@ local function dist(a: Pos, b: Pos): number
 	return math.sqrt(dx * dx + dy * dy + dz * dz)
 end
 
--- score = distance to the nearest enemy (bigger is safer); the spawn used last time is skipped when another is within 1 stud of as good
 function Spawns.pick(self: Spawns, list: { Spawn }, team: string?, enemies: { Pos }): Spawn?
 	local best, bestScore = nil :: Spawn?, -math.huge
 	for _, s in list do
@@ -65,7 +59,6 @@ function Spawns.attacked(self: Spawns, userId: number)
 	self._until[userId] = nil
 end
 
--- damage gate used by the combat code: 0 while protected
 function Spawns.damageFor(self: Spawns, victimId: number, amount: number): number
 	return if self:isProtected(victimId) then 0 else amount
 end

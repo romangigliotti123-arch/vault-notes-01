@@ -1,9 +1,4 @@
 --!strict
--- EffectsBudget: estimate live particles per emitter and per scene, compare with caps for a device tier, and propose reduced rates. Pure logic, Lune-tested.
--- Sources (vault optimization KB, creators/official): Highlights: 255 cap, extras silently ignored, add/remove rebuilds geometry (use Enabled); large particles cost fill rate;
--- overlapping transparency causes overdraw; cast-shadow lights cost more (shadows are off below graphics quality 4); mobile Highlight cost up to 1 ms GPU; flipbooks are disabled
--- by clients under low memory. The vault gives NO live-particle caps: the CAPS table is this skill's heuristic default. Tune with a profiler capture on the target device.
--- Live particles per emitter at steady state = Rate x average lifetime (particles/s x seconds).
 local EffectsBudget = {}
 
 export type Emitter = {
@@ -16,7 +11,7 @@ export type Emitter = {
 }
 export type Row = { name: string, live: number, share: number, suggestedRate: number }
 
-EffectsBudget.CAPS = { low = 300, mid = 800, high = 2000 } :: { [string]: number } -- scene live-particle caps (heuristic)
+EffectsBudget.CAPS = { low = 300, mid = 800, high = 2000 } :: { [string]: number }
 EffectsBudget.HIGHLIGHT_CAP = 255
 
 function EffectsBudget.live(e: Emitter): number
@@ -26,7 +21,6 @@ function EffectsBudget.live(e: Emitter): number
 	return e.rate * (e.lifeMin + e.lifeMax) / 2
 end
 
--- plan: emitters sorted by live particles with a suggested rate that scales the whole scene down to the cap proportionally (never below 1).
 function EffectsBudget.plan(emitters: { Emitter }, tier: string): ({ Row }, number, number)
 	local cap = EffectsBudget.CAPS[tier]
 	assert(cap ~= nil, "unknown tier " .. tier)

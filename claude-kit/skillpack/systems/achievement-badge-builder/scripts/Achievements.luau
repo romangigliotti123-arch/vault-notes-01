@@ -1,20 +1,14 @@
 --!strict
--- Achievements: unlock once, award the Roblox badge idempotently with retries. The unlock flag is saved in player data in the same
--- step as the decision; the badge call (BadgeService:AwardBadge, may fail or yield) is a separate pending entry that is retried
--- until it succeeds, so a failed call never loses a badge and a retry never double-awards.
---   local ach = Achievements.new({ defs = { first_win = { badgeId = 0 } }, award = function(userId, badgeId) return pcallAward(userId, badgeId) end })
---   ach:unlock(userId, data, "first_win")   -- from the server code that saw the condition
---   ach:flush(userId, data)                 -- on join, after each unlock, and on a timer (yields; call from its own thread)
 local Achievements = {}
 Achievements.__index = Achievements
 
 export type Data = { [any]: any }
-export type Def = { badgeId: number } -- 0 = not created yet (SET IN CREATOR HUB): the achievement unlocks, no badge call is made
+export type Def = { badgeId: number }
 export type Config = {
 	defs: { [string]: Def },
-	award: (userId: number, badgeId: number) -> boolean, -- true when Roblox confirms (or says already owned)
+	award: (userId: number, badgeId: number) -> boolean,
 	onUnlock: ((userId: number, id: string) -> ())?,
-	maxAttempts: number?, -- per pending entry before it is parked for the next session (default 8)
+	maxAttempts: number?,
 }
 export type Achievements = typeof(setmetatable({} :: { _c: Config }, Achievements))
 
@@ -37,7 +31,6 @@ function Achievements.has(self: Achievements, data: Data, id: string): boolean
 	return self:init(data).done[id] == true
 end
 
--- true only the first time
 function Achievements.unlock(self: Achievements, userId: number, data: Data, id: string): boolean
 	local def = self._c.defs[id]
 	if def == nil then
@@ -57,7 +50,6 @@ function Achievements.unlock(self: Achievements, userId: number, data: Data, id:
 	return true
 end
 
--- try every pending badge once; returns how many were awarded. Entries that keep failing are kept (attempt counter) for next session.
 function Achievements.flush(self: Achievements, userId: number, data: Data): number
 	local a = self:init(data)
 	local awarded = 0
@@ -83,7 +75,6 @@ function Achievements.flush(self: Achievements, userId: number, data: Data): num
 	return awarded
 end
 
--- on join: give parked entries a fresh set of attempts
 function Achievements.resetAttempts(self: Achievements, data: Data)
 	local a = self:init(data)
 	for id in a.pending do

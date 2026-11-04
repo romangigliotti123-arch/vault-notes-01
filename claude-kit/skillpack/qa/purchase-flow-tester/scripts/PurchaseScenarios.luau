@@ -1,17 +1,7 @@
 --!strict
--- PurchaseScenarios: receipt-handling scenarios for a developer-product flow, run headless. They test the RULES the vault gives for
--- ProcessReceipt: grant only after the data is updated and saved, the same PurchaseId never grants twice, anything uncertain answers
--- NotYet so Roblox retries, unknown products and missing data never grant. The rig adapts any implementation; the kit's Shop is the
--- reference (see the test). Real Robux purchases and the Roblox purchase prompt are NOT covered here (test those in Studio / live).
 local PurchaseScenarios = {}
 
 export type Receipt = { PlayerId: number, PurchaseId: string, ProductId: number }
--- A rig wraps one implementation + a fake player data store:
---   process(receipt) -> "Granted" | "NotYet"
---   coins(userId) -> number           coins currently in that player's data
---   setSaveOk(ok)                     make the persistence step succeed or fail
---   setDataLoaded(userId, loaded)     simulate data not loaded / player left
---   productId: a product that grants `reward` coins; badProductId: a product whose grant throws (or nil to skip that scenario)
 export type Rig = {
 	process: (Receipt) -> string,
 	coins: (number) -> number,

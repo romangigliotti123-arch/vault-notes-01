@@ -5,6 +5,8 @@ description: "Server-authoritative design and exploit review for Roblox RemoteEv
 
 # Roblox remote security
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Assume every client is hostile. Anything on the client (LocalScripts, ReplicatedStorage code, character physics ownership) can be changed by an exploiter. Remotes are the attack surface.
 
 ## Write rules

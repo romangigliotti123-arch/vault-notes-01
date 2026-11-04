@@ -1,10 +1,4 @@
 --!strict
--- FloatingNumbers: the bookkeeping for damage/reward popups: merge rapid hits on one target, spread simultaneous numbers into lanes
--- so they do not stack, cap the live count, and expire by age. Pure; creating/recycling the actual labels is the caller's job (use
--- the pack's object-pool-builder Pool for the frames) and `active` tells it what to draw.
---   local f = FloatingNumbers.new({ mergeWindow = 0.25, maxActive = 24, lifetime = 0.9, lanes = 3 })
---   local ev = f:spawn("goblin1", 12, "damage", now)     -- ev.id, ev.total, ev.lane, ev.merged
---   f:tick(now)                                          -- removes expired; returns the active list
 local FloatingNumbers = {}
 FloatingNumbers.__index = FloatingNumbers
 
@@ -45,7 +39,6 @@ function FloatingNumbers.new(options: Options?): Feed
 	}, FloatingNumbers)
 end
 
--- Same target + kind inside the merge window adds into the existing number (it stays on screen, its clock extended from lastHit).
 function FloatingNumbers.spawn(
 	self: Feed,
 	target: string,
@@ -63,7 +56,7 @@ function FloatingNumbers.spawn(
 		end
 	end
 	if #self._active >= self._max then
-		table.remove(self._active, 1) -- drop the oldest rather than growing without limit
+		table.remove(self._active, 1)
 	end
 	self._laneCounter += 1
 	local n: Number = {
@@ -81,12 +74,10 @@ function FloatingNumbers.spawn(
 	return n, false
 end
 
--- Horizontal offset (px) for a lane, centred: lanes 3, spacing 24 -> -24, 0, 24.
 function FloatingNumbers.laneOffset(self: Feed, lane: number, spacing: number): number
 	return (lane - (self._lanes - 1) / 2) * spacing
 end
 
--- 0..1 life progress for animation (rise and fade).
 function FloatingNumbers.progress(self: Feed, n: Number, now: number): number
 	return math.clamp((now - n.born) / self._life, 0, 1)
 end

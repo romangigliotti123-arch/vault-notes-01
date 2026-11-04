@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run tests/Analytics.test.luau   (from the Analytics folder)
 local t = require("../../_check/harness")
 local Analytics = require("../src/Analytics")
 
@@ -144,7 +143,7 @@ t.test("rate limit: per player per event per minute, resets after 60 s", functio
 		a:Custom(P, "Tick", 1)
 	end
 	t.eq(#env.calls, 3)
-	t.truthy(a:Custom({ UserId = 9 }, "Tick", 1)) -- other player unaffected
+	t.truthy(a:Custom({ UserId = 9 }, "Tick", 1))
 	env.clock += 61
 	t.truthy(a:Custom(P, "Tick", 1))
 end)

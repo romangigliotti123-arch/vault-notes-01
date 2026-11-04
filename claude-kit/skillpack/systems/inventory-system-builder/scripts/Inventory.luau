@@ -1,10 +1,4 @@
 --!strict
--- Inventory: server-owned slot inventory stored in the player's saved data (data.Inventory). Pure logic, no Roblox services.
--- Stackable items merge up to their stack size; stack 1 items are "unique" and get a uid (needed by trading and pets).
--- add/remove are all-or-nothing: either the whole request fits or nothing changes.
---   local inv = Inventory.new({ capacity = 30, newUid = function() return HttpService:GenerateGUID(false) end,
---       items = { Wood = { stack = 99 }, Sword = { stack = 1, tradable = true } } })
---   local ok, why = inv:add(data, "Wood", 120)
 local Inventory = {}
 Inventory.__index = Inventory
 
@@ -66,7 +60,6 @@ function Inventory.freeSlots(self: Inventory, data: Data): number
 	return inv.cap - used
 end
 
--- how many more of `id` fit right now (stack room in existing slots + free slots * stack size)
 function Inventory.room(self: Inventory, data: Data, id: string): number
 	local def = self._c.items[id]
 	if def == nil then
@@ -86,7 +79,6 @@ function Inventory.canAdd(self: Inventory, data: Data, id: string, qty: number):
 	return self._c.items[id] ~= nil and validQty(self, qty) and self:room(data, id) >= qty
 end
 
--- returns ok, reason. Unique (stack 1) items get a fresh uid, or the given `uid` when a trade or move carries an existing one.
 function Inventory.add(self: Inventory, data: Data, id: string, qty: number, uid: string?): (boolean, string)
 	local def = self._c.items[id]
 	if def == nil then
@@ -131,7 +123,6 @@ function Inventory.add(self: Inventory, data: Data, id: string, qty: number, uid
 	return true, "ok"
 end
 
--- removes qty of a stackable id (largest-slot-last so partial stacks go first); unique items are removed by uid
 function Inventory.remove(self: Inventory, data: Data, id: string, qty: number): (boolean, string)
 	if self._c.items[id] == nil then
 		return false, "unknown item"
@@ -194,7 +185,6 @@ function Inventory.tradable(self: Inventory, id: string): boolean
 	return def ~= nil and def.tradable == true
 end
 
--- every uid held (for duplicate scans across players: the same uid must never exist twice)
 function Inventory.uids(self: Inventory, data: Data): { string }
 	local out = {}
 	for _, s in self:init(data).slots do
@@ -205,7 +195,6 @@ function Inventory.uids(self: Inventory, data: Data): { string }
 	return out
 end
 
--- save-time sanity check: unknown ids, bad quantities, stack overflow, uid on stackable, duplicate uid in one inventory
 function Inventory.validate(self: Inventory, data: Data): { string }
 	local problems = {}
 	local seenUid: { [string]: boolean } = {}

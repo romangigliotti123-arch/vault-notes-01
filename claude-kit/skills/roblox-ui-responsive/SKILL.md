@@ -5,6 +5,8 @@ description: "Build Roblox ScreenGui interfaces that scale across phone, tablet,
 
 # Responsive Roblox UI
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Most Roblox players are on phones. Design for a phone first, then enlarge.
 
 1. Sizing: use `Scale` for size and position (`UDim2.fromScale`), `Offset` only for borders/padding. Add `UIAspectRatioConstraint` to icons and square buttons, `UISizeConstraint` to cap huge sizes on 4K, `UIScale` for global tweaks by `workspace.CurrentCamera.ViewportSize`.

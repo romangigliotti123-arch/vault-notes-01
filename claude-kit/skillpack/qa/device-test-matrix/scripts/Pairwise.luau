@@ -1,6 +1,4 @@
 --!strict
--- Pairwise: greedy all-pairs test matrix. Every pair of values from two different parameters appears in at least one row, using far fewer
--- rows than the full product. Pure logic, deterministic, unit-tested in Lune. Use it to pick WHICH device/setting combinations to test.
 local Pairwise = {}
 
 export type Param = { name: string, values: { string } }
@@ -20,8 +18,6 @@ local function pairKey(i: number, a: string, j: number, b: string): string
 	return `{i}={a}|{j}={b}`
 end
 
--- exclude(row) -> true drops an impossible combination (e.g. Platform=Console with Input=Touch). Pairs that can only occur in excluded
--- rows are reported in `uncoverable` instead of looping forever.
 function Pairwise.generate(
 	params: { Param },
 	exclude: ((row: Row) -> boolean)?
@@ -112,7 +108,6 @@ function Pairwise.generate(
 	return { rows = rows, uncoverable = left }
 end
 
--- how many of all possible pairs the rows cover (used as the executed acceptance check)
 function Pairwise.coverage(params: { Param }, rows: { Row }): (number, number)
 	local seen: { [string]: boolean } = {}
 	for _, row in rows do

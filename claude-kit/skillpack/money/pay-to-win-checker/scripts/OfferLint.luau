@@ -1,23 +1,19 @@
 --!strict
--- OfferLint: check a list of paid offers against the vault's pay-to-win and paid-randomness rules before they ship.
--- Each offer is described by yes/no facts you fill in honestly; the linter turns them into BLOCK / WARN findings with the rule's source.
--- It judges the description you give it, not the live game, and Roblox policy changes: live-check the cited rule before relying on a verdict.
---   local findings, blocked = OfferLint.check({ { name = "Sword Crate", randomized = true, oddsShown = false } })
 local OfferLint = {}
 
 export type Offer = {
 	name: string,
 	priceRobux: number?,
-	pvp: boolean?, -- the offer is usable in competitive player-versus-player play
-	grantsCombatPower: boolean?, -- changes damage, health, aim or other fight outcomes
-	gatesCoreProgress: boolean?, -- free players cannot reach required content without it
-	requiresHardCurrency: boolean?, -- core tasks demand the paid currency
-	randomized: boolean?, -- paid random outcome (crate, spin, egg, re-roll, key)
-	oddsShown: boolean?, -- every outcome and numeric odds shown BEFORE the spend (including keys, re-rolls, luck boosts)
-	restrictionPathHandled: boolean?, -- code checks the platform's paid-random-items restriction for each player and offers a non-random path
-	popupOnJoin: boolean?, -- a sale modal shows on join or stacks on others
-	timerSkipOrAppointment: boolean?, -- sells removal of a wait, or forces return at set times
-	limitedStock: boolean?, -- capped quantity that makes players race
+	pvp: boolean?,
+	grantsCombatPower: boolean?,
+	gatesCoreProgress: boolean?,
+	requiresHardCurrency: boolean?,
+	randomized: boolean?,
+	oddsShown: boolean?,
+	restrictionPathHandled: boolean?,
+	popupOnJoin: boolean?,
+	timerSkipOrAppointment: boolean?,
+	limitedStock: boolean?,
 }
 export type Finding = { offer: string, severity: "block" | "warn", rule: string, source: string }
 

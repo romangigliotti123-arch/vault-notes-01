@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/tool-weapon-system-builder/scripts/tests/Weapons.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Weapons = require("../Weapons")
 

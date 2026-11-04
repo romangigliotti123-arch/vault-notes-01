@@ -1,9 +1,4 @@
 --!strict
---[[
-	PlayerData: session-locked, versioned player data on top of DataStore:UpdateAsync.
-	Pure module: no Roblox globals, everything arrives through `Config` so it can be unit-tested headless with Lune.
-	Roblox glue lives in PlayerDataService.luau. See ../README.md.
-]]
 
 export type Data = { [any]: any }
 
@@ -25,20 +20,20 @@ export type Session = {
 
 export type Config = {
 	store: StoreLike,
-	jobId: string, -- game.JobId (any unique string per server)
-	template: Data, -- default data for a new player (also used to reconcile missing keys)
-	version: number?, -- current schema version (default 1)
-	migrations: { [number]: (Data) -> Data }?, -- migrations[n] upgrades data from version n to n+1
-	now: () -> number, -- os.time
-	wait: (number) -> any, -- task.wait
-	spawn: (() -> ()) -> (), -- task.spawn(fn)
-	lockTimeout: number?, -- seconds after which a foreign lock counts as dead (default 600)
-	autosaveInterval: number?, -- seconds (default 120, must be well below lockTimeout)
-	loadAttempts: number?, -- DataStore error retries (default 6)
-	saveAttempts: number?, -- (default 5)
-	lockWait: number?, -- max seconds to wait for another server to release (default 30)
-	backoffBase: number?, -- first retry delay in seconds (default 1)
-	onLost: ((Session, string) -> ())?, -- session was taken over or became unsavable: kick the player
+	jobId: string,
+	template: Data,
+	version: number?,
+	migrations: { [number]: (Data) -> Data }?,
+	now: () -> number,
+	wait: (number) -> any,
+	spawn: (() -> ()) -> (),
+	lockTimeout: number?,
+	autosaveInterval: number?,
+	loadAttempts: number?,
+	saveAttempts: number?,
+	lockWait: number?,
+	backoffBase: number?,
+	onLost: ((Session, string) -> ())?,
 	log: ((string) -> ())?,
 }
 
@@ -61,8 +56,6 @@ type Impl = {
 local PlayerData = {}
 PlayerData.__index = PlayerData
 
--- ---------------------------------------------------------------- helpers
-
 local function deepCopy(v: any): any
 	if type(v) == "table" then
 		local out = {}
@@ -74,8 +67,6 @@ local function deepCopy(v: any): any
 	return v
 end
 
--- DataStore accepts only strings, finite numbers, booleans and tables (all-string keys or a clean array).
--- Returns ok, path-of-first-problem.
 local function checkSerializable(v: any, path: string, depth: number): (boolean, string)
 	local t = type(v)
 	if t == "string" or t == "boolean" then
@@ -139,8 +130,6 @@ local function backoff(self: Impl, attempt: number)
 	self._c.wait(math.min(base * 2 ^ (attempt - 1), 30))
 end
 
--- ---------------------------------------------------------------- public
-
 function PlayerData.new(config: Config): PlayerData
 	assert(config.store and config.jobId and config.template, "PlayerData.new: store, jobId, template are required")
 	local self = setmetatable({
@@ -151,14 +140,13 @@ function PlayerData.new(config: Config): PlayerData
 	return (self :: any) :: PlayerData
 end
 
--- Write the session's data now. release=true also drops the lock. Returns true when saved.
 local function write(self: Impl, session: Session, release: boolean): boolean
 	local c = self._c
 	if session.State ~= "active" then
 		return session.State == "released"
 	end
 	if session.Saving then
-		return false -- another save in flight; the caller (autosave) just tries later
+		return false
 	end
 	local okData, where = checkSerializable(session.Data, "Data", 0)
 	if not okData then
@@ -222,11 +210,6 @@ local function write(self: Impl, session: Session, release: boolean): boolean
 	return result
 end
 
--- Load (and lock) the data for `key`. Returns session, or nil + reason:
---   "locked"    another live server still holds it after lockWait (kick with "try again")
---   "newer"     stored schema is newer than this server's code (never load; avoids data loss on rollbacks)
---   "failed"    DataStore kept erroring
---   "cancelled" cancel() returned true (player left)
 function PlayerData.LoadAsync(self: Impl, key: string, cancel: (() -> boolean)?): (Session?, string?)
 	local existing = self._sessions[key]
 	if existing ~= nil and existing.State == "active" then
@@ -313,12 +296,10 @@ function PlayerData.SaveAsync(self: Impl, session: Session): boolean
 	return write(self, session, false)
 end
 
--- Final save + unlock. Call from PlayerRemoving and BindToClose.
 function PlayerData.ReleaseAsync(self: Impl, session: Session): boolean
 	return write(self, session, true)
 end
 
--- Save every session whose last save is older than autosaveInterval (each in its own thread). Returns how many started.
 function PlayerData.AutosaveDue(self: Impl): number
 	local c = self._c
 	local interval = c.autosaveInterval or 120
@@ -335,7 +316,6 @@ function PlayerData.AutosaveDue(self: Impl): number
 	return started
 end
 
--- BindToClose: release everything in parallel, wait until done or `timeout` (Roblox allows 30 s).
 function PlayerData.ReleaseAll(self: Impl, timeout: number?)
 	local c = self._c
 	local pending = 0

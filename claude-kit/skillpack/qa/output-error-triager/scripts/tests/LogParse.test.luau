@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/output-error-triager/scripts/tests/LogParse.test.luau
 local t = require("../../../../../systems/_check/harness")
 local LogParse = require("../LogParse")
 

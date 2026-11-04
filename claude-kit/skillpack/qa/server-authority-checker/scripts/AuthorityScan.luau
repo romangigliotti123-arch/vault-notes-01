@@ -1,13 +1,9 @@
 --!strict
--- AuthorityScan: finds places where the CLIENT appears to decide an outcome (price, reward, damage, position, rank...) and server-only
--- logic that sits in a container the client can read. Pure string logic, unit-tested in Lune. HEURISTIC: every finding is a lead to read.
--- Input handlers come from ArgScan.extract (input-validation-auditor/scripts/ArgScan.luau); paste both when running via execute_luau.
 local AuthorityScan = {}
 
 export type Handler = { remote: string, kind: string, line: number, params: { string }, body: string }
 export type Finding = { severity: string, where: string, detail: string }
 
--- parameter names that normally name an OUTCOME the server must compute itself
 local MONEY = {
 	"price",
 	"cost",
@@ -64,7 +60,6 @@ local function inList(list: { string }, name: string): boolean
 	return false
 end
 
--- is the parameter used on the value side of a write/arithmetic? (assignment, +=, -=, a property set, a SetAsync/Increment call)
 local function written(body: string, p: string): boolean
 	local patterns = {
 		"[%+%-%*/]=%s*" .. p .. "%f[^%w_]",
@@ -105,7 +100,6 @@ function AuthorityScan.scanHandlers(handlers: { Handler }): { Finding }
 	return out
 end
 
--- scripts the client can read must not hold server logic. `path` is the Studio full name or the Rojo path.
 local CLIENT_VISIBLE =
 	{ "ReplicatedStorage", "ReplicatedFirst", "StarterGui", "StarterPlayer", "StarterPack", "Workspace" }
 local SERVER_API = {
@@ -144,7 +138,6 @@ function AuthorityScan.scanContainer(path: string, source: string): { Finding }
 	return out
 end
 
--- a Touched / prompt handler that grants something directly is a remote in disguise
 function AuthorityScan.scanInteractions(source: string, path: string): { Finding }
 	local out: { Finding } = {}
 	for name in string.gmatch(source, "(%w+)%.Triggered:Connect") do

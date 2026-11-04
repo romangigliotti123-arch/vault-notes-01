@@ -32,7 +32,7 @@ PlayerDataService.Start({
 	template = { coins = 0, inventory = {}, Receipts = {}, Daily = { streak = 0, total = 0 } },
 	version = 1,
 })
-local data = PlayerDataService.Get(player)      -- nil until loaded
+local data = PlayerDataService.Get(player)
 PlayerDataService.Loaded:Connect(function(player, data) end)
 ```
 3. Enable Studio access to API services (Game Settings > Security) to test real saving; publish the place.

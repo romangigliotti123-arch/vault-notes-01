@@ -1,8 +1,4 @@
 --!strict
--- ScaleMath: convert pixel (Offset) sizes designed at a reference viewport into Scale + constraints, and sweep the result over
--- other viewports to see what a player would get. Pure arithmetic; applying it to Instances is the skill's Studio step.
---   local plan = ScaleMath.convert({ w = 300, h = 80 }, { w = 1920, h = 1080 }, { interactive = true })
---   local issues = ScaleMath.sweep(plan, ScaleMath.EXAMPLE_VIEWPORTS)
 local ScaleMath = {}
 
 export type Size = { w: number, h: number }
@@ -10,13 +6,12 @@ export type Viewport = { name: string, w: number, h: number }
 export type Plan = {
 	scaleX: number,
 	scaleY: number,
-	aspect: number, -- w / h, for a UIAspectRatioConstraint
-	maxPx: Size, -- UISizeConstraint.MaxSize: never bigger than the design size
-	minPx: Size, -- UISizeConstraint.MinSize: touch floor for interactive objects, else 0
+	aspect: number,
+	maxPx: Size,
+	minPx: Size,
 }
 export type Options = { interactive: boolean?, minTouchPx: number? }
 
--- Illustrative sizes only; read the real emulator list in Studio. Labelled heuristic.
 ScaleMath.EXAMPLE_VIEWPORTS = {
 	{ name = "small phone landscape", w = 667, h = 375 },
 	{ name = "phone portrait", w = 375, h = 667 },
@@ -39,7 +34,6 @@ function ScaleMath.convert(design: Size, ref: Size, options: Options?): Plan
 	}
 end
 
--- Pixels the object ends up with at a viewport, after the size constraint (aspect ratio keeps width and recomputes height).
 function ScaleMath.resolve(plan: Plan, viewport: Size): Size
 	local w = math.clamp(plan.scaleX * viewport.w, plan.minPx.w, plan.maxPx.w)
 	return { w = w, h = w / plan.aspect }

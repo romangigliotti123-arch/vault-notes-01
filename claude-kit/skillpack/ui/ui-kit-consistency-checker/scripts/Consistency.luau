@@ -1,15 +1,10 @@
 --!strict
--- Consistency: find UI style values that are used rarely when the kit clearly has a dominant one (corner radius, stroke thickness,
--- font, text size, padding). Pure over flat records so it can be tested; `ui_scan.luau` collects the same records from Instances.
---   local report = Consistency.analyse(records, { "cornerRadius", "font", "textSize" })
---   report.cornerRadius.dominant -> 8 ; report.cornerRadius.outliers -> { { value = 6, paths = {...} } }
 local Consistency = {}
 
 export type Record = { path: string, [string]: any }
 export type Outlier = { value: any, paths: { string } }
 export type FieldReport = { dominant: any, dominantShare: number, distinct: number, outliers: { Outlier } }
 
--- A value is an outlier when it is not dominant, covers under `maxShare` of the records, and the dominant value covers over `minDominant`.
 function Consistency.analyse(
 	records: { Record },
 	fields: { string },

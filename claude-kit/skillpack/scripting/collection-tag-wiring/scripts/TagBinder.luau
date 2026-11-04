@@ -1,14 +1,4 @@
 --!strict
--- TagBinder: run one behaviour for every Instance that has a CollectionService tag, now and later, and clean up when the tag is
--- removed or the Instance is destroyed. One script drives hundreds of tagged parts instead of a script in each.
---   local binder = TagBinder.new(game:GetService("CollectionService") :: any)
---   binder:Bind("KillBrick", function(part)
---       local c = part.Touched:Connect(function(hit) ... end)
---       return function() c:Disconnect() end        -- or return an object with :Destroy()
---   end)
---   binder:Destroy()                                  -- on shutdown, runs every cleanup
--- Server-side tags come from Studio or code; behaviour that changes state runs on the server, cosmetic behaviour on the client.
--- A behaviour that throws is reported through onError and does not stop the other instances.
 local TagBinder = {}
 TagBinder.__index = TagBinder
 
@@ -44,7 +34,6 @@ local function runCleanup(cleanup: Cleanup)
 	end
 end
 
--- start the behaviour for current and future tagged instances; binding the same tag twice is an error
 function TagBinder.Bind(self: Binder, tag: string, behaviour: (instance: any) -> Cleanup)
 	assert(self._bindings[tag] == nil, `tag {tag} is already bound`)
 	local binding: Binding = { cleanups = {}, connections = {} }
@@ -52,7 +41,7 @@ function TagBinder.Bind(self: Binder, tag: string, behaviour: (instance: any) ->
 
 	local function attach(instance: any)
 		if binding.cleanups[instance] ~= nil then
-			return -- already bound (the added signal can repeat for an instance we picked up from GetTagged)
+			return
 		end
 		binding.cleanups[instance] = false :: any
 		local ok, result = pcall(behaviour :: (any) -> any, instance)

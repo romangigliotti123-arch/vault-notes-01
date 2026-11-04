@@ -1,9 +1,4 @@
 --!strict
--- Checkpoints: obby stage progress decided by the server. A touch is accepted only for the NEXT stage (or one already passed),
--- never a skip; stages cleared faster than a human minimum are refused and counted; the saved stage drives respawn.
--- State: data.Obby = { stage = n, finishedAt = ts? }. The touch comes from a server Touched/ProximityPrompt event, not a client remote.
---   local cp = Checkpoints.new({ stages = 40, minStageSeconds = 1.5, now = os.clock })
---   cp:touch(data, userId, 12)  ->  true, "advanced" | true, "already" | false, "skipped" | false, "too fast"
 local Checkpoints = {}
 Checkpoints.__index = Checkpoints
 
@@ -53,12 +48,10 @@ function Checkpoints.touch(self: Checkpoints, data: Data, userId: number, index:
 	return true, "advanced"
 end
 
--- true once a player has been refused too often: review or kick in the game's own policy; the module only counts
 function Checkpoints.suspicious(self: Checkpoints, userId: number): boolean
 	return (self.flags[userId] or 0) >= (self._c.maxFlags or 5)
 end
 
--- stage to respawn at (0 = start)
 function Checkpoints.respawnStage(self: Checkpoints, data: Data): number
 	return self:stage(data)
 end

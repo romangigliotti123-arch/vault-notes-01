@@ -16,14 +16,15 @@ tested: unit-tested headless (Lune) + analyzed + linted; NOT tested in live Stud
 ## Setup
 ```lua
 AdminService.Start({
-	owners = { [123456789] = 3 },                                   -- your UserId -> rank 3 (server code only)
-	group = { id = 1234567, rankToAdmin = { [255] = 3, [200] = 2 } }, -- optional: group rank >= key gives that admin rank
+	owners = { [123456789] = 3 },
+	group = { id = 1234567, rankToAdmin = { [255] = 3, [200] = 2 } },
 	extraCommands = {
 		give = { minRank = 3, args = { { name = "target", kind = "player" }, { name = "amount", kind = "number", min = 1, max = 100000 } },
-			run = function(actor, a) --[[ change data server-side ]] return "Gave." end },
+			run = function(actor, a) return "Gave." end },
 	},
 })
 ```
+`owners` maps your UserId to an admin rank (3 here); the optional `group` gives group rank >= each key that admin rank.
 Type `/kick name reason` in chat (admins only; the message is hidden from others) or fire `ReplicatedStorage.AdminCommand` from your own panel; replies arrive on `AdminReply`.
 
 ## Design rules (each has a test)

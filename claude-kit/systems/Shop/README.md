@@ -28,7 +28,7 @@ ShopService.Start({
 	products = {
 		[1234567] = { name = "Coins100", grant = function(userId, data) data.coins += 100 return true end },
 	},
-	passes = { [7654321] = { name = "VIP", onOwned = function(userId) --[[ give perks ]] end } },
+	passes = { [7654321] = { name = "VIP", onOwned = function(userId) end } },
 	getData = function(userId) local p = Players:GetPlayerByUserId(userId) return p and PlayerDataService.Get(p) end,
 	saveNow = function(userId) local p = Players:GetPlayerByUserId(userId) return p ~= nil and PlayerDataService.SaveNow(p) end,
 })

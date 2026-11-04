@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/pay-to-win-checker/scripts/tests/OfferLint.test.luau
 local t = require("../../../../../systems/_check/harness")
 local OfferLint = require("../OfferLint")
 

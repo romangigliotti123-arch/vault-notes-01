@@ -1,17 +1,4 @@
 --!strict
---[[
-	Roblox glue for Admin. Server only.
-
-	local AdminService = require(script.Parent.AdminService)
-	AdminService.Start({
-		owners = { [123456789] = 3 },                        -- userId -> rank (keep this list in server code only)
-		group = { id = 1234567, rankToAdmin = { [255] = 3, [200] = 2, [100] = 1 } },  -- optional: group rank -> admin rank
-		extraCommands = { ... },                             -- same shape as Admin.Command, added to the built-ins
-	})
-	Chat: type "/kick name reason" in the default chat (TextChatService) or call the remote from your own admin panel.
-
-	Built-ins: help, kick, announce. Add game-specific ones through extraCommands (give, tp, setwave, ...).
-]]
 local GroupService = game:GetService("GroupService")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -157,7 +144,6 @@ function Service.Start(opts: StartOptions)
 		groupRank[p.UserId] = nil
 	end)
 
-	-- Entry 1: the client's own admin UI / chat hook sends the raw text. The server decides everything.
 	local remote = Instance.new("RemoteEvent")
 	remote.Name = "AdminCommand"
 	remote.Parent = ReplicatedStorage
@@ -171,8 +157,6 @@ function Service.Start(opts: StartOptions)
 		end
 	end)
 
-	-- Entry 2: players typing "/..." in the default chat. Admin commands are not registered as TextChatCommands (that
-	-- would list them for everyone); the message is read on the server instead. Keep this only if the default chat is used.
 	local general = TextChatService:FindFirstChild("TextChannels")
 	local rbxGeneral = general and general:FindFirstChild("RBXGeneral")
 	if rbxGeneral and rbxGeneral:IsA("TextChannel") then
@@ -182,7 +166,7 @@ function Service.Start(opts: StartOptions)
 				local r = admin:Execute(source.UserId, message.Text)
 				if r.handled then
 					reply(source.UserId, r.message)
-					return false -- do not show admin commands to other players
+					return false
 				end
 			end
 			return true

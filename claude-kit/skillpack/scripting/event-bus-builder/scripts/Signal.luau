@@ -1,11 +1,4 @@
 --!strict
--- Signal: a small typed signal for decoupled systems. Handlers run in connection order; disconnecting during a Fire is safe;
--- Destroy drops every handler so nothing keeps a module alive. Server and client.
---   local Signal = require(script.Parent.Signal)
---   local died = Signal.new() :: Signal.Signal<Player, string>
---   local c = died:Connect(function(player, cause) end)
---   died:Fire(player, "fall")        c:Disconnect()       died:Destroy()
--- Handlers that yield are started with task.spawn, so a slow handler never blocks Fire or the other handlers.
 local Signal = {}
 
 export type Connection = { Connected: boolean, Disconnect: (self: Connection) -> () }
@@ -21,7 +14,6 @@ export type Signal<T...> = {
 
 type Spawner = (target: any, ...any) -> ()
 
--- task.spawn in Roblox. Outside Roblox (Lune tests) fall back to a plain call or resume.
 local function defaultSpawn(target: any, ...: any)
 	if task then
 		(task.spawn :: any)(target, ...)

@@ -5,6 +5,8 @@ description: "Architecture for round-based Roblox games (lobby, intermission, ro
 
 # Round-based game loop
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Server-authoritative state machine in one ModuleScript (`RoundService`), driven by a single loop, with state replicated through attributes or one RemoteEvent.
 
 ## States

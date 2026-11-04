@@ -1,18 +1,4 @@
 --!strict
--- RedeemService: the server flow around a redeem-code book, with the storage and the reward injected so it is testable under Lune.
--- It adds what CodeBook (marketing/codes-campaign-planner) deliberately does not: the atomic global-use counter, undo when the grant fails,
--- brute-force throttling of wrong guesses, and one log call per attempt (wire `log` to kit Analytics.Custom, never log the raw typed text).
---
---   local svc = RedeemService.new({
---       checker = CodeBook,                      -- anything with .check(book, raw, state, now)
---       book = serverOnlyBook,                   -- never replicated; validate with CodeBook.validateBook at start
---       store = { read = readUsed, take = takeOne, release = giveBack },   -- DataStore-backed, see SKILL.md
---       now = os.time,
---       grant = function(userId, code, entry) ... return true end,         -- kit Shop/PlayerData grant; false = could not grant
---       markRedeemed = function(userId, code) ... end,                     -- write to the player's profile (PlayerData)
---       log = function(event, userId, fields) ... end,
---   })
---   local res = svc:Redeem(userId, typedText, profileRedeemedSet)
 local RedeemService = {}
 RedeemService.__index = RedeemService
 
@@ -27,9 +13,9 @@ export type Checker = {
 	) -> CheckResult,
 }
 export type Store = {
-	read: (code: string) -> number, -- how many times the code has been redeemed globally
-	take: (code: string, maxUses: number?) -> boolean, -- atomically add one use; false when maxUses is already reached (use UpdateAsync)
-	release: (code: string) -> (), -- give the use back (grant failed)
+	read: (code: string) -> number,
+	take: (code: string, maxUses: number?) -> boolean,
+	release: (code: string) -> (),
 }
 export type Options = {
 	checker: Checker,
@@ -39,8 +25,8 @@ export type Options = {
 	grant: (userId: number, code: string, entry: Entry) -> boolean,
 	markRedeemed: (userId: number, code: string) -> (),
 	log: ((event: string, userId: number, fields: { [string]: any }) -> ())?,
-	maxMisses: number?, -- wrong guesses allowed per window before throttling (default 5)
-	missWindow: number?, -- seconds (default 60)
+	maxMisses: number?,
+	missWindow: number?,
 }
 export type Result = { ok: boolean, reason: string?, reward: string? }
 
@@ -83,7 +69,7 @@ function RedeemService.Redeem(self: any, userId: number, raw: any, mine: { [stri
 	local o: Options = self.opts
 	local now = o.now()
 	if self.busy[userId] then
-		return { ok = false, reason = "busy" } -- one redeem at a time per player: two quick clicks must not both pass the checks
+		return { ok = false, reason = "busy" }
 	end
 	if throttled(self, userId, now) then
 		note(self, "redeem_throttled", userId, {})
@@ -100,7 +86,7 @@ function RedeemService.Redeem(self: any, userId: number, raw: any, mine: { [stri
 		if not res.ok or not res.code or not res.entry then
 			local list = self.misses[userId] or {}
 			if res.reason == "unknown" or res.reason == "invalid" then
-				table.insert(list, now) -- only wrong guesses count toward the throttle
+				table.insert(list, now)
 				self.misses[userId] = list
 			end
 			note(self, "redeem_rejected", userId, { reason = res.reason or "unknown" })

@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/battle-pass-designer/scripts/tests/SeasonTrack.test.luau
 local t = require("../../../../../systems/_check/harness")
 local S = require("../SeasonTrack")
 
@@ -42,11 +41,11 @@ end)
 
 t.test("buying mid-season unlocks premium rewards for tiers already earned", function()
 	local s = S.newState()
-	S.addXp(cfg, s, 250, NOW) -- tier 2
-	t.eq(#S.claimable(cfg, s), 1) -- free tier 1 only (free tier 3 not reached)
+	S.addXp(cfg, s, 250, NOW)
+	t.eq(#S.claimable(cfg, s), 1)
 	s.premium = true
 	local c = S.claimable(cfg, s)
-	t.eq(#c, 3) -- free1, premium1, premium2
+	t.eq(#c, 3)
 	t.eq(c[1].tier, 1)
 end)
 

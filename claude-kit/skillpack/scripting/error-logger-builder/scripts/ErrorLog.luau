@@ -1,12 +1,4 @@
 --!strict
--- ErrorLog: one place for caught errors. Wraps functions so a failure is logged with a stack trace instead of killing the
--- thread silently, throttles repeats so one bug in a hot loop cannot flood the output or an analytics budget, and keeps a ring
--- buffer of recent entries for an admin command or a crash report.
---   local log = ErrorLog.new({ sink = function(entry) analytics:LogError(entry) end })      -- sink optional
---   remote.OnServerEvent:Connect(log:Wrap("Buy", function(player, id) ... end))
---   local ok, result = log:Try("LoadProfile", function() return store:GetAsync(key) end)
---   log:Recent()   log:Stats()
--- No secrets in messages: the log stores error text and traceback only; do not put tokens or keys in error() calls.
 local ErrorLog = {}
 ErrorLog.__index = ErrorLog
 
@@ -14,9 +6,9 @@ export type Entry = { name: string, message: string, trace: string, time: number
 export type Options = {
 	clock: (() -> number)?,
 	sink: ((entry: Entry) -> ())?,
-	window: number?, -- seconds during which an identical message is counted, not re-reported (default 10)
-	capacity: number?, -- ring buffer size (default 50)
-	print: ((text: string) -> ())?, -- defaults to warn
+	window: number?,
+	capacity: number?,
+	print: ((text: string) -> ())?,
 }
 export type Log = typeof(setmetatable(
 	{} :: {
@@ -50,7 +42,6 @@ function ErrorLog.new(options: Options?): Log
 	}, ErrorLog)
 end
 
--- record an error; returns true if it was reported, false if it was throttled as a repeat
 function ErrorLog.Report(self: Log, name: string, message: string, trace: string?): boolean
 	self._total += 1
 	local now = self._clock()
@@ -71,12 +62,11 @@ function ErrorLog.Report(self: Log, name: string, message: string, trace: string
 	local suffix = if repeats > 0 then ` (+{repeats} repeats)` else ""
 	self._print(`[{name}] {message}{suffix}`)
 	if self._sink then
-		pcall(self._sink :: (Entry) -> (), entry) -- a broken sink must never break the game
+		pcall(self._sink :: (Entry) -> (), entry)
 	end
 	return true
 end
 
--- run fn(...) protected; on failure report it (message + traceback) and return false, nil
 function ErrorLog.Try(self: Log, name: string, fn: (...any) -> ...any, ...: any): (boolean, any)
 	local results = table.pack(xpcall(fn, function(err: any): string
 		return tostring(err) .. "\n" .. debug.traceback("", 2)
@@ -90,7 +80,6 @@ function ErrorLog.Try(self: Log, name: string, fn: (...any) -> ...any, ...: any)
 	return false, nil
 end
 
--- same as Try but returns a function, for use as an event handler
 function ErrorLog.Wrap(self: Log, name: string, fn: (...any) -> ...any): (...any) -> ()
 	return function(...: any)
 		self:Try(name, fn, ...)

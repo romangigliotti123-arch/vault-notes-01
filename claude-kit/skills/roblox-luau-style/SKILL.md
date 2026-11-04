@@ -18,7 +18,10 @@ Apply when producing or reviewing Luau. Prefer small ModuleScripts with one job.
 9. `WaitForChild(name, timeout)` for objects that may not have replicated; never assume replication order on the client.
 10. Use `table.clone`, `table.freeze` for constants (shallow: nested tables stay mutable), `table.concat` for string building; avoid O(n^2) scans in hot paths; cache `workspace.CurrentCamera`.
 11. Naming: PascalCase for modules/classes and Instances, camelCase for locals/functions, UPPER_SNAKE for constants.
-12. Comments explain why, not what. No dead code. Run `selene` and `stylua` or Studio Script Analysis if available and fix warnings.
+12. No comments by default (Comments below). No dead code. Run `selene` and `stylua` or Studio Script Analysis if available and fix warnings.
+
+## Comments
+NO COMMENTS BY DEFAULT in any code you write (Luau, Lua, scripts, tests, examples). A one-line comment is allowed only to explain WHY something non-obvious is done (an engine quirk, ordering, replication timing, physics ownership), never WHAT the code does. Type annotations and Luau directives (`--!strict`, `--!native`, `--!optimize`, `--!nolint`) are not comments and stay. Name things so the code reads without notes; put design notes in the SKILL.md or reference, not in the file. Existing comments in code you only edit stay unless you rewrite that line.
 
 ## Lifecycle and leak cleanup
 Leaks on a long-running server are connections, threads and tables keyed by objects that are gone.

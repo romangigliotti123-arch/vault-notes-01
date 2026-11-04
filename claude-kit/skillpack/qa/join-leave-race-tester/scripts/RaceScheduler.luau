@@ -1,8 +1,4 @@
 --!strict
--- RaceScheduler: deterministic interleaving explorer for join/leave/trade/purchase races. Pure logic, unit-tested in Lune.
--- Roblox code yields at DataStore calls, MarketplaceService calls, task.wait and remote round trips; a race is a bad ORDER of the pieces
--- between yields. Model each actor as a list of atomic steps (the code between two yields), then run every interleaving that keeps each
--- actor's own order and check an invariant after each. A failing schedule is a reproduction you can replay in Studio with task.wait().
 local RaceScheduler = {}
 
 export type Step = (state: any) -> ()
@@ -10,7 +6,6 @@ export type Actor = { name: string, steps: { Step } }
 export type Failure = { schedule: string, message: string }
 export type Result = { runs: number, failures: { Failure }, truncated: boolean }
 
--- number of distinct interleavings of actors with the given step counts (multinomial)
 function RaceScheduler.count(lengths: { number }): number
 	local total, result = 0, 1
 	for _, n in lengths do
@@ -22,8 +17,6 @@ function RaceScheduler.count(lengths: { number }): number
 	return math.floor(result + 0.5)
 end
 
--- setup() returns a fresh state; invariant(state) returns nil when fine or a message when violated (checked after the last step).
--- maxRuns caps the exploration (the first maxRuns schedules in a fixed order); `truncated` says the cap was hit.
 function RaceScheduler.explore(
 	setup: () -> any,
 	actors: { Actor },

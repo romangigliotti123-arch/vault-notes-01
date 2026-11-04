@@ -1,11 +1,7 @@
 --!strict
--- style_audit.luau: read-only census of materials and colours in a place, with the rare ones listed as candidate outliers.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- Statistics logic mirrors scripts/StyleStats.luau (tested under Lune). A rare material is a CANDIDATE, not a mistake: check each
--- one against the art bible before changing it. Never edits anything.
-local ROOT: Instance? = nil -- nil = Workspace
-local MIN_SHARE = 0.02 -- under 2 percent of parts = candidate outlier
-local COLOR_STEP = 32 -- colour bucket size per channel
+local ROOT: Instance? = nil
+local MIN_SHARE = 0.02
+local COLOR_STEP = 32
 local MAX_LIST = 6
 
 local function bucket(c: Color3): string

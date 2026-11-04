@@ -1,8 +1,4 @@
 --!strict
--- NamingRules: the naming convention checker behind naming_audit.luau. Pure logic, unit-tested under Lune.
--- Convention (default, change per project): Models, Folders, Scripts and Modules are PascalCase; parts may use PascalCase segments
--- joined by underscores (Wall_North_02); no default engine names; no leading/trailing spaces; unique among siblings. Names are
--- API: scripts find children by name and Rojo maps them to file names, so rename with care (see SKILL.md Pitfalls).
 local NamingRules = {}
 
 export type Issue = { name: string, class: string, kind: string, suggestion: string? }
@@ -51,7 +47,6 @@ function NamingRules.isSegmented(name: string): boolean
 	return string.sub(name, 1, 1) ~= "_" and string.sub(name, -1) ~= "_" and not string.find(name, "__", 1, true)
 end
 
--- Suggest a convention-friendly spelling. Never invents meaning: default names get no suggestion.
 function NamingRules.suggest(name: string, segmented: boolean): string
 	local trimmed = string.gsub(name, "^%s+", "")
 	trimmed = string.gsub(trimmed, "%s+$", "")
@@ -66,7 +61,6 @@ local function expectsSegments(class: string): boolean
 	return SEGMENT_CLASSES[class] == true
 end
 
--- class group: "BasePart" for any part, otherwise the ClassName
 function NamingRules.check(name: string, classGroup: string): { Issue }
 	local issues: { Issue } = {}
 	local function add(kind: string, suggestion: string?)

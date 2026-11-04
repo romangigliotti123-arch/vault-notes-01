@@ -1,15 +1,10 @@
 --!strict
--- Donations: the pure server-side parts of a tip / donation flow: validating an amount the player chose, and a donation board that cannot double count.
--- The payment itself uses the platform's Robux transfer prompt (MarketplaceService:PromptRobuxTransferAsync, confirmed in your receipt handler); the vault says
--- cross-game pass/product tipping is being disabled, so do NOT build tips on passes or products sold to another experience. Live-check the transfer API and its limits.
---   local ok, why = Donations.validate(cfg, fromUserId, toUserId, amount)    -- before opening the prompt
---   local counted = Donations.add(board, receiptId, fromUserId, name, amount) -- inside the confirmed receipt handler only
 local Donations = {}
 
 export type Config = {
-	min: number, -- smallest allowed amount (the vault reports 10 for transfers: live-check)
-	max: number, -- largest allowed amount (the vault reports 500 for transfers: live-check)
-	presets: { number }?, -- if set, only these amounts are allowed
+	min: number,
+	max: number,
+	presets: { number }?,
 }
 export type Board = { totals: { [number]: number }, names: { [number]: string }, seen: { [string]: boolean } }
 
@@ -33,7 +28,6 @@ function Donations.newBoard(): Board
 	return { totals = {}, names = {}, seen = {} }
 end
 
--- Count a CONFIRMED donation once per receipt id. Returns false when the receipt was already counted.
 function Donations.add(board: Board, receiptId: string, userId: number, name: string, amount: number): boolean
 	if board.seen[receiptId] then
 		return false

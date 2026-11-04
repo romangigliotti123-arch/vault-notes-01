@@ -1,24 +1,16 @@
 --!strict
--- ClanRules: the pure permission and validation rules of an in-game clan, no DataStore and no Instances (testable under Lune).
--- The server wires it up:
---   * every action arrives from a RemoteEvent the SERVER validates (kit RemoteGuard); the client never states its own rank, the server
---     reads it from the clan record.
---   * the clan name (and any tag or message) is also passed through TextService:FilterStringAsync on the server before it is stored
---     or shown. ClanRules.validName only checks shape, it is not the filter.
---   * clan records are saved with UpdateAsync so two officers acting at once cannot both take the last slot.
 local ClanRules = {}
 
 export type Rank = "member" | "officer" | "leader"
 export type Clan = {
 	name: string,
-	members: { [number]: Rank }, -- userId -> rank
+	members: { [number]: Rank },
 	banned: { [number]: boolean },
 	maxSize: number,
 }
 
 local LEVEL: { [string]: number } = { member = 1, officer = 2, leader = 3 }
 
--- 3-20 chars, letters, digits and single inner spaces; no leading, trailing or doubled spaces
 function ClanRules.validName(name: any): boolean
 	if type(name) ~= "string" or #name < 3 or #name > 20 then
 		return false
@@ -51,7 +43,6 @@ function ClanRules.canJoin(clan: Clan, userId: number): (boolean, string?)
 	return true, nil
 end
 
--- an actor may remove someone strictly below their own rank; the leader can never be kicked; leaving is separate
 function ClanRules.canKick(clan: Clan, actor: number, target: number): (boolean, string?)
 	local a, b = clan.members[actor], clan.members[target]
 	if not a or not b then
@@ -66,7 +57,6 @@ function ClanRules.canKick(clan: Clan, actor: number, target: number): (boolean,
 	return true, nil
 end
 
--- only the leader promotes to officer or hands over leadership; officers cannot promote anyone
 function ClanRules.canSetRank(clan: Clan, actor: number, target: number, newRank: Rank): (boolean, string?)
 	local a, b = clan.members[actor], clan.members[target]
 	if not a or not b or LEVEL[newRank] == nil then
@@ -81,7 +71,6 @@ function ClanRules.canSetRank(clan: Clan, actor: number, target: number, newRank
 	return true, nil
 end
 
--- the leader cannot just leave: the clan must have a leader at all times (transfer first, or disband when alone)
 function ClanRules.canLeave(clan: Clan, userId: number): (boolean, string?)
 	local r = clan.members[userId]
 	if not r then
@@ -93,7 +82,6 @@ function ClanRules.canLeave(clan: Clan, userId: number): (boolean, string?)
 	return true, nil
 end
 
--- shape of a clan record loaded from storage: exactly one leader, size within the cap
 function ClanRules.validate(clan: Clan): { string }
 	local problems = {}
 	local leaders = 0

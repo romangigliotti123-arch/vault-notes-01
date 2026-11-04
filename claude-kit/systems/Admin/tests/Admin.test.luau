@@ -1,9 +1,8 @@
 --!nocheck
--- Run: lune run tests/Admin.test.luau   (from the Admin folder)
 local t = require("../../_check/harness")
 local Admin = require("../src/Admin")
 
-local ranks = { [1] = 3, [2] = 1, [3] = 0, [4] = 3 } -- 1 owner, 2 mod, 3 normal player, 4 another owner
+local ranks = { [1] = 3, [2] = 1, [3] = 0, [4] = 3 }
 local names = { alice = 1, bob = 2, carol = 3, dave = 4, bobby = 5 }
 
 local function make(over)

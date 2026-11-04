@@ -1,14 +1,4 @@
 --!strict
--- AttributeConfig: typed, validated tunables stored as Attributes on one Instance (usually a Configuration or the model itself).
--- Designers edit attributes in the Properties panel and the game reacts live; bad values are clamped or reverted, never trusted.
---   local cfg = AttributeConfig.bind(workspace.Boss, {
---       Health = { kind = "number", default = 500, min = 1, max = 10000 },
---       Phase = { kind = "string", default = "one", allowed = { "one", "two" } },
---       Enraged = { kind = "boolean", default = false },
---   }, function(name, new, old) end)
---   cfg:Get("Health")     cfg:Set("Health", 800)     cfg:Destroy()
--- Server-side use: attributes written on the server replicate to clients. A client can only change its own local copy, so
--- gameplay numbers must be read from the server's copy. The Instance is injected so the logic runs under Lune.
 local AttributeConfig = {}
 AttributeConfig.__index = AttributeConfig
 
@@ -34,7 +24,6 @@ export type Bound = typeof(setmetatable(
 	AttributeConfig
 ))
 
--- (accepted, value): wrong type, NaN or a value outside `allowed` is rejected; a number outside min..max is clamped
 function AttributeConfig.coerce(field: Field, value: any): (boolean, any)
 	if type(value) ~= field.kind then
 		return false, nil
@@ -58,7 +47,6 @@ function AttributeConfig.coerce(field: Field, value: any): (boolean, any)
 	return true, value
 end
 
--- check a schema before use: default must itself be valid
 function AttributeConfig.validateSchema(schema: Schema): { string }
 	local problems = {}
 	for name, field in schema do
@@ -117,11 +105,11 @@ function AttributeConfig.bind(
 				end
 				local accepted, clean = AttributeConfig.coerce(field, instance:GetAttribute(name))
 				if not accepted then
-					write(self, name, self._good[name]) -- revert to the last good value
+					write(self, name, self._good[name])
 					return
 				end
 				if clean ~= instance:GetAttribute(name) then
-					write(self, name, clean) -- clamped
+					write(self, name, clean)
 				end
 				local old = self._good[name]
 				self._good[name] = clean
@@ -138,7 +126,6 @@ function AttributeConfig.Get(self: Bound, name: string): any
 	return self._good[name]
 end
 
--- set through the same rules; returns whether the value was accepted (possibly clamped)
 function AttributeConfig.Set(self: Bound, name: string, value: any): boolean
 	local field = self._schema[name]
 	if field == nil then

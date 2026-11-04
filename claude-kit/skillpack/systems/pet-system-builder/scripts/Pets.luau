@@ -1,9 +1,4 @@
 --!strict
--- Pets: equip slots, power and deterministic fusing on top of the Inventory module (pets are unique stack-1 inventory items).
--- No randomness and nothing paid happens here: random acquisition is loot-drop-builder, and paid random has its own disclosure rules.
---   local pets = Pets.new({ inventory = inv, equipLimit = 3, fuseCount = 3,
---       defs = { Dog = { power = 10, next = "GoldDog" }, GoldDog = { power = 40 } } })
---   pets:equip(data, uid) ; pets:power(data, boostMultiplier) ; pets:fuse(data, "Dog")  -- 3 unequipped Dogs -> 1 GoldDog
 local Pets = {}
 Pets.__index = Pets
 
@@ -31,7 +26,6 @@ function Pets.init(self: Pets, data: Data): Data
 		data.Pets = p
 	end
 	p.equipped = p.equipped or {}
-	-- drop equipped uids that no longer exist (traded, fused, corrupted save)
 	for i = #p.equipped, 1, -1 do
 		if self._c.inventory:findUid(data, p.equipped[i]) == nil then
 			table.remove(p.equipped, i)
@@ -44,7 +38,6 @@ function Pets.isEquipped(self: Pets, data: Data, uid: string): boolean
 	return table.find(self:init(data).equipped, uid) ~= nil
 end
 
--- plug into Trade as `locked = function(data, uid) return pets:isEquipped(data, uid) end`
 function Pets.locked(self: Pets, data: Data, uid: string): boolean
 	return self:isEquipped(data, uid)
 end
@@ -75,7 +68,6 @@ function Pets.unequip(self: Pets, data: Data, uid: string): boolean
 	return false
 end
 
--- total power of equipped pets times a server-side multiplier (boosts, rebirth); the client never sends power
 function Pets.power(self: Pets, data: Data, multiplier: number?): number
 	local total = 0
 	for _, uid in self:init(data).equipped do
@@ -87,7 +79,6 @@ function Pets.power(self: Pets, data: Data, multiplier: number?): number
 	return total * (multiplier or 1)
 end
 
--- fuse N unequipped pets of one kind into one of the next tier. All or nothing.
 function Pets.fuse(self: Pets, data: Data, id: string): (boolean, string)
 	local def = self._c.defs[id]
 	if def == nil or def.next == nil then
@@ -113,7 +104,6 @@ function Pets.fuse(self: Pets, data: Data, id: string): (boolean, string)
 	end
 	local ok, why = self._c.inventory:add(data, def.next, 1)
 	if not ok then
-		-- cannot happen (slots were just freed) but never lose pets if it does
 		for _ = 1, need do
 			self._c.inventory:add(data, id, 1)
 		end

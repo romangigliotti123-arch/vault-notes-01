@@ -1,9 +1,4 @@
 --!strict
--- NpcBudget: the rules that keep NPC counts and cost under control: a global cap and per-zone caps checked BEFORE spawning, a
--- despawn sweep for NPCs nobody is near, and a tiny idle/aggro/return state decision with a leash. Pure logic on positions;
--- the glue spawns models, sets network ownership to the server (SetNetworkOwner(nil)) and does the pathfinding.
---   local npcs = NpcBudget.new({ globalCap = 40, zoneCap = { Forest = 15 }, despawnDistance = 200, aggroRange = 40, leash = 80 })
---   if npcs:canSpawn("Forest") then npcs:add(id, "Forest") end
 local NpcBudget = {}
 NpcBudget.__index = NpcBudget
 
@@ -66,7 +61,6 @@ local function dist(a: Pos, b: Pos): number
 	return math.sqrt(dx * dx + dy * dy + dz * dz)
 end
 
--- ids of NPCs with no player within despawnDistance (call every few seconds, not every frame)
 function NpcBudget.sweep(self: NpcBudget, npcs: { [string]: Pos }, players: { Pos }): { string }
 	local out = {}
 	for id, pos in npcs do
@@ -85,7 +79,6 @@ function NpcBudget.sweep(self: NpcBudget, npcs: { [string]: Pos }, players: { Po
 	return out
 end
 
--- next state for one NPC. nearest = distance to the closest valid target (nil = none), home = distance from its spawn point
 function NpcBudget.decide(self: NpcBudget, current: string, nearest: number?, home: number): string
 	if home > self._c.leash then
 		return "return"

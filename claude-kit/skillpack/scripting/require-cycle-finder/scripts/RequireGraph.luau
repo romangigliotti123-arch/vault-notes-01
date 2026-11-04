@@ -1,16 +1,10 @@
 --!strict
--- RequireGraph: pure-string analysis of ModuleScript require() calls. Offline tool (run under Lune or in the command bar).
---   local g = RequireGraph.build({ A = sourceA, B = sourceB })
---   RequireGraph.findCycles(g.edges)      -> { { "A", "B" } }   one concrete cycle per tangled group
---   RequireGraph.layers(g.edges)          -> load order, leaves first
--- It reads text only: it never requires anything and never runs the modules.
 local RequireGraph = {}
 
 export type Edges = { [string]: { string } }
 export type Built = { edges: Edges, unknown: { [string]: { string } } }
 export type Layers = { layers: { { string } }, cyclic: { string } }
 
--- remove -- comments (line and block) so commented-out requires are not counted
 function RequireGraph.stripComments(source: string): string
 	local noBlock = string.gsub(source, "%-%-%[(=*)%[.-%]%1%]", "")
 	local lines = {}
@@ -30,7 +24,6 @@ local function lastName(raw: string): string?
 	return string.match(arg, "([%a_][%w_]*)%s*$")
 end
 
--- names of modules a source requires: require(x.y.Name), require(x:WaitForChild("Name")), require("./Name")
 function RequireGraph.extractRequires(source: string): { string }
 	local clean = RequireGraph.stripComments(source)
 	local found: { string } = {}
@@ -45,7 +38,6 @@ function RequireGraph.extractRequires(source: string): { string }
 	return found
 end
 
--- modules: name -> source. edges[name] = sorted list of required modules that exist in the set.
 function RequireGraph.build(modules: { [string]: string }): Built
 	local edges: Edges = {}
 	local unknown: { [string]: { string } } = {}
@@ -77,7 +69,6 @@ local function sortedKeys(edges: Edges): { string }
 	return keys
 end
 
--- Tarjan strongly connected components; returns groups with more than one member or a self-require
 local function components(edges: Edges): { { string } }
 	local index = 0
 	local indices: { [string]: number } = {}
@@ -124,7 +115,6 @@ local function components(edges: Edges): { { string } }
 	return out
 end
 
--- one concrete cycle (A, B, C means A -> B -> C -> A) per tangled group
 function RequireGraph.findCycles(edges: Edges): { { string } }
 	local cycles = {}
 	for _, group in components(edges) do
@@ -156,7 +146,6 @@ function RequireGraph.findCycles(edges: Edges): { { string } }
 	return cycles
 end
 
--- heuristic: cut the edge whose source has the fewest dependencies (cheapest to make lazy or to invert)
 function RequireGraph.suggestBreak(edges: Edges, cycle: { string }): (string, string)
 	local bestFrom, bestTo, bestCost = cycle[1], cycle[2] or cycle[1], math.huge
 	for i, from in cycle do
@@ -168,7 +157,6 @@ function RequireGraph.suggestBreak(edges: Edges, cycle: { string }): (string, st
 	return bestFrom, bestTo
 end
 
--- load order: layer 1 has no dependencies, layer n depends only on earlier layers. Tangled modules go to cyclic.
 function RequireGraph.layers(edges: Edges): Layers
 	local placed: { [string]: boolean } = {}
 	local layers: { { string } } = {}

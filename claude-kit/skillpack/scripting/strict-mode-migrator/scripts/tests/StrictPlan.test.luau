@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run StrictPlan.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local StrictPlan = require("../StrictPlan")
 local RequireGraph = require("../../../require-cycle-finder/scripts/RequireGraph")

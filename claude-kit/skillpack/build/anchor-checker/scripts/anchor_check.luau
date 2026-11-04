@@ -1,10 +1,6 @@
 --!strict
--- anchor_check.luau: find parts that will fall, drift or jitter because nothing anchors them. Audit-only by default.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- A part is "free" when its whole assembly (the parts welded to it) has no anchored part. Characters, NPCs, Tools, Accessories and
--- anything marked with the attribute KeepUnanchored (on the part or any ancestor) are skipped: those are meant to move.
-local ROOT: Instance? = nil -- nil = Workspace; set to a model/folder to limit the scan
-local APPLY_ANCHOR = false -- true: anchor every free part found (one undo step). Review the list first.
+local ROOT: Instance? = nil
+local APPLY_ANCHOR = false
 local SKIP_ATTRIBUTE = "KeepUnanchored"
 local MAX_LIST = 15
 

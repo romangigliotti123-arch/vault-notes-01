@@ -6,6 +6,8 @@ argument-hint: "[idea, or path to docs/elaboration.md and docs/rating.md]"
 
 # game-dev-plan
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Stage 4 of game-dev-workflow, also standalone. Input: idea + `docs/elaboration.md` + `docs/rating.md` if they exist (if not, make the minimum: 5 vault queries from `../game-dev-workflow/references/elaborate.md`). Output: `game-plan.md` in the PROJECT folder (template `templates/game-plan.md`). Never asks the user anything; guesses become Assumptions.
 
 ## Steps

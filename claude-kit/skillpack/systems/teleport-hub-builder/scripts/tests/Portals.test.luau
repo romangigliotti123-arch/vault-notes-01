@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/teleport-hub-builder/scripts/tests/Portals.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Portals = require("../Portals")
 

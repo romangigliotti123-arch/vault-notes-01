@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/join-leave-race-tester/scripts/tests/RaceScheduler.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Race = require("../RaceScheduler")
 
@@ -26,7 +25,6 @@ t.test("explore visits every interleaving exactly once", function()
 	t.falsy(r.truncated)
 end)
 
--- two purchase requests for the last item: check-then-act with a yield between check and act loses the invariant
 local function stock(atomic)
 	local function buyer(name)
 		if atomic then
@@ -46,10 +44,10 @@ local function stock(atomic)
 			name = name,
 			steps = {
 				function(s)
-					s["ok" .. name] = s.stock > 0 -- check
+					s["ok" .. name] = s.stock > 0
 				end,
 				function(s)
-					if s["ok" .. name] then -- act after a yield: stale check
+					if s["ok" .. name] then
 						s.stock -= 1
 						s.sold += 1
 					end
@@ -99,7 +97,7 @@ t.test("a leave between trade steps is found, and an erroring step is reported",
 			name = "leave",
 			steps = {
 				function(s)
-					s.saved = { table.unpack(s.a) } -- saves A's inventory mid-trade
+					s.saved = { table.unpack(s.a) }
 				end,
 			},
 		},

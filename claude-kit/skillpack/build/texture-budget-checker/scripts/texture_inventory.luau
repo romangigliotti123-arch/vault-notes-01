@@ -1,10 +1,5 @@
 --!strict
--- texture_inventory.luau: read-only list of every texture-like asset id in the place with its kind and use count, as lines of
---   id<TAB>kind<TAB>uses<TAB>example path
--- Studio cannot read an image's width/height from its id, so add the sizes yourself (Asset Manager, the source file, or the
--- Developer Console texture memory view) and feed {id, width, height, uses} into scripts/TextureBudget.luau for the memory estimate.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
-local ROOT: Instance? = nil -- nil = Workspace, ReplicatedStorage, StarterGui, Lighting
+local ROOT: Instance? = nil
 local MAX_LINES = 80
 
 local PROPS: { [string]: { { prop: string, kind: string } } } = {

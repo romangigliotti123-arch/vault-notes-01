@@ -1,7 +1,4 @@
 --!strict
--- LogParse: turns a pasted Output / Developer Console log into grouped, ranked problems. Pure string logic, unit-tested in Lune.
--- Impact is a transparent heuristic (see rank): server errors outrank client errors, repeats raise the score on a log curve, spam is called out.
--- It reads text only; it cannot tell you the cause. The top groups are where to look first.
 local LogParse = {}
 
 export type Line = {
@@ -73,7 +70,6 @@ function LogParse.classify(line: string): Line
 	}
 end
 
--- group key: drop the trailing "- Server/Client - Script:12" context, replace ids and counts, keep script:line (it is the location)
 function LogParse.normalise(text: string): string
 	local t = string.gsub(text, "%s+%-%s+[Ss]erver.*$", "")
 	t = string.gsub(t, "%s+%-%s+[Cc]lient.*$", "")
@@ -88,7 +84,7 @@ end
 local function baseWeight(kind: string, side: string): number
 	local w = if kind == "error" then 2 elseif kind == "warn" then 0.5 else 0
 	if side == "server" and kind ~= "info" then
-		w *= 1.5 -- a server error affects everyone in that server
+		w *= 1.5
 	end
 	return w
 end
@@ -103,7 +99,6 @@ function LogParse.parse(log: string): { Line }
 	return out
 end
 
--- groups errors and warnings (info lines are ignored); stack lines are folded into the error above them
 function LogParse.rank(lines: { Line }, spamAt: number?): { Group }
 	local groups: { [string]: Group } = {}
 	local order: { Group } = {}

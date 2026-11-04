@@ -6,6 +6,8 @@ argument-hint: "[game slug or project folder] [genre]"
 
 # game-dev-lighting-qa
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
 
 Why this exists: a generated map with the engine's default lighting (flat grey ambient, no Atmosphere, no tuned sky, no colour grading, shadows nobody checked) looks amateur no matter how good the models are. WORKS (no errors), GOOD (fun), LOOKS (screenshots) and PLACEMENT (geometry) all miss it, and `game-dev-visual-qa` V5 only scores it by eye after the fact. This gate sets the look at the START and measures it, every time. `game-dev-critic` re-runs it independently and refuses GOOD without it.

@@ -1,7 +1,4 @@
 --!strict
--- Fuzz: bad-value corpus + runner for server handlers. Pure logic, unit-tested in Lune. Use ONLY in your own test place.
--- Handler contract: `call(args)` invokes the handler as the server would; `snapshot()` returns a comparable view of the state the handler
--- may change (currency, inventory, position...); `reset()` restores clean state. A bad value that changes the snapshot was ACCEPTED.
 local Fuzz = {}
 
 export type Case = { label: string, value: any }
@@ -10,9 +7,9 @@ export type Options = {
 	call: (args: { any }) -> (),
 	snapshot: () -> any,
 	reset: () -> (),
-	baseline: { any }, -- a valid argument list (the handler must accept it, or the run is meaningless)
-	kinds: { string }, -- one per argument: "number" | "integer" | "string" | "boolean" | "table" | "instance" | "any"
-	skipThrew: boolean?, -- when true an error inside the handler is not reported (default false: handlers should not throw on input)
+	baseline: { any },
+	kinds: { string },
+	skipThrew: boolean?,
 }
 
 local function cyclic(): any
@@ -67,7 +64,6 @@ local function append(into: { Case }, from: { Case })
 	end
 end
 
--- values worth sending for one argument kind. The wrong-type values are always included: a number argument gets strings and tables too.
 function Fuzz.corpus(kind: string): { Case }
 	local out: { Case } = {}
 	if kind == "number" or kind == "integer" then
@@ -88,7 +84,7 @@ end
 
 local function same(a: any, b: any, seen: { [any]: boolean }?): boolean
 	if a ~= a and b ~= b then
-		return true -- NaN counts as equal to NaN so an unchanged NaN is not a change
+		return true
 	end
 	if type(a) ~= "table" or type(b) ~= "table" then
 		return a == b
@@ -122,7 +118,6 @@ local function withArg(base: { any }, n: number, value: any, count: number): { a
 	return args
 end
 
--- Send each bad value in each argument position (one position at a time) and report what the handler accepted or threw on.
 function Fuzz.run(o: Options): { Finding }
 	local count = #o.kinds
 	o.reset()
@@ -152,7 +147,6 @@ function Fuzz.run(o: Options): { Finding }
 	return findings
 end
 
--- Fire `n` identical valid requests as fast as possible; returns how many changed state. Compare with the rate limit you configured.
 function Fuzz.burst(o: Options, n: number): number
 	o.reset()
 	local accepted = 0

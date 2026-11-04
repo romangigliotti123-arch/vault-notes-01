@@ -1,11 +1,9 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/scripting/datastore-schema-builder/scripts/tests/Migrations.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Migrations = require("../Migrations")
 
 local TEMPLATE = { coins = 0, gems = 0, inventory = {}, settings = { music = true, sfx = true }, Receipts = {} }
 
--- migrations[n] upgrades n -> n+1 (the PlayerData convention)
 local MIGRATIONS = {
 	[1] = function(d)
 		if d.money then

@@ -1,8 +1,4 @@
 --!strict
--- collect: read-only UI snapshot for the layout check. Run in a CLIENT playtest (execute_luau, datamodel Client) while the HUD shows what a
--- player sees. For each preset viewport it clones every enabled ScreenGui (scripts removed) into a Frame of exactly that pixel size, so Scale
--- layouts resolve as on that device, reads the rectangles and runs Overlap.analyse. Set CONFIG.render to leave one preview on screen for a
--- screenshot, then CONFIG.clean = true to remove it. Safe areas other than the 36 px top bar are not emulated (use the Device Emulator for those).
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
@@ -12,8 +8,8 @@ local CONFIG = {
 		{ name = "tablet", w = 1180, h = 820 },
 		{ name = "desktop", w = 1920, h = 1080 },
 	} :: { Viewport },
-	render = nil :: string?, -- "phone" | "tablet" | "desktop": keep that preview visible
-	clean = false, -- true: delete the preview and stop
+	render = nil :: string?,
+	clean = false,
 }
 
 local PREVIEW = "__VQA_Preview"

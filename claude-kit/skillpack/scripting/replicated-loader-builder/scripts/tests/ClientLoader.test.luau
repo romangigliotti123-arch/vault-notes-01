@@ -1,9 +1,7 @@
 --!nocheck
--- Run: lune run ClientLoader.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local ClientLoader = require("../ClientLoader")
 
--- fake tree: node(name, children...) with WaitForChild returning nil on a missing child (as after a timeout)
 local function node(name, children)
 	local n = { Name = name, children = children or {} }
 	function n.WaitForChild(self, childName)

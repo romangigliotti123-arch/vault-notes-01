@@ -6,6 +6,8 @@ argument-hint: "[your game idea, or leave empty]"
 
 # game-dev-workflow
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
 
 ## Entry: resume or start (do this first, every run)

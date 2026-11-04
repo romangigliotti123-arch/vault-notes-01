@@ -1,6 +1,4 @@
 --!strict
--- check_rig.luau: read-only R15 rig validation for a Model (NPC, custom character, dummy).
--- Studio command bar or MCP `execute_luau` (Edit). TARGET nil = first selected object.
 local TARGET: Instance? = nil
 
 local Selection = game:GetService("Selection")
@@ -24,7 +22,6 @@ local R15_PARTS = {
 	"RightFoot",
 }
 
--- motor name -> { Part0, Part1 }; the Motor6D lives inside Part1
 local R15_MOTORS: { [string]: { string } } = {
 	Root = { "HumanoidRootPart", "LowerTorso" },
 	Waist = { "LowerTorso", "UpperTorso" },

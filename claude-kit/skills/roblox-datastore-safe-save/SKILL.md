@@ -5,6 +5,8 @@ description: "Pattern and review checklist for saving player data in Roblox Data
 
 # Roblox DataStore: safe save
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Use when a script loads or saves player data. Output: working Luau module plus the test list below, or a review verdict with line-level findings.
 
 ## Rules
@@ -44,7 +46,7 @@ local function load(userId)
 			return old
 		end)
 	end)
-	return ok and data or nil -- nil = refuse to play, do not use defaults
+	return ok and data or nil
 end
 ```
 

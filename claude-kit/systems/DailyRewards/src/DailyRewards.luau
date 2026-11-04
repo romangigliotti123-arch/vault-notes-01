@@ -1,30 +1,25 @@
 --!strict
---[[
-	DailyRewards: daily claim + streak logic on a state table that lives in the player's saved data.
-	Pure functions (time is passed in), so it is unit-tested headless. Server only: never take the time from the client.
-	Roblox glue (remote, applying the reward) lives in DailyRewardsService.luau. See ../README.md.
-]]
 
 export type State = {
-	lastDay: number?, -- day index of the last claim
+	lastDay: number?,
 	streak: number,
-	total: number, -- lifetime claims
+	total: number,
 }
 
 export type Config = {
-	rewardCount: number, -- length of the reward cycle (e.g. 7: day 1..7 then back to day 1)
-	graceDays: number?, -- extra missed days that still keep the streak (default 0)
-	dayLength: number?, -- seconds (default 86400)
-	dayOffset: number?, -- seconds added so "midnight" is not UTC (default 0), e.g. -5 * 3600
-	capStreak: number?, -- streak never grows past this (default 10000)
+	rewardCount: number,
+	graceDays: number?,
+	dayLength: number?,
+	dayOffset: number?,
+	capStreak: number?,
 }
 
 export type Status = {
 	canClaim: boolean,
-	streak: number, -- streak the player is on (if they claim now, this is what they reach)
-	cycleDay: number, -- 1..rewardCount, which reward the next claim gives
-	nextClaimAt: number, -- unix time of the next day boundary (0 when canClaim)
-	reason: string?, -- "already" | "clock" when canClaim is false
+	streak: number,
+	cycleDay: number,
+	nextClaimAt: number,
+	reason: string?,
 }
 
 export type ClaimResult = {
@@ -42,7 +37,6 @@ function DailyRewards.newState(): State
 	return { lastDay = nil, streak = 0, total = 0 }
 end
 
--- Repair a state loaded from older/hand-edited data.
 function DailyRewards.sanitize(state: any): State
 	local s: any = type(state) == "table" and state or {}
 	if type(s.lastDay) ~= "number" or s.lastDay ~= s.lastDay then
@@ -62,7 +56,6 @@ local function dayOf(now: number, cfg: Config): number
 end
 
 local function plan(state: State, now: number, cfg: Config): (string?, number, boolean)
-	-- returns reason (nil = can claim), new streak, brokeStreak
 	local day = dayOf(now, cfg)
 	local last = state.lastDay
 	if last == nil then
@@ -72,7 +65,7 @@ local function plan(state: State, now: number, cfg: Config): (string?, number, b
 		return "already", state.streak, false
 	end
 	if day < last then
-		return "clock", state.streak, false -- server clock went backwards: refuse, never reset
+		return "clock", state.streak, false
 	end
 	local missed = day - last - 1
 	if missed <= (cfg.graceDays or 0) then
@@ -101,8 +94,6 @@ function DailyRewards.Status(state: State, now: number, cfg: Config): Status
 	}
 end
 
--- Mutates `state` only when the claim succeeds. The caller must grant the reward for `cycleDay` in the same
--- synchronous step (no yield between Claim and applying the reward), then let PlayerData save.
 function DailyRewards.Claim(state: State, now: number, cfg: Config): ClaimResult
 	local reason, newStreak, broke = plan(state, now, cfg)
 	if reason ~= nil then

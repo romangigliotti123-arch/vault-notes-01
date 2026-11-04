@@ -6,6 +6,8 @@ argument-hint: "<skill-name> [args] | list [category] | find <words>"
 
 # rbx (skill pack router)
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
 
 The pack lives in `~/.claude/claude-kit/skillpack/<category>/<name>/SKILL.md`; nothing in it is installed as a skill, so it costs no context until you open one. Index tool: `S="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/skillpack.py"`. Arguments: `$ARGUMENTS`.

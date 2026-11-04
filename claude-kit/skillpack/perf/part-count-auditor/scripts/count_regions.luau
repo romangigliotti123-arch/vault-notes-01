@@ -1,9 +1,5 @@
 --!strict
--- count_regions.luau: READ-ONLY. Buckets Workspace parts into square grid cells and prints counts per cell plus the 3x3 neighbourhood sum
--- (what a player standing in the cell can roughly see), worst first. Studio command bar or MCP `execute_luau` (Edit datamodel).
--- Output lines are "cell x,z  parts  neighbourhood  meshparts  unions  transparent" and can be pasted into PartBudget.evaluate (see SKILL.md).
--- Counts are INSTANCES, not draw calls or triangles: confirm those in Studio's Render/Summary stats (Ctrl+Shift+F2 draw count) before and after.
-local CELL = 256 -- studs; heuristic cell size, larger than the usual first-person view but within the 1024 default streaming radius
+local CELL = 256
 local TOP = 12
 
 local Workspace = game:GetService("Workspace")
@@ -29,7 +25,7 @@ for _, inst in Workspace:GetDescendants() do
 			c.unions += 1
 		end
 		if part.Transparency > 0 and part.Transparency < 1 then
-			c.transparent += 1 -- partial transparency causes overdraw (Creator Docs performance-optimization/design)
+			c.transparent += 1
 		end
 	end
 end

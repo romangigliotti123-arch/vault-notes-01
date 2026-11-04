@@ -1,16 +1,4 @@
 --!strict
--- Pool: reuse frequently spawned things (projectiles, hit effects, damage numbers, table buffers) instead of creating and
--- destroying them. Generic over the item; create/reset are yours. A cap stops a bug from spawning without limit.
---   local pool = Pool.new({
---       create = function() return template:Clone() end,
---       reset = function(part) part.Parent = nil end,     -- must leave the item inert and invisible
---       max = 64, prewarm = 16, whenFull = "recycleOldest",   -- or "fail"
---   })
---   local item = pool:Acquire()   -- nil only when whenFull = "fail" and the cap is reached
---   pool:Release(item)            -- false for an item that is not in use (double release, foreign item)
---   pool:Destroy(function(item) item:Destroy() end)
--- Configure the item (position, properties) AFTER Acquire and parent it last; reset must undo everything you changed, or
--- the next user inherits stale state.
 local Pool = {}
 Pool.__index = Pool
 
@@ -19,7 +7,7 @@ export type Options<T> = {
 	reset: (item: T) -> (),
 	max: number,
 	prewarm: number?,
-	whenFull: string?, -- "fail" (default) or "recycleOldest"
+	whenFull: string?,
 }
 export type Stats = { free: number, inUse: number, created: number, recycled: number, refused: number }
 export type Pool<T> = typeof(setmetatable(
@@ -98,7 +86,6 @@ function Pool.Stats<T>(self: Pool<T>): Stats
 	}
 end
 
--- release every item through your own destroy function and empty the pool
 function Pool.Destroy<T>(self: Pool<T>, destroyItem: (item: T) -> ())
 	for _, item in self._free do
 		destroyItem(item)

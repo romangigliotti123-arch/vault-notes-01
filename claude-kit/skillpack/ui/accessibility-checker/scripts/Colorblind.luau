@@ -1,18 +1,12 @@
 --!strict
--- Colorblind: simulate the three dichromacies and find colour pairs that stop being distinguishable. Machado et al. (2009) matrices
--- at full severity, applied in linear RGB: an APPROXIMATION for design review, not a medical tool. Colours are 0-255 {r, g, b}.
--- Distinctness is the Euclidean distance in 0-255 sRGB after simulation (threshold is a heuristic; tune with real users if you can).
---   Colorblind.simulate({220, 40, 40}, "deutan")
---   Colorblind.collisions({ {name="red team", color=...}, {name="green team", color=...} }) -> list of {a, b, kind}
---   Colorblind.colourOnly(indicators) -> names whose meaning is carried by colour alone
 local Colorblind = {}
 
 export type RGB = { number }
 export type Swatch = { name: string, color: RGB }
 export type Collision = { a: string, b: string, kind: string, distance: number }
-export type Indicator = { name: string, colors: number, hasSecondaryCue: boolean } -- secondary cue: icon, shape, label, pattern
+export type Indicator = { name: string, colors: number, hasSecondaryCue: boolean }
 
-Colorblind.MIN_DISTANCE = 60 -- heuristic: below this two colours look alike in the simulation
+Colorblind.MIN_DISTANCE = 60
 
 local MATRICES: { [string]: { { number } } } = {
 	protan = { { 0.152286, 1.052583, -0.204868 }, { 0.114503, 0.786281, 0.099216 }, { -0.003882, -0.048116, 1.051998 } },
@@ -63,7 +57,6 @@ function Colorblind.collisions(swatches: { Swatch }, minDistance: number?): { Co
 					Colorblind.simulate(swatches[i].color, kind),
 					Colorblind.simulate(swatches[j].color, kind)
 				)
-				-- only report pairs that were distinguishable normally but collapse under this condition
 				if d < limit and normal >= limit then
 					table.insert(
 						out,

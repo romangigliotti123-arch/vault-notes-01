@@ -1,9 +1,4 @@
 --!strict
--- Pivot: where a model's pivot should be and how far it is off. Pure logic on numbers (no CFrame), unit-tested under Lune.
--- Vault (building KB): set PrimaryPart before rotating or scaling; clearing PrimaryPart resets the pivot to the bounding-box centre;
--- give every modular piece the same pivot (e.g. the lower corner or attach point) so snapping is consistent. Studio side:
--- scripts/fix_pivots.luau reads Model:GetBoundingBox() and Model:GetPivot() and writes Model.WorldPivot (no PrimaryPart) or
--- PrimaryPart. All positions here are in world space, bounds are axis-aligned min/max corners.
 local Pivot = {}
 
 export type V3 = { x: number, y: number, z: number }
@@ -31,7 +26,6 @@ end
 
 export type Diagnosis = { ok: boolean, offset: V3, distance: number, outside: boolean, note: string }
 
--- Compare the current pivot with the wanted one. tolerance is in studs.
 function Pivot.diagnose(b: Bounds, pivot: V3, mode: Mode, tolerance: number?): Diagnosis
 	local tol = tolerance or 0.05
 	local want = Pivot.target(b, mode)

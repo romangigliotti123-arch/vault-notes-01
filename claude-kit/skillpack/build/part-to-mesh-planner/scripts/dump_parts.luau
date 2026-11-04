@@ -1,12 +1,5 @@
 --!strict
--- dump_parts.luau: read-only. Prints the parts under ROOT as Lua table lines for scripts/Cluster.luau, so the clustering
--- (which parts could become one exported mesh) runs offline under Lune. Paste into the Studio command bar or send through the
--- Studio MCP `execute_luau` tool (datamodel_type Edit). Output goes to the return value; paste it into a Lune file as
---   local parts = { <lines> }
---   local result = Cluster.find(parts, 64, 10)  -- then read result.groups, result.partsMerged, result.skipped
--- interactive = true when a part is unanchored, tagged, scripted, has a ClickDetector/ProximityPrompt, or sits in a model with scripts:
--- such parts must stay separate so scripts and physics keep working.
-local ROOT: Instance? = nil -- nil = the current Selection, or Workspace when nothing is selected
+local ROOT: Instance? = nil
 local MAX_PARTS = 3000
 
 local Selection = game:GetService("Selection")

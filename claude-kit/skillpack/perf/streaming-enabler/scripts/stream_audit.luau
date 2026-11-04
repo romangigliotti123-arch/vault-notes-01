@@ -1,9 +1,5 @@
 --!strict
--- stream_audit.luau: READ-ONLY audit of a place's instance-streaming setup. Studio command bar or MCP `execute_luau` (Edit datamodel).
--- Reports: StreamingEnabled and radii (docs defaults: StreamingMinRadius 64, StreamingTargetRadius 1024), models whose size or mode needs a decision
--- (Persistent / Atomic / default), and scripts that look like they assume everything is loaded (direct workspace.Name.Child chains without WaitForChild).
--- It changes nothing: StreamingEnabled and the radii are place settings the owner sets in Studio's Properties window (Workspace).
-local LARGE_MODEL_STUDS = 64 -- Creator Docs streaming/techniques: keep a model's extent to about 64 cubic studs so it streams in whole; larger models stream in pieces
+local LARGE_MODEL_STUDS = 64
 local TOP = 10
 
 local Workspace = game:GetService("Workspace")
@@ -59,7 +55,6 @@ for i = 1, math.min(TOP, #large) do
 	add(("  %5.0f studs  %s"):format(large[i].size, large[i].name))
 end
 
--- scripts that read the world as if it were all present
 local risky = 0
 local riskyList: { string } = {}
 for _, inst in game:GetDescendants() do

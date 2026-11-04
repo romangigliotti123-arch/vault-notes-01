@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/rebirth-system-builder/scripts/tests/Rebirth.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Wallet = require("../../../currency-system-builder/scripts/Wallet")
 local Rebirth = require("../Rebirth")

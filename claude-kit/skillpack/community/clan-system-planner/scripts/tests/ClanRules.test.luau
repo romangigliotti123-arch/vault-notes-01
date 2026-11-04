@@ -1,10 +1,14 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/community/clan-system-planner/scripts/tests/ClanRules.test.luau
 local t = require("../../../../../systems/_check/harness")
 local ClanRules = require("../ClanRules")
 
 local function clan()
-	return { name = "Night Owls", members = { [1] = "leader", [2] = "officer", [3] = "member", [4] = "member" }, banned = { [9] = true }, maxSize = 5 }
+	return {
+		name = "Night Owls",
+		members = { [1] = "leader", [2] = "officer", [3] = "member", [4] = "member" },
+		banned = { [9] = true },
+		maxSize = 5,
+	}
 end
 
 t.test("names: shape rules", function()

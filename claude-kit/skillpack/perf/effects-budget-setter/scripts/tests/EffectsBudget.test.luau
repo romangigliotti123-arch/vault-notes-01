@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run EffectsBudget.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local EffectsBudget = require("../EffectsBudget")
 
@@ -22,7 +21,7 @@ t.test("an over-cap scene is scaled down proportionally", function()
 	}, "low")
 	t.eq(total, 1000)
 	t.eq(rows[1].name, "Smoke")
-	t.eq(rows[1].suggestedRate, 120) -- 400 x 300/1000
+	t.eq(rows[1].suggestedRate, 120)
 	t.eq(rows[2].suggestedRate, 60)
 end)
 

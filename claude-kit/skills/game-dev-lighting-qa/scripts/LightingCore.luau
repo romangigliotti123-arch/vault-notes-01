@@ -1,17 +1,4 @@
 --!strict
--- LightingCore: the PURE lighting checks L1-L12 of game-dev-lighting-qa plus preset resolution. Plain tables in, a report out, no Roblox API (testable with Lune).
--- Same algorithm as lighting_ref.py (Python reference); both are run on tests/fixtures.json and must agree. Edit both together. Constants come from presets.json
--- (generated into LightingData.luau by build_inline.py).
--- Data (colours are { r, g, b } 0-255; a missing optional field is nil):
---   state = { lighting = { Technology, Brightness, ClockTime, GeographicLatitude, Ambient, OutdoorAmbient, ColorShift_Top, ColorShift_Bottom, EnvironmentDiffuseScale,
---             EnvironmentSpecularScale, ExposureCompensation, GlobalShadows, ShadowSoftness, FogColor, FogStart, FogEnd, sunDir? },
---             atmospheres, skies, blooms, colorCorrections, sunRays, dofs, blurs = { { path, Enabled, <properties> } },
---             lightStats = { total, shadowed, keyTotal, keyUnshadowed, largeParts, largePartsNoShadow },
---             samples = { { albedo = { r, g, b } 0-1, n = { x, y, z }, lit, indoor, emissive, lightE } }, shots = { { mean, crushed, blown } }, marks = { preset, time } }
---   cfg   = { genre?, time?, platform = "both" | "pc" | "mobile", theme? = { name = { r, g, b } }, waive? = { L5 = "reason" }, bands? = overrides }
--- Core.verify(state, cfg) -> report { kind, version, genre, time, phase, platform, status, failed, waived, skipped, unverified, warnings, checks = { L1 .. L12 = {
---   status, name, measured, tolerance, issues, fixes, unverified, warnings } }, summary }
--- Core.resolve(preset, time, mobile, overrides) -> { preset, time, mobile, desired } | nil
 local Data = require("./LightingData")
 
 local Core = {}
@@ -64,7 +51,6 @@ local function isDict(v: any): boolean
 	return type(v) == "table" and (next(v :: Dict)) ~= nil and (v :: { any })[1] == nil
 end
 
--- ------------------------------------------------------------------ names, merge, presets
 function Core.canon(name: any): string?
 	if name == nil then
 		return nil
@@ -142,7 +128,6 @@ function Core.bands(genre: any, phase: string): Dict
 	return b
 end
 
--- ------------------------------------------------------------------ colour and sun maths
 local function luma255(c: { number }): number
 	return (0.2126 * c[1] + 0.7152 * c[2] + 0.0722 * c[3]) / 255.0
 end
@@ -308,7 +293,6 @@ local function sceneStats(state: Dict): Dict
 	return out
 end
 
--- ------------------------------------------------------------------ report helpers
 local function mk(): Dict
 	return { status = "pass", measured = {}, tolerance = {}, issues = {}, fixes = {}, unverified = {}, warnings = {} }
 end
@@ -358,7 +342,6 @@ local function num(v: any, d: number): number
 	return if type(v) == "number" then v else d
 end
 
--- ------------------------------------------------------------------ the checks
 local function l1(state: Dict, ctx: Dict): Dict
 	local c = mk()
 	local lt: Dict, D: Dict = state.lighting, Data.roblox_default

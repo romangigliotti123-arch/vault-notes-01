@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/device-test-matrix/scripts/tests/Pairwise.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Pairwise = require("../Pairwise")
 
@@ -36,7 +35,7 @@ t.test("excluded combinations never appear and impossible pairs are reported", f
 	for _, row in r.rows do
 		t.falsy(exclude(row))
 	end
-	t.eq(#r.uncoverable, 2) -- Console+Touch and Console+Keyboard can never be tested
+	t.eq(#r.uncoverable, 2)
 	t.truthy(string.find(r.uncoverable[1], "Console", 1, true))
 end)
 

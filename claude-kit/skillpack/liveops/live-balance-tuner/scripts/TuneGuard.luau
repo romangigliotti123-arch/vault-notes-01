@@ -1,18 +1,12 @@
 --!strict
--- TuneGuard: guard rails for changing a live value from data: hard bounds, a maximum step per change, a cooldown, staged steps and a one-call revert.
--- Pure logic. You keep the history (a DataStore document or a file in decisions.md) and apply the value through your config source.
---   local d = TuneGuard.check({ min = 50, max = 5000, maxStepPct = 25, cooldown = 3600 }, 1000, 1400, history, os.time())
---   if d.ok then ... else print(d.reason, d.value) end        -- d.value is the nearest allowed value
---   TuneGuard.stages(1000, 1400, 3)                           -- {1133, 1267, 1400}: apply one stage per observation window
---   TuneGuard.revertValue(history)                            -- the value before the last change
 local TuneGuard = {}
 
 export type Def = { min: number, max: number, maxStepPct: number?, cooldown: number? }
 export type Change = { at: number, from: number, to: number }
 export type Decision = { ok: boolean, reason: string?, value: number, stepPct: number }
 
-local DEFAULT_STEP = 25 -- percent; a default of this skill (vault: bold tests move metrics, but live changes to a running economy should be bounded)
-local DEFAULT_COOLDOWN = 3600 -- seconds; so one change can be read before the next
+local DEFAULT_STEP = 25
+local DEFAULT_COOLDOWN = 3600
 
 function TuneGuard.check(def: Def, current: number, proposed: number, history: { Change }, now: number): Decision
 	assert(def.min <= def.max, "min > max")

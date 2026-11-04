@@ -1,9 +1,5 @@
 --!strict
--- prop_census.luau: read-only. Measures how reusable the props in a place already are: instance counts per model, MeshId reuse
--- (copies per unique mesh) and the estimated client cost using the vault's figures (about 1 s of load per 10,000 instances, about
--- 500 bytes per instance, guide of about 150,000 instances with streaming on). Feed the numbers into scripts/PropKit.luau to plan a
--- kit. Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
-local ROOT: Instance? = nil -- nil = Workspace
+local ROOT: Instance? = nil
 local TOP = 8
 
 local function run(): string

@@ -14,7 +14,7 @@ Frontmatter: `name` (= folder), `description` (one or two sentences: the job, th
 6. Evidence: real vault paths that exist, trust labels, no invented numbers; fast-moving facts say "live-check".
 7. Output: a defined deliverable format, small enough to read.
 8. Acceptance checks: pass/fail list that would catch a bad result; at least one check that is executed, not asserted.
-9. Code: scripts pass luau-check; secure by default (server authority, no secrets, no client trust); or "no code" is correct for the job.
+9. Code: scripts pass luau-check and carry no comments (roblox-luau-style, Comments; `comment_scan.py` counts them); secure by default (server authority, no secrets, no client trust); or "no code" is correct for the job.
 10. Pitfalls and related: real failure modes from the KB or experience; related skills named, not duplicated.
 
 ## Rules for content

@@ -1,7 +1,4 @@
 --!strict
--- ui_scan.luau: read-only. Collects corner radius, stroke thickness, font family, text size and padding from every ScreenGui under
--- StarterGui (or PlayerGui in a Client playtest) and prints the dominant value per field plus the rare values with example paths.
--- Same rule as Consistency.luau (dominant >= 50% of records, outlier < 15%); kept inline so it runs from the command bar / MCP execute_luau.
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")

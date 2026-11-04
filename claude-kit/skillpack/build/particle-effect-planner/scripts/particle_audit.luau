@@ -1,13 +1,8 @@
 --!strict
--- particle_audit.luau: audit every ParticleEmitter against the vault's limits (scripts/ParticleBudget.luau holds the tested maths).
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit). Audit-only by default.
--- Vault: max Rate per emitter 400/s desktop and 100/s mobile; Lifetime above 20 s is clamped; high rate with long life and low
--- speed is the overdraw trap; glowing particles want LightEmission 1 and LightInfluence 0; textures should be grayscale PNGs.
--- Opt-in fix APPLY_CAP_RATE lowers Rate on enabled emitters above RATE_CAP to the cap (changes the look: review first), one undo step.
-local ROOT: Instance? = nil -- nil = Workspace and ReplicatedStorage
-local RATE_CAP = 100 -- mobile cap; use 400 for a desktop-only game
+local ROOT: Instance? = nil
+local RATE_CAP = 100
 local LIFE_CAP = 20
-local LIVE_FLAG = 250 -- live particles from one emitter (rate * lifetime) worth a look: the skill's default, tune from a profile
+local LIVE_FLAG = 250
 local APPLY_CAP_RATE = false
 local MAX_LIST = 10
 

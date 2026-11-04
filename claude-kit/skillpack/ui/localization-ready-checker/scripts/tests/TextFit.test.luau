@@ -1,14 +1,13 @@
 --!nocheck
--- Run: lune run TextFit.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local F = require("../TextFit")
 
 t.test("short strings grow by the extra margin in expanding languages", function()
-	t.eq(F.estimate("Buy now", "de"), 13) -- 7*1.35=9.45 +3 -> 12.45 -> 13
+	t.eq(F.estimate("Buy now", "de"), 13)
 end)
 t.test("CJK shrinks and unknown languages assume the worst common case", function()
 	t.eq(F.estimate("Settings", "ja"), 5)
-	t.eq(F.estimate("Settings", "xx"), 14) -- 8*1.3=10.4+3 -> 14
+	t.eq(F.estimate("Settings", "xx"), 14)
 end)
 t.test("capacity from width, size and lines", function()
 	t.eq(F.capacity(200, 20), 20)

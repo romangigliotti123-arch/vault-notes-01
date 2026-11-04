@@ -1,13 +1,4 @@
 --!strict
---[[
-	Roblox glue for PlayerData: wires Players.PlayerAdded / PlayerRemoving, autosave and BindToClose.
-	Server only. Put PlayerData.luau and this file side by side in ServerScriptService (or ServerStorage).
-
-	local PlayerDataService = require(script.Parent.PlayerDataService)
-	PlayerDataService.Start({ storeName = "PlayerData_v1", template = { coins = 0 } })
-	local data = PlayerDataService.Get(player)   -- nil until loaded or after the player left
-	data.coins += 10                             -- saved by autosave / on leave / on shutdown
-]]
 local DataStoreService = game:GetService("DataStoreService")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -26,15 +17,13 @@ export type StartOptions = {
 local Service = {}
 
 local core: PlayerData.PlayerData? = nil
-local loaded = Instance.new("BindableEvent") -- fires (player, data) when a profile finished loading
+local loaded = Instance.new("BindableEvent")
 Service.Loaded = loaded.Event
 
 local function keyOf(player: Player): string
 	return "Player_" .. player.UserId
 end
 
--- Studio without API access (or an unpublished place) has no DataStore: fall back to an in-memory store so
--- development still works. Nothing is saved in that case.
 local function memoryStore(): PlayerData.StoreLike
 	local rows: { [string]: any } = {}
 	return {
@@ -123,7 +112,6 @@ function Service.Start(opts: StartOptions)
 	end)
 end
 
--- The live data table of a loaded player, or nil.
 function Service.Get(player: Player): PlayerData.Data?
 	local c = core
 	if c == nil then
@@ -133,7 +121,6 @@ function Service.Get(player: Player): PlayerData.Data?
 	return if s and s.State == "active" then s.Data else nil
 end
 
--- Yields until the player's data is loaded; nil if they left or the load failed.
 function Service.WaitFor(player: Player, timeout: number?): PlayerData.Data?
 	local deadline = os.clock() + (timeout or 60)
 	while player.Parent == Players and os.clock() < deadline do
@@ -146,7 +133,6 @@ function Service.WaitFor(player: Player, timeout: number?): PlayerData.Data?
 	return nil
 end
 
--- Save now (e.g. right after a purchase). Returns true when written.
 function Service.SaveNow(player: Player): boolean
 	local c = core
 	local s = c and c:GetSession(keyOf(player))

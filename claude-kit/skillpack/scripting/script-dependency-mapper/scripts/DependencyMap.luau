@@ -1,10 +1,4 @@
 --!strict
--- DependencyMap: which scripts touch which remotes, modules, CollectionService tags, attributes and services. Text only.
---   local RequireGraph = require(path.to.RequireGraph)   -- from require-cycle-finder/scripts, passed in so this file has no path requires
---   local map = DependencyMap.scan({ ["ServerScriptService/Shop"] = src1, ["StarterPlayerScripts/ShopUI"] = src2 }, RequireGraph)
---   map.remotes["BuyItem"]   -> { fires = { "StarterPlayerScripts/ShopUI" }, handles = { "ServerScriptService/Shop" } }
---   DependencyMap.orphans(map) -> remotes only fired or only handled (dead or unprotected endpoints)
--- Names are matched by the last identifier before the call, so rename-aliased remotes need a manual look.
 local DependencyMap = {}
 
 export type Scanner = { stripComments: (source: string) -> string, extractRequires: (source: string) -> { string } }
@@ -81,7 +75,6 @@ function DependencyMap.scan(sources: { [string]: string }, RequireGraph: Scanner
 	return map
 end
 
--- remotes with a caller but no handler (the call goes nowhere) or a handler but no caller (dead code or an attack surface)
 function DependencyMap.orphans(map: Map): { onlyFired: { string }, onlyHandled: { string } }
 	local onlyFired, onlyHandled = {}, {}
 	for name, use in map.remotes do
@@ -96,7 +89,6 @@ function DependencyMap.orphans(map: Map): { onlyFired: { string }, onlyHandled: 
 	return { onlyFired = onlyFired, onlyHandled = onlyHandled }
 end
 
--- markdown table of remotes for the project doc
 function DependencyMap.remoteTable(map: Map): string
 	local names = {}
 	for name in map.remotes do

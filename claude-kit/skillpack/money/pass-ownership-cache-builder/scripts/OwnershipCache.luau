@@ -1,18 +1,12 @@
 --!strict
--- OwnershipCache: cache "does this player own this pass?" for perk checks, with retries, a stale fallback and refresh on purchase.
--- The answer always comes from Roblox (`fetch` = a wrapper around MarketplaceService:UserOwnsGamePassAsync); the client never supplies it.
--- If you already use the kit's Shop system, ShopService.HasPass does this for the passes in its catalogue: use that and skip this module.
---   local cache = OwnershipCache.new({ fetch = function(userId, passId) return Marketplace:UserOwnsGamePassAsync(userId, passId) end, now = os.clock, wait = task.wait })
---   local owned, status = OwnershipCache.get(cache, userId, passId)       -- status: "fresh" | "cached" | "stale" | "unknown"
---   -- PromptGamePassPurchaseFinished: OwnershipCache.onPromptFinished(cache, userId, passId, wasPurchased)   (wasPurchased is NOT trusted)
 local OwnershipCache = {}
 
 export type Config = {
-	fetch: (userId: number, passId: number) -> boolean, -- may error (HTTP failures happen)
+	fetch: (userId: number, passId: number) -> boolean,
 	now: () -> number,
-	ttl: number?, -- seconds a result is trusted (default 300) so refunds and revokes are eventually seen
-	attempts: number?, -- fetch tries per lookup (default 3)
-	wait: ((seconds: number) -> ())?, -- backoff between tries (default none)
+	ttl: number?,
+	attempts: number?,
+	wait: ((seconds: number) -> ())?,
 }
 type Entry = { owned: boolean, at: number }
 export type Cache = { _c: Config, _e: { [string]: Entry } }
@@ -41,7 +35,6 @@ local function lookup(cache: Cache, userId: number, passId: number): boolean?
 	return nil
 end
 
--- Returns (owned, status). On total failure it falls back to the last known answer ("stale") or false ("unknown"); never throws.
 function OwnershipCache.get(cache: Cache, userId: number, passId: number): (boolean, Status)
 	local e = cache._e[key(userId, passId)]
 	if e and cache._c.now() - e.at < (cache._c.ttl or 300) then
@@ -57,7 +50,6 @@ function OwnershipCache.get(cache: Cache, userId: number, passId: number): (bool
 	return false, "unknown"
 end
 
--- Purchase prompt closed: forget the old answer and ask Roblox again whatever `wasPurchased` says (it can be wrong or spoofed).
 function OwnershipCache.onPromptFinished(cache: Cache, userId: number, passId: number, _wasPurchased: boolean): boolean
 	cache._e[key(userId, passId)] = nil
 	local owned = OwnershipCache.get(cache, userId, passId)

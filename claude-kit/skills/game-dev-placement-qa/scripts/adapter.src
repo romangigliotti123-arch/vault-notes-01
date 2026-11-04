@@ -1,6 +1,3 @@
--- adapter: the Roblox side of Placement. It reads Instances into the plain snapshots PlacementCore understands, collects the environment
--- (ground rays, neighbouring parts, terrain, targets), runs Core.verify, and applies the auto-fixes. Everything that needs the engine
--- (ray casts, spatial queries, pivots, JSON, CFrame maths) goes through `Placement.world`, so the tests can swap in a mock world.
 type Dict = { [string]: any }
 
 type World = {
@@ -209,20 +206,19 @@ end
 local Placement = {}
 Placement.Core = Core
 Placement.world = nil :: World?
--- Defaults of the project: edit once per game (or pass opts to every call). See references/api.md.
 Placement.config = {
-	rayLift = 4, -- ground rays start this far above the model's lowest point
+	rayLift = 4,
 	rayLength = 600,
-	neighbourPad = 1, -- studs added around the model when looking for neighbouring parts
+	neighbourPad = 1,
 	maxPartsPerModel = 2000,
 	maxNeighbours = 400,
 	maxSiblings = 50,
-	maxPasses = 6, -- auto-fix passes in place()
-	inferKind = true, -- guess the kind from the model name (door, tree, npc ...) when no intent is stored
-	includeInputs = false, -- store snapshot + environment in each report so placement_gate.py can re-check it
+	maxPasses = 6,
+	inferKind = true,
+	includeInputs = false,
 	groundNames = { "baseplate", "ground", "floor", "terrain" },
 	ignoreNames = { "camera" },
-	core = {}, -- overrides for Core.DEFAULTS (floatTol, buryTol, defaultYawGrid, bounds = {min, max} ...)
+	core = {},
 } :: Dict
 
 local function W(): World
@@ -301,7 +297,6 @@ local function relName(model: Instance, part: Instance): string
 	return string.sub(full, #base + 2)
 end
 
--- Instance -> snapshot (plain data)
 function Placement.snapshot(inst: Instance, opts: Dict?): Dict
 	local o = merge(Placement.config, opts)
 	local parts: { Dict } = {}
@@ -338,7 +333,6 @@ function Placement.snapshot(inst: Instance, opts: Dict?): Dict
 	}
 end
 
--- ------------------------------------------------------------------ intents
 function Placement.setIntent(inst: Instance, intent: Dict)
 	inst:SetAttribute("PlacementIntent", W().jsonEncode(W().plain(intent)))
 end
@@ -373,7 +367,6 @@ local function inferKind(name: string): string?
 	return best
 end
 
--- Intent for an Instance: stored attribute > opts.intents[fullName | name] > opts.rules (name patterns) > inferred kind > opts.defaultIntent.
 function Placement.intentFor(inst: Instance, opts: Dict?): (Dict, string)
 	local o = merge(Placement.config, opts)
 	local intent: Dict = merge(o.defaultIntent)
@@ -412,7 +405,6 @@ function Placement.intentFor(inst: Instance, opts: Dict?): (Dict, string)
 	return intent, source
 end
 
--- ------------------------------------------------------------------ environment
 local function resolveInstance(ref: any): Instance?
 	if type(ref) == "string" then
 		return W().resolve(ref)
@@ -511,7 +503,6 @@ function Placement.collect(model: Instance, snap: Dict, intent: Dict, opts: Dict
 	return env
 end
 
--- ------------------------------------------------------------------ verify
 function Placement.verify(model: Instance, intent: Dict?, opts: Dict?): Dict
 	local o = merge(Placement.config, opts)
 	local it: Dict = nil
@@ -537,7 +528,6 @@ function Placement.verify(model: Instance, intent: Dict?, opts: Dict?): Dict
 	return report
 end
 
--- ------------------------------------------------------------------ fixes
 local function findPart(model: Instance, rel: string): Instance?
 	if model.Name == rel and model:IsA("BasePart") then
 		return model
@@ -604,7 +594,7 @@ end
 
 function Fix.setUpright(model, fix)
 	if fix.tiltDeg and fix.tiltDeg ~= 0 then
-		return false -- an intended lean is set by hand
+		return false
 	end
 	W().pivotTo(model, W().upright(W().pivot(model)))
 	return true
@@ -627,7 +617,7 @@ end
 
 Fix.nudge = Fix.moveBy
 
--- non-geometric fixes all apply in one pass; of the geometric ones only the first in this order is applied per pass (each changes the others' numbers).
+-- one geometric fix per pass because each changes the others' numbers.
 local SIMPLE = { "removeParts", "setPrimaryPart", "anchor", "setCanCollide" }
 local GEOMETRIC = { "setUpright", "rotateYaw", "moveBy", "snapToGround", "nudge" }
 
@@ -660,8 +650,6 @@ function Placement.applyFixes(model: Instance, report: Dict): { Dict }
 	return applied
 end
 
--- ------------------------------------------------------------------ place / scan
--- Compact form for big scans: passing and skipped checks shrink to their status; failing checks keep issues, fixes, measured values and tolerances.
 function Placement.compact(rep: Dict): Dict
 	local out: Dict = {}
 	for k, v in rep do
@@ -687,8 +675,6 @@ local function emit(report: Dict)
 	print("PLACEMENT_MODEL " .. W().jsonEncode(report))
 end
 
--- place(model, intent, opts): parent the model, move it to intent.at, then verify -> auto-fix -> re-verify (opts.autofix ~= false) until it passes or the passes run out.
--- The intent is stored on the model (attribute PlacementIntent) so later scans re-check the same promises. ALWAYS read report.status: a fail means do not move on.
 function Placement.place(model: Instance, intent: Dict?, opts: Dict?): Dict
 	local o = merge(Placement.config, opts)
 	local it: Dict = W().plain(intent or {}) :: Dict
@@ -710,7 +696,7 @@ function Placement.place(model: Instance, intent: Dict?, opts: Dict?): Dict
 		end
 		local key = W().jsonEncode(applied)
 		if seen[key] then
-			break -- the same fix again: it is not converging
+			break
 		end
 		seen[key] = true
 		for _, f in applied do
@@ -763,13 +749,11 @@ local function isObject(inst: Instance): boolean
 				return true
 			end
 		end
-		-- a Model with only Models/Folders inside is a container (a map, a district), unless it has no children at all (an empty model is junk)
 		return #inst:GetChildren() == 0
 	end
 	return false
 end
 
--- Every placed object under `root` (default Workspace): top-level BaseParts and Models that are objects; Folders and container Models are walked.
 function Placement.objects(root: Instance?, opts: Dict?): ({ Instance }, { Dict })
 	local o = merge(Placement.config, opts)
 	local out: { Instance } = {}
@@ -802,8 +786,6 @@ local function fingerprint(lines: { string }): string
 	return string.format("%08x", h)
 end
 
--- scan(root, opts): verify every object. opts.game / opts.scorer ("builder" | "critic") are recorded; prints one PLACEMENT_MODEL line per object and a
--- PLACEMENT_SCAN summary line; returns the scan table that placement_gate.py reads (save it, or save the console output and run `placement_gate.py ingest`).
 function Placement.scan(root: Instance?, opts: Dict?): Dict
 	local o = merge(Placement.config, opts)
 	local list, skipped = Placement.objects(root, o)

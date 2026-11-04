@@ -1,9 +1,4 @@
 --!strict
--- LoadingProgress: honest progress for a loading screen. Weighted real tasks (assets preloaded, data received, character spawned)
--- give a raw fraction; the displayed bar smooths toward it, never moves backwards, never reaches 100% until every task is done,
--- and reports a stall so the screen can say something useful instead of freezing. Time is passed in.
---   local p = LoadingProgress.new({ { name = "assets", weight = 5 }, { name = "data", weight = 2 }, { name = "spawn", weight = 1 } })
---   p:set("assets", 0.4); p:done("data"); local shown = p:update(dt, now); if p:stalled(now, 10) then ... end
 local LoadingProgress = {}
 LoadingProgress.__index = LoadingProgress
 
@@ -41,7 +36,7 @@ end
 function LoadingProgress.set(self: Progress, name: string, f: number, now: number?)
 	assert(self._weights[name] ~= nil, "unknown task " .. name)
 	local clamped = math.clamp(f, 0, 1)
-	if clamped > self._fraction[name] then -- progress only moves forward
+	if clamped > self._fraction[name] then
 		self._fraction[name] = clamped
 		self._lastChange = now or self._lastChange
 	end
@@ -68,7 +63,6 @@ function LoadingProgress.isComplete(self: Progress): boolean
 	return true
 end
 
--- Smoothed value for the bar. Capped just under 1 until complete so the bar never lies about being finished.
 function LoadingProgress.update(self: Progress, dt: number): number
 	local target = self:raw()
 	if not self:isComplete() then
@@ -84,7 +78,6 @@ function LoadingProgress.stalled(self: Progress, now: number, timeoutSeconds: nu
 	return not self:isComplete() and now - self._lastChange >= timeoutSeconds
 end
 
--- Tip rotation: next index, never repeating the previous one when there is a choice.
 function LoadingProgress.nextTip(count: number, last: number?, roll: number): number
 	if count <= 1 then
 		return 1

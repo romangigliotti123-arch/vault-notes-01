@@ -1,15 +1,11 @@
 --!strict
--- save_roundtrip: two-phase persistence probe for a TEST place. Run phase "write" in one playtest, stop, run phase "read" in the next.
--- It uses the kit's PlayerDataService (Get, SaveNow); change MODULE_NAME/FIELD if your project differs.
--- Run via Studio MCP execute_luau with datamodel_type Server during a playtest (or paste into the command bar of a server test).
--- DataStore calls in Studio need the place published and Studio API access enabled (see the skill). NEVER run this in the live game.
 local Players = game:GetService("Players")
 local ServerScriptService = game:GetService("ServerScriptService")
 
-local PHASE: string = "write" -- "write" or "read"
+local PHASE: string = "write"
 local MODULE_NAME = "PlayerDataService"
 local FIELD = "qaProbe"
-local STAMP = "probe-1" -- the same value must be used in both phases
+local STAMP = "probe-1"
 
 local function firstPlayer(): Player?
 	local deadline = os.clock() + 15

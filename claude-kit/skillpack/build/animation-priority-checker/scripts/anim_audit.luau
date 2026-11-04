@@ -1,11 +1,5 @@
 --!strict
--- anim_audit.luau: load every Animation in the place onto a rig's Animator and check each track's Priority and Looped against naming
--- rules (mirrors scripts/AnimRules.luau, tested under Lune). Read-only: tracks are loaded but never played, then destroyed.
--- RUN IN PLAY MODE on the server (Studio MCP `start_stop_play`, then `execute_luau` with datamodel_type Server): Edit mode has no
--- running Animator. The rig must own the animations (an animation published by another account fails to load: reported, not fatal).
--- Priority and Looped are properties of the published animation asset, fixed in the Animation Editor / when publishing; a runtime
--- override is `track.Priority = Enum.AnimationPriority.Action`. This script reports, it does not change anything.
-local RIG: Model? = nil -- nil = first Model in Workspace with an Animator
+local RIG: Model? = nil
 local LOAD_TIMEOUT = 5
 
 local RANK: { [string]: number } =

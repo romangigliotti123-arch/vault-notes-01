@@ -1,14 +1,9 @@
 --!strict
--- TextFit: estimate whether a string still fits its label after translation. Expansion factors are GENERAL i18n rules of thumb
--- (labelled heuristic, not in the vault): replace them with measured values from your real translations as soon as you have any.
--- Capacity uses an average glyph width of ~0.5 x text size, also a heuristic; confirm with TextService:GetTextSize or screenshots.
---   TextFit.check({ { key = "buy", text = "Buy now", maxChars = 8 } }, { "de", "ru", "ja" })
 local TextFit = {}
 
 export type Entry = { key: string, text: string, maxChars: number, canWrap: boolean? }
 export type Issue = { key: string, lang: string, estimated: number, maxChars: number }
 
--- multiplier on source (English) character count; short strings expand more, handled in `estimate`
 TextFit.EXPANSION = {
 	de = 1.35,
 	fr = 1.25,
@@ -25,10 +20,10 @@ TextFit.EXPANSION = {
 
 function TextFit.estimate(text: string, lang: string): number
 	local len = utf8.len(text) or #text
-	local factor = TextFit.EXPANSION[lang] or 1.3 -- unknown language: assume the common worst case
+	local factor = TextFit.EXPANSION[lang] or 1.3
 	local out = len * factor
 	if len <= 10 and factor > 1 then
-		out += 3 -- very short strings grow by a few characters regardless of ratio
+		out += 3
 	end
 	return math.ceil(out)
 end
@@ -51,7 +46,6 @@ function TextFit.check(entries: { Entry }, langs: { string }): { Issue }
 	return issues
 end
 
--- Hardcoded strings: true when a string looks like player-visible English that has no translation key.
 function TextFit.looksHardcoded(text: string): boolean
 	return string.find(text, "%a%a") ~= nil and string.find(text, "^[%w_%.]+$") == nil
 end

@@ -1,12 +1,4 @@
 --!strict
---[[
-	Roblox glue for Analytics: builds the wrapper from AnalyticsService and the real enums. Server only.
-
-	local Analytics = require(script.Parent.AnalyticsGlue).Create()
-	Analytics:Onboarding(player, 1, "Spawned")
-	Analytics:Economy(player, "Sink", "Coins", 100, newBalance, "Shop", "sword_basic")
-	Analytics:Funnel(player, "FirstPurchase", HttpService:GenerateGUID(false), 1, "OpenedShop")
-]]
 local AnalyticsService = game:GetService("AnalyticsService")
 local Players = game:GetService("Players")
 

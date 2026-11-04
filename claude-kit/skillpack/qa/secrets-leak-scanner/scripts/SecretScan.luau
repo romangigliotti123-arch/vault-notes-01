@@ -1,7 +1,4 @@
 --!strict
--- SecretScan: finds secrets and server-only data in project text that could ship to clients or into a repo. Pure string logic,
--- unit-tested in Lune. Matches are REDACTED in findings (first 3 characters + length): never print or log a real secret.
--- Heuristics only: a clean scan is not proof. Rotate anything real that was ever committed or published.
 local SecretScan = {}
 
 export type Finding = { severity: string, rule: string, path: string, line: number, preview: string }
@@ -13,7 +10,6 @@ local function redact(s: string): string
 	return string.sub(s, 1, 3) .. "*** (" .. #s .. " chars)"
 end
 
--- rules: { id, severity, Lua pattern, capture index to redact, note }. Patterns match one line.
 local RULES: { { string } } = {
 	{ "discord-webhook", "CRITICAL", "discord[%w]*%.com/api/webhooks/%d+/([%w_%-]+)" },
 	{ "bearer-token", "CRITICAL", "[Bb]earer%s+([%w_%-%.]%w[%w_%-%.]+)" },
@@ -43,7 +39,6 @@ local function looksReal(value: string): boolean
 	return true
 end
 
--- scan one file's text. `path` is only used to label findings (and for the client-visible rule).
 function SecretScan.scanText(path: string, text: string): { Finding }
 	local out: { Finding } = {}
 	local n = 0
@@ -84,7 +79,6 @@ function SecretScan.scanText(path: string, text: string): { Finding }
 	return out
 end
 
--- paths whose contents the client can read: admin lists and server tables there are public
 local CLIENT_VISIBLE = {
 	"ReplicatedStorage",
 	"ReplicatedFirst",

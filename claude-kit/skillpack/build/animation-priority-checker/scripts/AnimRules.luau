@@ -1,8 +1,4 @@
 --!strict
--- AnimRules: priority and looping rules for named animations, behind anim_audit.luau. Pure logic, unit-tested under Lune.
--- Vault (3D/rigging/animation KB, Creator Docs): overlapping animations resolve by AnimationPriority (seven levels, Action4
--- highest to Core lowest; for example Jump above Idle); idle uses the lowest gameplay priority; looping animations need Looped on
--- and the first pose copied to the last frame so the loop is seamless. The keyword table is the skill's convention, extend it.
 local AnimRules = {}
 
 export type Rule = { keywords: { string }, minPriority: string, maxPriority: string?, looped: boolean? }
@@ -46,7 +42,6 @@ local function ruleFor(name: string): Rule?
 	return nil
 end
 
--- priority is the AnimationTrack.Priority name ("Idle", "Action2" ...). looped is AnimationTrack.Looped.
 function AnimRules.check(name: string, priority: string, looped: boolean): { Issue }
 	local issues: { Issue } = {}
 	local r = RANK[priority]

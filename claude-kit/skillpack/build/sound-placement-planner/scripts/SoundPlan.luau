@@ -1,12 +1,7 @@
 --!strict
--- SoundPlan: turn a list of map zones into an audio layout (2D bed, 3D spot emitters, volumetric area sounds) and check the mix.
--- Pure logic, unit-tested under Lune. Vault (sound KB, Creator Docs): prefer Audio objects (AudioPlayer + AudioEmitter) over legacy
--- Sound; keep a constant ambient bed so the game never feels silent; 2D background music Volume about 0.2 so other sounds stay
--- audible; volumetric emitters for rain, rooms, waterfalls, cities; spot ambiences on top of a 2D bed. The spot density and the
--- emitter cap are this skill's defaults (assumptions), not platform numbers.
 local SoundPlan = {}
 
-export type Zone = { name: string, kind: string, area: number } -- kind: "outdoor" | "indoor" | "event" | "hub"
+export type Zone = { name: string, kind: string, area: number }
 export type Layout = {
 	zone: string,
 	bed: string,
@@ -15,10 +10,10 @@ export type Layout = {
 	notes: { string },
 }
 
-SoundPlan.SPOT_AREA = 1600 -- studs^2 per spot ambience
-SoundPlan.VOLUMETRIC_AREA = 6400 -- areas at least this big get a volumetric emitter instead of many spots
+SoundPlan.SPOT_AREA = 1600
+SoundPlan.VOLUMETRIC_AREA = 6400
 SoundPlan.MUSIC_VOLUME = 0.2
-SoundPlan.MAX_SPOTS = 12 -- per zone
+SoundPlan.MAX_SPOTS = 12
 
 function SoundPlan.zone(z: Zone): Layout
 	local notes: { string } = {}
@@ -44,7 +39,7 @@ end
 export type Plan = { layouts: { Layout }, totalSpots: number, issues: { string } }
 
 function SoundPlan.plan(zones: { Zone }, concurrentEmitterCap: number?): Plan
-	local cap = concurrentEmitterCap or 24 -- assumption: 3D emitters a player can be near at once
+	local cap = concurrentEmitterCap or 24
 	local layouts: { Layout } = {}
 	local total = 0
 	for _, z in zones do
@@ -65,9 +60,8 @@ function SoundPlan.plan(zones: { Zone }, concurrentEmitterCap: number?): Plan
 	return { layouts = layouts, totalSpots = total, issues = issues }
 end
 
-export type Bus = { name: string, volume: number, priority: number } -- higher priority ducks lower
+export type Bus = { name: string, volume: number, priority: number }
 
--- Mix checks on the bus list: music at the documented level, UI/weapons/dialogue above music in priority.
 function SoundPlan.checkMix(buses: { Bus }): { string }
 	local issues: { string } = {}
 	local byName: { [string]: Bus } = {}

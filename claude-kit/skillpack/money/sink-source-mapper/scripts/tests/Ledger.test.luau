@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/sink-source-mapper/scripts/tests/Ledger.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Ledger = require("../Ledger")
 
@@ -13,7 +12,7 @@ t.test("totals and shares per name", function()
 	t.eq(r.sourceTotal, 400)
 	t.eq(r.sinkTotal, 300)
 	t.eq(r.sources[1].total, 200)
-	t.eq(r.sources[1].name, "drop") -- ties broken by name
+	t.eq(r.sources[1].name, "drop")
 	t.eq(r.sources[1].share, 0.5)
 end)
 

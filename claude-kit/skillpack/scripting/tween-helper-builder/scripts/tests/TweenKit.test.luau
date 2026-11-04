@@ -1,9 +1,7 @@
 --!nocheck
--- Run: lune run TweenKit.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local TweenKit = require("../TweenKit")
 
--- fake service: tweens finish when the test calls complete()
 local function fakeService()
 	local created = {}
 	local service = {}

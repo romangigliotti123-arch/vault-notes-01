@@ -1,17 +1,13 @@
 --!strict
--- LodPlan: choose a streaming mode and level-of-detail setting per model from facts about it. Pure logic, unit-tested under Lune.
--- Vault (optimization KB, Creator Docs 2026-10): SLIM on static models only; Persistent sparingly and for always-needed content;
--- Atomic when scripts need all child parts together; Improved streaming behaviour is the workspace default to aim for;
--- keep models small (docs say about 64 studs of extent: live-check the number, it is the docs' wording).
 local LodPlan = {}
 
 export type Model = {
 	name: string,
 	parts: number,
-	scripted: boolean?, -- a script reads many of its children at once
-	dynamic: boolean?, -- moved, animated or edited at runtime
-	essential: boolean?, -- must always exist for every client (spawn, shop, tutorial room)
-	extent: number?, -- largest bounding-box side in studs
+	scripted: boolean?,
+	dynamic: boolean?,
+	essential: boolean?,
+	extent: number?,
 }
 export type Decision = { name: string, streamingMode: string, slim: boolean, notes: { string } }
 

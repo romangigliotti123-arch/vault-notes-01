@@ -5,6 +5,8 @@ description: "Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, g
 
 # Roblox Rojo project setup
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Faster path: `python ~/.claude/claude-kit/tools/games.py init <slug> --rojo` scaffolds this whole layout; Studio connection and the toolchain installer are in the `roblox-studio-connect` skill.
 
 Goal: Luau lives in git as plain files, Studio syncs via the Rojo plugin, and Claude can read/edit/lint the code without Studio open.

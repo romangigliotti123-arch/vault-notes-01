@@ -1,9 +1,6 @@
 --!strict
--- ParallelBatch: the pure part of moving a loop onto Actors. Split a list into chunks, merge results back in order, and decide
--- whether parallelism is worth it at all. No Roblox APIs, so it is unit-tested under Lune. ActorDispatcher.luau uses it.
 local ParallelBatch = {}
 
--- contiguous, near-equal chunks (sizes differ by at most one); never returns an empty chunk
 function ParallelBatch.partition<T>(items: { T }, workers: number): { { T } }
 	local count = #items
 	local n = math.max(1, math.min(math.floor(workers), count))
@@ -25,7 +22,6 @@ function ParallelBatch.partition<T>(items: { T }, workers: number): { { T } }
 	return chunks
 end
 
--- results[i] is the output for chunk i (chunks may finish out of order); flatten them in chunk order
 function ParallelBatch.merge<T>(results: { [number]: { T } }): { T }
 	local indexes = {}
 	for i in results do
@@ -43,8 +39,6 @@ end
 
 export type Plan = { parallel: boolean, workers: number, reason: string }
 
--- Rule of thumb, labelled as such: parallel only pays when the serial work is clearly bigger than the cost of splitting and
--- messaging. perItemMs and overheadMs must be MEASURED (script-profiler); the defaults are placeholders, not facts.
 function ParallelBatch.plan(
 	itemCount: number,
 	perItemMs: number,

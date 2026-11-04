@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/pass-ownership-cache-builder/scripts/tests/OwnershipCache.test.luau
 local t = require("../../../../../systems/_check/harness")
 local OwnershipCache = require("../OwnershipCache")
 

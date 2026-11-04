@@ -1,15 +1,10 @@
 --!strict
--- StarterOffer: eligibility and timing for a first-purchase bundle. Anchored to a gameplay milestone (never to join), shown once per player,
--- with an optional honest purchase window (the vault's bundle docs use durationInSeconds = 900 with singleUse = true as an example: live-check).
--- It prices nothing and grants nothing: grants go through the kit Shop's idempotent receipt handler.
---   local ok, why = StarterOffer.eligible(cfg, playerState, os.time())
---   -- playerState lives in saved data: { milestoneAt = <time the first milestone was reached or nil>, purchased = false, dismissedCount = 0 }
 local StarterOffer = {}
 
 export type Config = {
-	windowSeconds: number?, -- purchase window after the milestone; nil = no timer
-	singleUse: boolean, -- true = shown and available once; false is flagged by lint (a restarting window is fake urgency)
-	maxDismissals: number?, -- stop showing after the player said no this many times (default 2)
+	windowSeconds: number?,
+	singleUse: boolean,
+	maxDismissals: number?,
 }
 export type PlayerState = { milestoneAt: number?, purchased: boolean, dismissedCount: number }
 

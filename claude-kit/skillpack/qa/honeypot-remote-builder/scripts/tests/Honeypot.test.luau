@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/honeypot-remote-builder/scripts/tests/Honeypot.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Honeypot = require("../Honeypot")
 
@@ -36,7 +35,7 @@ end)
 t.test("score decays so one lag spike a day never reaches review", function()
 	local h, clock = make()
 	h:Flag(1, "speed", 2)
-	clock.t = 600 -- 10 minutes
+	clock.t = 600
 	t.eq(h:Score(1), 0)
 	t.eq(h:Flag(1, "speed", 1), "log")
 end)

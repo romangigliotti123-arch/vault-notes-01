@@ -1,11 +1,5 @@
 --!strict
--- tune_collision.luau: audit CanCollide / CanTouch / CanQuery / CollisionFidelity by purpose. Audit-only by default.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- Two opt-in fixes, each one undo step:
---   APPLY_DECOR   : parts that look decorative (see DECOR_WORDS) and are not named in any script get CanCollide/CanTouch/CanQuery off.
---   APPLY_FIDELITY: MeshParts/Unions on PreciseConvexDecomposition drop to FIDELITY_TARGET (cheapest first: Box, Hull, Default, Precise).
--- Nothing touches parts a script mentions by name, and never touches transparency or size.
-local ROOT: Instance? = nil -- nil = Workspace
+local ROOT: Instance? = nil
 local APPLY_DECOR = false
 local APPLY_FIDELITY = false
 local FIDELITY_TARGET = Enum.CollisionFidelity.Hull
@@ -16,8 +10,6 @@ local MAX_LIST = 12
 local ChangeHistoryService = game:GetService("ChangeHistoryService")
 
 local function scriptNames(): (string, boolean)
-	-- all script sources joined once; used for the "does any script mention this name" test.
-	-- Second result false = some script could not be read, so a missing name proves nothing and APPLY_DECOR refuses to run.
 	local chunks: { string } = {}
 	local complete = true
 	for _, inst in game:GetDescendants() do

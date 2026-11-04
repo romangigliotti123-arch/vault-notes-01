@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run Overlap.test.luau   (from the kit's systems folder, path relative to it)
 local t = require("../../../../systems/_check/harness")
 local O = require("../Overlap")
 

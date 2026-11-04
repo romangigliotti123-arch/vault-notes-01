@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/hitbox-combat-builder/scripts/tests/HitCheck.test.luau
 local t = require("../../../../../systems/_check/harness")
 local HitCheck = require("../HitCheck")
 

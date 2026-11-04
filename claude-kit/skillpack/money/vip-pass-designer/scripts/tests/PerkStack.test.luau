@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/vip-pass-designer/scripts/tests/PerkStack.test.luau
 local t = require("../../../../../systems/_check/harness")
 local P = require("../PerkStack")
 

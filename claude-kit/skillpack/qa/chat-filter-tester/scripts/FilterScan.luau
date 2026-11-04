@@ -1,7 +1,4 @@
 --!strict
--- FilterScan: finds server handlers where player-typed text reaches other players or storage without the text filter in the same handler.
--- Pure string logic, unit-tested in Lune. HEURISTIC: filtering done in a helper function is not seen, so every finding is a lead to read.
--- Input handlers come from ArgScan.extract (input-validation-auditor/scripts/ArgScan.luau); paste both when running via execute_luau.
 local FilterScan = {}
 
 export type Handler = { remote: string, kind: string, line: number, params: { string }, body: string }
@@ -33,7 +30,6 @@ local FILTER_CALLS = {
 	"FilterAsync",
 	"Filter(",
 }
--- places the text becomes visible to others or persistent: { kind, Lua pattern, label }. "assign" patterns get the parameter appended.
 local SINKS = {
 	{ "assign", "%.Text%s*=%s*", ".Text assignment" },
 	{ "assign", "%.Name%s*=%s*", ".Name assignment" },
@@ -97,7 +93,6 @@ function FilterScan.scanHandlers(handlers: { Handler }): { Finding }
 	return out
 end
 
--- a client script that shows another player's text straight from a remote, or TextBox text sent on with no server filter on the way
 function FilterScan.scanClient(path: string, source: string): { Finding }
 	local out: { Finding } = {}
 	if

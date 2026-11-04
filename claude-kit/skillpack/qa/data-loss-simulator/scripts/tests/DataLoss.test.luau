@@ -1,6 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/data-loss-simulator/scripts/tests/DataLoss.test.luau
--- Runs every scenario against the kit's REAL PlayerData module, then against a deliberately naive saver to prove the scenarios can fail.
 local t = require("../../../../../systems/_check/harness")
 local DataLoss = require("../DataLoss")
 local PlayerData = require("../../../../../systems/PlayerData/src/PlayerData")
@@ -23,7 +21,6 @@ local function kitFactory(jobId, store, clock, lostLog)
 	})
 end
 
--- naive: no locks, one attempt, saves blindly with SetAsync-like overwrite
 local function naiveFactory(jobId, store, clock, lostLog)
 	local sessions = {}
 	local pd = {}

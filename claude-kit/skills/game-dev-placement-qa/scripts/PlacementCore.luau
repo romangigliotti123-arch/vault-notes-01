@@ -1,11 +1,4 @@
 --!strict
--- PlacementCore: the PURE placement checks P1-P7 of game-dev-placement-qa. Plain tables in, a report out, no Roblox API (testable with Lune).
--- Same algorithm as placement_ref.py (Python reference); both are run on tests/fixtures.json and must agree. Edit both together.
--- Data (vectors are {x, y, z}; a rotation `r` is the 9 numbers of CFrame:GetComponents() after the position: R00 R01 R02 R10 R11 R12 R20 R21 R22):
---   snap   = { path, class, pivot = { p, r }, hasPrimaryPart, parts = { { name, p, r, size, anchored, anchoredAssembly, canCollide, canTouch, massless, transparency, hasEffects } } }
---   intent = see references/intent.md (kind, floating, expectedSize, face, yawGrid, randomYaw, surfacePath, bounds, allowOverlap, connect, pair, group, waive, ...)
---   env    = { ground = { samples = { { x, z, y?, n?, path? } } }, neighbours = { part... }, terrainFill?, faceTarget?, connectTargets, pair?, siblings }
--- Core.verify(snap, intent, env, opts) -> report { path, class, kind, status, failed, waived, unverified, checks = { P1 .. P7 = { status, measured, tolerance, issues, fixes, unverified, warnings } } }
 local Core = {}
 
 type Dict = { [string]: any }
@@ -35,7 +28,6 @@ Core.DEFAULTS = {
 	minSize = 0.05,
 } :: Dict
 
--- Reference scale per object kind. size = ascending [small, mid, large] dimension ranges in studs (pivot-frame extents, any axis order).
 Core.KINDS = {
 	door = {
 		size = { { 0.1, 2 }, { 3, 6 }, { 6, 9 } },
@@ -164,7 +156,6 @@ local function contains(s: string, sub_: string): boolean
 	return string.find(s, sub_, 1, true) ~= nil
 end
 
--- ------------------------------------------------------------------ geometry
 local function corners(part: Dict): { Vec }
 	local ax = axesOf(part.r)
 	local h = { part.size[1] / 2, part.size[2] / 2, part.size[3] / 2 }
@@ -238,7 +229,6 @@ local function facePoint(box: Dict, at: string?): Vec
 	return add(box.center, scale(box.axes[f[1]], f[2] * box.dims[f[1]] / 2))
 end
 
--- Footprint of the model for the ground rays: centre + four corners inset 10% (world axes). The adapter casts one ray per point.
 function Core.footprint(snap: Dict): Dict
 	local lo, hi = worldAabb(snap.parts)
 	local wx, wz = hi[1] - lo[1], hi[3] - lo[3]
@@ -258,7 +248,6 @@ function Core.footprint(snap: Dict): Dict
 	}
 end
 
--- SAT between two oriented boxes. Returns depth and the translation of box a that separates it from b, or nil when they do not intersect.
 local function obbPenetration(a: Dict, b: Dict): (number?, Vec?)
 	local axa, axb = axesOf(a.r), axesOf(b.r)
 	local ha = { a.size[1] / 2, a.size[2] / 2, a.size[3] / 2 }
@@ -369,7 +358,6 @@ end
 
 local SIGNS = { { 1, 1 }, { -1, 1 }, { -1, -1 }, { 1, -1 } }
 
--- Area of overlap of the largest coplanar, same-facing face pair of parts a and b (0 when none). Downward faces are ignored (they rest on something).
 local function coplanarOverlap(a: Dict, b: Dict, distTol: number): number
 	local best = 0
 	for i = 1, 3 do
@@ -414,7 +402,6 @@ local function aabbTouch(p1: Dict, p2: Dict, pad: number): boolean
 	return true
 end
 
--- ------------------------------------------------------------------ intent helpers
 local function kindOf(intent: Dict): Dict
 	local k = Core.KINDS[intent.kind or "prop"]
 	return (k or Core.KINDS.prop) :: Dict
@@ -477,7 +464,6 @@ local function nstatus(issues: { string }): string
 	return if #issues > 0 then "fail" else "pass"
 end
 
--- ------------------------------------------------------------------ checks
 local function checkP1(snap: Dict, intent: Dict, _env: Dict, opts: Dict): Dict
 	local kind = kindOf(intent)
 	local issues: { string }, fixes: { Dict }, unv: { string } = {}, {}, {}
@@ -1129,7 +1115,6 @@ local function checkP6(snap: Dict, intent: Dict, _env: Dict, _opts: Dict): Dict
 	return mk(nstatus(issues), meas, {}, issues, fixes, unv)
 end
 
--- Short description of a model used for clone/group consistency (the adapter sends these for the siblings).
 function Core.summary(snap: Dict): Dict
 	local box = modelBox(snap)
 	local d = { box.dims[1], box.dims[2], box.dims[3] }
@@ -1323,7 +1308,6 @@ function Core.verify(snap: Dict, intent: Dict?, env: Dict?, opts: Dict?): Dict
 	}
 end
 
--- exposed for the adapter and the tests
 Core.modelBox = modelBox
 Core.worldAabb = worldAabb
 Core.obbPenetration = obbPenetration

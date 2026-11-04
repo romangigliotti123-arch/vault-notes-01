@@ -1,7 +1,4 @@
 --!strict
--- Juice: the feedback every key event needs (particle burst + tween + sound). Call these from the code of each event in the juice list of
--- art-direction.md; an event with none of them fails rubric item V6. Client-side. Tune values in the playtest, not here.
---   Juice.burst(part, "reward")   Juice.floatText(part, "+50", Theme.colors.accent)   Juice.squash(part)   Juice.sound("collect", part)
 local Debris = game:GetService("Debris")
 local TweenService = game:GetService("TweenService")
 
@@ -16,7 +13,6 @@ local PRESETS: { [string]: { count: number, speed: number, size: number, life: n
 	splash = { count = 18, speed = 16, size = 0.6, life = 0.8, color = Color3.fromRGB(150, 220, 255) },
 }
 
--- One-shot particle burst at a part. Short life, fades out, removed afterwards (never left running).
 function Juice.burst(at: BasePart, preset: string)
 	local p = PRESETS[preset] or PRESETS.collect
 	local e = Instance.new("ParticleEmitter")
@@ -34,7 +30,6 @@ function Juice.burst(at: BasePart, preset: string)
 	Debris:AddItem(e, p.life + 0.2)
 end
 
--- Number that floats up and fades above a part ("+50").
 function Juice.floatText(at: BasePart, text: string, color: Color3?)
 	local bb = Instance.new("BillboardGui")
 	bb.Size = UDim2.fromOffset(120, 40)
@@ -59,7 +54,6 @@ function Juice.floatText(at: BasePart, text: string, color: Color3?)
 	Debris:AddItem(bb, 0.8)
 end
 
--- Squash-and-stretch pop on a part's size (restores itself). Use on collect, hit, land.
 function Juice.squash(part: BasePart, amount: number?)
 	local a = amount or 0.25
 	local original = part.Size
@@ -67,7 +61,6 @@ function Juice.squash(part: BasePart, amount: number?)
 	TweenService:Create(part, Theme.tween.pop, { Size = original }):Play()
 end
 
--- Plays Theme.sounds[name]; "rbxassetid://0" or a missing name is silent (report it as a V6 gap).
 function Juice.sound(name: string, at: Instance?)
 	local id = Theme.sounds[name]
 	if not id or id == "rbxassetid://0" then

@@ -1,23 +1,17 @@
 --!strict
--- MenuGraph: audit a screen map. Screens are nodes, "opens" are edges, `back` is the dismissal target. Finds screens nobody can
--- open, screens you cannot leave, and paths deeper than a phone player will tolerate. Pure data.
---   local report = MenuGraph.audit({
---       { id = "hud", entry = true, opens = { "shop", "settings" } },
---       { id = "shop", back = "hud", opens = { "confirm" } }, ...
---   })
 local MenuGraph = {}
 
 export type Screen = { id: string, entry: boolean?, opens: { string }?, back: string?, closable: boolean? }
 export type Report = {
 	unreachable: { string },
-	trapped: { string }, -- reachable but no back/close and nothing to open
-	brokenLinks: { string }, -- "from -> to" where `to` is not a screen
-	deep: { string }, -- more than maxDepth taps from an entry
+	trapped: { string },
+	brokenLinks: { string },
+	deep: { string },
 	depth: { [string]: number },
 }
 
 function MenuGraph.audit(screens: { Screen }, maxDepth: number?): Report
-	local limit = maxDepth or 3 -- heuristic: core screens within ~3 taps
+	local limit = maxDepth or 3
 	local byId: { [string]: Screen } = {}
 	for _, s in screens do
 		byId[s.id] = s

@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/marketing/codes-campaign-planner/scripts/tests/CodeBook.test.luau
 local t = require("../../../../../systems/_check/harness")
 local CodeBook = require("../CodeBook")
 

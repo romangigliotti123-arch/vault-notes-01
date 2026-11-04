@@ -1,8 +1,4 @@
 --!strict
--- remote_probe.luau: SERVER-side. Counts how often each RemoteEvent is fired by clients for DURATION seconds and who fires it most,
--- by adding a second listener (the real handlers are untouched). Run during a playtest on the Server datamodel
--- (MCP `execute_luau` with datamodel_type Server) or paste into the command bar while a Studio server session runs.
--- Also samples server heartbeat time. Disconnects itself when done.
 local DURATION = 20
 local TOP = 8
 

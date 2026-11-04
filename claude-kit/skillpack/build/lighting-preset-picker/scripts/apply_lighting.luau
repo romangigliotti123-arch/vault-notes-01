@@ -1,11 +1,4 @@
 --!strict
--- apply_lighting.luau: show (dry run) or apply a lighting + atmosphere + post-effect preset to Lighting. Dry run by default.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- PRESET below is the output of LightingPresets.toLuau(LightingPresets.pick(mood, device)) (scripts/LightingPresets.luau, tested under
--- Lune): regenerate it for another mood or for mobile and paste it over this table. Existing effects are updated in place, missing
--- ones are created, effects the preset does not mention are left alone and listed. Lighting.Technology and the Sky asset are
--- never touched (set Technology to ShadowMap in the Lighting properties by hand; skybox ids are the owner's choice).
--- One undo step. Take a screenshot before and after (screen_capture) and compare at the camera the players will see.
 local APPLY = false
 
 local Lighting = game:GetService("Lighting")

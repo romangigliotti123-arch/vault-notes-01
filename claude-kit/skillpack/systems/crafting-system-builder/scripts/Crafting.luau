@@ -1,10 +1,4 @@
 --!strict
--- Crafting: data-driven recipes with a timed queue, built on Inventory. Ingredients are consumed when the craft STARTS (so they
--- cannot be traded away or crafted twice) and the result is delivered on collect, based on absolute os.time() stamps so it survives
--- leaving the game. State lives in data.Crafting.queue.
---   local crafting = Crafting.new({ inventory = inv, queueLimit = 3, now = os.time,
---       recipes = { Plank = { inputs = { Wood = 2 }, output = { id = "Plank", qty = 1 }, seconds = 30 } } })
---   crafting:start(data, "Plank") ; crafting:collect(data)   -- returns the list of finished crafts delivered
 local Crafting = {}
 Crafting.__index = Crafting
 
@@ -53,7 +47,6 @@ function Crafting.canStart(self: Crafting, data: Data, name: string): (boolean, 
 	return true, "ok"
 end
 
--- consumes the inputs now and queues the craft; all or nothing
 function Crafting.start(self: Crafting, data: Data, name: string): (boolean, string)
 	local ok, why = self:canStart(data, name)
 	if not ok then
@@ -89,7 +82,6 @@ function Crafting.ready(self: Crafting, data: Data): number
 	return n
 end
 
--- deliver finished crafts in order. A craft stays queued when the output does not fit (nothing is lost).
 function Crafting.collect(self: Crafting, data: Data): { string }
 	local c = self:init(data)
 	local now = self._c.now()
@@ -97,7 +89,7 @@ function Crafting.collect(self: Crafting, data: Data): { string }
 	while c.queue[1] and c.queue[1].doneAt <= now do
 		local r = self._c.recipes[c.queue[1].recipe]
 		if r == nil then
-			table.remove(c.queue, 1) -- recipe removed in an update: drop the entry (refund is a design decision, see SKILL pitfalls)
+			table.remove(c.queue, 1)
 		elseif self._c.inventory:add(data, r.output.id, r.output.qty) then
 			table.insert(delivered, c.queue[1].recipe)
 			table.remove(c.queue, 1)

@@ -1,8 +1,4 @@
 --!strict
--- physics_census.luau: READ-ONLY census of what makes the physics step expensive. Studio command bar or MCP `execute_luau` (Edit datamodel; run again in Play
--- on the Server datamodel to see runtime assemblies). Counts, not milliseconds: confirm with the MicroProfiler (physics / "Jobs" bars) before and after any change.
--- Vault (optimization + physics KB, Creator Docs physics/*): unanchored parts force physics work; idle assemblies sleep (linear velocity under 0.33 studs/s, rotational under 0.42);
--- Adaptive stepping is recommended (up to 2.5x per docs; fixed mode = 240 Hz, 4 steps per 60 FPS frame); CanTouch and CanQuery cost when many accumulate; keep as few constraints as possible.
 local TOP = 8
 
 local Workspace = game:GetService("Workspace")

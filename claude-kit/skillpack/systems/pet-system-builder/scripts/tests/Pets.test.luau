@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/pet-system-builder/scripts/tests/Pets.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Inventory = require("../../../inventory-system-builder/scripts/Inventory")
 local Pets = require("../Pets")

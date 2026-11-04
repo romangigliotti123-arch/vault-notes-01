@@ -6,6 +6,8 @@ argument-hint: "[game slug or project folder]"
 
 # game-dev-placement-qa
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
 
 Why this exists: models were repeatedly created or inserted and left floating, buried, crooked, facing the wrong way, overlapping the wall next to them or unanchored, because nothing measured them. WORKS (no errors), GOOD (fun) and LOOKS (screenshots) all miss it. This gate measures the geometry itself, every time, and `game-dev-critic` re-runs it independently and refuses GOOD without it.

@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run DataStoreBudget.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local DataStoreBudget = require("../DataStoreBudget")
 
@@ -30,7 +29,7 @@ end)
 t.test("autosave interval grows slower than the player count shrinks the budget", function()
 	local i = DataStoreBudget.minSaveInterval(20)
 	t.truthy(math.abs(i - 60 * 20 / 430) < 1e-9)
-	t.truthy(DataStoreBudget.minSaveInterval(1) < 60) -- one player can save every few seconds
+	t.truthy(DataStoreBudget.minSaveInterval(1) < 60)
 end)
 
 t.test("per-key write cap rounds the size up to KB", function()

@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run ParallelBatch.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local ParallelBatch = require("../ParallelBatch")
 

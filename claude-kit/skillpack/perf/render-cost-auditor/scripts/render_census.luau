@@ -1,9 +1,4 @@
 --!strict
--- render_census.luau: READ-ONLY census of render-cost drivers: shadow-casting lights, partial transparency, Neon/Glass, particle emitters (and their live-particle estimate),
--- beams/trails, Highlights, SurfaceGuis, SurfaceAppearance (PBR) parts, Lighting technology and post effects. Studio command bar or MCP `execute_luau` (Edit datamodel). Scans Workspace only (ReplicatedStorage templates are not on screen).
--- Counts, not GPU milliseconds: read GPU wait in the MicroProfiler (red bars over 2.5 ms) and Render stats before and after each fix.
--- Vault: shadows are off below graphics quality 4; point lights cost more on low-end devices; partial transparency causes overdraw (Creator Docs performance-optimization/design);
--- Neon and glass were rated lag contributors in tester data (indie); Highlights capped at 255; ShadowMap is the recommended default over Future (creators).
 local Workspace = game:GetService("Workspace")
 local Lighting = game:GetService("Lighting")
 
@@ -69,7 +64,7 @@ for _, inst in Workspace:GetDescendants() do
 		elseif inst:IsA("Decal") or inst:IsA("Texture") then
 			local parent = inst.Parent
 			if parent and parent:IsA("BasePart") and (parent :: BasePart).Transparency >= 1 then
-				c.decalsOnTransparent += 1 -- vault: decals/textures on fully transparent parts cause mobile problems
+				c.decalsOnTransparent += 1
 			end
 		end
 	end

@@ -1,8 +1,4 @@
 --!strict
--- OrganizerPlan: decide which top-level Workspace children go into which folder, without renaming anything. Pure logic, Lune-tested.
--- Names stay untouched on purpose: scripts find objects by name and Rojo maps names to files. Only parents change, and only for
--- loose top-level objects; anything already in a Folder is left alone. Scripts that reference moved objects by path
--- (workspace.Door) break: the plan lists the names so a grep can run before applying.
 local OrganizerPlan = {}
 
 export type Item = { name: string, class: string, tagged: boolean?, hasScripts: boolean? }

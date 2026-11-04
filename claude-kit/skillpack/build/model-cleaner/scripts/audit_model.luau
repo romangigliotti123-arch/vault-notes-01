@@ -1,10 +1,7 @@
 --!strict
--- audit_model.luau: read-only audit of one model (and optional safe fixes). Paste into the Studio command bar,
--- or send through the Studio MCP `execute_luau` tool (datamodel_type Edit). Returns/prints a compact text report.
--- Set TARGET to an Instance, or leave nil to use the first selected object.
 local TARGET: Instance? = nil
-local APPLY_SAFE_FIXES = false -- true: set PrimaryPart when missing, CastShadow=false on tiny parts, then record one undo step
-local EXPECT_STATIC = true -- true: unanchored parts are reported as problems (set false for ragdolls, vehicles, physics props)
+local APPLY_SAFE_FIXES = false
+local EXPECT_STATIC = true
 local MAX_LIST = 12
 
 local Selection = game:GetService("Selection")

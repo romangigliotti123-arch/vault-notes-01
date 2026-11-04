@@ -1,8 +1,4 @@
 --!nocheck
--- Run (from the kit's systems folder): lune run ../skills/game-dev-placement-qa/scripts/tests/Adapter.test.luau
--- Exercises the Instance side of Placement (snapshot, collect, verify, auto-fix, place, scan) on real Lune Instances with a MOCK world: ground rays
--- and spatial queries are simulated over axis-aligned boxes. It proves the glue logic and the fix loop, NOT the engine calls (raycast, GetPartBoundsInBox,
--- PivotTo, ReadVoxels): those are only exercised in live Roblox Studio.
 local roblox = require("@lune/roblox")
 local serde = require("@lune/serde")
 local t = require("../../../../systems/_check/harness")
@@ -110,7 +106,7 @@ local world = {
 		for _, p in allParts(root) do
 			if not inside(p, ignore) then
 				local c, s = p.CFrame.Position, p.Size
-				local r = (s.X + s.Y + s.Z) / 2 -- generous radius: the Core does the exact test
+				local r = (s.X + s.Y + s.Z) / 2
 				if
 					math.abs(c.X - center[1]) <= size[1] / 2 + r
 					and math.abs(c.Y - center[2]) <= size[2] / 2 + r
@@ -163,7 +159,6 @@ local world = {
 }
 Placement.world = world
 Placement.config.emit = false
--- (print of PLACEMENT_MODEL lines is exercised in one test below)
 
 local map = Instance.new("Folder")
 map.Name = "Map"
@@ -294,7 +289,6 @@ t.test("connections and mirrored pairs resolve other instances", function()
 	s1.Parent = map
 	local s2 = newModel("StairsB", { { name = "S", pos = { 80, 4, -3.4 }, size = { 4, 8, 8 } } })
 	s2.Parent = map
-	-- stairs A front face centre = (80,4,1); B back face centre = (80,4,0.6)
 	local rep = Placement.verify(
 		s1,
 		{ kind = "stairs", connect = { { at = "front", to = "Workspace.Map.StairsB", toAt = "back" } } }

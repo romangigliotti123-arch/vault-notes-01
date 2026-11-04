@@ -1,9 +1,4 @@
 --!strict
--- MobileSession: analyse a 10-15 minute on-device sample log (frame ms + memory MB) for averages, spikes, thermal decline and memory growth.
--- Pure logic, Lune-tested. Samples come from mobile_sampler.client.luau (or the Performance Stats overlay copied by hand).
--- Sources (vault): Creator Docs test-on-hardware: run a 10-15 minute session and watch for steady FPS decline (thermal throttling) (official);
--- frame budget 16.67 ms at 60 FPS, 33.33 ms at 30 FPS; judge spikes and consistency, not average FPS (optimization KB, creators);
--- a 10 ms PC frame can be about 40 ms on a low-end phone (scripting KB, creator report). The 25 percent thermal flag and 2x spike rule are heuristics.
 local MobileSession = {}
 
 export type Sample = { t: number, frameMs: number, memMB: number }
@@ -40,7 +35,7 @@ local function mean(xs: { number }, from: number, to: number): number
 end
 
 function MobileSession.analyze(samples: { Sample }, budgetMs: number?): Report
-	local budget = budgetMs or 33.33 -- default target for phones is 30 FPS; pass 16.67 for a 60 FPS goal
+	local budget = budgetMs or 33.33
 	local flags: { string } = {}
 	local n = #samples
 	local ms: { number } = {}

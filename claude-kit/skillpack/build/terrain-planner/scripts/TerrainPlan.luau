@@ -1,7 +1,4 @@
 --!strict
--- TerrainPlan: size a terrain job in voxels and heightmap pixels before sculpting. Pure logic, unit-tested under Lune.
--- Vault facts used (Creator Docs via the building KB): terrain voxels are 4x4x4 studs; a heightmap is a .jpg or .png of at most
--- 4096x4096 px where 1 px = 4 studs (so one image spans about 16384 studs). Tile bigger maps.
 local TerrainPlan = {}
 
 TerrainPlan.VOXEL = 4
@@ -23,7 +20,6 @@ function TerrainPlan.voxelCount(w: number, d: number, h: number): number
 	return math.ceil(w / v) * math.ceil(d / v) * math.ceil(h / v)
 end
 
--- Heightmap plan for a rectangular map. Splits into tiles of at most MAX_PX when either side is too large.
 function TerrainPlan.heightmap(widthStuds: number, depthStuds: number): Plan
 	assert(widthStuds > 0 and depthStuds > 0, "map size must be positive")
 	local pxW, pxD = TerrainPlan.pxFor(widthStuds), TerrainPlan.pxFor(depthStuds)
@@ -52,8 +48,6 @@ function TerrainPlan.heightmap(widthStuds: number, depthStuds: number): Plan
 	}
 end
 
--- Share of the map that is water or land determines what to hollow or fill. Returns a sorted work order (vault build order:
--- terrain/hills, zones and roads, buildings, props).
 function TerrainPlan.order(hasWater: boolean, hasRoads: boolean): { string }
 	local steps =
 		{ "set map bounds and snap to the 4-stud grid", "sculpt base land from top-down", "round edges and vary sizes" }

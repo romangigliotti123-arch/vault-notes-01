@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/liveops/feature-flag-config-builder/scripts/tests/FlagConfig.test.luau
 local t = require("../../../../../systems/_check/harness")
 local FlagConfig = require("../FlagConfig")
 

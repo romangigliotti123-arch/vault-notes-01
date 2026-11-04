@@ -1,11 +1,7 @@
 --!strict
--- StyleStats: find off-style materials and colours from part counts. Pure logic, unit-tested under Lune.
--- Vault (building KB): keep 4-5 things consistent (lighting, materials, palette, detail level, silhouette); a game can break the
--- rules but only on purpose. This is a statistics screen: a rare material or colour is a CANDIDATE outlier, not a mistake
--- (a single gold chest is fine). The thresholds are the skill's defaults.
 local StyleStats = {}
 
-export type Sample = { material: string, color: string, count: number? } -- color already bucketed (e.g. "#A0C0E0")
+export type Sample = { material: string, color: string, count: number? }
 export type Outlier = { key: string, count: number, share: number }
 export type Report = {
 	total: number,
@@ -18,7 +14,6 @@ export type Report = {
 	notes: { string },
 }
 
--- Quantise a colour channel triple (0..255) to a bucket hex so near-identical shades count as one colour.
 function StyleStats.bucket(r: number, g: number, b: number, step: number?): string
 	local s = step or 32
 	local function q(v: number): number
@@ -74,7 +69,6 @@ function StyleStats.analyse(samples: { Sample }, minShare: number?): Report
 	if dc > 12 then
 		table.insert(notes, `{dc} distinct colour buckets: tighten the palette`)
 	end
-	-- outliers only mean something when there is a dominant set to be outside of
 	local mo = if dm > 3 then outliers(materials, total, share) else {}
 	local co = if dc > 5 then outliers(colors, total, share) else {}
 	return {

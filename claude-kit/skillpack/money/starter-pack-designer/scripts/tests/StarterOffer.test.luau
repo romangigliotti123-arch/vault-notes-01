@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/starter-pack-designer/scripts/tests/StarterOffer.test.luau
 local t = require("../../../../../systems/_check/harness")
 local S = require("../StarterOffer")
 

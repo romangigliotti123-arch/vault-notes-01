@@ -1,6 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/receipt-flow-tester/scripts/tests/ReceiptScenarios.test.luau
--- Runs the scenarios against the real kit Shop (good wiring must pass) and against a deliberately broken receipt handler (must fail).
 local t = require("../../../../../systems/_check/harness")
 local Shop = require("../../../../../systems/Shop/src/Shop")
 local ReceiptScenarios = require("../ReceiptScenarios")
@@ -52,13 +50,12 @@ local function goodEnv()
 	}
 end
 
--- A typical wrong handler: grants on every delivery and never checks the data is loaded or saved.
 local function brokenEnv()
 	local coins = 0
 	local shop = {
 		ProcessReceipt = function(_, r)
 			if r.ProductId ~= 111 then
-				return "Granted" -- also confirms unknown products
+				return "Granted"
 			end
 			coins += 100
 			return "Granted"

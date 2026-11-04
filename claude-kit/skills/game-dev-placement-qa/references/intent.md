@@ -4,19 +4,19 @@ The intent is a plain table (JSON-able). `Placement.place` stores it on the mode
 
 ```lua
 Placement.place(door, {
-  kind = "door",                              -- reference scale, defaults (see checks.md)
-  at = { 40, 3.5, 12 },                       -- where the pivot should be (P1, atTol 1 stud)
-  posGrid = 4,                                -- x/z of the pivot on a 4 stud grid (optional)
-  surfacePath = "Workspace.Map.House.Floor",  -- it must rest on this instance (or a descendant) (P2)
-  face = { target = "Workspace.Map.House.Hall" },  -- front toward this instance or {x,y,z} (P4); also { dir = {0,0,1} }, { awayFrom = ... }, { any = true }
-  front = "Front",                            -- which face of the model is its front: Front (LookVector), Back, Left, Right
-  yawGrid = 90,                               -- yaw must be a multiple of 90 deg (kind default or 15 otherwise); 0 turns the grid off
-  expectedSize = { 4, 7, 0.5 },               -- pivot-frame extents, x y z (or sorted with sizeSorted = true); sizeTol 0.2
+  kind = "door",
+  at = { 40, 3.5, 12 },
+  posGrid = 4,
+  surfacePath = "Workspace.Map.House.Floor",
+  face = { target = "Workspace.Map.House.Hall" },
+  front = "Front",
+  yawGrid = 90,
+  expectedSize = { 4, 7, 0.5 },
   bounds = { min = { -512, -50, -512 }, max = { 512, 400, 512 } },
-  allowOverlap = { "Workspace.Map.House.Wall" },   -- instances (prefix) this model may intersect
-  connect = { { at = "front", to = "Workspace.Map.Stairs2", toAt = "back", tol = 0.1 } },   -- my face meets that face (or "point" = {x,y,z})
-  pair = { with = "Workspace.Map.Gate.R", axis = "x", at = 0 },   -- mirrored partner across the plane x = 0
-  group = { name = "Fence", sameYaw = true },                     -- siblings with the same base name must match in size, part count (and yaw)
+  allowOverlap = { "Workspace.Map.House.Wall" },
+  connect = { { at = "front", to = "Workspace.Map.Stairs2", toAt = "back", tol = 0.1 } },
+  pair = { with = "Workspace.Map.Gate.R", axis = "x", at = 0 },
+  group = { name = "Fence", sameYaw = true },
   waive = { P4 = "doors on this ship face the corridor, checked by hand 2026-11-04" },
 })
 ```
@@ -38,6 +38,8 @@ Placement.place(door, {
 | `canCollide` `canTouch` `massless` `allowInvisible` | physics promises | kind (pickup: false) |
 | `connect` `pair` `group` | P7 promises | none |
 | `waive` | `{ P4 = "reason" }`, reason of at least 10 characters | none |
+
+`surfacePath` is the instance (or a descendant) the model must rest on (P2). `face.target` is an instance path or `{x,y,z}`; also `{ dir = {0,0,1} }`, `{ awayFrom = ... }`, `{ any = true }`. `front` is Front (LookVector), Back, Left or Right. `yawGrid` 0 turns the grid off. `expectedSize` is pivot-frame extents x y z (`sizeTol` 0.2). `connect` entries make my face meet another face (`toAt = "point"` takes `{x,y,z}`). `pair` mirrors a partner across the plane `axis = at`. `group` makes siblings with the same base name match in size, part count and yaw.
 
 Project-wide defaults go in `Placement.config.core` (floatTol, buryTol, defaultYawGrid, bounds ...) or per call in `opts`. Rules by name pattern: `opts.rules = { { pattern = "^lamp", intent = { kind = "lamp" } } }`; explicit by path: `opts.intents = { ["Workspace.Map.Door1"] = {...} }`. Precedence (later wins): defaultIntent, ground name, inferred kind, rules, `opts.intents`, the stored attribute.
 

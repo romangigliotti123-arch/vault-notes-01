@@ -1,9 +1,4 @@
 --!strict
--- Cluster: find groups of static parts that are worth merging into one mesh. Pure logic, unit-tested under Lune.
--- Input is a flat list of parts (scripts/dump_parts.luau prints it from Studio). Parts are grouped by grid cell + material + colour;
--- a group of at least `minParts` anchored, non-interactive parts is a candidate: one exported mesh replaces many parts
--- (vault: "combine groups of meshes into one asset late in development, example 8 draw calls to 1"; it locks per-part editing,
--- so merge LATE and keep the source model). Cell size and minParts are the skill's defaults, not platform numbers.
 local Cluster = {}
 
 export type Part = {
@@ -12,10 +7,10 @@ export type Part = {
 	y: number,
 	z: number,
 	material: string,
-	color: string, -- hex or any stable string
+	color: string,
 	anchored: boolean,
-	interactive: boolean?, -- touched, clicked, scripted, tagged, or moved at runtime
-	meshId: string?, -- non-empty for MeshParts
+	interactive: boolean?,
+	meshId: string?,
 }
 export type Group = { key: string, count: number, saves: number, names: { string } }
 export type Result = { groups: { Group }, candidates: number, partsMerged: number, skipped: { [string]: number } }

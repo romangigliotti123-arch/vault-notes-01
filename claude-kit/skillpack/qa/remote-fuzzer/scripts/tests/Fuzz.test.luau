@@ -1,10 +1,8 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/remote-fuzzer/scripts/tests/Fuzz.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Fuzz = require("../Fuzz")
 local RemoteGuard = require("../../../../scripting/remote-guard-builder/scripts/RemoteGuard")
 
--- A shop handler with state: buy(item, qty) spends coins
 local function world(handler)
 	local s = { coins = 1000, items = {} }
 	local prices = { sword = 100 }
@@ -24,7 +22,7 @@ local function world(handler)
 end
 
 local function naive(s, prices, item, qty)
-	s.coins -= prices[item] * qty -- trusts everything
+	s.coins -= prices[item] * qty
 	s.items[item] = (s.items[item] or 0) + qty
 end
 
@@ -49,7 +47,7 @@ t.test("naive handler is accepted for negative, NaN and fractional quantities", 
 	for _, x in f do
 		seen[x.arg .. ":" .. x.label] = x.outcome
 	end
-	t.eq(seen["2:-1"], "accepted") -- negative qty pays the player
+	t.eq(seen["2:-1"], "accepted")
 	t.eq(seen["2:0.5"], "accepted")
 	t.truthy(seen["2:NaN"] ~= nil)
 	t.truthy(#f > 5)
@@ -62,7 +60,7 @@ end)
 
 t.test("errors inside the handler are reported unless skipped", function()
 	local w = world(function(s, prices, item, qty)
-		s.coins -= prices[item] * qty -- indexes nil for unknown item names
+		s.coins -= prices[item] * qty
 		s.items[item] = qty
 	end)
 	local threw = 0

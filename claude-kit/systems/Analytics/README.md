@@ -16,7 +16,7 @@ tested: unit-tested headless (Lune) + analyzed + linted; NOT tested in live Stud
 ## Setup
 ```lua
 local Analytics = require(script.Parent.Systems.Analytics.AnalyticsGlue).Create()
-Analytics:Onboarding(player, 1, "Spawned")               -- first-session funnel: steps 1-100, sent once per player
+Analytics:Onboarding(player, 1, "Spawned")
 Analytics:Onboarding(player, 2, "FirstCoin")
 Analytics:Economy(player, "Source", "Coins", 50, newBalance, "Gameplay", "quest_wolves")
 Analytics:Economy(player, "Sink", "Coins", 300, newBalance, "Shop", "sword_basic")

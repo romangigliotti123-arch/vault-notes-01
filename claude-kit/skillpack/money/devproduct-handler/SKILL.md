@@ -25,7 +25,7 @@ Any repeatable purchase. Not for: one-time perks (`gamepass-maker`), subscriptio
    ```lua
    local products, notes = Catalogue.build(require(script.Parent.Products))
    for _, n in notes do warn(n) end
-   ShopService.Start({ products = products, getData = ..., saveNow = ... }) -- see systems/Shop/README.md
+   ShopService.Start({ products = products, getData = ..., saveNow = ... })
    ```
    The client sends only a NAME to the Shop prompt remote (`ShopRequest:FireServer("product", "Coins100")`); ids and prices stay on the server. Update UI from server state after the grant, not from the prompt-finished event.
 5. Verify offline (this is the new value): write `tests/Products.test.luau` that calls `Catalogue.verify(entries, PlayerDataTemplate)` and asserts `{}` (flags a grant that throws, does not return true, changes nothing, leaves unsaveable values, or changes data and then refuses), plus one end-to-end case through the real `Shop.new(...)` with a duplicate `PurchaseId`. Pattern: `scripts/tests/Catalogue.test.luau`. Run from `~/.claude/claude-kit/systems`: `lune run ../skillpack/money/devproduct-handler/scripts/tests/Catalogue.test.luau` and `lune run ../skillpack/<your test path>`; static checks with `bash ~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh <files>`.

@@ -1,11 +1,5 @@
 --!strict
--- ActorDispatcher: server-side half of an Actor job. Splits items across Actors, waits for every chunk (with a timeout) and
--- returns the merged results in order. The worker half is ParallelWorker.luau (place it as a Script/LocalScript inside each Actor).
--- Results travel through a BindableEvent, which the worker fires after task.synchronize(), because most write APIs are not allowed
--- in the parallel phase. The event factory, wait and clock are injectable (`io`), so the split, collect, order and timeout logic is
--- unit-tested under Lune with fake Actors; real Actor messaging is not.
---   local dispatcher = ActorDispatcher.new(actors, "Work", require(script.Parent.ParallelBatch))
---   local results, err = dispatcher:Run(items, 2)      -- results[i] is the worker output for items[i]
+-- The worker fires the BindableEvent after task.synchronize() because most write APIs are not allowed in the parallel phase.
 local ActorDispatcher = {}
 ActorDispatcher.__index = ActorDispatcher
 

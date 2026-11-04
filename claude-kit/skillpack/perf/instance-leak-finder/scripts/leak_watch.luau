@@ -1,8 +1,4 @@
 --!strict
--- leak_watch.luau: samples the instance count of the whole DataModel (and per ClassName) every INTERVAL seconds for SAMPLES samples, repeats the SAME scenario each time you run it,
--- then prints the total series (paste into LeakTrend.analyze, instance-leak-finder/scripts/LeakTrend.luau) and the classes that grew most between the first and last sample.
--- Run on the Server datamodel (MCP `execute_luau` Server) AND on the client (command bar in a Play session) because leaks differ. Counts include gameplay that legitimately spawns things:
--- run it in a steady state (no new players, no waves) or compare equal moments of a loop. Pair with the Developer Console / Luau heap snapshots (Creator Docs studio/optimization/memory-usage).
 local INTERVAL = 30
 local SAMPLES = 10
 local TOP = 8

@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run FocusNav.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local F = require("../FocusNav")
 
@@ -28,7 +27,6 @@ t.test("audit passes a connected grid with the back button reachable", function(
 	t.eq(p.noBack, false)
 end)
 t.test("audit reports a back button that focus cannot reach", function()
-	-- the "close" lies exactly beside the grid but is only reachable via a vertical-only chain that is broken by distance
 	local items = { it("a", 0, 0), it("b", 0, 100) }
 	local p = F.audit(items, "a", "missing")
 	t.eq(p.noBack, true)

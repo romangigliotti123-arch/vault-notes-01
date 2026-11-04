@@ -5,6 +5,8 @@ description: "Implement Roblox NPCs and enemies with PathfindingService, state m
 
 # Roblox NPC and pathfinding
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 1. Model: Humanoid-based rig (R15/R6) or a custom anchored mover. For many NPCs prefer a lightweight mover; Humanoids are costly in numbers.
 2. Server owns the NPC. Call `rootPart:SetNetworkOwner(nil)` so a nearby player's client does not drive it (and exploiters cannot).
 3. State machine: Idle -> Patrol -> Chase -> Attack -> Return (and Dead). One module per behaviour, one `Heartbeat`-free update loop per NPC using `task.wait(0.1-0.25)`; stagger NPC ticks so they do not all run on the same frame.

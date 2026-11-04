@@ -1,8 +1,4 @@
 --!strict
--- Overlap: pure layout checks over flat UI rectangles (testable with Lune). `ui_overlap.luau` collects the rectangles from Instances.
---   local findings = Overlap.analyse(items, { name = "phone", w = 844, h = 390 }, opts)
--- Item kinds: "text" (visible text), "panel" (visible background or image), "button" (interactive). `order` = draw order, higher draws on top.
--- A rule fires only for items that are NOT in an ancestor/descendant relation (a label inside its own panel is fine).
 local Overlap = {}
 
 export type Item = {
@@ -13,11 +9,11 @@ export type Item = {
 	w: number,
 	h: number,
 	order: number,
-	opaque: boolean?, -- background transparency under 0.1
-	popup: boolean?, -- item is a modal/popup/banner root (counted for the one-popup rule)
-	textPx: number?, -- rendered text height in pixels
-	fg: { number }?, -- text colour r,g,b 0-1
-	bg: { number }?, -- nearest opaque ancestor background r,g,b 0-1
+	opaque: boolean?,
+	popup: boolean?,
+	textPx: number?,
+	fg: { number }?,
+	bg: { number }?,
 }
 export type Viewport = { name: string, w: number, h: number }
 export type Finding = { rule: string, a: string, b: string?, detail: string }
@@ -53,7 +49,6 @@ local function luminance(c: { number }): number
 	return 0.2126 * channel(c[1]) + 0.7152 * channel(c[2]) + 0.0722 * channel(c[3])
 end
 
--- WCAG contrast ratio, 1 to 21.
 function Overlap.contrast(a: { number }, b: { number }): number
 	local la, lb = luminance(a), luminance(b)
 	return (math.max(la, lb) + 0.05) / (math.min(la, lb) + 0.05)
@@ -76,7 +71,6 @@ function Overlap.analyse(items: { Item }, vp: Viewport, opts: Options?): { Findi
 	local popups: { string } = {}
 
 	for _, it in items do
-		-- off screen (2 px slack); the top inset belongs to the Roblox top bar
 		if it.x < -2 or it.y < top - 2 or it.x + it.w > vp.w + 2 or it.y + it.h > vp.h + 2 then
 			table.insert(out, {
 				rule = "off-screen",
@@ -118,7 +112,6 @@ function Overlap.analyse(items: { Item }, vp: Viewport, opts: Options?): { Findi
 		if it.popup then
 			table.insert(popups, it.path)
 		end
-		-- thumbstick and jump zones (phone-sized viewports only): keep interactive items out of the bottom 45% of the outer 25% strips
 		if it.kind == "button" and vp.w <= 1000 then
 			local left =
 				{ path = "", kind = "zone", x = 0, y = vp.h * 0.55, w = vp.w * 0.25, h = vp.h * 0.45, order = 0 }

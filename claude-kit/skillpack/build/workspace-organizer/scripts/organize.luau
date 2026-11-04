@@ -1,9 +1,4 @@
 --!strict
--- organize.luau: sort loose top-level Workspace children into folders. Dry-run by default. Uses the rules in scripts/OrganizerPlan.luau
--- (tested under Lune; inlined here). Names are NEVER changed, only parents, so Rojo file names stay valid.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- Safety: an object whose name appears in any script source is skipped when SKIP_REFERENCED is true (scripts like workspace.Door or
--- FindFirstChild("Door") would break). If script sources cannot be read, APPLY refuses to run.
 local APPLY = false
 local SKIP_REFERENCED = true
 local MAX_LIST = 25

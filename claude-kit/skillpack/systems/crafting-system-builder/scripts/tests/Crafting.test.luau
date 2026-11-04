@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/crafting-system-builder/scripts/tests/Crafting.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Inventory = require("../../../inventory-system-builder/scripts/Inventory")
 local Crafting = require("../Crafting")

@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run SoundPlan.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local SP = require("../SoundPlan")
 

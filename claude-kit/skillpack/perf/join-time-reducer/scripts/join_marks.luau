@@ -1,8 +1,4 @@
 --!strict
--- join_marks.luau: CLIENT LocalScript (put it in StarterPlayerScripts for the test, remove after). Records when each join milestone is reached, in seconds since the script
--- started, and prints a line per mark plus a JSON-ish list you can paste into JoinTimeline.phases (join-time-reducer/scripts/JoinTimeline.luau).
--- Add your own marks with the bindable below: `script:SetAttribute` is not used; call mark("name") from a copy of this script or fire the "JoinMark" BindableEvent in ReplicatedStorage.
--- Run it on the BASELINE device from a cold join (leave the game, rejoin), not in Studio only: Studio runs client and server together and loads faster.
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ContentProvider = game:GetService("ContentProvider")
@@ -38,7 +34,6 @@ end)
 task.spawn(function()
 	local gui = player:WaitForChild("PlayerGui")
 	mark("PlayerGui ready")
-	-- the first ScreenGui of your own (not Roblox core GUIs) is a good "UI visible" milestone
 	local first: Instance? = gui:FindFirstChildWhichIsA("ScreenGui")
 	if first == nil then
 		first = gui.ChildAdded:Wait()

@@ -1,9 +1,4 @@
 --!strict
--- TickStats: summarise server Heartbeat samples (delta times in seconds) into FPS, percentile frame times, over-budget share and stall runs. Pure logic, Lune-tested.
--- Sources: Creator Docs performance-optimization/identify (official): the server heartbeat is capped at 60 FPS (16.67 ms) and anything lower suggests a performance issue;
--- production/analytics/performance: server CPU under 16 ms per frame for 60 FPS, server memory under 50 percent and under 3 GB; docs examples P90 server heartbeat 59 FPS, P10 40 FPS.
--- Optimisation KB: judge spikes and consistency, not average FPS (one 410 ms frame among 59 at 10 ms feels bad).
--- The 33 ms "stall" threshold (two missed 60 FPS frames) and the run length of 3 are this skill's heuristics.
 local TickStats = {}
 
 export type Summary = {
@@ -35,7 +30,6 @@ function TickStats.summarise(deltas: { number }): Summary
 		local m = d * 1000
 		ms[i] = m
 		sum += m
-		-- the 0.1 ms slack keeps a clean 60 Hz clock (16.67 ms) from counting as over budget
 		if m > BUDGET_MS + 0.1 then
 			over += 1
 		end

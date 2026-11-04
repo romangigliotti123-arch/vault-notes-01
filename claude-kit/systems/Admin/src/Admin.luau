@@ -1,37 +1,28 @@
 --!strict
---[[
-	Admin: permission-checked chat/console commands with typed argument parsing, rank hierarchy, rate limit and audit log.
-	Pure module (player lookup, ranks and logging injected) so it is unit-tested headless.
-	Roblox glue (remote, built-in commands) lives in AdminService.luau. See ../README.md.
-
-	Security model: the CLIENT only ever sends the raw text. Rank is decided on the server from the sender's UserId
-	(a fixed table and/or group rank). Non-admins get no reply at all, so the command list is not discoverable.
-]]
 
 export type ArgSpec = {
 	name: string,
 	kind: "player" | "number" | "string" | "rest",
-	min: number?, -- number: minimum value. string/rest: minimum length
-	max: number?, -- number: maximum value. string/rest: maximum length (default 200)
+	min: number?,
+	max: number?,
 	optional: boolean?,
-	outranks: boolean?, -- player: target must have a LOWER rank than the actor (default true)
+	outranks: boolean?,
 }
 
 export type Command = {
 	minRank: number,
 	help: string?,
 	args: { ArgSpec },
-	-- args holds parsed values by arg name (player args are userIds). Return a reply string for the actor.
 	run: (actorId: number, args: { [string]: any }) -> string?,
 }
 
 export type Config = {
 	commands: { [string]: Command },
-	getRank: (userId: number) -> number, -- 0 = not an admin
-	findPlayers: (query: string) -> { number }, -- userIds whose name matches (exact name wins over prefix)
+	getRank: (userId: number) -> number,
+	findPlayers: (query: string) -> { number },
 	now: () -> number,
-	prefix: string?, -- default "/"
-	rateLimit: { count: number, window: number }?, -- default 10 commands per 10 s per actor
+	prefix: string?,
+	rateLimit: { count: number, window: number }?,
 	audit: ((entry: AuditEntry) -> ())?,
 }
 
@@ -102,7 +93,6 @@ local function parseArg(
 	actor: number,
 	actorRank: number
 ): (any, number, string?)
-	-- returns value, next index, error
 	if spec.kind == "rest" then
 		local s = table.concat(words, " ", i)
 		if s == "" then
@@ -137,7 +127,7 @@ local function parseArg(
 			return nil, i, spec.name .. " has a bad length"
 		end
 		return w, i + 1, nil
-	else -- player
+	else
 		local found = self._c.findPlayers(w)
 		if #found == 0 then
 			return nil, i, "no player matches '" .. string.sub(w, 1, 30) .. "'"
@@ -160,7 +150,7 @@ function Admin.Execute(self: Impl, actorId: number, text: string): Result
 	end
 	local rank = self._c.getRank(actorId)
 	if rank <= 0 then
-		return { handled = false, ok = false } -- silent for non-admins
+		return { handled = false, ok = false }
 	end
 	local words = split(string.sub(text, #prefix + 1))
 	local name = string.lower(words[1] or "")

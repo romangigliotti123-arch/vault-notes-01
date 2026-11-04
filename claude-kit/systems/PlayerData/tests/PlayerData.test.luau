@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run tests/PlayerData.test.luau   (from the PlayerData folder)
 local t = require("../../_check/harness")
 local PlayerData = require("../src/PlayerData")
 
@@ -14,7 +13,6 @@ local function deepCopy(v: any): any
 	return v
 end
 
--- Fake DataStore shared by several "servers". UpdateAsync mimics Roblox: transform(old) -> new | nil (cancel).
 local function newDb()
 	return { rows = {}, fail = 0, calls = 0 }
 end
@@ -132,7 +130,7 @@ t.test("stale lock is taken over; the old server then loses its session instead 
 	local b = server(db, "B", clock, { lockTimeout = 600 })
 	local sa = a:LoadAsync("p1")
 	sa.Data.coins = 1
-	clock.t = 2000 -- A "crashed" and never refreshed
+	clock.t = 2000
 	local sb = b:LoadAsync("p1")
 	t.truthy(sb)
 	sb.Data.coins = 99
@@ -283,7 +281,7 @@ t.test("a mutation during an in-flight save does not corrupt the saved snapshot"
 	s.Data.coins = 1
 	local realUpdate = pd._c.store.UpdateAsync
 	pd._c.store.UpdateAsync = function(self, key, fn)
-		s.Data.coins = 2 -- game code keeps running while the request is in flight
+		s.Data.coins = 2
 		return realUpdate(self, key, fn)
 	end
 	pd:SaveAsync(s)

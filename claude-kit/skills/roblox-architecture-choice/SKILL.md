@@ -5,6 +5,8 @@ description: "Chooses how to structure a Roblox system: plain module, OOP class,
 
 # Roblox architecture choice
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Pick the smallest structure that fits the evidence. Output: a decision record (see end), then code in the chosen pattern.
 
 ## Rules

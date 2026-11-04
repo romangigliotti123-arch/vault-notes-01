@@ -1,19 +1,15 @@
 --!strict
--- LimitedWindow: a limited-TIME offer with one shared, honest window (same start and end for everyone, server clock), plus a lint for dark patterns.
--- Vault rules encoded: limited time over limited stock, keep non-consumable limited items owned afterwards, a stated end date, no fake urgency.
---   local issues = LimitedWindow.lint(offer)            -- design-time check, list of strings
---   local ok, why = LimitedWindow.canBuy(offer, os.time(), alreadyOwned)   -- run on the server at purchase time
 local LimitedWindow = {}
 
 export type Offer = {
 	id: string,
 	startsAt: number,
 	endsAt: number,
-	consumable: boolean, -- true = used up (boost); false = a permanent item (skin, pet)
-	keepOwned: boolean?, -- non-consumables must stay owned after the window closes
-	perPlayerReset: boolean?, -- the countdown restarts for each player or on every join (fake urgency)
-	stockCap: number?, -- hard quantity limit (players race each other)
-	oneAtATime: boolean?, -- true if buying twice is meaningless (non-consumable)
+	consumable: boolean,
+	keepOwned: boolean?,
+	perPlayerReset: boolean?,
+	stockCap: number?,
+	oneAtATime: boolean?,
 }
 
 function LimitedWindow.status(o: Offer, now: number): "upcoming" | "live" | "ended"

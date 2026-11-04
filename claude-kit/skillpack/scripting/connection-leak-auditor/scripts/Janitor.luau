@@ -1,12 +1,4 @@
 --!strict
--- Janitor: one object that owns everything a system creates and releases it in reverse order. The fix for most leak findings.
---   local jan = Janitor.new()
---   jan:Add(part)                       -- Instance: Destroy
---   jan:Connect(signal, handler)        -- RBXScriptSignal: stores the connection
---   jan:Add(function() ... end)         -- function: called
---   jan:Add(task.spawn(loop))           -- thread: cancelled
---   jan:Cleanup()                       -- run once when the player leaves / the round ends / the model is removed
--- Cleanup is idempotent and keeps going if one item throws (the first error is returned, not raised).
 local Janitor = {}
 Janitor.__index = Janitor
 
@@ -56,7 +48,6 @@ function Janitor.Count(self: Janitor): number
 	return #self._items
 end
 
--- release everything, newest first; returns the first error message, if any
 function Janitor.Cleanup(self: Janitor): string?
 	if self._cleaning then
 		return nil

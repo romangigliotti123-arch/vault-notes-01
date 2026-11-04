@@ -1,8 +1,4 @@
 --!nocheck
--- Run (from the kit's systems folder): lune run ../skills/game-dev-lighting-qa/scripts/tests/Adapter.test.luau
--- Exercises the Instance side of LightingKit (snapshot, apply, scan, applyFixes, fix, chunked output) on real Lune Instances with a MOCK world: ray casts are
--- simulated over axis-aligned boxes and Lighting.Technology is a plain field. It proves the glue logic and the fix loop, NOT the engine calls (Workspace:Raycast,
--- GetDescendants over a real map, Lighting:GetSunDirection, Lighting.Technology writes, require of the StyleKit Theme): those only run in live Roblox Studio.
 local roblox = require("@lune/roblox")
 local serde = require("@lune/serde")
 local t = require("../../../../systems/_check/harness")
@@ -10,7 +6,6 @@ local LightingKit = require("../LightingKit")
 
 local Instance, Color3, Vector3 = roblox.Instance, roblox.Color3, roblox.Vector3
 
--- ---- mock map: ground, a house (walls + roof) with a lamp inside, a pillar
 local boxes = {
 	{ min = { -100, -1, -100 }, max = { 100, 0, 100 }, color = { 0.36, 0.58, 0.27 } },
 	{ min = { 20, 0, 20 }, max = { 40, 12, 22 }, color = { 0.7, 0.55, 0.4 } },
@@ -20,7 +15,6 @@ local boxes = {
 	{ min = { 20, 12, 20 }, max = { 40, 14, 40 }, color = { 0.45, 0.3, 0.2 } },
 	{ min = { -30, 0, -30 }, max = { -26, 20, -26 }, color = { 0.5, 0.5, 0.55 } },
 }
--- scattered props of different colours and heights so the scene has real light and shadow variation
 local propColors = {
 	{ 0.8, 0.2, 0.2 },
 	{ 0.2, 0.4, 0.85 },

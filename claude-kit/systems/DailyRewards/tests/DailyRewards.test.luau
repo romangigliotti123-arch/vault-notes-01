@@ -1,10 +1,9 @@
 --!nocheck
--- Run: lune run tests/DailyRewards.test.luau   (from the DailyRewards folder)
 local t = require("../../_check/harness")
 local D = require("../src/DailyRewards")
 
 local DAY = 86400
-local T0 = 20000 * DAY -- a UTC midnight
+local T0 = 20000 * DAY
 local cfg = { rewardCount = 7 }
 
 print("DailyRewards")
@@ -37,7 +36,7 @@ t.test("claiming on consecutive days grows the streak and walks the cycle", func
 		t.eq(r.streak, i + 1)
 		t.eq(r.cycleDay, i + 1)
 	end
-	local r = D.Claim(s, T0 + 7 * DAY, cfg) -- day 8 wraps to cycle day 1
+	local r = D.Claim(s, T0 + 7 * DAY, cfg)
 	t.eq(r.streak, 8)
 	t.eq(r.cycleDay, 1)
 end)
@@ -56,9 +55,9 @@ t.test("grace days keep the streak through a short gap", function()
 	local s = D.newState()
 	local g = { rewardCount = 7, graceDays = 1 }
 	D.Claim(s, T0, g)
-	local r = D.Claim(s, T0 + 2 * DAY, g) -- missed exactly one day
+	local r = D.Claim(s, T0 + 2 * DAY, g)
 	t.eq(r.streak, 2)
-	r = D.Claim(s, T0 + 5 * DAY, g) -- missed two days
+	r = D.Claim(s, T0 + 5 * DAY, g)
 	t.eq(r.streak, 1)
 end)
 
@@ -90,7 +89,7 @@ end)
 t.test("day offset moves the reset boundary (midnight UTC-5)", function()
 	local c = { rewardCount = 7, dayOffset = -5 * 3600 }
 	local s = D.newState()
-	local r = D.Claim(s, T0 + 4 * 3600, c) -- 04:00 UTC = 23:00 local previous day
+	local r = D.Claim(s, T0 + 4 * 3600, c)
 	t.truthy(r.ok)
 	t.eq(r.nextClaimAt, T0 + 5 * 3600)
 	t.falsy(D.Claim(s, T0 + 5 * 3600 - 1, c).ok)

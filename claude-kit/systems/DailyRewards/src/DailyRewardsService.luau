@@ -1,16 +1,4 @@
 --!strict
---[[
-	Roblox glue for DailyRewards. Server only.
-
-	local DailyRewardsService = require(script.Parent.DailyRewardsService)
-	DailyRewardsService.Start({
-		config = { rewardCount = 7, graceDays = 0 },
-		getData = PlayerDataService.Get,           -- (Player) -> data table or nil; data.Daily is the state table
-		apply = function(player, data, cycleDay, streak) data.coins += 100 * cycleDay end,
-		saveNow = PlayerDataService.SaveNow,
-	})
-	Client: local r = ReplicatedStorage.DailyReward:InvokeServer("claim")   -- or "status"
-]]
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local DailyRewards = require(script.Parent.DailyRewards)
@@ -46,7 +34,6 @@ function Service.Start(opts: StartOptions)
 			busy[player] = true
 			local result = DailyRewards.Claim(state, os.time(), opts.config)
 			if result.ok then
-				-- same synchronous step as Claim: no yield between marking the day claimed and paying out
 				opts.apply(player, data, result.cycleDay, result.streak)
 			end
 			busy[player] = nil

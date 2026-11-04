@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/liveops/live-balance-tuner/scripts/tests/TuneGuard.test.luau
 local t = require("../../../../../systems/_check/harness")
 local TuneGuard = require("../TuneGuard")
 

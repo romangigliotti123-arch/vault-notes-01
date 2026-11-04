@@ -1,7 +1,4 @@
 --!strict
--- scan_place.luau: read-only census of a place for performance triage. Counts what usually costs memory, CPU or bandwidth and
--- prints a ranked hot list. Studio command bar or MCP `execute_luau` (Edit). Numbers are counts, not frame times: always confirm
--- with the profiler (MicroProfiler / Performance Summary) before and after a fix.
 local TOP_MODELS = 8
 
 local Workspace = game:GetService("Workspace")

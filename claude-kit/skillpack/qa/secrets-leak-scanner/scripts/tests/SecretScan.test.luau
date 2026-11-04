@@ -1,6 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/secrets-leak-scanner/scripts/tests/SecretScan.test.luau
--- The "secrets" below are made-up strings built at runtime so this file itself does not contain a real-looking key.
 local t = require("../../../../../systems/_check/harness")
 local SecretScan = require("../SecretScan")
 

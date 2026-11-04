@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/chat-filter-tester/scripts/tests/FilterScan.test.luau
 local t = require("../../../../../systems/_check/harness")
 local ArgScan = require("../../../input-validation-auditor/scripts/ArgScan")
 local FilterScan = require("../FilterScan")

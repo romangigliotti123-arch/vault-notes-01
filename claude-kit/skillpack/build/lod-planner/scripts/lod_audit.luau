@@ -1,14 +1,7 @@
 --!strict
--- lod_audit.luau: report streaming settings and each top-level model's streaming mode, size and level of detail, with the
--- recommendation from scripts/LodPlan.luau (tested under Lune; inlined here). Audit-only by default.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- Classification: essential (tag or attribute Essential=true) -> Persistent; contains scripts -> Atomic; otherwise default.
--- Static models (no scripts, not tagged Dynamic) are SLIM candidates. Opt-in APPLY_MODES sets ONLY ModelStreamingMode on models
--- still at Default; level of detail is reported, never written here (the property's enum name varies: live-check, then set it in the
--- Properties panel on the models the report lists). One undo step.
-local ROOT: Instance? = nil -- nil = Workspace
+local ROOT: Instance? = nil
 local APPLY_MODES = false
-local MAX_EXTENT = 64 -- docs wording: keep a model's extent small (live-check the figure)
+local MAX_EXTENT = 64
 local MAX_PARTS = 2000
 local MAX_LIST = 25
 

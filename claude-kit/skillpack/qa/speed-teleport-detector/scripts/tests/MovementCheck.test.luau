@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/speed-teleport-detector/scripts/tests/MovementCheck.test.luau
 local t = require("../../../../../systems/_check/harness")
 local MovementCheck = require("../MovementCheck")
 
@@ -13,7 +12,7 @@ t.test("walking at normal speed stays ok", function()
 	local m = MovementCheck.new()
 	m:Sample("a", p(0), 0)
 	for i = 1, 10 do
-		t.eq(m:Sample("a", p(i * 4), i * 0.5).kind, "ok") -- 8 studs/s
+		t.eq(m:Sample("a", p(i * 4), i * 0.5).kind, "ok")
 	end
 end)
 
@@ -21,7 +20,7 @@ t.test("double speed is flagged and the reset point is the last valid position",
 	local m = MovementCheck.new()
 	m:Sample("a", p(0), 0)
 	m:Sample("a", p(8), 0.5)
-	local v = m:Sample("a", p(8 + 40), 1.5) -- 40 studs in 1 s, allowed 16*1+2
+	local v = m:Sample("a", p(8 + 40), 1.5)
 	t.eq(v.kind, "speed")
 	t.eq(v.resetTo.x, 8)
 	t.truthy(v.excess > 20)
@@ -44,7 +43,7 @@ t.test("exempt window allows a legit teleport and moves the baseline", function(
 	m:Sample("a", p(0), 0)
 	m:Exempt("a", 2, 0.5)
 	t.eq(m:Sample("a", p(900), 1).kind, "exempt")
-	t.eq(m:Sample("a", p(904), 3).kind, "ok") -- exemption over, baseline is the new place
+	t.eq(m:Sample("a", p(904), 3).kind, "ok")
 end)
 
 t.test("a speed boost raises the allowance for that player only", function()

@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/npc-spawner-builder/scripts/tests/NpcBudget.test.luau
 local t = require("../../../../../systems/_check/harness")
 local NpcBudget = require("../NpcBudget")
 

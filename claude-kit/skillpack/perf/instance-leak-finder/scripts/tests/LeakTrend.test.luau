@@ -1,12 +1,11 @@
 --!nocheck
--- Run: lune run LeakTrend.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local LeakTrend = require("../LeakTrend")
 
 t.test("a steady climb is growing with the right slope", function()
 	local s = {}
 	for i = 1, 11 do
-		s[i] = 1000 + (i - 1) * 30 -- 30 per 30 s = 60 per minute
+		s[i] = 1000 + (i - 1) * 30
 	end
 	local r = LeakTrend.analyze(s, 30)
 	t.eq(r.verdict, "growing")

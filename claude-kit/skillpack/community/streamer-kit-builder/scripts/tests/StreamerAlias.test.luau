@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/community/streamer-kit-builder/scripts/tests/StreamerAlias.test.luau
 local t = require("../../../../../systems/_check/harness")
 local StreamerAlias = require("../StreamerAlias")
 

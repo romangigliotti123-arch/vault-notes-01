@@ -1,9 +1,7 @@
 --!nocheck
--- Run: lune run AttributeConfig.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local AttributeConfig = require("../AttributeConfig")
 
--- fake instance: SetAttribute fires the changed handlers, like the engine does
 local function fakeInstance(initial)
 	local attrs = initial or {}
 	local handlers = {}

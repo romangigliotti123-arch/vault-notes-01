@@ -1,9 +1,4 @@
 --!strict
--- CurrencyCounter: the number logic behind a currency label: abbreviation that never rounds up into the next unit, and a count-up
--- that reaches the target in a bounded time. Pure; the TextLabel update and the tween/Heartbeat hookup are the caller's.
---   CurrencyCounter.format(1234567) -> "1.23M"      CurrencyCounter.format(999999) -> "999.99K"
---   local c = CurrencyCounter.new(100); c:set(5000); c:update(dt) -> integer to display
--- The balance shown is cosmetic: the server's value is the truth (kit PlayerData). On a mismatch call `snap`.
 local CurrencyCounter = {}
 CurrencyCounter.__index = CurrencyCounter
 
@@ -22,7 +17,7 @@ local UNITS: { { size: number, suffix: string } } = {
 
 local function trim(x: number, decimals: number): string
 	local f = 10 ^ decimals
-	local s = string.format(`%.{decimals}f`, math.floor(x * f) / f) -- floor, never round up
+	local s = string.format(`%.{decimals}f`, math.floor(x * f) / f)
 	s = string.gsub(s, "%.?0+$", "")
 	return s
 end
@@ -65,7 +60,6 @@ function CurrencyCounter.snap(self: Counter, value: number)
 	self._shown, self._target, self._speed = value, value, 0
 end
 
--- Advance by dt seconds; returns the integer to display. Never overshoots the target.
 function CurrencyCounter.update(self: Counter, dt: number): number
 	if self._shown ~= self._target then
 		local step = self._speed * dt

@@ -1,9 +1,4 @@
 --!strict
--- SeasonTrack: server-side logic for a season pass with a free and a paid track.
--- Rules it enforces: a stated end date, claims only for tiers reached, the paid track only when the player owns the pass (verified by Shop, never by the client),
--- every claim is idempotent, and buying mid-season unlocks premium rewards for tiers already earned.
--- Save `state` in the player's data; the grant callback in your Shop/PlayerData code does the actual item/currency grant after claim() returns ok.
---   local ok, reward = SeasonTrack.claim(cfg, state, "premium", 3, os.time())
 local SeasonTrack = {}
 
 export type Track = "free" | "premium"
@@ -11,8 +6,8 @@ export type Config = {
 	tiers: number,
 	xpPerTier: number,
 	startsAt: number,
-	endsAt: number, -- required: a season without a stated end is rejected
-	free: { [number]: string }, -- tier -> reward id
+	endsAt: number,
+	free: { [number]: string },
 	premium: { [number]: string },
 }
 export type State = { xp: number, premium: boolean, claimed: { [string]: boolean } }
@@ -60,7 +55,6 @@ function SeasonTrack.tierFor(cfg: Config, xp: number): number
 	return math.min(cfg.tiers, math.floor(math.max(0, xp) / cfg.xpPerTier))
 end
 
--- xp comes from the server only (quests, matches). Ignored outside the season; capped at the last tier.
 function SeasonTrack.addXp(cfg: Config, state: State, amount: number, now: number): number
 	if amount <= 0 or amount ~= amount or not SeasonTrack.active(cfg, now) then
 		return state.xp
@@ -97,7 +91,6 @@ function SeasonTrack.claim(cfg: Config, state: State, track: Track, tier: number
 	return true, reward
 end
 
--- Everything the player could claim right now, lowest tier first (use it to draw the UI and to auto-grant after a mid-season purchase).
 function SeasonTrack.claimable(cfg: Config, state: State): { { track: Track, tier: number, reward: string } }
 	local out: { { track: Track, tier: number, reward: string } } = {}
 	local reached = SeasonTrack.tierFor(cfg, state.xp)
@@ -114,7 +107,6 @@ function SeasonTrack.claimable(cfg: Config, state: State): { { track: Track, tie
 	return out
 end
 
--- Pacing: days of play needed to finish at `xpPerDay`, and whether that fits the season. Warns when it does not.
 function SeasonTrack.pacing(cfg: Config, xpPerDay: number): (number, string?)
 	assert(xpPerDay > 0, "xpPerDay must be > 0")
 	local days = math.ceil(cfg.tiers * cfg.xpPerTier / xpPerDay)

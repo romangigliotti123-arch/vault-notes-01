@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/offer-timing-planner/scripts/tests/OfferGate.test.luau
 local t = require("../../../../../systems/_check/harness")
 local G = require("../OfferGate")
 
@@ -32,7 +31,7 @@ t.test("no stacking and no interrupting play", function()
 	s.modalOpen = false
 	s.canPause = false
 	t.eq(select(2, G.canShow(cfg, s, "A", "need", 100)), "gameplay cannot pause here")
-	t.truthy(G.canShow(cfg, s, "A", "shopOpen", 100)) -- the player chose to look
+	t.truthy(G.canShow(cfg, s, "A", "shopOpen", 100))
 end)
 
 t.test("global and per-offer cooldowns", function()

@@ -1,9 +1,4 @@
 --!strict
--- LoopScan: static scan of Luau source text for per-frame work: callbacks on Heartbeat/RenderStepped/Stepped/PreSimulation..., tight wait loops,
--- and expensive calls INSIDE those callbacks. Pure logic, Lune-tested. Feed it sources from loop_sources.luau (Studio) or from Rojo files.
--- Vault (optimization KB + Creator Docs performance-optimization/design): prefer events over per-frame calculation; at 60 FPS a frame is 16.67 ms;
--- split long work across frames; replace wait() with task.wait; bind RenderStepped only for work that must run after input and before rendering.
--- The scan is a textual heuristic (indentation decides where a callback ends): it finds candidates for review, it does not prove cost. Confirm with the Script Profiler.
 local LoopScan = {}
 
 export type Finding = { line: number, kind: string, text: string }
@@ -42,7 +37,6 @@ local function frameEventOn(line: string): string?
 	return nil
 end
 
--- waitSeconds: the numeric argument of the first task.wait( / wait( on the line; 0 when no argument (a one-frame wait); nil when none.
 local function waitSeconds(line: string): number?
 	local arg = string.match(line, "task%.wait%(([^)]*)%)") or string.match(line, "[^%w_%.]wait%(([^)]*)%)")
 	if arg == nil then
@@ -67,7 +61,7 @@ function LoopScan.scan(source: string): { Finding }
 		if not skip then
 			local ind = indentOf(line)
 			if callbackIndent and ind <= callbackIndent then
-				callbackIndent = nil -- a line at or left of the connect line (including its closing end) ends the callback
+				callbackIndent = nil
 			end
 			if loopIndent and ind <= loopIndent then
 				loopIndent = nil

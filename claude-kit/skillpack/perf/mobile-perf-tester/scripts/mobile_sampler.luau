@@ -1,8 +1,4 @@
 --!strict
--- mobile_sampler.luau: CLIENT LocalScript for an on-device session (StarterPlayerScripts; remove before publishing). Once per second it records the average frame time
--- of the last second and total client memory, then prints one CSV line per sample ("t,frameMs,memMB") so the log can be copied from the device console / Developer Console (F9)
--- and fed to MobileSession.analyze (mobile-perf-tester/scripts/MobileSession.luau). Default length is 12 minutes, inside the docs' 10-15 minute thermal-test window.
--- Memory here is Stats:GetTotalMemoryUsageMb(): compare it with the Developer Console Memory tab (PlaceMemory) on the same device.
 local DURATION_SECONDS = 12 * 60
 
 local RunService = game:GetService("RunService")

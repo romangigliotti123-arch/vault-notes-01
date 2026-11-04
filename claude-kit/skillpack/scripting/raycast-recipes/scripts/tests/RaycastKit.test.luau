@@ -1,6 +1,4 @@
 --!nocheck
--- Run: lune run RaycastKit.test.luau   (from the kit's systems folder, see check-scripts.sh)
--- Uses Lune's roblox library for Vector3 and a fake world; the real engine casts are not exercised.
 local roblox = require("@lune/roblox")
 local t = require("../../../../../systems/_check/harness")
 local RaycastKit = require("../RaycastKit")

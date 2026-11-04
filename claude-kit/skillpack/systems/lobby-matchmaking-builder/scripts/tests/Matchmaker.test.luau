@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/lobby-matchmaking-builder/scripts/tests/Matchmaker.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Matchmaker = require("../Matchmaker")
 

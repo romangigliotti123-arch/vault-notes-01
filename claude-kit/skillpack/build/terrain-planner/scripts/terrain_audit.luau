@@ -1,10 +1,6 @@
 --!strict
--- terrain_audit.luau: read-only snapshot of the place's terrain and streaming settings, to compare against the plan from
--- scripts/TerrainPlan.luau. Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (Edit).
--- Reports: used extent in studs (voxels are 4 studs), water settings, decoration, whether instance streaming is on, and big
--- non-terrain parts that look like ground (a terrain-by-parts smell). Changes nothing.
 local VOXEL = 4
-local GROUND_PART_AREA = 4000 -- studs^2 for a flat part to count as "ground-sized"
+local GROUND_PART_AREA = 4000
 
 local function read(inst: Instance, prop: string): string
 	local ok, value = pcall(function()

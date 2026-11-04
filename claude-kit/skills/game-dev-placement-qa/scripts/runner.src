@@ -1,25 +1,13 @@
--- run: edit CONFIG, then paste the whole file into execute_luau (datamodel Edit for the built map; Server during a playtest for models spawned at runtime).
---   mode "scan"   every placed object under CONFIG.root (default Workspace): the full-map placement scan the gate needs.
---   mode "verify" only the models at CONFIG.paths (read-only, intents from their stored attribute / the name).
---   mode "place"  CONFIG.build() returns { { model = <Instance>, intent = { ... } }, ... }; each is parented, auto-fixed and re-verified.
--- Output lines: PLACEMENT_MODEL <json> per model, PLACEMENT_SCAN <json> (scan mode), PLACEMENT: PASS|FAIL ... Save the console output to a file and run
--- `python placement_gate.py ingest <file> --game <slug> --write Games/<slug>` to turn it into the stored scan.
 local CONFIG = {
 	mode = "scan",
 	game = nil :: string?,
-	scorer = "builder", -- the critic runs its own scan with "critic"
+	scorer = "builder",
 	root = "Workspace",
 	paths = {} :: { string },
 	build = nil :: (() -> { { model: Instance, intent: { [string]: any }? } })?,
 	opts = {
-		includeInputs = false, -- true: each report carries its snapshot + environment so placement_gate.py can re-check it offline
-		core = {
-			-- defaultYawGrid = 15, floatTol = 0.1, buryTol = 0.25,
-			-- bounds = { min = { -512, -50, -512 }, max = { 512, 400, 512 } },
-		},
-		-- intents = { ["Workspace.Map.Door1"] = { kind = "door", face = { target = "Workspace.Map.Hall" } } },
-		-- rules = { { pattern = "^lamp", intent = { kind = "lamp" } } },
-		-- defaultIntent = {},
+		includeInputs = false,
+		core = {},
 	} :: { [string]: any },
 }
 

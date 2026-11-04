@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/balance-sim-runner/scripts/tests/Sim.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Sim = require("../Sim")
 
@@ -57,7 +56,7 @@ end)
 
 t.test("time to kill without crits is exact", function()
 	local r = Sim.rng(1)
-	t.eq(Sim.timeToKill(r, 100, 10, 2), 5) -- 10 hits at 2 hits/s
+	t.eq(Sim.timeToKill(r, 100, 10, 2), 5)
 end)
 
 t.test("crits shorten the kill on average", function()

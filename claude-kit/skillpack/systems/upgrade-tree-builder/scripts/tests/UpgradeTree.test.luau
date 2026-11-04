@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/upgrade-tree-builder/scripts/tests/UpgradeTree.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Wallet = require("../../../currency-system-builder/scripts/Wallet")
 local UpgradeTree = require("../UpgradeTree")

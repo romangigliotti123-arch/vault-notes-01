@@ -1,10 +1,4 @@
 --!strict
--- UpgradeTree: data-driven upgrades with prerequisites, per-level cost growth and a respec with a refund rate below 100%.
--- State: data.Upgrades = { levels = { [id] = n } }. Purchases go through the Wallet module (server-side spend).
---   local tree = UpgradeTree.new({ wallet = wallet, currency = "Coins", refund = 0.8, nodes = {
---       speed = { cost = 100, growth = 1.5, maxLevel = 5 },
---       dash = { cost = 500, requires = { speed = 2 }, maxLevel = 1 } } })
---   tree:buy(data, "speed") ; tree:effect(data, "speed")  -- level, used by the game to compute the stat on the server
 local UpgradeTree = {}
 UpgradeTree.__index = UpgradeTree
 
@@ -28,7 +22,6 @@ function UpgradeTree.new(config: Config): UpgradeTree
 			)
 		end
 	end
-	-- cycle check: depth-first over requires
 	local state: { [string]: number } = {}
 	local function visit(id: string)
 		assert(state[id] ~= 1, `upgrade tree has a cycle through {id}`)
@@ -103,7 +96,6 @@ function UpgradeTree.buy(self: UpgradeTree, data: Data, id: string): (boolean, s
 	return true, "ok"
 end
 
--- total paid for everything currently owned
 function UpgradeTree.spentTotal(self: UpgradeTree, data: Data): number
 	local total = 0
 	for id, lvl in self:init(data).levels do
@@ -114,7 +106,6 @@ function UpgradeTree.spentTotal(self: UpgradeTree, data: Data): number
 	return total
 end
 
--- reset all levels and refund `refund` (default 80%) of what was paid; the refund is floored, so a respec never creates currency
 function UpgradeTree.respec(self: UpgradeTree, data: Data): number
 	local refund = math.floor(self:spentTotal(data) * (self._c.refund or 0.8))
 	local u = self:init(data)

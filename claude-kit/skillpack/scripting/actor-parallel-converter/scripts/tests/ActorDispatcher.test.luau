@@ -1,10 +1,8 @@
 --!nocheck
--- Run: lune run ActorDispatcher.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local ActorDispatcher = require("../ActorDispatcher")
 local ParallelBatch = require("../ParallelBatch")
 
--- fake event: Fire runs handlers; fake actors double each item and reply after `delay` wait ticks (nil = never reply)
 local function rig(delays)
 	local now = 0
 	local queue = {}

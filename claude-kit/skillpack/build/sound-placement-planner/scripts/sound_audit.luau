@@ -1,10 +1,5 @@
 --!strict
--- sound_audit.luau: read-only inventory of Sounds and Audio objects, flagged against the vault's rules. Paste into the Studio command
--- bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit). Changes nothing.
--- Flags: legacy Sound vs newer Audio objects; empty SoundId; Sounds parked in SoundService (vault: store ids in scripts and
--- create/play/destroy at runtime, one game cut 500 MB to 58 MB); looped 3D sounds with the default 10000-stud RollOffMaxDistance
--- (heard across the whole map); music louder than about 0.2-0.25 (official example 0.2); sounds with no SoundGroup (no mix control).
-local ROOT: Instance? = nil -- nil = whole game
+local ROOT: Instance? = nil
 local MUSIC_MAX_VOLUME = 0.3
 local MAX_LIST = 8
 

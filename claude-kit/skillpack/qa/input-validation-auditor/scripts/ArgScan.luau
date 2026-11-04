@@ -1,15 +1,11 @@
 --!strict
--- ArgScan: source-text scan for server remote handlers and the client arguments they never check. Pure string logic, unit-tested in Lune.
--- HEURISTIC: it reads formatted code (the handler ends at the first line that closes at the same indentation). Dynamic remotes,
--- handlers passed by name and validation inside helper functions are not seen: every finding is a LEAD to read, not a verdict.
--- The same `extract` result feeds server-authority-checker (AuthorityScan.luau) and chat-filter-tester (FilterScan.luau).
 local ArgScan = {}
 
 export type Handler = {
 	remote: string,
 	kind: "event" | "function",
-	line: number, -- 1-based line of the connection
-	params: { string }, -- client arguments only (the leading player parameter is dropped)
+	line: number,
+	params: { string },
 	body: string,
 }
 export type Finding = { line: number, remote: string, param: string, kind: string, detail: string }
@@ -20,7 +16,7 @@ local function splitParams(list: string): { string }
 		table.insert(out, name)
 	end
 	if #out > 0 then
-		table.remove(out, 1) -- player
+		table.remove(out, 1)
 	end
 	return out
 end
@@ -83,7 +79,6 @@ function ArgScan.extract(src: string): { Handler }
 	return out
 end
 
--- does the body validate this parameter? (type/typeof test, isfinite, NaN self-compare, tonumber/tostring coercion, clamp, or a guard call)
 local function validated(body: string, p: string): boolean
 	local patterns = {
 		"typeof%(" .. p .. "%)",

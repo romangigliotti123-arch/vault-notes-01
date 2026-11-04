@@ -1,10 +1,7 @@
 --!strict
--- ui_audit.luau: read-only static scan of every ScreenGui under StarterGui (or the local PlayerGui when run in a client playtest).
--- Flags layout choices that usually break on phones. Static: it cannot see runtime-created UI or real device aspect ratios, so it
--- supplements, never replaces, a screenshot pass at several resolutions. Studio command bar or MCP `execute_luau` (Edit or Client).
-local MIN_TOUCH_PX = 44 -- industry touch-target heuristic (Apple HIG 44pt); Roblox publishes no single number, so treat as a guide
+local MIN_TOUCH_PX = 44
 local MIN_TEXT_PX = 14
-local MAX_FIXED_WIDTH = 300 -- an Offset-only width above this is wider than many phones leave free
+local MAX_FIXED_WIDTH = 300
 local MAX_LIST = 6
 
 local Players = game:GetService("Players")
@@ -36,7 +33,6 @@ for _, gui in root:GetDescendants() do
 		guis += 1
 		local sg = gui :: ScreenGui
 		if sg.ScreenInsets == Enum.ScreenInsets.None and sg.IgnoreGuiInset then
-			-- fine for full-bleed art, risky for buttons near the notch: reported once per gui so the human can look
 			flag("ScreenInsets=None (content can sit under notch/home bar)", sg)
 		end
 	elseif gui:IsA("GuiObject") then

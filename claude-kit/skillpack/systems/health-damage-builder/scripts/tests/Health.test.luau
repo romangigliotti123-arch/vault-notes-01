@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/health-damage-builder/scripts/tests/Health.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Health = require("../Health")
 

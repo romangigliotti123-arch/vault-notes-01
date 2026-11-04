@@ -1,8 +1,4 @@
 --!strict
--- tick_sampler.luau: SERVER Script (or MCP `execute_luau` on the Server datamodel during a playtest). Samples Heartbeat delta time for DURATION seconds and prints a summary
--- (average FPS, p95/p99/worst frame ms, share over the 16.67 ms budget, longest run of frames over 33 ms) and the raw delta list for TickStats.summarise
--- (server-tick-analyzer/scripts/TickStats.luau). It also prints Stats heartbeat if available. Compare against the Performance dashboard's server heartbeat (60 FPS is the cap).
--- Run it twice: idle server and the busy scenario (many players/NPCs/effects) so the difference points at load, not at the sampler.
 local DURATION = 30
 
 local RunService = game:GetService("RunService")

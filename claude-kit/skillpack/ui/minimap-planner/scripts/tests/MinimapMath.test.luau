@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run MinimapMath.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local M = require("../MinimapMath")
 
@@ -24,9 +23,8 @@ t.test("radar without rotation: east is right, north (-Z) is up", function()
 	near(north.y, 50)
 end)
 t.test("rotating radar puts the thing in front of the player at the top", function()
-	-- player yawed 90 degrees; what is directly ahead must still draw at the top of the map
 	local yaw = math.pi / 2
-	local ahead = { x = -math.sin(yaw) * 50, z = -math.cos(yaw) * 50 } -- forward vector for yaw, 50 studs out
+	local ahead = { x = -math.sin(yaw) * 50, z = -math.cos(yaw) * 50 }
 	local p = M.radar(ahead, { x = 0, z = 0 }, yaw, 100, 100, true)
 	near(p.x, 100)
 	near(p.y, 50)

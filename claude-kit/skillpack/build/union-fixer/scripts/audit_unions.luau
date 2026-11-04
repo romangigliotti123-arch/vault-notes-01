@@ -1,14 +1,9 @@
 --!strict
--- audit_unions.luau: inventory every UnionOperation, rank the risky ones and (opt-in) cheapen their collision. Audit-only by default.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- Unions are the part type most worth replacing: they cost memory, can be heavy to collide with, and (vault) avoid most of them.
--- This script never replaces a union (that needs a human: a box-shaped union becomes a Part, a carved shape becomes a mesh export).
--- The one opt-in fix changes only CollisionFidelity on unions that use PreciseConvexDecomposition, one undo step.
-local ROOT: Instance? = nil -- nil = Workspace
+local ROOT: Instance? = nil
 local APPLY_FIDELITY = false
 local FIDELITY_TARGET = Enum.CollisionFidelity.Hull
 local MAX_LIST = 15
-local TINY = 1 -- studs: unions with every side under this are almost always leftovers or detail that a Part can do
+local TINY = 1
 
 local ChangeHistoryService = game:GetService("ChangeHistoryService")
 

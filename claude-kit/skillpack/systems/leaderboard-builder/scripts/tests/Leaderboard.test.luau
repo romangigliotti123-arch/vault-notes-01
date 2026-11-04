@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/leaderboard-builder/scripts/tests/Leaderboard.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Leaderboard = require("../Leaderboard")
 

@@ -1,12 +1,9 @@
 --!strict
--- Sim: seeded Monte Carlo helpers for economy and combat balance, runnable under Lune (no Roblox APIs). Same seed = same numbers,
--- so a balance change can be compared like for like. All inputs are YOUR design numbers; nothing here is a Roblox statistic.
 local Sim = {}
 
-export type Rng = () -> number -- uniform in [0, 1)
+export type Rng = () -> number
 export type Stats = { n: number, mean: number, min: number, max: number, p50: number, p90: number, p99: number }
 
--- small deterministic generator (Park-Miller / Lehmer, modulus 2^31-1)
 function Sim.rng(seed: number): Rng
 	local state = (math.floor(math.abs(seed)) % 2147483646) + 1
 	return function()
@@ -15,7 +12,6 @@ function Sim.rng(seed: number): Rng
 	end
 end
 
--- index of the picked weight (weights need not sum to 1)
 function Sim.pick(rng: Rng, weights: { number }): number
 	local total = 0
 	for _, w in weights do
@@ -59,7 +55,6 @@ function Sim.stats(samples: { number }): Stats
 	}
 end
 
--- run `trial(rng)` n times with one seeded stream; returns the stats of its numeric result
 function Sim.monteCarlo(n: number, seed: number, trial: (rng: Rng) -> number): Stats
 	local rng = Sim.rng(seed)
 	local out = table.create(n)
@@ -69,8 +64,6 @@ function Sim.monteCarlo(n: number, seed: number, trial: (rng: Rng) -> number): S
 	return Sim.stats(out)
 end
 
--- Rolls until the first hit of `target` (index into weights), with optional pity: after `pity` misses the next roll is forced.
--- Returns the number of rolls. Use for "how many hatches until the rare pet".
 function Sim.rollsToTarget(rng: Rng, weights: { number }, target: number, pity: number?, cap: number?): number
 	local misses, rolls = 0, 0
 	local limit = cap or 1000000
@@ -85,7 +78,6 @@ function Sim.rollsToTarget(rng: Rng, weights: { number }, target: number, pity: 
 	return rolls
 end
 
--- Time to kill in seconds for one fighter: hp / (damage per hit * crit factor) hits, at hitsPerSecond, with random crits.
 function Sim.timeToKill(
 	rng: Rng,
 	hp: number,
@@ -103,8 +95,6 @@ function Sim.timeToKill(
 	return hits / hitsPerSecond
 end
 
--- Seconds to afford a goal when income per second grows by `growth` per purchase of an upgrade costing `upgradeCost` (0 = no upgrades).
--- Deterministic; income = base + upgrades * perUpgrade. Returns seconds, and gives up (returns math.huge) after capSeconds.
 function Sim.secondsToGoal(
 	goal: number,
 	baseIncome: number,
@@ -121,7 +111,6 @@ function Sim.secondsToGoal(
 	while coins < goal do
 		t += 1
 		coins += income
-		-- buy an upgrade only when it pays for itself before the goal is reached at the current income
 		if upgradeCost > 0 and perUpgrade > 0 and coins >= cost and cost / perUpgrade < (goal - coins) / income then
 			coins -= cost
 			income += perUpgrade

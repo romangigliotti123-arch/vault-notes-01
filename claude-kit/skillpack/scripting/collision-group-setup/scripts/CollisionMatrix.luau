@@ -1,21 +1,11 @@
 --!strict
--- CollisionMatrix: describe collision groups as data, validate them, and turn them into a short list of operations.
--- Pure logic here; the engine calls go through a small adapter so the same plan works when the API moves.
--- NOTE (vault, official 2026-09-03): collision group management moved from PhysicsService to WorldRoot and the PhysicsService
--- methods are deprecated. The WorldRoot method names are not in the vault: read the current docs and write the adapter from them.
---   local plan = CollisionMatrix.plan({
---       groups = { "Players", "Enemies", "Pickups" },
---       collide = { { "Players", "Enemies" } },          -- pairs that DO collide
---       noCollide = { { "Players", "Players" }, { "Enemies", "Enemies" }, { "Players", "Pickups" } },
---   })
---   CollisionMatrix.apply(plan, adapter)         adapter = { register = function(name) end, setCollidable = function(a, b, on) end }
 local CollisionMatrix = {}
 
 export type Spec = {
 	groups: { string },
 	collide: { { string } }?,
 	noCollide: { { string } }?,
-	limit: number?, -- group budget; the vault gives 32 per world (the built-in Default group included)
+	limit: number?,
 }
 export type Plan = {
 	register: { string },
@@ -34,8 +24,6 @@ local function key(a: string, b: string): string
 	return a .. "|" .. b
 end
 
--- Roblox collides every pair by default, so the plan lists only pairs that must change (noCollide), plus any explicit collide
--- entries that conflict with them. A pair named in both lists is a problem, not a coin flip.
 function CollisionMatrix.plan(spec: Spec): Plan
 	local problems: { string } = {}
 	local known: { [string]: boolean } = { Default = true }
@@ -96,7 +84,6 @@ function CollisionMatrix.plan(spec: Spec): Plan
 	return { register = register, pairs = pairs, problems = problems }
 end
 
--- text matrix for review: X = collides, . = ignores
 function CollisionMatrix.matrix(spec: Spec): string
 	local plan = CollisionMatrix.plan(spec)
 	local off: { [string]: boolean } = {}
@@ -118,7 +105,6 @@ function CollisionMatrix.matrix(spec: Spec): string
 	return table.concat(lines, "\n")
 end
 
--- run the plan; refuses to touch the engine when the plan has problems
 function CollisionMatrix.apply(plan: Plan, adapter: Adapter): boolean
 	if #plan.problems > 0 then
 		return false
@@ -132,8 +118,6 @@ function CollisionMatrix.apply(plan: Plan, adapter: Adapter): boolean
 	return true
 end
 
--- put every BasePart under root into a group, and keep doing so for parts added later (accessories, tools, streamed parts).
--- Only BaseParts are touched: setting CollisionGroup on other instances errors. Returns the connection to disconnect.
 function CollisionMatrix.assign(root: Instance, group: string): RBXScriptConnection
 	local function set(inst: Instance)
 		if inst:IsA("BasePart") then

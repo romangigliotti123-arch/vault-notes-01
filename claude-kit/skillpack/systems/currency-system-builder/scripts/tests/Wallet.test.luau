@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/currency-system-builder/scripts/tests/Wallet.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Shop = require("../../../../../systems/Shop/src/Shop")
 local Wallet = require("../Wallet")

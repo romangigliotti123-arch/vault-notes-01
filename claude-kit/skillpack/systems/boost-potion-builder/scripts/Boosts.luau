@@ -1,11 +1,4 @@
 --!strict
--- Boosts: timed multipliers that persist across sessions (absolute expiry stamps, so time offline counts as the design says),
--- stack by a stated rule and are capped. State: data.Boosts = { [boostName] = expiresAtUnixSeconds }.
--- Rules: the SAME boost re-granted extends its time (up to maxSeconds); DIFFERENT boosts in the same group combine by
--- group mode ("add": 1 + sum(mult-1), "max": best one only); different groups never combine.
---   local boosts = Boosts.new({ now = os.time, defs = { Luck2x = { group = "luck", mult = 2, seconds = 600, maxSeconds = 3600 } },
---       groups = { luck = { mode = "add", cap = 5 } } })
---   boosts:grant(data, "Luck2x") ; boosts:multiplier(data, "luck") ; boosts:active(data)   -- for the HUD
 local Boosts = {}
 Boosts.__index = Boosts
 
@@ -42,7 +35,6 @@ function Boosts.init(self: Boosts, data: Data): Data
 	return b
 end
 
--- grant (or extend) a boost; returns the new expiry
 function Boosts.grant(self: Boosts, data: Data, name: string): number?
 	local def = self._c.defs[name]
 	if def == nil then
@@ -75,7 +67,6 @@ function Boosts.multiplier(self: Boosts, data: Data, group: string): number
 	return math.min(result, grp.cap)
 end
 
--- for the HUD: name, seconds left, mult; soonest-to-expire first
 function Boosts.active(self: Boosts, data: Data): { { name: string, left: number, mult: number } }
 	local now = self._c.now()
 	local out = {}

@@ -1,9 +1,4 @@
 --!strict
--- FocusNav: directional focus choice and focus-trap detection for controller/TV menus. Pure geometry on screen rectangles.
--- Roblox has built-in selection (GuiService.SelectedObject, NextSelection* properties); use this to PLAN the graph and to test it
--- before wiring `NextSelectionUp/Down/Left/Right`, and as a reference when you must write a custom navigator.
---   local nextId = FocusNav.step(items, "start", "right")
---   local problems = FocusNav.audit(items, "start", "close")
 local FocusNav = {}
 
 export type Item = { id: string, x: number, y: number, w: number, h: number }
@@ -13,8 +8,6 @@ local function centre(i: Item): (number, number)
 	return i.x + i.w / 2, i.y + i.h / 2
 end
 
--- Nearest item in `dir` ("up" | "down" | "left" | "right"). Items must lie in the half-plane of the direction; off-axis distance
--- counts double so a button straight to the right beats a nearer one diagonally. nil when nothing is in that direction.
 function FocusNav.step(items: { Item }, fromId: string, dir: string): string?
 	local from: Item? = nil
 	for _, i in items do
@@ -53,8 +46,6 @@ function FocusNav.step(items: { Item }, fromId: string, dir: string): string?
 	return best
 end
 
--- Walk the 4-direction graph from `startId`. unreachable = items focus can never reach; noExit = reachable items with no way
--- onward (dead ends are fine only for a lone item); noBack = `backId` is not reachable from the start.
 function FocusNav.audit(items: { Item }, startId: string, backId: string): Problems
 	local seen: { [string]: boolean } = { [startId] = true }
 	local queue = { startId }

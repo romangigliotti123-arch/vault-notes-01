@@ -1,10 +1,4 @@
 --!strict
--- Wallet: multi-currency balances inside the player's saved data table (PlayerData session.Data). Server only.
--- Every change is an integer, bounded, tagged with a source or sink name and optionally an idempotency key
--- (use the Shop receipt PurchaseId for Robux packs so a retried receipt never pays twice).
---   local wallet = Wallet.new({ currencies = { Coins = { max = 1e9 }, Gems = {} } })
---   wallet:add(data, "Coins", 50, "quest:first_steps", "quest:first_steps:claim")
---   local ok, why = wallet:spend(data, "Coins", 20, "shop:sword")
 local Wallet = {}
 Wallet.__index = Wallet
 
@@ -24,7 +18,6 @@ function Wallet.new(config: Config): Wallet
 	return setmetatable({ _c = config }, Wallet)
 end
 
--- make sure data.Wallet exists with every currency; returns the wallet table
 function Wallet.init(self: Wallet, data: Data): Data
 	local w = data.Wallet
 	if type(w) ~= "table" then
@@ -71,7 +64,6 @@ local function remember(self: Wallet, w: Data, key: string?)
 	end
 end
 
--- returns ok, reason ("ok", "duplicate", "capped", or an error reason). A duplicate key is ok=true and changes nothing.
 function Wallet.add(
 	self: Wallet,
 	data: Data,
@@ -104,7 +96,6 @@ function Wallet.add(
 	return true, reason
 end
 
--- all-or-nothing: refuses when the balance is too low
 function Wallet.spend(
 	self: Wallet,
 	data: Data,
@@ -136,7 +127,6 @@ function Wallet.canAfford(self: Wallet, data: Data, name: string, amount: number
 	return validAmount(self, amount) and self:balance(data, name) >= amount
 end
 
--- totals per source and sink name: the economy-health view (sources minus sinks should stay near zero for the whole player base)
 function Wallet.report(self: Wallet, data: Data): { sources: { [string]: number }, sinks: { [string]: number } }
 	local w = self:init(data)
 	return { sources = w.sources, sinks = w.sinks }

@@ -5,6 +5,8 @@ description: "Implement Roblox global leaderboards (OrderedDataStore), badges, t
 
 # Leaderboards, badges, live events
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 ## Global leaderboard
 1. Use `DataStoreService:GetOrderedDataStore("Wins_v1")`. Values are integers only. Write with `SetAsync`/`UpdateAsync` from the server only, after the score is validated by the server.
 2. Update on meaningful changes and at save time, not every second (shared request budgets with other DataStores).

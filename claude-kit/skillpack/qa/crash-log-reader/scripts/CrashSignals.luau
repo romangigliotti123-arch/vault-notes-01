@@ -1,7 +1,4 @@
 --!strict
--- CrashSignals: classifies log lines into crash-relevant signal types, builds a timeline, and checks memory samples for a leak trend.
--- Pure string/number logic, unit-tested in Lune. It does NOT know Roblox's internal crash codes: it matches message text only, and the
--- verdict is a "suspect" to confirm with the Developer Console (F9) on the real device or the Creator Hub crash/error views.
 local CrashSignals = {}
 
 export type Signal = { category: string, index: number, text: string }
@@ -14,7 +11,6 @@ export type Summary = {
 }
 export type Sample = { t: number, mb: number }
 
--- category -> lowercase plain-text fragments (any one matches). Order matters: earlier categories win for a line.
 local RULES: { { string | { string } } } = {
 	{ "memory", { "out of memory", "memory limit", "low memory", "memory warning" } },
 	{ "script-timeout", { "exhausted allowed execution time", "script timeout" } },
@@ -33,7 +29,6 @@ function CrashSignals.classify(line: string): string?
 		for _, frag in rule[2] :: { string } do
 			if string.find(lower, frag, 1, true) then
 				local cat = rule[1] :: string
-				-- a plain "datastore" mention is only an error signal when the line also reads like a failure
 				if
 					cat == "datastore-error"
 					and not (
@@ -74,7 +69,6 @@ local WHY: { [string]: string } = {
 	disconnect = "the connection dropped with no earlier cause in this log: look at the other side (client log vs server log) and the time of day",
 }
 
--- the earliest signal in SUSPECT_ORDER priority wins, but a signal that appears BEFORE the first disconnect/kick is preferred over later ones
 function CrashSignals.summarize(lines: { string }): Summary
 	local counts: { [string]: number } = {}
 	local first: { [string]: number } = {}
@@ -102,7 +96,6 @@ function CrashSignals.summarize(lines: { string }): Summary
 	for _, c in SUSPECT_ORDER do
 		local at = first[c]
 		if at and at < endAt and at < bestIndex and c ~= "disconnect" and c ~= "kicked" then
-			-- priority wins when two signals sit close together; otherwise the earlier one
 			if suspect == "none" or at + 20 < bestIndex then
 				suspect, why, bestIndex = c, WHY[c], at
 			end
@@ -119,7 +112,6 @@ function CrashSignals.summarize(lines: { string }): Summary
 	return { counts = counts, first = first, timeline = timeline, suspect = suspect, why = why }
 end
 
--- memory samples (t seconds, mb): least-squares slope in MB per minute and whether it is a steady climb
 function CrashSignals.memoryTrend(
 	samples: { Sample },
 	leakMbPerMin: number?

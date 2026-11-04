@@ -1,6 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/purchase-flow-tester/scripts/tests/PurchaseScenarios.test.luau
--- Rigs the kit's REAL Shop module, then a deliberately naive grant-on-every-receipt handler to prove the scenarios can fail.
 local t = require("../../../../../systems/_check/harness")
 local PurchaseScenarios = require("../PurchaseScenarios")
 local Shop = require("../../../../../systems/Shop/src/Shop")
@@ -67,7 +65,7 @@ local function naiveRig()
 	return {
 		process = function(r)
 			if r.ProductId == 111 then
-				data.coins += 100 -- no receipt record, no save check, no data check
+				data.coins += 100
 			end
 			return "Granted"
 		end,

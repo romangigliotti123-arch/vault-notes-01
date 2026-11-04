@@ -1,10 +1,4 @@
 --!strict
--- LightingPresets: mood x device presets for Lighting + Atmosphere + post effects, with range validation and a Luau serializer for
--- apply_lighting.luau. Pure logic, unit-tested under Lune. Values are STARTING POINTS tuned by eye in Studio: only bright_cartoon
--- and the warm ambient tint cite a vault source (indie, labelled); every other number is this skill's own. The vault's rules:
--- lighting and atmosphere are foundation (set light direction, intensity and skybox together), use ShadowMap by default, turn off
--- Haze and dynamic clouds for performance, keep post-processing in Lighting. Lighting.Technology and the Sky asset are NOT set here
--- (Technology needs a plugin-level setting; skybox ids are never invented).
 local LightingPresets = {}
 
 export type RGB = { number }
@@ -167,7 +161,6 @@ function LightingPresets.moods(): { string }
 	return names
 end
 
--- device: "pc" keeps the preset; "mobile" removes the costly extras (vault: turn off Haze, keep post-processing small).
 function LightingPresets.pick(mood: string, device: string): Preset
 	local base = PRESETS[mood]
 	if not base then
@@ -239,7 +232,6 @@ function LightingPresets.validate(p: Preset): { string }
 	return errors
 end
 
--- Luau literal for pasting into apply_lighting.luau as `local PRESET = ...`
 function LightingPresets.toLuau(p: Preset): string
 	local function ser(v: any, indent: string): string
 		if type(v) == "number" then

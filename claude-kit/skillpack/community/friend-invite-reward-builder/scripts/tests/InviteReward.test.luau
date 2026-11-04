@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/community/friend-invite-reward-builder/scripts/tests/InviteReward.test.luau
 local t = require("../../../../../systems/_check/harness")
 local InviteReward = require("../InviteReward")
 

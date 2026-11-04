@@ -1,9 +1,4 @@
 --!strict
--- UI: the only way the game builds interface. One component set (panel, label, button, stat, bar), HUD slots that stack so panels cannot
--- overlap, one popup at a time (queue), toasts in their own lane. All looks come from Theme.luau. Client-side module.
---   local hud = UI.hud()                       -- slots: TopLeft, TopCenter, TopRight, BottomCenter (bottom corners stay free for touch controls)
---   local coins = UI.stat(hud.TopLeft, "Coins", "0")   coins.set("1,250")
---   UI.popup("Pufferfish!", "Rare catch, +50 coins")   UI.toast("Bait low")
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 
@@ -39,7 +34,6 @@ local function shade(parent: Instance)
 	g.Parent = parent
 end
 
--- A ScreenGui on the Theme layer. Interactive UI stays inside the Roblox safe insets.
 function UI.root(name: string, layer: number): ScreenGui
 	local gui = Instance.new("ScreenGui")
 	gui.Name = name
@@ -86,7 +80,7 @@ function UI.label(parent: Instance, text: string, kind: LabelKind?, color: Color
 	l.TextXAlignment = Enum.TextXAlignment.Left
 	l.TextWrapped = true
 	l.Text = text
-	local ts = Instance.new("UIStroke") -- text outline keeps text readable over busy scenes
+	local ts = Instance.new("UIStroke")
 	ts.Thickness = 1.5
 	ts.Color = Theme.colors.stroke
 	ts.Transparency = 0.3
@@ -127,7 +121,6 @@ function UI.button(parent: Instance, text: string, onActivated: () -> (), primar
 	return b
 end
 
--- One consistent "name: value" readout (coins, bait, wave...). set() pops the value so changes are noticed.
 function UI.stat(parent: Instance, name: string, value: string): { panel: Frame, set: (string) -> () }
 	local p = UI.panel(parent, { name = "Stat_" .. name })
 	local row = Instance.new("UIListLayout")
@@ -175,7 +168,6 @@ function UI.bar(parent: Instance, color: Color3?): { frame: Frame, set: (number)
 	}
 end
 
--- HUD slots. Each slot stacks its children (UIListLayout), so two panels in one slot can never overlap. Centre of the screen stays free.
 export type Hud = { TopLeft: Frame, TopCenter: Frame, TopRight: Frame, BottomCenter: Frame }
 local hudRef: Hud? = nil
 
@@ -210,7 +202,6 @@ function UI.hud(): Hud
 	return hud
 end
 
--- Popups: ONE at a time, queued. Pops in, auto-dismisses, fades out. Never place popup UI anywhere else.
 local popupGui: ScreenGui? = nil
 local popupQueue: { { title: string, body: string, seconds: number } } = {}
 local popupBusy = false
@@ -271,7 +262,6 @@ function UI.popup(title: string, body: string?, seconds: number?)
 	end
 end
 
--- Toasts: one small message at a time, stacked at the end of the HUD TopCenter slot (so it can never cover another HUD panel).
 local toastLabel: TextLabel? = nil
 function UI.toast(text: string)
 	if not toastLabel then

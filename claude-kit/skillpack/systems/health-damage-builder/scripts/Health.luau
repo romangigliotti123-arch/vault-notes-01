@@ -1,16 +1,12 @@
 --!strict
--- Health: health, damage types, flat armor, percentage resistances, delayed regeneration and a single death event. Pure logic on a
--- state table; the glue copies hp to Humanoid.Health for display. All damage numbers are decided on the server.
---   local h = Health.new({ max = 100, armor = 2, resist = { Fire = 0.5 }, regenDelay = 5, regenPerSec = 2, now = os.clock })
---   local dealt, died = h:damage(state, 30, "Fire")   -- (30 * 0.5) - 2 armor = 13
 local Health = {}
 Health.__index = Health
 
 export type Config = {
 	max: number,
-	armor: number?, -- flat reduction per hit, never below minDamage
-	resist: { [string]: number }?, -- 0..1 fraction removed per damage type; "True" damage ignores armor and resist
-	minDamage: number?, -- smallest damage a hit can do after reductions (default 1)
+	armor: number?,
+	resist: { [string]: number }?,
+	minDamage: number?,
 	regenDelay: number?,
 	regenPerSec: number?,
 	now: () -> number,
@@ -31,7 +27,6 @@ function Health.newState(self: Health): State
 	return { hp = self._c.max, dead = false, lastHit = -math.huge }
 end
 
--- returns damage actually dealt and whether this hit killed (true only once)
 function Health.damage(self: Health, s: State, amount: any, kind: string?): (number, boolean)
 	if s.dead or type(amount) ~= "number" or amount ~= amount or amount <= 0 or amount == math.huge then
 		return 0, false
@@ -62,7 +57,6 @@ function Health.heal(self: Health, s: State, amount: any): number
 	return healed
 end
 
--- call once a second (or per Heartbeat with dt): regen starts regenDelay after the last hit
 function Health.tick(self: Health, s: State, dt: number)
 	local rate = self._c.regenPerSec or 0
 	if s.dead or rate <= 0 or s.hp >= self._c.max then

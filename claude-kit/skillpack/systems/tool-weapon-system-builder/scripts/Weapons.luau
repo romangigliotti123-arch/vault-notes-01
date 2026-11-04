@@ -1,10 +1,4 @@
 --!strict
--- Weapons: server-side activation rules for tools and weapons: equipped, alive, cooldown (os.clock on the server), ammo and reload.
--- The client sends "I activated" (maybe with an aim hint); the server decides if a shot/swing happens, and the damage number comes
--- from this table, never from the client. Hit detection is hitbox-combat-builder; damage application is health-damage-builder.
---   local weapons = Weapons.new({ now = os.clock, defs = { Pistol = { cooldown = 0.25, damage = 12, mag = 8, reload = 1.5 },
---       Sword = { cooldown = 0.6, damage = 20 } } })
---   local ok, why, dmg = weapons:activate(userId, "Pistol", { equipped = "Pistol", alive = true })
 local Weapons = {}
 Weapons.__index = Weapons
 
@@ -36,7 +30,6 @@ local function state(self: Weapons, userId: number, name: string): State
 	return s
 end
 
--- returns ok, reason, damage. The latency allowance (default 0.05 s) lets a legitimate shot through that arrives slightly early.
 function Weapons.activate(self: Weapons, userId: number, name: any, player: Player): (boolean, string, number?)
 	local d = if type(name) == "string" then self._c.defs[name] else nil
 	if d == nil then

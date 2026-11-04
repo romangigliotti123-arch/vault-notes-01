@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/economy-balancer/scripts/tests/Economy.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Economy = require("../Economy")
 

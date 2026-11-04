@@ -1,7 +1,4 @@
 --!strict
--- manifest.luau: read-only. Dumps a model as compact JSON (hierarchy, size, position relative to the pivot, material,
--- colour, mesh/texture ids, collision flags) so it can be rebuilt cleanly. Studio command bar or MCP `execute_luau` (Edit).
--- TARGET nil = first selected object. Output is capped at MAX_NODES; the report says when it was truncated.
 local TARGET: Instance? = nil
 local MAX_NODES = 400
 
@@ -56,7 +53,7 @@ local function dump(root: Instance): string
 		total += 1
 		if #nodes < MAX_NODES then
 			local node = describe(inst, pivot)
-			node.d = #inst:GetFullName() - #root:GetFullName() -- depth proxy: longer path = deeper
+			node.d = #inst:GetFullName() - #root:GetFullName()
 			node.parent = if inst.Parent == root then "" else inst.Parent and inst.Parent.Name or ""
 			table.insert(nodes, node)
 		end

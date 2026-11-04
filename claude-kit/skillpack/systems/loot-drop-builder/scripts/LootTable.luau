@@ -1,12 +1,4 @@
 --!strict
--- LootTable: weighted loot, egg and crate rolls with a pity counter, a displayable odds table and a drop log. Server only.
--- The roll uses an injected random function (math.random on the server; a fixed sequence in tests). The client never sends a roll,
--- a luck value or a result. Odds shown to players are computed from the SAME weights the roll uses.
---   local loot = LootTable.new({ name = "ForestEgg", rng = function() return Random.new():NextNumber() end,
---       entries = { { id = "Dog", weight = 70, rarity = "common" }, { id = "Fox", weight = 25, rarity = "rare" }, { id = "Dragon", weight = 5, rarity = "legendary" } },
---       pity = { rarity = "legendary", every = 50 } })
---   local id = loot:roll(data, luck)       -- luck >= 1 multiplies the weight of non-common entries (server-side boost value)
---   loot:odds()                            -- { { id, rarity, percent } ... } for the hatch UI
 local LootTable = {}
 LootTable.__index = LootTable
 
@@ -16,9 +8,9 @@ export type Pity = { rarity: string, every: number }
 export type Config = {
 	name: string,
 	entries: { Entry },
-	rng: () -> number, -- returns [0, 1)
+	rng: () -> number,
 	pity: Pity?,
-	baseRarity: string?, -- the rarity luck does NOT boost (default "common")
+	baseRarity: string?,
 	log: ((entry: { [string]: any }) -> ())?,
 }
 export type LootTable = typeof(setmetatable({} :: { _c: Config }, LootTable))
@@ -43,7 +35,6 @@ function LootTable.new(config: Config): LootTable
 	return setmetatable({ _c = config }, LootTable)
 end
 
--- the odds the player is shown (percent, 4 significant digits is plenty); same numbers the roll uses at luck 1
 function LootTable.odds(self: LootTable): { { id: string, rarity: string, percent: number } }
 	local total = 0
 	for _, e in self._c.entries do

@@ -6,6 +6,8 @@ argument-hint: "[project folder, default current folder]"
 
 # game-dev-playtest
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Input: the PROJECT folder (default `$PWD`; look for `default.project.json`, `game-plan.md`, `docs/GDD.md`). Output: `docs/PLAYTEST.md` from `templates/playtest-report.md` (print the summary too). When the game has a `Games/<slug>/` community (game-dev-workflow), also save a copy to `Games/<slug>/playtests/<YYYY-MM-DD>.md` with a first line linking `[[<slug>/GAME|GAME]]`; the verdict here is the WORKS half only: "good" is decided by `game-dev-critic`. No questions. Never launch, focus or script Studio, Roblox clients or any GUI app yourself, never publish, never change the game's code (report fixes; the head manager or the user applies them). Exception: the head manager may order a fix round afterwards.
 
 ## 0. Pick the mode (state it in the first line of the report)

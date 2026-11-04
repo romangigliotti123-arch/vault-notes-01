@@ -1,19 +1,12 @@
 --!strict
--- ReceiptScenarios: the failure cases every ProcessReceipt must survive, run against YOUR wiring (a Shop built from your real catalogue).
--- You supply a factory that builds a fresh environment; this module runs the scenarios and reports pass/fail per case.
---   local results = ReceiptScenarios.run(function()
---       local env = buildMyShopWithFakes()   -- Shop.new({... getData, saveNow, ownsPass fakes ...})
---       return { shop = env.shop, reward = function() return env.data.coins end, setLoaded = ..., setSaveOk = ..., productId = 111, userId = 1, expectedDelta = 100 }
---   end)
---   for _, r in results do print(r.pass and "ok  " or "FAIL", r.name, r.detail) end
 local ReceiptScenarios = {}
 
 export type Env = {
-	shop: any, -- anything with :ProcessReceipt(receipt) -> "Granted" | "NotYet"
-	reward: () -> number, -- the observable that the product changes (coins, gems...)
-	setLoaded: (boolean) -> (), -- false = player data not loaded / player gone
-	setSaveOk: (boolean) -> (), -- false = the next saves fail
-	productId: number, -- a known product id that adds `expectedDelta` to reward()
+	shop: any,
+	reward: () -> number,
+	setLoaded: (boolean) -> (),
+	setSaveOk: (boolean) -> (),
+	productId: number,
 	userId: number,
 	expectedDelta: number,
 }

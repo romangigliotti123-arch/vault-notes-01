@@ -1,10 +1,7 @@
 --!strict
--- Palette: contrast, colour-blind and grayscale checks for a game palette. Pure logic (no Roblox API), unit-tested under Lune.
---   local issues = Palette.check({ { name = "wall", hex = "#C9B79C" }, { name = "trim", hex = "#8A6D4B" } }, { pairs = {{"wall","trim"}} })
--- Colour-blind simulation uses the Machado et al. 2009 matrices at full severity, applied in linear RGB (a screening aid, not a diagnosis).
 local Palette = {}
 
-export type RGB = { number } -- r, g, b in 0..255
+export type RGB = { number }
 export type Entry = { name: string, hex: string }
 export type Issue = { kind: string, a: string, b: string, value: number, note: string }
 
@@ -59,7 +56,6 @@ function Palette.luminance(c: RGB): number
 	return 0.2126 * toLinear(c[1]) + 0.7152 * toLinear(c[2]) + 0.0722 * toLinear(c[3])
 end
 
--- WCAG contrast ratio, 1..21. Normal text needs 4.5, large text and UI shapes 3.
 function Palette.contrast(a: RGB, b: RGB): number
 	local la, lb = Palette.luminance(a), Palette.luminance(b)
 	if la < lb then
@@ -96,23 +92,21 @@ local function toLab(c: RGB): { number }
 	return { 116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz) }
 end
 
--- CIE76 colour difference. About 2.3 is a just-noticeable difference; under ~12 two colours read as the same family.
 function Palette.deltaE(a: RGB, b: RGB): number
 	local la, lb = toLab(a), toLab(b)
 	return math.sqrt((la[1] - lb[1]) ^ 2 + (la[2] - lb[2]) ^ 2 + (la[3] - lb[3]) ^ 2)
 end
 
--- Grayscale value of a colour (0..255, luminance based), for the "view it in monochrome" check.
 function Palette.gray(c: RGB): number
 	return fromLinear(Palette.luminance(c))
 end
 
 export type Options = {
-	pairs: { { string } }?, -- names that must stay distinguishable; nil = every pair
-	minDeltaE: number?, -- default 12
-	minGrayGap: number?, -- default 25 (of 255)
-	textPairs: { { string } }?, -- { foregroundName, backgroundName } pairs that carry text; need contrast >= minContrast
-	minContrast: number?, -- default 4.5
+	pairs: { { string } }?,
+	minDeltaE: number?,
+	minGrayGap: number?,
+	textPairs: { { string } }?,
+	minContrast: number?,
 }
 
 function Palette.check(entries: { Entry }, opts: Options?): ({ Issue }, { string })

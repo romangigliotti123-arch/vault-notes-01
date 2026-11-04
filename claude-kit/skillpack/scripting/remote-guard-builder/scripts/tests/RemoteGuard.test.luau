@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run RemoteGuard.test.luau   (from this folder; needs the kit's systems/_check/harness.luau)
 local t = require("../../../../../systems/_check/harness")
 local RemoteGuard = require("../RemoteGuard")
 
@@ -49,7 +48,7 @@ t.test("limiter blocks the call over the limit and resets after the window", fun
 	t.truthy(l:allow(7))
 	t.truthy(l:allow(7))
 	t.falsy(l:allow(7))
-	t.truthy(l:allow(8)) -- other player unaffected
+	t.truthy(l:allow(8))
 	now = 1.5
 	t.truthy(l:allow(7))
 end)
@@ -92,8 +91,8 @@ t.test("bind runs handler only for valid, allowed calls", function()
 	})
 	local player = { UserId = 1 }
 	handler(player, 4)
-	handler(player, 99) -- invalid
-	handler(player, 5) -- third call in window: limited
+	handler(player, 99)
+	handler(player, 5)
 	t.eq(got, { 4 })
 	t.eq(rejected, { "argument 1 invalid", "rate limit" })
 end)

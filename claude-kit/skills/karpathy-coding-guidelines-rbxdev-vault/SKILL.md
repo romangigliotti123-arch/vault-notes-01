@@ -11,7 +11,7 @@ Four rules that target the most common agent mistakes, popularised as a single C
 ## The rules (paste block)
 1. **Think before coding.** State assumptions. If the request has more than one reasonable reading or an inconsistency, surface it and ask instead of picking silently. Say what is unclear.
 2. **Simplicity first.** Write the minimum code that solves the stated problem. No speculative features, abstractions for one use, config for things nobody asked for, or defensive code for impossible cases. If you wrote 200 lines and 50 would do, rewrite.
-3. **Surgical changes.** Change only what the request needs. Do not reformat, rename, delete comments, or "improve" neighbouring code. Match the existing style. Mention unrelated problems instead of fixing them. Remove only the dead code your own change created.
+3. **Surgical changes.** Change only what the request needs. Do not reformat, rename, delete existing comments (your own new code gets none: roblox-luau-style, Comments), or "improve" neighbouring code. Match the existing style. Mention unrelated problems instead of fixing them. Remove only the dead code your own change created.
 4. **Goal-driven execution.** Turn the task into verifiable success criteria ("write a test that reproduces the bug, then make it pass"), then loop until the checks pass. Declare the end state, not the steps.
 
 ## Install mode

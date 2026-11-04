@@ -1,15 +1,9 @@
 --!strict
--- fix_pivots.luau: compare each model's pivot with the wanted point (bottom centre of its bounding box by default) and, opt-in,
--- move the PIVOT (never the parts) so PivotTo and rotation behave. Audit-only by default.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- The model's look and position do not change: with a PrimaryPart the pivot is changed through PrimaryPart.PivotOffset,
--- without one through Model.WorldPivot. Models with the attribute PivotLocked=true, characters (Humanoid) and nested models
--- below DEPTH are skipped. Logic mirrors scripts/Pivot.luau (tested under Lune).
-local ROOT: Instance? = nil -- nil = the current Selection, or Workspace when nothing is selected
+local ROOT: Instance? = nil
 local MODE: "bottomCenter" | "center" = "bottomCenter"
 local APPLY = false
-local TOLERANCE = 0.05 -- studs
-local DEPTH = 2 -- how many container levels below ROOT to look for models
+local TOLERANCE = 0.05
+local DEPTH = 2
 local MAX_LIST = 20
 
 local Selection = game:GetService("Selection")

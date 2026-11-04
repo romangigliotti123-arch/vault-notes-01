@@ -5,6 +5,8 @@ description: "Find and fix performance problems in a Roblox experience: server a
 
 # Roblox performance pass
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Measure first, change one thing, measure again. Test on a low-end phone profile, not only the dev PC.
 
 ## Measure

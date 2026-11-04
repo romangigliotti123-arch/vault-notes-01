@@ -1,21 +1,12 @@
 --!strict
--- Catalogue: turn a readable list of developer products into the `products` table the kit's Shop system (systems/Shop) wants,
--- and verify every grant function offline before it runs on real purchases. Ships in the game next to ShopService.
---   local Catalogue = require(script.Parent.Catalogue)
---   local products, notes = Catalogue.build({
---       { name = "Coins100", id = 0, grant = function(userId, data) data.coins += 100 return true end }, -- id 0 = SET IN CREATOR HUB
---   })
---   for _, n in notes do warn(n) end
---   ShopService.Start({ products = products, getData = ..., saveNow = ... })
--- Shop owns MarketplaceService.ProcessReceipt (idempotent, saves before confirming). This module only builds and checks its config.
 local Catalogue = {}
 
 export type Data = { [any]: any }
 export type Entry = {
 	name: string,
-	id: number, -- Creator Hub developer product id; 0 = not created yet (entry is skipped with a note)
+	id: number,
 	grant: (userId: number, data: Data) -> boolean,
-	refuseWith: Data?, -- optional data on which the grant MUST refuse (return false) without changing anything, e.g. inventory full
+	refuseWith: Data?,
 }
 export type Product = { name: string, grant: (userId: number, data: Data) -> boolean }
 
@@ -47,7 +38,6 @@ local function sameData(a: any, b: any): boolean
 	return true
 end
 
--- build the Shop `products` table; duplicate names or ids are errors (a duplicate silently shadows a product)
 function Catalogue.build(entries: { Entry }): ({ [number]: Product }, { string })
 	local products: { [number]: Product } = {}
 	local notes: { string } = {}
@@ -81,7 +71,6 @@ local function storable(value: any, path: string, problems: { string })
 	end
 end
 
--- run each grant on a copy of `template` (the player save template); returns a list of problems (empty = all good)
 function Catalogue.verify(entries: { Entry }, template: Data): { string }
 	local problems: { string } = {}
 	for _, e in entries do

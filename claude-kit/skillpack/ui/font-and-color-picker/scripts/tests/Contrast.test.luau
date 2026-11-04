@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run Contrast.test.luau   (from the kit's systems folder, see check-scripts.sh)
 local t = require("../../../../../systems/_check/harness")
 local C = require("../Contrast")
 

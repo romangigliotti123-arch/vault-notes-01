@@ -1,9 +1,4 @@
 --!strict
--- HitCheck: the server's yes/no on a claimed hit. Range with a lag allowance (a moving target may be further on the server than on the
--- attacker's screen), a facing-angle limit for non-area attacks, an optional wall check (injected raycast), and once-per-swing
--- de-duplication so one swing cannot hit the same target twice. Positions are plain {x,y,z}; look vectors are unit length.
---   local hits = HitCheck.new({ maxLag = 0.2, now = os.clock })
---   local ok, why = hits:check({ swingId = id, attacker = a, target = tg, look = look, range = 8, targetSpeed = 16, lag = 0.1, maxAngle = 70 })
 local HitCheck = {}
 HitCheck.__index = HitCheck
 
@@ -12,12 +7,12 @@ export type Claim = {
 	swingId: string,
 	attacker: Pos,
 	target: Pos,
-	look: Pos?, -- attacker's look direction (unit); nil for area attacks
+	look: Pos?,
 	range: number,
-	targetSpeed: number?, -- server-known speed of the target, studs/s
-	lag: number?, -- attacker ping in seconds as measured by the server
-	maxAngle: number?, -- degrees; default 90
-	blocked: boolean?, -- result of the server raycast between them, if the glue ran one
+	targetSpeed: number?,
+	lag: number?,
+	maxAngle: number?,
+	blocked: boolean?,
 }
 export type Config = { maxLag: number, swingTtl: number?, now: () -> number }
 export type HitCheck = typeof(setmetatable({} :: { _c: Config, _seen: { [string]: number } }, HitCheck))
@@ -44,7 +39,6 @@ local function finite(p: Pos): boolean
 	return true
 end
 
--- allowed distance: range plus what a target at its known speed could have moved during the (capped) lag
 function HitCheck.allowedRange(self: HitCheck, range: number, speed: number?, lag: number?): number
 	local l = math.min(math.max(lag or 0, 0), self._c.maxLag)
 	return range + (speed or 0) * l

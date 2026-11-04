@@ -1,18 +1,8 @@
 --!strict
--- ClientLoader: wait for the instances and modules a client script depends on, with a timeout and a message that names the
--- missing path. A replicated script can start before its modules replicate (vault: scripting-and-performance), and a bare
--- WaitForChild with no timeout hangs forever with only an "Infinite yield possible" warning.
---   local Loader = require(ReplicatedFirst.ClientLoader)
---   local loaded = Loader.load(ReplicatedStorage, { Shared = { "Config", "Types" }, Client = { "UI" } }, 10, require)
---   loaded.Config.Value ...     loaded is { [moduleName] = requiredValue }
---   Loader.waitPath(ReplicatedStorage, { "Assets", "Sounds", "Click" }, 5)   -- Instance or nil, plus an error text
--- Never yield inside a module's top level (a yield stalls every module waiting on it): load first, then start. Do the waiting
--- here, in one bootstrap script, then call each module's Init/Start from the result.
 local ClientLoader = {}
 
 export type NodeLike = { WaitForChild: (self: any, name: string, timeout: number?) -> any }
 
--- follow a path of child names; (node, nil) or (nil, "ReplicatedStorage.Assets.Sounds missing child 'Click' after 5s")
 function ClientLoader.waitPath(root: NodeLike, path: { string }, timeout: number): (any, string?)
 	local node: any = root
 	local walked = tostring((root :: any).Name or "root")
@@ -27,8 +17,6 @@ function ClientLoader.waitPath(root: NodeLike, path: { string }, timeout: number
 	return node, nil
 end
 
--- require every listed module (folders: { FolderName = { "ModuleA", "ModuleB" } }) in a stable order.
--- Returns (modules, nil) or (nil, "all the problems at once") so one run shows every missing piece, not just the first.
 function ClientLoader.load(
 	root: NodeLike,
 	folders: { [string]: { string } },

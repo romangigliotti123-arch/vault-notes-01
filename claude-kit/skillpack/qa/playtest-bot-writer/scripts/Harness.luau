@@ -1,11 +1,4 @@
 --!strict
--- Harness: tiny assertion + wait helper for scripted playtests. Run your bot on the Server datamodel during a Studio playtest
--- (MCP `execute_luau` with datamodel_type Server), or as a Script in ServerScriptService that only exists in the test place.
--- The harness is plain Luau so its own logic is unit-tested in Lune; the bot steps are yours (see the skill for the pattern).
---   local h = Harness.new("pet hatch loop")
---   h:check("player data loaded", data ~= nil)
---   h:waitFor("coins increase", function() return data.coins > before end, 5)
---   print(h:report())
 local Harness = {}
 Harness.__index = Harness
 
@@ -38,7 +31,6 @@ function Harness.checkEq(self: Harness, label: string, actual: any, expected: an
 	return self:check(label, actual == expected, `expected {tostring(expected)}, got {tostring(actual)}`)
 end
 
--- poll predicate every `interval` seconds until it returns truthy or `timeout` passes; records one result
 function Harness.waitFor(
 	self: Harness,
 	label: string,
@@ -58,7 +50,6 @@ function Harness.waitFor(
 	return self:check(label, false, `timed out after {timeout}s`)
 end
 
--- run a step; an error inside it is recorded as a failure instead of stopping the whole bot
 function Harness.step(self: Harness, label: string, fn: () -> ()): boolean
 	local ok, err = pcall(fn :: () -> any)
 	if not ok then

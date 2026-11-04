@@ -1,15 +1,10 @@
 --!strict
--- bench.luau: micro-benchmark helper for comparing two ways of doing the same thing in Luau (works in Studio and in Lune).
--- It measures a function, not the game: use the MicroProfiler / Script Profiler to find WHERE time goes, then bench the candidate fix here.
---   local bench = require(script.Parent.bench)
---   print(bench.compare("loop A", fnA, "loop B", fnB, 20000))
 local bench = {}
 
 export type Result = { name: string, perCallMicros: number, batches: { number } }
 
 local BATCHES = 7
 
--- median of BATCHES timed batches; one warm-up batch first so JIT/caches are not charged to the first variant
 function bench.run(name: string, fn: () -> (), iterations: number): Result
 	for _ = 1, math.max(1, iterations // 10) do
 		fn()
@@ -26,7 +21,6 @@ function bench.run(name: string, fn: () -> (), iterations: number): Result
 	return { name = name, perCallMicros = batches[(BATCHES + 1) // 2], batches = batches }
 end
 
--- noise = (max - min) / median over the batches; above ~0.2 the comparison is not trustworthy
 function bench.noise(r: Result): number
 	local med = r.perCallMicros
 	if med <= 0 then

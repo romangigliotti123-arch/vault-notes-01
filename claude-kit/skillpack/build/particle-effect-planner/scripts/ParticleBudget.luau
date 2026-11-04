@@ -1,28 +1,23 @@
 --!strict
--- ParticleBudget: cost an effect before building it and judge a set of effects against a device tier. Pure logic, Lune-tested.
--- Vault (vfx KB, Creator Docs): max Rate per emitter 400/s desktop and 100/s mobile; default Rate 20/s; Lifetime above 20 s is
--- silently clamped; high emission with long lifetime and low speed is the classic overdraw trap; test at the lowest and highest
--- Editor Quality Level. The live-particle limits per tier below are THIS SKILL'S defaults (assumptions), tune them from a profile.
 local ParticleBudget = {}
 
 export type Effect = {
 	name: string,
-	rate: number, -- particles per second while emitting
-	lifeMax: number, -- seconds (Lifetime.Max)
-	burst: number?, -- particles per Emit() call
-	bursts: number?, -- bursts that can overlap (e.g. 3 players hitting at once)
-	emitters: number?, -- simultaneous copies in the scene
-	loop: boolean?, -- true: emits continuously; false: one-shot bursts
+	rate: number,
+	lifeMax: number,
+	burst: number?,
+	bursts: number?,
+	emitters: number?,
+	loop: boolean?,
 }
 export type Tier = "desktop" | "mobile"
 
 ParticleBudget.RATE_CAP = { desktop = 400, mobile = 100 }
 ParticleBudget.LIFE_CAP = 20
-ParticleBudget.LIVE_BUDGET = { desktop = 2000, mobile = 500 } -- assumption: live particles across the whole scene
+ParticleBudget.LIVE_BUDGET = { desktop = 2000, mobile = 500 }
 
 export type Cost = { name: string, live: number, issues: { string } }
 
--- Steady-state live particles of one effect (rate * lifetime), or burst * overlap for a one-shot.
 function ParticleBudget.live(e: Effect): number
 	local life = math.min(e.lifeMax, ParticleBudget.LIFE_CAP)
 	local copies = e.emitters or 1

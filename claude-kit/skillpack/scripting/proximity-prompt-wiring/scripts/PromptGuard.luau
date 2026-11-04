@@ -1,18 +1,9 @@
 --!strict
--- PromptGuard: server-side validation for ProximityPrompt interactions. Exploiters can fire a prompt from any distance and
--- ignore Enabled and MaxActivationDistance, so the server re-checks everything and only then runs the handler.
---   PromptGuard.bind(prompt, {
---       cooldowns = cooldowns, action = "OpenShop", duration = 1,     -- a Cooldowns object (cooldown-manager-builder), optional
---       slack = 4,                                                    -- studs of tolerance on top of MaxActivationDistance
---       canUse = function(player) return hasKey(player), "needs a key" end,   -- state / ownership / price checks
---       handler = function(player) ... end,
---   })
--- `evaluate` is the pure part (unit-tested). `bind` needs a running place and is static-checked only.
 local PromptGuard = {}
 
 export type Pos = { X: number, Y: number, Z: number }
 export type Input = {
-	player: Pos?, -- nil when the character or root part is missing
+	player: Pos?,
 	prompt: Pos,
 	maxDistance: number,
 	slack: number?,
@@ -24,7 +15,6 @@ function PromptGuard.distance(a: Pos, b: Pos): number
 	return math.sqrt(dx * dx + dy * dy + dz * dz)
 end
 
--- (ok, reason). Distance is measured root part to prompt; default slack covers latency and character size.
 function PromptGuard.evaluate(input: Input): (boolean, string?)
 	if input.player == nil then
 		return false, "no character"

@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/quest-system-builder/scripts/tests/Quests.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Wallet = require("../../../currency-system-builder/scripts/Wallet")
 local Quests = require("../Quests")

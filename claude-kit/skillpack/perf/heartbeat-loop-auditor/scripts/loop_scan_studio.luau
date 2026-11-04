@@ -1,8 +1,4 @@
 --!strict
--- loop_scan_studio.luau: runs LoopScan (heartbeat-loop-auditor/scripts/LoopScan.luau) over every script in the open place. Command bar or MCP `execute_luau` (Edit datamodel).
--- Setup: LoopScan must exist as a ModuleScript named "LoopScan" in ServerStorage (Rojo: map scripts/LoopScan.luau there for the audit, then remove it; or create it from the file's text).
--- It reads Script.Source, so it needs plugin/command-bar security (works from execute_luau). Output: findings per script, worst scripts first, as TEXT CANDIDATES to review,
--- not measured cost: open the Script Profiler (script-profiler skill) to see which of them actually shows up.
 local ServerStorage = game:GetService("ServerStorage")
 
 local moduleScript = ServerStorage:FindFirstChild("LoopScan")

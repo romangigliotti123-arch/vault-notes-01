@@ -1,10 +1,4 @@
 --!strict
--- Quests: data-driven objective tracker. Gameplay code reports EVENTS from the server ("kill", "collect", "visit"); the quest module
--- turns them into progress, and a reward can be claimed exactly once. State lives in data.Quests (small, save-friendly).
---   local quests = Quests.new({ defs = { first_steps = { goal = { event = "collect", target = "Wood", amount = 10 },
---       reward = function(data) return wallet:add(data, "Coins", 50, "quest:first_steps", "quest:first_steps") end } } })
---   quests:progress(data, "collect", "Wood", 3)   -- from the server code that actually gave the player wood
---   quests:claim(data, "first_steps")              -- true once; a second call is refused
 local Quests = {}
 Quests.__index = Quests
 
@@ -25,7 +19,6 @@ function Quests.new(config: Config): Quests
 			assert(def.requires ~= id, `quest {id}: requires itself`)
 		end
 	end
-	-- a requires chain must end (no cycles)
 	for id in config.defs do
 		local seen: { [string]: boolean } = {}
 		local cur: string? = id
@@ -70,7 +63,6 @@ function Quests.isComplete(self: Quests, data: Data, id: string): boolean
 	return def ~= nil and self:value(data, id) >= def.goal.amount
 end
 
--- server code reports an event. Returns the ids of quests that became complete on this call.
 function Quests.progress(self: Quests, data: Data, event: string, target: string?, amount: number?): { string }
 	local n = amount or 1
 	if type(n) ~= "number" or n ~= n or n < 1 or n ~= math.floor(n) or n > (self._c.maxEventAmount or 1e6) then
@@ -93,7 +85,6 @@ function Quests.progress(self: Quests, data: Data, event: string, target: string
 	return done
 end
 
--- claim a finished quest once. The flag is set only after the reward function succeeded, in the same synchronous step.
 function Quests.claim(self: Quests, data: Data, id: string): (boolean, string)
 	local def = self._c.defs[id]
 	if def == nil then

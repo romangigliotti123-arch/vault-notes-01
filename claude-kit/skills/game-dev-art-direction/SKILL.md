@@ -6,6 +6,8 @@ argument-hint: "[game slug or project folder] [mood or reference words]"
 
 # game-dev-art-direction
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
 
 Look is decided once, before building, and then enforced by code and by `game-dev-visual-qa`. Builders who skip this produce flat dark rectangles, bare blocks and default lighting. Run it after the plan (game-dev-plan Stage 4) and before the first UI or world job; it is job J00 of the build.

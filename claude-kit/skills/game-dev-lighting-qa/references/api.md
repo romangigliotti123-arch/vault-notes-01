@@ -4,10 +4,10 @@ Module `scripts/LightingKit.luau` (generated; copy to `src/shared/LightingKit.lu
 
 ```lua
 local LightingKit = require(game.ReplicatedStorage.Shared.LightingKit)
-LightingKit.apply("obby")                                   -- Edit mode: Lighting + Atmosphere + Sky + Bloom + ColorCorrection + SunRays
+LightingKit.apply("obby")
 LightingKit.apply("horror", { time = "night", mobile = true, bloom = { Intensity = 0.3 } })
-local scan = LightingKit.scan({ genre = "obby", platform = "both", game = "my-game", scorer = "builder" })  -- prints LIGHTING_SCAN_PART lines
-LightingKit.fix({ genre = "obby" })                         -- scan, applyFixes, scan again (3 passes)
+local scan = LightingKit.scan({ genre = "obby", platform = "both", game = "my-game", scorer = "builder" })
+LightingKit.fix({ genre = "obby" })
 ```
 
 | Function | Does |
@@ -32,3 +32,6 @@ The play area is the bounding box of the anchored parts (<= 20,000 parts examine
 - `Lighting.Technology` is plugin-level: set it in Edit mode (`execute_luau` / plugin / command bar) so it is saved in the place file.
 - Colours are read from `Part.Color` / terrain material colours; textures, decals, SurfaceAppearance and material albedo are not seen, so textured maps read slightly different from the estimate. Use screenshots.
 - The state of `ClockTime` animations (day/night cycles) is the value at the moment of the scan: scan at the time of day the screenshots use, or set `CONFIG.time`.
+
+## Runner CONFIG (lighting_run.luau)
+`mode` scan | apply | fix; `scorer` builder | critic; `genre` (see presets.md, aliases ok); `time` day | golden | night (apply; a scan reads Lighting.ClockTime); `platform` both | pc | mobile; `preset` (apply only, defaults to genre); `mobile` (apply only, the mobile-safe variant); `overrides` (apply only, section overrides such as `{ bloom = { Intensity = 0.2 }, sunRays = false }`); `waive` (`{ L5 = "reason" }`, at least 10 characters).

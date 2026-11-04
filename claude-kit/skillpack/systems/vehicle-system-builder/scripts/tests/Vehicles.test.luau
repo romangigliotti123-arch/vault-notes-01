@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/vehicle-system-builder/scripts/tests/Vehicles.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Vehicles = require("../Vehicles")
 

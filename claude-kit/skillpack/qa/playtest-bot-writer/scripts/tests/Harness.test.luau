@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/playtest-bot-writer/scripts/tests/Harness.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Harness = require("../Harness")
 

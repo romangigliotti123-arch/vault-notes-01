@@ -1,14 +1,8 @@
 --!strict
--- anim_census.luau: READ-ONLY census of animated rigs. Studio command bar or MCP `execute_luau`; run it in PLAY mode on the Server datamodel to see playing tracks
--- (in Edit mode only the rig counts are meaningful). Counts rigs with an Animator/Humanoid, how many are playing tracks, how many are idle but still animator-enabled,
--- and the distance bands of rigs from a focus point (default: the first player's character or the origin) so you can pick throttling rings.
--- Vault: Workspace.ClientAnimatorThrottling for distant animators; disable Evaluate State Machine on static NPC humanoids; turn off unused humanoid states;
--- a test found disabling states made no measurable difference with dozens of humanoids, so use non-humanoid rigs for crowds (optimization KB, creators); anchor/disable animators on
--- idle NPCs (Dead Rails halved server CPU, scripting KB, creator report). Verify any gain with the MicroProfiler: this script only counts.
 local Workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 
-local BANDS = { 100, 250, 500 } -- studs; same default rings as npc-cost-reducer (heuristic)
+local BANDS = { 100, 250, 500 }
 
 local focus = Vector3.zero
 local player = Players:GetPlayers()[1]

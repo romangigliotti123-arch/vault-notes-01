@@ -1,9 +1,4 @@
 --!strict
--- Matchmaker: queue logic for round games. Parties stay together, a match starts when it is full or when the oldest party has waited
--- long enough and the minimum size is met. The glue teleports each returned match to a reserved server (TeleportService with
--- ReservedServerId from HttpService:GenerateGUID) and handles teleport failures with retries; this module only decides who plays with whom.
---   local mm = Matchmaker.new({ minSize = 4, maxSize = 8, waitSeconds = 30, now = os.time })
---   mm:enqueue({ 11, 12 }) ; mm:leave(11) ; for _, match in mm:step() do teleport(match) end
 local Matchmaker = {}
 Matchmaker.__index = Matchmaker
 
@@ -19,7 +14,6 @@ function Matchmaker.new(config: Config): Matchmaker
 	return setmetatable({ _c = config, _q = {}, _in = {} }, Matchmaker)
 end
 
--- a party joins as a unit; refused if any member is already queued or the party cannot fit in one match
 function Matchmaker.enqueue(self: Matchmaker, ids: { number }): (boolean, string)
 	if #ids == 0 or #ids > self._c.maxSize then
 		return false, "party size"
@@ -38,7 +32,6 @@ function Matchmaker.enqueue(self: Matchmaker, ids: { number }): (boolean, string
 	return true, "ok"
 end
 
--- remove one player; a party that loses a member keeps the rest
 function Matchmaker.leave(self: Matchmaker, userId: number)
 	if not self._in[userId] then
 		return
@@ -64,14 +57,12 @@ function Matchmaker.size(self: Matchmaker): number
 	return n
 end
 
--- form matches from the queue (oldest first). Returns a list of matches, each a list of user ids.
 function Matchmaker.step(self: Matchmaker): { { number } }
 	local matches: { { number } } = {}
 	while #self._q > 0 do
 		local now = self._c.now()
 		local group: { number } = {}
 		local used: { number } = {}
-		-- greedy fill oldest-first without splitting parties
 		for i, p in self._q do
 			if #group + #p.ids <= self._c.maxSize then
 				for _, id in p.ids do

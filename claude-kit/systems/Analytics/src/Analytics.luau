@@ -1,25 +1,14 @@
 --!strict
---[[
-	Analytics: a thin, validated wrapper over AnalyticsService (economy, funnel, onboarding, progression, custom events).
-	Pure module (service injected) so the rules are unit-tested headless. Glue: AnalyticsGlue.luau. See ../README.md.
-
-	What it adds over calling AnalyticsService directly:
-	  - arguments are validated against the documented rules, bad calls are dropped and logged (never thrown into game code)
-	  - the documented per-experience caps (5 currencies, 20 transaction types, 100 SKUs, 10 funnels) are enforced locally,
-	    so a typo'd dynamic name cannot silently burn the cap and hide real data
-	  - funnel/onboarding steps are sent once per player per step
-	  - a per-player, per-event rate limit stops a loop from flooding the pipeline
-]]
 
 export type PlayerLike = { UserId: number }
 
 export type Config = {
-	service: any, -- AnalyticsService (or a mock)
-	flowTypes: { Source: any, Sink: any }, -- Enum.AnalyticsEconomyFlowType.Source / .Sink
-	progressionTypes: { Start: any, Complete: any, Fail: any }?, -- Enum.AnalyticsProgressionType.*
+	service: any,
+	flowTypes: { Source: any, Sink: any },
+	progressionTypes: { Start: any, Complete: any, Fail: any }?,
 	now: () -> number,
-	customFieldKeys: { any }?, -- allowed Enum.AnalyticsCustomFieldKeys items (CustomField01..03); other keys are dropped
-	maxPerMinute: number?, -- per player per event name (default 30)
+	customFieldKeys: { any }?,
+	maxPerMinute: number?,
 	log: ((string) -> ())?,
 }
 
@@ -62,7 +51,7 @@ type Impl = {
 	_txTypes: { [string]: boolean },
 	_skus: { [string]: boolean },
 	_funnels: { [string]: boolean },
-	_sent: { [number]: { [string]: boolean } }, -- userId -> "onboarding:3" / "funnel:name:sid:2"
+	_sent: { [number]: { [string]: boolean } },
 	_rate: { [string]: { start: number, n: number } },
 }
 
@@ -104,7 +93,6 @@ function Analytics.new(config: Config): Analytics
 	return (self :: any) :: Analytics
 end
 
--- Counts a never-seen value against a cap. true = ok to send.
 local function admit(set: { [string]: boolean }, value: string, cap: number): boolean
 	if set[value] then
 		return true

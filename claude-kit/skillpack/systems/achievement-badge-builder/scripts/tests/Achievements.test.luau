@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/achievement-badge-builder/scripts/tests/Achievements.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Achievements = require("../Achievements")
 

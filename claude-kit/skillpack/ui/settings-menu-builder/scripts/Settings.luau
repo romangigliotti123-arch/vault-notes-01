@@ -1,15 +1,9 @@
 --!strict
--- Settings: schema-driven preferences. One schema shared by client (to build the controls) and server (to validate what the client
--- sends before saving it into the player's profile, kit PlayerData). The server NEVER trusts raw client values: `sanitize` drops
--- unknown keys, coerces types and clamps numbers.
---   local clean = Settings.sanitize(SCHEMA, rawFromClient)       -- always a full, valid table
---   local changed = Settings.diff(old, clean)                    -- only send/save what changed
---   local saved = Settings.migrate(savedTable, 2, MIGRATIONS)    -- older saves gain new keys
 local Settings = {}
 
 export type Def = {
 	key: string,
-	kind: string, -- "toggle" | "slider" | "choice"
+	kind: string,
 	default: any,
 	min: number?,
 	max: number?,
@@ -68,7 +62,6 @@ function Settings.diff(old: Values, new: Values): Values
 	return changed
 end
 
--- migrations[n] upgrades a table from version n to n+1 in place. Returns the table and the new version.
 function Settings.migrate(
 	saved: Values,
 	fromVersion: number,

@@ -1,14 +1,9 @@
 --!strict
--- DeprecatedScan: find deprecated or legacy Roblox API use in source text and say what replaces it. Text only.
---   local hits = DeprecatedScan.scan(source)       -- { { line, rule, found, replacement, confidence, note } }
--- confidence "vault" = the vault's knowledge base states it (official or DevForum, with the date in `source`);
--- confidence "general" = widely known but NOT in the vault: live-check the docs before changing code. The deprecation list moves:
--- always re-check the current API reference and release notes before a mass migration.
 local DeprecatedScan = {}
 
 export type Rule = {
 	id: string,
-	kind: string, -- "global" (a bare function call), "method" (:Name( ), "member" (.Name / plain text)
+	kind: string,
 	name: string,
 	replacement: string,
 	confidence: string,
@@ -231,7 +226,6 @@ DeprecatedScan.RULES = {
 	},
 } :: { Rule }
 
--- true when `name` at `position` is a standalone identifier (not task.wait, not :Wait, not my_wait)
 local function isBare(code: string, position: number): boolean
 	local before = if position > 1 then string.sub(code, position - 1, position - 1) else ""
 	return not string.match(before, "[%w_%.:]")
@@ -287,7 +281,6 @@ function DeprecatedScan.scan(source: string, rules: { Rule }?): { Hit }
 	return hits
 end
 
--- counts per rule, vault-backed rules first, for the migration plan
 function DeprecatedScan.summarize(hits: { Hit }): { { rule: string, count: number, confidence: string } }
 	local counts: { [string]: { rule: string, count: number, confidence: string } } = {}
 	for _, h in hits do

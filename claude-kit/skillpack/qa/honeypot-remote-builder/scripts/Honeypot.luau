@@ -1,8 +1,4 @@
 --!strict
--- Honeypot: suspicion score + escalation ladder + watch list. Pure logic (clock passed in), unit-tested in Lune.
--- A honeypot remote is one legitimate code never fires (fake "AddMoney"); a trip is high confidence. Movement/rate flags are low confidence.
--- This module only DECIDES; the glue (HoneypotService.luau) logs and acts. It never recommends a permanent ban by itself:
--- the top rung is "review" (a human looks at the log, then uses the Ban API by UserId), per the vault: reversible actions for uncertain cases.
 local Honeypot = {}
 Honeypot.__index = Honeypot
 
@@ -10,12 +6,12 @@ export type Action = "none" | "log" | "mitigate" | "restrict" | "review"
 export type Entry = { t: number, userId: number, reason: string, weight: number, score: number, action: Action }
 export type Config = {
 	now: () -> number,
-	mitigateAt: number?, -- score for quiet mitigation: reset position, drop the request (default 3)
-	restrictAt: number?, -- temporary restriction: disable trading/shop for this session (default 6)
-	reviewAt: number?, -- flag for human review / Ban API (default 10)
-	decayPerMinute: number?, -- score lost per minute without new flags (default 1)
-	maxLog: number?, -- entries kept (default 500)
-	exempt: ((userId: number) -> boolean)?, -- e.g. staff accounts you want to test with; see Pitfalls: test with NON-exempt accounts too
+	mitigateAt: number?,
+	restrictAt: number?,
+	reviewAt: number?,
+	decayPerMinute: number?,
+	maxLog: number?,
+	exempt: ((userId: number) -> boolean)?,
 }
 
 export type Honeypot = typeof(setmetatable(
@@ -54,7 +50,6 @@ local function ladder(self: Honeypot, score: number): Action
 	return "none"
 end
 
--- weight guide: movement/rate flag 1, repeated validation failure 1, impossible request 2-3, honeypot remote fired 10
 function Honeypot.Flag(self: Honeypot, userId: number, reason: string, weight: number): Action
 	local c = self._c
 	if c.exempt and c.exempt(userId) then
@@ -77,12 +72,10 @@ function Honeypot.Flag(self: Honeypot, userId: number, reason: string, weight: n
 	return action
 end
 
--- convenience: a honeypot remote fired is a straight jump to review
 function Honeypot.Trip(self: Honeypot, userId: number, remoteName: string): Action
 	return self:Flag(userId, "honeypot:" .. remoteName, self._c.reviewAt or 10)
 end
 
--- suspects are kept apart from bans: most flagged accounts were never seen exploiting
 function Honeypot.WatchList(self: Honeypot): { number }
 	local out = {}
 	for id in self._watch do

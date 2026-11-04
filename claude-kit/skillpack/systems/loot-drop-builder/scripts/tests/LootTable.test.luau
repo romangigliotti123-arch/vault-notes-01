@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/loot-drop-builder/scripts/tests/LootTable.test.luau
 local t = require("../../../../../systems/_check/harness")
 local LootTable = require("../LootTable")
 
@@ -63,7 +62,6 @@ end)
 
 t.test("luck boosts non-base weights only and is bounded", function()
 	local d = {}
-	-- with luck 2 weights are 70, 50, 10 (total 130): r=0.55 -> 71.5 -> Fox; at luck 1 the same r gives Dog
 	t.eq(make(seq({ 0.55 })):roll(d, 2), "Fox")
 	t.eq(make(seq({ 0.55 })):roll(d, 1), "Dog")
 	t.falsy(pcall(function()

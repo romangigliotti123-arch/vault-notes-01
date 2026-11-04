@@ -1,10 +1,4 @@
 --!strict
--- ButtonState: the state machine behind one button's visuals and its activation. Pure: drive it from MouseEnter/Leave,
--- InputBegan/Ended or Activated events, and render `state` from your style table. Activation fires only when released over the
--- button that was pressed, and never while disabled/loading/owned.
---   local b = ButtonState.new()
---   b:send("down"); local fired = b:send("up")   -- fired == true
---   ButtonState.missingStyles(styles)             -- states with no style entry
 local ButtonState = {}
 ButtonState.__index = ButtonState
 
@@ -21,7 +15,6 @@ local function locked(s: State): boolean
 	return s == "disabled" or s == "loading" or s == "owned"
 end
 
--- events: enter, leave, down, up, disable, enable, load, done, own. Returns true when this event is an activation.
 function ButtonState.send(self: Button, event: string): boolean
 	if event == "disable" then
 		self.state = "disabled"
@@ -46,7 +39,7 @@ function ButtonState.send(self: Button, event: string): boolean
 		end
 	elseif event == "leave" then
 		self.over = false
-		self.state = "idle" -- leaving cancels a press: releasing elsewhere must not activate
+		self.state = "idle"
 	elseif event == "down" then
 		self.state = "pressed"
 	elseif event == "up" then
@@ -57,7 +50,6 @@ function ButtonState.send(self: Button, event: string): boolean
 	return false
 end
 
--- Touch has no hover: a tap sends down/up without enter. `tap` is the convenience for that case.
 function ButtonState.tap(self: Button): boolean
 	self:send("enter")
 	self:send("down")

@@ -1,12 +1,4 @@
 --!strict
--- InputMap: one client-side input layer over ContextActionService. Actions are named, bound to keyboard, gamepad and touch in
--- one place, rebindable, and release cleanly. Handlers receive a phase string ("Begin", "End", "Cancel", "Change") so game code
--- never touches raw input objects. CLIENT ONLY: the handler asks the server for the action (a validated remote); it never applies
--- the result itself. Under engine Server Authority use InputActions instead (see the skill).
---   local map = InputMap.new(game:GetService("ContextActionService") :: any, { sink = Enum.ContextActionResult.Sink, pass = Enum.ContextActionResult.Pass })
---   map:Bind("Dash", { inputs = { Enum.KeyCode.LeftShift, Enum.KeyCode.ButtonB }, touchButton = true, title = "Dash", throttle = 0.5 },
---       function(phase) if phase == "Begin" then dashRemote:FireServer() end end)
---   map:Rebind("Dash", { Enum.KeyCode.Q })      map:Unbind("Dash")      map:UnbindAll()
 local InputMap = {}
 InputMap.__index = InputMap
 
@@ -15,7 +7,7 @@ export type Binding = {
 	touchButton: boolean?,
 	priority: number?,
 	title: string?,
-	throttle: number?, -- courtesy limit in seconds on "Begin" so a held key does not spam; the server still rate-limits
+	throttle: number?,
 }
 export type Handler = (phase: string) -> ()
 export type CasLike = {

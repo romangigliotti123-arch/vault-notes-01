@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/input-validation-auditor/scripts/tests/ArgScan.test.luau
 local t = require("../../../../../systems/_check/harness")
 local ArgScan = require("../ArgScan")
 

@@ -1,9 +1,4 @@
 --!strict
--- ShopLayout: pure shop-screen logic. Decides the state of each offer's button and lints a screen spec for dark patterns.
--- Purchases themselves go through the kit Shop system (server authority); this only decides what the client SHOWS.
---   ShopLayout.buttonState(offer, ownedIds, balance)  -> "owned" | "buy" | "needsCurrency" | "unavailable"
---   ShopLayout.order(offers)                          -> stable list: featured first, then by price ascending
---   ShopLayout.audit(spec)                            -> list of failed rule names (empty = pass)
 local ShopLayout = {}
 
 export type Offer = { id: string, price: number, featured: boolean?, oneTime: boolean?, available: boolean? }
@@ -11,7 +6,7 @@ export type Spec = {
 	priceVisibleOnCard: boolean,
 	closeTargetPx: number,
 	hasTimer: boolean,
-	timerIsReal: boolean?, -- a countdown shown must be backed by a real end time
+	timerIsReal: boolean?,
 	ownedHidesBuy: boolean,
 	confirmsRobuxPurchase: boolean,
 	coversWholeScreenWithoutClose: boolean,
@@ -61,7 +56,7 @@ function ShopLayout.audit(spec: Spec): { string }
 		end
 	end
 	need(spec.priceVisibleOnCard, "price-visible-before-tap")
-	need(spec.closeTargetPx >= 44, "close-target-44px") -- touch heuristic, not a Roblox number
+	need(spec.closeTargetPx >= 44, "close-target-44px")
 	need(not spec.hasTimer or spec.timerIsReal == true, "no-fake-countdown")
 	need(spec.ownedHidesBuy, "owned-hides-buy")
 	need(spec.confirmsRobuxPurchase, "confirm-before-robux")

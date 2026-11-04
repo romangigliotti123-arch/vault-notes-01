@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/liveops/codes-system-builder/scripts/tests/RedeemService.test.luau
 local t = require("../../../../../systems/_check/harness")
 local RedeemService = require("../RedeemService")
 local CodeBook = require("../../../../marketing/codes-campaign-planner/scripts/CodeBook")
@@ -125,7 +124,7 @@ t.test("junk input and a throwing store never error out to the caller", function
 		markRedeemed = function() end,
 	})
 	t.eq(broken:Redeem(1, "OPEN", {}).reason, "error")
-	t.eq(broken:Redeem(1, "OPEN", {}).reason, "error") -- busy flag was cleared
+	t.eq(broken:Redeem(1, "OPEN", {}).reason, "error")
 end)
 
 t.done()

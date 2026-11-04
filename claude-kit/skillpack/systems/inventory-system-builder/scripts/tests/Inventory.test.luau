@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/inventory-system-builder/scripts/tests/Inventory.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Inventory = require("../Inventory")
 

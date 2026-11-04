@@ -1,10 +1,4 @@
 --!strict
--- Portals: the decisions around a hub's portals: which destinations exist (server whitelist; the client sends a NAME, never a place id),
--- per-player teleport cooldown, grouping a party into TeleportAsync batches, and retry/backoff for failures.
--- The glue calls TeleportService:TeleportAsync inside pcall and handles TeleportInitFailed; place ids of 0 mean SET IN CREATOR HUB.
---   local portals = Portals.new({ now = os.clock, maxGroup = 50, cooldown = 3, maxAttempts = 5,
---       destinations = { Forest = { placeId = 0, reserved = true, maxParty = 4 } } })
---   local plan = portals:plan("Forest", { 11, 12 })   -- { placeId=, reserved=, groups={ {11,12} } } or nil, reason
 local Portals = {}
 Portals.__index = Portals
 
@@ -54,7 +48,6 @@ function Portals.plan(self: Portals, destination: any, userIds: { number }): (Pl
 	return { placeId = dest.placeId, reserved = dest.reserved == true, groups = groups }, "ok"
 end
 
--- seconds to wait before attempt n (1-based) or nil when out of attempts: 1, 2, 4, 8, 8 ...
 function Portals.retryDelay(self: Portals, attempt: number): number?
 	if attempt > (self._c.maxAttempts or 5) then
 		return nil
@@ -62,7 +55,6 @@ function Portals.retryDelay(self: Portals, attempt: number): number?
 	return math.min(2 ^ (attempt - 1), 8)
 end
 
--- release the cooldown after a failed teleport so the player can try again
 function Portals.failed(self: Portals, userIds: { number })
 	for _, id in userIds do
 		self._last[id] = nil

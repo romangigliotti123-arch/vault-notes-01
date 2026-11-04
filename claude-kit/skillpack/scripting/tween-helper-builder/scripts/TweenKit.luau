@@ -1,12 +1,4 @@
 --!strict
--- TweenKit: tween utility with cancel, chaining and no fighting tweens. A new tween on a property that is already animating
--- cancels the old one instead of both writing every frame. The tween service is injected so the logic is unit-tested.
---   local kit = TweenKit.new(game:GetService("TweenService") :: any)
---   kit:Play(door, TweenInfo.new(0.4), { Position = openPos }, function(completed) end)
---   kit:Chain({ { door, info, { Transparency = 1 } }, { door, info2, { Size = small } } }, onDone)
---   kit:Cancel(door)        kit:Destroy()
--- UI tweens belong on the client; world state that other players see belongs on the server (it replicates, but tween the
--- visual on each client when the motion is cosmetic, to save bandwidth).
 local TweenKit = {}
 TweenKit.__index = TweenKit
 
@@ -17,7 +9,7 @@ export type TweenLike = {
 	Completed: { Connect: (self: any, fn: (state: any) -> ()) -> ConnectionLike },
 }
 export type ServiceLike = { Create: (self: ServiceLike, instance: any, info: any, goal: { [string]: any }) -> TweenLike }
-export type Step = { any } -- { instance, tweenInfo, goal }
+export type Step = { any }
 export type Handle = { Cancel: (self: Handle) -> () }
 
 type Active = { tween: TweenLike, props: { [string]: boolean }, cancel: () -> () }
@@ -37,7 +29,6 @@ local function overlaps(a: { [string]: boolean }, b: { [string]: boolean }): boo
 	return false
 end
 
--- play one tween; onDone(completed) runs once: true when it finished, false when it was cancelled or replaced
 function TweenKit.Play(
 	self: Kit,
 	instance: any,
@@ -54,7 +45,6 @@ function TweenKit.Play(
 			other.cancel()
 		end
 	end
-	-- fetch the list after cancelling: finishing the last tween removes the list from _active
 	local list = self._active[instance]
 	if list == nil then
 		list = {}
@@ -109,7 +99,6 @@ function TweenKit.Play(
 	} :: Handle
 end
 
--- run steps one after another; cancelling the handle stops the step in flight and skips the rest
 function TweenKit.Chain(self: Kit, steps: { Step }, onDone: ((completed: boolean) -> ())?): Handle
 	local cancelled = false
 	local current: Handle? = nil

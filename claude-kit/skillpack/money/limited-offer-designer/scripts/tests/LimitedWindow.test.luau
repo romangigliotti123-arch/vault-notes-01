@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/money/limited-offer-designer/scripts/tests/LimitedWindow.test.luau
 local t = require("../../../../../systems/_check/harness")
 local L = require("../LimitedWindow")
 
@@ -40,7 +39,7 @@ t.test("dark patterns and risky designs are flagged", function()
 		perPlayerReset = true,
 		stockCap = 100,
 	}
-	t.eq(#L.lint(bad), 4) -- no end, per-player reset, not kept, stock cap
+	t.eq(#L.lint(bad), 4)
 	t.eq(#L.lint({ id = "y", startsAt = 1, endsAt = 2, consumable = true, oneAtATime = true }), 1)
 end)
 

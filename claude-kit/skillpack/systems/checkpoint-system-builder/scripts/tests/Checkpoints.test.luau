@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/checkpoint-system-builder/scripts/tests/Checkpoints.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Checkpoints = require("../Checkpoints")
 

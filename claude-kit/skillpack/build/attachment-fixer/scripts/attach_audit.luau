@@ -1,12 +1,5 @@
 --!strict
--- attach_audit.luau: find broken attachments, welds and constraints that make models fall apart. Audit-only by default.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit).
--- Checks: Attachments parented to non-parts; Constraints with a missing or shared Attachment0/Attachment1; WeldConstraints, Welds and
--- Motor6Ds with a missing or identical Part0/Part1; welds that join two different top-level models; models that split into several
--- free (unanchored) assemblies. Two opt-in fixes, one undo step together:
---   APPLY_REMOVE_DEAD : destroy WeldConstraints/Welds whose Part0 or Part1 is nil (they hold nothing).
---   APPLY_REWELD      : in a Model with a PrimaryPart, add a WeldConstraint from each loose free assembly's root to the PrimaryPart.
-local ROOT: Instance? = nil -- nil = the current Selection, or Workspace when nothing is selected
+local ROOT: Instance? = nil
 local APPLY_REMOVE_DEAD = false
 local APPLY_REWELD = false
 local MAX_LIST = 12

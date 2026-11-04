@@ -1,15 +1,9 @@
 --!strict
--- accessory_check.luau: read-only pre-flight for a rigid accessory or layered clothing item before it goes to the Accessory Fitting
--- Tool / upload. Checks the structure the vault lists as required: a Handle, a matching R15 attachment (rigid), MeshPart
--- Transparency exactly 0, unique names, cage meshes present (layered), and sane physics flags. Triangle counts and the
--- real cage fit cannot be read from a script: use the Accessory Fitting Tool and the upload validator for those.
--- Paste into the Studio command bar or send through the Studio MCP `execute_luau` tool (datamodel_type Edit). Select the Accessory.
-local TARGET: Instance? = nil -- nil = the current Selection
-local HAT_TRIANGLE_LIMIT = 4000 -- vault: hat limit 4,000 triangles (UGC rules change: live-check)
+local TARGET: Instance? = nil
+local HAT_TRIANGLE_LIMIT = 4000
 
 local Selection = game:GetService("Selection")
 
--- R15 accessory attachment names (Roblox character model). Verify against a fresh Rig Builder rig if unsure.
 local ATTACHMENTS: { [string]: boolean } = {
 	HatAttachment = true,
 	HairAttachment = true,

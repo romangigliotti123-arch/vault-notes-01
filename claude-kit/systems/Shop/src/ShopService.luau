@@ -1,17 +1,4 @@
 --!strict
---[[
-	Roblox glue for Shop. Server only. Owns MarketplaceService.ProcessReceipt (a game can only have ONE callback).
-
-	local ShopService = require(script.Parent.ShopService)
-	ShopService.Start({
-		products = { [1234567] = { name = "Coins100", grant = function(userId, data) data.coins += 100 return true end } },
-		passes = { [7654321] = { name = "VIP", onOwned = function(userId) ... end } },
-		getData = function(userId) local p = Players:GetPlayerByUserId(userId) return p and PlayerDataService.Get(p) end,
-		saveNow = function(userId) local p = Players:GetPlayerByUserId(userId) return p ~= nil and PlayerDataService.SaveNow(p) end,
-	})
-	Client: ReplicatedStorage.ShopRequest:FireServer("product", "Coins100")   -- by NAME, never by id or price
-	Server: ShopService.HasPass(player, "VIP")
-]]
 local MarketplaceService = game:GetService("MarketplaceService")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -75,7 +62,6 @@ function Service.Start(opts: StartOptions)
 		s:ClearPlayer(player.UserId)
 	end)
 
-	-- Client asks to see a purchase prompt. The client sends only a NAME; ids come from the server config.
 	local remote = Instance.new("RemoteEvent")
 	remote.Name = "ShopRequest"
 	remote.Parent = ReplicatedStorage

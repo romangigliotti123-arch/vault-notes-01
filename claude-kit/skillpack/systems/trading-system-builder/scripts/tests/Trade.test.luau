@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/trading-system-builder/scripts/tests/Trade.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Inventory = require("../../../inventory-system-builder/scripts/Inventory")
 local Wallet = require("../../../currency-system-builder/scripts/Wallet")
@@ -45,7 +44,6 @@ local function world()
 	return trade, datas, logs, equipped
 end
 
--- total of everything in the world, used to prove nothing is created or destroyed
 local function totals(datas)
 	local wood, swords, coins, uids = 0, 0, 0, {}
 	for _, d in datas do

@@ -1,10 +1,4 @@
 --!strict
--- ToastQueue: priority queue for toasts/alerts with a visible cap, per-key spam limits and merging of repeats. Pure: time is passed
--- in (`now`, seconds) so it is testable and works from any clock. Rendering (frames, tweens) is the caller's.
---   local q = ToastQueue.new({ maxVisible = 3, maxQueued = 12, keyCooldown = 2, defaultTtl = 3 })
---   q:push({ key = "coins", text = "+50 coins", priority = 1 }, os.clock())   -> "shown" | "queued" | "merged" | "dropped"
---   local visible = q:tick(os.clock())                                         -- expire, promote, return what to render
--- Priority 100+ is critical: it ignores the cooldown and may displace the oldest lowest-priority visible toast.
 local ToastQueue = {}
 ToastQueue.__index = ToastQueue
 
@@ -69,7 +63,6 @@ function ToastQueue.push(self: Queue, t: Toast, now: number): string
 		return "shown"
 	end
 	if critical then
-		-- displace the lowest-priority visible toast (the oldest on ties)
 		local worst = 1
 		for i, v in self._visible do
 			if v.priority < self._visible[worst].priority then

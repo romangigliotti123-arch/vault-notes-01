@@ -1,11 +1,4 @@
 --!strict
---[[
-	Shop: developer-product receipts (idempotent) and game-pass ownership. Pure module, unit-tested headless.
-	Roblox glue (MarketplaceService.ProcessReceipt, prompts, remotes) lives in ShopService.luau. See ../README.md.
-
-	Receipt rule: grant + receipt record happen in the SAME data table, then the data is saved, and only then do we
-	answer "Granted". Anything that goes wrong answers "NotYet" so Roblox retries; a repeated PurchaseId never grants twice.
-]]
 
 export type Data = { [any]: any }
 
@@ -17,25 +10,24 @@ export type Receipt = {
 
 export type Product = {
 	name: string,
-	-- Apply the reward to `data` (the live player data table). Return false (or error) to refuse; nothing is recorded then.
 	grant: (userId: number, data: Data) -> boolean,
 }
 
 export type Pass = {
 	name: string,
-	onOwned: ((userId: number) -> ())?, -- called once per join (and once right after buying) when the pass is owned
+	onOwned: ((userId: number) -> ())?,
 }
 
 export type Config = {
 	products: { [number]: Product },
 	passes: { [number]: Pass }?,
-	getData: (userId: number) -> Data?, -- the loaded player data, or nil when not loaded / player gone
-	saveNow: (userId: number) -> boolean, -- force a save, true when written
-	ownsPass: (userId: number, passId: number) -> boolean, -- MarketplaceService:UserOwnsGamePassAsync (may error)
+	getData: (userId: number) -> Data?,
+	saveNow: (userId: number) -> boolean,
+	ownsPass: (userId: number, passId: number) -> boolean,
 	now: () -> number,
 	wait: (number) -> any,
-	maxReceipts: number?, -- receipts kept per player (default 300)
-	passAttempts: number?, -- retries when verifying ownership (default 4)
+	maxReceipts: number?,
+	passAttempts: number?,
 	log: ((string) -> ())?,
 }
 
@@ -76,7 +68,6 @@ function Shop.new(config: Config): Shop
 	return (self :: any) :: Shop
 end
 
--- Keep only the newest `max` receipts. Data.Receipts = { [purchaseId] = unixTime }.
 local function prune(receipts: { [string]: number }, max: number)
 	local n = 0
 	for _ in receipts do
@@ -110,7 +101,7 @@ function Shop.ProcessReceipt(self: Impl, receipt: Receipt): Decision
 	end
 	local data = c.getData(receipt.PlayerId)
 	if data == nil then
-		return "NotYet" -- not loaded or left: Roblox calls again when they (re)join
+		return "NotYet"
 	end
 	local receipts = data.Receipts
 	if type(receipts) ~= "table" then
@@ -120,7 +111,6 @@ function Shop.ProcessReceipt(self: Impl, receipt: Receipt): Decision
 	self._inFlight[pid] = true
 	local decision: Decision = "NotYet"
 	if receipts[pid] ~= nil then
-		-- already granted earlier: make sure it is persisted, then confirm (never grant again)
 		if c.saveNow(receipt.PlayerId) then
 			decision = "Granted"
 		end
@@ -174,7 +164,6 @@ local function markOwned(self: Impl, userId: number, passId: number)
 	end
 end
 
--- Call on join (after data loaded): checks every configured pass against Roblox.
 function Shop.RefreshPasses(self: Impl, userId: number)
 	local passes: { [number]: Pass } = self._c.passes or {}
 	for passId in passes do
@@ -184,7 +173,6 @@ function Shop.RefreshPasses(self: Impl, userId: number)
 	end
 end
 
--- PromptGamePassPurchaseFinished: never trust wasPurchased alone, ask Roblox. Returns true when now owned.
 function Shop.OnPassPromptFinished(self: Impl, userId: number, passId: number, wasPurchased: boolean): boolean
 	if not wasPurchased or (self._c.passes or {})[passId] == nil then
 		return false

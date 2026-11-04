@@ -1,13 +1,4 @@
 --!strict
--- Mocks: small fakes for testing game logic under Lune without Roblox. Pair with the kit harness (systems/_check/harness.luau).
---   local clock = Mocks.clock()            clock.now = 5         clock.advance(2)       systemUnderTest.new(clock.read)
---   local spy = Mocks.spy(function(x) return x * 2 end)    spy.calls -> { { 3 } }     spy.count
---   local sig = Mocks.signal()             sig:Connect(fn)       sig:Fire(1, 2)         sig:ConnectionCount()
---   local remote = Mocks.remote()          remote.OnServerEvent:Connect(fn)     remote:FireFromClient(player, "buy", 3)     remote.sent
---   local p = Mocks.player(42, "Alice")    p.UserId, p.Name, p.Parent (nil after p:Leave())
---   local store = Mocks.store()            store:failNext(2)     -- next two calls throw, then it works again
--- Mocks cover the logic seams only. Anything that needs the engine (physics, replication, real DataStores) stays `untested`
--- until it runs in Studio.
 local Mocks = {}
 
 export type Clock = { now: number, read: () -> number, advance: (seconds: number) -> () }
@@ -75,7 +66,6 @@ export type Remote = {
 	FireClient: (self: Remote, player: any, ...any) -> (),
 }
 
--- a RemoteEvent: tests call FireFromClient as the exploiter or player; FireClient is recorded in `sent`
 function Mocks.remote(): Remote
 	local remote = { OnServerEvent = Mocks.signal(), OnClientEvent = Mocks.signal(), sent = {} } :: Remote
 	function remote.FireFromClient(self: Remote, player: any, ...: any)
@@ -106,7 +96,6 @@ export type Store = {
 	UpdateAsync: (self: Store, key: string, fn: (old: any) -> any) -> any,
 }
 
--- an in-memory DataStore with failure injection (throttling, outages). The kit's PlayerData system has its own StoreLike fake.
 function Mocks.store(): Store
 	local failures = 0
 	local store = { data = {}, calls = 0 } :: Store

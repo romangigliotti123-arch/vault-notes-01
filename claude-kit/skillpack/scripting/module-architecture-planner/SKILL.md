@@ -27,7 +27,6 @@ One script has grown several jobs, server and client logic are tangled, or a new
 7. Hand the proposal to the human before moving files. Move one module per commit and rerun the plan; violations must only decrease.
 
 ```lua
--- Lune runner (outside scripts/): lune run plan.luau
 local fs = require("@lune/fs")
 local sources = {}
 for _, name in fs.readDir("src") do

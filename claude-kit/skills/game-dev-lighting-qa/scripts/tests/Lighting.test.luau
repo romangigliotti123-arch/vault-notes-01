@@ -1,8 +1,4 @@
 --!nocheck
--- Run (from the kit's systems folder, where rokit.toml pins lune):
---   lune run ../skills/game-dev-lighting-qa/scripts/tests/Lighting.test.luau [fixtures.json] [--dump out.json]
--- Runs every case of fixtures.json through LightingCore and asserts the hand-written expectations; resolves every preset case. --dump writes all reports and
--- resolved presets as JSON so the Python reference (lighting_ref.py) can be compared field by field (netlify-site/tools/test_lighting.py does that).
 local fs = require("@lune/fs")
 local process = require("@lune/process")
 local serde = require("@lune/serde")

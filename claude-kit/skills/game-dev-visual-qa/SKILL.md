@@ -6,6 +6,8 @@ argument-hint: "[game slug or project folder]"
 
 # game-dev-visual-qa
 
+Code comments: none by default (see roblox-luau-style, Comments).
+
 Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
 
 Why this exists: a game that runs and follows its design was repeatedly declared done while the UI overlapped, models were bare blocks and flat sprites, and lighting and effects were default. WORKS (no errors) and GOOD (fun) are not LOOKS. This gate is the third axis; `game-dev-critic` re-scores it independently and refuses GOOD without it.

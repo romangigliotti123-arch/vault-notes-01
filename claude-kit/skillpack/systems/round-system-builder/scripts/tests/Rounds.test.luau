@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/systems/round-system-builder/scripts/tests/Rounds.test.luau
 local t = require("../../../../../systems/_check/harness")
 local Rounds = require("../Rounds")
 

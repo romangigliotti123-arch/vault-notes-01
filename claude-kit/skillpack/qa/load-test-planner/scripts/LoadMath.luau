@@ -1,6 +1,4 @@
 --!strict
--- LoadMath: arithmetic for planning a load test. Pure functions, unit-tested in Lune. EVERY limit and payload size is an input from you
--- (live-check Roblox's current limits in the docs; none are hard-coded here). Output tells you what to measure and whether the plan fits.
 local LoadMath = {}
 
 export type Traffic = { name: string, perClientPerSec: number, bytesPerMessage: number }
@@ -32,7 +30,6 @@ function LoadMath.totals(plan: Plan): Totals
 	}
 end
 
--- messages per second the server must handle if EVERY client sits at the per-remote rate limit you set (worst honest client)
 function LoadMath.worstCase(clients: number, limits: { [string]: number }): number
 	local sum = 0
 	for _, perSec in limits do
@@ -41,7 +38,6 @@ function LoadMath.worstCase(clients: number, limits: { [string]: number }): numb
 	return clients * sum
 end
 
--- ramp: client counts to hold for `holdSeconds` each, multiplying by `factor` (>1) from `start` up to `max` (last step is exactly max)
 function LoadMath.ramp(
 	start: number,
 	max: number,
@@ -62,7 +58,6 @@ end
 export type Budget = { name: string, measured: number, limit: number, higherIsWorse: boolean? }
 export type Verdict = { name: string, measured: number, limit: number, ok: boolean, headroom: number }
 
--- compare measured values with budgets you chose (server heartbeat ms, memory MB, remote msgs/s, datastore calls/min ...)
 function LoadMath.verdicts(budgets: { Budget }): { Verdict }
 	local out = {}
 	for _, b in budgets do
@@ -76,7 +71,6 @@ function LoadMath.verdicts(budgets: { Budget }): { Verdict }
 	return out
 end
 
--- the largest client count at which every measured step stayed within budget. steps: { {clients, ok} } in ascending order
 function LoadMath.safeCapacity(steps: { { clients: number, ok: boolean } }): number
 	local safe = 0
 	for _, s in steps do

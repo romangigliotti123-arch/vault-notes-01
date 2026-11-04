@@ -1,10 +1,4 @@
 --!strict
--- Rounds: the intermission -> playing -> ending state machine as pure logic driven by tick(dt). It decides WHAT state we are in and
--- who may join; the glue (teleports, map load, scoreboards) is in the callbacks, and cleanup always runs when a round ends.
--- States: Waiting (not enough players) -> Intermission (countdown) -> Playing -> Ending (results) -> back to Waiting/Intermission.
---   local rounds = Rounds.new({ minPlayers = 2, intermission = 15, roundLength = 120, endScreen = 6, joinGrace = 10,
---       onStart = function(ids) ... end, onEnd = function(reason, winners) ... end, cleanup = function() ... end })
---   every second:  rounds:tick(1, playerCount)       ; on death/leave: rounds:out(userId) ; late join: rounds:join(userId) -> "play" | "spectate"
 local Rounds = {}
 Rounds.__index = Rounds
 
@@ -13,11 +7,11 @@ export type Config = {
 	intermission: number,
 	roundLength: number,
 	endScreen: number,
-	joinGrace: number?, -- seconds into a round during which a late joiner may still enter (default 0 = never)
+	joinGrace: number?,
 	onStart: (ids: { number }) -> (),
 	onEnd: (reason: string, survivors: { number }) -> (),
 	cleanup: () -> (),
-	soloEnds: boolean?, -- end when one player is left alive (default true)
+	soloEnds: boolean?,
 }
 export type State = "Waiting" | "Intermission" | "Playing" | "Ending"
 export type Rounds = typeof(setmetatable(
@@ -69,7 +63,6 @@ local function finish(self: Rounds, reason: string)
 	self._c.onEnd(reason, survivors)
 end
 
--- who is waiting for the next round is tracked by the glue through join(); tick only needs the head count of ready players
 function Rounds.tick(self: Rounds, dt: number, ready: number): State
 	if self.state == "Waiting" then
 		if ready >= self._c.minPlayers then
@@ -77,7 +70,7 @@ function Rounds.tick(self: Rounds, dt: number, ready: number): State
 		end
 	elseif self.state == "Intermission" then
 		if ready < self._c.minPlayers then
-			self.state = "Waiting" -- someone left: the countdown restarts when enough are back
+			self.state = "Waiting"
 		else
 			self.left -= dt
 			if self.left <= 0 then
@@ -114,7 +107,6 @@ function Rounds.tick(self: Rounds, dt: number, ready: number): State
 	return self.state
 end
 
--- a player became ready to play (joined the lobby/spectator pool). Returns "play" when they will be in the next/this round, else "spectate".
 function Rounds.join(self: Rounds, userId: number): string
 	if self.state == "Playing" then
 		if self.elapsed <= (self._c.joinGrace or 0) then
@@ -130,7 +122,6 @@ function Rounds.join(self: Rounds, userId: number): string
 	return "play"
 end
 
--- died, left or was eliminated
 function Rounds.out(self: Rounds, userId: number)
 	self.alive[userId] = nil
 	self.waiting[userId] = nil

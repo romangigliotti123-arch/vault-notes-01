@@ -1,5 +1,4 @@
 --!nocheck
--- Run from the kit's systems folder: lune run ../skillpack/qa/server-authority-checker/scripts/tests/AuthorityScan.test.luau
 local t = require("../../../../../systems/_check/harness")
 local ArgScan = require("../../../input-validation-auditor/scripts/ArgScan")
 local AuthorityScan = require("../AuthorityScan")

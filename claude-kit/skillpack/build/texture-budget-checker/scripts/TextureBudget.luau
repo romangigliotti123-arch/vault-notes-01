@@ -1,10 +1,4 @@
 --!strict
--- TextureBudget: estimate texture memory from an inventory and rank the biggest wins. Pure logic, unit-tested under Lune.
--- Studio cannot read image sizes from an asset id, so the inventory (scripts/texture_inventory.luau) lists ids and where they are used,
--- and the owner supplies width/height (Asset Manager, the image file, or the Developer Console texture memory tab).
--- The byte model is an ESTIMATE: width * height * bytesPerPixel * 4/3 for mip maps. Vault: a 1024x1024 texture is "about 5 MB"
--- regardless of PNG file size (2018 DevForum figure), one resident 1024 SurfaceAppearance set about 2.8 MB. Confirm with the
--- Developer Console (Place memory, graphics texture) before acting on a number.
 local TextureBudget = {}
 
 export type Item = { id: string, width: number, height: number, uses: number?, kind: string? }
@@ -28,11 +22,10 @@ function TextureBudget.bytes(width: number, height: number, bytesPerPixel: numbe
 	return width * height * bpp * factor
 end
 
--- Items with the same id are one texture in memory: merged, uses added up, largest size kept.
 function TextureBudget.report(items: { Item }, opts: Options?): Report
 	local o: Options = opts or {}
 	local maxSide = o.maxSide or 1024
-	local budgetMB = o.budgetMB or 200 -- the skill's own default, not a platform number
+	local budgetMB = o.budgetMB or 200
 	local merged: { [string]: Row } = {}
 	local order: { string } = {}
 	for _, it in items do
@@ -62,7 +55,6 @@ function TextureBudget.report(items: { Item }, opts: Options?): Report
 		local row = merged[id]
 		total += row.mb
 		if math.max(row.width, row.height) > maxSide then
-			-- halving both sides keeps a quarter of the memory
 			row.flag = `{row.width}x{row.height} above {maxSide}: halve it if it is not seen up close`
 			row.saveMB = row.mb * 0.75
 			save += row.saveMB

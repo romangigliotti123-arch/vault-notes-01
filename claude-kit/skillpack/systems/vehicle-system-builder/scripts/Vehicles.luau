@@ -1,9 +1,4 @@
 --!strict
--- Vehicles: the ownership and lifecycle rules for spawned vehicles: a per-player vehicle limit, spawn cooldown, who may drive
--- (the owner, or anyone in the owner's allowed set), seat claiming, and a sweep that removes abandoned vehicles. Pure logic;
--- the glue creates the model, calls SetNetworkOwner(driver) on the chassis only while seated, and destroys on sweep.
---   local v = Vehicles.new({ maxPerPlayer = 1, spawnCooldown = 5, abandonSeconds = 120, seats = 2, now = os.clock })
---   local id = v:spawn(userId) ; v:sit(id, userId, 1) ; v:leaveSeat(id, userId) ; for _, dead in v:sweep(present) do destroy(dead) end
 local Vehicles = {}
 Vehicles.__index = Vehicles
 
@@ -36,7 +31,6 @@ function Vehicles.countOf(self: Vehicles, userId: number): number
 	return n
 end
 
--- returns the new vehicle id or nil, reason. Spawning past the limit is refused (or replaces: call despawnOwned first in the glue).
 function Vehicles.spawn(self: Vehicles, userId: number): (string?, string)
 	local now = self._c.now()
 	if now - (self._lastSpawn[userId] or -math.huge) < self._c.spawnCooldown then
@@ -52,7 +46,6 @@ function Vehicles.spawn(self: Vehicles, userId: number): (string?, string)
 	return id, "ok"
 end
 
--- seat 1 is the driver seat: only the owner may take it. Other seats are free for anyone.
 function Vehicles.sit(self: Vehicles, id: string, userId: number, seat: any): (boolean, string)
 	local v = self._v[id]
 	if v == nil then
@@ -98,7 +91,6 @@ function Vehicles.remove(self: Vehicles, id: string)
 	self._v[id] = nil
 end
 
--- vehicles to destroy: owner left the server (present[owner] ~= true) and nobody is seated, or empty for abandonSeconds
 function Vehicles.sweep(self: Vehicles, present: { [number]: boolean }): { string }
 	local now = self._c.now()
 	local out = {}

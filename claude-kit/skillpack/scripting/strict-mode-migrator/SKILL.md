@@ -27,7 +27,6 @@ Ten or more scripts, mixed typing, and a wish to end with the analyzer green in 
 7. Re-run the plan after each batch; the `done` list grows and the table shrinks.
 
 ```lua
--- Lune runner (save outside scripts/, run with: lune run migrate.luau)
 local fs = require("@lune/fs")
 local function collect(dir: string, out: { [string]: string })
 	for _, name in fs.readDir(dir) do

@@ -1,8 +1,4 @@
 --!strict
--- LeakScan: heuristic text scan for code that never cleans up. It ranks files to read; it cannot prove a leak.
--- Works best on stylua-formatted code (it uses indentation to find the enclosing block).
---   local findings = LeakScan.scan(source)      -- { { line, rule, message }, ... }
--- Rules: busy-loop, unstored-connect, repeat-connect, player-state-not-cleared, instances-not-destroyed, unpaired-render-bind.
 local LeakScan = {}
 
 export type Finding = { line: number, rule: string, message: string }
@@ -28,7 +24,6 @@ local function stripComment(line: string): string
 	return (string.gsub(line, "%-%-.*$", ""))
 end
 
--- nearest earlier line with smaller indentation (the block header)
 local function enclosing(lines: { string }, i: number): string
 	local base = indentOf(lines[i])
 	for j = i - 1, 1, -1 do
@@ -87,7 +82,6 @@ function LeakScan.scan(source: string): { Finding }
 			renderUnbinds += 1
 		end
 
-		-- a loop that never yields freezes the thread; one that yields only via spawn still needs a stop condition
 		if string.match(code, "^%s*while%s+true%s+do") then
 			local yields = false
 			local base = indentOf(raw)
@@ -144,7 +138,6 @@ function LeakScan.scan(source: string): { Finding }
 	return out
 end
 
--- count per rule, for the report header
 function LeakScan.summarize(findings: { Finding }): { [string]: number }
 	local counts: { [string]: number } = {}
 	for _, f in findings do

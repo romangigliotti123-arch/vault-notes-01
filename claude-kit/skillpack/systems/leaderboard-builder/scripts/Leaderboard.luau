@@ -1,19 +1,13 @@
 --!strict
--- Leaderboard: the pure parts of a global leaderboard around an OrderedDataStore: a cached top-N read that survives fetch failures,
--- a throttled "should I write this score" decision, score sanitising and rank lookup. Roblox glue (GetSortedAsync, SetAsync) is injected.
---   local board = Leaderboard.new({ now = os.time, ttl = 60, fetch = function(limit) return pcallGetTop(limit) end,
---       minWriteGap = 30, maxScore = 1e12 })
---   local top = board:top(10)                       -- cached; at most one fetch per ttl
---   if board:shouldWrite(userId, score) then store:SetAsync(tostring(userId), board:clean(score)) end
 local Leaderboard = {}
 Leaderboard.__index = Leaderboard
 
 export type Entry = { key: string, value: number }
 export type Config = {
 	now: () -> number,
-	ttl: number, -- seconds a fetched page stays valid (DataStore budget: keep this at 30-60 s or more)
-	fetch: (limit: number) -> { Entry }?, -- nil = the request failed (budget, outage); the stale page is served instead
-	minWriteGap: number?, -- seconds between writes per user (default 30)
+	ttl: number,
+	fetch: (limit: number) -> { Entry }?,
+	minWriteGap: number?,
 	maxScore: number?,
 }
 export type Leaderboard = typeof(setmetatable(
@@ -36,7 +30,6 @@ function Leaderboard.new(config: Config): Leaderboard
 	)
 end
 
--- scores are non-negative integers within bounds; anything else is dropped (nil), never "fixed" silently
 function Leaderboard.clean(self: Leaderboard, score: any): number?
 	if type(score) ~= "number" or score ~= score or score < 0 or score == math.huge then
 		return nil
@@ -68,7 +61,6 @@ function Leaderboard.top(self: Leaderboard, limit: number): { Entry }
 	return out
 end
 
--- write only when the score improved, is valid, and the user's last write is older than the gap
 function Leaderboard.shouldWrite(self: Leaderboard, userId: number, score: any): boolean
 	local s = self:clean(score)
 	if s == nil then
@@ -91,7 +83,6 @@ function Leaderboard.forget(self: Leaderboard, userId: number)
 	self._lastValue[userId] = nil
 end
 
--- 1-based rank of a key within a page, or nil when not in it ("you are not in the top N" is a normal answer)
 function Leaderboard.rank(entries: { Entry }, key: string): number?
 	for i, e in entries do
 		if e.key == key then
@@ -101,7 +92,6 @@ function Leaderboard.rank(entries: { Entry }, key: string): number?
 	return nil
 end
 
--- 1.2K / 3.4M style label for a board cell
 function Leaderboard.short(n: number): string
 	local units: { { size: number, label: string } } = {
 		{ size = 1e12, label = "T" },

@@ -1,9 +1,4 @@
 --!strict
--- InventoryView: filter, sort, page and selection for an item grid. Pure over plain item tables, so the UI only renders the
--- returned page. Ownership truth stays on the server (kit PlayerData); this is the client view model.
---   local page = InventoryView.view(items, { category = "weapon", search = "sw", sort = "rarity", page = 1, pageSize = 20 })
---   selection = InventoryView.toggle(selection, id, true)     -- multi-select; false = single select
---   selection = InventoryView.reconcile(selection, items)     -- drop ids that no longer exist (sold, traded)
 local InventoryView = {}
 
 export type Item = { id: string, name: string, category: string, rarity: number, qty: number, acquired: number }
@@ -11,7 +6,7 @@ export type Query = {
 	category: string?,
 	search: string?,
 	minRarity: number?,
-	sort: string?, -- "name" | "rarity" | "qty" | "newest"
+	sort: string?,
 	page: number?,
 	pageSize: number?,
 }

@@ -1,27 +1,22 @@
 --!strict
--- MovementCheck: server-side movement sampler. Pure logic (positions are {x,y,z} tables, time is passed in) so it is unit-tested in Lune.
--- Feed it the SERVER position of a character (HumanoidRootPart.Position) every 0.25-1 s. It never trusts client properties.
--- Horizontal and vertical movement are checked separately; falling is ignored; legit teleports/vehicles use Exempt().
--- It only RETURNS a verdict and the last valid position; what you do about it (reset quietly, score, review) is the caller's policy
--- (see honeypot-remote-builder/scripts/Honeypot.luau for a suspicion ladder).
 local MovementCheck = {}
 MovementCheck.__index = MovementCheck
 
 export type Vec = { x: number, y: number, z: number }
 export type Verdict = {
 	kind: "ok" | "speed" | "fly" | "teleport" | "exempt",
-	excess: number, -- studs over the allowed distance (0 when ok)
-	resetTo: Vec?, -- last valid position for a quiet reset on a violation
+	excess: number,
+	resetTo: Vec?,
 }
 
 export type Config = {
-	baseSpeed: number?, -- studs/s a normal player can move horizontally (WalkSpeed incl. sprint/pass boosts; default 16)
-	margin: number?, -- lag leeway in studs per sample (default 2; the vault suggests generous tolerance)
-	jumpSpeed: number?, -- max upward studs/s (default 60)
-	teleportDistance: number?, -- one-sample horizontal jump that is a teleport, not speed (default 80)
-	maxAirtime: number?, -- seconds continuously airborne before "fly" (default 8)
-	minDt: number?, -- ignore samples closer together than this (default 0.1)
-	maxDt: number?, -- after a gap longer than this, re-baseline instead of judging (default 5)
+	baseSpeed: number?,
+	margin: number?,
+	jumpSpeed: number?,
+	teleportDistance: number?,
+	maxAirtime: number?,
+	minDt: number?,
+	maxDt: number?,
 }
 
 type State = {
@@ -51,7 +46,6 @@ local function finite(v: Vec): boolean
 	return true
 end
 
--- raise or lower the allowed speed for one player (sprint, speed pass, vehicle); nil restores the default
 function MovementCheck.SetSpeed(self: MovementCheck, key: any, speed: number?)
 	local st = self._s[key]
 	if st then
@@ -59,7 +53,6 @@ function MovementCheck.SetSpeed(self: MovementCheck, key: any, speed: number?)
 	end
 end
 
--- skip checks until `now + seconds` (legit teleports, respawns, vehicles, knockback); the baseline moves with the player
 function MovementCheck.Exempt(self: MovementCheck, key: any, seconds: number, now: number)
 	local st = self._s[key]
 	if st then
@@ -75,7 +68,6 @@ function MovementCheck.Sample(self: MovementCheck, key: any, pos: Vec, t: number
 	local c = self._c
 	local st = self._s[key]
 	if not finite(pos) then
-		-- NaN/inf positions cannot be judged and must not become the baseline
 		return { kind = "teleport", excess = math.huge, resetTo = if st then copy(st.pos) else nil }
 	end
 	if st == nil then
@@ -115,7 +107,6 @@ function MovementCheck.Sample(self: MovementCheck, key: any, pos: Vec, t: number
 		st.airSince = nil
 	end
 	if kind ~= "ok" then
-		-- keep the last VALID position as the baseline so a reset puts the player back where they were legitimately
 		return { kind = kind, excess = excess, resetTo = copy(st.pos) }
 	end
 	st.pos, st.t = copy(pos), t

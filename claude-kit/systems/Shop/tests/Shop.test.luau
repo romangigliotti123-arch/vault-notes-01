@@ -1,5 +1,4 @@
 --!nocheck
--- Run: lune run tests/Shop.test.luau   (from the Shop folder)
 local t = require("../../_check/harness")
 local Shop = require("../src/Shop")
 
@@ -180,12 +179,12 @@ end)
 
 t.test("pass prompt finished: verified with Roblox, a spoofed wasPurchased grants nothing", function()
 	local s, env = make()
-	t.falsy(s:OnPassPromptFinished(1, 900, true)) -- Roblox says not owned
+	t.falsy(s:OnPassPromptFinished(1, 900, true))
 	t.falsy(s:HasPass(1, 900))
 	env.owned["1:900"] = true
 	t.truthy(s:OnPassPromptFinished(1, 900, true))
 	t.truthy(s:HasPass(1, 900))
-	t.falsy(s:OnPassPromptFinished(1, 12345, true)) -- not a configured pass
+	t.falsy(s:OnPassPromptFinished(1, 12345, true))
 end)
 
 t.test("ownership lookup errors are retried with backoff", function()

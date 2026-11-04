@@ -1,17 +1,4 @@
 --!strict
--- FlagConfig: typed live-tunable values and feature flags with safe defaults, validation, a kill switch and a deterministic per-player rollout.
--- Pure logic: it never reads a config service itself. Your server glue fetches the raw table (Creator Hub Configs, a DataStore document, or
--- a MessagingService push; live-check the Configs docs for the current API) and hands it to :Apply. A bad or missing value falls back to the
--- default instead of breaking the game, and every fallback is returned so you can log it.
---
---   local flags = FlagConfig.new({
---       bossHealth = { kind = "number", default = 1000, min = 100, max = 5000 },
---       eventActive = { kind = "boolean", default = false },
---       newShop = { kind = "rollout", default = 0 },           -- percent of players 0..100
---   })
---   local problems = flags:Apply(rawTableFromConfigService)
---   if flags:IsOn("newShop", player.UserId) then ... end
---   flags:Get("bossHealth")
 local FlagConfig = {}
 FlagConfig.__index = FlagConfig
 
@@ -20,7 +7,7 @@ export type Def = {
 	default: any,
 	min: number?,
 	max: number?,
-	allowed: { string }?, -- string kind: closed set of allowed values
+	allowed: { string }?,
 }
 export type Defs = { [string]: Def }
 
@@ -65,7 +52,6 @@ function FlagConfig.new(defs: Defs)
 	return setmetatable({ defs = defs, values = values, killed = {} :: { [string]: boolean } }, FlagConfig)
 end
 
--- Apply a raw table. Unknown keys are ignored (reported), invalid values keep the DEFAULT (not the last value: a corrupt push must not stick).
 function FlagConfig.Apply(self: any, raw: { [string]: any }): { string }
 	local problems = {}
 	for name, def in self.defs do
@@ -99,7 +85,6 @@ function FlagConfig.Get(self: any, name: string): any
 	return self.values[name]
 end
 
--- kill switch: force one flag to its default until revived, without touching the config source
 function FlagConfig.Kill(self: any, name: string)
 	assert(self.defs[name], "unknown flag " .. name)
 	self.killed[name] = true
@@ -109,7 +94,6 @@ function FlagConfig.Revive(self: any, name: string)
 	self.killed[name] = nil
 end
 
--- stable 0..99 bucket per (flag, user): the same player always lands in the same bucket, and different flags bucket independently
 local function bucket(name: string, userId: number): number
 	local h = 2166136261
 	for i = 1, #name do

@@ -26,7 +26,6 @@ A recursive-require error, a module value that is `nil` or an empty table at use
 6. `RequireGraph.layers(g.edges)` gives the load order: layer 1 has no dependencies. Keep this as the project's dependency direction (lower layers never require higher ones).
 
 ```lua
--- Lune runner (outside scripts/): lune run cycles.luau
 local fs = require("@lune/fs")
 local RequireGraph = require("./RequireGraph")
 local sources = {}

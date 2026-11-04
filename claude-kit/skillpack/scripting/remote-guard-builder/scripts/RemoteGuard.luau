@@ -1,12 +1,4 @@
 --!strict
--- RemoteGuard: validate every argument a client sends, rate-limit per player, run the handler only when both pass.
--- Server only. Put it in ServerScriptService (or ServerStorage) and require it from the script that owns the remotes.
---   local RemoteGuard = require(script.Parent.RemoteGuard)
---   RemoteGuard.bind(remote, {
---       args = { RemoteGuard.integer(1, 99), RemoteGuard.string(24) },
---       limit = { calls = 5, per = 1 },
---       handler = function(player, amount, label) ... end,
---   })
 local RemoteGuard = {}
 
 export type Validator = (value: any) -> boolean
@@ -49,7 +41,6 @@ function RemoteGuard.boolean(): Validator
 	end
 end
 
--- value must be one of the listed literals (strings or numbers): use for action names, item ids, slots
 function RemoteGuard.oneOf(allowed: { any }): Validator
 	local set = {}
 	for _, a in allowed do
@@ -70,7 +61,6 @@ function RemoteGuard.vector3(maxMagnitude: number): Validator
 	end
 end
 
--- an Instance of a class that still exists, optionally required to sit under an ancestor you control
 function RemoteGuard.instance(className: string, ancestor: Instance?): Validator
 	return function(v: any): boolean
 		if typeof(v) ~= "Instance" then
@@ -90,7 +80,6 @@ function RemoteGuard.optional(inner: Validator): Validator
 	end
 end
 
--- fixed-window limiter per key (use player.UserId). clock defaults to os.clock.
 function RemoteGuard.newLimiter(calls: number, per: number, clock: (() -> number)?): Limiter
 	local now = clock or os.clock
 	local windows: { [any]: { start: number, count: number } } = {}
@@ -111,7 +100,6 @@ function RemoteGuard.newLimiter(calls: number, per: number, clock: (() -> number
 	return limiter
 end
 
--- check the argument list against the validators; extra or missing arguments fail
 function RemoteGuard.check(validators: { Validator }, ...: any): (boolean, string?)
 	local n = select("#", ...)
 	if n > #validators then
@@ -126,7 +114,6 @@ function RemoteGuard.check(validators: { Validator }, ...: any): (boolean, strin
 	return true, nil
 end
 
--- connect a remote with validation and rate limiting. Returns the connection (events) or nil (functions).
 function RemoteGuard.bind(remote: any, spec: Spec): any
 	local limiter = if spec.limit then RemoteGuard.newLimiter(spec.limit.calls, spec.limit.per) else nil
 	local function run(player: any, ...: any): ...any
