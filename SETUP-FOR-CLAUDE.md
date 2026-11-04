@@ -133,7 +133,7 @@ git clone -q --depth 1 $KIT "$T\vault-kit"
 if ($LASTEXITCODE -eq 0) { powershell -NoProfile -ExecutionPolicy Bypass -File "$T\vault-kit\claude-kit\install.ps1" } else { "kit clone failed: not installed" }
 Remove-Item -Recurse -Force $T -ErrorAction SilentlyContinue
 ```
-Expected line: `claude-kit: installed N new, updated N, unchanged N, replaced-yours N`, then (first install) a short text saying the kit is off by default and `/load-rbxdev-vault` turns it on. If the computer had the older always-on layout, one more line says `vault-mode: moved N vault skills and M agents ... into the on-demand store` (backup path included). The installer is idempotent and needs no admin rights. It does not install the `/hud` and `/graph` plugins or any hook unless the user asked (`--with-mods` / `-WithMods`, `--with-hooks` / `-WithHooks`).
+Expected line: `claude-kit: installed N new, updated N, unchanged N, replaced-yours N`, then (first install) a short text saying the kit is off by default and `/load-rbxdev-vault` turns it on. If the computer had the older always-on layout, one more line says `vault-mode: moved N vault skills and M agents ... into the on-demand store` (backup path included). The installer is idempotent and needs no admin rights. It does not install the `/rbx-subagent-hud` and `/graph-rbxdev-vault` plugins or any hook unless the user asked (`--with-mods` / `-WithMods`, `--with-hooks` / `-WithHooks`).
 
 ## Roblox dev mode (what the user does after setup)
 
