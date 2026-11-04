@@ -49,4 +49,4 @@ tags: [moc]
 - [s] [[S--own--roblox-thumbnail-brief|roblox-thumbnail-brief]] - Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, descrip
 - [s] [[S--own--roblox-trend-research|roblox-trend-research]] - Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sou
 - [s] [[S--own--roblox-ui-responsive|roblox-ui-responsive]] - Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio
-- [s] [[S--own--use-the-vault|use-the-vault]] - How any Claude should use the claudes-vault Obsidian vault (about 17,000 generated notes: Roblox knowledge bas
+- [s] [[S--own--use-rbxdev-vault|use-rbxdev-vault]] - How any Claude should use the claudes-vault Obsidian vault (about 17,000 generated notes: Roblox knowledge bas

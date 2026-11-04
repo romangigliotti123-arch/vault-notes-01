@@ -37,6 +37,8 @@ Run a check only where the stage's evidence can show it. At the idea stage a det
 - UI: Scale not Offset, interactive ScreenGuis on CoreUISafeInsets, `MinTextSize` 9 or higher, mobile buttons about 60 px from the sides (mixed/official; DR ui-ux-design).
 - Custom 3D assets: at most 20,000 triangles per mesh (4,000 for accessories), one material per mesh, textures within their scope cap (`Roblox/blender/blender-cheat-sheet-claude-blender-roblox.md`, official).
 
+## PLACEMENT (placement gate, stage prototype or later)
+- Checks P1-P7 and tolerances: `game-dev-placement-qa/references/checks.md`. Pass = the critic's own full-map scan (scorer critic, newer than the newest Luau source and the last placement) has every model pass or waived with a reason, waivers/ignores under 10%, and `placement_gate.py recheck` agrees with the stored inputs. A missing, builder-made, stale or failing scan caps the verdict at NOT YET.
 ## LOOKS (visual gate, stage prototype or later)
 - Rubric V1-V7, hard fails and the screenshot set: `game-dev-visual-qa/references/rubric.md`. Pass = every item at least 7, no open hard fail, `ui_overlap` shows 0 findings at phone, tablet and desktop, at least 6 distinct screenshots (desktop and phone; spawn, action, effect) newer than the newest Luau source. Run by `visual_gate.py`; a missing gate caps the verdict at NOT YET.
 

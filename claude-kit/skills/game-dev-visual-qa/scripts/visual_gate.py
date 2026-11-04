@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """visual_gate.py: deterministic pass/fail of the visual gate (rubric V1-V7 in references/rubric.md). Nobody eyeballs the result.
 
-  python visual_gate.py <gate.json> [--project DIR] [--write Games/<slug>]
+  python visual_gate.py <gate.json> [--project DIR] [--write Games/<slug>] [--require-placement]
 
 gate.json:
   {"game": "slug", "round": 1, "scorer": "builder" | "critic",
@@ -14,7 +14,8 @@ gate.json:
 PASS needs ALL of: every V1-V7 score >= 7; no hard_fails; overlap == 0 for phone, tablet and desktop; >= 6 distinct screenshot files that exist
 (png/jpg, >= 10 KB), covering viewports desktop AND phone and moments spawn, action and effect; and, when --project is given and it has Luau
 sources, no screenshot older than the newest source file (stale = the build changed after the picture). Paths are relative to --write's folder
-or the gate file's folder. Importable: evaluate(gate_dict, base_dir, project) -> dict(status, reasons, lowest, label).
+or the gate file's folder. With --write (or --require-placement) `<Games/slug>/placement-qa/gate.json` must say result pass (game-dev-placement-qa runs
+BEFORE the visual review). Importable: evaluate(gate_dict, base_dir, project, require_placement=False) -> dict(status, reasons, lowest, label).
 """
 import hashlib
 import json
@@ -41,10 +42,29 @@ def _newest_source(project):
     return newest
 
 
-def evaluate(gate, base_dir=".", project=None):
+def _placement_reason(base_dir):
+    """The placement gate (game-dev-placement-qa) must have passed before the visuals are judged: models that float, clip or face the wrong way
+    are not a polish problem. -> reason text or None."""
+    p = os.path.join(base_dir, "placement-qa", "gate.json")
+    if not os.path.isfile(p):
+        return "placement gate not recorded (%s): run game-dev-placement-qa over the whole map and pass it before the visual review" % p
+    try:
+        rec = json.load(open(p, encoding="utf-8-sig"))
+    except Exception as e:
+        return "placement gate record unreadable: %s" % e
+    if rec.get("result") != "pass":
+        return "placement gate is %s (placement-qa/gate.json): fix the placement failures first, then judge the visuals" % rec.get("result")
+    return None
+
+
+def evaluate(gate, base_dir=".", project=None, require_placement=False):
     reasons = []
     if not isinstance(gate, dict):
         return dict(status="skipped", reasons=["no visual gate record"], lowest=[], label=NOT_POLISHED)
+    if require_placement:
+        why = _placement_reason(base_dir)
+        if why:
+            reasons.append(why)
     scores = gate.get("scores") or {}
     miss = [k for k in ITEMS if scores.get(k) is None]
     if miss:
@@ -106,7 +126,7 @@ def main():
     out_dir = a[a.index("--write") + 1] if "--write" in a else None
     gdir = os.path.dirname(os.path.abspath(a[0]))
     base = out_dir or (os.path.dirname(gdir) if os.path.basename(gdir) == "visual-qa" else gdir)
-    r = evaluate(gate, base, project)
+    r = evaluate(gate, base, project, require_placement=bool(out_dir) or "--require-placement" in a)
     rnd = gate.get("round", 1)
     print("VISUAL GATE: %s | round %s | scorer %s" % (r["status"].upper(), rnd, gate.get("scorer", "?")))
     print("STATUS LABEL: " + r["label"])

@@ -1,0 +1,852 @@
+-- adapter: the Roblox side of Placement. It reads Instances into the plain snapshots PlacementCore understands, collects the environment
+-- (ground rays, neighbouring parts, terrain, targets), runs Core.verify, and applies the auto-fixes. Everything that needs the engine
+-- (ray casts, spatial queries, pivots, JSON, CFrame maths) goes through `Placement.world`, so the tests can swap in a mock world.
+type Dict = { [string]: any }
+
+type World = {
+	root: () -> Instance,
+	resolve: (path: string) -> Instance?,
+	pivot: (inst: Instance) -> CFrame,
+	pivotTo: (inst: Instance, cf: CFrame) -> (),
+	position: (inst: Instance) -> { number }?,
+	assemblyAnchored: (part: BasePart) -> boolean,
+	raycast: (ox: number, oy: number, oz: number, length: number, ignore: { Instance }) -> Dict?,
+	partsInBox: (center: { number }, size: { number }, ignore: { Instance }) -> { BasePart },
+	terrainFill: (lo: { number }, hi: { number }) -> number?,
+	isCharacter: (inst: Instance) -> boolean,
+	translated: (cf: CFrame, d: { number }) -> CFrame,
+	rotatedY: (cf: CFrame, deg: number) -> CFrame,
+	upright: (cf: CFrame) -> CFrame,
+	moveTo: (cf: CFrame, pos: { number }) -> CFrame,
+	jsonEncode: (v: any) -> string,
+	jsonDecode: (s: string) -> any,
+	plain: (v: any) -> any,
+	now: () -> string,
+	datamodel: () -> string,
+}
+
+local function robloxWorld(): World
+	local function svc(name: string): any
+		return game:GetService(name)
+	end
+	local function vec(a: { number }): Vector3
+		return Vector3.new(a[1], a[2], a[3])
+	end
+	local function plain(v: any): any
+		local t = typeof(v)
+		if t == "Vector3" then
+			return { v.X, v.Y, v.Z }
+		elseif t == "CFrame" then
+			return { v.Position.X, v.Position.Y, v.Position.Z }
+		elseif t == "Instance" then
+			return (v :: Instance):GetFullName()
+		elseif t == "table" then
+			local out = {}
+			for k, x in v :: any do
+				out[k] = plain(x)
+			end
+			return out
+		end
+		return v
+	end
+	local function characters(): { Instance }
+		local out = {}
+		for _, pl in svc("Players"):GetPlayers() do
+			if pl.Character then
+				table.insert(out, pl.Character)
+			end
+		end
+		return out
+	end
+	return {
+		root = function()
+			return workspace
+		end,
+		resolve = function(path)
+			local segs = string.split(path, ".")
+			local cur: Instance? = nil
+			if segs[1] == "Workspace" then
+				cur = workspace
+			else
+				local ok, s = pcall(function()
+					return game:GetService(segs[1])
+				end)
+				cur = if ok then s else nil
+			end
+			for i = 2, #segs do
+				if not cur then
+					return nil
+				end
+				cur = (cur :: Instance):FindFirstChild(segs[i])
+			end
+			return cur
+		end,
+		pivot = function(inst)
+			if inst:IsA("Model") then
+				return (inst :: Model):GetPivot()
+			end
+			return (inst :: BasePart).CFrame
+		end,
+		pivotTo = function(inst, cf)
+			if inst:IsA("Model") then
+				(inst :: Model):PivotTo(cf)
+			else
+				(inst :: BasePart).CFrame = cf
+			end
+		end,
+		position = function(inst)
+			if inst:IsA("Model") then
+				local p = (inst :: Model):GetPivot().Position
+				return { p.X, p.Y, p.Z }
+			elseif inst:IsA("BasePart") then
+				local p = (inst :: BasePart).Position
+				return { p.X, p.Y, p.Z }
+			end
+			return nil
+		end,
+		assemblyAnchored = function(part)
+			return part.AssemblyRootPart.Anchored
+		end,
+		raycast = function(ox, oy, oz, length, ignore)
+			local params = RaycastParams.new()
+			params.FilterType = Enum.RaycastFilterType.Exclude
+			local ex = table.clone(ignore)
+			for _, c in characters() do
+				table.insert(ex, c)
+			end
+			params.FilterDescendantsInstances = ex
+			params.RespectCanCollide = true
+			local res = workspace:Raycast(Vector3.new(ox, oy, oz), Vector3.new(0, -length, 0), params)
+			if not res then
+				return nil
+			end
+			return { y = res.Position.Y, n = { res.Normal.X, res.Normal.Y, res.Normal.Z }, path = res.Instance:GetFullName() }
+		end,
+		partsInBox = function(center, size, ignore)
+			local params = OverlapParams.new()
+			params.FilterType = Enum.RaycastFilterType.Exclude
+			local ex = table.clone(ignore)
+			for _, c in characters() do
+				table.insert(ex, c)
+			end
+			params.FilterDescendantsInstances = ex
+			params.MaxParts = 600
+			return workspace:GetPartBoundsInBox(CFrame.new(vec(center)), vec(size), params)
+		end,
+		terrainFill = function(lo, hi)
+			local terrain = workspace:FindFirstChildOfClass("Terrain")
+			if not terrain then
+				return nil
+			end
+			local ok, fill = pcall(function(): number?
+				local region = Region3.new(vec(lo), vec(hi)):ExpandToGrid(4)
+				local materials, occupancy = terrain:ReadVoxels(region, 4)
+				local size = occupancy.Size
+				local total, solid = 0, 0
+				for x = 1, size.X do
+					for y = 1, size.Y do
+						for z = 1, size.Z do
+							total += 1
+							if materials[x][y][z] ~= Enum.Material.Air and occupancy[x][y][z] > 0.5 then
+								solid += 1
+							end
+						end
+					end
+				end
+				if total == 0 then
+					return nil
+				end
+				return solid / total
+			end)
+			return if ok then fill else nil
+		end,
+		isCharacter = function(inst)
+			return svc("Players"):GetPlayerFromCharacter(inst) ~= nil
+		end,
+		translated = function(cf, d)
+			return cf + vec(d)
+		end,
+		rotatedY = function(cf, deg)
+			return CFrame.new(cf.Position) * CFrame.Angles(0, math.rad(deg), 0) * cf.Rotation
+		end,
+		upright = function(cf)
+			local look = cf.LookVector
+			local flat = Vector3.new(look.X, 0, look.Z)
+			if flat.Magnitude < 0.1 then
+				local right = cf.RightVector
+				flat = Vector3.new(0, 1, 0):Cross(Vector3.new(right.X, 0, right.Z))
+			end
+			if flat.Magnitude < 0.01 then
+				flat = Vector3.new(0, 0, -1)
+			end
+			return CFrame.lookAt(cf.Position, cf.Position + flat.Unit)
+		end,
+		moveTo = function(cf, pos)
+			return CFrame.new(vec(pos)) * cf.Rotation
+		end,
+		jsonEncode = function(v)
+			return svc("HttpService"):JSONEncode(v)
+		end,
+		jsonDecode = function(s)
+			return svc("HttpService"):JSONDecode(s)
+		end,
+		plain = plain,
+		now = function()
+			return os.date("!%Y-%m-%dT%H:%M:%SZ")
+		end,
+		datamodel = function()
+			local RunService = svc("RunService")
+			if RunService:IsServer() and RunService:IsRunning() then
+				return "Server"
+			elseif RunService:IsClient() and RunService:IsRunning() then
+				return "Client"
+			end
+			return "Edit"
+		end,
+	}
+end
+
+local Placement = {}
+Placement.Core = Core
+Placement.world = nil :: World?
+-- Defaults of the project: edit once per game (or pass opts to every call). See references/api.md.
+Placement.config = {
+	rayLift = 4, -- ground rays start this far above the model's lowest point
+	rayLength = 600,
+	neighbourPad = 1, -- studs added around the model when looking for neighbouring parts
+	maxPartsPerModel = 2000,
+	maxNeighbours = 400,
+	maxSiblings = 50,
+	maxPasses = 6, -- auto-fix passes in place()
+	inferKind = true, -- guess the kind from the model name (door, tree, npc ...) when no intent is stored
+	includeInputs = false, -- store snapshot + environment in each report so placement_gate.py can re-check it
+	groundNames = { "baseplate", "ground", "floor", "terrain" },
+	ignoreNames = { "camera" },
+	core = {}, -- overrides for Core.DEFAULTS (floatTol, buryTol, defaultYawGrid, bounds = {min, max} ...)
+} :: Dict
+
+local function W(): World
+	if not Placement.world then
+		Placement.world = robloxWorld()
+	end
+	return Placement.world :: World
+end
+function Placement.getWorld(): World
+	return W()
+end
+
+local function merge(...: Dict?): Dict
+	local out: Dict = {}
+	for _, t in { ... } do
+		for k, v in t :: Dict do
+			out[k] = v
+		end
+	end
+	return out
+end
+
+local EFFECT_CLASSES = {
+	"ParticleEmitter",
+	"Light",
+	"Sound",
+	"Decal",
+	"Texture",
+	"SurfaceGui",
+	"BillboardGui",
+	"ProximityPrompt",
+	"ClickDetector",
+	"Fire",
+	"Smoke",
+	"Sparkles",
+	"Beam",
+	"Trail",
+	"Script",
+	"LocalScript",
+}
+
+local function hasEffects(part: BasePart): boolean
+	for _, d in part:GetDescendants() do
+		for _, c in EFFECT_CLASSES do
+			if d:IsA(c) then
+				return true
+			end
+		end
+	end
+	return false
+end
+
+local function partRecord(part: BasePart, rel: string): Dict
+	local comps = { part.CFrame:GetComponents() }
+	return {
+		name = rel,
+		path = part:GetFullName(),
+		p = { comps[1], comps[2], comps[3] },
+		r = { comps[4], comps[5], comps[6], comps[7], comps[8], comps[9], comps[10], comps[11], comps[12] },
+		size = { part.Size.X, part.Size.Y, part.Size.Z },
+		anchored = part.Anchored,
+		anchoredAssembly = W().assemblyAnchored(part),
+		canCollide = part.CanCollide,
+		canTouch = part.CanTouch,
+		massless = part.Massless,
+		transparency = part.Transparency,
+		hasEffects = hasEffects(part),
+	}
+end
+
+local function relName(model: Instance, part: Instance): string
+	if part == model then
+		return part.Name
+	end
+	local full, base = part:GetFullName(), model:GetFullName()
+	return string.sub(full, #base + 2)
+end
+
+-- Instance -> snapshot (plain data)
+function Placement.snapshot(inst: Instance, opts: Dict?): Dict
+	local o = merge(Placement.config, opts)
+	local parts: { Dict } = {}
+	local truncated = false
+	if inst:IsA("BasePart") and not inst:IsA("Terrain") then
+		table.insert(parts, partRecord(inst :: BasePart, inst.Name))
+	else
+		for _, d in inst:GetDescendants() do
+			if d:IsA("BasePart") and not d:IsA("Terrain") then
+				if #parts >= o.maxPartsPerModel then
+					truncated = true
+					break
+				end
+				table.insert(parts, partRecord(d :: BasePart, relName(inst, d)))
+			end
+		end
+	end
+	local cf = W().pivot(inst)
+	local comps = { cf:GetComponents() }
+	local hasPrimary = true
+	if inst:IsA("Model") then
+		hasPrimary = (inst :: Model).PrimaryPart ~= nil
+	end
+	return {
+		path = inst:GetFullName(),
+		class = if inst:IsA("Model") then "Model" else inst.ClassName,
+		pivot = {
+			p = { comps[1], comps[2], comps[3] },
+			r = { comps[4], comps[5], comps[6], comps[7], comps[8], comps[9], comps[10], comps[11], comps[12] },
+		},
+		hasPrimaryPart = hasPrimary,
+		parts = parts,
+		truncated = truncated,
+	}
+end
+
+-- ------------------------------------------------------------------ intents
+function Placement.setIntent(inst: Instance, intent: Dict)
+	inst:SetAttribute("PlacementIntent", W().jsonEncode(W().plain(intent)))
+end
+
+local function attributeIntent(inst: Instance): Dict?
+	local raw = inst:GetAttribute("PlacementIntent")
+	if type(raw) == "string" and raw ~= "" then
+		local ok, v = pcall(function()
+			return W().jsonDecode(raw)
+		end)
+		if ok and type(v) == "table" then
+			return v
+		end
+	end
+	local kind = inst:GetAttribute("PlacementKind")
+	if type(kind) == "string" and kind ~= "" then
+		return { kind = kind }
+	end
+	return nil
+end
+
+local function inferKind(name: string): string?
+	local low = string.lower(name)
+	local best: string? = nil
+	for k in Core.KINDS do
+		if k ~= "prop" and string.find(low, k, 1, true) then
+			if best == nil or #k > #(best :: string) then
+				best = k
+			end
+		end
+	end
+	return best
+end
+
+-- Intent for an Instance: stored attribute > opts.intents[fullName | name] > opts.rules (name patterns) > inferred kind > opts.defaultIntent.
+function Placement.intentFor(inst: Instance, opts: Dict?): (Dict, string)
+	local o = merge(Placement.config, opts)
+	local intent: Dict = merge(o.defaultIntent)
+	local source = "default"
+	local low = string.lower(inst.Name)
+	for _, g in o.groundNames do
+		if low == g then
+			intent.kind = "ground"
+			source = "ground name"
+		end
+	end
+	if source == "default" and o.inferKind then
+		local k = inferKind(inst.Name)
+		if k then
+			intent.kind = k
+			source = "inferred from the name"
+		end
+	end
+	for _, rule in o.rules or {} do
+		if string.find(low, string.lower(rule.pattern)) then
+			intent = merge(intent, W().plain(rule.intent))
+			source = "rule " .. rule.pattern
+		end
+	end
+	local map = o.intents or {}
+	local explicit = map[inst:GetFullName()] or map[inst.Name]
+	if explicit then
+		intent = merge(intent, W().plain(explicit))
+		source = "opts.intents"
+	end
+	local attr = attributeIntent(inst)
+	if attr then
+		intent = merge(intent, attr)
+		source = "attribute PlacementIntent"
+	end
+	return intent, source
+end
+
+-- ------------------------------------------------------------------ environment
+local function resolveInstance(ref: any): Instance?
+	if type(ref) == "string" then
+		return W().resolve(ref)
+	end
+	return nil
+end
+
+function Placement.collect(model: Instance, snap: Dict, intent: Dict, opts: Dict?): Dict
+	local o = merge(Placement.config, opts)
+	local w = W()
+	local env: Dict = {}
+	local fp = Core.footprint(snap)
+	local samples = {}
+	for _, pt in fp.points do
+		local hit = w.raycast(pt[1], fp.ymin + o.rayLift, pt[2], o.rayLift + o.rayLength, { model })
+		local s: Dict = { x = pt[1], z = pt[2] }
+		if hit then
+			s.y, s.n, s.path = hit.y, hit.n, hit.path
+		end
+		table.insert(samples, s)
+	end
+	env.ground = { samples = samples }
+	local lo, hi = fp.aabbMin, fp.aabbMax
+	local pad = o.neighbourPad
+	local center = { (lo[1] + hi[1]) / 2, (lo[2] + hi[2]) / 2, (lo[3] + hi[3]) / 2 }
+	local size = { hi[1] - lo[1] + 2 * pad, hi[2] - lo[2] + 2 * pad, hi[3] - lo[3] + 2 * pad }
+	local nbs = {}
+	for _, part in w.partsInBox(center, size, { model }) do
+		if #nbs >= o.maxNeighbours then
+			break
+		end
+		if not part:IsA("Terrain") then
+			local rec = partRecord(part, part.Name)
+			table.insert(nbs, {
+				path = rec.path,
+				p = rec.p,
+				r = rec.r,
+				size = rec.size,
+				canCollide = rec.canCollide,
+				transparency = rec.transparency,
+			})
+		end
+	end
+	env.neighbours = nbs
+	local height = hi[2] - lo[2]
+	if height > 4 then
+		local raise = math.max(4, intent.buryTol or 0.25)
+		env.terrainFill = w.terrainFill({ lo[1], lo[2] + raise, lo[3] }, { hi[1], hi[2], hi[3] })
+	end
+	local face = intent.face
+	if type(face) == "table" then
+		if type(face.target) == "string" then
+			local inst = resolveInstance(face.target)
+			env.faceTarget = if inst then w.position(inst) else nil
+		end
+		if type(face.awayFrom) == "string" then
+			local inst = resolveInstance(face.awayFrom)
+			env.faceAwayFrom = if inst then w.position(inst) else nil
+		end
+	end
+	if type(intent.connect) == "table" then
+		local targets: { any } = {}
+		for i, c in intent.connect do
+			local inst = resolveInstance(c.to)
+			if inst and c.point == nil then
+				local box = Core.modelBox(Placement.snapshot(inst, o))
+				targets[i] = { point = Core.facePoint(box, c.toAt) }
+			else
+				targets[i] = false
+			end
+		end
+		env.connectTargets = targets
+	end
+	if type(intent.pair) == "table" then
+		local inst = resolveInstance(intent.pair.with)
+		if inst then
+			env.pair = Placement.snapshot(inst, o)
+		end
+	end
+	if type(intent.group) == "table" then
+		local sib = {}
+		local base = intent.group.name or string.gsub(model.Name, "[%s_]*%d+$", "")
+		local parent = model.Parent
+		if parent then
+			for _, c in parent:GetChildren() do
+				if c ~= model and (c:IsA("Model") or c:IsA("BasePart")) and #sib < o.maxSiblings then
+					local cb = string.gsub(c.Name, "[%s_]*%d+$", "")
+					if cb == base then
+						table.insert(sib, Core.summary(Placement.snapshot(c, o)))
+					end
+				end
+			end
+		end
+		env.siblings = sib
+	end
+	return env
+end
+
+-- ------------------------------------------------------------------ verify
+function Placement.verify(model: Instance, intent: Dict?, opts: Dict?): Dict
+	local o = merge(Placement.config, opts)
+	local it: Dict = nil
+	local source = "argument"
+	if intent then
+		it = W().plain(intent) :: Dict
+	else
+		it, source = Placement.intentFor(model, o)
+	end
+	local snap = Placement.snapshot(model, o)
+	local env = Placement.collect(model, snap, it, o)
+	local report = Core.verify(snap, it, env, o.core)
+	report.intent = it
+	report.intentSource = source
+	report.datamodel = W().datamodel()
+	report.at = W().now()
+	if snap.truncated then
+		table.insert(report.unverified, "P5:part cap reached, only the first " .. #snap.parts .. " parts were checked")
+	end
+	if o.includeInputs then
+		report.inputs = { snap = snap, env = env, intent = it, opts = o.core }
+	end
+	return report
+end
+
+-- ------------------------------------------------------------------ fixes
+local function findPart(model: Instance, rel: string): Instance?
+	if model.Name == rel and model:IsA("BasePart") then
+		return model
+	end
+	local cur: Instance? = model
+	for _, seg in string.split(rel, ".") do
+		if not cur then
+			return nil
+		end
+		cur = (cur :: Instance):FindFirstChild(seg)
+	end
+	return cur
+end
+
+local Fix: { [string]: (Instance, Dict) -> boolean } = {}
+
+function Fix.removeParts(model, fix)
+	local n = 0
+	for _, name in fix.parts or {} do
+		local p = findPart(model, name)
+		if p and p ~= model then
+			p:Destroy()
+			n += 1
+		end
+	end
+	return n > 0
+end
+
+function Fix.setPrimaryPart(model, fix)
+	if model:IsA("Model") then
+		local p = findPart(model, fix.part)
+		if p and p:IsA("BasePart") then
+			(model :: Model).PrimaryPart = p :: BasePart
+			return true
+		end
+	end
+	return false
+end
+
+function Fix.anchor(model, fix)
+	local n = 0
+	for _, name in fix.parts or {} do
+		local p = findPart(model, name)
+		if p and p:IsA("BasePart") then
+			(p :: BasePart).Anchored = true
+			n += 1
+		end
+	end
+	return n > 0
+end
+
+function Fix.setCanCollide(model, fix)
+	local names = fix.parts or { fix.part }
+	local n = 0
+	for _, name in names do
+		local p = findPart(model, name)
+		if p and p:IsA("BasePart") then
+			(p :: BasePart).CanCollide = fix.value
+			n += 1
+		end
+	end
+	return n > 0
+end
+
+function Fix.setUpright(model, fix)
+	if fix.tiltDeg and fix.tiltDeg ~= 0 then
+		return false -- an intended lean is set by hand
+	end
+	W().pivotTo(model, W().upright(W().pivot(model)))
+	return true
+end
+
+function Fix.rotateYaw(model, fix)
+	W().pivotTo(model, W().rotatedY(W().pivot(model), fix.deltaDeg))
+	return true
+end
+
+function Fix.snapToGround(model, fix)
+	W().pivotTo(model, W().translated(W().pivot(model), { 0, fix.dy, 0 }))
+	return true
+end
+
+function Fix.moveBy(model, fix)
+	W().pivotTo(model, W().translated(W().pivot(model), fix.d))
+	return true
+end
+
+Fix.nudge = Fix.moveBy
+
+-- non-geometric fixes all apply in one pass; of the geometric ones only the first in this order is applied per pass (each changes the others' numbers).
+local SIMPLE = { "removeParts", "setPrimaryPart", "anchor", "setCanCollide" }
+local GEOMETRIC = { "setUpright", "rotateYaw", "moveBy", "snapToGround", "nudge" }
+
+function Placement.applyFixes(model: Instance, report: Dict): { Dict }
+	local applied: { Dict } = {}
+	local byAction: { [string]: Dict } = {}
+	for _, cid in Core.ORDER do
+		local c = report.checks[cid]
+		if c.status == "fail" and not c.waived then
+			for _, f in c.fixes do
+				if byAction[f.action] == nil then
+					byAction[f.action] = f
+				end
+			end
+		end
+	end
+	for _, a in SIMPLE do
+		local f = byAction[a]
+		if f and Fix[a](model, f) then
+			table.insert(applied, f)
+		end
+	end
+	for _, a in GEOMETRIC do
+		local f = byAction[a]
+		if f and Fix[a](model, f) then
+			table.insert(applied, f)
+			break
+		end
+	end
+	return applied
+end
+
+-- ------------------------------------------------------------------ place / scan
+-- Compact form for big scans: passing and skipped checks shrink to their status; failing checks keep issues, fixes, measured values and tolerances.
+function Placement.compact(rep: Dict): Dict
+	local out: Dict = {}
+	for k, v in rep do
+		if k ~= "checks" then
+			out[k] = v
+		end
+	end
+	local checks: Dict = {}
+	for cid, c in rep.checks do
+		if c.status == "fail" then
+			checks[cid] = c
+		elseif #c.warnings > 0 then
+			checks[cid] = { status = c.status, warnings = c.warnings }
+		else
+			checks[cid] = { status = c.status }
+		end
+	end
+	out.checks = checks
+	return out
+end
+
+local function emit(report: Dict)
+	print("PLACEMENT_MODEL " .. W().jsonEncode(report))
+end
+
+-- place(model, intent, opts): parent the model, move it to intent.at, then verify -> auto-fix -> re-verify (opts.autofix ~= false) until it passes or the passes run out.
+-- The intent is stored on the model (attribute PlacementIntent) so later scans re-check the same promises. ALWAYS read report.status: a fail means do not move on.
+function Placement.place(model: Instance, intent: Dict?, opts: Dict?): Dict
+	local o = merge(Placement.config, opts)
+	local it: Dict = W().plain(intent or {}) :: Dict
+	if model.Parent == nil then
+		model.Parent = o.parent or W().root()
+	end
+	if it.at then
+		W().pivotTo(model, W().moveTo(W().pivot(model), it.at))
+	end
+	Placement.setIntent(model, it)
+	local fixesApplied: { Dict } = {}
+	local seen: { [string]: boolean } = {}
+	local report: Dict = Placement.verify(model, it, o)
+	local passes = 1
+	while report.status ~= "pass" and o.autofix ~= false and passes <= o.maxPasses do
+		local applied = Placement.applyFixes(model, report)
+		if #applied == 0 then
+			break
+		end
+		local key = W().jsonEncode(applied)
+		if seen[key] then
+			break -- the same fix again: it is not converging
+		end
+		seen[key] = true
+		for _, f in applied do
+			table.insert(fixesApplied, f)
+		end
+		passes += 1
+		report = Placement.verify(model, it, o)
+	end
+	report.fixesApplied = fixesApplied
+	report.passes = passes
+	emit(report)
+	return report
+end
+
+local function skipReason(inst: Instance, o: Dict): string?
+	if inst:IsA("Terrain") then
+		return "terrain"
+	end
+	if inst:IsA("Camera") then
+		return "camera"
+	end
+	local low = string.lower(inst.Name)
+	for _, n in o.ignoreNames do
+		if low == n then
+			return "ignored name " .. n
+		end
+	end
+	if W().isCharacter(inst) then
+		return "player character"
+	end
+	if inst:GetAttribute("PlacementIgnore") then
+		local why = inst:GetAttribute("PlacementIgnoreReason")
+		return "ignored by PlacementIgnore: " .. (if type(why) == "string" and why ~= "" then why else "NO REASON GIVEN")
+	end
+	return nil
+end
+
+local CONTAINERS = { Folder = true, Configuration = true }
+
+local function isObject(inst: Instance): boolean
+	if inst:IsA("BasePart") then
+		return true
+	end
+	if inst:IsA("Model") then
+		if inst:GetAttribute("PlacementObject") or (inst :: Model).PrimaryPart ~= nil then
+			return true
+		end
+		for _, c in inst:GetChildren() do
+			if c:IsA("BasePart") then
+				return true
+			end
+		end
+		-- a Model with only Models/Folders inside is a container (a map, a district), unless it has no children at all (an empty model is junk)
+		return #inst:GetChildren() == 0
+	end
+	return false
+end
+
+-- Every placed object under `root` (default Workspace): top-level BaseParts and Models that are objects; Folders and container Models are walked.
+function Placement.objects(root: Instance?, opts: Dict?): ({ Instance }, { Dict })
+	local o = merge(Placement.config, opts)
+	local out: { Instance } = {}
+	local skipped: { Dict } = {}
+	local function walk(parent: Instance, depth: number)
+		for _, c in parent:GetChildren() do
+			local why = skipReason(c, o)
+			if why then
+				table.insert(skipped, { path = c:GetFullName(), reason = why })
+			elseif CONTAINERS[c.ClassName] or (c:IsA("Model") and not isObject(c)) then
+				if depth < 8 then
+					walk(c, depth + 1)
+				end
+			elseif isObject(c) then
+				table.insert(out, c)
+			end
+		end
+	end
+	walk(root or W().root(), 1)
+	return out, skipped
+end
+
+local function fingerprint(lines: { string }): string
+	local h = 5381
+	for _, s in lines do
+		for i = 1, #s do
+			h = (h * 33 + string.byte(s, i)) % 4294967296
+		end
+	end
+	return string.format("%08x", h)
+end
+
+-- scan(root, opts): verify every object. opts.game / opts.scorer ("builder" | "critic") are recorded; prints one PLACEMENT_MODEL line per object and a
+-- PLACEMENT_SCAN summary line; returns the scan table that placement_gate.py reads (save it, or save the console output and run `placement_gate.py ingest`).
+function Placement.scan(root: Instance?, opts: Dict?): Dict
+	local o = merge(Placement.config, opts)
+	local list, skipped = Placement.objects(root, o)
+	local reports: { Dict } = {}
+	local fp: { string } = {}
+	local pass, fail, waived = 0, 0, 0
+	for _, inst in list do
+		local rep = Placement.verify(inst, nil, o)
+		table.insert(fp, rep.path .. "|" .. W().jsonEncode(rep.checks.P1.measured))
+		if rep.status == "pass" then
+			pass += 1
+		else
+			fail += 1
+		end
+		waived += #rep.waived
+		if o.compact ~= false and not o.includeInputs then
+			rep = Placement.compact(rep)
+		end
+		table.insert(reports, rep)
+		if o.emit ~= false then
+			emit(rep)
+		end
+	end
+	local scan: Dict = {
+		version = 1,
+		kind = "placement-scan",
+		game = o.game,
+		scorer = o.scorer or "builder",
+		datamodel = W().datamodel(),
+		captured_at = W().now(),
+		root = (root or W().root()):GetFullName(),
+		models_total = #reports,
+		summary = { pass = pass, fail = fail, waived = waived },
+		skipped = skipped,
+		fingerprint = fingerprint(fp),
+		models = reports,
+	}
+	if o.emit ~= false then
+		local head = merge(scan)
+		head.models = nil
+		print("PLACEMENT_SCAN " .. W().jsonEncode(head))
+	end
+	return scan
+end
+
+Placement.Fix = Fix

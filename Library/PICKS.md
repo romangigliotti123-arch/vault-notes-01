@@ -6,7 +6,7 @@ tags: [moc]
 Best 1-3 items per common manager job. Format: job | id(s) | why. Own items (no slash) come first, then imports (`source/name`). Agents are marked `[a]`, everything else is a skill. Find the file with `powershell -File tools\find.ps1 <id words>`; read that one file only. For anything not listed: `find.ps1 <keywords>`.
 
 ## Work with the vault (start here)
-work alongside an adviser that knows every creator in both vaults and suggests tools as I go | [[S--own--vault-mentor|vault-mentor]], [[A--own--vault-mentor|vault-mentor]] [a] | /vault-mentor reads CAPABILITIES.md and Mentor/Combined-Brain.md, then suggests the skill, agent, note or creator method for each step
+work alongside an adviser that knows every creator in both vaults and suggests tools as I go | vault-mentor, vault-mentor [a] | /vault-mentor reads CAPABILITIES.md and Mentor/Combined-Brain.md, then suggests the skill, agent, note or creator method for each step
 
 ## Build and fix code
 code review | code-reviewer [a] (in AI Library Vault), code-review-checklist (in AI Library Vault), anthropic-knowledge-work/code-review (in AI Library Vault) | own agent does it end to end; checklist for a quick pass; AKW skill for security/perf/correctness structure
@@ -59,7 +59,7 @@ diagrams | trailofbits/diagramming-code (in AI Library Vault), gstack/diagram (i
 
 ## Research, product, marketing
 deep research | [[A--own--deep-researcher|deep-researcher]] [a], [[S--own--research-method|research-method]], alirezarezvani/deep-research (in AI Library Vault) | cited, dated, confidence-rated
-deep topic research across GitHub/YouTube/Reddit/blogs | [[S--own--deep-topic-research|deep-topic-research]], [[S--own--research-method|research-method]] | asks usage/time/worker caps first, ranks best creators, reads their whole back-catalogue, resumable, writes a cited vault; shareable zip, own YouTube transcript tool
+deep topic research across GitHub/YouTube/Reddit/blogs | deep-topic-research, [[S--own--research-method|research-method]] | asks usage/time/worker caps first, ranks best creators, reads their whole back-catalogue, resumable, writes a cited vault; shareable zip, own YouTube transcript tool
 quick lookup | [[A--own--quick-researcher|quick-researcher]] [a], mattpocock/research (in AI Library Vault) | one or two sources, fast
 competitive analysis | competitive-analyst [a] (in AI Library Vault), anthropic-knowledge-work/product-management/competitive-brief (in AI Library Vault), pm-skills/competitor-analysis (in AI Library Vault) | positioning gaps, battlecards
 SEO audit | seo-analyst [a] (in AI Library Vault), anthropic-knowledge-work/seo-audit (in AI Library Vault), marketing-skills/seo-audit (in AI Library Vault) | prioritised quick wins
@@ -132,7 +132,7 @@ git workflow | superpowers/using-git-worktrees (in AI Library Vault), superpower
 ## Orchestration (manager habits)
 split a big goal | [[A--own--task-decomposer|task-decomposer]] [a], task-planner [a] (in AI Library Vault), superpowers/writing-plans (in AI Library Vault) | independent jobs with briefs
 parallel workers | superpowers/dispatching-parallel-agents (in AI Library Vault), superpowers/subagent-driven-development (in AI Library Vault), superpowers/executing-plans (in AI Library Vault) | fan-out and review loops
-act as a manager (any session) | [[S--own--manager-mode|manager-mode]] | one skill: size the job, pick model/effort, brief, check reports, usage cap, ledger, verifier; /manager-mode install-presets adds sonnet-worker/haiku-scout/opus-builder
+act as a manager (any session) | manager-mode | one skill: size the job, pick model/effort, brief, check reports, usage cap, ledger, verifier; /manager-mode install-presets adds sonnet-worker/haiku-scout/opus-builder
 keep Claude cheap / low usage for the whole session | low-usage-mode | /low-usage-mode on|off|status; marker + UserPromptSubmit/SessionStart hooks keep it on after compaction; every reply starts 'low usage mode enabled.'
 brief a worker | [[S--own--worker-brief-template|worker-brief-template]], [[S--own--worker-report-format|worker-report-format]], [[S--own--model-routing|model-routing]] | self-contained AI-to-AI briefs; pick model/effort
 verify a claim | [[A--own--verifier|verifier]] [a], superpowers/verification-before-completion (in AI Library Vault) | re-run checks before reporting success
@@ -173,13 +173,13 @@ Manager: failed automation | [[A--own--incident-triager|incident-triager]] [a] |
 
 ## AI-creator ideas (added 2026-11-01)
 Best 10 from the Nate Herk / RoboNuggets / Karpathy research (job | item | why).
-Vague request, before building | [[S--own--clarify-before-build|clarify-before-build]] | 3-7 multiple-choice questions with defaults, then one spec with success criteria
+Vague request, before building | clarify-before-build | 3-7 multiple-choice questions with defaults, then one spec with success criteria
 Audit a whole repo for bugs | [[A--own--parallel-audit-fanout|parallel-audit-fanout]] [a] | parallel auditors per area, a verifier per finding, HTML report, unverified findings dropped
 Roblox exploit and bug sweep | [[A--own--roblox-audit-fanout|roblox-audit-fanout]] [a] | area auditors using roblox-luau-reviewer, repro per exploit, remote inventory table
-Rate anything 1-10 | rate-anything-1-10 (in AI Library Vault) | weighted criteria with anchors, evidence per score, script-computed total, ordered fixes (Roblox ideas: game-dev-rate; Luau code: roblox-code-rate)
+Rate anything 1-10 | rate-anything-1-10 | weighted criteria with anchors, evidence per score, script-computed total, ordered fixes (Roblox ideas: game-dev-rate; Luau code: roblox-code-rate)
 Verified multi-angle research | research-lens-panel [a] (in AI Library Vault) | five expert lenses, contradiction map, peer review, every citation checked
-Fact-check findings before building | [[A--own--claim-verifier|claim-verifier]] [a] | labels each finding seen / inferred / unknown
-Smaller diffs, no unrelated edits | karpathy-coding-guidelines (in AI Library Vault) | think first, minimum code, surgical changes, success criteria
+Fact-check findings before building | claim-verifier [a] | labels each finding seen / inferred / unknown
+Smaller diffs, no unrelated edits | karpathy-coding-guidelines | think first, minimum code, surgical changes, success criteria
 Unattended scheduled Claude task | scheduled-claude-routine-design (in AI Library Vault) | one skill holds the steps, tiny routine prompt, idempotent status file
 Keep the main context clean | [[A--own--digest-scout|digest-scout]] [a] | cheap isolated reader that returns a capped digest
 Big build split among workers | [[A--own--phased-build-orchestrator|phased-build-orchestrator]] [a] | exclusive file ownership, stronger model for design/review, verified status table

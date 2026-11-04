@@ -69,6 +69,7 @@ Job-based router for AI agents (generated 2026-11-04 from the claude-library; do
   - [[A--own--roblox-audit-fanout|roblox-audit-fanout]] (agent) `Library/agents/roblox/A--own--roblox-audit-fanout.md` - Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes and security, DataStore and econ...
 - **rate code quality 1-10 with the evidence**
   - [[S--own--roblox-code-rate|roblox-code-rate]] (skill) `Library/skills/roblox/S--own--roblox-code-rate.md` - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority and exploit resistance, data safety, correctness, error handling, performanc... Also installed by the kit as `/roblox-code-rate`.
+  - rate-anything-1-10-rbxdev-vault (skill, in the AI Library Vault) - General-purpose 1.00-10.00 rater for any thing the user wants judged (an idea, plan, pitch, prompt, design, d... Also installed by the kit as `/rate-anything-1-10-rbxdev-vault`.
 - **find and fix a bug / debug**
   - bug-hunter (agent, in the AI Library Vault) - Reproduces and root-causes a bug using hypothesis-driven investigation, then fixes it with a regression test.
   - bug-triage (skill, in the AI Library Vault) - Triage a list of bugs or failing tests into severity, root-cause clusters and a fix order.
@@ -86,6 +87,8 @@ Job-based router for AI agents (generated 2026-11-04 from the claude-library; do
 - **structured spec, test and review workflow**
   - spec-test-review-workflow (skill, in the AI Library Vault) - Senior-developer workflow for any non-trivial coding task: brainstorm options, write a plan, work in an isola...
   - [[S--own--plan-then-build|plan-then-build]] (skill) `Library/skills/orchestration/S--own--plan-then-build.md` - Gate and procedure for big builds: use plan mode for setup and large work (skip it for simple fixes), ask clarifying questions, write a spec file, br...
+- **stop the model over-engineering; coding behaviour rules**
+  - karpathy-coding-guidelines-rbxdev-vault (skill, in the AI Library Vault) - Installs and applies four coding-agent behaviour rules in a project CLAUDE.md: think before coding and ask wh... Also installed by the kit as `/karpathy-coding-guidelines-rbxdev-vault`.
 - **profile and fix slow code**
   - performance-profiler (agent, in the AI Library Vault) - Measures where time or memory goes in a program or system, finds the real bottleneck, and proposes or applies...
   - [[S--own--roblox-performance-pass|roblox-performance-pass]] (skill) `Library/skills/roblox/S--own--roblox-performance-pass.md` - Find and fix performance problems in a Roblox experience: server and client frame time, memory, part count, streaming, script hot spots, network traf... Also installed by the kit as `/roblox-performance-pass`.
@@ -93,19 +96,24 @@ Job-based router for AI agents (generated 2026-11-04 from the claude-library; do
 ## Rate, grade and verify
 
 - **rate something 1 to 10 (ideas, drafts, designs, answers)**
+  - rate-anything-1-10-rbxdev-vault (skill, in the AI Library Vault) - General-purpose 1.00-10.00 rater for any thing the user wants judged (an idea, plan, pitch, prompt, design, d... Also installed by the kit as `/rate-anything-1-10-rbxdev-vault`.
   - llm-answer-grader (skill, in the AI Library Vault) - Grades LLM or agent answers against a reference set: objective items checked by code first, then a fixed judg...
   - `/game-dev-rate` (slash command, claude-kit) - Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook, fluidity and feel, virality and co-pl...
   - [[S--own--roblox-code-rate|roblox-code-rate]] (skill) `Library/skills/roblox/S--own--roblox-code-rate.md` - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority and exploit resistance, data safety, correctness, error handling, performanc... Also installed by the kit as `/roblox-code-rate`.
 - **check that claims in a report or answer are true**
+  - [[A--own--claim-verifier-rbxdev-vault|claim-verifier-rbxdev-vault]] (agent) `Library/agents/research/A--own--claim-verifier-rbxdev-vault.md` - Verifier subagent for research and reverse-engineering findings: takes a list of findings with their sources, checks each against the source, and lab...
   - [[A--own--adversarial-verifier|adversarial-verifier]] (agent) `Library/agents/orchestration/A--own--adversarial-verifier.md` - Read-only falsifier: tries to prove a worker's claims false against real state (files, services, tasks, git, remote hosts); use for R2/R3 jobs before...
   - [[A--own--verifier|verifier]] (agent) `Library/agents/orchestration/A--own--verifier.md` - Independently verifies another worker's claimed result by re-running checks and looking for gaps; use before reporting success to the user.
   - [[A--own--report-auditor|report-auditor]] (agent) `Library/agents/orchestration/A--own--report-auditor.md` - Checks a worker's final report against the original brief and the real artifacts, and returns accept, re-brief or escalate with reasons.
 - **prove a game or app works by running it**
+  - [[A--own--self-verifying-game-builder-rbxdev-vault|self-verifying-game-builder-rbxdev-vault]] (agent) `Library/agents/game-dev/A--own--self-verifying-game-builder-rbxdev-vault.md` - Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks the whole environment can be explored and...
   - [[A--own--roblox-playtest-runner|roblox-playtest-runner]] (agent) `Library/agents/roblox/A--own--roblox-playtest-runner.md` - Runs a structured Roblox playtest on this Windows PC (Studio or published place), records bugs in the library's bug format and returns a verdict.
   - `/game-dev-playtest` (slash command, claude-kit) - Playtests a Roblox game and returns a bug and feel report with severities and fixes.
 
 ## Plan and clarify before building
 
+- **ask questions first when a request is vague**
+  - [[S--own--clarify-before-build-rbxdev-vault|clarify-before-build-rbxdev-vault]] (skill) `Library/skills/productivity/S--own--clarify-before-build-rbxdev-vault.md` - Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of... Also installed by the kit as `/clarify-before-build-rbxdev-vault`.
 - **plan, then execute the plan in phases**
   - [[S--own--plan-then-build|plan-then-build]] (skill) `Library/skills/orchestration/S--own--plan-then-build.md` - Gate and procedure for big builds: use plan mode for setup and large work (skip it for simple fixes), ask clarifying questions, write a spec file, br...
   - [[A--own--phased-build-orchestrator|phased-build-orchestrator]] (agent) `Library/agents/orchestration/A--own--phased-build-orchestrator.md` - Orchestrator for a large build or a long bug/vulnerability list: plans phases, gives each worker one narrow task with exclusive file ownership, uses...
@@ -125,6 +133,7 @@ Job-based router for AI agents (generated 2026-11-04 from the claude-library; do
   - research-lens-panel (agent, in the AI Library Vault) - Multi-perspective research orchestrator: scopes the topic, runs five expert-lens subagents in parallel (pract...
 - **quick lookup or fact check**
   - [[A--own--quick-researcher|quick-researcher]] (agent) `Library/agents/research/A--own--quick-researcher.md` - Fast single-question lookup (version, docs answer, price, how-do-I) with one or two sources; use when depth is not needed.
+  - [[A--own--claim-verifier-rbxdev-vault|claim-verifier-rbxdev-vault]] (agent) `Library/agents/research/A--own--claim-verifier-rbxdev-vault.md` - Verifier subagent for research and reverse-engineering findings: takes a list of findings with their sources, checks each against the source, and lab...
 - **learn from YouTube videos / build a knowledge graph of a folder**
   - [[S--own--youtube-learn|youtube-learn]] (skill) `Library/skills/research/S--own--youtube-learn.md` - Use when you need to learn from YouTube videos, whole channels or web docs at minimal model usage (local transcripts and compression, optional screen...
   - [[S--own--graphify|graphify]] (skill) `Library/skills/research/S--own--graphify.md` - Use for any question about a codebase, its architecture, file relationships, or project content — especially when graphify-out/ exists, where the que...
@@ -162,6 +171,7 @@ Job-based router for AI agents (generated 2026-11-04 from the claude-library; do
 
 - **set up CLAUDE.md for a new project**
   - claude-md-project-bootstrap (skill, in the AI Library Vault) - Creates a short project CLAUDE.md (an index, not a manual) plus a temp/tools/workflows folder layout, with op...
+  - karpathy-coding-guidelines-rbxdev-vault (skill, in the AI Library Vault) - Installs and applies four coding-agent behaviour rules in a project CLAUDE.md: think before coding and ask wh... Also installed by the kit as `/karpathy-coding-guidelines-rbxdev-vault`.
   - project-context-brief (skill, in the AI Library Vault) - Has an existing agent or memory extract everything relevant about the user, their work and a project into one...
 - **capture lessons so the agent stops repeating mistakes**
   - claude-md-lesson-capture (skill, in the AI Library Vault) - Turns repeated corrections and workarounds from the session into one-line lessons (under 15 words each), appe...
@@ -220,6 +230,7 @@ Job-based router for AI agents (generated 2026-11-04 from the claude-library; do
   - `/game-dev-workflow` (slash command, claude-kit) - Flagship end-to-end Roblox game workflow and the single entry for every game, run with /game-dev-workflow.
 - **is my game good (not just working)? honest verdict before moving on, hit-vs-flop quality model**
   - `/game-dev-critic` (slash command, claude-kit) - The independent quality gate of the Roblox game workflow.
+  - [[A--own--game-critic-rbxdev-vault|game-critic-rbxdev-vault]] (agent) `Library/agents/game-dev/A--own--game-critic-rbxdev-vault.md` - Independent critic for a Roblox game idea, prototype, playtest build, launch kit or live game: inspects the real files (and Studio output when connec...
   - [[S--own--game-dev-rate|game-dev-rate]] (skill) `Library/skills/game-dev/S--own--game-dev-rate.md` - Rates a Roblox game idea 1.00-10.00 on 12 weighted criteria (core loop, retention D1/D7, first-30-seconds hook, fluidity and feel, virality and co-pl... Also installed by the kit as `/game-dev-rate`.
 - **my game looks bad or unfinished: ugly or overlapping UI, flat models, default lighting, no effects; check the visuals with screenshots before calling it done**
   - `/game-dev-visual-qa` (slash command, claude-kit) - The mandatory visual gate and definition of done for a Roblox game: screenshots the running game (3 moments, phone and desktop), runs a layout/overla...
@@ -444,11 +455,10 @@ Start at [[Manager-README]] (`Manager/Manager-README.md`), then [[PROPOSALS]]. T
 - `roblox-tester` - Playtests a Roblox experience (Studio or a client), reports bugs, balance and first-30-seconds problems with reproducti...
 - `self-verifying-game-builder-rbxdev-vault` - Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks the whole e...
 
-## Top picks per job (from PICKS; 61 jobs have items in this vault)
+## Top picks per job (from PICKS; 57 jobs have items in this vault)
 
 [a] = agent. Full list with reasons: [[PICKS]].
 
-- work alongside an adviser that knows every creator in both vaults and suggests tools as I go: [[S--own--vault-mentor|vault-mentor]], [[A--own--vault-mentor|vault-mentor]] [a]
 - game dev (Unity / Godot): [[S--jeffallan--game-developer|game-developer]], [[A--agency-agents--Godot-Gameplay-Scripter|Godot Gameplay Scripter]] [a]
 - Roblox build: [[A--own--roblox-builder|roblox-builder]] [a], [[A--agency-agents--Roblox-Systems-Scripter|Roblox Systems Scripter]] [a]
 - Roblox test: [[A--own--roblox-tester|roblox-tester]] [a], [[S--own--roblox-playtest-checklist|roblox-playtest-checklist]]
@@ -463,12 +473,11 @@ Start at [[Manager-README]] (`Manager/Manager-README.md`), then [[PROPOSALS]]. T
 - Roblox Luau system (secure, performant): [[A--own--roblox-luau-engineer|roblox-luau-engineer]] [a], [[S--own--roblox-remote-security|roblox-remote-security]], [[S--own--roblox-datastore-safe-save|roblox-datastore-safe-save]]
 - Roblox launch readiness: [[S--own--roblox-launch-checklist|roblox-launch-checklist]]
 - deep research: [[A--own--deep-researcher|deep-researcher]] [a], [[S--own--research-method|research-method]]
-- deep topic research across GitHub/YouTube/Reddit/blogs: [[S--own--deep-topic-research|deep-topic-research]], [[S--own--research-method|research-method]]
+- deep topic research across GitHub/YouTube/Reddit/blogs: [[S--own--research-method|research-method]]
 - quick lookup: [[A--own--quick-researcher|quick-researcher]] [a]
 - skill / plugin authoring: [[S--own--add-to-library|add-to-library]]
 - remote machine runs: [[A--own--remote-device-runner|remote-device-runner]] [a], [[S--own--remote-claude-run|remote-claude-run]]
 - split a big goal: [[A--own--task-decomposer|task-decomposer]] [a]
-- act as a manager (any session): [[S--own--manager-mode|manager-mode]]
 - brief a worker: [[S--own--worker-brief-template|worker-brief-template]], [[S--own--worker-report-format|worker-report-format]], [[S--own--model-routing|model-routing]]
 - verify a claim: [[A--own--verifier|verifier]] [a]
 - hand off long results: [[S--own--artifact-handoff|artifact-handoff]]
@@ -503,10 +512,8 @@ Start at [[Manager-README]] (`Manager/Manager-README.md`), then [[PROPOSALS]]. T
 - Manager: audit a worker report: [[A--own--report-auditor|report-auditor]] [a]
 - Manager: split into parallel jobs: [[A--own--parallel-job-splitter|parallel-job-splitter]] [a]
 - Manager: failed automation: [[A--own--incident-triager|incident-triager]] [a]
-- Vague request, before building: [[S--own--clarify-before-build|clarify-before-build]]
 - Audit a whole repo for bugs: [[A--own--parallel-audit-fanout|parallel-audit-fanout]] [a]
 - Roblox exploit and bug sweep: [[A--own--roblox-audit-fanout|roblox-audit-fanout]] [a]
-- Fact-check findings before building: [[A--own--claim-verifier|claim-verifier]] [a]
 - Keep the main context clean: [[A--own--digest-scout|digest-scout]] [a]
 - Big build split among workers: [[A--own--phased-build-orchestrator|phased-build-orchestrator]] [a]
 

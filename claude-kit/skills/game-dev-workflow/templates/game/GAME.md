@@ -38,6 +38,8 @@ Definition of Done per stage: the skill `game-dev-workflow` file `references/sta
 ## Latest critic verdict
 none yet
 
+## Placement gate
+not run. Status: playable prototype, placement not verified. (`game-dev-placement-qa`: every model checked when placed; PASS needs the full-map scan with P1-P7 clean; report in `placement-qa/`.)
 ## Visual gate (LOOKS)
 not run. Status: playable prototype, visuals not polished. (`game-dev-visual-qa`: PASS needs V1-V7 >= 7 with screenshots; backlog in `polish-backlog.md`.)
 

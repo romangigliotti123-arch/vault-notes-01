@@ -8,9 +8,9 @@ Source: BUILD-SHORTLIST.md (36 NEW ideas) + 3 game-dev/general variants. Library
 
 | name | type | path | vault | source idea(s) | creators |
 |---|---|---|---|---|---|
-| clarify-before-build | skill | [[S--own--clarify-before-build]] | roblox | idea-0008 Clarifying Questions Skill; idea-0116 Clarification Gate Rule | Nate Herk, RoboNuggets |
+| clarify-before-build | skill | `skills/productivity/clarify-before-build/SKILL.md` | roblox | idea-0008 Clarifying Questions Skill; idea-0116 Clarification Gate Rule | Nate Herk, RoboNuggets |
 | claude-md-project-bootstrap | skill | claude-md-project-bootstrap (AI Library Vault) | ai | idea-0010 Reusable Instruction File | Nate Herk, RoboNuggets |
-| karpathy-coding-guidelines | skill | karpathy-coding-guidelines (AI Library Vault) | ai | idea-0046 Claude MD Project Setup | Nate Herk, RoboNuggets |
+| karpathy-coding-guidelines | skill | `skills/productivity/karpathy-coding-guidelines/SKILL.md` | ai | idea-0046 Claude MD Project Setup | Nate Herk, RoboNuggets |
 | project-context-brief | skill | project-context-brief (AI Library Vault) | ai | idea-0030 Project Setup Template | Nate Herk |
 | claude-md-lesson-capture | skill | claude-md-lesson-capture (AI Library Vault) | ai | idea-0013 Self-Updating Instructions | Nate Herk |
 | recurring-task-skill-author | skill | recurring-task-skill-author (AI Library Vault) | ai | idea-0014 Reusable Workflow Skill | Nate Herk |
@@ -29,7 +29,7 @@ Source: BUILD-SHORTLIST.md (36 NEW ideas) + 3 game-dev/general variants. Library
 | plan-then-build | skill | [[S--own--plan-then-build]] | roblox | idea-0037 Plan Execution Skill | Nate Herk |
 | spec-test-review-workflow | skill | spec-test-review-workflow (AI Library Vault) | ai | idea-0041 Structured Dev Workflow | Nate Herk |
 | research-lens-panel | agent | research-lens-panel (AI Library Vault) | ai | idea-0050 Multi-Perspective Research Agents | Nate Herk |
-| claim-verifier | agent | [[A--own--claim-verifier]] | roblox | idea-0084 Claim Verification Agent | Nate Herk, RoboNuggets |
+| claim-verifier | agent | `agents/research/claim-verifier.md` | roblox | idea-0084 Claim Verification Agent | Nate Herk, RoboNuggets |
 | team-knowledge-base-agent | agent | team-knowledge-base-agent (AI Library Vault) | ai | idea-0098 Team Knowledge Base Agent | Nate Herk |
 | second-brain-operator | agent | second-brain-operator (AI Library Vault) | ai | idea-0086 Personal Operating System Agent | Nate Herk, RoboNuggets |
 | async-job-polling | skill | async-job-polling (AI Library Vault) | ai | idea-0063 Async Job Polling Loop; idea-0145 Async Job Polling; idea-0232 Async Job Polling | Nate Herk, RoboNuggets |
@@ -40,10 +40,10 @@ Source: BUILD-SHORTLIST.md (36 NEW ideas) + 3 game-dev/general variants. Library
 | always-on-assistant-setup | skill | always-on-assistant-setup (AI Library Vault) | ai | idea-0069 Personal Assistant Agent; idea-0156 Always-On Agent Deployment | Nate Herk, RoboNuggets |
 | n8n-agent-output-pattern | skill | n8n-agent-output-pattern (AI Library Vault) | ai | idea-0033 Structured Output Schema; idea-0206 JSON Schema Generation; idea-0220 Output Validation Snippets | Nate Herk, RoboNuggets |
 | llm-answer-grader | skill | llm-answer-grader (AI Library Vault) | ai | idea-0071 LLM Answer Grader | Karpathy, Nate Herk |
-| rate-anything-1-10 | skill | rate-anything-1-10 (AI Library Vault) | ai | idea-0071 LLM Answer Grader | Karpathy, Nate Herk |
+| rate-anything-1-10 | skill | `skills/testing/rate-anything-1-10/SKILL.md` | ai | idea-0071 LLM Answer Grader | Karpathy, Nate Herk |
 | design-system-capture | skill | design-system-capture (AI Library Vault) | ai | idea-0083 Design System Capture | Nate Herk, RoboNuggets |
 | annotation-fix-loop | skill | annotation-fix-loop (AI Library Vault) | ai | idea-0105 Visual Annotation Fix Workflow | Nate Herk, RoboNuggets |
-| self-verifying-game-builder | agent | [[A--own--self-verifying-game-builder]] | roblox | idea-0119 Self-Verifying Game Builder | RoboNuggets |
+| self-verifying-game-builder | agent | `agents/game-dev/self-verifying-game-builder.md` | roblox | idea-0119 Self-Verifying Game Builder | RoboNuggets |
 | roblox-pre-delivery-reviewer | agent | [[A--own--roblox-pre-delivery-reviewer]] | roblox | idea-0040 Offloaded Pre-Delivery Review | Nate Herk |
 | roblox-audit-fanout | agent | [[A--own--roblox-audit-fanout]] | roblox | idea-0029 Parallel Code Review Fan-Out; idea-0025 Phased Build Orchestrator | Nate Herk, RoboNuggets |
 | roblox-code-rate | skill | [[S--own--roblox-code-rate]] | roblox | idea-0071 LLM Answer Grader | Karpathy, Nate Herk |
@@ -138,7 +138,7 @@ Format: idea (value) -> library path(s), from BUILD-SHORTLIST.md "Already covere
 - Security Review Agent (V7) -> getsentry/security-review (AI Library Vault), awesome-copilot/security-review (AI Library Vault)
 - Plan Critique Review (V7) -> gstack/plan-ceo-review (AI Library Vault), gstack/plan-design-review (AI Library Vault), gstack/plan-devex-review (AI Library Vault), gstack/plan-eng-review (AI Library Vault)
 - Verified Build Checklist (V7) -> [[S--own--brief-preflight-checklist|brief-preflight-checklist]]
-- Deep Research Agent (V7) -> [[S--own--deep-topic-research|deep-topic-research]], davila7/deep-research-notebooklm (AI Library Vault), ecc/deep-research (AI Library Vault), alirezarezvani/cs-deep-research (AI Library Vault)
+- Deep Research Agent (V7) -> `skills/research/deep-topic-research/SKILL.md`, davila7/deep-research-notebooklm (AI Library Vault), ecc/deep-research (AI Library Vault), alirezarezvani/cs-deep-research (AI Library Vault)
 - Multi-Agent Development Team (V7) -> awesome-copilot/ai-team-orchestration (AI Library Vault)
 - N8N Workflow Debugging (V7) -> ccplugins/n8n-workflow-builder (AI Library Vault)
 - Voice and Tone Guide (V7) -> social-media-skills/voice-builder (AI Library Vault), ecc/brand-voice (AI Library Vault)

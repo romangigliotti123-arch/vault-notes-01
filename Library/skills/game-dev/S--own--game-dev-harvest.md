@@ -18,7 +18,7 @@ tags: [lib/skill, cat/game-dev, src/own]
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-harvest/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--game-dev-critic]], [[S--own--roblox-code-rate]]
+Related: [[S--own--contribute-rbxdev-vault]], [[S--own--game-dev-critic]], [[S--own--roblox-code-rate]]
 
 ---
 # game-dev-harvest

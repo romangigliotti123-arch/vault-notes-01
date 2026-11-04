@@ -18,7 +18,7 @@ tags: [lib/skill, cat/game-dev, src/own]
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/game-dev-ads/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--roblox-game-doctor]], [[S--own--game-dev-thumbnail]], [[S--own--game-dev-update]], [[S--own--game-dev-workflow]], [[S--own--roblox-ad-campaign-planner]], [[S--own--roblox-metrics-benchmarks]]
+Related: [[A--own--roblox-game-doctor]], [[S--own--deep-topic-research-rbxdev-vault]], [[S--own--game-dev-thumbnail]], [[S--own--game-dev-update]], [[S--own--game-dev-workflow]], [[S--own--roblox-ad-campaign-planner]], [[S--own--roblox-metrics-benchmarks]]
 
 ---
 # game-dev-ads

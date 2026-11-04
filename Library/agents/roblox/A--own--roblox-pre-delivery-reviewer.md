@@ -21,7 +21,7 @@ tags: [lib/agent, cat/roblox, src/own]
 Type: agent | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `agents/roblox/roblox-pre-delivery-reviewer.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--roblox-luau-reviewer]], [[S--own--game-dev-critic]], [[S--own--roblox-code-rate]], [[S--own--roblox-remote-security]]
+Related: [[A--own--game-critic-rbxdev-vault]], [[A--own--roblox-luau-reviewer]], [[S--own--game-dev-critic]], [[S--own--roblox-code-rate]], [[S--own--roblox-remote-security]]
 
 Creator videos (notes are in the AI Library Vault, Creators/videos): 2026-04-02-18-claude-code-token-hacks-in-18-minutes, 2026-05-12-every-level-of-claude-explained-in-21-minutes, 2026-10-05-i-built-another-andrej-karpathy-using-claude
 

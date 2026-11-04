@@ -13,7 +13,7 @@ Layout:  Games/README.md (hub)  Games/_profile.json (onboarding answers)  Games/
   games.py list                                        games with claimed stage, evidence stage, last change
   games.py detect <slug> [--project DIR] [--json]      read the REAL stage from evidence (files, scripts, playtests, critic verdicts, numbers) and compare with GAME.md
   games.py verdict <slug> [--stage S]                  latest critic verdict (GOOD | NOT YET | BAD) for the stage
-  games.py advance <slug> --to STAGE [--project DIR]   move GAME.md to STAGE only if the critic's latest verdict for the CURRENT stage is GOOD (and, from prototype on, its file says visual: pass) and the evidence supports it
+  games.py advance <slug> --to STAGE [--project DIR]   move GAME.md to STAGE only if the critic's latest verdict for the CURRENT stage is GOOD (and, from prototype on, its file says visual: pass AND placement: pass) and the evidence supports it
   games.py reusable add <name> --src PATH --what TXT [--from-game SLUG] [--tested y|n] [--rating N] [--tags TXT]    save a reusable building block
   games.py reusable list
   games.py contribute <name>                           zip a reusable item into ~/contribute-rbxdev-vault/ for the owner (never uploads anything)
@@ -296,7 +296,7 @@ def verdicts(gd):
             continue
         f = fm_of(read(p))
         if f.get("verdict"):
-            out.append(dict(file=p, stage=f.get("stage", ""), verdict=f.get("verdict", "").upper(), date=f.get("date", ""), score=f.get("score", ""), visual=f.get("visual", "missing")))
+            out.append(dict(file=p, stage=f.get("stage", ""), verdict=f.get("verdict", "").upper(), date=f.get("date", ""), score=f.get("score", ""), visual=f.get("visual", "missing"), placement=f.get("placement", "missing")))
     return out
 
 
@@ -378,7 +378,7 @@ def cmd_verdict(a):
         print("VERDICT: none (a critic pass is required before this stage can be called done or advanced)")
         return
     v = vs[-1]
-    print("VERDICT: %s | stage %s | %s | score %s | %s" % (v["verdict"], v["stage"], v["date"], v["score"], os.path.relpath(v["file"], gd)))
+    print("VERDICT: %s | stage %s | %s | score %s | visual %s | placement %s | %s" % (v["verdict"], v["stage"], v["date"], v["score"], v.get("visual", "missing"), v.get("placement", "missing"), os.path.relpath(v["file"], gd)))
 
 
 def cmd_advance(a):
@@ -399,6 +399,8 @@ def cmd_advance(a):
         sys.exit("BLOCKED: latest critic verdict for %s is %s (%s). Apply the top fixes, re-run the critic." % (cur, vs[-1]["verdict"], vs[-1]["date"]))
     if cur != "idea" and vs[-1].get("visual", "missing") != "pass":
         sys.exit("BLOCKED: visual gate not passed for %s (critic file says visual: %s). Status: playable prototype, visuals not polished. Run /game-dev-visual-qa, then a fresh /game-dev-critic." % (cur, vs[-1].get("visual", "missing")))
+    if cur != "idea" and vs[-1].get("placement", "missing") != "pass":
+        sys.exit("BLOCKED: placement gate not passed for %s (critic file says placement: %s). Status: playable prototype, placement not verified. Run /game-dev-placement-qa over the whole map, then a fresh /game-dev-critic." % (cur, vs[-1].get("placement", "missing")))
     if STAGES.index(d["evidence"]) < STAGES.index(a.to) - 1 and a.to != "prototype":
         sys.exit("BLOCKED: evidence only supports stage %s (%s)" % (d["evidence"], "; ".join(d["reasons"][-2:])))
     p = os.path.join(gd, "GAME.md")

@@ -1,0 +1,9124 @@
+{
+ "cases": [
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "neighbours": [
+     {
+      "canCollide": true,
+      "p": [
+       10,
+       5,
+       0.1
+      ],
+      "path": "Workspace.Map.House.WallFront",
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       20,
+       10,
+       0.5
+      ],
+      "transparency": 0.0
+     },
+     {
+      "canCollide": true,
+      "p": [
+       0,
+       -0.5,
+       0
+      ],
+      "path": "Workspace.Map.Floor",
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       200,
+       1,
+       200
+      ],
+      "transparency": 0.0
+     }
+    ]
+   },
+   "expect": {
+    "P1": "pass",
+    "P2": "pass",
+    "P3": "pass",
+    "P4": "pass",
+    "P5": "pass",
+    "P6": "pass",
+    "P7": "skip"
+   },
+   "fix": {},
+   "intent": {
+    "at": [
+     10,
+     3.5,
+     0
+    ],
+    "bounds": {
+     "max": [
+      500,
+      100,
+      500
+     ],
+     "min": [
+      -500,
+      -10,
+      -500
+     ]
+    },
+    "face": {
+     "target": [
+      10,
+      3.5,
+      -20
+     ]
+    },
+    "kind": "door",
+    "surfacePath": "Workspace.Map.Floor"
+   },
+   "name": "pass: door facing the walkable side on the 90 deg grid, resting on the floor, hosted by a wall",
+   "num": {
+    "P2.gap": 0.0,
+    "P4.facingOffDeg": 0.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Panel",
+      "p": [
+       10,
+       3.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       7,
+       0.5
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.House.Door",
+    "pivot": {
+     "p": [
+      10,
+      3.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "pass",
+    "P2": "pass",
+    "P3": "pass",
+    "P4": "pass",
+    "P5": "pass",
+    "P6": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "tree"
+   },
+   "name": "pass: tree with random yaw, trunk sunk 0.8 into the ground (kind tolerance 1.0)",
+   "num": {
+    "P2.gap": -0.8
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Trunk",
+      "p": [
+       5,
+       9.2,
+       5
+      ],
+      "r": [
+       0.838670568,
+       0.0,
+       0.544639035,
+       0.0,
+       1.0,
+       0.0,
+       -0.544639035,
+       0.0,
+       0.838670568
+      ],
+      "size": [
+       2,
+       20,
+       2
+      ],
+      "transparency": 0.0
+     },
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Leaves",
+      "p": [
+       5,
+       22,
+       5
+      ],
+      "r": [
+       0.838670568,
+       0.0,
+       0.544639035,
+       0.0,
+       1.0,
+       0.0,
+       -0.544639035,
+       0.0,
+       0.838670568
+      ],
+      "size": [
+       10,
+       8,
+       10
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Tree1",
+    "pivot": {
+     "p": [
+      5,
+      9.2,
+      5
+     ],
+     "r": [
+      0.838670568,
+      0.0,
+      0.544639035,
+      0.0,
+      1.0,
+      0.0,
+      -0.544639035,
+      0.0,
+      0.838670568
+     ]
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "pass",
+    "P2": "skip",
+    "P3": "pass",
+    "P6": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "pickup"
+   },
+   "name": "pass: pickup floats on purpose and has no collision",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": false,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Coin",
+      "p": [
+       0,
+       6,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1.5,
+       1.5,
+       0.2
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Coin",
+    "pivot": {
+     "p": [
+      0,
+      6,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "pass",
+    "P2": "pass",
+    "P3": "pass",
+    "P4": "pass",
+    "P5": "pass",
+    "P6": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "expectedSize": [
+     3,
+     3,
+     3
+    ],
+    "kind": "crate",
+    "yawGrid": 15
+   },
+   "name": "pass: crate on a 15 deg grid with expected size",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       0.707106781,
+       0.0,
+       0.707106781,
+       0.0,
+       1.0,
+       0.0,
+       -0.707106781,
+       0.0,
+       0.707106781
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate1",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      0.707106781,
+      0.0,
+      0.707106781,
+      0.0,
+      1.0,
+      0.0,
+      -0.707106781,
+      0.0,
+      0.707106781
+     ]
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "env": {},
+   "expect": {
+    "P1": "pass",
+    "P2": "skip",
+    "P3": "pass",
+    "P4": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "ground",
+    "originOk": true
+   },
+   "name": "pass: the baseplate is a ground kind (not asked to rest on anything, any yaw)",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Part",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Baseplate",
+      "p": [
+       0,
+       -10,
+       0
+      ],
+      "r": [
+       0.992546152,
+       0.0,
+       0.121869343,
+       0.0,
+       1.0,
+       0.0,
+       -0.121869343,
+       0.0,
+       0.992546152
+      ],
+      "size": [
+       512,
+       20,
+       512
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Baseplate",
+    "pivot": {
+     "p": [
+      0,
+      -10,
+      0
+     ],
+     "r": [
+      0.992546152,
+      0.0,
+      0.121869343,
+      0.0,
+      1.0,
+      0.0,
+      -0.121869343,
+      0.0,
+      0.992546152
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "lamp"
+   },
+   "name": "fail: pivot at the world origin by accident",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Pole",
+      "p": [
+       0,
+       7,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1,
+       14,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Lamp",
+    "pivot": {
+     "p": [
+      0,
+      0,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "lamp",
+    "originOk": true
+   },
+   "name": "pass: origin allowed when declared",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Pole",
+      "p": [
+       0,
+       7,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1,
+       14,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Lamp",
+    "pivot": {
+     "p": [
+      0,
+      7,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "fail"
+   },
+   "fix": {
+    "P1": "setPrimaryPart"
+   },
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: Model without a PrimaryPart",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": false,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate2",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: pivot far outside the model",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       50,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate3",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "face": {
+     "any": true
+    },
+    "kind": "door"
+   },
+   "name": "fail: door 4x20x1 is far too tall for a door",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Panel",
+      "p": [
+       10,
+       10,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       20,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Door2",
+    "pivot": {
+     "p": [
+      10,
+      10,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "expectedSize": [
+     4,
+     7,
+     1
+    ],
+    "face": {
+     "any": true
+    },
+    "kind": "door"
+   },
+   "name": "fail: expected size 4x7x1 but 8x7x1",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Panel",
+      "p": [
+       10,
+       3.5,
+       5
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       8,
+       7,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Door3",
+    "pivot": {
+     "p": [
+      10,
+      3.5,
+      5
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "fail"
+   },
+   "fix": {
+    "P1": "moveBy"
+   },
+   "intent": {
+    "at": [
+     0,
+     1.5,
+     0
+    ],
+    "kind": "crate"
+   },
+   "name": "fail: placed 6 studs from the intended position",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       6,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate4",
+    "pivot": {
+     "p": [
+      6,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "fail"
+   },
+   "fix": {
+    "P1": "moveBy"
+   },
+   "intent": {
+    "kind": "crate",
+    "posGrid": 4
+   },
+   "name": "fail: off the 4 stud position grid",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       9.5,
+       1.5,
+       8
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate5",
+    "pivot": {
+     "p": [
+      9.5,
+      1.5,
+      8
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.5,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.5,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.5,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.5,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0.5,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P1": "fail"
+   },
+   "fix": {},
+   "intent": {},
+   "name": "fail: degenerate zero-width model",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Sheet",
+      "p": [
+       0,
+       1,
+       20
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       0.01,
+       4
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Flat",
+    "pivot": {
+     "p": [
+      0,
+      1,
+      20
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "fail"
+   },
+   "fix": {
+    "P2": "snapToGround"
+   },
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: floating 3.5 studs",
+   "num": {
+    "P2.gap": 3.5
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate6",
+    "pivot": {
+     "p": [
+      0,
+      5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "fail"
+   },
+   "fix": {
+    "P2": "snapToGround"
+   },
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: buried 1 stud",
+   "num": {
+    "P2.gap": -1.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       0.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate7",
+    "pivot": {
+     "p": [
+      0,
+      0.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "skip"
+   },
+   "fix": {},
+   "intent": {
+    "floating": true,
+    "kind": "crate"
+   },
+   "name": "pass: floating flag turns the check off",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       9,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Hover",
+    "pivot": {
+     "p": [
+      0,
+      9,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "x": 0,
+       "z": 0
+      },
+      {
+       "x": 0,
+       "z": 0
+      },
+      {
+       "x": 0,
+       "z": 0
+      },
+      {
+       "x": 0,
+       "z": 0
+      },
+      {
+       "x": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: nothing below (void)",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate8",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Roof",
+       "x": 0,
+       "y": 10,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Roof",
+       "x": 0,
+       "y": 10,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Roof",
+       "x": 0,
+       "y": 10,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Roof",
+       "x": 0,
+       "y": 10,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Roof",
+       "x": 0,
+       "y": 10,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate",
+    "surfacePath": "Workspace.Map.Floor"
+   },
+   "name": "fail: rests on the roof, not on the floor",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       11.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate9",
+    "pivot": {
+     "p": [
+      0,
+      11.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "pass: within the 0.1 stud float tolerance",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.58,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate10",
+    "pivot": {
+     "p": [
+      0,
+      1.58,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "flatGround": true,
+    "kind": "crate"
+   },
+   "name": "fail: flatGround declared but ground varies 2 studs",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       3.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate11",
+    "pivot": {
+     "p": [
+      0,
+      3.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "pass with warning: uneven ground, resting on the high side",
+   "num": {
+    "P2.gap": 0.0,
+    "P2.spread": 2.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       3.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate12",
+    "pivot": {
+     "p": [
+      0,
+      3.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P3": "fail"
+   },
+   "fix": {
+    "P3": "setUpright"
+   },
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: tilted 20 deg",
+   "num": {
+    "P3.tiltDeg": 20.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       0.939692621,
+       -0.342020143,
+       0.0,
+       0.342020143,
+       0.939692621,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate13",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      0.939692621,
+      -0.342020143,
+      0.0,
+      0.342020143,
+      0.939692621,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P3": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: upside down",
+   "num": {
+    "P3.tiltDeg": 180.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       -1.0,
+       -0.0,
+       0.0,
+       0.0,
+       -1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate14",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      -1.0,
+      -0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P3": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "tree",
+    "tilt": {
+     "deg": 15,
+     "tol": 3
+    }
+   },
+   "name": "pass: intended 15 deg lean",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Trunk",
+      "p": [
+       0,
+       8,
+       0
+      ],
+      "r": [
+       0.965925826,
+       -0.258819045,
+       0.0,
+       0.258819045,
+       0.965925826,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       16,
+       2
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Tree2",
+    "pivot": {
+     "p": [
+      0,
+      8,
+      0
+     ],
+     "r": [
+      0.965925826,
+      -0.258819045,
+      0.0,
+      0.258819045,
+      0.965925826,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": -2,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P3": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "tree",
+    "tilt": {
+     "deg": 15,
+     "tol": 3
+    }
+   },
+   "name": "fail: lean does not match the intended 15 deg",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Trunk",
+      "p": [
+       0,
+       8,
+       0
+      ],
+      "r": [
+       0.866025404,
+       -0.5,
+       0.0,
+       0.5,
+       0.866025404,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       16,
+       2
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Tree3",
+    "pivot": {
+     "p": [
+      0,
+      8,
+      0
+     ],
+     "r": [
+      0.866025404,
+      -0.5,
+      0.0,
+      0.5,
+      0.866025404,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        -0.3420201433256687,
+        0.9396926207859084,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        -0.3420201433256687,
+        0.9396926207859084,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        -0.3420201433256687,
+        0.9396926207859084,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        -0.3420201433256687,
+        0.9396926207859084,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        -0.3420201433256687,
+        0.9396926207859084,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P3": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "alignToSurface": true,
+    "kind": "rock"
+   },
+   "name": "pass: rock aligned to a 20 deg slope normal",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Rock",
+      "p": [
+       0,
+       2,
+       0
+      ],
+      "r": [
+       0.939692621,
+       -0.342020143,
+       0.0,
+       0.342020143,
+       0.939692621,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       3,
+       4
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Rock1",
+    "pivot": {
+     "p": [
+      0,
+      2,
+      0
+     ],
+     "r": [
+      0.939692621,
+      -0.342020143,
+      0.0,
+      0.342020143,
+      0.939692621,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P3": "skip"
+   },
+   "fix": {},
+   "intent": {
+    "allowTilt": true,
+    "kind": "crate"
+   },
+   "name": "pass: tilt allowed",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       0.766044443,
+       -0.64278761,
+       0.0,
+       0.64278761,
+       0.766044443,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate15",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      0.766044443,
+      -0.64278761,
+      0.0,
+      0.64278761,
+      0.766044443,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "fail"
+   },
+   "fix": {
+    "P4": "rotateYaw"
+   },
+   "intent": {
+    "face": {
+     "target": [
+      0,
+      3,
+      20
+     ]
+    },
+    "kind": "npc"
+   },
+   "name": "fail: NPC faces away from the player area",
+   "num": {
+    "P4.facingOffDeg": 180.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Root",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Npc",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "face": {
+     "target": [
+      0,
+      3,
+      20
+     ]
+    },
+    "kind": "npc"
+   },
+   "name": "pass: NPC turned 180 faces +Z",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Root",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       -1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       -0.0,
+       0.0,
+       -1.0
+      ],
+      "size": [
+       2,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Npc",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      -0.0,
+      0.0,
+      -1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "npc"
+   },
+   "name": "fail: NPC with no declared facing",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Root",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Npc",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "face": {
+     "any": true
+    },
+    "kind": "npc"
+   },
+   "name": "pass: NPC facing declared irrelevant",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Root",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Npc",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "faceTarget": [
+     0,
+     3,
+     -20
+    ],
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "face": {
+     "target": "Workspace.Map.Hub"
+    },
+    "kind": "npc"
+   },
+   "name": "pass: facing via env-resolved target within 15 deg",
+   "num": {
+    "P4.facingOffDeg": 10.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Root",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       0.984807753,
+       0.0,
+       0.173648178,
+       0.0,
+       1.0,
+       0.0,
+       -0.173648178,
+       0.0,
+       0.984807753
+      ],
+      "size": [
+       2,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Npc",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      0.984807753,
+      0.0,
+      0.173648178,
+      0.0,
+      1.0,
+      0.0,
+      -0.173648178,
+      0.0,
+      0.984807753
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "fail"
+   },
+   "fix": {
+    "P4": "rotateYaw"
+   },
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: yaw 7 deg off the 15 deg grid",
+   "num": {
+    "P4.yawGridDevDeg": 7.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       0.927183855,
+       0.0,
+       0.374606593,
+       0.0,
+       1.0,
+       0.0,
+       -0.374606593,
+       0.0,
+       0.927183855
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate16",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      0.927183855,
+      0.0,
+      0.374606593,
+      0.0,
+      1.0,
+      0.0,
+      -0.374606593,
+      0.0,
+      0.927183855
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "rock"
+   },
+   "name": "pass: 22 deg is fine for a random-yaw rock",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Rock",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       0.927183855,
+       0.0,
+       0.374606593,
+       0.0,
+       1.0,
+       0.0,
+       -0.374606593,
+       0.0,
+       0.927183855
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Rock2",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      0.927183855,
+      0.0,
+      0.374606593,
+      0.0,
+      1.0,
+      0.0,
+      -0.374606593,
+      0.0,
+      0.927183855
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "fail"
+   },
+   "fix": {
+    "P4": "rotateYaw"
+   },
+   "intent": {
+    "face": {
+     "target": [
+      10,
+      3.5,
+      -20
+     ],
+     "tol": 20
+    },
+    "kind": "door"
+   },
+   "name": "fail: door a few degrees off the 90 deg grid",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Panel",
+      "p": [
+       10,
+       3.5,
+       0
+      ],
+      "r": [
+       0.99756405,
+       0.0,
+       0.069756474,
+       0.0,
+       1.0,
+       0.0,
+       -0.069756474,
+       0.0,
+       0.99756405
+      ],
+      "size": [
+       4,
+       7,
+       0.5
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Door4",
+    "pivot": {
+     "p": [
+      10,
+      3.5,
+      0
+     ],
+     "r": [
+      0.99756405,
+      0.0,
+      0.069756474,
+      0.0,
+      1.0,
+      0.0,
+      -0.069756474,
+      0.0,
+      0.99756405
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "face": {
+     "any": true
+    },
+    "kind": "sign"
+   },
+   "name": "fail: front vector points up (model lying on its back)",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Board",
+      "p": [
+       0,
+       1,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       -1.0,
+       0.0,
+       1.0,
+       0.0
+      ],
+      "size": [
+       4,
+       3,
+       0.3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Sign1",
+    "pivot": {
+     "p": [
+      0,
+      1,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      1.0,
+      0.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P4": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "face": {
+     "target": [
+      0,
+      1.5,
+      20
+     ]
+    },
+    "front": "Back",
+    "kind": "chair"
+   },
+   "name": "pass: custom front face (Back) used for facing",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Seat",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Chair1",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "neighbours": [
+     {
+      "canCollide": true,
+      "p": [
+       2,
+       2,
+       0
+      ],
+      "path": "Workspace.Map.CrateB",
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       4,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ]
+   },
+   "expect": {
+    "P5": "fail"
+   },
+   "fix": {
+    "P5": "nudge"
+   },
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: two crates overlap by 1 stud",
+   "num": {
+    "P5.overlaps.0.depth": 1.0
+   },
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.CrateA",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "neighbours": [
+     {
+      "canCollide": true,
+      "p": [
+       3,
+       1.5,
+       0
+      ],
+      "path": "Workspace.Map.CrateB",
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ]
+   },
+   "expect": {
+    "P5": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "pass: crates touching face to face",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.CrateA",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "neighbours": [
+     {
+      "canCollide": false,
+      "p": [
+       1,
+       2,
+       0
+      ],
+      "path": "Workspace.Map.Trigger",
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       4,
+       4
+      ],
+      "transparency": 0.0
+     }
+    ]
+   },
+   "expect": {
+    "P5": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "pass: overlap with a CanCollide=false neighbour is ignored",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.CrateA",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "neighbours": [
+     {
+      "canCollide": true,
+      "p": [
+       1,
+       2,
+       0
+      ],
+      "path": "Workspace.Map.Shelf.Board",
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       4,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ]
+   },
+   "expect": {
+    "P5": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "allowOverlap": [
+     "Workspace.Map.Shelf"
+    ],
+    "kind": "crate"
+   },
+   "name": "pass: allowOverlap prefix",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.CrateA",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 1.5,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 1.5,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 1.5,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 1.5,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 1.5,
+       "z": 0
+      }
+     ]
+    },
+    "neighbours": [
+     {
+      "canCollide": true,
+      "p": [
+       0,
+       0.5,
+       0
+      ],
+      "path": "Workspace.Map.Floor",
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       50,
+       2,
+       50
+      ],
+      "transparency": 0.0
+     }
+    ]
+   },
+   "expect": {
+    "P2": "fail",
+    "P5": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: sunk 2 studs into the floor part (overlap with the surface beyond tolerance)",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       -0.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate17",
+    "pivot": {
+     "p": [
+      0,
+      -0.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "neighbours": [
+     {
+      "canCollide": true,
+      "p": [
+       2.2,
+       1.5,
+       0
+      ],
+      "path": "Workspace.Map.Wall2",
+      "r": [
+       0.866025404,
+       0.0,
+       0.5,
+       0.0,
+       1.0,
+       0.0,
+       -0.5,
+       0.0,
+       0.866025404
+      ],
+      "size": [
+       1,
+       6,
+       8
+      ],
+      "transparency": 0.0
+     }
+    ]
+   },
+   "expect": {
+    "P5": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate",
+    "yawGrid": 45
+   },
+   "name": "fail: rotated crate cuts into a rotated wall (SAT with rotation)",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       1.5,
+       0
+      ],
+      "r": [
+       0.707106781,
+       0.0,
+       0.707106781,
+       0.0,
+       1.0,
+       0.0,
+       -0.707106781,
+       0.0,
+       0.707106781
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate18",
+    "pivot": {
+     "p": [
+      0,
+      1.5,
+      0
+     ],
+     "r": [
+      0.707106781,
+      0.0,
+      0.707106781,
+      0.0,
+      1.0,
+      0.0,
+      -0.707106781,
+      0.0,
+      0.707106781
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {},
+   "expect": {
+    "P5": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "floating": true,
+    "kind": "platform",
+    "originOk": true
+   },
+   "name": "fail: z-fighting coplanar tops inside one model",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Slab",
+      "p": [
+       0,
+       0,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       10,
+       1,
+       10
+      ],
+      "transparency": 0.0
+     },
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Plate",
+      "p": [
+       0,
+       0,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       1,
+       4
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Floor2",
+    "pivot": {
+     "p": [
+      0,
+      0,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {},
+   "expect": {
+    "P5": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "floating": true,
+    "kind": "platform",
+    "originOk": true
+   },
+   "name": "pass: plate sits 0.2 above the slab (no z-fight)",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Slab",
+      "p": [
+       0,
+       0,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       10,
+       1,
+       10
+      ],
+      "transparency": 0.0
+     },
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Plate",
+      "p": [
+       0,
+       0.2,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       1,
+       4
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Floor3",
+    "pivot": {
+     "p": [
+      0,
+      0,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P5": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "bounds": {
+     "max": [
+      500,
+      200,
+      500
+     ],
+     "min": [
+      -500,
+      -50,
+      -500
+     ]
+    },
+    "kind": "crate"
+   },
+   "name": "fail: outside the map bounds",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       800,
+       1.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate19",
+    "pivot": {
+     "p": [
+      800,
+      1.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "terrainFill": 0.6
+   },
+   "expect": {
+    "P5": "fail"
+   },
+   "fix": {
+    "P5": "raise"
+   },
+   "intent": {
+    "kind": "crate"
+   },
+   "name": "fail: 60% of the volume inside terrain",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       6,
+       6,
+       6
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate20",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P6": "fail"
+   },
+   "fix": {
+    "P6": "anchor"
+   },
+   "intent": {
+    "kind": "prop"
+   },
+   "name": "fail: unanchored decor would fall",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": false,
+      "anchoredAssembly": false,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Body",
+      "p": [
+       0,
+       1,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1,
+       2,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Vase",
+    "pivot": {
+     "p": [
+      0,
+      1,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P6": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "prop"
+   },
+   "name": "pass: unanchored part welded to an anchored assembly",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": false,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Body",
+      "p": [
+       0,
+       1,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1,
+       2,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Vase2",
+    "pivot": {
+     "p": [
+      0,
+      1,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P6": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "dynamic": true,
+    "kind": "prop"
+   },
+   "name": "pass: dynamic object may be unanchored",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": false,
+      "anchoredAssembly": false,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Body",
+      "p": [
+       0,
+       1,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       2,
+       2
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Ball",
+    "pivot": {
+     "p": [
+      0,
+      1,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P6": "fail"
+   },
+   "fix": {
+    "P6": "removeParts"
+   },
+   "intent": {
+    "kind": "prop"
+   },
+   "name": "fail: zero-size and invisible junk parts",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Wall",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       6,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     },
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Part",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1,
+       0,
+       1
+      ],
+      "transparency": 0.0
+     },
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": false,
+      "canTouch": false,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Ghost",
+      "p": [
+       3,
+       3,
+       3
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       2,
+       2
+      ],
+      "transparency": 1.0
+     }
+    ],
+    "path": "Workspace.Map.Hut",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P6": "fail"
+   },
+   "fix": {
+    "P6": "setCanCollide"
+   },
+   "intent": {
+    "kind": "pickup"
+   },
+   "name": "fail: coin blocks the player (CanCollide true)",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Coin",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1.5,
+       1.5,
+       0.2
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Coin2",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P6": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "canCollide": true,
+    "kind": "wall"
+   },
+   "name": "fail: solid wall with no collision",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": false,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Wall",
+      "p": [
+       0,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       10,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Wall1",
+    "pivot": {
+     "p": [
+      0,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P6": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "canTouch": true,
+    "kind": "prop"
+   },
+   "name": "fail: trigger needs CanTouch",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": false,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Pad",
+      "p": [
+       0,
+       0.5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       6,
+       1,
+       6
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Pad",
+    "pivot": {
+     "p": [
+      0,
+      0.5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P7": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "connect": [
+     {
+      "at": "front",
+      "point": [
+       0,
+       4,
+       -4
+      ],
+      "to": "Workspace.Map.Stairs2"
+     }
+    ],
+    "kind": "stairs"
+   },
+   "name": "pass: stairs end where the next flight starts",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "S",
+      "p": [
+       0,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       8,
+       8
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Stairs1",
+    "pivot": {
+     "p": [
+      0,
+      4,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P7": "fail"
+   },
+   "fix": {
+    "P7": "moveBy"
+   },
+   "intent": {
+    "connect": [
+     {
+      "at": "front",
+      "point": [
+       0,
+       4,
+       -4.6
+      ],
+      "to": "Workspace.Map.Stairs2"
+     }
+    ],
+    "kind": "stairs"
+   },
+   "name": "fail: stairs end 0.6 studs short of the next flight",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "S",
+      "p": [
+       0,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       8,
+       8
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Stairs1",
+    "pivot": {
+     "p": [
+      0,
+      4,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P7": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "connect": [
+     {
+      "at": "front",
+      "to": "Workspace.Map.Missing"
+     }
+    ],
+    "kind": "stairs"
+   },
+   "name": "fail: connection target not resolved",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "S",
+      "p": [
+       0,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       4,
+       8,
+       8
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Stairs1",
+    "pivot": {
+     "p": [
+      0,
+      4,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "pair": {
+     "class": "Model",
+     "hasPrimaryPart": true,
+     "parts": [
+      {
+       "anchored": true,
+       "anchoredAssembly": true,
+       "canCollide": true,
+       "canTouch": true,
+       "hasEffects": false,
+       "massless": false,
+       "name": "Post",
+       "p": [
+        10,
+        4,
+        0
+       ],
+       "r": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+       ],
+       "size": [
+        2,
+        8,
+        2
+       ],
+       "transparency": 0.0
+      }
+     ],
+     "path": "Workspace.Map.Gate.R",
+     "pivot": {
+      "p": [
+       10,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ]
+     }
+    }
+   },
+   "expect": {
+    "P7": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "prop",
+    "pair": {
+     "at": 0,
+     "axis": "x",
+     "with": "Workspace.Map.Gate.R"
+    }
+   },
+   "name": "pass: mirrored gate posts",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Post",
+      "p": [
+       -10,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       8,
+       2
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Gate.L",
+    "pivot": {
+     "p": [
+      -10,
+      4,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "pair": {
+     "class": "Model",
+     "hasPrimaryPart": true,
+     "parts": [
+      {
+       "anchored": true,
+       "anchoredAssembly": true,
+       "canCollide": true,
+       "canTouch": true,
+       "hasEffects": false,
+       "massless": false,
+       "name": "Post",
+       "p": [
+        11.5,
+        4,
+        0
+       ],
+       "r": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+       ],
+       "size": [
+        2,
+        8,
+        2
+       ],
+       "transparency": 0.0
+      }
+     ],
+     "path": "Workspace.Map.Gate.R",
+     "pivot": {
+      "p": [
+       11.5,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ]
+     }
+    }
+   },
+   "expect": {
+    "P7": "fail"
+   },
+   "fix": {
+    "P7": "moveBy"
+   },
+   "intent": {
+    "kind": "prop",
+    "pair": {
+     "at": 0,
+     "axis": "x",
+     "with": "Workspace.Map.Gate.R"
+    }
+   },
+   "name": "fail: mirrored post 1.5 studs off",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Post",
+      "p": [
+       -10,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       8,
+       2
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Gate.L",
+    "pivot": {
+     "p": [
+      -10,
+      4,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "pair": {
+     "class": "Model",
+     "hasPrimaryPart": true,
+     "parts": [
+      {
+       "anchored": true,
+       "anchoredAssembly": true,
+       "canCollide": true,
+       "canTouch": true,
+       "hasEffects": false,
+       "massless": false,
+       "name": "Post",
+       "p": [
+        10,
+        4,
+        0
+       ],
+       "r": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+       ],
+       "size": [
+        2,
+        10,
+        2
+       ],
+       "transparency": 0.0
+      }
+     ],
+     "path": "Workspace.Map.Gate.R",
+     "pivot": {
+      "p": [
+       10,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ]
+     }
+    }
+   },
+   "expect": {
+    "P7": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "prop",
+    "pair": {
+     "at": 0,
+     "axis": "x",
+     "with": "Workspace.Map.Gate.R"
+    }
+   },
+   "name": "fail: mirrored post has a different height",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Post",
+      "p": [
+       -10,
+       4,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       2,
+       8,
+       2
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Gate.L",
+    "pivot": {
+     "p": [
+      -10,
+      4,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "siblings": [
+     {
+      "dims": [
+       1,
+       1,
+       6
+      ],
+      "partCount": 1,
+      "pos": [
+       0,
+       3,
+       0
+      ],
+      "yaw": 0
+     },
+     {
+      "dims": [
+       1,
+       1,
+       6
+      ],
+      "partCount": 1,
+      "pos": [
+       5,
+       3,
+       0
+      ],
+      "yaw": 0
+     }
+    ]
+   },
+   "expect": {
+    "P7": "pass"
+   },
+   "fix": {},
+   "intent": {
+    "group": {
+     "sameYaw": true
+    },
+    "kind": "prop"
+   },
+   "name": "pass: fence post matches its siblings",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Post",
+      "p": [
+       20,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Fence5",
+    "pivot": {
+     "p": [
+      20,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": null
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "siblings": [
+     {
+      "dims": [
+       1,
+       1,
+       5
+      ],
+      "partCount": 1,
+      "pos": [
+       0,
+       3,
+       0
+      ],
+      "yaw": 0
+     },
+     {
+      "dims": [
+       1,
+       1,
+       5
+      ],
+      "partCount": 1,
+      "pos": [
+       5,
+       3,
+       0
+      ],
+      "yaw": 0
+     }
+    ]
+   },
+   "expect": {
+    "P7": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "group": {},
+    "kind": "prop"
+   },
+   "name": "fail: fence post is taller than its siblings",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Post",
+      "p": [
+       20,
+       3,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       1,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Fence5",
+    "pivot": {
+     "p": [
+      20,
+      3,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    },
+    "siblings": [
+     {
+      "dims": [
+       1,
+       1,
+       6
+      ],
+      "partCount": 1,
+      "pos": [
+       0,
+       3,
+       0
+      ],
+      "yaw": 0
+     }
+    ]
+   },
+   "expect": {
+    "P7": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "group": {
+     "sameYaw": true
+    },
+    "kind": "prop",
+    "yawGrid": 45
+   },
+   "name": "fail: fence post rotated differently from the group",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Post",
+      "p": [
+       20,
+       3,
+       0
+      ],
+      "r": [
+       0.707106781,
+       0.0,
+       0.707106781,
+       0.0,
+       1.0,
+       0.0,
+       -0.707106781,
+       0.0,
+       0.707106781
+      ],
+      "size": [
+       1,
+       6,
+       1
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Fence6",
+    "pivot": {
+     "p": [
+      20,
+      3,
+      0
+     ],
+     "r": [
+      0.707106781,
+      0.0,
+      0.707106781,
+      0.0,
+      1.0,
+      0.0,
+      -0.707106781,
+      0.0,
+      0.707106781
+     ]
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "env": {
+    "ground": {
+     "samples": [
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      {
+       "n": [
+        0,
+        1,
+        0
+       ],
+       "path": "Workspace.Map.Floor",
+       "x": 0,
+       "y": 0,
+       "z": 0
+      }
+     ]
+    }
+   },
+   "expect": {
+    "P2": "fail"
+   },
+   "fix": {},
+   "intent": {
+    "kind": "crate",
+    "waive": {
+     "P2": "hangs from the ceiling rope, see decisions.md"
+    }
+   },
+   "name": "waived: a failing check with a reason does not fail the model",
+   "num": {},
+   "opts": {},
+   "snap": {
+    "class": "Model",
+    "hasPrimaryPart": true,
+    "parts": [
+     {
+      "anchored": true,
+      "anchoredAssembly": true,
+      "canCollide": true,
+      "canTouch": true,
+      "hasEffects": false,
+      "massless": false,
+      "name": "Box",
+      "p": [
+       0,
+       5,
+       0
+      ],
+      "r": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "size": [
+       3,
+       3,
+       3
+      ],
+      "transparency": 0.0
+     }
+    ],
+    "path": "Workspace.Map.Crate21",
+    "pivot": {
+     "p": [
+      0,
+      5,
+      0
+     ],
+     "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "status": "pass"
+  }
+ ],
+ "note": "generated by make_fixtures.py; expectations are hand-written",
+ "version": 1
+}

@@ -34,6 +34,17 @@ Mean (from verdict.py): | Critical factors: |
 | V7 First 30 seconds | | | |
 Status line if not pass: `playable prototype, visuals not polished`. Backlog: `Games/<slug>/polish-backlog.md`.
 
+## 2c. PLACEMENT (placement gate `game-dev-placement-qa`: the critic's own full-map scan, stage prototype or later) - pass | fail | skipped
+| Check | Models failing | Worst example (path, measured value) | Fix |
+|---|---|---|---|
+| P1 pivot and size | | | |
+| P2 grounded | | | |
+| P3 upright | | | |
+| P4 facing and yaw | | | |
+| P5 clearance (overlap, z-fight, bounds) | | | |
+| P6 physics flags | | | |
+| P7 connections | | | |
+Scan: `Games/<slug>/placement-qa/scan-critic.json` (models, waived, ignored, fingerprint). Status line if not pass: `playable prototype, placement not verified`.
 ## 3. What the hits in this genre have that this does not
 (2-4 bullets, each with a case-study note path, patterns only)
 

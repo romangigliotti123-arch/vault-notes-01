@@ -18,7 +18,7 @@ tags: [lib/skill, cat/orchestration, src/own]
 Type: skill | Category: [[categories/cat-orchestration|orchestration]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/orchestration/plan-then-build/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--phased-build-orchestrator]]
+Related: [[A--own--phased-build-orchestrator]], [[S--own--clarify-before-build-rbxdev-vault]]
 
 Creator videos (notes are in the AI Library Vault, Creators/videos): 2026-01-16-build-anything-with-claude-code-n8n-beginner-s-guide, 2026-04-12-this-one-plugin-just-10x-d-claude-code, 2026-10-02-how-to-actually-build-sell-software-with-ai-as-a-non-techie, 2026-10-11-i-tried-100-github-repos-for-claude-these-6-are-the-best
 

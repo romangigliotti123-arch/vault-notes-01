@@ -15,9 +15,8 @@ The combined brain ([[Combined-Brain]], `Mentor/Combined-Brain.md`) merges what 
 
 Full hubs, one note per video and the idea catalogue are in the AI Library Vault (`Creators/hubs/`, `Creators/videos/`, `Creators/catalogue/`).
 
-## Built items that live in this vault (13)
+## Built items that live in this vault (10)
 
-- [[S--own--clarify-before-build|clarify-before-build]] (skill) - Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the defin
 - [[A--own--digest-scout|digest-scout]] (agent) - Context-isolated read-heavy subagent: gets a narrow brief and a set of files, docs or articles, reads them in its own clean context, and ret
 - [[A--own--parallel-audit-fanout|parallel-audit-fanout]] (agent) - Orchestrator for open-ended audits of a codebase before release: splits the code into areas, runs one capped parallel auditor per area, spaw
 - [[A--own--phased-build-orchestrator|phased-build-orchestrator]] (agent) - Orchestrator for a large build or a long bug/vulnerability list: plans phases, gives each worker one narrow task with exclusive file ownersh
@@ -25,8 +24,6 @@ Full hubs, one note per video and the idea catalogue are in the AI Library Vault
 - [[S--own--agent-platform-map|agent-platform-map]] (skill) - Designs or audits an agent platform: maps each process step, marks decision points and variability, scores deterministic versus non-determin
 - [[S--own--confidence-escalation-router|confidence-escalation-router]] (skill) - Pattern and code template for routing AI answers inside an automation: auto-accept when confidence is at or above a threshold (for example 8
 - [[S--own--plan-then-build|plan-then-build]] (skill) - Gate and procedure for big builds: use plan mode for setup and large work (skip it for simple fixes), ask clarifying questions, write a spec
-- [[A--own--claim-verifier|claim-verifier]] (agent) - Verifier subagent for research and reverse-engineering findings: takes a list of findings with their sources, checks each against the source
-- [[A--own--self-verifying-game-builder|self-verifying-game-builder]] (agent) - Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks the whole environment can be exp
 - [[A--own--roblox-pre-delivery-reviewer|roblox-pre-delivery-reviewer]] (agent) - Pre-delivery reviewer for Roblox tools, plugins and scripts handed to a client or published: predicts what the client would reject or delete
 - [[A--own--roblox-audit-fanout|roblox-audit-fanout]] (agent) - Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes and security, DataStore
 - [[S--own--roblox-code-rate|roblox-code-rate]] (skill) - Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority and exploit resistance, data safety, correctness, error handling, p
@@ -37,4 +34,4 @@ Rules for delegating, verifying, context, cost and permissions are in the Manage
 
 ## Other built items
 
-The other 26 built items (general AI, writing, devops, testing, frontend) are in the AI Library Vault: see its `Creators/BUILT.md`.
+The other 29 built items (general AI, writing, devops, testing, frontend) are in the AI Library Vault: see its `Creators/BUILT.md`.

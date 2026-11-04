@@ -6,10 +6,11 @@ tags: [moc]
 26 items. Back: [[_Home]]
 
 - [a] [[A--own--game-balance-tester|game-balance-tester]] - Simulates game balance (damage, economy, spawn rates, difficulty) with scripts and reports outliers and tuning
-- [a] [[A--own--game-critic|game-critic]] - Independent critic for a Roblox game idea, prototype, playtest build, launch kit or live game: inspects the re
+- [a] [[A--own--game-critic-rbxdev-vault|game-critic-rbxdev-vault]] - Independent critic for a Roblox game idea, prototype, playtest build, launch kit or live game: inspects the re
 - [a] [[A--own--godot-developer|godot-developer]] - Builds Godot 4 game features in GDScript with scenes, signals and resources, and tests them headless.
-- [a] [[A--own--self-verifying-game-builder|self-verifying-game-builder]] - Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks th
+- [a] [[A--own--self-verifying-game-builder-rbxdev-vault|self-verifying-game-builder-rbxdev-vault]] - Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks th
 - [a] [[A--own--unity-developer|unity-developer]] - Builds Unity features in C# (MonoBehaviours, ScriptableObjects, prefabs, UI Toolkit) with play-mode and edit-m
+- [s] [[S--own--contribute-rbxdev-vault|contribute-rbxdev-vault]] - Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can
 - [s] [[S--own--game-dev-ads|game-dev-ads]] - Ads tutorial and best-way-to-run-ads plan for a specific Roblox game, built from the vault's ads notes, AD-PLA
 - [s] [[S--own--game-dev-art-direction|game-dev-art-direction]] - Writes the art direction for a Roblox game BEFORE anything visual is built, so the UI, models, lighting and ef
 - [s] [[S--own--game-dev-critic|game-dev-critic]] - The independent quality gate of the Roblox game workflow. Before anything is called done, a stage advances or 
@@ -25,9 +26,8 @@ tags: [moc]
 - [s] [[S--own--game-dev-workflow|game-dev-workflow]] - Flagship end-to-end Roblox game workflow and the single entry for every game, run with /game-dev-workflow. It 
 - [s] [[S--own--game-economy-simulation|game-economy-simulation]] - Model a game's currencies, income and prices in a quick Python simulation to find inflation, stalls and domina
 - [s] [[S--own--game-feel-checklist|game-feel-checklist]] - Checklist to improve game feel and juice (input response, feedback, animation, audio, camera, hit reactions) f
-- [s] [[S--own--game-idea|game-idea]] - Run /game-idea to get ONE short, evidence-backed Roblox game idea that fits what is working on Roblox right no
+- [s] [[S--own--game-idea-rbxdev-vault|game-idea-rbxdev-vault]] - Run /game-idea-rbxdev-vault to get ONE short, evidence-backed Roblox game idea that fits what is working on Ro
 - [s] [[S--own--game-sound-design-brief|game-sound-design-brief]] - Create a sound and music brief for a game: sound list by event, mix priorities, loop and file specs, licensing
 - [s] [[S--own--level-design-review|level-design-review]] - Review a game level or map for flow, readability, difficulty curve, teaching, pacing and replay value, with co
 - [s] [[S--own--pixel-art-asset-pipeline|pixel-art-asset-pipeline]] - Plan and produce 2D game art (sprites, tilesets, UI icons) with consistent palette, size and export settings, 
 - [s] [[S--own--playtest-feedback-synthesis|playtest-feedback-synthesis]] - Turn raw playtest notes, survey answers, comments and analytics into themes, ranked problems and a next-build 
-- [s] [[S--own--vault-contribute|vault-contribute]] - Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can

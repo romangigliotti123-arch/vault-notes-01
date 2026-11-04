@@ -11,6 +11,7 @@ Pack skills are opened by a general worker (Agent tool) whose master brief says 
 | art direction (J00, before any UI/world/effect job) | art-bible-writer, palette-picker, font-and-color-picker, lighting-preset-picker, game-feel-polisher | skill game-dev-art-direction (StyleKit) | sonnet | serial, first |
 | UI | mobile-ui-audit, shop-ui-planner, hud-layout-planner, ui-kit-consistency-checker | roblox-builder (StyleKit components only) | sonnet | parallel with non-UI writers |
 | models, world, lighting, effects | model-rebuild, prop-set-planner, part-to-mesh-planner, lighting-preset-picker, particle-effect-planner | roblox-builder; Studio MCP search_asset / insert_asset / generate_mesh | sonnet | serial (MCP) |
+| placement checks while building and the full-map scan | `game-dev-placement-qa` (`Placement.place` / `verify` / `scan` through Studio MCP) | the building worker itself, then a serial scan job | sonnet | serial, Studio MCP, before the visual gate |
 | visual gate and polish rounds | ui-kit-consistency-checker, safe-area-checker, game-feel-polisher | skill game-dev-visual-qa; fresh game-critic-rbxdev-vault re-scores | sonnet | serial, after the last feature job |
 | after prototype | playtest-bot-writer, lag-hunter, exploit-audit | roblox-tester, roblox-playtest-runner, roblox-luau-reviewer (read-only) | sonnet; haiku for sweeps | parallel, no project edits (own `docs/audits/` report file each) |
 | fixes | skill of the finding (dupe-exploit-hunter, texture-budget-checker, model-cleaner ...) | roblox-luau-engineer | sonnet | serial |
@@ -43,6 +44,7 @@ Models: haiku = lookups, listing, simple verification; sonnet = default. Writers
 | Performance pass | `roblox-performance-pass` | sonnet | medium | serial | 1 run |
 | Code review (exploits, data loss, leaks) | `roblox-luau-reviewer` | sonnet | high | parallel (read-only) | 1 run per milestone |
 | Static checks and banned-pattern greps | the manager itself, or a `haiku` checker with a 5-line brief | haiku | low | parallel | per job |
+| Placement scan (every model, fix, re-scan) | `game-dev-placement-qa` | sonnet | medium | serial, Studio MCP | up to 3 scans, 30 turns each |
 | Visual QA round (capture, score, fix list) | `game-dev-visual-qa` | sonnet | medium | serial, Studio MCP | up to 3 rounds, 40 turns each |
 | Playtest and feel review | `game-dev-playtest` (+ `roblox-tester`, `roblox-playtest-runner`) | sonnet | medium | serial | 1 run |
 | Launch checklist | `roblox-launch-checklist`, `roblox-publish-checklist` | haiku | low | serial | 1 run |
