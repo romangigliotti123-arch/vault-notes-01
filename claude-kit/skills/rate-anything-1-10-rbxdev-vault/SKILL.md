@@ -1,6 +1,6 @@
 ---
 name: rate-anything-1-10-rbxdev-vault
-description: "General-purpose 1.00-10.00 rater for any thing the user wants judged (an idea, plan, pitch, prompt, design, document, landing page, product, code, skill): picks 5-8 relevant weighted criteria, scores each 1-10 against written anchors with a one-line evidence note, applies a spread rule and caps, computes the weighted total with a script, then lists strengths, weaknesses and ordered fixes with the score each would add. Use when the user says rate this out of 10, score this 1-10, how good is this really, grade my idea, compare these two options, or give me a number and why."
+description: "General-purpose 1.00-10.00 rater for anything the user wants judged (idea, plan, prompt, design, document, landing page, product, code, skill): picks 5-8 weighted criteria, scores each against written anchors with a one-line evidence note, applies a spread rule and caps, computes the weighted total with a script, then lists strengths, weaknesses and ordered fixes with the score each adds."
 argument-hint: "<thing to rate or path> [what it is for]"
 ---
 
@@ -47,3 +47,7 @@ Idea from AI-creator research (catalogue ideas idea-0071). Credit and where it a
 - Nate Herk, "How to Actually Build & Sell Software with AI as a Non-Techie" (2026-10-02) @ 36:42, https://www.youtube.com/watch?v=l8ywUsEJ2XQ&t=2202s. Seen there as: LLM-as-a-judge (customer support reply grader)
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
+
+## Triggers (moved out of the description)
+
+Use when the user says rate this out of 10, score this 1-10, how good is this really, grade my idea, compare these two options, or give me a number and why.

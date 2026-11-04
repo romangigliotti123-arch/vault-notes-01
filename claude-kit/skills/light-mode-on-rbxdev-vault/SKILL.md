@@ -1,6 +1,7 @@
 ---
 name: light-mode-on-rbxdev-vault
 description: "Turn Obsidian light mode ON for the claudes-vault on this computer: hides Imported, Library, Assets and source notes so Obsidian opens fast. Switch only, no update, works offline. Use when the user says /light-mode-on-rbxdev-vault, light mode on, turn on light mode, hide the big folders, make Obsidian faster, or go back to the light view after full view. Opposite: /light-mode-off-rbxdev-vault."
+disable-model-invocation: true
 ---
 
 # light-mode-on-rbxdev-vault

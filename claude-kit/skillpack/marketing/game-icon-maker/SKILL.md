@@ -12,7 +12,7 @@ related: thumbnail-maker, ctr-ab-test-planner, title-generator, brand-kit-builde
 The icon is shown on the Home feed beside many other icons, so it is judged against its neighbours, not alone (vault: thumbnails-icons, "Design the icon to differ from its grid neighbours"). One job: decide what the icon shows, build it from a real render, and prove it survives shrinking. The wide thumbnails are `thumbnail-maker`; the test design is `ctr-ab-test-planner`.
 
 ## When to use
-The icon is the auto-generated default, a raw screenshot or plain AI art, or looks the same as the genre's other icons. Not for: 16:9 thumbnails, ad creatives (`roblox-ad-thumbnail-brief`), badge/pass icons.
+The icon is the auto-generated default, a raw screenshot or plain AI art, or looks the same as the genre's other icons. Not for: 16:9 thumbnails, ad creatives (`roblox-thumbnail-brief`), badge/pass icons.
 
 ## Inputs (max 3)
 1. Game name, genre and core fantasy (default: `GAME.md`). 2. The hero subject: character, pet, vehicle (default: the most repeated thing in the loop). 3. Three or four genre-neighbour icons to compare with (default: top charts for the genre, looked at live).

@@ -1,5 +1,5 @@
 {
- "_comment": "Single source of truth for the vault slug and for every vault-owned skill/agent/plugin name. Pattern: <verb>-<slug>-vault (verb first). Read by kit-rename.py (migration of old installs), by the site tooling (netlify-site/vault_config.py: docs, build checks) and by tests. A future topic vault changes 'slug' here and runs netlify-site/tools/vault_rename.py retag. Entries in 'renamed' are the PREVIOUS names; the migration removes them from user machines. Tool file names under claude-kit/tools (vault-find.py, kbq.py, ...) are namespaced by the claude-kit folder and keep their names.",
+ "_comment": "Single source of truth for the vault slug and for every vault-owned skill/agent/plugin name. Pattern: <verb>-<slug>-vault (verb first). Read by kit-rename.py (migration of old installs), by the site tooling (netlify-site/vault_config.py: docs, build checks) and by tests. A future topic vault changes 'slug' here and runs netlify-site/tools/vault_rename.py retag. Entries in 'renamed' are the PREVIOUS names; the migration removes them from user machines. Entries in 'removed' are skills/agents that were MERGED into the item named in 'into'; the same migration removes unchanged copies (edited or user-owned ones stay, with a warning). Tool file names under claude-kit/tools (vault-find.py, kbq.py, ...) are namespaced by the claude-kit folder and keep their names.",
  "slug": "rbxdev",
  "pattern": "<verb>-<slug>-vault",
  "mode_name": "Roblox dev mode",
@@ -33,6 +33,13 @@
   {"old": "self-verifying-game-builder", "new": "self-verifying-game-builder-rbxdev-vault", "kind": "agent"},
   {"old": "workflow-hud", "new": "hud-rbxdev-vault", "kind": "plugin", "command_old": "hud", "command_new": "hud-rbxdev-vault"},
   {"old": "vault-graph", "new": "graph-rbxdev-vault", "kind": "plugin", "command_old": "graph", "command_new": "graph-rbxdev-vault"}
+ ],
+ "removed": [
+  {"old": "roblox-ad-thumbnail-brief", "kind": "skill", "into": "roblox-thumbnail-brief", "why": "ad-creative brief folded into the KB-grounded thumbnail brief"},
+  {"old": "roblox-builder", "kind": "agent", "into": "roblox-luau-engineer", "why": "strict subset of the Luau engineer"},
+  {"old": "roblox-tester", "kind": "agent", "into": "roblox-playtest-runner", "why": "same playtest job; test order and bug rules folded into the runner"},
+  {"old": "roblox-ad-creative-planner", "kind": "agent", "into": "roblox-launch-marketing-manager", "why": "icon/thumbnail/ad creative briefs are part of the launch and marketing manager"},
+  {"old": "roblox-analytics-reviewer", "kind": "agent", "into": "roblox-game-doctor", "why": "dashboard export review is the game doctor's input; weekly procedure stays in skill roblox-analytics-review"}
  ],
  "kept": [
   "rbx", "make-roblox-game", "game-dev-* (all)", "roblox-* (all skills and agents)",

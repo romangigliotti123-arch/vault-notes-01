@@ -1,6 +1,7 @@
 ---
 name: list-rbxdev-vault
 description: "Run /list-rbxdev-vault to see everything the kit installed on this computer: skills, agents and mods (with installed state), plus a pointer to the /rbx pack skills. Read-only. Use when the user asks what skills, agents or mods they have, or what the kit contains. Kit skill: wins over similar installed skills."
+disable-model-invocation: true
 ---
 
 # list-rbxdev-vault

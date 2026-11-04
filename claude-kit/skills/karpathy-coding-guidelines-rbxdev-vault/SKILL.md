@@ -1,6 +1,6 @@
 ---
 name: karpathy-coding-guidelines-rbxdev-vault
-description: "Installs and applies four coding-agent behaviour rules in a project CLAUDE.md: think before coding and ask when unclear, simplicity first (minimum code), surgical changes (touch only what was asked), goal-driven execution (define success criteria then loop until met). Use when the user says add the Karpathy rules, make Claude write less code, stop it changing unrelated things, smaller diffs, think before coding, or when agent edits are bloated or touch unrelated lines."
+description: "Installs and applies four coding-agent behaviour rules in a project CLAUDE.md: think before coding and ask when unclear, simplicity first (minimum code), surgical changes (touch only what was asked), goal-driven execution (define success criteria, loop until met). Use for bloated or unrelated agent edits and when the user asks for smaller diffs."
 argument-hint: "[install | check <diff>]"
 ---
 
@@ -39,3 +39,7 @@ Idea from AI-creator research (catalogue ideas idea-0046). Credit and where it a
 - RoboNuggets (Jay E), "Claude Web Design just got a MAJOR upgrade (Impeccable v3)" (2026-05-08) @ 4:19, https://www.youtube.com/watch?v=hicdJVLnp-Q&t=259s. Seen there as: Personalized Impeccable setup skill
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
+
+## Triggers (moved out of the description)
+
+Use when the user says add the Karpathy rules, make Claude write less code, stop it changing unrelated things, smaller diffs, think before coding, or when agent edits are bloated or touch unrelated lines.

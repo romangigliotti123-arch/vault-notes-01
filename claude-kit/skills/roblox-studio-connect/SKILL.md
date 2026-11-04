@@ -1,6 +1,6 @@
 ---
 name: roblox-studio-connect
-description: "Connects Claude Code to Roblox Studio and the Roblox toolchain, and says how to use the connection as evidence. Covers Roblox's official built-in Studio MCP server (read and write scripts, run Luau, playtest, read Output, screenshots), Rojo (files <-> Studio sync), and the checking toolchain (Rokit, Rojo, Wally, Selene, StyLua, luau-lsp analyze, Lune), plus the opt-in setup scripts for Windows (studio-setup.ps1) and macOS/Linux (studio-setup.sh). Use when the user says connect Studio, set up Rojo, install the Roblox tools, let Claude run my game, playtest in Studio, read Studio output, why can't Claude see Studio, or when game-dev-workflow needs to know how to put code in a place and test it."
+description: "Connects Claude Code to Roblox Studio and the Roblox toolchain and says how to use the connection as evidence: Roblox's official Studio MCP server (scripts, run Luau, playtest, Output, screenshots), Rojo, and the checking toolchain (Rokit, Wally, Selene, StyLua, luau-lsp analyze, Lune), plus opt-in setup scripts for Windows (studio-setup.ps1) and macOS/Linux (studio-setup.sh)."
 argument-hint: "[setup | status | playtest]"
 ---
 
@@ -54,3 +54,8 @@ This host (and many clients) cannot sign in to Studio for the user, so live-Stud
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says connect Studio, set up Rojo, install the Roblox tools, let Claude run my game, playtest in Studio, read Studio output, why can't Claude see Studio, or when game-dev-workflow needs to know how to put code in a place and test it.

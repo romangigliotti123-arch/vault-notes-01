@@ -1,6 +1,6 @@
 ---
 name: roblox-audit-fanout
-description: "Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes and security, DataStore and economy, gameplay loops, UI, performance, build and publish setup), runs a roblox-luau-reviewer-style auditor per area in parallel, spawns a verifier per finding to reproduce it (playtest, script trace, test), dedupes and ranks, and writes a standalone HTML report of exploits and bugs with file lines and fixes. Use when the user says audit my Roblox game for exploits and errors, find all bugs before launch, full Luau code review, exploit sweep, or pre-launch code audit."
+description: "Orchestrator for a pre-release audit of a whole Roblox game or Luau codebase: splits the project into areas (remotes, DataStore and economy, gameplay loops, UI, performance, build setup), runs a reviewer per area in parallel, spawns a verifier per finding to reproduce it, dedupes and ranks, and writes a standalone HTML report of exploits and bugs with file lines and fixes."
 model: sonnet
 effort: high
 tools: Read, Grep, Glob, Bash, Agent, Write
@@ -58,3 +58,7 @@ Idea from AI-creator research (catalogue ideas idea-0029, idea-0025). Credit and
 - Nate Herk, "How to Build Claude Agent Teams Better Than 99% of People" (2026-03-23) @ 0:00, https://www.youtube.com/watch?v=vDVSGVpB2vc&t=0s. Seen there as: Front-end / back-end / QA agent team (Neuroflow demo)
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
+
+## Triggers (moved out of the description)
+
+Use when the user says audit my Roblox game for exploits and errors, find all bugs before launch, full Luau code review, exploit sweep, or pre-launch code audit.

@@ -1,6 +1,7 @@
 ---
 name: update-clean-rbxdev-vault
-description: "Make this computer's claudes-vault an EXACT copy of the main vault (Roman's), removing stray or changed files, while keeping Games, My Research and other protected folders. DESTRUCTIVE, so it prints a dry run and asks one confirmation question. Use when the user says /update-clean-rbxdev-vault, clean vault update, clean update of my vault, make my vault exactly match the main vault, reset my vault to Roman's, throw away my local changes in the vault, wipe the extra files out of the vault, or the vault is messy or broken after normal /update-rbxdev-vault. For a normal safe update that keeps everything of the user's, use /update-rbxdev-vault instead."
+description: "Make this computer's claudes-vault an EXACT copy of the main vault, removing stray or changed files, while keeping Games, My Research and other protected folders. DESTRUCTIVE: prints a dry run and asks one confirmation question. Explicit command only. For a normal safe update that keeps everything of the user's, use /update-rbxdev-vault."
+disable-model-invocation: true
 ---
 
 # update-clean-rbxdev-vault
@@ -18,3 +19,8 @@ Exact copy of the host's vault: `git fetch`, `reset --hard origin/main`, `git cl
 4. On yes, run the same command with `-Yes` (Windows) or `--yes` (macOS/Linux). Report the final `update-clean-rbxdev-vault:` line (commit, how many items removed, backup path, patch path) and the Assets line.
 5. `-IncludeMine` / `--include-mine` additionally deletes `My Research/` (a backup is made first; if the backup is skipped or fails, My Research is kept). Use it ONLY if the user explicitly typed that option or said in plain words that My Research should be deleted too. The dry run then prints a second warning line listing what would be lost; mention it in your question.
 6. If it prints `fetch failed (offline?)`, nothing was changed: say so in one line. Never run `git clean`/`git reset` by hand, never edit, commit or push in the vault.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says /update-clean-rbxdev-vault, clean vault update, clean update of my vault, make my vault exactly match the main vault, reset my vault to Roman's, throw away my local changes in the vault, wipe the extra files out of the vault, or the vault is messy or broken after normal /update-rbxdev-vault.

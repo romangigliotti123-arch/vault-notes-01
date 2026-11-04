@@ -4,7 +4,7 @@ description: "Review a Roblox sponsored-experience (or search-ad) campaign's res
 category: marketing
 tags: ads, sponsored, ads manager, ctr, cpp, roas, creative test, campaign review, search ads, budget, learning period
 kb: Roblox/roblox-kb/ads-stats-monetisation-playbook.md, Roblox/roblox-kb/ads-and-sponsored-experiences.md, Roblox/roblox-kb/_tools/AD-PLAYBOOK.md, Roblox/roblox-kb/_tools/BENCHMARKS.md, Roblox/roblox-kb/discovery-algorithm.md
-related: roblox-ad-campaign-planner, roblox-ad-thumbnail-brief, discovery-signal-reader, ctr-ab-test-planner, retention-diagnoser, thumbnail-maker, game-dev-ads
+related: roblox-ad-campaign-planner, roblox-thumbnail-brief, discovery-signal-reader, ctr-ab-test-planner, retention-diagnoser, thumbnail-maker, game-dev-ads
 ---
 
 # sponsored-ad-reviewer
@@ -49,4 +49,4 @@ Same. If the owner cannot paste numbers, list the cells to copy and stop; do not
 Judging inside the learning period. Editing or pausing daily (it restarts). Scaling a leaky game out of trouble. Comparing ROAS before earnings are final. Treating a thumbnail win as a retention win. Mixing the old Maximize Plays names with the new objectives.
 
 ## Related
-`roblox-ad-campaign-planner`, `roblox-ad-thumbnail-brief`, `discovery-signal-reader`, `ctr-ab-test-planner`, `retention-diagnoser`.
+`roblox-ad-campaign-planner`, `roblox-thumbnail-brief`, `discovery-signal-reader`, `ctr-ab-test-planner`, `retention-diagnoser`.

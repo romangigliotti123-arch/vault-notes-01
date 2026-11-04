@@ -1,5 +1,5 @@
 # Playtest report: <Title> (<YYYY-MM-DD>)
-Mode: <MCP | deterministic | client via roblox-tester> · Project: <path>
+Mode: <MCP | deterministic | client via roblox-playtest-runner> · Project: <path>
 FRESHNESS: <line from freshness.py>
 Verdict: <SHIP-READY for a private test | FIX FIRST | BLOCKED> · S1 <n> · S2 <n> · S3 <n> · S4 <n>
 

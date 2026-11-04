@@ -1,6 +1,6 @@
 ---
 name: clarify-before-build-rbxdev-vault
-description: "Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of done is clear, then outputs one consolidated spec with success criteria. Use when the request is vague, before starting a new skill, project, automation, routine or Roblox/game system, or when the user says ask me questions first, grill me, interview me, clarify before you build, make sure you understand, or do not assume."
+description: "Asks 3-7 short multiple-choice clarifying questions (each with a recommended default) before building a vague request, loops until the definition of done is clear, then outputs one consolidated spec with success criteria. Use when the request is vague, before a new skill, project, automation or game system, or when the user says grill me or do not assume."
 argument-hint: "[the vague request]"
 ---
 
@@ -50,3 +50,7 @@ Idea from AI-creator research (catalogue ideas idea-0008, idea-0116). Credit and
 - Nate Herk, "18 Claude Code Token Hacks in 18 Minutes" (2026-04-02) @ 5:07, https://www.youtube.com/watch?v=49V-5Ock8LU&t=307s. Seen there as: Confidence-gate plan mode rule
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
+
+## Triggers (moved out of the description)
+
+Use when the request is vague, before starting a new skill, project, automation, routine or Roblox/game system, or when the user says ask me questions first, grill me, interview me, clarify before you build, make sure you understand, or do not assume.

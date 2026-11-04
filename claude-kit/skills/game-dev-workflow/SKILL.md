@@ -1,6 +1,6 @@
 ---
 name: game-dev-workflow
-description: "Flagship end-to-end Roblox game workflow and the single entry for every game, run with /game-dev-workflow. It finds or creates the game (Games/<game>/ in the vault, protected from updates), detects the REAL stage from evidence (idea, prototype, playtest, launch, growth, live-ops), and resumes with the next step; an independent critic must say GOOD before any stage advances. Asks only for the game idea (plus a one-time experience-level and game-type question), elaborates it from the vault (best core loop, first 30 seconds, map ideas, features, progression, game passes, social hooks), rates it 1.00-10.00 on many criteria with strengths, weaknesses and a what-is-hot-now check, turns it into a full build plan for Claude (skills, agents, models, budget, subagent cap), asks one final 'Ready to build?', then acts as a MANAGER: it spawns specialist workers (pack skills, kit agents, kit systems) with master prompts filled from the vault, verifies their reports, takes initiative on the next jobs and ends with a playtest. Use when the user says make a game, plan a game, I have a game idea, build a Roblox game from start to finish, game-dev-workflow, run the game studio, or wants an idea rated and planned and built. No idea yet? /game-idea-rbxdev-vault finds one. Side skills: game-dev-critic, game-dev-weekly, game-dev-launch-kit, game-dev-harvest, game-dev-ads, game-dev-update, game-dev-playtest, game-dev-thumbnail, game-dev-art-direction, game-dev-visual-qa. A game is never called done, complete or ready unless the visual gate (game-dev-visual-qa, with screenshots) passed; otherwise its status is 'playable prototype, visuals not polished'. Kit skill: wins over similar installed skills."
+description: "Flagship Roblox game workflow and the single entry for every game. Finds or creates Games/<game>/, detects the real stage from evidence (idea, prototype, playtest, launch, growth, live-ops), resumes the next step, rates and plans the idea, then manages specialist workers. A critic must say GOOD before a stage advances; never done without the visual, placement and lighting gates."
 argument-hint: "[your game idea, or leave empty]"
 ---
 
@@ -71,3 +71,8 @@ Stay inside the PROJECT folder; do not edit the user's other projects. Keep tool
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says make a game, plan a game, I have a game idea, build a Roblox game from start to finish, game-dev-workflow, run the game studio, or wants an idea rated and planned and built. No idea yet? /game-idea-rbxdev-vault finds one.

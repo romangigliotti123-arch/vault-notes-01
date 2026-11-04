@@ -1,6 +1,6 @@
 ---
 name: deep-topic-research-rbxdev-vault
-description: "Use when the user gives a topic and wants it researched deeply across GitHub, YouTube, Reddit, blogs, docs and papers: find the best creators and publishers per source, read their whole back-catalogue, label every claim OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE against official docs, optionally score how credible each creator is, and produce a cited knowledge base, playbook and cheat sheet. Always asks for a usage budget, time limit and worker cap first, picks models and an orchestration mode automatically, resumes if stopped. Includes its own YouTube transcript tool. Triggers: 'research <topic>', 'research <topic> deeply', 'learn everything about', 'deep dive on', 'find the best creators for', 'build a knowledge base on'."
+description: "Researches a topic deeply across GitHub, YouTube, Reddit, blogs, docs and papers: finds the best creators per source, reads their back-catalogue, labels every claim OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE, and produces a cited knowledge base, playbook and cheat sheet. Asks for a usage budget, time limit and worker cap first; resumes if stopped."
 ---
 
 # deep-topic-research-rbxdev-vault
@@ -89,3 +89,8 @@ OUT path (protected folder, do not delete), spend vs budget, time used, mode and
 
 ## Reference files (read only when needed)
 `references/models.md` | `references/orchestration.md` | `references/trust.md` | `references/credibility.md` | `references/budget-and-caps.md` | `references/sources.md` | `references/scoring.md` | `references/safety.md` | `INSTALL.md` | `QUICKSTART.md`
+
+
+## Triggers (moved out of the description)
+
+Use when the user gives a topic and wants it researched deeply across GitHub, YouTube, Reddit, blogs, docs and papers: find the best creators and publishers per source, read their whole back-catalogue, label every claim OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE against official docs, optionally score how credible each creator is, and produce a cited knowledge base, playbook and cheat sheet. Triggers: 'research <topic>', 'research <topic> deeply', 'learn everything about', 'deep dive on', 'find the best creators for', 'build a knowledge base on'.

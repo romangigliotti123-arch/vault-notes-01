@@ -1,6 +1,6 @@
 ---
 name: game-dev-update
-description: "Plans and writes future updates for a Roblox game: content cadence, live-ops loops, retention levers mapped to D1/D7/D30, an event and season calendar, player-facing patch notes, A/B test ideas, rollback and risk rules. Reads the newest live-ops, events, retention and A/B notes from the vault every run and live-checks anything stale, and diagnoses pasted analytics (hands off to the roblox-game-doctor logic). Use when the user says plan my next update, what should I add next, update roadmap, patch notes, event calendar, live ops plan, my game is losing players, or after launch in game-dev-workflow. Callable alone as /game-dev-update. Kit skill: wins over similar installed skills."
+description: "Plans and writes future updates for a Roblox game: content cadence, live-ops loops, retention levers mapped to D1/D7/D30, event and season calendar, player-facing patch notes, A/B test ideas, rollback and risk rules. Reads the newest live-ops notes each run, live-checks stale facts, and diagnoses pasted analytics (hands off to the game-doctor logic)."
 argument-hint: "[game name or path to game-plan.md; optionally paste your metrics]"
 ---
 
@@ -34,3 +34,8 @@ Print the diagnosis line (if any), the next three updates in one line each, the 
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says plan my next update, what should I add next, update roadmap, patch notes, event calendar, live ops plan, my game is losing players, or after launch in game-dev-workflow.

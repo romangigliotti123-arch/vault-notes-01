@@ -4,7 +4,7 @@ description: "Produce a Roblox game's thumbnail set end to end: pick the concept
 category: marketing
 tags: thumbnail, icon, packaging, ctr, composition, variants, mobile, screenshot, nano banana
 kb: Roblox/roblox-kb/thumbnails-icons.md, Roblox/roblox-kb/titles-descriptions.md, Roblox/roblox-kb/discovery-algorithm.md, Roblox/roblox-kb/ab-testing-and-experiments.md, Roblox/roblox-kb/case-studies-grow-a-garden.md
-related: game-icon-maker, ctr-ab-test-planner, game-description-writer, game-dev-thumbnail, roblox-thumbnail-brief, roblox-ad-thumbnail-brief, thumbnail-guideline-checker
+related: game-icon-maker, ctr-ab-test-planner, game-description-writer, game-dev-thumbnail, roblox-thumbnail-brief, thumbnail-guideline-checker
 ---
 
 # thumbnail-maker
@@ -13,7 +13,7 @@ Packaging gates every other signal: a weak thumbnail means no clicks and no impr
 
 ## When to use
 - The game plays and needs its first thumbnail set, or CTR/PTR is low and the thumbnail is the suspect (confirm with `discovery-signal-reader` first).
-- Not for: the square icon alone (`game-icon-maker`), ad creative (`roblox-ad-thumbnail-brief`), policy review (`thumbnail-guideline-checker`).
+- Not for: the square icon alone (`game-icon-maker`), ad creative (`roblox-thumbnail-brief`), policy review (`thumbnail-guideline-checker`).
 
 ## Inputs (ask at most 3; default the rest)
 1. Game name and one-sentence pitch (default: `Games/<slug>/GAME.md` pitch). 2. The hero: the character, pet, vehicle or moment the game is about (default: the most-repeated action of the core loop). 3. Tool access: Studio MCP connected? Gemini key present (`game-dev-thumbnail` checks)? Defaults: files only, prompts only.

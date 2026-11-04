@@ -1,6 +1,6 @@
 ---
 name: game-critic-rbxdev-vault
-description: "Independent critic for a Roblox game idea, prototype, playtest build, launch kit or live game: inspects the real files (and Studio output when connected), plays through the first 30 seconds as a stranger, scores the 10 quality factors 1-10 with evidence against the vault's hit-versus-flop model and benchmarks, separates WORKS from GOOD, and writes a verdict GOOD / NOT YET / BAD with the top 3 fixes. Never edits the game. Use through the game-dev-critic skill, before a stage advances or anything is called done."
+description: "Independent critic for a Roblox game idea, prototype, playtest build, launch kit or live game: inspects the real files (and Studio output when connected), plays the first 30 seconds as a stranger, scores the 10 quality factors 1-10 with evidence, separates WORKS from GOOD and writes a verdict GOOD / NOT YET / BAD with the top 3 fixes. Never edits the game. Used through the game-dev-critic skill."
 model: sonnet
 effort: high
 tools: Read, Grep, Glob, Bash, Write
@@ -42,3 +42,8 @@ NEXT: the top 3 fixes, in order
 ARTIFACTS: absolute path of Games/<slug>/critic/<date>-<stage>.md
 
 **Provisional (no Studio/MCP):** run-based items are `untested` and F1/F2 timings `estimated`; the best result is verdict GOOD plus the line `PROVISIONAL: yes (estimated timings)` in the report. A provisional GOOD does not license `games.py advance` until Studio evidence or the user's phone-stopwatch confirmation is recorded in `decisions.md` (`game-dev-workflow/references/manager.md` section 8).
+
+
+## Triggers (moved out of the description)
+
+Use through the game-dev-critic skill, before a stage advances or anything is called done.

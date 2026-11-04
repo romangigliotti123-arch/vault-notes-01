@@ -1,6 +1,7 @@
 ---
 name: light-mode-off-rbxdev-vault
 description: "Turn Obsidian light mode OFF (full view) for the claudes-vault on this computer: everything except Assets becomes visible in Obsidian (slower, about 14,000 more notes). Switch only, no update, works offline. Use when the user says /light-mode-off-rbxdev-vault, light mode off, turn off light mode, full view, show everything, show Library and Imported. Opposite: /light-mode-on-rbxdev-vault."
+disable-model-invocation: true
 ---
 
 # light-mode-off-rbxdev-vault

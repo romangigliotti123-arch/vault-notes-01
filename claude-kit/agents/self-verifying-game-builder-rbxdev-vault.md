@@ -1,6 +1,6 @@
 ---
 name: self-verifying-game-builder-rbxdev-vault
-description: "Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks the whole environment can be explored and every mechanic works (spells, stairs, pickups, win and lose states), logs results and loops fix-and-retest until validation passes or a loop cap is hit; outputs the HTML file and a test log. Use for game jam prototypes and quick game idea tests, or when the user says build me a playable prototype in the browser, make a small game and test it yourself, prototype this game idea, or self-testing game."
+description: "Builds a playable single-file HTML game from one description, then drives a real browser to play it: checks the environment can be explored and every mechanic works, logs results and loops fix-and-retest until validation passes or a loop cap is hit; outputs the HTML file and a test log. For game jam prototypes and quick idea tests."
 model: sonnet
 effort: high
 tools: Read, Write, Edit, Bash, Glob, Grep
@@ -51,3 +51,8 @@ Idea from AI-creator research (catalogue ideas idea-0119). Credit and where it a
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
 Learning loop: after you VERIFY something non-obvious (a fix, a gotcha, a corrected assumption), record it once with `python -I ~/.claude/claude-kit/tools/learn.py add ...` (see skill learn-rbxdev-vault; facts only, no secrets or personal data). Check the curated `learned/` notes first when you hit a problem (`vault-find.py "<problem>" --type learned`).
+
+
+## Triggers (moved out of the description)
+
+Use for game jam prototypes and quick game idea tests, or when the user says build me a playable prototype in the browser, make a small game and test it yourself, prototype this game idea, or self-testing game.

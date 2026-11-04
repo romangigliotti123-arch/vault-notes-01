@@ -1,6 +1,6 @@
 ---
 name: use-rbxdev-vault
-description: "How any Claude should use the claudes-vault Obsidian vault (about 17,000 generated notes: Roblox knowledge base, 11,000 skill/agent notes, manager research): find the vault, grep first, read small files, never load whole folders, locate hubs and find a skill or agent by name. Use when the user says use the vault, look in the vault, check my notes, or any Roblox/agent/skill question the vault may answer."
+description: "How any Claude should use the claudes-vault Obsidian vault (about 17,000 generated notes: Roblox knowledge base, skill/agent notes, manager research): find the vault, grep first, read small files, never load whole folders, locate hubs, find a skill or agent by name. Use when the user says use the vault, look in the vault, check my notes."
 ---
 
 # use-rbxdev-vault
@@ -35,3 +35,8 @@ The vault is a read-only, generated copy of the owner's knowledge. Search it; do
 
 ## Make a game
 For "make me a Roblox game" or "continue my game" use `/game-dev-workflow` (stage tracker, critic gate, weekly numbers `/game-dev-weekly`, launch `/game-dev-launch-kit`, save reusable work `/game-dev-harvest`); the make-roblox-game skill (agent roblox-game-builder) is the build engine it uses. Worked example of the whole flow: `Guides/Worked-Example-Idea-To-Live-Ops.md`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says use the vault, look in the vault, check my notes, or any Roblox/agent/skill question the vault may answer.

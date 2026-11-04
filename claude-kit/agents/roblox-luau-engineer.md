@@ -1,6 +1,6 @@
 ---
 name: roblox-luau-engineer
-description: "Roblox Luau engineer: implements gameplay, economy, data, remotes and UI systems in Luau (and Rojo/Studio when available) following the knowledge base's scripting, performance and security rules plus official docs. Use for writing or fixing Roblox scripts."
+description: "Roblox Luau engineer: implements gameplay, economy, data, remotes and UI systems in Luau (and Rojo/Studio when available) following the knowledge base's scripting, performance and security rules plus official docs. Use for writing or fixing Roblox scripts, features, services, UI and remotes."
 model: sonnet
 effort: high
 disallowedTools: Agent
@@ -44,6 +44,7 @@ Procedure
    - Purchases: MarketplaceService.ProcessReceipt is idempotent, grants and persists before returning PurchaseGranted; prices read from MarketplaceService, not hard-coded.
    - Data: UpdateAsync (or ProfileStore) with session locking, retries with backoff, save on PlayerRemoving and BindToClose, schema versioning; never yield-dependent corruption.
    - Performance: event-driven, no per-frame work that can be an event; budget Heartbeat/RenderStepped work (under 16 ms CPU frame for 60 FPS); disconnect connections and destroy objects (Trove/Maid pattern); StreamingEnabled-aware code; avoid heavy loops on mobile.
+   - UI: responsive (Scale sizing, UIAspectRatio, safe areas); test on a phone-sized emulation (skill roblox-ui-responsive).
    - Language: `--!strict` Luau types, task.wait/task.spawn/task.defer (never wait/spawn/delay), no deprecated APIs, ModuleScripts for shared logic, clear service boundaries.
 4. Verify: run `bash "$KIT/tools/roblox-project-template/luau-check.sh" <absolute file or dir>` (stylua --check, selene with Roblox std, luau-lsp analyze with Roblox definitions; the tools are Rokit shims that only work from that folder, which the script handles). "Unknown require" and "Instance? could be nil" noise from luau-lsp is expected without a Rojo sourcemap (`rojo sourcemap default.project.json -o sourcemap.json`); fix real type errors, selene warnings and format issues. `lune run <script>` runs pure-Luau logic tests headlessly. Do not install anything without being told. If checks cannot run, say exactly why.
 

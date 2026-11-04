@@ -1,6 +1,6 @@
 ---
 name: claim-verifier-rbxdev-vault
-description: "Verifier subagent for research and reverse-engineering findings: takes a list of findings with their sources, checks each against the source, and labels it seen (with citation), inferred (with reasoning) or unknown, so guesses are never treated as facts and the builder relies only on seen items. Use after a research or reverse-engineering investigation and before building on it, or when the user says fact-check these findings, which of these claims are actually proven, label what is verified versus guessed, or verify my notes."
+description: "Verifier subagent for research and reverse-engineering findings: takes findings with their sources, checks each against the source, and labels it seen (with citation), inferred (with reasoning) or unknown, so guesses are never treated as facts and the builder relies only on seen items. Use after research and before building on it."
 model: sonnet
 effort: medium
 tools: Read, Grep, Glob, Bash, WebFetch
@@ -52,3 +52,7 @@ Idea from AI-creator research (catalogue ideas idea-0084). Credit and where it a
 - Nate Herk, "I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know." (2026-10-13) @ 9:39, https://www.youtube.com/watch?v=rL5tw6h78zo&t=579s. Seen there as: Seen/inferred/unknown tagger
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
+
+## Triggers (moved out of the description)
+
+Use after a research or reverse-engineering investigation and before building on it, or when the user says fact-check these findings, which of these claims are actually proven, label what is verified versus guessed, or verify my notes.

@@ -1,6 +1,6 @@
 ---
 name: game-dev-plan
-description: "Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, assets from <vault>/Assets, libraries, and a vault Library search that picks the skills, agents and models for every job, ending in a routing table (job, skill or agent, model, effort, parallel or serial, budget) with a subagent cap. Only haiku (lookups) and sonnet (default) are used. Use when the user says plan my game, make a build plan, which agents and skills should build this, turn this idea into a plan for Claude, or when game-dev-workflow reaches Stage 4. Callable alone as /game-dev-plan. Kit skill: wins over similar installed skills."
+description: "Turns a rated Roblox game idea into a complete build plan for Claude, written to game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, assets and libraries, and a routing table (job, skill or agent, model, effort, parallel or serial, budget) with a subagent cap. Only haiku (lookups) and sonnet (default) are used."
 argument-hint: "[idea, or path to docs/elaboration.md and docs/rating.md]"
 ---
 
@@ -29,3 +29,8 @@ Never put a model other than haiku/sonnet in any table or brief. Every skill or 
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says plan my game, make a build plan, which agents and skills should build this, turn this idea into a plan for Claude, or when game-dev-workflow reaches Stage 4.

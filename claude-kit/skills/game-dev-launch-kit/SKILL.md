@@ -1,6 +1,6 @@
 ---
 name: game-dev-launch-kit
-description: "Launch kit for a Roblox game, triggered by the stage gate from playtest to launch (and runnable alone as /game-dev-launch-kit): chains the existing thumbnail/icon brief, title and description, ad budget plan, update calendar and publish/launch checklists into one Games/<game>/launch.md with the exact steps the user performs. Use when a game reaches the launch stage, or the user says launch kit, get ready to publish, plan my launch, prepare thumbnails and ads for launch. Kit skill: wins over similar installed skills."
+description: "Launch kit for a Roblox game, run at the stage gate from playtest to launch (or alone): chains the thumbnail/icon brief, title and description, ad budget plan, update calendar and publish/launch checklists into one Games/<game>/launch.md with the exact steps the user performs."
 argument-hint: "[game slug]"
 ---
 
@@ -12,7 +12,7 @@ Stage `launch` of game-dev-workflow. It adds no new advice of its own: it calls 
 `games.py detect <slug>` shows playtest evidence and `games.py verdict <slug> --stage playtest` is GOOD. If not, stop: "the playtest critic is NOT YET (path): fix those first". Retention first: with real session data, D1 under the "weak" band means no ad plan, only fixes.
 
 ## Do this (each step is an existing skill; pass the game's `design.md` and `GAME.md`)
-1. **Packaging** (F8 critical): `game-dev-thumbnail` (icon, thumbnails, trailer ideas; image generation only if the user's tooling is set up) and `roblox-ad-thumbnail-brief` for the ad creative; title and description from `titles-descriptions` (honest: shows real gameplay, matches the first 30-90 seconds). Output: briefs and prompts, never invented asset ids (use `0`, "SET IN CREATOR HUB").
+1. **Packaging** (F8 critical): `game-dev-thumbnail` (icon, thumbnails, trailer ideas; image generation only if the user's tooling is set up) and `roblox-thumbnail-brief` for the ad creative; title and description from `titles-descriptions` (honest: shows real gameplay, matches the first 30-90 seconds). Output: briefs and prompts, never invented asset ids (use `0`, "SET IN CREATOR HUB").
 2. **Ad plan**: `game-dev-ads` with `roblox-ad-campaign-planner` (`adcalc.py` does the arithmetic): budget, duration, checkpoints, creative test matrix, stop rules; the readiness gate says no ads before retention is acceptable.
 3. **Update calendar**: `game-dev-update`: first 4 weeks of cadence (1-2 week drops), one event, patch-note template.
 4. **Checklists**: `roblox-publish-checklist` and `roblox-launch-checklist` (`make_checklist.py` makes a phone-friendly HTML) tailored to this game; age rating and monetisation settings per `age-ratings-moderation-and-tos` and `roblox-monetization-audit`.
@@ -26,3 +26,8 @@ Vault-first freshness protocol applies (ad costs, specs and policies are fast-mo
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use when a game reaches the launch stage, or the user says launch kit, get ready to publish, plan my launch, prepare thumbnails and ads for launch.

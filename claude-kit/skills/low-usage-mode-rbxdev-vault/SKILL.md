@@ -1,6 +1,6 @@
 ---
 name: low-usage-mode-rbxdev-vault
-description: "Keep Claude in low usage mode for the rest of the session and every later one until turned off: cheapest model that fits, no opus, one subagent at most, short replies, small tool output, and every reply starts with 'low usage mode enabled.'. Use when the user says /low-usage-mode-rbxdev-vault, low usage mode, save usage, stretch my limit, or stop burning my usage. '/low-usage-mode-rbxdev-vault off' ends it, '/low-usage-mode-rbxdev-vault status' reports it."
+description: "Keep Claude in low usage mode for this session and every later one until turned off: cheapest model that fits, no opus, one subagent at most, short replies, small tool output, and every reply starts with 'low usage mode enabled.'. '/low-usage-mode-rbxdev-vault off' ends it, 'status' reports it."
 argument-hint: "[on | off | status]"
 disable-model-invocation: true
 allowed-tools: Bash(sh *low-usage-mode-rbxdev-vault*scripts/lum*)
@@ -34,3 +34,8 @@ Read the `LUM` line above (`mode=on|off`, `hooks=installed|MISSING|partial`) and
 9. When the conversation is large (long session, many tool results), say once: "/compact now or /clear between tasks would save usage".
 
 Why hooks and not just this skill: a skill's text stays in context but fades in a long session and is only partly kept after auto-compaction. Details, sources and the install/uninstall-rbxdev-vault steps: `references/how-it-works.md`, `references/research.md`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says /low-usage-mode-rbxdev-vault, low usage mode, save usage, stretch my limit, or stop burning my usage.

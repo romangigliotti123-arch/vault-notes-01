@@ -1,6 +1,6 @@
 ---
 name: roblox-metrics-benchmarks
-description: One sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, rewarded-video opt-in, FPS) from the knowledge base with an official/indie flag per row, plus a script that compares a game's numbers to those bands. Use when the user asks what a good D1/D7/session/conversion/CTR is, how their numbers compare, or wants benchmark targets for a Roblox game.
+description: "One sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, FPS) with an official/indie flag per row, plus a script that compares a game's numbers to those bands. Use for 'what is a good D1/CTR/conversion' and for benchmark targets."
 ---
 
 # Roblox metrics benchmarks
@@ -23,3 +23,8 @@ Two parts: `benchmarks.md` (the table, same folder) and `compare.py` (determinis
 ## Maintenance
 
 `thresholds.json` is curated from the KB `_tools/BENCHMARKS.md`; re-check bands with `kbq.py num` when the KB changes.
+
+
+## Triggers (moved out of the description)
+
+Use when the user asks what a good D1/D7/session/conversion/CTR is, how their numbers compare, or wants benchmark targets for a Roblox game.

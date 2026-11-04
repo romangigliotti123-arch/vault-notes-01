@@ -1,6 +1,6 @@
 ---
 name: roblox-pre-delivery-reviewer
-description: "Pre-delivery reviewer for Roblox tools, plugins and scripts handed to a client or published: predicts what the client would reject or delete, predicts runtime failures (Windows terminal encoding crashes, missing services, Studio vs live differences), trims unneeded code, then runs the original and the trimmed version side by side to prove the same problems are still caught; every prediction is verified by execution. Use before handing a script, plugin or tool to a client or publishing it, or when the user says would the client accept this, what would they delete, trim this script, pre-delivery check, or final review before I send it."
+description: "Pre-delivery reviewer for Roblox tools, plugins and scripts handed to a client or published: predicts what the client would reject or delete and what would fail at runtime (Windows terminal encoding, missing services, Studio vs live), trims unneeded code, then runs original and trimmed versions side by side to prove the same problems are still caught. Every prediction is verified by execution."
 model: sonnet
 effort: high
 tools: Read, Grep, Glob, Bash, Edit, Write
@@ -50,3 +50,7 @@ Idea from AI-creator research (catalogue ideas idea-0040). Credit and where it a
 - Nate Herk, "I Built Another Andrej Karpathy Using Claude" (2026-10-05) @ 8:49, https://www.youtube.com/watch?v=bvGptCLDhyo&t=529s. Seen there as: Code review / ship-check agent
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
+
+## Triggers (moved out of the description)
+
+Use before handing a script, plugin or tool to a client or publishing it, or when the user says would the client accept this, what would they delete, trim this script, pre-delivery check, or final review before I send it.

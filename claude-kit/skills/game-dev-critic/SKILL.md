@@ -1,6 +1,6 @@
 ---
 name: game-dev-critic
-description: "The independent quality gate of the Roblox game workflow. Before anything is called done, a stage advances or a build is handed over, a separate critic agent plays/inspects the game as a stranger would, scores the 10 quality factors 1-10 with evidence against the vault's hit-versus-flop model and real benchmarks, separates 'works' (no bugs) from 'good' (fun, retains, monetises) and from 'looks' (visual gate: screenshots scored on a 7-item rubric) and returns a verdict GOOD / NOT YET / BAD with the top 3 fixes; NOT YET or BAD blocks advancing, and no game is GOOD or done without a passing visual gate AND a passing placement gate (every model in the map checked for pivot, size, grounding, upright, facing, overlap, anchoring and connections). Use when the user says is it good, is this ready, can we move on, critique my game, honest opinion, or when game-dev-workflow wants to advance a stage or finish a build. Callable alone as /game-dev-critic. Kit skill: wins over similar installed skills."
+description: "Independent quality gate of the Roblox game workflow. A separate critic agent inspects the game as a stranger, scores 10 quality factors 1-10 with evidence, separates works (no bugs) from good (fun, retains, monetises) and looks (visual gate), and returns GOOD / NOT YET / BAD with the top 3 fixes. NOT YET or BAD blocks advancing; GOOD needs passing visual, placement and lighting gates."
 argument-hint: "[game slug or project folder] [stage]"
 ---
 
@@ -37,3 +37,8 @@ Sources: `~/.claude/claude-kit/vault-mode/.claude/skills/game-dev-workflow/refer
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use when the user says is it good, is this ready, can we move on, critique my game, honest opinion, or when game-dev-workflow wants to advance a stage or finish a build.

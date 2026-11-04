@@ -2,6 +2,7 @@
 name: contribute-rbxdev-vault
 description: "Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can offer it to the vault owner for the shared host vault. Nothing is uploaded or published by this skill. Use only when the user says contribute this to the vault, share this reusable item, send it to the host, or /contribute-rbxdev-vault."
 argument-hint: "<reusable item name>"
+disable-model-invocation: true
 ---
 
 # contribute-rbxdev-vault

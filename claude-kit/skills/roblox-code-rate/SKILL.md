@@ -1,6 +1,6 @@
 ---
 name: roblox-code-rate
-description: "Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority and exploit resistance, data safety, correctness, error handling, performance, structure and readability, testability) with a cited file:line evidence note per score, hard caps for exploitable remotes or data-loss bugs, a script-computed total and ordered fixes with the score each adds. Use when the user says rate my Luau code, score this script out of 10, how good is my Roblox code, compare these two implementations, code quality score before launch, or after a roblox-luau-reviewer pass."
+description: "Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority and exploit resistance, data safety, correctness, error handling, performance, structure, testability) with a cited file:line evidence note per score, hard caps for exploitable remotes or data-loss bugs, a script-computed total and ordered fixes with the score each adds."
 argument-hint: "<script path or folder> [what it does]"
 ---
 
@@ -48,3 +48,7 @@ Idea from AI-creator research (catalogue ideas idea-0071). Credit and where it a
 - Nate Herk, "How to Actually Build & Sell Software with AI as a Non-Techie" (2026-10-02) @ 36:42, https://www.youtube.com/watch?v=l8ywUsEJ2XQ&t=2202s. Seen there as: LLM-as-a-judge (customer support reply grader)
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
+
+## Triggers (moved out of the description)
+
+Use when the user says rate my Luau code, score this script out of 10, how good is my Roblox code, compare these two implementations, code quality score before launch, or after a roblox-luau-reviewer pass.

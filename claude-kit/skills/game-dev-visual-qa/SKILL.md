@@ -1,6 +1,6 @@
 ---
 name: game-dev-visual-qa
-description: "The mandatory visual gate and definition of done for a Roblox game: screenshots the running game (3 moments, phone and desktop), runs a layout/overlap check at phone, tablet and desktop sizes, scores a 7-item rubric (UI consistency, overlap, readability, models, lighting, effects, first 30 seconds), lists defects, fixes them and re-shoots for at most 3 rounds, then says honestly what is still rough. A game may be called done, complete, ready or finished only after this gate passes with screenshots; otherwise its status is 'playable prototype, visuals not polished' plus a polish backlog. Use before saying done, when the user says it looks bad, ugly, unfinished or asks for a visual check, UI overlap, polish pass or screenshot review, and whenever game-dev-workflow or game-dev-critic reaches a prototype or later stage. Callable alone as /game-dev-visual-qa. Kit skill: wins over similar installed skills."
+description: "Mandatory visual gate and definition of done for a Roblox game: screenshots the running game (3 moments, phone and desktop), checks layout and overlap at phone, tablet and desktop sizes, scores a 7-item rubric, fixes defects and re-shoots (max 3 rounds). A game is called done only after this gate passes with screenshots; otherwise 'playable prototype, visuals not polished'."
 argument-hint: "[game slug or project folder]"
 ---
 
@@ -38,3 +38,8 @@ Why this exists: a game that runs and follows its design was repeatedly declared
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use before saying done, when the user says it looks bad, ugly, unfinished or asks for a visual check, UI overlap, polish pass or screenshot review, and whenever game-dev-workflow or game-dev-critic reaches a prototype or later stage.

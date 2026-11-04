@@ -46,7 +46,7 @@ if ((Test-Path -LiteralPath $kr) -and (Test-Path -LiteralPath $Man) -and ((Get-I
     $renameMsg = (& $rpy @ra 2>&1 | Out-String).Trim()
     $ErrorActionPreference = $ea0
     $env:CLAUDE_CONFIG_DIR = $prevCfgR; if (-not $prevCfgR) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }
-    if ($renameMsg -match 'commands renamed') { $renamed = $true }
+    if ($renameMsg -match 'commands (renamed|merged)') { $renamed = $true }
   } else { Write-Output 'kit-rename: no working Python 3, so old command names were not migrated; install Python 3 and run the update again' }
 }
 

@@ -1,6 +1,6 @@
 ---
 name: update-rbxdev-vault
-description: "Update the claudes-vault (and the companion AI Library Vault) on this computer on demand: self-healing git update (fetch + fast-forward; local changes are saved to a patch and the vault is reset to the latest), refresh the installed Claude kit (its skills and agents stay OFF in normal sessions; folders where /load-rbxdev-vault turned on Roblox dev mode are refreshed too), and sync the Assets folder (<vault>/Assets, about 1 GB of zips the first time) from the asset sources listed in repos.json (the vault repos live on GitHub: vault-notes, vault-kit; Roman's own PCs may use the private Tailscale share). Use when the user says /update-rbxdev-vault, update the vault, refresh my vault, sync the assets, or when assets/vault content looks stale or missing, or when a plain git pull in the vault is blocked by local changes. Your own research and files are kept (My Research, folders marked PROTECTED-RESEARCH.md, any untracked file). For an exact copy of the main vault use /update-clean-rbxdev-vault instead. Option: full view on/off (Obsidian indexes everything except Assets/ instead of the light mode)."
+description: "Update the claudes-vault and the companion AI Library Vault on demand: self-healing git update (local changes saved to a patch), refresh the installed kit (its skills and agents stay OFF in normal sessions), sync the Assets folder (about 1 GB the first time). Use for /update-rbxdev-vault, 'update the vault', or stale or missing vault content. Your own research and games are kept."
 ---
 
 # update-rbxdev-vault
@@ -25,3 +25,8 @@ The vault no longer polls every 15 minutes: it updates at logon and when you run
 Two commands: `/update-rbxdev-vault` (this one: safe, keeps everything of the user's; only tracked-file edits are patched and reset) and `/update-clean-rbxdev-vault` (exact copy of the main vault, still keeps Games and My Research; asks once).
 
 To only switch the Obsidian view without updating, use `/light-mode-on-rbxdev-vault` or `/light-mode-off-rbxdev-vault` (`-SetView light|full` / `--set-view light|full`).
+
+
+## Triggers (moved out of the description)
+
+Use when the user says /update-rbxdev-vault, update the vault, refresh my vault, sync the assets, or when assets/vault content looks stale or missing, or when a plain git pull in the vault is blocked by local changes.

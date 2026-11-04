@@ -35,7 +35,7 @@ if [ -f "$KIT/tools/kit-rename.py" ] && [ -s "$MAN" ]; then
   if [ -n "$RPY" ]; then
     if [ $DRY = 1 ]; then RENAME_MSG="$(CLAUDE_CONFIG_DIR="$C" "$RPY" -I "$KIT/tools/kit-rename.py" migrate --config "$C" --dry-run 2>&1)"
     else RENAME_MSG="$(CLAUDE_CONFIG_DIR="$C" "$RPY" -I "$KIT/tools/kit-rename.py" migrate --config "$C" 2>&1)"; fi
-    case "$RENAME_MSG" in *"commands renamed"*) RENAMED=1;; esac
+    case "$RENAME_MSG" in *"commands renamed"*|*"commands merged"*) RENAMED=1;; esac
   else echo "kit-rename: no working Python 3, so old command names were not migrated; install Python 3 and run the update again"; fi
 fi
 

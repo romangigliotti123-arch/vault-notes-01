@@ -1,6 +1,7 @@
 ---
 name: setup-check-rbxdev-vault
-description: "Run /setup-check-rbxdev-vault to see which software the vault setup needs and what is missing on this computer (Windows, macOS, Linux): git, Python, Claude Code, Roblox Studio and its MCP server, Rokit with Rojo/StyLua/Selene/luau-lsp/Lune, Blender and Blender MCP, uv, Obsidian and more. Prints a table (required vs optional, version or path, exact install command per OS). Read-only; installs only after the user says yes. Kit skill: wins over similar installed skills."
+description: "Run /setup-check-rbxdev-vault to see which software the vault setup needs and what is missing on this computer (Windows, macOS, Linux): git, Python, Claude Code, Roblox Studio and its MCP server, Rokit tools, Blender, uv, Obsidian and more. Prints a table (required vs optional, version or path, install command per OS). Read-only; installs only after the user says yes."
+disable-model-invocation: true
 ---
 
 # setup-check-rbxdev-vault

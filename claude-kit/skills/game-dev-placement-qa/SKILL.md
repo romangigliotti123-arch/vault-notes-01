@@ -1,6 +1,6 @@
 ---
 name: game-dev-placement-qa
-description: "The mandatory placement and orientation gate for a Roblox game: every model created, inserted (insert_asset, generate_*, Clone) or moved in the map is measured and fixed before work continues, and the whole map is scanned before anything is called done. Seven checks per model: pivot and size for its kind, grounded (not floating or buried), upright, facing its target and yaw on the grid, no overlap or z-fighting or out-of-bounds, physics flags, connected pieces aligned. Runs real Luau in Studio (Placement.place, verify, scan), returns a JSON report with measured values and concrete fixes, auto-fixes and re-verifies. A game may be called done, and a stage may advance, only after placement_gate.py printed PLACEMENT GATE: PASS for the current build; otherwise the status is playable prototype, placement not verified. Use after every model create, insert or move, before game-dev-visual-qa and game-dev-critic, and when something floats, clips, faces the wrong way, is crooked, sunk or misaligned. Callable alone as /game-dev-placement-qa. Kit skill: wins over similar installed skills."
+description: "Mandatory placement and orientation gate for a Roblox game. Every model created, inserted or moved is measured and fixed before work continues (pivot, size, grounded, upright, facing, overlap, physics flags, connections), and the whole map is scanned with real Luau in Studio. Done only after placement_gate.py prints PLACEMENT GATE: PASS; run before visual QA and the critic."
 argument-hint: "[game slug or project folder]"
 ---
 
@@ -37,3 +37,8 @@ Why this exists: models were repeatedly created or inserted and left floating, b
 ## Learn
 
 When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/learn-rbxdev-vault` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+
+
+## Triggers (moved out of the description)
+
+Use after every model create, insert or move, before game-dev-visual-qa and game-dev-critic, and when something floats, clips, faces the wrong way, is crooked, sunk or misaligned.

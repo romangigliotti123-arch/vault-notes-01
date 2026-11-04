@@ -447,7 +447,7 @@ def cmd_status(a):
     print("always-on commands: " + ", ".join("/" + x for x in always_on(p)))
     rl = jread(os.path.join(p["store"], "rename-last.json"), None)
     if rl and rl.get("moved"):
-        print("commands renamed on %s: every vault command now ends in -%s-vault (old -> new list: %s)" % (rl.get("at", "?"), rl.get("slug", "?"), os.path.join(p["c"], "claude-kit", "COMMANDS-RENAMED.txt")))
+        print("commands renamed or merged on %s: every vault command now ends in -%s-vault (old -> new list: %s)" % (rl.get("at", "?"), rl.get("slug", "?"), os.path.join(p["c"], "claude-kit", "COMMANDS-RENAMED.txt")))
     old = [k for k in old_layout(p)]
     if old:
         print("OLD LAYOUT: %d vault skill/agent files are still in %s (they load in every session). Run /update-rbxdev-vault to move them." % (len(old), p["c"]))

@@ -20,7 +20,7 @@ Method:
 4. Simulate a casual, a regular and a grinder player over days (Python or a spreadsheet written to the working directory). Report where each stalls and how paid items change pace. Paid items speed up or decorate; they do not gate the core loop or break PvP fairness.
 5. Check exploit paths: duplication, loops that mint currency, negative prices, trade abuse. Server computes all rewards.
 6. Never propose paid random rewards, real-money-style gambling or fear-of-missing-out pressure.
-Output: currency table, price table with formulas, simulation results, tuning knobs list, and the DataStore fields needed (hand to roblox-builder; see skills roblox-datastore-safe-save and roblox-monetisation-setup).
+Output: currency table, price table with formulas, simulation results, tuning knobs list, and the DataStore fields needed (hand to roblox-luau-engineer; see skills roblox-datastore-safe-save and roblox-monetisation-setup).
 
 ## Final report (exactly this format, nothing after it)
 RESULT: success | partial | failed
