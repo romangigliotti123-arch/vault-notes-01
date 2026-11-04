@@ -15,11 +15,31 @@ Silent when nothing changed. Silent (exit 0) when repos.json or GitHub is unreac
 Env CLAUDE_REFS_SKIP=1 does nothing (used by kit-refresh). The images are third-party frames (see NOTICE.md in the folder): comparison only, never copy them into a game.
 Exit code 0 always, except 2 for usage errors.
 """
-import argparse, json, os, subprocess, sys, urllib.request
+import argparse, json, os, re, subprocess, sys, urllib.request
 
 # filled in by the site build with the vault-kit raw URL and the website
 DEFAULT_BASES = ["https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main", "https://vault-hhmi60uo.netlify.app"]
 ENV = dict(os.environ, GIT_TERMINAL_PROMPT="0")
+OWNERS = [o.strip().lower() for o in os.environ.get("VAULT_ALLOWED_OWNERS", "romangigliotti123-arch").split(",") if o.strip()]   # "*" accepts any github.com owner
+
+
+def repo_allowed(url):
+    if os.environ.get("VAULT_SHARDS_TEST_ANY_URL"):
+        return True
+    m = re.fullmatch(r"https://github\.com/([A-Za-z0-9._-]+)/[A-Za-z0-9._-]+(?:\.git)?", url or "")
+    return bool(m) and ("*" in OWNERS or m.group(1).lower() in OWNERS)
+
+
+def bad_paths(paths, mount):
+    """tracked paths a refs shard may not write: only img/ (and the shard's mount) and plain root files; no hidden folders (.refs-git holds the git config of every shard)"""
+    ms = [m.rstrip("/") for m in mount]
+    out = []
+    for p in paths:
+        parts = p.split("/")
+        ok = any(p == m or p.startswith(m + "/") for m in ms) or parts[0] == "img" or (len(parts) == 1 and not p.startswith(".") or p == ".gitattributes")
+        if not ok or any(x.startswith(".") and x != ".gitattributes" for x in parts) or any(x.lower().startswith("git~") for x in parts):
+            out.append(p)
+    return out
 
 
 def fetch_json(bases):
@@ -37,7 +57,7 @@ def fetch_json(bases):
 def git(gd, wt, *a):
     cmd = ["git", "--git-dir", gd] + (["--work-tree", wt] if wt else []) + list(a)
     try:
-        return subprocess.run(cmd, capture_output=True, text=True, env=ENV, stdin=subprocess.DEVNULL, timeout=900)
+        return subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", env=ENV, stdin=subprocess.DEVNULL, timeout=900)
     except (OSError, subprocess.SubprocessError):
         return subprocess.CompletedProcess(cmd, 1, "", "git not available or timed out")
 
@@ -104,7 +124,8 @@ def main():
         name, url, mount = str(sh.get("name", "")), str(sh.get("git", "")), sh.get("mount") or []
         if not name.startswith("vault-refs-") or "/" in name or "\\" in name or ".." in name:
             continue
-        if not (url.startswith("https://github.com/") or os.environ.get("VAULT_SHARDS_TEST_ANY_URL")):
+        if not repo_allowed(url):
+            say("refs-sync: skipped %s (repository is not under github.com/%s; set VAULT_ALLOWED_OWNERS to accept another owner)" % (name, OWNERS[0] if OWNERS else "?"))
             continue
         if any(unsafe(m) for m in mount):
             say("refs-sync: skipped %s (unsafe mount list)" % name)
@@ -127,6 +148,11 @@ def main():
         if git(gd, dest, "fetch", "-q", "--depth", "1", url, "main").returncode != 0:
             ok_any = ok_any or bool(before)
             continue                    # offline: keep what is there
+        tr = git(gd, dest, "ls-tree", "-r", "-z", "--name-only", "FETCH_HEAD")
+        bad = bad_paths([x for x in tr.stdout.split("\0") if x], mount) if tr.returncode == 0 else ["(file list unreadable)"]
+        if bad:
+            say("refs-sync: refused %s (%d tracked path(s) outside img/ and its mount list, first: %s); nothing written" % (name, len(bad), bad[0][:80]))
+            continue
         if git(gd, dest, "reset", "--hard", "-q", "FETCH_HEAD").returncode != 0:
             continue
         ok_any = True

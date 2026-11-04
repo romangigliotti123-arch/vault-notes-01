@@ -28,6 +28,36 @@ LOCK_NAME = ".assets-sync.lock"
 CHUNK = 256 * 1024
 BAD_CHARS = re.compile(r'[<>:"|?*\x00-\x1f\\]')
 T0 = time.time()
+OWNERS = [o.strip().lower() for o in os.environ.get("VAULT_ALLOWED_OWNERS", "romangigliotti123-arch").split(",") if o.strip()]   # "*" accepts any github.com owner
+LOOPBACK = ("127.0.0.1", "localhost", "::1")
+TRUSTED_HOSTS = ("github.com", "raw.githubusercontent.com") + tuple(h.strip().lower() for h in os.environ.get("VAULT_ALLOW_HOSTS", "").split(",") if h.strip())
+MAX_ZIP = int(float(os.environ.get("ASSETS_SYNC_MAX_ZIP_GB", "4")) * 1024 ** 3)
+MAX_UNPACKED = int(float(os.environ.get("ASSETS_SYNC_MAX_UNPACKED_GB", "8")) * 1024 ** 3)
+MAX_ENTRIES = 250000
+
+
+class Refused(Exception):
+    """a safety limit was hit: not retried"""
+
+
+def host_ok(host, base_host):
+    h = (host or "").lower()
+    return h == (base_host or "").lower() or h in LOOPBACK or h in TRUSTED_HOSTS or h.endswith(".githubusercontent.com") or h.endswith(".netlify.app")
+
+
+def dir_ok(d, base):
+    """an asset source listed in repos.json: https (plain http only to the base host itself or loopback), a trusted host, and on github.com only the owner's repositories"""
+    u = urllib.parse.urlsplit(d)
+    h, bh = (u.hostname or "").lower(), (urllib.parse.urlsplit(base).hostname or "").lower()
+    if u.scheme not in ("http", "https") or not h or u.username or u.password:
+        return False
+    if u.scheme == "http" and h not in LOOPBACK and h != bh:
+        return False
+    if not host_ok(h, bh):
+        return False
+    if h == "github.com" and "*" not in OWNERS:
+        return (u.path.strip("/").split("/") or [""])[0].lower() in OWNERS
+    return True
 
 
 def fs(p):
@@ -142,8 +172,8 @@ class Http(object):
                 raise OSError("more than %d redirects for %s" % (MAX_REDIRECTS, path))
             cur = "%s://%s:%d%s" % ("https" if https else "http", host, port, target)
             u = urllib.parse.urlsplit(urllib.parse.urljoin(cur, loc))
-            if u.scheme not in ("http", "https") or not u.hostname or (https and u.scheme != "https"):
-                raise OSError("redirect to %s refused" % (loc[:80],))
+            if u.scheme not in ("http", "https") or not u.hostname or (https and u.scheme != "https") or not host_ok(u.hostname, self.host) or (u.scheme == "http" and u.hostname.lower() not in LOOPBACK and u.hostname.lower() != self.host.lower()):
+                raise OSError("redirect to %s refused (host not allowed; VAULT_ALLOW_HOSTS adds one)" % (loc[:80],))
             host, https = u.hostname, u.scheme == "https"
             port = u.port or (443 if https else 80)
             target = u.path or "/"
@@ -395,7 +425,10 @@ def pick_zip_base(base, verbose):
         for e in (j.get("assets") or []):
             d = e.get("dir") if isinstance(e, dict) else None
             if isinstance(d, str) and d.startswith(("http://", "https://")) and d.rstrip("/") not in dirs:
-                dirs.append(d.rstrip("/"))
+                if dir_ok(d, base):
+                    dirs.append(d.rstrip("/"))
+                else:
+                    say("assets-sync: ignored asset source %s (needs https on github.com/%s or the site; VAULT_ALLOWED_OWNERS / VAULT_ALLOW_HOSTS change that)" % (d[:80], OWNERS[0] if OWNERS else "?"))
     except Exception as e:
         if verbose:
             say("assets-sync: %s has no usable /repos.json (%s)" % (base, e))
@@ -478,6 +511,8 @@ def download_zip(base, name, sha, cache_dir, verbose):
                             break
                         f.write(b)
                         got += len(b)
+                        if have + got > MAX_ZIP:
+                            raise Refused("%s.zip is larger than the %d GB limit (ASSETS_SYNC_MAX_ZIP_GB)" % (name, MAX_ZIP >> 30))
                 if total and have + got != total:
                     raise OSError("incomplete (%d of %d bytes)" % (have + got, total))
                 if sha256_file(part) != sha:
@@ -510,7 +545,17 @@ def extract_zip_atomic(zip_path, assets, name):
     n = 0
     troot = os.path.realpath(tmp)
     with zipfile.ZipFile(fs(zip_path)) as zf:
-        for zi in zf.infolist():
+        infos = zf.infolist()
+        unpacked = sum(z.file_size for z in infos)
+        if len(infos) > MAX_ENTRIES or unpacked > MAX_UNPACKED or any(z.file_size > MAX_UNPACKED for z in infos):
+            raise Refused("%s.zip refused: %d entries, %.1f GB unpacked (limits %d, %d GB; ASSETS_SYNC_MAX_UNPACKED_GB)" % (name, len(infos), unpacked / 1e9, MAX_ENTRIES, MAX_UNPACKED >> 30))
+        try:
+            free = shutil.disk_usage(assets).free
+        except OSError:
+            free = unpacked * 2
+        if unpacked * 11 // 10 > free:
+            raise Refused("%s.zip needs %.1f GB unpacked but only %.1f GB is free" % (name, unpacked / 1e9, free / 1e9))
+        for zi in infos:
             nm = zi.filename.replace("\\", "/")
             isdir = nm.endswith("/")
             nm = nm.rstrip("/")

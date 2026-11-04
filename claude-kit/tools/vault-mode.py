@@ -115,6 +115,34 @@ def store_items(p):
     return items
 
 
+KEY_RX = re.compile(r"skills/[A-Za-z0-9][A-Za-z0-9._-]*|agents/[A-Za-z0-9][A-Za-z0-9._-]*\.md")
+
+
+def rel_ok(rel):
+    return isinstance(rel, str) and bool(rel) and not rel.startswith("/") and ":" not in rel and "\\" not in rel and all(x not in ("", ".", "..") for x in rel.split("/"))
+
+
+def clean_marker(m):
+    """a project's .claude/vault-mode.json is untrusted data (a repository can ship one): keep only well-formed skill/agent keys and plain relative file names"""
+    if not isinstance(m, dict):
+        return m
+    items = {}
+    for k, rec in (m.get("items") if isinstance(m.get("items"), dict) else {}).items():
+        files = rec.get("files") if isinstance(rec, dict) else None
+        if not isinstance(k, str) or not KEY_RX.fullmatch(k) or not isinstance(files, dict):
+            continue
+        items[k] = {"files": {r: h for r, h in files.items() if rel_ok(r) and isinstance(h, str)}}
+    m["items"] = items
+    m["created"] = [c for c in (m.get("created") if isinstance(m.get("created"), list) else []) if c in (".claude/skills", ".claude/agents")]
+    return m
+
+
+def owned(proj, fd):
+    """True when fd really lies inside <proj>/.claude (symlinks resolved): nothing outside it is ever deleted"""
+    rc = os.path.realpath(os.path.join(proj, ".claude"))
+    return os.path.realpath(fd).startswith(rc + os.sep)
+
+
 def dest_of(proj, key):
     return os.path.join(proj, ".claude", *key.split("/"))
 
@@ -307,7 +335,9 @@ def link(proj, p, quiet=False):
     """create/refresh the project copies. Returns (marker, notes, changed)"""
     items = store_items(p)
     mpath = os.path.join(proj, ".claude", "vault-mode.json")
-    marker = jread(mpath, {"items": {}, "created": []})
+    marker = clean_marker(jread(mpath, {"items": {}, "created": []}))
+    if not isinstance(marker, dict):
+        marker = {"items": {}, "created": []}
     marker.setdefault("items", {})
     marker.setdefault("created", [])
     notes, changed = [], False
@@ -358,7 +388,7 @@ def link(proj, p, quiet=False):
         for rel, h in rec.items():          # file left the kit: remove if unchanged
             if rel not in files:
                 fd = file_dest(proj, key, rel)
-                if os.path.isfile(fd) and sha(fd) == h:
+                if os.path.isfile(fd) and owned(proj, fd) and sha(fd) == h:
                     os.remove(fd)
                     rmdirs_up(fd, os.path.join(proj, ".claude", key.split("/")[0]))
                     changed = True
@@ -366,7 +396,7 @@ def link(proj, p, quiet=False):
     for key in [k for k in marker["items"] if k not in items]:   # whole skill/agent left the kit
         for rel, h in marker["items"][key]["files"].items():
             fd = file_dest(proj, key, rel)
-            if os.path.isfile(fd) and sha(fd) == h:
+            if os.path.isfile(fd) and owned(proj, fd) and sha(fd) == h:
                 os.remove(fd)
                 rmdirs_up(fd, os.path.join(proj, ".claude", key.split("/")[0]))
         del marker["items"][key]
@@ -449,7 +479,7 @@ def cmd_unload(a):
         return 0
     for proj in projs:
         mpath = os.path.join(proj, ".claude", "vault-mode.json")
-        marker = jread(mpath, None)
+        marker = clean_marker(jread(mpath, None))
         if not marker:
             print("Roblox dev mode was not loaded in %s (no .claude/vault-mode.json); nothing removed." % proj)
             registry_set(p, proj, None)
@@ -463,7 +493,10 @@ def cmd_unload(a):
                     os.remove(fd + ".vmtmp")
                 if not os.path.isfile(fd):
                     continue
-                if sha(fd) == h:
+                if not owned(proj, fd):
+                    kept += 1
+                    print("  kept %s (outside the project's .claude folder)" % fd)
+                elif sha(fd) == h:
                     os.remove(fd)
                     removed += 1
                 else:
@@ -539,7 +572,7 @@ def cmd_status(a):
     proj = os.path.abspath(a.project or os.getcwd())
     items = store_items(p)
     s, g = counts(items)
-    marker = jread(os.path.join(proj, ".claude", "vault-mode.json"), None)
+    marker = clean_marker(jread(os.path.join(proj, ".claude", "vault-mode.json"), None))
     if marker:
         ls, lg = counts(marker["items"])
         print("Roblox dev mode: ON in %s (%d skills, %d agents, since %s)" % (proj, ls, lg, marker.get("loaded_at", "?")))

@@ -31,6 +31,7 @@ REJECT_CODES = {
     "thin-evidence": "'How verified' too short to count as evidence", "unredacted-personal-data": "contains personal/machine details the sender's tool would have redacted",
     "title-length": "title length", "topic-format": "topic format", "confidence": "confidence must be high or medium", "source-tag": "source tag", "body-length": "body length (outside 60-%d characters; over %d: too long, summarise)" % (L.BODY_MAX, LEARNED_BODY_MAX),
     "verified-length": "verified length", "created-date": "created date", "duplicate-hash": "same content already promoted or already in this batch",
+    "unsafe-path": "inbox path cannot be a file on Windows (reserved name, forbidden character, trailing dot or space, .git alias) or is over 180 characters",
 }
 
 
@@ -181,6 +182,9 @@ def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, s
         if not L.sync_clone(repo, url, bool(L.gh_login()) and not os.path.exists(url)):
             say("curate: could not fetch the inbox repo")
             return None
+    skipped = list(L.SKIPPED_PATHS) if pull else []
+    if skipped:
+        say("curate: %d inbox path(s) cannot be files on Windows (reserved name, forbidden character, trailing dot/space, .git alias, over 180 chars) and were not checked out: rejected as unsafe-path" % len(skipped))
     known = L.known_notes(os.path.join(repo, ".no-queue"), vault)
     seen = set()
     results = []
@@ -205,7 +209,7 @@ def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, s
         title = sanitize_title(r["note"]["title"]) if r["note"] else "(unparsed)"
         say("%-9s %-34s %s%s%s" % (r["decision"], ",".join(r["codes"])[:34], title, "   [%s]" % r["rel"], ("   (%s)" % r["reason"]) if r.get("reason") else ""))
     say("curate: %d note(s): %s" % (len(results), ", ".join("%s %d" % kv for kv in sorted(counts.items())) or "inbox empty"))
-    if not apply or not results:
+    if not apply or not (results or skipped):
         return results
     learned = os.path.join(vault, "learned")
     log_rows = []
@@ -235,13 +239,16 @@ def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, s
             dest = os.path.join(dest_dir, "%s-%s" % (hashlib.sha1(r["path"].encode()).hexdigest()[:6], os.path.basename(r["path"])))
         shutil.move(r["path"], dest)
         log_rows.append("| %s | %s | %s | %s | %s |" % (today, os.path.basename(r["path"])[:60].replace("|", "_"), r["decision"], (", ".join(r["codes"]) + ((": " + r["reason"]) if r.get("reason") else "")) or "-", promoted or "-"))
+    g = L.git_cmd(False)
+    for n in skipped:
+        log_rows.append("| %s | %s | reject | unsafe-path | - |" % (today, sanitize_title(os.path.basename(n))[:60].replace("|", "_")))
+        L.run(g + ["update-index", "--force-remove", "--", n], cwd=repo)
     regenerate_readme(vault, today)
     lp = os.path.join(repo, "CURATION-LOG.md")
     cur = open(lp, encoding="utf-8").read() if os.path.exists(lp) else LOG_HEAD
     block = "\n## %s\n\n| date | file | decision | rule codes / reason | promoted to |\n|---|---|---|---|---|\n%s\n" % (today, "\n".join(log_rows))
     with open(lp, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(cur.rstrip("\n") + "\n" + block)
-    g = L.git_cmd(False)
     L.run(g + ["add", "-A"], cwd=repo)
     msg = "curate %s: %s" % (today, ", ".join("%d %s" % (v, k) for k, v in sorted(counts.items())))
     if L.run(g + ["status", "--porcelain"], cwd=repo).stdout.strip():
@@ -270,7 +277,7 @@ def main(argv=None):
             print("%-26s injection rule, weight %d" % (c, w))
         for c, rx in L.SECRET_RX:
             print("%-26s secret rule" % c)
-        for c in ("high-entropy-string", "hidden-characters", "directive-wording"):
+        for c in ("high-entropy-string", "hidden-characters", "directive-wording", "mixed-script-word"):
             print("%-26s content rule" % c)
         return 0
     if a.cmd != "run":

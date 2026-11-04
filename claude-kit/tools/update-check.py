@@ -5,7 +5,7 @@ compares local HEAD with the remote, and compares the installed kit (manifest sh
 Usage: update-check.py [--vault DIR] [--config DIR] [--remote NAME] [--no-fetch]
 Prints: UP TO DATE, or N new commits (subjects, max 10), the kit skills/agents that changed, and the offer to run /rbx-update.
 Exit: 0 up to date, 10 updates available, 3 cannot check."""
-import argparse, hashlib, os, subprocess, sys
+import argparse, hashlib, os, re, subprocess, sys
 
 ENV = dict(os.environ, GIT_TERMINAL_PROMPT="0", LC_ALL="C")
 
@@ -82,6 +82,26 @@ def kit_stale(vault, config):
     return differ, new, sorted(names)
 
 
+CODE_EXT = (".py", ".sh", ".ps1", ".cmd", ".bat", ".js", ".mjs", ".ts", ".tsx", ".bash")
+
+
+def code_files(paths):
+    """files of an update that the installer or the tools would run (scripts, mods, installers): the part of an update worth reading before it is applied"""
+    return sorted(p for p in paths if p.lower().endswith(CODE_EXT) or p.rsplit("/", 1)[-1].lower() in ("hooks.json", "marketplace.json", "plugin.json"))
+
+
+def origin_warning(url):
+    m = re.match(r"https?://([^/:@]+)(?::\d+)?(?:/([^/]*))?", url or "")
+    if not m:
+        return ""
+    host, owner = m.group(1).lower(), m.group(2) or ""
+    if host == "github.com" and owner.lower() != "romangigliotti123-arch":
+        return "WARNING: the remote is github.com/%s, not github.com/romangigliotti123-arch. An update runs the scripts of that repository on this computer: update only if you trust it." % owner
+    if url.startswith("http://") and "." in host and not host.endswith(".ts.net"):
+        return "WARNING: the remote uses plain http:// (no encryption, anyone on the path can change what you pull). Use the https GitHub address."
+    return ""
+
+
 def kit_names(paths):
     out = set()
     for p in paths:
@@ -112,6 +132,9 @@ def main():
         print("rbx-check: vault has no remote '%s'." % a.remote)
         return 3
     print("vault: %s\nremote: %s" % (vault, url))
+    ow = origin_warning(url)
+    if ow:
+        print(ow)
     if not a.no_fetch:
         rc, _, err = git(vault, "fetch", "--quiet", a.remote)
         if rc != 0:
@@ -141,6 +164,14 @@ def main():
         _, files, _ = git(vault, "diff", "--name-only", "HEAD", up, "--", "claude-kit")
         changed = kit_names(files.splitlines())
         print("\nKit items changed on the remote: " + (", ".join(changed[:40]) if changed else "none"))
+        _, allf, _ = git(vault, "diff", "--name-only", "HEAD", up)
+        code = code_files(allf.splitlines())
+        if code:
+            print("\nCode an update would run (%d file(s); read before you update: git -C \"%s\" diff HEAD %s -- <path>):" % (len(code), vault, up))
+            for c in code[:25]:
+                print("  " + c)
+            if len(code) > 25:
+                print("  ... and %d more" % (len(code) - 25))
     stale = kit_stale(vault, config)
     kit_note = ""
     if stale is None:

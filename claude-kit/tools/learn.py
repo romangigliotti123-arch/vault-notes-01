@@ -86,6 +86,10 @@ INJ_RX = [(c, re.compile(p), w) for c, p, w in INJ]
 HTML_ALLOWED_NOTE = "inline code and fenced code are scanned too: a note must not smuggle instructions in code"
 
 
+INVISIBLE = set("\u034f\u115f\u1160\u17b4\u17b5\u180b\u180c\u180d\u180e\u2800\u3164\uffa0") | {chr(c) for c in range(0xFE00, 0xFE10)} | {chr(c) for c in range(0xE0100, 0xE01F0)}
+LOOKALIKE_SCRIPTS = ("CYRILLIC", "GREEK", "ARMENIAN", "CHEROKEE", "COPTIC", "LISU")
+
+
 def hidden_chars(text):
     bad = collections.Counter()
     for ch in text:
@@ -94,7 +98,24 @@ def hidden_chars(text):
         cat = unicodedata.category(ch)
         if cat in ("Cc", "Cf", "Co", "Cn", "Cs", "Zl", "Zp"):
             bad[cat] += 1
+        elif ch in INVISIBLE:
+            bad["invisible"] += 1
     return bad
+
+
+def mixed_script_words(text):
+    """words that mix Latin letters with look-alike letters of another script (Cyrillic a/e/o ... inside an English word) -> count"""
+    n = 0
+    for w in re.findall(r"\w+", text):
+        if w.isascii():
+            continue
+        sc = set()
+        for ch in w:
+            if ch.isalpha():
+                sc.add(unicodedata.name(ch, "?").split(" ")[0])
+        if "LATIN" in sc and sc & set(LOOKALIKE_SCRIPTS):
+            n += 1
+    return n
 
 
 def entropy(s):
@@ -189,10 +210,13 @@ def scan_text(text):
     hc = hidden_chars(text)
     if hc:
         rejects.append(("hidden-characters", "invisible/control/format characters (%s)" % ", ".join("%s x%d" % kv for kv in sorted(hc.items()))))
+    if mixed_script_words(text):
+        rejects.append(("mixed-script-word", "a word mixes Latin and look-alike letters of another script (Cyrillic/Greek); write plain text"))
     clean, red = redact(text)
+    folded = unicodedata.normalize("NFKC", clean)
     score = 0
     for code, rx, w in INJ_RX:
-        if rx.search(clean):
+        if rx.search(clean) or (folded != clean and rx.search(folded)):
             if w >= 9:
                 rejects.append((code, "instruction-like or unsafe content"))
             else:
@@ -490,7 +514,7 @@ def gh_login():
 
 
 def git_cmd(use_gh):
-    base = ["git", "-c", "core.autocrlf=false", "-c", "core.longpaths=true", "-c", "user.name=rbx-learn", "-c", "user.email=rbx-learn" + "@users.noreply.github.com", "-c", "commit.gpgsign=false"]
+    base = ["git", "-c", "core.autocrlf=false", "-c", "core.longpaths=true", "-c", "user.name=rbx-learn", "-c", "user.email=rbx-learn" + "@users.noreply.github.com", "-c", "commit.gpgsign=false", "-c", "core.protectNTFS=false", "-c", "core.symlinks=false"]
     if use_gh:
         base += ["-c", "credential.helper=", "-c", "credential.helper=!gh auth git-credential"]
     return base
@@ -535,6 +559,38 @@ def mark_sent(q, notes):
             shutil.move(p, os.path.join(sent, os.path.basename(p)))
 
 
+SKIPPED_PATHS = []        # inbox paths of the last sync_clone that are not usable as files on Windows/macOS/Linux (never checked out)
+WIN_BAD_CH = re.compile(r'[<>:"|?*\\\x00-\x1f]')
+
+
+def unsafe_name(path):
+    """True for a repository path that cannot be a plain file on Windows (reserved device names, trailing dot/space, forbidden characters, .git aliases) or is absurdly long"""
+    if len(path) > 180:
+        return True
+    for seg in path.split("/"):
+        if not seg or WIN_BAD_CH.search(seg) or seg[-1] in " ." or seg.split(".")[0].lower() in RESERVED or seg.lower() == ".git" or re.match(r"(?i)git~\d", seg):
+            return True
+    return False
+
+
+def checkout_safe(work, g, rev):
+    """check out `rev` in the staging clone but leave out the paths that unsafe_name rejects (a public inbox may contain them; they would make a plain checkout fail on Windows)"""
+    del SKIPPED_PATHS[:]
+    tr = run(g + ["ls-tree", "-r", "-z", "--name-only", rev], cwd=work)
+    SKIPPED_PATHS.extend(n for n in tr.stdout.split("\0") if n and unsafe_name(n))
+    info = os.path.join(work, ".git", "info")
+    os.makedirs(info, exist_ok=True)
+    run(g + ["config", "core.sparseCheckoutCone", "false"], cwd=work)
+    if SKIPPED_PATHS:
+        esc = lambda s: re.sub(r"([\\*?\[\]])", r"\\\1", s).replace("\n", "")
+        with open(os.path.join(info, "sparse-checkout"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write("/*\n" + "".join("!/" + esc(n) + "\n" for n in SKIPPED_PATHS))
+        run(g + ["config", "core.sparseCheckout", "true"], cwd=work)
+    else:
+        run(g + ["config", "core.sparseCheckout", "false"], cwd=work)
+    return run(g + ["reset", "-q", "--hard", rev], cwd=work).returncode == 0
+
+
 def sync_clone(work, url, use_gh):
     """make `work` a clone of url at origin/main (a staging area only: it is reset to origin/main each time). -> True / False (offline, no access, missing)."""
     g = git_cmd(use_gh)
@@ -542,12 +598,14 @@ def sync_clone(work, url, use_gh):
         if os.path.isdir(work):
             shutil.rmtree(work, ignore_errors=True)
         os.makedirs(os.path.dirname(work), exist_ok=True)
-        r = run(g + ["clone", "-q", "--depth", "1", "--no-tags", url, work], timeout=120)
-        return r.returncode == 0
+        r = run(g + ["clone", "-q", "--depth", "1", "--no-tags", "--no-checkout", url, work], timeout=120)
+        if r.returncode != 0:
+            return False
+        return checkout_safe(work, g, "HEAD")
     r = run(g + ["fetch", "-q", "--depth", "1", "origin", "main"], cwd=work, timeout=120)
     if r.returncode != 0:
         return False
-    run(g + ["reset", "-q", "--hard", "FETCH_HEAD"], cwd=work)
+    checkout_safe(work, g, "FETCH_HEAD")
     run(g + ["clean", "-qfd"], cwd=work)
     return True
 
@@ -653,7 +711,9 @@ def cmd_pr(a):
     work = os.path.join(q, "fork")
     shutil.rmtree(work, ignore_errors=True)
     g = git_cmd(True)
-    c = run(g + ["clone", "-q", "--depth", "1", "--no-tags", "https://github.com/%s.git" % OWNER_REPO, work], timeout=120)
+    c = run(g + ["clone", "-q", "--depth", "1", "--no-tags", "--no-checkout", "https://github.com/%s.git" % OWNER_REPO, work], timeout=120)
+    if c.returncode == 0 and not checkout_safe(work, g, "HEAD"):
+        c.returncode = 1
     if c.returncode != 0:
         out, z = bundle(q, notes, url)
         print("learn: could not clone the inbox repo; ready-to-send folder %s and zip %s" % (out, z))

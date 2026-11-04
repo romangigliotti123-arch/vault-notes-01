@@ -9,11 +9,29 @@ vault folder as its work tree, so the files appear at their normal paths; the pa
 main repository ignores them. Read-only: fetch + reset --hard of tracked files of that shard only; nothing else in the vault is touched. Prints nothing when there is
 nothing to do (also when repos.json lists no extra shard). Always exits 0 unless --vault is missing (2). Never commits or pushes.
 """
-import argparse, json, os, subprocess, sys, urllib.request
+import argparse, json, os, re, subprocess, sys, urllib.request
 
 # filled in by the site build with the vault-kit raw URL and the website
 DEFAULT_BASES = ["https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main", "https://vault-hhmi60uo.netlify.app"]
 ENV = dict(os.environ, GIT_TERMINAL_PROMPT="0")
+NAME_RX = re.compile(r"vault-(?:notes|kit)-\d{2,4}")
+OWNERS = [o.strip().lower() for o in os.environ.get("VAULT_ALLOWED_OWNERS", "romangigliotti123-arch").split(",") if o.strip()]   # "*" accepts any github.com owner
+
+
+def repo_allowed(url):
+    if os.environ.get("VAULT_SHARDS_TEST_ANY_URL"):
+        return True
+    m = re.fullmatch(r"https://github\.com/([A-Za-z0-9._-]+)/[A-Za-z0-9._-]+(?:\.git)?", url or "")
+    return bool(m) and ("*" in OWNERS or m.group(1).lower() in OWNERS)
+
+
+def unsafe_mount(m):
+    return (not isinstance(m, str)) or not m.strip("/") or m.startswith(("/", ".")) or ".." in m.split("/") or ":" in m or "\\" in m or m.startswith(("My Research", "Games"))
+
+
+def outside_mount(paths, mount):
+    ms = [m.rstrip("/") for m in mount]
+    return [p for p in paths if not any(p == m or p.startswith(m + "/") for m in ms)]
 
 
 def fetch_json(bases):
@@ -54,10 +72,13 @@ def main():
         return 0                       # offline or older manifest: nothing to do
     for group in ("notes", "kit"):
         for sh in (j["groups"].get(group, {}).get("shards") or [])[1:]:
-            name, url, mount = sh.get("name", ""), sh.get("git", ""), sh.get("mount") or []
-            if not name.startswith("vault-") or not (url.startswith("https://github.com/") or os.environ.get("VAULT_SHARDS_TEST_ANY_URL")) or not mount:
+            name, url, mount = str(sh.get("name", "")), str(sh.get("git", "")), sh.get("mount") or []
+            if not NAME_RX.fullmatch(name) or not mount or not isinstance(mount, list):
                 continue
-            if any((not isinstance(m, str)) or m.startswith(("/", ".")) or ".." in m.split("/") or m.startswith("My Research") or m.startswith("Games") for m in mount):
+            if not repo_allowed(url):
+                print("vault-shards: skipped %s (repository is not under github.com/%s; set VAULT_ALLOWED_OWNERS to accept another owner)" % (name, OWNERS[0] if OWNERS else "?"))
+                continue
+            if any(unsafe_mount(m) for m in mount):
                 print("vault-shards: skipped %s (unsafe mount list)" % name)
                 continue
             if a.dry_run:
@@ -79,6 +100,11 @@ def main():
             f = git(gd, vault, "fetch", "-q", url, "main")
             if f.returncode != 0:
                 print("vault-shards: fetch of %s failed (offline?), left as it is" % name)
+                continue
+            tr = git(gd, vault, "ls-tree", "-r", "-z", "--name-only", "FETCH_HEAD")
+            bad = outside_mount([x for x in tr.stdout.split("\0") if x], mount) if tr.returncode == 0 else ["(file list unreadable)"]
+            if bad:
+                print("vault-shards: refused %s (%d tracked path(s) outside its mount list, first: %s); nothing written" % (name, len(bad), bad[0][:80]))
                 continue
             r = git(gd, vault, "reset", "--hard", "-q", "FETCH_HEAD")
             if r.returncode != 0:
