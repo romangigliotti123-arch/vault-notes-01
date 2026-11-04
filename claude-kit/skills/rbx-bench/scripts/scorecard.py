@@ -16,6 +16,7 @@ WHAT IT READS (nothing is modified; discovery is generic, so a new gate shows up
     `reasons`, `failing`, `hard_fails`. A critic-scored record (scorer critic, or gate-critic.json) wins over a builder-scored one.
   * placement-qa/scan-critic.json (else scan-builder.json): per-check pass rate P1..P7 over the models.
   * critic/<date>-<stage>.md verdict files (frontmatter verdict, score, works, visual, placement): the newest one.
+  * hiccup-qa/gate-critic.json (else gate-builder.json) from tools/hiccup.py check|retro: scored like any gate (H1 reporting, H2 pre-flight, H3 retro; never blocking); the card adds a Hiccups section with the per-game trend.
   * optional benchmark-scores.json (features 0..1 + rubric 1..10 with evidence, from the independent critic) and benchmark-run.json (minutes, turns, tokens, model).
 SCORING (all numbers 0-100, deterministic):
   gate score = mean of its check scores x 10 (pass/fail checks: pass 10, fail 0), or 100/0 for a pass/fail gate with no checks; a FAILED gate is capped at 69,
@@ -357,7 +358,7 @@ def build_critic(root):
     reasons = [short(fm["why"], 300)] if fm.get("why") and status != "pass" else []
     return dict(name="critic", status=status, score=round(score, 1), raw_score=round(base, 1), weight=WEIGHTS["critic"], required=True, checks={}, pass_min=7.0,
                 reasons=reasons, failing=[], scorer="critic", label="verdict " + v, source=os.path.relpath(p, root).replace(os.sep, "/"), sha256=sha256_file(p),
-                mtime=int(os.path.getmtime(p)), verdict=v, stage=fm.get("stage"), works=fm.get("works"), claims=dict(visual=fm.get("visual"), placement=fm.get("placement"), lighting=fm.get("lighting"), codegates=fm.get("codegates")),
+                mtime=int(os.path.getmtime(p)), verdict=v, stage=fm.get("stage"), works=fm.get("works"), claims=dict(visual=fm.get("visual"), placement=fm.get("placement"), lighting=fm.get("lighting"), codegates=fm.get("codegates"), retro=fm.get("retro")),
                 verdict_date=date)
 
 
@@ -538,6 +539,46 @@ def code_gates_integrity(gates, root, integrity):
         integrity.append("critic verdict file says codegates: %s but code-gates/run.json exists (stale verdict: run a fresh critic)" % claim)
 
 
+def hiccup_module():
+    for rel in (("..", "..", "..", "tools"), ("..", "..", "..", "..", "..", "tools")):
+        p = os.path.abspath(os.path.join(HERE, *rel))
+        if os.path.isfile(os.path.join(p, "hiccup.py")):
+            if p not in sys.path:
+                sys.path.insert(0, p)
+            try:
+                import hiccup
+                return hiccup
+            except Exception:
+                return None
+    return None
+
+
+def hiccup_summary(gates, root):
+    """the hiccup gate (hiccup-qa/gate-*.json, scored not blocking) plus the per-game trend of the personal ledger -> dict for the card, or None"""
+    g, hm = gates.get("hiccup"), hiccup_module()
+    trend = ""
+    try:
+        trend = hm.trend_text(hm.read_games()) if hm else ""
+    except Exception:
+        trend = ""
+    if not g and not trend:
+        return None
+    rp = os.path.join(root, "hiccup-qa", "retro.json")
+    return dict(status=g["status"] if g else "missing", score=g["score"] if g else None, scorer=g["scorer"] if g else None, retro_ran=os.path.isfile(rp), unreported=[r for r in (g["reasons"] if g else []) if r.startswith("H1")], trend=trend)
+
+
+def hiccup_integrity(gates, root, integrity):
+    crit = gates.get("critic")
+    if not crit or crit.get("status") == "missing" or str(crit.get("stage") or "").lower() not in CODE_STAGES:
+        return
+    claim = str((crit.get("claims") or {}).get("retro") or "").lower()
+    has_retro = os.path.isfile(os.path.join(root, "hiccup-qa", "retro.json"))
+    if claim == "ran" and not has_retro:
+        integrity.append("critic verdict file says retro: ran but hiccup-qa/retro.json is missing (advisory)")
+    elif os.path.isdir(os.path.join(root, "hiccup-qa")) and not has_retro:
+        integrity.append("hiccup-qa/ exists but the done-step retro never ran (hiccup.py retro): advisory")
+
+
 def collect(root, game=None, spec_arg=None, scores_file=None, require_critic=False, project=None, version=None, kit=None, label="", date=None, now=None):
     root = os.path.abspath(root)
     if not os.path.isdir(root):
@@ -592,6 +633,7 @@ def collect(root, game=None, spec_arg=None, scores_file=None, require_critic=Fal
             if claimed == "pass" and actual not in ("pass",):
                 integrity.append("critic verdict file claims %s: pass but the %s gate record says %s" % (n, n, actual or "nothing (no record found)"))
     code_gates_integrity(gates, root, integrity)
+    hiccup_integrity(gates, root, integrity)
     if project:
         src = newest_source(project)
         for n, g in gates.items():
@@ -619,7 +661,7 @@ def collect(root, game=None, spec_arg=None, scores_file=None, require_critic=Fal
     run_id = "%s-%s-%s" % (now.strftime("%Y%m%d-%H%M%S"), re.sub(r"[^A-Za-z0-9_-]+", "_", game)[:30], re.sub(r"[^A-Za-z0-9._-]+", "_", str(ver))[:24])
     card = dict(kind="vault-scorecard", schema=SCHEMA, run_id=run_id, date=date or now.strftime("%Y-%m-%d"), time=now.strftime("%H:%M:%S"), vault_version=ver, game=game,
                 spec=spec["id"] if spec else "", spec_version=spec.get("version") if spec else None, label=label, root=root, overall=round(overall, 1), grade=grade(overall),
-                all_required_pass=all_req, gates={n: used[n] for n in sorted(used)}, problems=problems, integrity=integrity, run_meta=meta,
+                all_required_pass=all_req, gates={n: used[n] for n in sorted(used)}, problems=problems, integrity=integrity, run_meta=meta, hiccups=hiccup_summary(gates, root),
                 weights={n: g["weight"] for n, g in sorted(used.items())}, method="see scorecard.py docstring: gate score = mean(check) x 10, fail cap 69, weighted mean")
     return card
 
@@ -745,6 +787,12 @@ def card_md(c):
         L.append("None: every gate passes.")
     if c["integrity"]:
         L += ["", "## Integrity flags (the number above is advisory until these are cleared)"] + ["- " + x for x in c["integrity"]]
+    hc = c.get("hiccups")
+    if hc:
+        L += ["", "## Hiccups (scored, never blocking)", "- gate: %s%s; retro ran: %s" % (hc["status"], " (score %.1f, scored by %s)" % (hc["score"], hc["scorer"]) if hc.get("score") is not None else "", "yes" if hc["retro_ran"] else "no")]
+        L += ["- " + x for x in hc.get("unreported", [])]
+        if hc.get("trend"):
+            L.append("- " + hc["trend"])
     m = c.get("run_meta") or {}
     if m:
         L += ["", "## Run effort", "- " + ", ".join("%s %s" % (k, v) for k, v in sorted(m.items()))]
@@ -958,6 +1006,9 @@ def main(argv=None):
         print("%-10s %-24s %-8s %-6s %-5s %-6s %-6s %s" % ("date", "vault_version", "overall", "grade", "req", "visual", "critic", "game/spec"))
         for r in rows:
             print("%-10s %-24s %-8s %-6s %-5s %-6s %-6s %s %s" % (r["date"], r["vault_version"][:24], r["overall"], r["grade"], r["all_required_pass"], r["visual"], r["critic"], r["game"], r["spec"]))
+        hm = hiccup_module()
+        if hm and hm.read_games():
+            print(hm.trend_text(hm.read_games()))
         return 0
     if a.cmd == "verify":
         card = jload(a.card)

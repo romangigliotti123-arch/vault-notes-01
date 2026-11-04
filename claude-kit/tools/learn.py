@@ -12,6 +12,7 @@ knowledge; the vault owner's curation step (curate.py) decides what becomes a va
   learn.py flush [--quiet]           push queued notes to vault-learnings (inbox/<yyyy-mm>/); pull --rebase + push, never force; no write access / offline: notes stay queued, exit 0
   learn.py pr                        no write access: open a pull request from a fork with gh (when gh is logged in), else write a ready-to-send folder + zip
   learn.py status
+  learn.py hiccup add|say|list|apply|check|retro|close|trend|share|queue ...    the live hiccup ledger (see hiccup.py): log a hiccup the moment it happens, with a concrete prevention
 
 Queue: <claude config dir>/claude-kit/learnings-queue/{pending,sent,rejected,ready-to-send,repo}. <claude config dir> = $CLAUDE_CONFIG_DIR, else $CLAUDE_KIT_HOME/.claude, else ~/.claude;
 override with --queue or $VAULT_LEARN_QUEUE. Target repo: $VAULT_LEARNINGS_REPO (a git URL or path; tests) else https://github.com/romangigliotti123-arch/vault-learnings.git.
@@ -30,6 +31,8 @@ SOURCE_RX = re.compile(r"^[a-z0-9][a-z0-9 ._/-]{1,39}$")
 TOPIC_RX = re.compile(r"^[a-z0-9][a-z0-9_-]{0,29}(/[a-z0-9][a-z0-9_-]{0,29}){0,2}$")
 CONFIDENCE_OK = ("high", "medium")
 MAX_PENDING = 200
+HICCUP_TYPES = ("rule", "checklist", "gate", "test", "script-fix", "skill-text", "config")
+HICCUP_BODY_RX = re.compile(r"\AWhat happened: [^\n]+\nRoot cause: [^\n]+\nCost: [^\n]+\nPrevention \((" + "|".join(HICCUP_TYPES) + r")\): [^\n]+\nSeen: (\d{1,3}) time\(s\)")
 STOP = set("a an and are as at be by for from has have how in into is it its of on or that the this to was were what when which with your you not no can will do does".split())
 
 # ------------------------------------------------------------------ safety scan
@@ -636,6 +639,12 @@ def cmd_flush(a):
     say = (lambda m: None) if a.quiet else print
     if os.environ.get("CLAUDE_LEARN_SKIP") == "1":
         return 0
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import hiccup
+        hiccup.queue_shared(a.queue, True)
+    except Exception:
+        pass
     if not os.path.isdir(os.path.join(q, "pending")):
         return 0
     notes = pending_notes(q)
@@ -768,7 +777,12 @@ def main(argv=None):
     s = sp.add_parser("flush"); s.add_argument("--quiet", action="store_true"); s.add_argument("--repo"); s.add_argument("--max", type=int, default=50)
     s = sp.add_parser("pr"); s.add_argument("--repo")
     sp.add_parser("status")
+    s = sp.add_parser("hiccup", add_help=False); s.add_argument("rest", nargs=argparse.REMAINDER)
     a = ap.parse_args(argv)
+    if a.cmd == "hiccup":
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import hiccup
+        return hiccup.main(a.rest)
     fn = {"add": cmd_add, "search": cmd_search, "list": cmd_list, "scan": cmd_scan, "flush": cmd_flush, "pr": cmd_pr, "status": cmd_status}.get(a.cmd)
     if not fn:
         ap.print_help()

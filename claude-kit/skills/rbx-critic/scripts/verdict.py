@@ -21,6 +21,8 @@ lines; `games.py advance` refuses anything but pass for all three (a verdict fil
 CODE GATES (rbx-critic/scripts/code_gates.py: comment, scope/stubs, security, bug ledgers) are the sixth: GOOD needs proof that the CRITIC ran them (`codegates: ran`);
 missing, builder-made, stale or incomplete = at most NOT YET and the label "playable prototype, code gates not run". Their findings are only SCORED (extra gates of
 rbx-bench), a low score never changes the verdict. `games.py advance` needs `codegates: ran` (an older file without the line counts as missing).
+HICCUPS (tools/hiccup.py check --scorer critic --write Games/<slug>, read from hiccup-qa/gate-critic.json or given as `hiccup_gate`) are the seventh, ADVISORY: the verdict file carries
+`retro: ran|skipped|n/a` (ran = the critic compared the objective hiccup sources with the ledger AND the done-step retro ran); unreported hiccups are SCORED by rbx-bench and listed, never blocking (RETRO_REQUIRED).
 Only factors present in "scores" count (unscored = N/A for this stage). Critical factors per stage count double and need their minimum.
 --write DIR writes DIR/critic/<date>-<stage>.md with frontmatter (stage, verdict, date, score) + the body from --report. `games.py advance` reads that file.
 """
@@ -107,6 +109,31 @@ def lit(d, stage):
     return r["status"], r["label"], r["reasons"] + ["%s %s: %s" % (f["check"], f["name"], "; ".join(f["issues"][:1])) for f in r["failing"][:6]]
 
 
+RETRO_REQUIRED = False
+
+
+def retro(d, stage, gd=None):
+    """-> (status ran|skipped|n/a, reasons). Advisory while RETRO_REQUIRED is False: proof that the critic ran hiccup.py check and that the done-step retro ran."""
+    if stage not in VISUAL_STAGES:
+        return "n/a", []
+    hg = d.get("hiccup_gate")
+    if hg is None and gd and os.path.isfile(os.path.join(gd, "hiccup-qa", "gate-critic.json")):
+        hg = os.path.join(gd, "hiccup-qa", "gate-critic.json")
+    if isinstance(hg, str):
+        try:
+            hg = json.load(open(hg, encoding="utf-8-sig"))
+        except Exception as e:
+            return "skipped", ["hiccup check record unreadable: %s" % e]
+    if not isinstance(hg, dict):
+        return "skipped", ["hiccup check not run by the critic (hiccup.py check --scorer critic --write Games/<slug>)"]
+    if str(hg.get("scorer", "")).lower() != "critic":
+        return "skipped", ["hiccup check run by %r, not by the critic" % hg.get("scorer")]
+    rs = [str(x)[:160] for x in (hg.get("reasons") or [])][:3]
+    if not hg.get("retro_ran"):
+        return "skipped", ["retro not run in the done step (hiccup.py retro)"] + rs
+    return "ran", rs
+
+
 CODE_LABEL = "playable prototype, code gates not run"
 CODE_REQUIRED = ("comment", "scope", "security")
 
@@ -172,6 +199,8 @@ def main():
     pstat, plabel, preasons = placing(d, stage)
     lstat, llabel, lreasons = lit(d, stage)
     cstat, clabel, creasons = coding(d, stage)
+    wdir = a[a.index("--write") + 1] if "--write" in a and a.index("--write") + 1 < len(a) else None
+    rstat, rreasons = retro(d, stage, wdir)
     if d.get("hard_rule_violation"):
         verdict = "BAD"; reasons.append("hard-rule violation (pay-to-win, paid randomness for kids, pressure timers, stranger contact or copied assets)")
     elif works == "fail-severe":
@@ -192,7 +221,11 @@ def main():
         if mean < 7.0: reasons.append("mean %.2f is under 7.00" % mean)
     else:
         verdict = "GOOD"; reasons.append("WORKS pass, mean %.2f, all critical factors at minimum" % mean)
-    print("VERDICT: %s | stage %s | mean %.2f | works %s | looks %s | placement %s | lighting %s | code gates %s" % (verdict, stage, mean, works, vstat, pstat, lstat, cstat))
+    print("VERDICT: %s | stage %s | mean %.2f | works %s | looks %s | placement %s | lighting %s | code gates %s | retro %s" % (verdict, stage, mean, works, vstat, pstat, lstat, cstat, rstat))
+    if rstat == "skipped":
+        print("RETRO: skipped (%s; advisory, scored by rbx-bench)" % "; ".join(rreasons[:2]))
+    elif rstat == "ran" and rreasons:
+        print("RETRO: ran; unreported hiccups are scored, not blocking: " + "; ".join(rreasons[:2]))
     if vstat in ("fail", "skipped"):
         print("STATUS: " + vlabel + " (never call this game done, complete or ready)")
     if pstat in ("fail", "skipped"):
@@ -214,7 +247,7 @@ def main():
         os.makedirs(os.path.join(gd, "critic"), exist_ok=True)
         p = os.path.join(gd, "critic", "%s-%s.md" % (date, stage))
         slug = d.get("game") or os.path.basename(os.path.abspath(gd))
-        head = "---\ntype: critic-verdict\ngame: %s\nstage: %s\nverdict: %s\ndate: %s\nscore: %.2f\nworks: %s\nvisual: %s\nplacement: %s\nlighting: %s\ncodegates: %s\n---\n# Critic verdict: %s (%s, %s)\nBack to [[%s/GAME|GAME]] | [[%s/critic/README|all verdicts]]\n\n" % (slug, stage, verdict, date, mean, works, vstat, pstat, lstat, cstat, verdict, stage, date, slug, slug)
+        head = "---\ntype: critic-verdict\ngame: %s\nstage: %s\nverdict: %s\ndate: %s\nscore: %.2f\nworks: %s\nvisual: %s\nplacement: %s\nlighting: %s\ncodegates: %s\nretro: %s\n---\n# Critic verdict: %s (%s, %s)\nBack to [[%s/GAME|GAME]] | [[%s/critic/README|all verdicts]]\n\n" % (slug, stage, verdict, date, mean, works, vstat, pstat, lstat, cstat, rstat, verdict, stage, date, slug, slug)
         with open(p, "w", encoding="utf-8", newline="\n") as f:
             f.write(head + "**Why:** " + "; ".join(reasons) + "\n\n" + body)
         print("WROTE " + p)

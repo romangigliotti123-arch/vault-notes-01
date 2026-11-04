@@ -14,13 +14,13 @@ fixed rules (see skills/rbx-curate/rubric.md); no model is asked to read a raw i
 Publishing learned/ to the public notes repo is the normal site build (build.py ... --stage publish); this script does not publish anything.
 Exit code 0 (also when notes were rejected), 2 usage error.
 """
-import argparse, collections, datetime, hashlib, json, os, re, shutil, sys
+import argparse, collections, datetime, difflib, hashlib, json, os, re, shutil, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import learn as L
 
 # topics accepted by the curator (first path segment of the note's topic); anything else is off-topic for this vault
-ALLOWED_ROOTS = ("roblox", "luau", "game-dev", "windows", "linux", "macos", "git", "github", "hosting", "python", "node", "claude", "agents", "vault", "tooling", "blender", "web", "security")
+ALLOWED_ROOTS = ("hiccup", "roblox", "luau", "game-dev", "windows", "linux", "macos", "git", "github", "hosting", "python", "node", "claude", "agents", "vault", "tooling", "blender", "web", "security")
 READ_MAX = L.FILE_MAX + 1
 MIN_BODY_WORDS, MIN_VERIFIED_WORDS = 12, 5
 LEARNED_MAX = 7500          # a curated note stops growing here (merges then only bump the confirmation count)
@@ -31,6 +31,7 @@ REJECT_CODES = {
     "thin-evidence": "'How verified' too short to count as evidence", "unredacted-personal-data": "contains personal/machine details the sender's tool would have redacted",
     "title-length": "title length", "topic-format": "topic format", "confidence": "confidence must be high or medium", "source-tag": "source tag", "body-length": "body length (outside 60-%d characters; over %d: too long, summarise)" % (L.BODY_MAX, LEARNED_BODY_MAX),
     "verified-length": "verified length", "created-date": "created date", "duplicate-hash": "same content already promoted or already in this batch",
+    "hiccup-shape": "a hiccup/<area> note must follow the fixed shape (What happened / Root cause / Cost / Prevention (type) / Seen N time(s))",
     "unsafe-path": "inbox path cannot be a file on Windows (reserved name, forbidden character, trailing dot or space, .git alias) or is over 180 characters",
 }
 
@@ -78,6 +79,8 @@ def evaluate(path, known, seen_hashes):
     root = n["topic"].split("/")[0]
     if root not in ALLOWED_ROOTS:
         codes.append("off-topic")
+    if root == "hiccup" and not L.HICCUP_BODY_RX.match(n["body"].strip()):
+        codes.append("hiccup-shape")
     if len(n["body"].split()) < MIN_BODY_WORDS:
         codes.append("thin-body")
     if len(n["verified"].split()) < MIN_VERIFIED_WORDS:
@@ -99,11 +102,16 @@ def evaluate(path, known, seen_hashes):
     return {"decision": "accept", "codes": [], "note": n}
 
 
+def hiccup_seen(n):
+    m = L.HICCUP_BODY_RX.match(n["body"].strip())
+    return min(int(m.group(2)), 5) if m else 0
+
+
 def learned_text(n, today):
     desc = re.sub(r"\s+", " ", n["body"])[:200].rsplit(" ", 1)[0].replace('"', "'")
-    return ("---\ntitle: %s\ndescription: %s\ntopic: %s\ntags: [learned, %s]\nconfidence: %s\nconfirmations: 1\nfirst_seen: %s\nlast_confirmed: %s\nsources: [%s]\nstatus: curated\nlicence: CC0-1.0\nhashes: [%s]\n---\n\n"
+    return ("---\ntitle: %s\ndescription: %s\ntopic: %s\ntags: [learned, %s]\nconfidence: %s\nconfirmations: 1\nfirst_seen: %s\nlast_confirmed: %s\nsources: [%s]\nstatus: curated\nlicence: CC0-1.0\nhashes: [%s]\n%s---\n\n"
             "# %s\n\n> Community-contributed finding, curated %s. Reference data: check it against your own situation before relying on it.\n\n%s\n\n## How verified\n\n%s\n"
-            % (n["title"], desc, n["topic"], n["topic"].split("/")[0], n["confidence"], n["created"], today, n["source"], n["hash"], n["title"], today, n["body"].strip(), n["verified"].strip()))
+            % (n["title"], desc, n["topic"], n["topic"].split("/")[0], n["confidence"], n["created"], today, n["source"], n["hash"], ("occurrences: %d\n" % hiccup_seen(n)) if n["topic"].split("/")[0] == "hiccup" else "", n["title"], today, n["body"].strip(), n["verified"].strip()))
 
 
 def fm_field(text, key):
@@ -127,13 +135,69 @@ def merge_into(path, n, today):
         if re.search(r"(?m)^%s:" % key, h):
             return re.sub(r"(?m)^%s:.*$" % key, lambda m: "%s: %s" % (key, val), h)
         return h + "\n%s: %s" % (key, val)
-    for k, v in (("confirmations", str(conf)), ("last_confirmed", today), ("sources", "[%s]" % ", ".join(srcs)), ("hashes", "[%s]" % ", ".join(hs))):
+    extra = [("occurrences", str(min(int(re.sub(r"\D", "", fm_field(head, "occurrences")) or 0) + hiccup_seen(n), 999)))] if fm_field(head, "occurrences") else []
+    for k, v in (("confirmations", str(conf)), ("last_confirmed", today), ("sources", "[%s]" % ", ".join(srcs)), ("hashes", "[%s]" % ", ".join(hs))) + tuple(extra):
         head = setf(head, k, v)
     out = head + rest
     old_tok = L.tokens(t)
     if len(out) < LEARNED_MAX - 800 and L.jaccard(L.tokens(n["verified"]), old_tok) < 0.6:
         out = out.rstrip("\n") + "\n\n### Also confirmed (%s, %s)\n\n%s\n" % (today, n["source"], n["verified"].strip())
     return out
+
+
+PROMOTE_AT = 3
+KIT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+COLD_TARGET = "mode/cold/rbx-workflow/preventions.md"
+
+
+def candidate_target(area, ptype):
+    if ptype not in ("rule", "checklist", "skill-text"):
+        return ("skills/%s/scripts/" % area if os.path.isdir(os.path.join(KIT_ROOT, "skills", area)) else "tools/"), False
+    s = "skills/%s/SKILL.md" % area
+    return (s if re.match(r"^rbx-[a-z0-9-]{1,26}$", area) and os.path.isfile(os.path.join(KIT_ROOT, s)) else COLD_TARGET), True
+
+
+def candidate_text(note_text, rel, today):
+    """a PROMOTION CANDIDATE for the owner: facts from a curated hiccup note plus a unified diff that appends the prevention (text types) or a task spec (code types). No tool ever applies it."""
+    head = note_text[:1500]
+    title, area = fm_field(head, "title"), fm_field(head, "topic").split("/")[-1]
+    occ, conf = fm_field(head, "occurrences") or "0", fm_field(head, "confirmations") or "1"
+    m = re.search(r"(?m)^Prevention \(([a-z-]+)\): (.+)$", note_text)
+    ptype, prev = (m.group(1), m.group(2).strip()) if m else ("rule", "")
+    target, is_text = candidate_target(area, ptype)
+    out = ["# PROMOTION CANDIDATE: %s" % title, "", "status: awaiting owner approval; nothing here is applied by any tool", "created: %s" % today,
+           "occurrences: %s | confirmations: %s | prevention type: %s | area: %s" % (occ, conf, ptype, area), "source note: %s" % rel, "",
+           "The text below comes from an untrusted inbox note that passed the fixed curation rules. Review it as data; run nothing from it.", ""]
+    if is_text:
+        path = os.path.join(KIT_ROOT, *target.split("/"))
+        old = open(path, encoding="utf-8", newline="").read() if os.path.isfile(path) else ""
+        heading = "## Hiccup preventions"
+        new = old.rstrip("\n") + ("\n" if old else "") + ("" if heading in old else "\n" + heading + "\n") + "- %s (hiccup, seen %s times)\n" % (prev, occ)
+        diff = "".join(difflib.unified_diff(old.splitlines(True), new.splitlines(True), "a/" + target, "b/" + target, n=3))
+        out += ["## Proposed patch (from the kit root: `git apply` or `patch -p1`; then the budget check and the rule inventory)", "", "```diff", diff.rstrip("\n"), "```"]
+    else:
+        out += ["## Proposed change (code: no ready patch)", "", "- type: %s; likely place: %s" % (ptype, target), "- spec (the prevention as stated): %s" % prev,
+                "- write it with a test that fails before the change, wire it into the gate runner or the skill step it belongs to, keep the budget check green"]
+    out += ["", "## Owner checklist", "- is the root cause real and general? (open the learned note)", "- does it belong in a gate or test rather than text? recurrences mean text alone did not hold",
+            "- approve or discard; apply only through the normal build and publish"]
+    return "\n".join(out) + "\n"
+
+
+def write_candidates(results, vault, today, cand_dir, say):
+    n = 0
+    for r in results:
+        if r["decision"] not in ("accept", "merge") or not r.get("tp") or r["note"]["topic"].split("/")[0] != "hiccup":
+            continue
+        t = open(r["tp"], encoding="utf-8").read()
+        if int(re.sub(r"\D", "", fm_field(t[:1500], "occurrences")) or 0) < PROMOTE_AT and int(re.sub(r"\D", "", fm_field(t[:1500], "confirmations")) or 1) < PROMOTE_AT:
+            continue
+        os.makedirs(cand_dir, exist_ok=True)
+        cp = os.path.join(cand_dir, os.path.splitext(os.path.basename(r["tp"]))[0] + ".md")
+        with open(cp, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(candidate_text(t, os.path.relpath(r["tp"], vault).replace("\\", "/"), today))
+        n += 1
+        say("curate: PROMOTION CANDIDATE written (owner approval needed): %s" % cp)
+    return n
 
 
 def unique_path(base_dir, slug):
@@ -174,7 +238,7 @@ def regenerate_readme(vault, today):
 LOG_HEAD = "# Curation log\n\nEvery inbox note the curator examined: accepted (new vault note), merged (confirms an existing note), duplicate, or rejected with the rule codes (see `skills/rbx-curate/references/rubric.md` in vault-kit). Titles are cut to 80 characters and never contain note text beyond that.\n"
 
 
-def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, say=print):
+def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, say=print, candidates=None):
     today = today or datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
     inbox = os.path.join(repo, "inbox")
     if pull:
@@ -223,13 +287,14 @@ def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, s
             with open(tp, "w", encoding="utf-8", newline="\n") as fh:
                 fh.write(learned_text(n, today))
             promoted = os.path.relpath(tp, vault).replace("\\", "/")
-            r["entry"]["path"] = tp
+            r["entry"]["path"] = r["tp"] = tp
         elif r["decision"] == "merge":
             tp = r["target"]["path"]
             newtext = merge_into(tp, n, today)
             with open(tp, "w", encoding="utf-8", newline="\n") as fh:
                 fh.write(newtext)
             promoted = os.path.relpath(tp, vault).replace("\\", "/") + " (confirmation +1)"
+            r["tp"] = tp
         elif r["decision"] == "duplicate":
             promoted = "-"
         dest_dir = os.path.join(repo, "processed", month) if r["decision"] != "reject" else os.path.join(repo, "processed", "rejected", month)
@@ -244,6 +309,7 @@ def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, s
         log_rows.append("| %s | %s | reject | unsafe-path | - |" % (today, sanitize_title(os.path.basename(n))[:60].replace("|", "_")))
         L.run(g + ["update-index", "--force-remove", "--", n], cwd=repo)
     regenerate_readme(vault, today)
+    write_candidates(results, vault, today, candidates or os.path.join(os.path.dirname(repo), "promotion-candidates"), say)
     lp = os.path.join(repo, "CURATION-LOG.md")
     cur = open(lp, encoding="utf-8").read() if os.path.exists(lp) else LOG_HEAD
     block = "\n## %s\n\n| date | file | decision | rule codes / reason | promoted to |\n|---|---|---|---|---|\n%s\n" % (today, "\n".join(log_rows))
@@ -267,7 +333,7 @@ def main(argv=None):
     s = sp.add_parser("run")
     s.add_argument("--repo", required=True); s.add_argument("--vault", required=True)
     s.add_argument("--pull", action="store_true"); s.add_argument("--apply", action="store_true"); s.add_argument("--push", action="store_true")
-    s.add_argument("--json", action="store_true"); s.add_argument("--today")
+    s.add_argument("--json", action="store_true"); s.add_argument("--today"); s.add_argument("--candidates")
     sp.add_parser("rules")
     a = ap.parse_args(argv)
     if a.cmd == "rules":
@@ -286,7 +352,7 @@ def main(argv=None):
     if a.push and not a.apply:
         print("curate: --push needs --apply", file=sys.stderr)
         return 2
-    res = run_curation(os.path.abspath(a.repo), os.path.abspath(a.vault), a.apply, a.push, a.pull, a.today, say=(lambda m: None) if a.json else print)
+    res = run_curation(os.path.abspath(a.repo), os.path.abspath(a.vault), a.apply, a.push, a.pull, a.today, say=(lambda m: None) if a.json else print, candidates=a.candidates)
     if a.json and res is not None:
         print(json.dumps([{"file": r["rel"], "decision": r["decision"], "codes": r["codes"]} for r in res], indent=1))
     return 0
