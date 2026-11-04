@@ -136,7 +136,7 @@ if [ -f "$MODS/.claude-plugin/marketplace.json" ] && [ $DRY = 0 ] && [ $MODS_ON 
     if printf '%s' "$lst" | grep -q "rbx-subagent-hud@$MK" && printf '%s' "$lst" | grep -q "rbx-graph@$MK"; then have=1; fi
     # plugins installed under their previous names (before the vault-suffixed rename): uninstall them, refresh the marketplace listing, install the new ones below
     oldmods=0; for om in workflow-hud vault-graph hud-rbxdev-vault graph-rbxdev-vault rbx-subagent-hud; do if printf '%s' "$lst" | grep -q "$om@$MK"; then claude plugin uninstall "$om@$MK" >/dev/null 2>&1; oldmods=1; fi; done  # legacy plugin names
-    [ $oldmods = 1 ] && claude plugin marketplace update "$MK" >/dev/null 2>&1
+    [ $oldmods = 1 ] && { claude plugin marketplace update "$MK" >/dev/null 2>&1; have=0; }   # REL4: a plugin was uninstalled above (rbx-subagent-hud is in the list on purpose, to refresh it): install both again, never leave one missing
     if [ $have = 0 ]; then
       r="$(claude plugin marketplace add "$MODS" 2>&1)" || { printf '%s' "$r" | grep -qi already || { ok=0; why="marketplace add failed"; }; }
       for m in rbx-subagent-hud rbx-graph; do

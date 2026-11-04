@@ -166,7 +166,7 @@ if ((Test-Path -LiteralPath (Join-Path $modsDir '.claude-plugin\marketplace.json
     # plugins installed under their previous names (before the vault-suffixed rename): uninstall them, refresh the marketplace listing, install the new ones below
     $oldMods = $false
     foreach ($om in 'workflow-hud', 'vault-graph', 'hud-rbxdev-vault', 'graph-rbxdev-vault', 'rbx-subagent-hud') { if ($lst.out -match "$om@$mk") { [void](ClaudeRun $cl.Source @('plugin', 'uninstall', "$om@$mk")); $oldMods = $true } }  # legacy plugin names
-    if ($oldMods) { [void](ClaudeRun $cl.Source @('plugin', 'marketplace', 'update', $mk)) }
+    if ($oldMods) { [void](ClaudeRun $cl.Source @('plugin', 'marketplace', 'update', $mk)); $have = $false }   # REL4: a plugin was uninstalled above: install both again, never leave one missing
     if (-not $have) {
       $r = ClaudeRun $cl.Source @('plugin', 'marketplace', 'add', $modsDir)
       if ($r.code -ne 0 -and $r.out -notmatch 'already') { $ok = $false; $why = 'marketplace add failed' }
