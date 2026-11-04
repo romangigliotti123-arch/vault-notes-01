@@ -47,7 +47,7 @@ def kit_files(kit):
         for d, dirs, files in os.walk(root):
             dirs[:] = [x for x in dirs if x != "__pycache__"]
             for n in files:
-                if n.endswith(".pyc"):
+                if n.endswith(".pyc") or os.path.islink(os.path.join(d, n)):
                     continue
                 out.append((sub, os.path.relpath(os.path.join(d, n), kit).replace(os.sep, "/")))
     return sorted(out, key=lambda x: x[1])
