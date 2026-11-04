@@ -4,12 +4,12 @@ description: "Generate and install a validated, rate-limited wrapper for every R
 category: scripting
 tags: remote, remoteevent, remotefunction, validation, rate limit, server authority, exploit, security, anti-cheat, onserverevent
 kb: Roblox/roblox-kb/client-server-and-remotes.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/_tools/CHECKLIST-launch.md
-related: exploit-audit, roblox-remote-security, cooldown-manager-builder, input-validation-auditor, server-authority-checker, remote-fuzzer, proximity-prompt-wiring
+related: exploit-audit, rbx-remote-sec, cooldown-manager-builder, input-validation-auditor, server-authority-checker, remote-fuzzer, proximity-prompt-wiring
 ---
 
 # remote-guard-builder
 
-The client is the exploiter's. A remote is a public API that anyone can call with any values at any rate. This skill puts one small, tested guard in front of every handler. The review of existing code is `exploit-audit`; the kit skill `roblox-remote-security` has the checklist; this one writes the code.
+The client is the exploiter's. A remote is a public API that anyone can call with any values at any rate. This skill puts one small, tested guard in front of every handler. The review of existing code is `exploit-audit`; the kit skill `rbx-remote-sec` has the checklist; this one writes the code.
 
 ## When to use
 Adding a remote, or after `exploit-audit` listed weak handlers. Not for: deciding game design, or client-side "anti-cheat" (the vault is explicit: client checks can be disabled or spoofed).
@@ -60,4 +60,4 @@ Files plus the Lune tests; the bad-input pass against real remotes is `untested`
 Validating types but not meaning (a valid item id the player does not own). A rate limit keyed by player name instead of UserId. Trusting `Instance` arguments without class and location checks. Letting the client send price or damage. One shared limiter for all remotes (a busy remote starves the rest; each bind has its own).
 
 ## Related
-`exploit-audit`, `roblox-remote-security`, `cooldown-manager-builder`, `input-validation-auditor`, `remote-fuzzer`, `honeypot-remote-builder`.
+`exploit-audit`, `rbx-remote-sec`, `cooldown-manager-builder`, `input-validation-auditor`, `remote-fuzzer`, `honeypot-remote-builder`.

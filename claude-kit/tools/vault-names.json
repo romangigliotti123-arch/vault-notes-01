@@ -1,52 +1,764 @@
 {
- "_comment": "Single source of truth for the vault slug and for every vault-owned skill/agent/plugin name. Pattern: <verb>-<slug>-vault (verb first). Read by kit-rename.py (migration of old installs), by the site tooling (netlify-site/vault_config.py: docs, build checks) and by tests. A future topic vault changes 'slug' here and runs netlify-site/tools/vault_rename.py retag. Entries in 'renamed' are the PREVIOUS names; the migration removes them from user machines. Entries in 'removed' are skills/agents that were MERGED into the item named in 'into'; the same migration removes unchanged copies (edited or user-owned ones stay, with a warning). Tool file names under claude-kit/tools (vault-find.py, kbq.py, ...) are namespaced by the claude-kit folder and keep their names.",
- "slug": "rbxdev",
- "pattern": "<verb>-<slug>-vault",
+ "_comment": "Single source of truth for the vault prefix and for every vault-owned skill/agent/plugin name. Pattern: <prefix>-<short-name>. 'renamed' lists EVERY previous name of every item (gen 1 = original unsuffixed names, gen 2 = '-rbxdev-vault' names and the unchanged game-dev-*/roblox-* names published up to kit 8c1e9e6aeb), each mapped to the current name. Read by kit-rename.py (migration of old installs), by netlify-site/vault_config.py (docs, build checks) and by tests. A future topic vault changes 'prefix' here and runs netlify-site/tools/vault_rename.py retag. Entries in 'removed' were MERGED into the item named in 'into'. Tool file names under claude-kit/tools keep their names.",
+ "prefix": "rbx",
+ "pattern": "<prefix>-<short-name>",
+ "legacy_slug": "rbxdev",
+ "legacy_pattern": "<verb>-<slug>-vault",
  "mode_name": "Roblox dev mode",
+ "state_files": {
+  "old": [
+   "state/low-usage-mode.on",
+   "state/low-usage-mode-rbxdev-vault.on"
+  ],
+  "new": "state/rbx-low-usage.on"
+ },
  "renamed": [
-  {"old": "vault-update", "new": "update-rbxdev-vault", "kind": "skill", "always_on": true},
-  {"old": "update-check", "new": "update-check-rbxdev-vault", "kind": "skill", "always_on": true},
-  {"old": "load-vault", "new": "load-rbxdev-vault", "kind": "skill", "always_on": true},
-  {"old": "unload-vault", "new": "unload-rbxdev-vault", "kind": "skill", "always_on": true},
-  {"old": "uninstall", "new": "uninstall-rbxdev-vault", "kind": "skill", "always_on": true},
-  {"old": "vault-update-clean", "new": "update-clean-rbxdev-vault", "kind": "skill"},
-  {"old": "light-mode-on", "new": "light-mode-on-rbxdev-vault", "kind": "skill"},
-  {"old": "light-mode-off", "new": "light-mode-off-rbxdev-vault", "kind": "skill"},
-  {"old": "setup-check", "new": "setup-check-rbxdev-vault", "kind": "skill"},
-  {"old": "kit-list", "new": "list-rbxdev-vault", "kind": "skill"},
-  {"old": "vault-learn", "new": "learn-rbxdev-vault", "kind": "skill"},
-  {"old": "vault-curate", "new": "curate-rbxdev-vault", "kind": "skill"},
-  {"old": "vault-contribute", "new": "contribute-rbxdev-vault", "kind": "skill"},
-  {"old": "vault-mentor", "new": "mentor-rbxdev-vault", "kind": "skill"},
-  {"old": "use-the-vault", "new": "use-rbxdev-vault", "kind": "skill"},
-  {"old": "use-the-ai-library", "new": "use-ai-library-rbxdev-vault", "kind": "skill"},
-  {"old": "clarify-before-build", "new": "clarify-before-build-rbxdev-vault", "kind": "skill"},
-  {"old": "deep-topic-research", "new": "deep-topic-research-rbxdev-vault", "kind": "skill"},
-  {"old": "karpathy-coding-guidelines", "new": "karpathy-coding-guidelines-rbxdev-vault", "kind": "skill"},
-  {"old": "low-usage-mode", "new": "low-usage-mode-rbxdev-vault", "kind": "skill"},
-  {"old": "manager-mode", "new": "manager-mode-rbxdev-vault", "kind": "skill"},
-  {"old": "rate-anything-1-10", "new": "rate-anything-1-10-rbxdev-vault", "kind": "skill"},
-  {"old": "game-idea", "new": "game-idea-rbxdev-vault", "kind": "skill"},
-  {"old": "vault-mentor", "new": "mentor-rbxdev-vault", "kind": "agent"},
-  {"old": "claim-verifier", "new": "claim-verifier-rbxdev-vault", "kind": "agent"},
-  {"old": "game-critic", "new": "game-critic-rbxdev-vault", "kind": "agent"},
-  {"old": "self-verifying-game-builder", "new": "self-verifying-game-builder-rbxdev-vault", "kind": "agent"},
-  {"old": "workflow-hud", "new": "rbx-subagent-hud", "kind": "plugin", "command_old": "hud", "command_new": "rbx-subagent-hud"},
-  {"old": "hud-rbxdev-vault", "new": "rbx-subagent-hud", "kind": "plugin", "command_old": "hud-rbxdev-vault", "command_new": "rbx-subagent-hud"},
-  {"old": "vault-graph", "new": "graph-rbxdev-vault", "kind": "plugin", "command_old": "graph", "command_new": "graph-rbxdev-vault"}
+  {
+   "old": "vault-update",
+   "new": "rbx-update",
+   "kind": "skill",
+   "gen": 1,
+   "always_on": true
+  },
+  {
+   "old": "update-rbxdev-vault",
+   "new": "rbx-update",
+   "kind": "skill",
+   "gen": 2,
+   "always_on": true
+  },
+  {
+   "old": "update-check",
+   "new": "rbx-check",
+   "kind": "skill",
+   "gen": 1,
+   "always_on": true
+  },
+  {
+   "old": "update-check-rbxdev-vault",
+   "new": "rbx-check",
+   "kind": "skill",
+   "gen": 2,
+   "always_on": true
+  },
+  {
+   "old": "load-vault",
+   "new": "rbx-load",
+   "kind": "skill",
+   "gen": 1,
+   "always_on": true
+  },
+  {
+   "old": "load-rbxdev-vault",
+   "new": "rbx-load",
+   "kind": "skill",
+   "gen": 2,
+   "always_on": true
+  },
+  {
+   "old": "unload-vault",
+   "new": "rbx-unload",
+   "kind": "skill",
+   "gen": 1,
+   "always_on": true
+  },
+  {
+   "old": "unload-rbxdev-vault",
+   "new": "rbx-unload",
+   "kind": "skill",
+   "gen": 2,
+   "always_on": true
+  },
+  {
+   "old": "uninstall",
+   "new": "rbx-uninstall",
+   "kind": "skill",
+   "gen": 1,
+   "always_on": true
+  },
+  {
+   "old": "uninstall-rbxdev-vault",
+   "new": "rbx-uninstall",
+   "kind": "skill",
+   "gen": 2,
+   "always_on": true
+  },
+  {
+   "old": "vault-update-clean",
+   "new": "rbx-clean",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "update-clean-rbxdev-vault",
+   "new": "rbx-clean",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "light-mode-on",
+   "new": "rbx-light-on",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "light-mode-on-rbxdev-vault",
+   "new": "rbx-light-on",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "light-mode-off",
+   "new": "rbx-light-off",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "light-mode-off-rbxdev-vault",
+   "new": "rbx-light-off",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "setup-check",
+   "new": "rbx-setup",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "setup-check-rbxdev-vault",
+   "new": "rbx-setup",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "kit-list",
+   "new": "rbx-list",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "list-rbxdev-vault",
+   "new": "rbx-list",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "vault-learn",
+   "new": "rbx-learn",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "learn-rbxdev-vault",
+   "new": "rbx-learn",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "vault-curate",
+   "new": "rbx-curate",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "curate-rbxdev-vault",
+   "new": "rbx-curate",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "vault-contribute",
+   "new": "rbx-contribute",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "contribute-rbxdev-vault",
+   "new": "rbx-contribute",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "vault-mentor",
+   "new": "rbx-mentor",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "mentor-rbxdev-vault",
+   "new": "rbx-mentor",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "use-the-vault",
+   "new": "rbx-use",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "use-rbxdev-vault",
+   "new": "rbx-use",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "use-the-ai-library",
+   "new": "rbx-ailib",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "use-ai-library-rbxdev-vault",
+   "new": "rbx-ailib",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "clarify-before-build",
+   "new": "rbx-clarify",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "clarify-before-build-rbxdev-vault",
+   "new": "rbx-clarify",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "deep-topic-research",
+   "new": "rbx-research",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "deep-topic-research-rbxdev-vault",
+   "new": "rbx-research",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "karpathy-coding-guidelines",
+   "new": "rbx-karpathy",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "karpathy-coding-guidelines-rbxdev-vault",
+   "new": "rbx-karpathy",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "low-usage-mode",
+   "new": "rbx-low-usage",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "low-usage-mode-rbxdev-vault",
+   "new": "rbx-low-usage",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "manager-mode",
+   "new": "rbx-manager",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "manager-mode-rbxdev-vault",
+   "new": "rbx-manager",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "rate-anything-1-10",
+   "new": "rbx-rate-any",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "rate-anything-1-10-rbxdev-vault",
+   "new": "rbx-rate-any",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-idea",
+   "new": "rbx-idea-quick",
+   "kind": "skill",
+   "gen": 1
+  },
+  {
+   "old": "game-idea-rbxdev-vault",
+   "new": "rbx-idea-quick",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-ads",
+   "new": "rbx-ads",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-art-direction",
+   "new": "rbx-art",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-benchmark",
+   "new": "rbx-bench",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-critic",
+   "new": "rbx-critic",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-harvest",
+   "new": "rbx-harvest",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-launch-kit",
+   "new": "rbx-launch-kit",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-lighting-qa",
+   "new": "rbx-lighting",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-placement-qa",
+   "new": "rbx-placement",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-plan",
+   "new": "rbx-plan",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-playtest",
+   "new": "rbx-playtest",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-rate",
+   "new": "rbx-rate",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-thumbnail",
+   "new": "rbx-thumbnail",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-tune",
+   "new": "rbx-tune",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-update",
+   "new": "rbx-game-update",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-visual-qa",
+   "new": "rbx-visual",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-weekly",
+   "new": "rbx-weekly",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "game-dev-workflow",
+   "new": "rbx-workflow",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "make-roblox-game",
+   "new": "rbx-make",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-ad-campaign-planner",
+   "new": "rbx-ad-plan",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-analytics-review",
+   "new": "rbx-analytics",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-architecture-choice",
+   "new": "rbx-arch",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-asset-finder",
+   "new": "rbx-assets",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-code-rate",
+   "new": "rbx-code-rate",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-datastore-safe-save",
+   "new": "rbx-datastore",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-game-ideas",
+   "new": "rbx-ideas",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-gdd-template",
+   "new": "rbx-gdd",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-kb-answer",
+   "new": "rbx-kb",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-launch-checklist",
+   "new": "rbx-launch-check",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-leaderboards-and-events",
+   "new": "rbx-leaderboard",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-luau-style",
+   "new": "rbx-luau",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-metrics-benchmarks",
+   "new": "rbx-metrics",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-monetisation-setup",
+   "new": "rbx-monetize",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-monetization-audit",
+   "new": "rbx-monetize-audit",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-npc-pathfinding",
+   "new": "rbx-npc",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-performance-pass",
+   "new": "rbx-perf",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-playtest-checklist",
+   "new": "rbx-playtest-list",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-publish-checklist",
+   "new": "rbx-publish",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-remote-security",
+   "new": "rbx-remote-sec",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-rojo-project-setup",
+   "new": "rbx-rojo",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-round-based-game-loop",
+   "new": "rbx-rounds",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-studio-connect",
+   "new": "rbx-studio",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-thumbnail-brief",
+   "new": "rbx-thumb-brief",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-trend-research",
+   "new": "rbx-trends",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "roblox-ui-responsive",
+   "new": "rbx-ui",
+   "kind": "skill",
+   "gen": 2
+  },
+  {
+   "old": "claim-verifier",
+   "new": "rbx-verifier",
+   "kind": "agent",
+   "gen": 1
+  },
+  {
+   "old": "claim-verifier-rbxdev-vault",
+   "new": "rbx-verifier",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "game-critic",
+   "new": "rbx-judge",
+   "kind": "agent",
+   "gen": 1
+  },
+  {
+   "old": "game-critic-rbxdev-vault",
+   "new": "rbx-judge",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "vault-mentor",
+   "new": "rbx-coach",
+   "kind": "agent",
+   "gen": 1
+  },
+  {
+   "old": "mentor-rbxdev-vault",
+   "new": "rbx-coach",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "self-verifying-game-builder",
+   "new": "rbx-selfbuilder",
+   "kind": "agent",
+   "gen": 1
+  },
+  {
+   "old": "self-verifying-game-builder-rbxdev-vault",
+   "new": "rbx-selfbuilder",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-audit-fanout",
+   "new": "rbx-auditor",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-economy-designer",
+   "new": "rbx-economist",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-game-builder",
+   "new": "rbx-builder",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-game-designer",
+   "new": "rbx-designer",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-game-doctor",
+   "new": "rbx-doctor",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-launch-marketing-manager",
+   "new": "rbx-marketer",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-liveops-planner",
+   "new": "rbx-liveops",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-luau-engineer",
+   "new": "rbx-engineer",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-luau-reviewer",
+   "new": "rbx-reviewer",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-monetization-consultant",
+   "new": "rbx-money",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-playtest-runner",
+   "new": "rbx-tester",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-pre-delivery-reviewer",
+   "new": "rbx-predelivery",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "roblox-studio-lead",
+   "new": "rbx-lead",
+   "kind": "agent",
+   "gen": 2
+  },
+  {
+   "old": "workflow-hud",
+   "new": "rbx-subagent-hud",
+   "kind": "plugin",
+   "gen": 1,
+   "command_old": "hud",
+   "command_new": "rbx-subagent-hud"
+  },
+  {
+   "old": "hud-rbxdev-vault",
+   "new": "rbx-subagent-hud",
+   "kind": "plugin",
+   "gen": 2,
+   "command_old": "hud-rbxdev-vault",
+   "command_new": "rbx-subagent-hud"
+  },
+  {
+   "old": "vault-graph",
+   "new": "rbx-graph",
+   "kind": "plugin",
+   "gen": 1,
+   "command_old": "graph",
+   "command_new": "rbx-graph"
+  },
+  {
+   "old": "graph-rbxdev-vault",
+   "new": "rbx-graph",
+   "kind": "plugin",
+   "gen": 2,
+   "command_old": "graph-rbxdev-vault",
+   "command_new": "rbx-graph"
+  }
  ],
  "removed": [
-  {"old": "roblox-ad-thumbnail-brief", "kind": "skill", "into": "roblox-thumbnail-brief", "why": "ad-creative brief folded into the KB-grounded thumbnail brief"},
-  {"old": "roblox-builder", "kind": "agent", "into": "roblox-luau-engineer", "why": "strict subset of the Luau engineer"},
-  {"old": "roblox-tester", "kind": "agent", "into": "roblox-playtest-runner", "why": "same playtest job; test order and bug rules folded into the runner"},
-  {"old": "roblox-ad-creative-planner", "kind": "agent", "into": "roblox-launch-marketing-manager", "why": "icon/thumbnail/ad creative briefs are part of the launch and marketing manager"},
-  {"old": "roblox-analytics-reviewer", "kind": "agent", "into": "roblox-game-doctor", "why": "dashboard export review is the game doctor's input; weekly procedure stays in skill roblox-analytics-review"}
+  {
+   "old": "roblox-ad-thumbnail-brief",
+   "kind": "skill",
+   "into": "rbx-thumb-brief",
+   "why": "ad-creative brief folded into the KB-grounded thumbnail brief"
+  },
+  {
+   "old": "roblox-builder",
+   "kind": "agent",
+   "into": "rbx-engineer",
+   "why": "strict subset of the Luau engineer"
+  },
+  {
+   "old": "roblox-tester",
+   "kind": "agent",
+   "into": "rbx-tester",
+   "why": "same playtest job; test order and bug rules folded into the runner"
+  },
+  {
+   "old": "roblox-ad-creative-planner",
+   "kind": "agent",
+   "into": "rbx-marketer",
+   "why": "icon/thumbnail/ad creative briefs are part of the launch and marketing manager"
+  },
+  {
+   "old": "roblox-analytics-reviewer",
+   "kind": "agent",
+   "into": "rbx-doctor",
+   "why": "dashboard export review is the game doctor's input; weekly procedure stays in skill roblox-analytics-review"
+  }
  ],
  "kept": [
-  "rbx", "make-roblox-game", "game-dev-* (all)", "roblox-* (all skills and agents)",
+  "rbx (router skill)",
+  "rbx-subagent-hud (mod)",
   "tool files in claude-kit/tools (vault-find.py, kbq.py, learn.py, ...): namespaced by the claude-kit folder, not slash commands or ~/.claude entries",
   "vault-update.sh/.ps1, win-sync-setup.ps1, mac/linux-sync-setup.sh at the vault root: file names inside the vault folder; the logon task calls vault-update.ps1 by path",
-  "plugin marketplace name roblox-vault-kit-mods (already vault specific)",
-  "plugin rbx-subagent-hud (Roblox specific prefix rbx-, like the rbx router)"
+  "plugin marketplace name roblox-vault-kit-mods"
  ]
 }

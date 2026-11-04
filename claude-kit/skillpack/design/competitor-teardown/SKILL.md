@@ -4,7 +4,7 @@ description: "Break a top competitor into transferable patterns (never content):
 category: design
 tags: competitor, teardown, analysis, benchmark, pattern, rival, reverse engineer, reference game
 kb: Roblox/roblox-kb/trend-research-and-validation.md, Roblox/roblox-kb/case-studies-big-games.md, Roblox/roblox-kb/discovery-algorithm.md, Roblox/roblox-kb/creator-credibility.md, Roblox/roblox-kb/case-studies-grow-a-garden.md
-related: game-reviewer, genre-twist-finder, idea-validator, roblox-trend-research, core-loop-designer, first-minute-designer
+related: game-reviewer, genre-twist-finder, idea-validator, rbx-trends, core-loop-designer, first-minute-designer
 ---
 
 # competitor-teardown
@@ -12,13 +12,13 @@ related: game-reviewer, genre-twist-finder, idea-validator, roblox-trend-researc
 `game-reviewer` scores a game. This skill extracts reusable design patterns from one competitor and records the evidence, so the team copies mechanisms and never art, names, code or text.
 
 ## When to use
-Choosing among two or three references, or learning why a rival retains. Not for: a quick quality verdict (`game-reviewer`), trend scans across many games (`roblox-trend-research`).
+Choosing among two or three references, or learning why a rival retains. Not for: a quick quality verdict (`game-reviewer`), trend scans across many games (`rbx-trends`).
 
 ## Inputs (max 2)
 1. The competitor (name or URL; default: top comparable from the validator). 2. The question (default: "why do players stay?").
 
 ## Procedure
-1. Gather facts in this order: the local vault case study (`Roblox/roblox-kb/case-studies-<name>.md` if it exists), then the game page and a 15-minute play session, then the web (`roblox-trend-research`). Record each fact with its source and date. Stop at 8 facts per area; stale or unsourced numbers get `unverified`.
+1. Gather facts in this order: the local vault case study (`Roblox/roblox-kb/case-studies-<name>.md` if it exists), then the game page and a 15-minute play session, then the web (`rbx-trends`). Record each fact with its source and date. Stop at 8 facts per area; stale or unsourced numbers get `unverified`.
 2. Walk the seven areas and write one pattern line each: first minute (time to first action and reward), core loop (verb, cycle time), progression (what unlocks, how often), retention hooks (daily, timers, events), social (invite, trade, co-op), monetisation (what is sold, what stays free), packaging (icon, title, thumbnail subject).
 3. For each pattern add "Reuse as pattern: ..." rewritten in your own game's terms, and a "Why it works" claim marked evidence or `judgment`. Never copy content: names, art, music, text, code, UI layout.
 4. Separate causes from luck: CCU spikes from hype, a brand deal or an influencer are not design. The vault's examples: hype with no reason to return faded (Concrete Cleaning), Grow a Garden fell from a peak once hype ended (tracker claims). Mark such facts `context`, not `pattern`.
@@ -47,4 +47,4 @@ If you cannot play it, use the vault case study and public videos; mark play-der
 Treating peak CCU as proof of design quality. Copying their economy numbers without their loop. Analysing five games shallowly instead of one well. Quoting a self-reported creator number as official.
 
 ## Related
-`game-reviewer`, `genre-twist-finder`, `idea-validator`, `core-loop-designer`, `roblox-trend-research`.
+`game-reviewer`, `genre-twist-finder`, `idea-validator`, `core-loop-designer`, `rbx-trends`.

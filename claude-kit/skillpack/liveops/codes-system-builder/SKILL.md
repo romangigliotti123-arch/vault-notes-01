@@ -4,7 +4,7 @@ description: "Build the server side of a redeem-code system: the CodeBook rules 
 category: liveops
 tags: redeem codes, codes, promo, server, datastore, rate limit, throttle, anti abuse, redeem service, live ops
 kb: Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/client-server-and-remotes.md, Roblox/roblox-kb/updates-live-ops.md
-related: codes-campaign-planner, remote-guard-builder, datastore-schema-builder, feature-flag-config-builder, exploit-audit, event-planner, roblox-datastore-safe-save, roblox-remote-security
+related: codes-campaign-planner, remote-guard-builder, datastore-schema-builder, feature-flag-config-builder, exploit-audit, event-planner, rbx-datastore, rbx-remote-sec
 ---
 
 # codes-system-builder

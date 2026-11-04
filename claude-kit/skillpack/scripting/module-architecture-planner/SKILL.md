@@ -4,7 +4,7 @@ description: "Turn a growing pile of scripts into services and modules: classify
 category: scripting
 tags: architecture, modules, services, refactor, split, server, client, shared, folders, init, layout, rojo
 kb: Roblox/roblox-kb/code-architecture-and-frameworks.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/client-server-and-remotes.md
-related: require-cycle-finder, script-dependency-mapper, event-bus-builder, replicated-loader-builder, kit-system-integrator, roblox-luau-style
+related: require-cycle-finder, script-dependency-mapper, event-bus-builder, replicated-loader-builder, kit-system-integrator, rbx-luau
 ---
 
 # module-architecture-planner

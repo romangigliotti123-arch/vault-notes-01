@@ -4,12 +4,12 @@ description: "Plan one limited-time Roblox game event end to end: goal and metri
 category: liveops
 tags: event, live ops, limited time, seasonal, holiday, update, fomo, rewards, schedule, return hook
 kb: Roblox/roblox-kb/events-and-seasonal-content.md, Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/community-and-discord.md, Roblox/roblox-kb/case-studies-grow-a-garden.md
-related: update-cadence-planner, seasonal-calendar-builder, patch-notes-writer, rollback-planner, economy-health-monitor, reward-schedule-designer, discord-server-setup, game-dev-update
+related: update-cadence-planner, seasonal-calendar-builder, patch-notes-writer, rollback-planner, economy-health-monitor, reward-schedule-designer, discord-server-setup, rbx-game-update
 ---
 
 # event-planner
 
-An event is a reason to come back at a specific time. The plan decides the one thing it should change (a metric), then the smallest content that changes it. Cadence across months is `update-cadence-planner`/`seasonal-calendar-builder`; the kit skill `game-dev-update` covers the update pipeline. This plans ONE event.
+An event is a reason to come back at a specific time. The plan decides the one thing it should change (a metric), then the smallest content that changes it. Cadence across months is `update-cadence-planner`/`seasonal-calendar-builder`; the kit skill `rbx-game-update` covers the update pipeline. This plans ONE event.
 
 ## When to use
 A return-hook is needed, a holiday is coming, or a major update needs a launch moment. Not for: permanent systems (daily rewards: `daily-reward` in the kit systems), or fixing a broken core loop (`core-loop-designer`).
@@ -53,4 +53,4 @@ Design doc + config file + bot script as files; mark runtime behaviour `untested
 Events that need a new tutorial. Rewards so strong they break the economy afterwards (`economy-health-monitor`). Local-time countdowns. Leaving event code in client-readable containers (leaks). Launching when the team cannot respond to bugs. Not measuring.
 
 ## Related
-`update-cadence-planner`, `seasonal-calendar-builder`, `patch-notes-writer`, `rollback-planner`, `economy-health-monitor`, `game-dev-update`.
+`update-cadence-planner`, `seasonal-calendar-builder`, `patch-notes-writer`, `rollback-planner`, `economy-health-monitor`, `rbx-game-update`.

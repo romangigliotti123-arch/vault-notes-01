@@ -4,7 +4,7 @@ description: "Set up the automatic Luau checks for a project: a git pre-commit h
 category: workflow
 tags: ci, check, hook, pre-commit, lint, stylua, selene, luau-lsp, quality gate
 kb: Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Manager/topic-claude-code-features.md, Manager/topic-multi-agent-failure-modes.md, Manager/topic-managing-ai-agents-for-roblox-game-dev.md, Mentor/Combined-Brain.md
-related: dependency-pinner, git-workflow-setter, code-style-guide-writer, roblox-rojo-project-setup, worker-verifier, regression-checklist-builder
+related: dependency-pinner, git-workflow-setter, code-style-guide-writer, rbx-rojo, worker-verifier, regression-checklist-builder
 ---
 
 # ci-check-setter

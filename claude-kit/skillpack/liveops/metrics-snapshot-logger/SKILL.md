@@ -4,7 +4,7 @@ description: "Log the day's headline numbers (DAU, D1, revenue, conversion, cust
 category: liveops
 tags: metrics, snapshot, daily log, trend, csv, analytics api, baseline, weekday, kpi, history
 kb: Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/_tools/BENCHMARKS.md
-related: kpi-dashboard-planner, dau-drop-investigator, cohort-reader, retention-diagnoser, economy-health-monitor, roblox-analytics-review, game-dev-weekly
+related: kpi-dashboard-planner, dau-drop-investigator, cohort-reader, retention-diagnoser, economy-health-monitor, rbx-analytics, rbx-weekly
 ---
 
 # metrics-snapshot-logger
@@ -12,7 +12,7 @@ related: kpi-dashboard-planner, dau-drop-investigator, cohort-reader, retention-
 Creator Hub dashboard charts show a limited past window, performance and stability data is kept 28 days, and thumbnail metrics 30 days (vault), so the history you will want in six months must be copied somewhere you own. This skill keeps one small CSV of numbers, one row per metric per day, and shows the change against the same weekday last week. Dashboards and charts from that file: `dataviz`.
 
 ## When to use
-Starting live ops, before any update you will want to judge, weekly in `game-dev-weekly`. Not for: deciding which KPIs matter (`kpi-dashboard-planner`) or interpreting a drop (`dau-drop-investigator`).
+Starting live ops, before any update you will want to judge, weekly in `rbx-weekly`. Not for: deciding which KPIs matter (`kpi-dashboard-planner`) or interpreting a drop (`dau-drop-investigator`).
 
 ## Inputs (max 3)
 1. The metrics to log (default: the KPIs from `kpi-dashboard-planner`; else DailyActiveUsers, ForwardD1Retention, DailyRevenue, PayingUsersCVR). 2. Source: `analytics-pull.py` (needs an Open Cloud key) or typed values. 3. Log path (default: `Games/<slug>/metrics-log.csv`).

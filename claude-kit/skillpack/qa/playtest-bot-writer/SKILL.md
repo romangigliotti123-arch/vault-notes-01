@@ -4,12 +4,12 @@ description: "Write a scripted bot that plays a game's core loop inside a Studio
 category: qa
 tags: playtest, bot, automated test, harness, assert, studio mcp, execute_luau, regression, simulate, core loop
 kb: Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/playtesting-and-feedback.md, Roblox/roblox-kb/core-loops-and-game-design.md, Roblox/roblox-kb/first-session-onboarding.md
-related: game-dev-playtest, roblox-playtest-checklist, regression-checklist-builder, multiplayer-test-planner, first-minute-designer, purchase-flow-tester, save-load-tester, roblox-studio-connect
+related: rbx-playtest, rbx-playtest-list, regression-checklist-builder, multiplayer-test-planner, first-minute-designer, purchase-flow-tester, save-load-tester, rbx-studio
 ---
 
 # playtest-bot-writer
 
-A bot cannot judge fun; it proves the loop still works. It catches "the first reward never arrives" and "the save field vanished" in 30 seconds. Human feel testing stays `game-dev-playtest`. Connection modes and the write-run-read loop are defined in `roblox-studio-connect`; this skill adds the bot pattern.
+A bot cannot judge fun; it proves the loop still works. It catches "the first reward never arrives" and "the save field vanished" in 30 seconds. Human feel testing stays `rbx-playtest`. Connection modes and the write-run-read loop are defined in `rbx-studio`; this skill adds the bot pattern.
 
 ## When to use
 After a gameplay change, before a release, or to time the first minute. Not for: UX/feel judgement, performance (`game-optimizer`), or exploit testing (`remote-fuzzer`).
@@ -41,7 +41,7 @@ As in steps 3-4: `list_roblox_studios` -> `get_studio_state` -> `start_stop_play
 No Studio: unit-test pure logic with Lune using fakes (`~/.claude/claude-kit/systems/_check/harness.luau`; run `lune run <file>` from `systems/`), and give the owner the bot as a Script to paste into ServerScriptService of a test place. Mark results `untested`.
 
 ## Evidence
-`Roblox/roblox-kb/testing-debugging-and-qa.md` (playtest after every few small changes; test solo and multiplayer; client/server toggle; confirm events with prints), `Roblox/roblox-kb/playtesting-and-feedback.md` (bots do not replace watching new players), `Roblox/roblox-kb/first-session-onboarding.md` (the checks to time). Studio tools: `roblox-studio-connect` skill.
+`Roblox/roblox-kb/testing-debugging-and-qa.md` (playtest after every few small changes; test solo and multiplayer; client/server toggle; confirm events with prints), `Roblox/roblox-kb/playtesting-and-feedback.md` (bots do not replace watching new players), `Roblox/roblox-kb/first-session-onboarding.md` (the checks to time). Studio tools: `rbx-studio` skill.
 
 ## Output
 `tests/bots/<name>.luau`, a PASS/FAIL report block, timings, and the Output excerpt; failures include the first error line.
@@ -57,4 +57,4 @@ No Studio: unit-test pure logic with Lune using fakes (`~/.claude/claude-kit/sys
 Racing the load (wait for the character and data, not a fixed `task.wait`). Passing because a check never ran. Bots that touch the live DataStore (use a test place, or mock). Asserting on timings that vary by machine. Treating a green bot as "good".
 
 ## Related
-`game-dev-playtest`, `roblox-playtest-checklist`, `regression-checklist-builder`, `multiplayer-test-planner`, `purchase-flow-tester`, `save-load-tester`.
+`rbx-playtest`, `rbx-playtest-list`, `regression-checklist-builder`, `multiplayer-test-planner`, `purchase-flow-tester`, `save-load-tester`.

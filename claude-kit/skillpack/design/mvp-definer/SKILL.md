@@ -4,7 +4,7 @@ description: "Define the smallest playable version of a game: the loop, one area
 category: design
 tags: mvp, minimum playable, prototype, acceptance test, build order, week one, vertical slice, playtest
 kb: Roblox/roblox-kb/development-process-and-speed.md, Roblox/roblox-kb/core-loops-and-game-design.md, Roblox/roblox-kb/playtesting-and-feedback.md, Roblox/roblox-kb/first-session-onboarding.md, Roblox/roblox-kb/case-studies-doors.md
-related: core-loop-designer, scope-cutter, first-minute-designer, gdd-one-pager, playtest-bot-writer, game-dev-workflow
+related: core-loop-designer, scope-cutter, first-minute-designer, gdd-one-pager, playtest-bot-writer, rbx-workflow
 ---
 
 # mvp-definer

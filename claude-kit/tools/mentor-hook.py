@@ -33,7 +33,7 @@ def load_vf():
 
 
 def lum_on(c):
-    return os.path.exists(os.path.join(c, "state", "low-usage-mode-rbxdev-vault.on"))
+    return os.path.exists(os.path.join(c, "state", "rbx-low-usage.on"))
 
 
 def cached_records(vf, vaults):
@@ -129,7 +129,7 @@ def suggest(prompt, vault_args=None, debug=False, c=None):
     return out if len(out) <= MAX_CHARS else out[: MAX_CHARS - 3] + "..."
 
 
-# ---- settings.json merge (same safety rules as low-usage-mode-rbxdev-vault: backup first, idempotent, keeps everything else)
+# ---- settings.json merge (same safety rules as rbx-low-usage: backup first, idempotent, keeps everything else)
 def read_settings(path):
     if not os.path.exists(path):
         return {}

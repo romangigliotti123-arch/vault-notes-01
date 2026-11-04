@@ -4,12 +4,12 @@ description: "Inventory every asset a Roblox place uses (meshes, textures, sound
 category: build
 tags: asset, license, licence, copyright, toolbox, audio, moderation, ownership, provenance, ids, attribution
 kb: Roblox/roblox-kb/sound-and-music.md, Roblox/roblox-kb/building-art-and-assets.md, Roblox/roblox-kb/age-ratings-moderation-and-tos.md, Roblox/roblox-kb/brand-deals-and-ip-licensing.md, Roblox/roblox-kb/business-and-payouts.md
-related: copyright-checker, audio-permission-checker, tos-compliance-checker, model-cleaner, model-rebuild, roblox-asset-finder, publish-readiness-gate
+related: copyright-checker, audio-permission-checker, tos-compliance-checker, model-cleaner, model-rebuild, rbx-assets, publish-readiness-gate
 ---
 
 # asset-license-checker
 
-Assets are the legal and moderation surface of a game. This skill builds the list; deciding legal status is the owner's, and it never claims an asset is licensed without evidence. Asset FINDING (reuse from the library) is `roblox-asset-finder`.
+Assets are the legal and moderation surface of a game. This skill builds the list; deciding legal status is the owner's, and it never claims an asset is licensed without evidence. Asset FINDING (reuse from the library) is `rbx-assets`.
 
 ## When to use
 Pre-launch gate; before selling or handing over a game ("prepare a game for sale": code, assets and terms must be clear); after importing Toolbox content; after a takedown or moderation message. Not for: judging code, or content-rating (`age-rating-prep`).
@@ -25,7 +25,7 @@ Pre-launch gate; before selling or handing over a game ("prepare a game for sale
    - THIRD-PARTY WITH PERMISSION: a creator's asset with written permission or an explicit licence you can quote.
    - UNKNOWN: anything else. Unknown stays unknown; never upgrade it on a guess.
 3. Risk flags (HIGH first): audio (the most frequently moderated and permission-restricted category: verify the asset is still available and permitted for experiences), copyrighted music or brand sounds, images with logos or real people, meshes copied from other games, clothing templates, assets that no longer load, assets from deleted or banned accounts.
-4. For each HIGH/UNKNOWN row choose: confirm (obtain proof: licence text, store page, permission message), replace (find a library or self-made substitute: `roblox-asset-finder`, `generate_mesh`/`generate_material`, your own recording), or remove. Record the decision.
+4. For each HIGH/UNKNOWN row choose: confirm (obtain proof: licence text, store page, permission message), replace (find a library or self-made substitute: `rbx-assets`, `generate_mesh`/`generate_material`, your own recording), or remove. Record the decision.
 5. Third-party attribution: if a licence requires credit, add it to the experience description or an in-game credits screen; keep the licence text in `licenses/`.
 6. Re-run the inventory after replacements and compare counts. Write `reports/asset-licences.md`.
 7. Keep proof: licence text, permission messages (screenshots), purchase records, with the asset id; needed for disputes and for selling the game.
@@ -53,4 +53,4 @@ Rojo projects keep ids in code and in `.rbxm` exports: grep for `rbxassetid`; th
 Assuming Toolbox means free to use commercially. Sounds that stop working after a platform change. Re-uploading someone else's asset. Forgetting assets referenced only from scripts or `InsertService`. Treating a high view count as permission.
 
 ## Related
-`copyright-checker`, `audio-permission-checker`, `tos-compliance-checker`, `model-cleaner`, `roblox-asset-finder`, `publish-readiness-gate`.
+`copyright-checker`, `audio-permission-checker`, `tos-compliance-checker`, `model-cleaner`, `rbx-assets`, `publish-readiness-gate`.

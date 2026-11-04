@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""games.py - the per-game community helper for /game-dev-workflow. Stdlib only. Never touches anything outside Games/ (and the PROJECT folder, read-only).
+"""games.py - the per-game community helper for /rbx-workflow. Stdlib only. Never touches anything outside Games/ (and the PROJECT folder, read-only).
 
-Games/ lives in the vault root and is PROTECTED: /update-rbxdev-vault and /update-clean-rbxdev-vault never overwrite or remove it, origin never ships it.
+Games/ lives in the vault root and is PROTECTED: /rbx-update and /rbx-clean never overwrite or remove it, origin never ships it.
 Layout:  Games/README.md (hub)  Games/_profile.json (onboarding answers)  Games/<slug>/{GAME,design,decisions,systems}.md + playtests/ weekly/ critic/  Games/_Reusable/<name>/README.md + code
 
   games.py where                                       print the Games root that will be used
@@ -16,7 +16,7 @@ Layout:  Games/README.md (hub)  Games/_profile.json (onboarding answers)  Games/
   games.py advance <slug> --to STAGE [--project DIR]   move GAME.md to STAGE only if the critic's latest verdict for the CURRENT stage is GOOD (and, from prototype on, its file says visual: pass AND placement: pass AND lighting: pass AND codegates: ran) and the evidence supports it
   games.py reusable add <name> --src PATH --what TXT [--from-game SLUG] [--tested y|n] [--rating N] [--tags TXT]    save a reusable building block
   games.py reusable list
-  games.py contribute <name>                           zip a reusable item into ~/contribute-rbxdev-vault/ for the owner (never uploads anything)
+  games.py contribute <name>                           zip a reusable item into ~/rbx-contribute/ for the owner (never uploads anything)
 Games root: --games DIR, else env GAMES_ROOT, else <vault>/Games (vault = env CLAUDES_VAULT, else ~/Obsidian/claudes-vault).
 """
 import argparse, datetime, glob, json, os, re, shutil, sys, zipfile
@@ -44,13 +44,13 @@ def games_root(a):
         return os.path.abspath(os.environ["GAMES_ROOT"])
     v = vault_root()
     if not v:
-        sys.exit("games.py: vault not found. Set CLAUDES_VAULT, pass --games DIR, or run /update-rbxdev-vault first.")
+        sys.exit("games.py: vault not found. Set CLAUDES_VAULT, pass --games DIR, or run /rbx-update first.")
     return os.path.join(v, "Games")
 
 
 def template_dir():
-    for c in (os.path.join(HERE, "..", "skills", "game-dev-workflow", "templates", "game"),
-              os.path.join(HERE, "..", "..", "skills", "game-dev-workflow", "templates", "game")):
+    for c in (os.path.join(HERE, "..", "skills", "rbx-workflow", "templates", "game"),
+              os.path.join(HERE, "..", "..", "skills", "rbx-workflow", "templates", "game")):
         if os.path.isdir(c):
             return os.path.abspath(c)
     sys.exit("games.py: templates not found (is the kit installed? run install.ps1 / install.sh)")
@@ -115,12 +115,12 @@ def rebuild_hub(root):
     items = sorted(d for d in os.listdir(re_dir) if os.path.isfile(os.path.join(re_dir, d, "README.md"))) if os.path.isdir(re_dir) else []
     lines = ["---", "type: games-hub", "updated: %s" % today(), "---", "# Games (your protected game communities)", "",
              "Each game below is its own cluster in Obsidian's graph (GAME.md hub with design, decisions, systems, playtests, weekly reports, critic verdicts, linked into the Roblox KB). "
-             "`/update-rbxdev-vault` and `/update-clean-rbxdev-vault` never touch this folder. Start with `/game-dev-workflow`.", "", "## Games", ""]
+             "`/rbx-update` and `/rbx-clean` never touch this folder. Start with `/rbx-workflow`.", "", "## Games", ""]
     for g in games:
         f = fm_of(read(os.path.join(root, g, "GAME.md")))
         lines.append("- [[%s/GAME|%s]] - stage **%s** - %s" % (g, g, f.get("stage", "?"), f.get("pitch", "")))
     if not games:
-        lines.append("- (none yet: run /game-dev-workflow)")
+        lines.append("- (none yet: run /rbx-workflow)")
     lines += ["", "## Reusable building blocks (use these first in every new game)", ""]
     for i in items:
         f = fm_of(read(os.path.join(re_dir, i, "README.md")))
@@ -394,17 +394,17 @@ def cmd_advance(a):
         sys.exit("BLOCKED: GAME.md stage is %s; the next stage is %s, not %s (stages are never skipped)" % (cur, STAGES[min(STAGES.index(cur) + 1, 5)], a.to))
     vs = [v for v in verdicts(gd) if v["stage"] == cur]
     if not vs:
-        sys.exit("BLOCKED: no critic verdict for stage %s. Run /game-dev-critic first." % cur)
+        sys.exit("BLOCKED: no critic verdict for stage %s. Run /rbx-critic first." % cur)
     if vs[-1]["verdict"] != "GOOD":
         sys.exit("BLOCKED: latest critic verdict for %s is %s (%s). Apply the top fixes, re-run the critic." % (cur, vs[-1]["verdict"], vs[-1]["date"]))
     if cur != "idea" and vs[-1].get("visual", "missing") != "pass":
-        sys.exit("BLOCKED: visual gate not passed for %s (critic file says visual: %s). Status: playable prototype, visuals not polished. Run /game-dev-visual-qa, then a fresh /game-dev-critic." % (cur, vs[-1].get("visual", "missing")))
+        sys.exit("BLOCKED: visual gate not passed for %s (critic file says visual: %s). Status: playable prototype, visuals not polished. Run /rbx-visual, then a fresh /rbx-critic." % (cur, vs[-1].get("visual", "missing")))
     if cur != "idea" and vs[-1].get("placement", "missing") != "pass":
-        sys.exit("BLOCKED: placement gate not passed for %s (critic file says placement: %s). Status: playable prototype, placement not verified. Run /game-dev-placement-qa over the whole map, then a fresh /game-dev-critic." % (cur, vs[-1].get("placement", "missing")))
+        sys.exit("BLOCKED: placement gate not passed for %s (critic file says placement: %s). Status: playable prototype, placement not verified. Run /rbx-placement over the whole map, then a fresh /rbx-critic." % (cur, vs[-1].get("placement", "missing")))
     if cur != "idea" and vs[-1].get("lighting", "missing") != "pass":
-        sys.exit("BLOCKED: lighting gate not passed for %s (critic file says lighting: %s; a verdict written before the lighting gate existed has no such line). Status: playable prototype, lighting not verified. Run /game-dev-lighting-qa (LightingKit.apply the genre preset, then scan), then a fresh /game-dev-critic." % (cur, vs[-1].get("lighting", "missing")))
+        sys.exit("BLOCKED: lighting gate not passed for %s (critic file says lighting: %s; a verdict written before the lighting gate existed has no such line). Status: playable prototype, lighting not verified. Run /rbx-lighting (LightingKit.apply the genre preset, then scan), then a fresh /rbx-critic." % (cur, vs[-1].get("lighting", "missing")))
     if cur != "idea" and vs[-1].get("codegates", "missing") != "ran":
-        sys.exit("BLOCKED: code gates not run for %s (critic file says codegates: %s; a verdict written before the code gates existed has no such line). Status: playable prototype, code gates not run. Run python <skills>/game-dev-critic/scripts/code_gates.py <project> --scorer critic --write Games/<slug>, then a fresh /game-dev-critic." % (cur, vs[-1].get("codegates", "missing")))
+        sys.exit("BLOCKED: code gates not run for %s (critic file says codegates: %s; a verdict written before the code gates existed has no such line). Status: playable prototype, code gates not run. Run python <skills>/rbx-critic/scripts/code_gates.py <project> --scorer critic --write Games/<slug>, then a fresh /rbx-critic." % (cur, vs[-1].get("codegates", "missing")))
     if STAGES.index(d["evidence"]) < STAGES.index(a.to) - 1 and a.to != "prototype":
         sys.exit("BLOCKED: evidence only supports stage %s (%s)" % (d["evidence"], "; ".join(d["reasons"][-2:])))
     p = os.path.join(gd, "GAME.md")
@@ -475,7 +475,7 @@ def cmd_contribute(a):
     src = os.path.join(root, "_Reusable", a.name)
     if not os.path.isdir(src):
         sys.exit("games.py: no such reusable item %r" % a.name)
-    out_dir = os.path.join(os.path.expanduser("~"), "contribute-rbxdev-vault")
+    out_dir = os.path.join(os.path.expanduser("~"), "rbx-contribute")
     os.makedirs(out_dir, exist_ok=True)
     zp = os.path.join(out_dir, "%s-%s.zip" % (a.name, today()))
     with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:

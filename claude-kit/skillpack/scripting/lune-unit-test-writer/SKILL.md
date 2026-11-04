@@ -4,7 +4,7 @@ description: "Write Lune unit tests for pure game logic using the kit's tiny har
 category: scripting
 tags: lune, unit test, testing, mock, harness, ci, pure logic, tdd, luau, regression
 kb: Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/code-architecture-and-frameworks.md
-related: state-machine-builder, cooldown-manager-builder, datastore-schema-builder, retry-wrapper-builder, kit-system-integrator, roblox-playtest-checklist
+related: state-machine-builder, cooldown-manager-builder, datastore-schema-builder, retry-wrapper-builder, kit-system-integrator, rbx-playtest-list
 ---
 
 # lune-unit-test-writer
@@ -50,4 +50,4 @@ Test files, the command used, the result line (`N passed, 0 failed`), and a list
 Mocking so much that the test checks the mock. Asserting implementation details. Time-based tests with `task.wait` (use the fake clock). Random without a seed or injection. Testing only the happy path. A green suite read as "the game works" (engine behaviour is separate).
 
 ## Related
-`state-machine-builder`, `cooldown-manager-builder`, `retry-wrapper-builder`, `kit-system-integrator`, `roblox-playtest-checklist`.
+`state-machine-builder`, `cooldown-manager-builder`, `retry-wrapper-builder`, `kit-system-integrator`, `rbx-playtest-list`.

@@ -4,7 +4,7 @@ description: "Build safe player-to-player trading that is server-authoritative a
 category: systems
 tags: trading, trade, swap, gift, dupe, duplication, exploit, escrow, offer, accept, inventory, atomic
 kb: Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/_tools/CHECKLIST-launch.md, Roblox/roblox-kb/case-studies-adopt-me.md, Roblox/roblox-kb/ugc-and-avatar-economy.md
-related: inventory-system-builder, currency-system-builder, pet-system-builder, exploit-audit, remote-guard-builder, dupe-exploit-hunter, datastore-schema-builder, roblox-remote-security
+related: inventory-system-builder, currency-system-builder, pet-system-builder, exploit-audit, remote-guard-builder, dupe-exploit-hunter, datastore-schema-builder, rbx-remote-sec
 ---
 
 # trading-system-builder

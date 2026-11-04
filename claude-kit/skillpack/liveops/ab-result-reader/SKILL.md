@@ -4,7 +4,7 @@ description: "Read an A/B or Creator Hub experiment result honestly: lift with a
 category: liveops
 tags: ab test, experiment results, significance, confidence interval, srm, guardrail, early harm, rollout, lift
 kb: Roblox/roblox-kb/ab-testing-and-experiments.md, Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/thumbnails-icons.md, Roblox/roblox-kb/updates-live-ops.md
-related: experiment-designer, cohort-reader, feature-flag-config-builder, ctr-ab-test-planner, retention-diagnoser, live-balance-tuner, roblox-analytics-review
+related: experiment-designer, cohort-reader, feature-flag-config-builder, ctr-ab-test-planner, retention-diagnoser, live-balance-tuner, rbx-analytics
 ---
 
 # ab-result-reader

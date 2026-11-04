@@ -4,7 +4,7 @@ description: "Move one hot, independent loop onto Actors with parallel Luau: mea
 category: scripting
 tags: actor, parallel luau, desynchronize, synchronize, bindtomessageparallel, performance, threads, compute, npc, raycast
 kb: Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/luau-language-and-types.md, Roblox/roblox-kb/optimization-and-streaming.md
-related: script-profiler, lag-hunter, game-optimizer, object-pool-builder, roblox-performance-pass
+related: script-profiler, lag-hunter, game-optimizer, object-pool-builder, rbx-perf
 ---
 
 # actor-parallel-converter

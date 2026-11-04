@@ -8,11 +8,11 @@ import argparse, json, os, re, shutil, subprocess, sys
 MARKET = "roblox-vault-kit-mods"
 # Used only when the SKILL.md has no `summary:` and the description is trigger text with no usable first clause.
 FALLBACK = {
-    "make-roblox-game": "Designs and builds a Roblox game end to end from the vault, skills and assets",
-    "deep-topic-research-rbxdev-vault": "Deep multi-source research on a topic with every claim labelled by evidence level",
-    "contribute-rbxdev-vault": "Packages one of your reusable items into a zip to offer to the vault owner",
-    "use-ai-library-rbxdev-vault": "How Claude finds and uses skills, agents and notes in the AI Library Vault",
-    "use-rbxdev-vault": "How Claude should use the claudes-vault Obsidian vault",
+    "rbx-make": "Designs and builds a Roblox game end to end from the vault, skills and assets",
+    "rbx-research": "Deep multi-source research on a topic with every claim labelled by evidence level",
+    "rbx-contribute": "Packages one of your reusable items into a zip to offer to the vault owner",
+    "rbx-ailib": "How Claude finds and uses skills, agents and notes in the AI Library Vault",
+    "rbx-use": "How Claude should use the claudes-vault Obsidian vault",
 }
 
 
@@ -101,7 +101,7 @@ def main():
     config = a.config or os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.path.expanduser("~"), ".claude")
     man = os.path.join(config, "claude-kit", "installed.tsv")
     if not os.path.isfile(man):
-        print("list-rbxdev-vault: no kit manifest at %s (kit not installed here; run /update-rbxdev-vault)." % man)
+        print("rbx-list: no kit manifest at %s (kit not installed here; run /rbx-update)." % man)
         return 1
     rels = [l.split("\t")[0] for l in open(man, encoding="utf-8", errors="replace").read().splitlines() if l.strip()]
     SM = "claude-kit/vault-mode/.claude/"
@@ -122,13 +122,13 @@ def main():
         return max(45, min(w, 110 - len(name) - 8))
 
     out = ["Installed from the Roblox Dev Mastery Vault kit.", ""]
-    out += ["Everything except the always-on commands is OFF in normal Claude sessions: type /load-rbxdev-vault in a project folder to turn on Roblox dev mode (/unload-rbxdev-vault turns it off).", ""]
+    out += ["Everything except the always-on commands is OFF in normal Claude sessions: type /rbx-load in a project folder to turn on Roblox dev mode (/rbx-unload turns it off).", ""]
     out += ["## Always-on commands (%d)" % len(always), ""]
     for s in always:
         sp = skill_path(s)
         d = one_line(frontmatter_field(sp, "summary"), W(s)) or FALLBACK.get(s) or one_line(desc(sp), W(s)) or "(no description)"
         out += ["- **/%s** %s %s" % (s, dash, d), ""]
-    out += ["## Skills in Roblox dev mode (%d; usable after /load-rbxdev-vault)" % len(stored), ""]
+    out += ["## Skills in Roblox dev mode (%d; usable after /rbx-load)" % len(stored), ""]
     for s in stored:
         sp = skill_path(s)
         d = one_line(frontmatter_field(sp, "summary"), W(s)) or FALLBACK.get(s) or one_line(desc(sp), W(s)) or "(no description)"
@@ -142,7 +142,7 @@ def main():
     if mods:
         data = json.load(open(os.path.join(mods, ".claude-plugin", "marketplace.json"), encoding="utf-8"))
         state = plugin_state(config)
-        cmd = {"rbx-subagent-hud": "/rbx-subagent-hud", "graph-rbxdev-vault": "/graph-rbxdev-vault"}
+        cmd = {"rbx-subagent-hud": "/rbx-subagent-hud", "rbx-graph": "/rbx-graph"}
         for p in sorted(data.get("plugins", []), key=lambda x: x["name"]):
             n = p["name"]
             inst = "unknown" if state is None else ("yes" if ("%s@%s" % (n, data.get("name", MARKET))) in state else "no")

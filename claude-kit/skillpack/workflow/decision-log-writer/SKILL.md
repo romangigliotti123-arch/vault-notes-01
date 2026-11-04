@@ -4,12 +4,12 @@ description: "Record a project decision in docs/decisions.md as options consider
 category: workflow
 tags: decision, adr, log, evidence, options, revisit, rationale, record
 kb: Manager/topic-knowledge-management-rag.md, Manager/topic-long-running-always-on-agents.md, Roblox/roblox-kb/development-process-and-speed.md, Roblox/roblox-kb/mindset-and-strategy.md, Mentor/Combined-Brain.md
-related: session-handoff, scope-creep-guard, post-mortem-writer, kb-lookup-routine, project-kickoff, game-dev-workflow
+related: session-handoff, scope-creep-guard, post-mortem-writer, kb-lookup-routine, project-kickoff, rbx-workflow
 ---
 
 # decision-log-writer
 
-`game-dev-workflow` creates a `decisions.md` in the game folder and `scope-cutter` appends its cut list there. This skill defines the entry format and when to write one, so the log stays short enough to be read at the start of a session. It is a log of choices, not a diary (`session-handoff`) and not a failure review (`post-mortem-writer`).
+`rbx-workflow` creates a `decisions.md` in the game folder and `scope-cutter` appends its cut list there. This skill defines the entry format and when to write one, so the log stays short enough to be read at the start of a session. It is a log of choices, not a diary (`session-handoff`) and not a failure review (`post-mortem-writer`).
 
 ## When to use
 A choice was made between real alternatives and reversing it would cost more than an hour: data schema shape, Rojo vs Script Sync, a monetisation model, a scope cut, a library adopted. Not for: trivial choices (names, colours) or a task list.

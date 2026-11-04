@@ -4,12 +4,12 @@ description: "Plan a Roblox Studio MCP working session before touching the place
 category: workflow
 tags: studio, mcp, session, plan, checkpoint, rollback, serial, place, connection
 kb: Roblox/roblox-kb/ai-and-tools.md, Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Manager/topic-managing-ai-agents-for-roblox-game-dev.md, Manager/topic-tool-and-mcp-design.md, Mentor/Combined-Brain.md
-related: roblox-studio-connect, roblox-rojo-project-setup, git-workflow-setter, playtest-evidence-logger, task-breaker, release-checklist-builder, worker-verifier
+related: rbx-studio, rbx-rojo, git-workflow-setter, playtest-evidence-logger, task-breaker, release-checklist-builder, worker-verifier
 ---
 
 # studio-mcp-session-planner
 
-`roblox-studio-connect` explains the three modes and the tool names; this skill is the pre-flight plan for one session so a worker with write access to a real place cannot lose work or fight Rojo. It writes a plan and does not start Studio (never launch or focus GUI apps).
+`rbx-studio` explains the three modes and the tool names; this skill is the pre-flight plan for one session so a worker with write access to a real place cannot lose work or fight Rojo. It writes a plan and does not start Studio (never launch or focus GUI apps).
 
 ## When to use
 A session or worker will change scripts or instances in an open place, run playtests, or read the console through `mcp__Roblox_Studio__` tools. Not for: pure file work in a Rojo project with no Studio open.
@@ -28,7 +28,7 @@ A session or worker will change scripts or instances in an open place, run playt
 8. Save `docs/mcp-session-<date>.md` (headings Connection, Checkpoint, Serial, Rollback; under 90 lines) and check it.
 
 ## Studio MCP path
-This is the MCP path: `list_roblox_studios` -> `get_studio_state` -> reads (`script_search`, `script_read`, `get_console_output`) -> writes (`multi_edit`, `execute_luau` in Edit datamodel) -> `start_stop_play` -> `get_console_output` -> stop. Tool names are taken from `roblox-studio-connect`; confirm against the live tool list.
+This is the MCP path: `list_roblox_studios` -> `get_studio_state` -> reads (`script_search`, `script_read`, `get_console_output`) -> writes (`multi_edit`, `execute_luau` in Edit datamodel) -> `start_stop_play` -> `get_console_output` -> stop. Tool names are taken from `rbx-studio`; confirm against the live tool list.
 
 ## Fallback
 Rojo files plus `luau-check.sh` and `rojo build`; the plan marks every step that needs a running place `untested`.
@@ -49,4 +49,4 @@ Rojo files plus `luau-check.sh` and `rojo build`; the plan marks every step that
 Editing a script through MCP while Rojo is connected. Two workers with Studio write access. No restore point before a bulk change. Reporting a static check as a playtest.
 
 ## Related
-`roblox-studio-connect`, `roblox-rojo-project-setup`, `git-workflow-setter`, `playtest-evidence-logger`, `task-breaker`.
+`rbx-studio`, `rbx-rojo`, `git-workflow-setter`, `playtest-evidence-logger`, `task-breaker`.

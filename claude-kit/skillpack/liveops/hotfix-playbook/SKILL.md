@@ -4,7 +4,7 @@ description: "Steps to ship and verify an emergency fix on a live Roblox game: s
 category: liveops
 tags: hotfix, incident, emergency, patch, rollback, outage, silent patch, restart, crash rate, status
 kb: Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/community-and-discord.md, Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/anti-exploit-and-security.md
-related: rollback-planner, patch-notes-writer, dau-drop-investigator, feature-flag-config-builder, exploit-audit, discord-server-setup, roblox-publish-checklist
+related: rollback-planner, patch-notes-writer, dau-drop-investigator, feature-flag-config-builder, exploit-audit, discord-server-setup, rbx-publish
 ---
 
 # hotfix-playbook

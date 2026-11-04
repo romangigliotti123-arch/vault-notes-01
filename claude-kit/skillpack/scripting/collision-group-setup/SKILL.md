@@ -4,7 +4,7 @@ description: "Design collision groups and their matrix as data, validate it (nam
 category: scripting
 tags: collision group, physics, matrix, nocollide, players, npc, pickups, worldroot, physicsservice, collidable
 kb: Roblox/roblox-kb/building-art-and-assets.md, Roblox/roblox-kb/building-and-level-design.md, Roblox/roblox-kb/physics-pathfinding-and-npc-ai.md, Roblox/roblox-kb/combat-and-gameplay-systems.md
-related: raycast-recipes, roblox-npc-pathfinding, vehicle-system-builder, model-cleaner, game-optimizer
+related: raycast-recipes, rbx-npc, vehicle-system-builder, model-cleaner, game-optimizer
 ---
 
 # collision-group-setup
@@ -50,4 +50,4 @@ The matrix and validation run in Lune. The adapter and `assign` need a place; ma
 Setting groups on the character model instead of each part. Forgetting `CanCollide` is separate from groups (non-colliding parts can still be touched/queried). A group per item type until the budget is gone. Applying groups after characters spawn.
 
 ## Related
-`raycast-recipes`, `roblox-npc-pathfinding`, `vehicle-system-builder`, `model-cleaner`.
+`raycast-recipes`, `rbx-npc`, `vehicle-system-builder`, `model-cleaner`.

@@ -4,7 +4,7 @@ description: "Find the connections, loops, instances and per-player tables that 
 category: scripting
 tags: memory leak, connection, disconnect, cleanup, janitor, maid, trove, while true, playerremoving, destroy, debris
 kb: Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/luau-language-and-types.md, Roblox/roblox-kb/testing-debugging-and-qa.md
-related: event-bus-builder, object-pool-builder, lag-hunter, script-profiler, game-optimizer, roblox-performance-pass
+related: event-bus-builder, object-pool-builder, lag-hunter, script-profiler, game-optimizer, rbx-perf
 ---
 
 # connection-leak-auditor

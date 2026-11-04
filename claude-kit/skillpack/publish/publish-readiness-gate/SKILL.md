@@ -4,7 +4,7 @@ description: "Run the final go/no-go gate: 13 launch gates, each pass needs evid
 category: publish
 tags: launch, go no-go, gate, readiness, checklist, evidence, waiver, publish, release
 kb: Roblox/roblox-kb/_tools/CHECKLIST-launch.md, Roblox/roblox-kb/playtesting-and-feedback.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/updates-live-ops.md
-related: age-rating-prep, roblox-launch-checklist, roblox-publish-checklist, post-launch-monitor, exploit-audit, playtest-bot-writer
+related: age-rating-prep, rbx-launch-check, rbx-publish, post-launch-monitor, exploit-audit, playtest-bot-writer
 ---
 
 # publish-readiness-gate
@@ -12,7 +12,7 @@ related: age-rating-prep, roblox-launch-checklist, roblox-publish-checklist, pos
 One job: turn "are we ready?" into evidence. The gate list covers playtest, data safety, purchases, security, performance, mobile/console UI, content rules, asset licences, store page, settings, analytics, backup and the first-72-hours plan. `scripts/gate.py` reads a JSON of gates and prints a verdict: pass needs evidence (a command with output, a path, a link or a sourced number), waived needs a reason and an owner, na needs a reason, fail or unknown is blocking. Pressing publish is the owner's action.
 
 ## When to use
-Before the first public publish and before major updates. Not for: running the checks themselves (each gate names the skill that does), post-launch monitoring (`post-launch-monitor`), the long checklist in the vault (`roblox-launch-checklist`).
+Before the first public publish and before major updates. Not for: running the checks themselves (each gate names the skill that does), post-launch monitoring (`post-launch-monitor`), the long checklist in the vault (`rbx-launch-check`).
 
 ## Inputs (max 2)
 1. The project and what changed (default: the whole game for a first launch). 2. Who accepts risk (default: the owner).
@@ -49,4 +49,4 @@ Same: the gate file and script are plain files. Everything that needs a running 
 Filling evidence from memory. Using `waived` as a pass. Dropping gates that are inconvenient (use `na` with a reason so it shows). Treating GO as proof the game is good: it only says the checks ran. Running the gate once at the start and not after the last change.
 
 ## Related
-`age-rating-prep`, `roblox-launch-checklist`, `roblox-publish-checklist`, `post-launch-monitor`, `exploit-audit`, `playtest-bot-writer`.
+`age-rating-prep`, `rbx-launch-check`, `rbx-publish`, `post-launch-monitor`, `exploit-audit`, `playtest-bot-writer`.

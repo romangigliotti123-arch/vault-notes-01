@@ -4,7 +4,7 @@ description: "Write a pitch to another developer, a larger game, a platform even
 category: marketing
 tags: collab, collaboration, cross promotion, partnership, portal, brand deal, license manager, event, pitch, developer
 kb: Roblox/roblox-kb/community-and-discord.md, Roblox/roblox-kb/social-features-and-virality.md, Roblox/roblox-kb/brand-deals-and-ip-licensing.md, Roblox/roblox-kb/updates-live-ops.md
-related: influencer-outreach-writer, press-kit-builder, event-planner, launch-day-planner, social-post-calendar, roblox-monetization-audit
+related: influencer-outreach-writer, press-kit-builder, event-planner, launch-day-planner, social-post-calendar, rbx-monetize-audit
 ---
 
 # collab-pitch-writer

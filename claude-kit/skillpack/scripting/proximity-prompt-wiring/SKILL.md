@@ -4,7 +4,7 @@ description: "Wire ProximityPrompts so the server re-validates every trigger (di
 category: scripting
 tags: proximityprompt, interaction, prompt, triggered, distance, server validation, exploit, shop, door, pickup
 kb: Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/client-server-and-remotes.md
-related: remote-guard-builder, cooldown-manager-builder, collection-tag-wiring, exploit-audit, roblox-remote-security
+related: remote-guard-builder, cooldown-manager-builder, collection-tag-wiring, exploit-audit, rbx-remote-sec
 ---
 
 # proximity-prompt-wiring

@@ -66,7 +66,7 @@ cd <claude-kit>/systems && python check.py PlayerData
   stylua ok | selene ok (src) | selene ok (tests) | analyze ok (0 errors, 0 warnings; luau-lsp 1.70.1 with Roblox definitions, files are --!strict)
   lune PlayerData.test.luau: 16 passed, 0 failed
 ```
-Needs the toolchain: `rokit install` in `systems/` (see skill `roblox-studio-connect`).
+Needs the toolchain: `rokit install` in `systems/` (see skill `rbx-studio`).
 
 ## Sources
-Roblox docs: DataStore best practices and `DataStore:UpdateAsync` (create.roblox.com/docs/cloud-services/data-stores, /docs/reference/engine/classes/GlobalDataStore); ProfileStore design (devforum.roblox.com "Introducing ProfileStore", github.com/MadStudioRoblox/ProfileStore); KB notes `roblox-datastore-safe-save` skill.
+Roblox docs: DataStore best practices and `DataStore:UpdateAsync` (create.roblox.com/docs/cloud-services/data-stores, /docs/reference/engine/classes/GlobalDataStore); ProfileStore design (devforum.roblox.com "Introducing ProfileStore", github.com/MadStudioRoblox/ProfileStore); KB notes `rbx-datastore` skill.

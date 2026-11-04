@@ -12,7 +12,7 @@ related: thumbnail-maker, title-generator, keyword-researcher, store-page-audit,
 Title + thumbnail are one unit (vault): the title gives the thumbnail context, together they state the core fantasy. The description serves the player who clicked and the search that found them.
 
 ## When to use
-Creating or rewriting the experience page text. Not for: ad copy (`roblox-ad-campaign-planner`), update posts (`update-announcement-writer`), or images (`thumbnail-maker`).
+Creating or rewriting the experience page text. Not for: ad copy (`rbx-ad-plan`), update posts (`update-announcement-writer`), or images (`thumbnail-maker`).
 
 ## Inputs (max 3)
 1. Pitch and core loop (default: `GAME.md`). 2. Target players and genre keyword(s) (default: from the validator's reference games). 3. Existing title/description if any.

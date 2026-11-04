@@ -4,7 +4,7 @@ description: "Find why players leave: rank the stages where sessions end and pla
 category: liveops
 tags: churn, why players leave, last stage, stop points, retention, session end, feedback, drop-off, analytics
 kb: Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/first-session-onboarding.md, Roblox/roblox-kb/playtesting-and-feedback.md, Roblox/roblox-kb/player-psychology-and-game-feel.md
-related: retention-diagnoser, funnel-analyzer, session-length-analyzer, feedback-synthesizer, cohort-reader, game-dev-playtest, roblox-analytics-review
+related: retention-diagnoser, funnel-analyzer, session-length-analyzer, feedback-synthesizer, cohort-reader, rbx-playtest, rbx-analytics
 ---
 
 # churn-reason-finder
@@ -22,7 +22,7 @@ D1 or D7 is low, the funnel looks flat, and players could be leaving at many pla
 2. Export sessions for new players (first session) separately from returning players; their reasons differ (onboarding vs content).
 3. Run `python -I ~/.claude/claude-kit/skillpack/liveops/churn-reason-finder/scripts/churn.py --csv sessions.csv --min-group 30 [--split platform]`. It ranks stages by players lost and shows the lost share per stage, the share of all lost players and the median minutes. Groups under 30 sessions are listed as too small.
 4. Take the top two stages. For each, answer from evidence: what do those players have in common (device, source, level, last action)? Slice by platform first; a mobile-only spike points to controls or memory, not design (vault).
-5. Pair with qualitative data: read feedback for that stage (`feedback-synthesizer`) and watch two playtests of the stage (`game-dev-playtest`). The stage that loses players without complaints is usually a confusion or pacing problem, not a content problem.
+5. Pair with qualitative data: read feedback for that stage (`feedback-synthesizer`) and watch two playtests of the stage (`rbx-playtest`). The stage that loses players without complaints is usually a confusion or pacing problem, not a content problem.
 6. State a cause hypothesis as a testable change: add a goal 2-3 minutes out, remove a wall, fix a control, show the next reward. Keep it to one change per stage (`experiment-designer`).
 7. Re-run after the change on the same cut; the stage's lost share should fall without another stage rising.
 

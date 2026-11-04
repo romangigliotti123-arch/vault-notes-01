@@ -358,7 +358,7 @@ def cmd_where(a):
     if not v:
         sys.stderr.write("kbq: vault NOT FOUND (set CLAUDES_VAULT or clone it to ~/Obsidian/claudes-vault)\n")
     if not s:
-        sys.stderr.write("kbq: assets NOT FOUND (run /update-rbxdev-vault or vault-update.ps1/.sh to sync <vault>/Assets, or set ROBLOX_ASSETS)\n")
+        sys.stderr.write("kbq: assets NOT FOUND (run /rbx-update or vault-update.ps1/.sh to sync <vault>/Assets, or set ROBLOX_ASSETS)\n")
     print("VAULT=%s" % q(v))
     print("KB=%s" % q(os.path.join(v, "Roblox", "roblox-kb") if v else ""))
     print("ASSETS=%s" % q(s))

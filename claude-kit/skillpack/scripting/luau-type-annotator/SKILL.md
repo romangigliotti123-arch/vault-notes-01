@@ -4,12 +4,12 @@ description: "Add strict-mode types to one untyped Luau module without changing 
 category: scripting
 tags: luau, types, strict, annotation, typecheck, any, unknown, narrowing, export type, luau-lsp
 kb: Roblox/roblox-kb/luau-language-and-types.md, Roblox/roblox-kb/code-architecture-and-frameworks.md, Roblox/roblox-kb/scripting-and-performance.md
-related: strict-mode-migrator, roblox-luau-style, roblox-code-rate, require-cycle-finder, lune-unit-test-writer
+related: strict-mode-migrator, rbx-luau, rbx-code-rate, require-cycle-finder, lune-unit-test-writer
 ---
 
 # luau-type-annotator
 
-One module at a time. The aim is a module that passes `--!strict` with the fewest `any` casts and exactly the old behaviour. Choosing which module goes first across a codebase is `strict-mode-migrator`; the style rules for names and layout are the kit skill `roblox-luau-style`.
+One module at a time. The aim is a module that passes `--!strict` with the fewest `any` casts and exactly the old behaviour. Choosing which module goes first across a codebase is `strict-mode-migrator`; the style rules for names and layout are the kit skill `rbx-luau`.
 
 ## When to use
 A single ModuleScript or Script has no types, `--!nonstrict`, or many `any`. Not for: changing logic (this skill must not), whole-codebase ordering, or untyped code that is about to be deleted.
@@ -49,4 +49,4 @@ The annotated file, a before/after table (mode, untyped parameters, missing retu
 Annotating a parameter as `any` to silence an error. Marking fields optional so a constructor compiles (initialise them instead). Typing a callback parameter as `Instance` when the event gives a specific class. Casting `:: any` on a require to dodge a cycle (fix the cycle with `require-cycle-finder`). Declaring a type on a later line (annotate at the declaration or it does not enforce).
 
 ## Related
-`strict-mode-migrator`, `roblox-luau-style`, `roblox-code-rate`, `lune-unit-test-writer`, `require-cycle-finder`.
+`strict-mode-migrator`, `rbx-luau`, `rbx-code-rate`, `lune-unit-test-writer`, `require-cycle-finder`.

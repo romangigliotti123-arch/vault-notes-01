@@ -3,7 +3,7 @@
 
 The kit's skills and agents are NOT installed where every Claude Code session reads them. They live in an on-demand store:
     <config>/claude-kit/vault-mode/.claude/skills/<name>/   <config>/claude-kit/vault-mode/.claude/agents/<name>.md   <config>/claude-kit/vault-mode/CLAUDE.md (the mode rules)
-Only the names in <config>/claude-kit/vault-mode/always-on.txt (load-rbxdev-vault, unload-rbxdev-vault, update-rbxdev-vault, update-check-rbxdev-vault, uninstall-rbxdev-vault) stay in <config>/skills.
+Only the names in <config>/claude-kit/vault-mode/always-on.txt (rbx-load, rbx-unload, rbx-update, rbx-check, rbx-uninstall) stay in <config>/skills.
 
   load   [--project DIR] [--no-link] [--no-text]   copy the store's skills/agents into DIR/.claude/skills|agents (DIR = current folder), list them in DIR/.claude/vault-mode.json,
                                                    hide them from git (.git/info/exclude), print the confirmation + the mode rules. --no-link: write nothing (session started with --add-dir).
@@ -28,8 +28,8 @@ import shutil
 import subprocess
 import sys
 
-ALWAYS_ON_DEFAULT = ["load-rbxdev-vault", "unload-rbxdev-vault", "update-rbxdev-vault", "update-check-rbxdev-vault", "uninstall-rbxdev-vault"]
-MB = "# >>> roblox-vault-mode (managed by /load-rbxdev-vault, removed by /unload-rbxdev-vault) >>>"
+ALWAYS_ON_DEFAULT = ["rbx-load", "rbx-unload", "rbx-update", "rbx-check", "rbx-uninstall"]
+MB = "# >>> roblox-vault-mode (managed by /rbx-load, removed by /rbx-unload) >>>"
 ME = "# <<< roblox-vault-mode <<<"
 MB_PREFIX = "# >>> roblox-vault-mode ("
 ROBLOX_MARKERS = ["default.project.json", "*.project.json", "*.rbxl", "*.rbxlx", "*.rbxm", "*.rbxmx", "rokit.toml", "aftman.toml", "wally.toml", "selene.toml", "stylua.toml"]
@@ -215,9 +215,9 @@ def guard(proj, p):
     rp = os.path.realpath(proj)
     if os.path.realpath(os.path.join(proj, ".claude")) == rc or rp == rc or rp.startswith(rc + os.sep):
         return ("%s is (or is inside) your Claude config folder; its .claude folder would be your user-wide setup, which would load the vault in EVERY session. "
-                "Open Claude in a project folder (for example your Roblox game's folder) and run /load-rbxdev-vault there." % proj)
+                "Open Claude in a project folder (for example your Roblox game's folder) and run /rbx-load there." % proj)
     if rp == os.path.realpath(os.path.expanduser("~")):
-        return "your home folder is not a project: loading here would put the vault into every session started below it. Open Claude in a project folder and run /load-rbxdev-vault there."
+        return "your home folder is not a project: loading here would put the vault into every session started below it. Open Claude in a project folder and run /rbx-load there."
     return None
 
 
@@ -230,7 +230,7 @@ def ref_line(p):
             return "reference images ready (%d)" % n
     except (OSError, IndexError):
         pass
-    return "reference images not downloaded yet (/update-rbxdev-vault fetches them)"
+    return "reference images not downloaded yet (/rbx-update fetches them)"
 
 
 def learn_line(p):
@@ -330,7 +330,7 @@ def cmd_load(a, quiet_text=False):
     proj = os.path.abspath(a.project or os.getcwd())
     items = store_items(p)
     if not items:
-        print("vault-mode: the vault kit is not installed (nothing in %s). Run /update-rbxdev-vault, or the setup in SETUP-FOR-CLAUDE.md." % p["store"])
+        print("vault-mode: the vault kit is not installed (nothing in %s). Run /rbx-update, or the setup in SETUP-FOR-CLAUDE.md." % p["store"])
         return 2
     if a.no_link:
         s, g = counts(items)
@@ -350,9 +350,9 @@ def cmd_load(a, quiet_text=False):
     registry_set(p, proj, marker)
     s, g = counts(marker["items"])
     print("Roblox dev mode on: %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
-    print("  folder: %s  (copies in .claude/skills and .claude/agents, %s; /unload-rbxdev-vault removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
+    print("  folder: %s  (copies in .claude/skills and .claude/agents, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
     if first and not had_sk:
-        print("  RESTART NEEDED for the slash commands: Claude Code reads a new .claude/skills folder only at start. Type /exit, then run `claude -c` (continues this conversation) and /game-dev-workflow etc. are listed.")
+        print("  RESTART NEEDED for the slash commands: Claude Code reads a new .claude/skills folder only at start. Type /exit, then run `claude -c` (continues this conversation) and /rbx-workflow etc. are listed.")
         print("  Until then the mode already works: use the vault skills by reading their SKILL.md in %s." % p["sk"])
     elif first:
         print("  skills are usable now (this folder already had .claude/skills when the session started)")
@@ -426,7 +426,7 @@ def cmd_unload(a):
             reg.setdefault("leftovers", [])
             reg["leftovers"] = sorted(set(reg["leftovers"]) | set(left))
             jwrite(p["reg"], reg)
-            print("  (empty folders could not be deleted while Claude is running; they are removed by the next /update-rbxdev-vault or when you run /unload-rbxdev-vault again after quitting)")
+            print("  (empty folders could not be deleted while Claude is running; they are removed by the next /rbx-update or when you run /rbx-unload again after quitting)")
         print("Roblox dev mode off in %s: removed %d vault file(s)%s. Skills/agents already listed in this session stay listed until you restart Claude (/exit, then `claude -c`); the mode rules no longer apply." % (proj, removed, (", kept %d you changed" % kept) if kept else ""))
     return 0
 
@@ -444,7 +444,7 @@ def cmd_cold(a):
     arg = (a.target or "").strip().replace("\\", "/").strip("/")
     files = cold_files(p)
     if not files:
-        print("vault-mode: no cold area at %s (run /update-rbxdev-vault)." % p["cold"], file=sys.stderr)
+        print("vault-mode: no cold area at %s (run /rbx-update)." % p["cold"], file=sys.stderr)
         return 2
     if not arg:
         for t, fs in files.items():
@@ -478,8 +478,8 @@ def cmd_status(a):
         ls, lg = counts(marker["items"])
         print("Roblox dev mode: ON in %s (%d skills, %d agents, since %s)" % (proj, ls, lg, marker.get("loaded_at", "?")))
     else:
-        print("Roblox dev mode: off in %s (type /load-rbxdev-vault to turn it on)" % proj)
-    print("vault store: %s (%d skills, %d agents) %s" % (p["store"], s, g, "" if items else "NOT INSTALLED: run /update-rbxdev-vault"))
+        print("Roblox dev mode: off in %s (type /rbx-load to turn it on)" % proj)
+    print("vault store: %s (%d skills, %d agents) %s" % (p["store"], s, g, "" if items else "NOT INSTALLED: run /rbx-update"))
     others = [k for k in jread(p["reg"], {"projects": {}})["projects"] if os.path.realpath(k) != os.path.realpath(proj)]
     if others:
         print("also loaded in: " + ", ".join(others[:8]) + (" ..." if len(others) > 8 else ""))
@@ -488,10 +488,10 @@ def cmd_status(a):
     print("cold area: %s (%d files in %d topics; read on demand, never copied into projects)" % (p["cold"], sum(len(v) for v in cf.values()), len(cf)))
     rl = jread(os.path.join(p["store"], "rename-last.json"), None)
     if rl and rl.get("moved"):
-        print("commands renamed or merged on %s: every vault command now ends in -%s-vault (old -> new list: %s)" % (rl.get("at", "?"), rl.get("slug", "?"), os.path.join(p["c"], "claude-kit", "COMMANDS-RENAMED.txt")))
+        print("commands renamed or merged on %s: every vault command now starts with %s- (old -> new list: %s)" % (rl.get("at", "?"), rl.get("prefix", "rbx"), os.path.join(p["c"], "claude-kit", "COMMANDS-RENAMED.txt")))
     old = [k for k in old_layout(p)]
     if old:
-        print("OLD LAYOUT: %d vault skill/agent files are still in %s (they load in every session). Run /update-rbxdev-vault to move them." % (len(old), p["c"]))
+        print("OLD LAYOUT: %d vault skill/agent files are still in %s (they load in every session). Run /rbx-update to move them." % (len(old), p["c"]))
     print("%s; %s" % (ref_line(p), learn_line(p)))
     return 0
 
@@ -544,14 +544,14 @@ def old_layout_entries(p, manifest):
     ao = set(always_on(p))
     keep_lum = False
     try:
-        keep_lum = "low-usage-mode-rbxdev-vault/scripts/lum" in open(os.path.join(p["c"], "settings.json"), encoding="utf-8", errors="replace").read()
+        keep_lum = "rbx-low-usage/scripts/lum" in open(os.path.join(p["c"], "settings.json"), encoding="utf-8", errors="replace").read()
     except OSError:
         pass
     res = []
     for rel, h in manifest.items():
         parts = rel.split("/")
         if parts[0] == "skills" and len(parts) >= 3 and parts[1] not in ao:
-            if keep_lum and parts[1] == "low-usage-mode-rbxdev-vault" and parts[2] == "scripts":
+            if keep_lum and parts[1] == "rbx-low-usage" and parts[2] == "scripts":
                 continue            # the user's settings.json hooks call these paths; they stay until the hooks are re-installed
             res.append((rel, h))
         elif parts[0] == "agents" and len(parts) == 2 and parts[1].endswith(".md"):
@@ -631,7 +631,7 @@ def cmd_migrate(a):
     ns = len(set(m["rel"].split("/")[1] for m in moved if m["rel"].startswith("skills/")))
     na = len([m for m in moved if m["rel"].startswith("agents/")])
     print("vault-mode: moved %d vault skills and %d agents out of your always-on %s/skills and /agents into the on-demand store (backup + list: %s). "
-          "Claude sessions no longer load the vault unless you type /load-rbxdev-vault; your own skills, agents and CLAUDE.md were not touched. Undo: vault-mode.py migrate --revert."
+          "Claude sessions no longer load the vault unless you type /rbx-load; your own skills, agents and CLAUDE.md were not touched. Undo: vault-mode.py migrate --revert."
           % (ns, na, c, backup))
     for m in moved:
         if m["edited"]:
@@ -661,7 +661,7 @@ def cmd_auto(a):
     exclude_write(proj, marker["items"].keys())
     registry_set(p, proj, marker)
     s, g = counts(marker["items"])
-    print("Roblox dev mode on (auto-loaded for this Roblox project): %d skills, %d agents, %s, %s. /unload-rbxdev-vault turns it off." % (s, g, ref_line(p), learn_line(p)))
+    print("Roblox dev mode on (auto-loaded for this Roblox project): %d skills, %d agents, %s, %s. /rbx-unload turns it off." % (s, g, ref_line(p), learn_line(p)))
     print()
     cmd_mode_text(a)
     return 0

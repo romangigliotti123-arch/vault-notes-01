@@ -4,7 +4,7 @@ description: "Build a hub world's portal logic: a server whitelist of destinatio
 category: systems
 tags: teleport hub, portals, TeleportService, destinations, party, cooldown, retry, reserved server
 kb: Roblox/roblox-kb/matchmaking-and-teleport.md, Roblox/roblox-kb/social-features-and-virality.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/case-studies-brookhaven.md
-related: lobby-matchmaking-builder, round-system-builder, remote-guard-builder, exploit-audit, roblox-studio-connect
+related: lobby-matchmaking-builder, round-system-builder, remote-guard-builder, exploit-audit, rbx-studio
 ---
 
 # teleport-hub-builder

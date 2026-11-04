@@ -4,12 +4,12 @@ description: "Set a realistic update cadence from team size and effort: cadence 
 category: liveops
 tags: cadence, update schedule, live ops, roadmap, weekly, monthly, major update, pipeline, burnout, friday
 kb: Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/development-process-and-speed.md, Roblox/roblox-kb/team-and-budget.md, Roblox/roblox-kb/events-and-seasonal-content.md
-related: event-planner, seasonal-calendar-builder, patch-notes-writer, hotfix-playbook, rollback-planner, game-dev-update, game-dev-weekly
+related: event-planner, seasonal-calendar-builder, patch-notes-writer, hotfix-playbook, rollback-planner, rbx-game-update, rbx-weekly
 ---
 
 # update-cadence-planner
 
-A cadence is a promise. The vault is blunt: weekly is the ideal, monthly the floor, and many big games moved from weekly to bi-weekly or monthly because the team could not sustain it. This skill turns your capacity into a schedule you can keep. One event is `event-planner`; the holiday map is `seasonal-calendar-builder`; the kit `game-dev-update` runs a single update.
+A cadence is a promise. The vault is blunt: weekly is the ideal, monthly the floor, and many big games moved from weekly to bi-weekly or monthly because the team could not sustain it. This skill turns your capacity into a schedule you can keep. One event is `event-planner`; the holiday map is `seasonal-calendar-builder`; the kit `rbx-game-update` runs a single update.
 
 ## When to use
 Starting live ops, restarting after a hiatus, or players ask "when is the next update". Not for: planning one event, fixing a crash (`hotfix-playbook`) or deciding whether to continue a game with no traction (vault: gate continue-or-abandon on traction, see `idea-validator`).
@@ -50,4 +50,4 @@ Pure Python 3 and a text file. Nothing here touches a place.
 Copying a big game's cadence. Adding new systems in cadence drops. Announcing dates you cannot hold. Letting content bloat (vault: too much content makes players quit or feel they cannot keep up). Stopping updates on a game that has traction.
 
 ## Related
-`event-planner`, `seasonal-calendar-builder`, `patch-notes-writer`, `hotfix-playbook`, `game-dev-update`.
+`event-planner`, `seasonal-calendar-builder`, `patch-notes-writer`, `hotfix-playbook`, `rbx-game-update`.

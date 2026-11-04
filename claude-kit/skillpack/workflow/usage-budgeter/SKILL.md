@@ -4,12 +4,12 @@ description: "Plan AI usage per task: route each job to haiku, sonnet or opus, c
 category: workflow
 tags: usage, budget, model, routing, cost, limits, effort, workers, turns, haiku, sonnet, opus
 kb: Manager/topic-model-effort-routing-cost.md, Manager/topic-orchestration-patterns.md, Manager/topic-managing-ai-agents-for-roblox-game-dev.md, Manager/src-claude-api-pricing.md, Mentor/Combined-Brain.md
-related: task-breaker, ai-brief-writer, low-usage-mode-rbxdev-vault, manager-mode-rbxdev-vault, sprint-planner, worker-verifier, game-dev-workflow
+related: task-breaker, ai-brief-writer, rbx-low-usage, rbx-manager, sprint-planner, worker-verifier, rbx-workflow
 ---
 
 # usage-budgeter
 
-Limits, not money, are usually the constraint. This skill assigns a model tier and a turn cap to each task and totals the load in RELATIVE units, so a plan fits the user's allowance. `low-usage-mode-rbxdev-vault` is the global switch (short outputs, one worker); this is the per-plan budget. It does not decide what to build (`sprint-planner`) or split work (`task-breaker`).
+Limits, not money, are usually the constraint. This skill assigns a model tier and a turn cap to each task and totals the load in RELATIVE units, so a plan fits the user's allowance. `rbx-low-usage` is the global switch (short outputs, one worker); this is the per-plan budget. It does not decide what to build (`sprint-planner`) or split work (`task-breaker`).
 
 ## When to use
 A plan has more than about five jobs, usage is limited, or a worker ran far over its expected turns. Not for: a single quick edit.
@@ -49,4 +49,4 @@ The script is the only dependency; without it do the multiplication by hand with
 Reading relative units as dollars. Using the strongest model for lookups. Many cheap parallel workers that all load a big shared context. Forgetting that review and playtesting are the user's time, not tokens.
 
 ## Related
-`task-breaker`, `ai-brief-writer`, `low-usage-mode-rbxdev-vault`, `manager-mode-rbxdev-vault`, `sprint-planner`, `worker-verifier`.
+`task-breaker`, `ai-brief-writer`, `rbx-low-usage`, `rbx-manager`, `sprint-planner`, `worker-verifier`.

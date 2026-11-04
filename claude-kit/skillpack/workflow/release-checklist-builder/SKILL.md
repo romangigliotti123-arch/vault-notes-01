@@ -4,12 +4,12 @@ description: "Build the per-release checklist for an update to a Roblox game: ga
 category: workflow
 tags: release, update, checklist, gate, rollback, sign-off, publish, version, ship
 kb: Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/_tools/CHECKLIST-launch.md, Manager/topic-report-formats-and-verification.md, Mentor/Combined-Brain.md
-related: publish-readiness-gate, roblox-publish-checklist, roblox-launch-checklist, regression-checklist-builder, changelog-writer, version-history-keeper, game-dev-update
+related: publish-readiness-gate, rbx-publish, rbx-launch-check, regression-checklist-builder, changelog-writer, version-history-keeper, rbx-game-update
 ---
 
 # release-checklist-builder
 
-One checklist per release, short enough to finish. First-launch go/no-go is `publish-readiness-gate` and `roblox-launch-checklist`; a general regression suite is `regression-checklist-builder` (qa); the player announcement is `game-dev-update` and `update-announcement-writer`. This skill picks only the gates this release's diff makes relevant, with a rollback step for each risky area.
+One checklist per release, short enough to finish. First-launch go/no-go is `publish-readiness-gate` and `rbx-launch-check`; a general regression suite is `regression-checklist-builder` (qa); the player announcement is `rbx-game-update` and `update-announcement-writer`. This skill picks only the gates this release's diff makes relevant, with a rollback step for each risky area.
 
 ## When to use
 You are about to publish an update to a live or soft-launched place. Not for: the very first publish, or experiments that never leave Studio.
@@ -49,4 +49,4 @@ Shell gates plus a manual playtest; the Studio-only gates are `untested` and blo
 Generic 40-line lists nobody finishes. Releasing on a Friday evening with no one to roll back. Changing save code and monetisation in the same release. Treating `untested` as a pass.
 
 ## Related
-`publish-readiness-gate`, `roblox-publish-checklist`, `regression-checklist-builder`, `changelog-writer`, `version-history-keeper`, `game-dev-update`.
+`publish-readiness-gate`, `rbx-publish`, `regression-checklist-builder`, `changelog-writer`, `version-history-keeper`, `rbx-game-update`.

@@ -4,7 +4,7 @@ description: "Keep a small bank of your own real, already-solved problems (froze
 category: workflow
 tags: eval, benchmark, regression, model-change, repro, held-out, bank, private-benchmark
 kb: Manager/topic-llm-judge-and-adversarial-verification.md, Manager/src-anthropic-demystifying-evals.md, Manager/src-anthropic-ai-resistant-evals.md, Manager/topic-model-effort-routing-cost.md, Mentor/Combined-Brain.md
-related: failure-miner, worker-verifier, repro-step-writer, regression-checklist-builder, usage-budgeter, game-dev-workflow
+related: failure-miner, worker-verifier, repro-step-writer, regression-checklist-builder, usage-budgeter, rbx-workflow
 ---
 
 # eval-bank

@@ -7,7 +7,7 @@ tested: unit-tested headless (Lune) + analyzed + linted; NOT tested in live Stud
 ---
 # Analytics
 
-**What:** one place for all event logging so the numbers in the Creator Dashboard (and the Open Cloud Analytics API, see `game-dev-weekly`) are clean enough to judge the game by.
+**What:** one place for all event logging so the numbers in the Creator Dashboard (and the Open Cloud Analytics API, see `rbx-weekly`) are clean enough to judge the game by.
 **Not tested in live Studio**: the enum names in `AnalyticsGlue.luau` (`Enum.AnalyticsEconomyFlowType`, `AnalyticsProgressionType`, `AnalyticsCustomFieldKeys`) type-check against the Roblox definitions bundled in the kit, but events have not been seen in a dashboard.
 
 ## Files
@@ -34,7 +34,7 @@ All methods return `true` when the event was sent, `false` when dropped (invalid
 - Rate limit: 30 per minute per player per event name (config `maxPerMinute`).
 
 ## What to log (minimal set that answers the weekly questions)
-Onboarding steps for the first 2-3 minutes (where do new players drop?), economy events for every currency source and sink (is the economy inflating?), a funnel for the first purchase, one custom event per core-loop completion. See `game-dev-weekly` for how these map to benchmark checks.
+Onboarding steps for the first 2-3 minutes (where do new players drop?), economy events for every currency source and sink (is the economy inflating?), a funnel for the first purchase, one custom event per core-loop completion. See `rbx-weekly` for how these map to benchmark checks.
 
 ## Pitfalls
 - Call from the server (the glue and these rules assume it); data logged from the client can be faked.

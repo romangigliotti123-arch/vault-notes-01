@@ -4,7 +4,7 @@ description: "Add a small tween utility that cancels conflicting tweens, chains 
 category: scripting
 tags: tween, tweenservice, animation, ui, chain, cancel, easing, sequence, completed, luau
 kb: Roblox/roblox-kb/ui-ux-design.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/luau-language-and-types.md
-related: roblox-ui-responsive, mobile-ui-audit, connection-leak-auditor, event-bus-builder, input-handler-builder
+related: rbx-ui, mobile-ui-audit, connection-leak-auditor, event-bus-builder, input-handler-builder
 ---
 
 # tween-helper-builder
@@ -50,4 +50,4 @@ Files and the Lune test. Real easing curves and frame timing are `untested` with
 Cancelling a tween mid-way leaves the property at an in-between value (set the target state explicitly if that matters). Tweening a property that something else sets every frame. Tweening server-owned parts on the client and expecting the server to see it. Chain callbacks that capture instances that were destroyed.
 
 ## Related
-`roblox-ui-responsive`, `mobile-ui-audit`, `connection-leak-auditor`, `input-handler-builder`.
+`rbx-ui`, `mobile-ui-audit`, `connection-leak-auditor`, `input-handler-builder`.

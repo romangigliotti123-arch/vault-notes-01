@@ -82,13 +82,13 @@ Cold re-read of each generated SKILL.md against QUALITY.md after building, by th
 | pet-system-builder | 2 | 2 | 2 | 1 | 2 | 1 | 2 | 2 | 2 | 2 | 18 | Pets 6 tests; power curve is a labelled guess, evidence is indie case studies |
 | crafting-system-builder | 2 | 2 | 2 | 1 | 2 | 1 | 2 | 2 | 2 | 2 | 18 | Crafting 5 tests; evidence for timers is indie-labelled |
 | quest-system-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 19 | Quests 6 tests; UI/event hooks untested |
-| leaderboard-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 1 | 18 | Leaderboard 6 tests with fake fetch; OrderedDataStore glue untested; request budget must be live-checked; overlaps installed roblox-leaderboards-and-events (scoped to tested logic) |
+| leaderboard-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 1 | 18 | Leaderboard 6 tests with fake fetch; OrderedDataStore glue untested; request budget must be live-checked; overlaps installed rbx-leaderboard (scoped to tested logic) |
 | rebirth-system-builder | 2 | 2 | 2 | 1 | 2 | 1 | 2 | 2 | 2 | 2 | 18 | Rebirth 6 tests; no verified vault numbers for curves (labelled) |
 | upgrade-tree-builder | 2 | 2 | 2 | 1 | 2 | 1 | 2 | 2 | 2 | 2 | 18 | UpgradeTree 5 tests; growth range 1.1-2 is an assumption (labelled) |
 | loot-drop-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 19 | LootTable 9 tests incl. 20000 seeded rolls; egg-hatch merged in; disclosure rules need live check |
 | boost-potion-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 19 | Boosts 6 tests; HUD untested |
 | achievement-badge-builder | 2 | 2 | 2 | 1 | 2 | 1 | 2 | 2 | 2 | 2 | 18 | Achievements 5 tests; BadgeService behaviour untested and live-check; thin vault evidence |
-| round-system-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 1 | 18 | Rounds 6 tests; overlaps installed roblox-round-based-game-loop (scoped to tested logic); cleanup leak check is a manual Studio step |
+| round-system-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 1 | 18 | Rounds 6 tests; overlaps installed rbx-rounds (scoped to tested logic); cleanup leak check is a manual Studio step |
 | checkpoint-system-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 19 | Checkpoints 6 tests; min stage time must come from playtest |
 | spawn-system-builder | 2 | 2 | 2 | 1 | 2 | 1 | 2 | 2 | 2 | 2 | 18 | Spawns 5 tests; 3 s / 10 s limits are assumptions (labelled) |
 | tool-weapon-system-builder | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 19 | Weapons 5 tests; client prediction untested |
@@ -319,7 +319,7 @@ Cold re-read by the author against QUALITY.md on 2026-11-02 (self-review, no ind
 | one-sentence-pitch | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 19 | docheck is structure only; cold-read test is manual |
 | genre-twist-finder | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 19 | 10-40 percent share is a judgement; Tizzy/AlvinBlox numbers self-reported |
 | competitor-teardown | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 19 | needs a played session for full value; web facts live-check |
-| core-fantasy-definer | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 19 | fantasy quality is judged by game-dev-critic, not the script |
+| core-fantasy-definer | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 19 | fantasy quality is judged by rbx-critic, not the script |
 | progression-curve-designer | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 19 | progcurve.py 6 selftests; thresholds are skill defaults; income values estimated until playtest |
 | reward-schedule-designer | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 19 | rewardsched.py 6 selftests; paid-randomness policy is live-check |
 | difficulty-tuner | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 19 | difficulty.py 5 selftests; thresholds are skill defaults; bot data is not human data |
@@ -337,7 +337,7 @@ Cold re-read by the author against QUALITY.md on 2026-11-02 (self-review, no ind
 | world-theme-picker | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 19 | readability test needs a greybox screenshot (untested until built) |
 | sequel-planner | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 19 | case-study evidence is official-talk or tracker claims (labelled); decision rules are the skill's |
 
-Gaps common to Batch 11: no Studio run (M stays 1 where MCP is named); no independent reviewer; design-skill outputs are scored for the critic by structure only (docheck), not by running game-dev-critic on a real design; all numeric thresholds not found in the vault (0.5 s wind-up, 8 percent quit, 3-minute reward gap, 10 s leg) are labelled skill defaults in the scripts.
+Gaps common to Batch 11: no Studio run (M stays 1 where MCP is named); no independent reviewer; design-skill outputs are scored for the critic by structure only (docheck), not by running rbx-critic on a real design; all numeric thresholds not found in the vault (0.5 s wind-up, 8 percent quit, 3-minute reward gap, 10 s leg) are labelled skill defaults in the scripts.
 
 ## Batch 12 (community)
 
@@ -424,7 +424,7 @@ Cold re-read by the author against QUALITY.md after writing; scored 0-2 per row 
 | team-roles-planner | 18 | doc skill; Team Create menu paths flagged live-check (2021 guidance) |
 | milestone-reviewer | 19 | milestone.py 5-case selftest + CLI HOLD on an untested row (rc=1) |
 | kb-lookup-routine | 18 | vault-find (manager hits) and kbq find/section run in this session; wfdoc kblookup check only |
-| studio-mcp-session-planner | 17 | no Studio run in this batch; tool names taken from roblox-studio-connect; plan untested against a live MCP |
+| studio-mcp-session-planner | 17 | no Studio run in this batch; tool names taken from rbx-studio; plan untested against a live MCP |
 | playtest-evidence-logger | 18 | doc skill; wfdoc playtestlog needs evidence marks; Studio mode untested here |
 | devlog-writer | 18 | added row (devlog not in original plan); numbers only from files; posting stays with the user |
 | asset-pipeline-planner | 18 | added row; grep acceptance check is executed; Creator Hub upload and AI-content rules are live-check |

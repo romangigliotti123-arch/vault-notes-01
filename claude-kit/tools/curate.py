@@ -2,7 +2,7 @@
 """curate.py - the trust gate of the vault's learning loop (owner / maintainer side; stdlib + git).
 
 The public inbox repo vault-learnings is UNTRUSTED: anyone can add a note to it. Nothing in it is knowledge until this script has examined it. The notes are read here as DATA by
-fixed rules (see skills/curate-rbxdev-vault/rubric.md); no model is asked to read a raw inbox note, and nothing in a note is ever executed or followed. Accepted notes become vault notes
+fixed rules (see skills/rbx-curate/rubric.md); no model is asked to read a raw inbox note, and nothing in a note is ever executed or followed. Accepted notes become vault notes
 <vault>/learned/<topic>/<slug>.md (with provenance); the processed inbox files move to processed/ in the vault-learnings clone, and CURATION-LOG.md there records every decision.
 
   curate.py run --repo <clone of vault-learnings> --vault <vault master> [--pull] [--apply] [--push] [--json]
@@ -24,11 +24,12 @@ ALLOWED_ROOTS = ("roblox", "luau", "game-dev", "windows", "linux", "macos", "git
 READ_MAX = L.FILE_MAX + 1
 MIN_BODY_WORDS, MIN_VERIFIED_WORDS = 12, 5
 LEARNED_MAX = 7500          # a curated note stops growing here (merges then only bump the confirmation count)
+LEARNED_BODY_MAX = 1500     # no-bloat guard: a promoted note body is at most this many characters (longer is rejected as "too long: summarise"); learned notes are never loaded into a session
 REJECT_CODES = {
     "file-too-large": "file over %d bytes" % L.FILE_MAX, "not-utf8": "not valid UTF-8 text", "nul-bytes": "contains NUL bytes", "no-frontmatter": "missing front matter",
     "bad-schema": "schema is not %d" % L.SCHEMA, "off-topic": "topic root not in the allow-list", "thin-body": "too few words to carry a finding",
     "thin-evidence": "'How verified' too short to count as evidence", "unredacted-personal-data": "contains personal/machine details the sender's tool would have redacted",
-    "title-length": "title length", "topic-format": "topic format", "confidence": "confidence must be high or medium", "source-tag": "source tag", "body-length": "body length",
+    "title-length": "title length", "topic-format": "topic format", "confidence": "confidence must be high or medium", "source-tag": "source tag", "body-length": "body length (outside 60-%d characters; over %d: too long, summarise)" % (L.BODY_MAX, LEARNED_BODY_MAX),
     "verified-length": "verified length", "created-date": "created date", "duplicate-hash": "same content already promoted or already in this batch",
 }
 
@@ -70,6 +71,9 @@ def evaluate(path, known, seen_hashes):
     if n["schema"] != str(L.SCHEMA):
         codes.append("bad-schema")
     codes += [c for c, h in L.validate_fields(n)]
+    too_long = len(n["body"].strip()) > LEARNED_BODY_MAX
+    if too_long:
+        codes.append("body-length")
     root = n["topic"].split("/")[0]
     if root not in ALLOWED_ROOTS:
         codes.append("off-topic")
@@ -83,7 +87,7 @@ def evaluate(path, known, seen_hashes):
     if s["redactions"]:
         codes.append("unredacted-personal-data")
     if codes:
-        return {"decision": "reject", "codes": sorted(set(codes)), "note": None}
+        return {"decision": "reject", "codes": sorted(set(codes)), "note": None, "reason": "too long: summarise (body over %d characters)" % LEARNED_BODY_MAX if too_long else ""}
     n["hash"] = L.note_hash(n["title"], n["body"], n["verified"])
     if n["hash"] in seen_hashes or any(n["hash"] in k["hashes"] for k in known):
         return {"decision": "duplicate", "codes": ["duplicate-hash"], "note": n}
@@ -166,7 +170,7 @@ def regenerate_readme(vault, today):
             fh.write(text)
 
 
-LOG_HEAD = "# Curation log\n\nEvery inbox note the curator examined: accepted (new vault note), merged (confirms an existing note), duplicate, or rejected with the rule codes (see `skills/curate-rbxdev-vault/references/rubric.md` in vault-kit). Titles are cut to 80 characters and never contain note text beyond that.\n"
+LOG_HEAD = "# Curation log\n\nEvery inbox note the curator examined: accepted (new vault note), merged (confirms an existing note), duplicate, or rejected with the rule codes (see `skills/rbx-curate/references/rubric.md` in vault-kit). Titles are cut to 80 characters and never contain note text beyond that.\n"
 
 
 def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, say=print):
@@ -199,7 +203,7 @@ def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, s
     counts = collections.Counter(r["decision"] for r in results)
     for r in results:
         title = sanitize_title(r["note"]["title"]) if r["note"] else "(unparsed)"
-        say("%-9s %-34s %s%s" % (r["decision"], ",".join(r["codes"])[:34], title, "   [%s]" % r["rel"]))
+        say("%-9s %-34s %s%s%s" % (r["decision"], ",".join(r["codes"])[:34], title, "   [%s]" % r["rel"], ("   (%s)" % r["reason"]) if r.get("reason") else ""))
     say("curate: %d note(s): %s" % (len(results), ", ".join("%s %d" % kv for kv in sorted(counts.items())) or "inbox empty"))
     if not apply or not results:
         return results
@@ -230,7 +234,7 @@ def run_curation(repo, vault, apply=False, push=False, pull=False, today=None, s
         if os.path.exists(dest):
             dest = os.path.join(dest_dir, "%s-%s" % (hashlib.sha1(r["path"].encode()).hexdigest()[:6], os.path.basename(r["path"])))
         shutil.move(r["path"], dest)
-        log_rows.append("| %s | %s | %s | %s | %s |" % (today, os.path.basename(r["path"])[:60].replace("|", "_"), r["decision"], ", ".join(r["codes"]) or "-", promoted or "-"))
+        log_rows.append("| %s | %s | %s | %s | %s |" % (today, os.path.basename(r["path"])[:60].replace("|", "_"), r["decision"], (", ".join(r["codes"]) + ((": " + r["reason"]) if r.get("reason") else "")) or "-", promoted or "-"))
     regenerate_readme(vault, today)
     lp = os.path.join(repo, "CURATION-LOG.md")
     cur = open(lp, encoding="utf-8").read() if os.path.exists(lp) else LOG_HEAD

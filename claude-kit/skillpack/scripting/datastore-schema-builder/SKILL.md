@@ -4,12 +4,12 @@ description: "Design a versioned player-save schema (what is saved, the template
 category: scripting
 tags: datastore, save, schema, migration, version, player data, defaults, template, rollback, persistence
 kb: Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/client-server-and-remotes.md, Roblox/roblox-kb/_tools/CHECKLIST-launch.md
-related: roblox-datastore-safe-save, save-load-tester, data-loss-simulator, retry-wrapper-builder, kit-system-integrator, currency-system-builder, devproduct-handler
+related: rbx-datastore, save-load-tester, data-loss-simulator, retry-wrapper-builder, kit-system-integrator, currency-system-builder, devproduct-handler
 ---
 
 # datastore-schema-builder
 
-Two separate problems: (1) writing data safely (session lock, retries, autosave, BindToClose, rollback refusal) and (2) what the saved table looks like over time. The kit system `PlayerData` (in `~/.claude/claude-kit/systems/PlayerData`, unit-tested, NOT live-tested) solves (1): it takes `{ template, version, migrations }` and stores `{ v, data }` records, where `migrations[n]` upgrades data from version n to n+1. Kit skill `roblox-datastore-safe-save` explains the write rules. This skill solves (2): designing the schema and proving the migrations with fixtures BEFORE they meet real data. It does not re-implement PlayerData; `scripts/Migrations.luau` applies the same rules offline and adds a template validator.
+Two separate problems: (1) writing data safely (session lock, retries, autosave, BindToClose, rollback refusal) and (2) what the saved table looks like over time. The kit system `PlayerData` (in `~/.claude/claude-kit/systems/PlayerData`, unit-tested, NOT live-tested) solves (1): it takes `{ template, version, migrations }` and stores `{ v, data }` records, where `migrations[n]` upgrades data from version n to n+1. Kit skill `rbx-datastore` explains the write rules. This skill solves (2): designing the schema and proving the migrations with fixtures BEFORE they meet real data. It does not re-implement PlayerData; `scripts/Migrations.luau` applies the same rules offline and adds a template validator.
 
 ## When to use
 Before the first save is written, or before shipping any change to saved fields (rename, split, remove, type change). Not for: choosing what to monetise, or fixing a data-loss incident mid-flight (`data-loss-simulator`, `save-load-tester`).
@@ -53,4 +53,4 @@ Rojo/files plus Lune tests (headless, no Studio). The real store is untested unt
 Renaming a field without a step (players lose data). Saving derived data that can drift. Arrays that get holes. Reconciling by overwriting. Changing the store name "to start clean" in production. Skipping the version bump when old servers are still running during an update.
 
 ## Related
-`roblox-datastore-safe-save`, `kit-system-integrator`, `save-load-tester`, `data-loss-simulator`, `retry-wrapper-builder`, `devproduct-handler`.
+`rbx-datastore`, `kit-system-integrator`, `save-load-tester`, `data-loss-simulator`, `retry-wrapper-builder`, `devproduct-handler`.

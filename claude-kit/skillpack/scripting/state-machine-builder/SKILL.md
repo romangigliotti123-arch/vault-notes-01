@@ -4,12 +4,12 @@ description: "Build a reusable state machine for NPC behaviour, round phases or 
 category: scripting
 tags: state machine, fsm, npc, ai, round, ability, transition, enter, exit, update, luau
 kb: Roblox/roblox-kb/physics-pathfinding-and-npc-ai.md, Roblox/roblox-kb/code-architecture-and-frameworks.md, Roblox/roblox-kb/combat-and-gameplay-systems.md
-related: roblox-npc-pathfinding, roblox-round-based-game-loop, event-bus-builder, cooldown-manager-builder, lune-unit-test-writer
+related: rbx-npc, rbx-rounds, event-bus-builder, cooldown-manager-builder, lune-unit-test-writer
 ---
 
 # state-machine-builder
 
-Replaces `isChasing`, `isAttacking`, `isStunned` flag soup with one named current state and a table of legal moves. The kit skills `roblox-npc-pathfinding` and `roblox-round-based-game-loop` supply the behaviours; this supplies the structure they plug into.
+Replaces `isChasing`, `isAttacking`, `isStunned` flag soup with one named current state and a table of legal moves. The kit skills `rbx-npc` and `rbx-rounds` supply the behaviours; this supplies the structure they plug into.
 
 ## When to use
 An NPC, a match loop, a boss, a tool or an ability has three or more modes and bugs come from impossible combinations. Not for: two-state toggles, or animation blending (use Animation Graphs / the animator).
@@ -49,4 +49,4 @@ Files and Lune tests; real NPC behaviour (pathfinding, animation timing) is `unt
 Putting game rules in `enter` (it only runs on change). Letting clients request server-state transitions directly (they request an action; the server decides). Per-NPC `while true` loops. Skipping `exit` cleanup so connections leak (use `Janitor` from `connection-leak-auditor`). A transition table of "everything to everything" (that is no machine at all).
 
 ## Related
-`roblox-npc-pathfinding`, `roblox-round-based-game-loop`, `event-bus-builder`, `connection-leak-auditor`.
+`rbx-npc`, `rbx-rounds`, `event-bus-builder`, `connection-leak-auditor`.

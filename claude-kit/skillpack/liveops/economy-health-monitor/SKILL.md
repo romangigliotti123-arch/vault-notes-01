@@ -4,7 +4,7 @@ description: "Track a live game's currency sources, sinks and wallet balance ove
 category: liveops
 tags: economy, sources, sinks, inflation, drift, currency, wallet, analytics, economy events, live ops
 kb: Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/monetisation-other.md, Roblox/roblox-kb/events-and-seasonal-content.md, Roblox/roblox-kb/anti-exploit-and-security.md
-related: economy-balancer, sink-source-mapper, event-planner, live-balance-tuner, metrics-snapshot-logger, dupe-exploit-hunter, game-dev-weekly
+related: economy-balancer, sink-source-mapper, event-planner, live-balance-tuner, metrics-snapshot-logger, dupe-exploit-hunter, rbx-weekly
 ---
 
 # economy-health-monitor

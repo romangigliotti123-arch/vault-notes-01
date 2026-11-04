@@ -6,7 +6,7 @@
   python docheck.py --selftest
 
 Checks: required headings present (case-insensitive substring of a '#' heading), no TODO/TBD/lorem placeholders, length cap, minimum length.
-It checks STRUCTURE only; whether the content is good is the critic's job (game-dev-critic). Exit 0 = pass, 1 = fail.
+It checks STRUCTURE only; whether the content is good is the critic's job (rbx-critic). Exit 0 = pass, 1 = fail.
 """
 import argparse
 import re

@@ -4,7 +4,7 @@ description: "Decide whether to update, spin off or sequel an existing game: gat
 category: design
 tags: sequel, spin-off, update, big update, lifecycle, portfolio, plateau, decision, roadmap
 kb: Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/case-studies-spin-or-die.md, Roblox/roblox-kb/case-studies-rainbow-friends.md, Roblox/roblox-kb/case-studies-pet-simulator.md, Roblox/roblox-kb/case-studies-racing-game-unnamed.md
-related: feature-prioritizer, update-cadence-planner, retention-diagnoser, dau-drop-investigator, competitor-teardown, game-dev-workflow
+related: feature-prioritizer, update-cadence-planner, retention-diagnoser, dau-drop-investigator, competitor-teardown, rbx-workflow
 ---
 
 # sequel-planner

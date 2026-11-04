@@ -1,0 +1,3 @@
+# Image-model naming: dated snapshot (HINT ONLY; do not use as truth)
+
+Dated snapshot (2026-10-29) of Gemini image model names and API shape: a HINT only, never truth; trust the run (live docs + the account's model list) and mention differences in the report. [cold:rbx-thumbnail/model-snapshot.md] read only when the live docs and `gen_image.py lookup` disagree or fail, as a hint for model names and API shape.

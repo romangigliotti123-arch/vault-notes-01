@@ -4,12 +4,12 @@ description: "Design a game's gamepass set (what each pass gives, price tier, wh
 category: money
 tags: gamepass, monetisation, vip, 2x, permanent perk, robux, price, ownership, shop, catalogue
 kb: Roblox/roblox-kb/monetisation-gamepasses.md, Roblox/roblox-kb/pricing.md, Roblox/roblox-kb/_tools/PRICE-LADDER.md, Roblox/roblox-kb/monetisation-devproducts.md, Roblox/roblox-kb/_tools/CHECKLIST-monetization.md
-related: devproduct-handler, price-ladder-planner, pay-to-win-checker, starter-pack-designer, vip-pass-designer, pass-ownership-cache-builder, roblox-monetization-audit, roblox-monetisation-setup
+related: devproduct-handler, price-ladder-planner, pay-to-win-checker, starter-pack-designer, vip-pass-designer, pass-ownership-cache-builder, rbx-monetize-audit, rbx-monetize
 ---
 
 # gamepass-maker
 
-One job: decide the gamepass catalogue and make it work correctly on the server. Ownership checks, caching, retries and the "never trust the client or `wasPurchased`" rule already exist in the kit system `Shop` (`~/.claude/claude-kit/systems/Shop`; 13 Lune tests; NOT live-tested in Studio), so this skill designs the set and feeds Shop. Whole-game review is `roblox-monetization-audit`; consumables and currency packs are `devproduct-handler`.
+One job: decide the gamepass catalogue and make it work correctly on the server. Ownership checks, caching, retries and the "never trust the client or `wasPurchased`" rule already exist in the kit system `Shop` (`~/.claude/claude-kit/systems/Shop`; 13 Lune tests; NOT live-tested in Studio), so this skill designs the set and feeds Shop. Whole-game review is `rbx-monetize-audit`; consumables and currency packs are `devproduct-handler`.
 
 ## When to use
 Adding the first passes, adding one, or fixing passes that do not apply perks. Not for: repeatable purchases, subscriptions, UGC items.
@@ -57,4 +57,4 @@ Files + Lune tests (headless). The purchase path is the owner's test.
 Selling XP/coin boosters as passes. Overlapping passes that confuse the shop. Prompting before the player understands the game. Checking perks once at join and never again after a mid-session purchase (use `HasPass` at use time). Setting a second `ProcessReceipt`/pass handler outside Shop.
 
 ## Related
-`devproduct-handler`, `price-ladder-planner`, `pay-to-win-checker`, `vip-pass-designer`, `starter-pack-designer`, `roblox-monetization-audit`.
+`devproduct-handler`, `price-ladder-planner`, `pay-to-win-checker`, `vip-pass-designer`, `starter-pack-designer`, `rbx-monetize-audit`.

@@ -4,7 +4,7 @@ description: "Plan cashing out Robux through Developer Exchange: check the eligi
 category: money
 tags: devex, developer exchange, cash out, earned robux, payout, tax, tipalti, rates, holds, records
 kb: Roblox/roblox-kb/business-and-payouts.md, Roblox/roblox-kb/monetisation-other.md, Roblox/roblox-kb/studio-business-funding-and-publishing.md, Roblox/roblox-kb/roblox-platform-changes.md, Roblox/roblox-kb/_tools/CHECKLIST-monetization.md
-related: premium-benefits-planner, subscription-planner, private-server-planner, ugc-item-planner, game-dev-weekly
+related: premium-benefits-planner, subscription-planner, private-server-planner, ugc-item-planner, rbx-weekly
 ---
 
 # devex-planner
@@ -50,4 +50,4 @@ The estimator script and the checklist; the owner does every portal step. All pl
 Using the old 100k minimum. Assuming rates are stable. Ignoring holds so cash flow fails. Name mismatches that cause rejection. Resubmitting after a name-discrepancy rejection instead of contacting support. Sharing payout details in chat.
 
 ## Related
-`premium-benefits-planner`, `subscription-planner`, `private-server-planner`, `ugc-item-planner`, `game-dev-weekly`.
+`premium-benefits-planner`, `subscription-planner`, `private-server-planner`, `ugc-item-planner`, `rbx-weekly`.

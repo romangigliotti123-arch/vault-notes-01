@@ -4,7 +4,7 @@ description: "Build global and per-server leaderboards around OrderedDataStore w
 category: systems
 tags: leaderboard, ranking, top players, OrderedDataStore, cache, ttl, score, global, budget, throttle
 kb: Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/events-and-seasonal-content.md, Roblox/roblox-kb/social-features-and-virality.md, Roblox/roblox-kb/anti-exploit-and-security.md
-related: roblox-leaderboards-and-events, event-planner, currency-system-builder, datastore-schema-builder, remote-guard-builder, analytics-event-planner
+related: rbx-leaderboard, event-planner, currency-system-builder, datastore-schema-builder, remote-guard-builder, analytics-event-planner
 ---
 
 # leaderboard-builder
@@ -12,7 +12,7 @@ related: roblox-leaderboards-and-events, event-planner, currency-system-builder,
 One job: show a ranked board without burning DataStore request budget or trusting the client. `scripts/Leaderboard.luau` is the pure part: a TTL cache that serves the stale page when a fetch fails, a per-user write gate (valid integer, improved, not more often than the gap) and rank lookup. The Roblox calls (`GetSortedAsync`, `SetAsync`) are injected, so they stay in a thin glue script wrapped in `pcall`.
 
 ## When to use
-Top players by score, wealth, wins, time or any stat; weekly boards. Not for: deciding which events to run (`event-planner`), the installed `roblox-leaderboards-and-events` skill for the Roblox-API walkthrough (this skill is the tested logic), in-server scoreboards (a plain table and a UI).
+Top players by score, wealth, wins, time or any stat; weekly boards. Not for: deciding which events to run (`event-planner`), the installed `rbx-leaderboard` skill for the Roblox-API walkthrough (this skill is the tested logic), in-server scoreboards (a plain table and a UI).
 
 ## Inputs (max 2)
 1. Stat to rank and its range (default: a single non-negative integer, higher is better). 2. Board scope (default: all-time global top 50, refreshed every 60 s; weekly = new store key per week).
@@ -49,4 +49,4 @@ Files + Lune tests with a fake fetch. Everything that needs a running Studio ses
 Calling `GetSortedAsync` per player per join. Writing every stat change. Storing floats. Showing an all-time board that nobody new can ever enter (add weekly boards). Resolving names for 50 rows on the main thread every refresh. Trusting a client-sent score.
 
 ## Related
-`event-planner`, `roblox-leaderboards-and-events`, `currency-system-builder`, `datastore-schema-builder`.
+`event-planner`, `rbx-leaderboard`, `currency-system-builder`, `datastore-schema-builder`.

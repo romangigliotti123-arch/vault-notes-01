@@ -4,7 +4,7 @@ description: "Plan and run a move to --!strict for a whole codebase, one module 
 category: scripting
 tags: strict, migration, luau, types, typecheck, rollout, codebase, order, luau-lsp, ci
 kb: Roblox/roblox-kb/luau-language-and-types.md, Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/code-architecture-and-frameworks.md
-related: luau-type-annotator, require-cycle-finder, module-architecture-planner, roblox-luau-style, roblox-rojo-project-setup
+related: luau-type-annotator, require-cycle-finder, module-architecture-planner, rbx-luau, rbx-rojo
 ---
 
 # strict-mode-migrator
@@ -62,4 +62,4 @@ Rojo repo plus Lune and luau-lsp. Module names must be unique for the name-keyed
 Setting the Workspace default to strict first (hundreds of errors, nobody fixes them). Fixing the biggest file first. Using `any` casts to hit zero errors. Migrating a module that is about to be removed. Forgetting that annotations do not validate runtime input.
 
 ## Related
-`luau-type-annotator`, `require-cycle-finder`, `module-architecture-planner`, `roblox-luau-style`.
+`luau-type-annotator`, `require-cycle-finder`, `module-architecture-planner`, `rbx-luau`.

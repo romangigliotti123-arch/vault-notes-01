@@ -6,7 +6,7 @@ tags: systems library, drop-in, reusable, player data, shop, daily rewards, anal
 ---
 # Drop-in systems library
 
-Server-authoritative Luau modules you copy into a game instead of rebuilding. Lookup order when a game needs a system: your `Games/_Reusable/` first, then these, then build (`game-dev-harvest`).
+Server-authoritative Luau modules you copy into a game instead of rebuilding. Lookup order when a game needs a system: your `Games/_Reusable/` first, then these, then build (`rbx-harvest`).
 
 | System | What | Unit tests |
 |---|---|---|
@@ -26,7 +26,7 @@ Systems fit together through plain data tables: PlayerData holds `Receipts` (Sho
 ## Check everything (what "tested" means here)
 ```
 cd ~/.claude/claude-kit/systems
-rokit install            # once: stylua, selene, luau-lsp, lune, rojo (see skill roblox-studio-connect)
+rokit install            # once: stylua, selene, luau-lsp, lune, rojo (see skill rbx-studio)
 python check.py          # stylua --check, selene, luau-lsp analyze (Luau type checker, Roblox definitions, --!strict files), Lune tests
 ```
 Exit 0 = all passed, 1 = a check failed, 2 = a tool is missing (reported as SKIPPED, never a silent pass). Config: `rokit.toml`, `stylua.toml`, `selene.toml` (+ `selene-tests.toml`), `_check/` (Rojo project for the analyzer, Lune test harness).

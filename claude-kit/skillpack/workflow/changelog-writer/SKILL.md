@@ -4,12 +4,12 @@ description: "Keep a developer changelog from commit subjects: group conventiona
 category: workflow
 tags: changelog, commits, release notes, version, history, conventional commits, update log
 kb: Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/development-process-and-speed.md, Manager/topic-observability.md, Mentor/Combined-Brain.md
-related: git-workflow-setter, release-checklist-builder, update-announcement-writer, devlog-writer, game-dev-update, version-history-keeper
+related: git-workflow-setter, release-checklist-builder, update-announcement-writer, devlog-writer, rbx-game-update, version-history-keeper
 ---
 
 # changelog-writer
 
-Developer-facing history, generated from commit subjects so it costs no memory. The player-facing text is `update-announcement-writer` and `game-dev-update`; the public build-in-progress story is `devlog-writer`. This skill only turns `git log` into `docs/CHANGELOG.md` sections and shows which commits were too vague to sort.
+Developer-facing history, generated from commit subjects so it costs no memory. The player-facing text is `update-announcement-writer` and `rbx-game-update`; the public build-in-progress story is `devlog-writer`. This skill only turns `git log` into `docs/CHANGELOG.md` sections and shows which commits were too vague to sort.
 
 ## When to use
 A release is being cut, or a week of commits needs a record. Not for: player announcements, or projects whose commits are not in git (then write entries by hand from `docs/PROGRESS.md`).
@@ -47,4 +47,4 @@ A new top section in `docs/CHANGELOG.md` and a short list of visible changes for
 Commit subjects like "fix stuff" produce a useless log. Putting internal refactors in the player post. Rewriting past sections. Letting a worker's commit messages claim more than the diff does (check `git show --stat`).
 
 ## Related
-`git-workflow-setter`, `release-checklist-builder`, `update-announcement-writer`, `devlog-writer`, `game-dev-update`.
+`git-workflow-setter`, `release-checklist-builder`, `update-announcement-writer`, `devlog-writer`, `rbx-game-update`.

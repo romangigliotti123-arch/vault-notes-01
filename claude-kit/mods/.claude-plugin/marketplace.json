@@ -14,9 +14,9 @@
       }
     },
     {
-      "name": "graph-rbxdev-vault",
-      "source": "./graph-rbxdev-vault",
-      "description": "/graph-rbxdev-vault opens a side pane with the link graph of the vault: centre note, links in and out, search, preview.",
+      "name": "rbx-graph",
+      "source": "./rbx-graph",
+      "description": "/rbx-graph opens a side pane with the link graph of the vault: centre note, links in and out, search, preview.",
       "author": {
         "name": "Roman"
       }

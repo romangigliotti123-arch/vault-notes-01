@@ -4,7 +4,7 @@ description: "Add trap remotes that legitimate code never fires (a fake AddMoney
 category: qa
 tags: honeypot, trap remote, anti-cheat, suspicion score, watch list, ban api, exploit detection, logging, escalation
 kb: Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/client-server-and-remotes.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Mentor/Combined-Brain.md
-related: exploit-audit, remote-guard-builder, speed-teleport-detector, remote-fuzzer, input-validation-auditor, roblox-remote-security
+related: exploit-audit, remote-guard-builder, speed-teleport-detector, remote-fuzzer, input-validation-auditor, rbx-remote-sec
 ---
 
 # honeypot-remote-builder

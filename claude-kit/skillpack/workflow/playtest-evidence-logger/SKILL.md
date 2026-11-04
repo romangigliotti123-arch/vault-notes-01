@@ -4,12 +4,12 @@ description: "Record a playtest or test run in one standard evidence format: bui
 category: workflow
 tags: playtest, evidence, log, output, console, test run, record, result, mode
 kb: Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/playtesting-and-feedback.md, Manager/topic-report-formats-and-verification.md, Manager/topic-observability.md, Roblox/roblox-kb/development-process-and-speed.md, Mentor/Combined-Brain.md
-related: game-dev-playtest, milestone-reviewer, worker-verifier, studio-mcp-session-planner, regression-checklist-builder, bug-report-template, roblox-playtest-checklist
+related: rbx-playtest, milestone-reviewer, worker-verifier, studio-mcp-session-planner, regression-checklist-builder, bug-report-template, rbx-playtest-list
 ---
 
 # playtest-evidence-logger
 
-`game-dev-playtest` runs the playtest and writes `docs/PLAYTEST.md`; `roblox-playtest-checklist` lists what to test; `bug-report-template` records a single bug. This skill defines the evidence record that `game-dev-workflow` stage detection and `milestone-reviewer` read: `Games/<slug>/playtests/<date>.md`. It adds no testing of its own.
+`rbx-playtest` runs the playtest and writes `docs/PLAYTEST.md`; `rbx-playtest-list` lists what to test; `bug-report-template` records a single bug. This skill defines the evidence record that `rbx-workflow` stage detection and `milestone-reviewer` read: `Games/<slug>/playtests/<date>.md`. It adds no testing of its own.
 
 ## When to use
 Right after any playtest, static check run or human test session. Not for: deciding what to test, or logging individual bugs.
@@ -33,7 +33,7 @@ Right after any playtest, static check run or human test session. Not for: decid
 Static mode: `luau-check.sh src` and `rojo build -o build.rbxl` output lines, labelled `static`. A human tester's notes pasted as given.
 
 ## Evidence
-`Roblox/roblox-kb/testing-debugging-and-qa.md`, `Roblox/roblox-kb/playtesting-and-feedback.md` (watch new players silently; test on mobile; playtest early), `Manager/topic-report-formats-and-verification.md` (report what actually happened; untested is a value; evidence from this session), `Manager/topic-observability.md`, `Roblox/roblox-kb/development-process-and-speed.md`. The stage rule that a playtest report enables the playtest stage lives in `game-dev-workflow` `references/stages.md`.
+`Roblox/roblox-kb/testing-debugging-and-qa.md`, `Roblox/roblox-kb/playtesting-and-feedback.md` (watch new players silently; test on mobile; playtest early), `Manager/topic-report-formats-and-verification.md` (report what actually happened; untested is a value; evidence from this session), `Manager/topic-observability.md`, `Roblox/roblox-kb/development-process-and-speed.md`. The stage rule that a playtest report enables the playtest stage lives in `rbx-workflow` `references/stages.md`.
 
 ## Output
 One dated evidence file with headings Build, Mode, Result, Evidence.
@@ -48,4 +48,4 @@ One dated evidence file with headings Build, Mode, Result, Evidence.
 Calling a lint pass a playtest. Paraphrasing an error. One shared log file that hides when each run happened. Logging only successes.
 
 ## Related
-`game-dev-playtest`, `milestone-reviewer`, `worker-verifier`, `studio-mcp-session-planner`, `bug-report-template`, `roblox-playtest-checklist`.
+`rbx-playtest`, `milestone-reviewer`, `worker-verifier`, `studio-mcp-session-planner`, `bug-report-template`, `rbx-playtest-list`.

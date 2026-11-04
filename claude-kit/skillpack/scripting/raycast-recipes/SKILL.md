@@ -4,7 +4,7 @@ description: "Pick and write the right spatial query for the job (ray, sphere or
 category: scripting
 tags: raycast, spherecast, blockcast, overlap, hit detection, line of sight, raycastparams, filter, spatial query, bullets
 kb: Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/luau-language-and-types.md, Roblox/roblox-kb/physics-pathfinding-and-npc-ai.md, Roblox/roblox-kb/combat-and-gameplay-systems.md
-related: collision-group-setup, remote-guard-builder, roblox-npc-pathfinding, actor-parallel-converter, script-profiler
+related: collision-group-setup, remote-guard-builder, rbx-npc, actor-parallel-converter, script-profiler
 ---
 
 # raycast-recipes
@@ -12,7 +12,7 @@ related: collision-group-setup, remote-guard-builder, roblox-npc-pathfinding, ac
 Most hit-detection bugs are a wrong query or wrong parameters, not wrong maths. This skill chooses the query, sets the parameters, and keeps the authority on the server. The helpers live in `scripts/RaycastKit.luau`.
 
 ## When to use
-Bullets, melee sweeps, line of sight, ground detection, interaction targets, area damage, camera probes. Not for: pathing (`roblox-npc-pathfinding`), or physics-driven projectiles that the engine simulates.
+Bullets, melee sweeps, line of sight, ground detection, interaction targets, area damage, camera probes. Not for: pathing (`rbx-npc`), or physics-driven projectiles that the engine simulates.
 
 ## Inputs (max 2)
 1. What must be detected and by whom (shooter, NPC, trigger). 2. Who is the authority (default server).
@@ -51,4 +51,4 @@ The chosen query and parameter block per use, the call site code, and the play-t
 Casting from inside the shooter's own hitbox. Using `Touched` for hit detection that needs precision. Trusting a client-sent hit result. Forgetting that unanchored moving parts change between frames. Using a ray where a sphere is needed (bullets pass between legs).
 
 ## Related
-`collision-group-setup`, `remote-guard-builder`, `roblox-npc-pathfinding`, `script-profiler`.
+`collision-group-setup`, `remote-guard-builder`, `rbx-npc`, `script-profiler`.

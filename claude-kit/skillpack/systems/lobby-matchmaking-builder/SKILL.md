@@ -4,7 +4,7 @@ description: "Build lobby queue logic for round games: parties stay together, a 
 category: systems
 tags: lobby, matchmaking, queue, party, reserved server, teleport, match, minimum players
 kb: Roblox/roblox-kb/matchmaking-and-teleport.md, Roblox/roblox-kb/social-features-and-virality.md, Roblox/roblox-kb/case-studies-bed-wars.md, Roblox/roblox-kb/anti-exploit-and-security.md
-related: round-system-builder, teleport-hub-builder, spawn-system-builder, roblox-round-based-game-loop, discord-server-setup
+related: round-system-builder, teleport-hub-builder, spawn-system-builder, rbx-rounds, discord-server-setup
 ---
 
 # lobby-matchmaking-builder
@@ -48,4 +48,4 @@ Files + Lune tests only. Everything that needs a running Studio session (Reserve
 Teleporting without `pcall`. Creating a reserved server per player instead of per match. Trusting a client-sent party. Starting a match with fewer players than the rules need. No path back to the lobby on failure (players stranded).
 
 ## Related
-`round-system-builder`, `teleport-hub-builder`, `spawn-system-builder`, `roblox-round-based-game-loop`.
+`round-system-builder`, `teleport-hub-builder`, `spawn-system-builder`, `rbx-rounds`.

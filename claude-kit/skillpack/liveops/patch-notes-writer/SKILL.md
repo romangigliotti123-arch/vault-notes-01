@@ -4,7 +4,7 @@ description: "Write player-facing patch notes from a changelog or git diff: a sh
 category: liveops
 tags: patch notes, changelog, update log, announcement, release notes, events and updates, communication
 kb: Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/community-and-discord.md, Roblox/roblox-kb/events-and-seasonal-content.md, Roblox/roblox-kb/titles-descriptions.md
-related: update-announcement-writer, update-cadence-planner, event-planner, hotfix-playbook, rollback-planner, discord-server-setup, game-dev-update
+related: update-announcement-writer, update-cadence-planner, event-planner, hotfix-playbook, rollback-planner, discord-server-setup, rbx-game-update
 ---
 
 # patch-notes-writer

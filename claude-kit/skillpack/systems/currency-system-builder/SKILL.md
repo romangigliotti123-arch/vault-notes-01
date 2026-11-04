@@ -4,7 +4,7 @@ description: "Design a game's currencies (sources, sinks, caps) and wire a serve
 category: systems
 tags: currency, wallet, coins, gems, economy, sources, sinks, cap, balance, idempotent, server authority
 kb: Roblox/roblox-kb/core-loops-and-game-design.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/monetisation-devproducts.md
-related: inventory-system-builder, trading-system-builder, devproduct-handler, rebirth-system-builder, datastore-schema-builder, remote-guard-builder, roblox-datastore-safe-save
+related: inventory-system-builder, trading-system-builder, devproduct-handler, rebirth-system-builder, datastore-schema-builder, remote-guard-builder, rbx-datastore
 ---
 
 # currency-system-builder
@@ -49,4 +49,4 @@ Files + Lune tests (headless): the suite includes a real `Shop` receipt retried 
 Clamping silently on overflow without telling the player (the wallet returns `capped`; show it). Using floats for money. One shared key namespace: prefix keys with the system (`quest:`, `robux:`). Letting an admin or test command bypass the wallet. Premium currency that can also be earned freely in bulk (vault: freely handed hard currency floods markets). The key list is bounded (default 200): keys must be unique per grant, not reused across days.
 
 ## Related
-`inventory-system-builder`, `trading-system-builder`, `rebirth-system-builder`, `upgrade-tree-builder`, `devproduct-handler`, `datastore-schema-builder`, `roblox-datastore-safe-save`.
+`inventory-system-builder`, `trading-system-builder`, `rebirth-system-builder`, `upgrade-tree-builder`, `devproduct-handler`, `datastore-schema-builder`, `rbx-datastore`.

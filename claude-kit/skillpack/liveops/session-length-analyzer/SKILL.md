@@ -4,7 +4,7 @@ description: "Analyse the session length distribution (P10/P50/P90, buckets, sho
 category: liveops
 tags: session length, playtime, percentiles, stop points, pacing, engagement, distribution, analytics
 kb: Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/core-loops-and-game-design.md, Roblox/roblox-kb/player-psychology-and-game-feel.md, Roblox/roblox-kb/_tools/BENCHMARKS.md
-related: retention-diagnoser, churn-reason-finder, funnel-analyzer, core-loop-designer, first-minute-designer, metrics-snapshot-logger, roblox-metrics-benchmarks
+related: retention-diagnoser, churn-reason-finder, funnel-analyzer, core-loop-designer, first-minute-designer, metrics-snapshot-logger, rbx-metrics
 ---
 
 # session-length-analyzer

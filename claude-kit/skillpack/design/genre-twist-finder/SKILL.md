@@ -4,7 +4,7 @@ description: "Pick the 10-20 percent twist on a proven genre formula: name the f
 category: design
 tags: genre, twist, differentiate, clone, formula, 80/20, saturated, mash-up, originality
 kb: Roblox/roblox-kb/game-ideas-and-genres.md, Roblox/roblox-kb/genre-mechanics.md, Roblox/roblox-kb/trend-research-and-validation.md, Roblox/roblox-kb/case-studies-steal-an-egg.md, Roblox/roblox-kb/case-studies-steal-a-brainrot.md
-related: idea-validator, competitor-teardown, one-sentence-pitch, core-fantasy-definer, core-loop-designer, roblox-trend-research
+related: idea-validator, competitor-teardown, one-sentence-pitch, core-fantasy-definer, core-loop-designer, rbx-trends
 ---
 
 # genre-twist-finder
@@ -12,7 +12,7 @@ related: idea-validator, competitor-teardown, one-sentence-pitch, core-fantasy-d
 Vault rule (`game-ideas-and-genres`): do not invent a new genre; start from a proven loop and change roughly 10-20 percent. Exact clones rarely blow up; totally original games are harder to blow up. This skill finds the twist and proves it does not break readability.
 
 ## When to use
-When `idea-validator` flags "saturated" or "clone", or the team cannot say what is different. Not for: finding the genre (`roblox-game-ideas`, `roblox-trend-research`), or analysing a rival in depth (`competitor-teardown`).
+When `idea-validator` flags "saturated" or "clone", or the team cannot say what is different. Not for: finding the genre (`rbx-ideas`, `rbx-trends`), or analysing a rival in depth (`competitor-teardown`).
 
 ## Inputs (max 2)
 1. The reference game(s) or genre (default: the validator's comparables). 2. What the team can build in the time box (default: one week of art plus one new mechanic).
@@ -29,7 +29,7 @@ When `idea-validator` flags "saturated" or "clone", or the team cannot say what 
 Design only.
 
 ## Fallback
-Pure document. Reference facts come from the vault or from `roblox-trend-research`; label web facts `live-check`.
+Pure document. Reference facts come from the vault or from `rbx-trends`; label web facts `live-check`.
 
 ## Evidence
 `game-ideas-and-genres` (change at least ~20 percent per Tizzy and AlvinBlox 80/20 rule, TRUSTED-labelled in `creator-credibility.md` but self-reported results; combine two or three inspirations; official signal that RPG, strategy, puzzle and shooter are underrepresented), `case-studies-steal-an-egg` and `case-studies-steal-a-brainrot` (a steal loop reskinned and extended: pattern only), `genre-mechanics` (modes that change the enemy, not the objective, add replayability without new content).

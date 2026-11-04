@@ -4,12 +4,12 @@ description: "Design the repo layout and the matching Explorer tree for a Rojo-b
 category: workflow
 tags: folders, structure, layout, rojo, explorer, repo, modules, ownership, architecture
 kb: Roblox/roblox-kb/code-architecture-and-frameworks.md, Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/development-process-and-speed.md, Manager/topic-managing-ai-agents-for-roblox-game-dev.md, Mentor/Combined-Brain.md
-related: roblox-rojo-project-setup, project-kickoff, git-workflow-setter, team-roles-planner, asset-pipeline-planner, code-style-guide-writer, dependency-pinner
+related: rbx-rojo, project-kickoff, git-workflow-setter, team-roles-planner, asset-pipeline-planner, code-style-guide-writer, dependency-pinner
 ---
 
 # folder-structure-planner
 
-`roblox-rojo-project-setup` and `games.py init --rojo` create the basic `src/server`, `src/shared`, `src/client` layout. This skill decides how the inside is organised by system, so each system (and each worker) owns a folder, and checks that the tree matches `default.project.json`. It does not install tools (`dependency-pinner`) or place assets (`asset-pipeline-planner`).
+`rbx-rojo` and `games.py init --rojo` create the basic `src/server`, `src/shared`, `src/client` layout. This skill decides how the inside is organised by system, so each system (and each worker) owns a folder, and checks that the tree matches `default.project.json`. It does not install tools (`dependency-pinner`) or place assets (`asset-pipeline-planner`).
 
 ## When to use
 A new project, a project that has grown a `Utils` junk drawer, or before running parallel workers who need disjoint write sets. Not for: moving instances inside Studio only (that is Explorer hygiene, not repo layout).
@@ -49,4 +49,4 @@ File moves and `rojo build -o build.rbxl` as the proof the mapping resolves. Exp
 A `Utils` folder that every system imports. Server code in `shared` because it was convenient. Case-only name clashes on Windows. Moving files while a worker holds them (finish or pause jobs first).
 
 ## Related
-`roblox-rojo-project-setup`, `project-kickoff`, `git-workflow-setter`, `team-roles-planner`, `asset-pipeline-planner`, `dependency-pinner`.
+`rbx-rojo`, `project-kickoff`, `git-workflow-setter`, `team-roles-planner`, `asset-pipeline-planner`, `dependency-pinner`.

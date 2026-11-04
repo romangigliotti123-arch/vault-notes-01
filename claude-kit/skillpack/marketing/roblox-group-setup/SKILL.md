@@ -4,7 +4,7 @@ description: "Set up a Roblox group (community) for a game or studio: name, desc
 category: marketing
 tags: roblox group, community, roles, permissions, announcements, group wall, payouts, audit log, group perks, brand
 kb: Roblox/roblox-kb/community-and-discord.md, Roblox/roblox-kb/business-and-payouts.md, Roblox/roblox-kb/age-ratings-moderation-and-tos.md, Roblox/roblox-kb/influencer-and-creator-marketing.md
-related: discord-server-setup, social-post-calendar, brand-kit-builder, community-showcase-planner, roblox-monetization-audit, press-kit-builder
+related: discord-server-setup, social-post-calendar, brand-kit-builder, community-showcase-planner, rbx-monetize-audit, press-kit-builder
 ---
 
 # roblox-group-setup
@@ -12,7 +12,7 @@ related: discord-server-setup, social-post-calendar, brand-kit-builder, communit
 A group is the in-platform home of a game's audience and, for co-owned games, the owner of the game and its money. Vault: name it after the studio, link socials on the community page, use announcements with polls, promote it in-game with a perk, and protect payout permissions. Group creation costs Robux and permission changes affect money, so the owner performs every step; this skill prepares the plan.
 
 ## When to use
-Creating a studio group, converting a personal game to a group-owned one, or cleaning up roles. Not for: the Discord (`discord-server-setup`), Robux or payout strategy (`roblox-monetization-audit`).
+Creating a studio group, converting a personal game to a group-owned one, or cleaning up roles. Not for: the Discord (`discord-server-setup`), Robux or payout strategy (`rbx-monetize-audit`).
 
 ## Inputs (max 3)
 1. Studio or game name and number of collaborators. 2. Is the game group-owned or personal (default: personal, moving to group if co-owned). 3. Roles needed (default: Owner, Admin, Developer, Moderator, Tester, Member).
@@ -50,4 +50,4 @@ The plan as a document and a Luau snippet using `Player:IsInGroup(groupId)`, gro
 Giving broad roles for convenience. A group named after one game that you later outgrow. No moderation on the wall. Paywalling the group perk. Skipping the written profit split.
 
 ## Related
-`discord-server-setup`, `brand-kit-builder`, `social-post-calendar`, `community-showcase-planner`, `roblox-monetization-audit`.
+`discord-server-setup`, `brand-kit-builder`, `social-post-calendar`, `community-showcase-planner`, `rbx-monetize-audit`.

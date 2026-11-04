@@ -4,7 +4,7 @@ description: "Put a system's tunable numbers in typed, validated Attributes on o
 category: scripting
 tags: attributes, config, tuning, balance, setattribute, getattributechangedsignal, live tweak, designer, configuration, luau
 kb: Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/client-server-and-remotes.md, Roblox/roblox-kb/anti-exploit-and-security.md
-related: datastore-schema-builder, event-bus-builder, collection-tag-wiring, price-ladder-planner, roblox-leaderboards-and-events
+related: datastore-schema-builder, event-bus-builder, collection-tag-wiring, price-ladder-planner, rbx-leaderboard
 ---
 
 # attribute-config-builder
@@ -50,4 +50,4 @@ Files and the Lune test; engine replication behaviour is `untested` without a ru
 Using attributes for large or secret data. Reading `GetAttribute` in a hot loop instead of caching. Forgetting that setting an attribute to the value it already has fires nothing. Letting designers set values the code cannot handle (hence the ranges). Storing Instances or tables (not supported types).
 
 ## Related
-`datastore-schema-builder`, `event-bus-builder`, `collection-tag-wiring`, `roblox-leaderboards-and-events`.
+`datastore-schema-builder`, `event-bus-builder`, `collection-tag-wiring`, `rbx-leaderboard`.

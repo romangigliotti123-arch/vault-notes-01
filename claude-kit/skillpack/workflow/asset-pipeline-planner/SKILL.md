@@ -4,12 +4,12 @@ description: "Plan how art, audio and model assets move from source file to a Ro
 category: workflow
 tags: assets, pipeline, upload, ids, registry, naming, reimport, art, audio, sources
 kb: Roblox/roblox-kb/building-art-and-assets.md, Roblox/roblox-kb/tools-and-resources.md, Roblox/roblox-kb/development-process-and-speed.md, Roblox/roblox-kb/version-control-and-tooling.md, Mentor/Combined-Brain.md
-related: asset-license-checker, naming-convention-enforcer, texture-budget-checker, folder-structure-planner, team-roles-planner, roblox-asset-finder, place-backup-planner
+related: asset-license-checker, naming-convention-enforcer, texture-budget-checker, folder-structure-planner, team-roles-planner, rbx-assets, place-backup-planner
 ---
 
 # asset-pipeline-planner
 
-A small, written route for every asset so ids do not scatter through scripts and nothing unlicensed ships. It decides the process; the checks are other skills: provenance is `asset-license-checker`, naming enforcement is `naming-convention-enforcer`, texture sizes are `texture-budget-checker`, finding assets is `roblox-asset-finder`. Uploading and spending Robux are the user's actions.
+A small, written route for every asset so ids do not scatter through scripts and nothing unlicensed ships. It decides the process; the checks are other skills: provenance is `asset-license-checker`, naming enforcement is `naming-convention-enforcer`, texture sizes are `texture-budget-checker`, finding assets is `rbx-assets`. Uploading and spending Robux are the user's actions.
 
 ## When to use
 More than a handful of assets exist, an artist or builder is joining, or scripts contain pasted `rbxassetid://` numbers. Not for: modelling technique (build skills) or choosing a style (`brand-kit-builder`).
@@ -48,4 +48,4 @@ Optional: `script_grep` for `rbxassetid://` across the open place to find hard-c
 The same mesh uploaded five times. Renaming after import. Ids pasted into twenty scripts. Free assets with scripts hidden inside (hand to `asset-license-checker` and `model-cleaner`). A worker told to "upload the icons".
 
 ## Related
-`asset-license-checker`, `naming-convention-enforcer`, `texture-budget-checker`, `folder-structure-planner`, `team-roles-planner`, `roblox-asset-finder`.
+`asset-license-checker`, `naming-convention-enforcer`, `texture-budget-checker`, `folder-structure-planner`, `team-roles-planner`, `rbx-assets`.

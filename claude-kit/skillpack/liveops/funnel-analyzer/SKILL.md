@@ -4,7 +4,7 @@ description: "Define, instrument and read an onboarding or purchase funnel: choo
 category: liveops
 tags: funnel, onboarding, first session, drop-off, purchase funnel, analytics, conversion, steps, tutorial
 kb: Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/first-session-onboarding.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/_tools/BENCHMARKS.md
-related: retention-diagnoser, first-minute-designer, churn-reason-finder, cohort-reader, shop-conversion-optimizer, roblox-analytics-review, game-dev-weekly
+related: retention-diagnoser, first-minute-designer, churn-reason-finder, cohort-reader, shop-conversion-optimizer, rbx-analytics, rbx-weekly
 ---
 
 # funnel-analyzer

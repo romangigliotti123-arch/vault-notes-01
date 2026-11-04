@@ -4,12 +4,12 @@ description: "Verify an AI worker's report with cheap real checks before accepti
 category: workflow
 tags: verify, report, claims, false success, spot check, evidence, worker, review, trust
 kb: Manager/topic-report-formats-and-verification.md, Manager/topic-llm-judge-and-adversarial-verification.md, Manager/topic-multi-agent-failure-modes.md, Manager/src-advani-false-success.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Mentor/Combined-Brain.md
-related: ai-brief-writer, milestone-reviewer, playtest-evidence-logger, claim-verifier-rbxdev-vault, game-dev-critic, regression-checklist-builder
+related: ai-brief-writer, milestone-reviewer, playtest-evidence-logger, rbx-verifier, rbx-critic, regression-checklist-builder
 ---
 
 # worker-verifier
 
-A worker's report is a set of claims; this skill checks state, not narration. The kit agent `claim-verifier-rbxdev-vault` and the `game-dev-critic` give an independent LLM verdict at stage gates; this is the cheap first layer you run yourself on every report, mostly with commands. It does not judge game quality (`game-dev-critic`) or run milestone sign-off (`milestone-reviewer`).
+A worker's report is a set of claims; this skill checks state, not narration. The kit agent `rbx-verifier` and the `rbx-critic` give an independent LLM verdict at stage gates; this is the cheap first layer you run yourself on every report, mostly with commands. It does not judge game quality (`rbx-critic`) or run milestone sign-off (`milestone-reviewer`).
 
 ## When to use
 A worker returned `RESULT: done|partial`, or you are about to say "fixed" to the user. Not for: reports you wrote yourself with command output pasted in the same turn.
@@ -48,4 +48,4 @@ For Luau claims that need a run: `start_stop_play`, then `get_console_output` an
 Trusting tone. Checking only the files the worker mentions. A passing selftest or lint on code that was never run in the engine (say `checked, not run`). Letting the worker's own subagent count as independent.
 
 ## Related
-`ai-brief-writer`, `milestone-reviewer`, `playtest-evidence-logger`, `game-dev-critic`, `regression-checklist-builder`.
+`ai-brief-writer`, `milestone-reviewer`, `playtest-evidence-logger`, `rbx-critic`, `regression-checklist-builder`.

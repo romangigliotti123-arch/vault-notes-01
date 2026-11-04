@@ -4,12 +4,12 @@ description: "Write a short, honest devlog entry from what was actually shipped 
 category: workflow
 tags: devlog, dev log, build in public, weekly update, progress, content, pre-launch, cadence
 kb: Roblox/roblox-kb/community-and-discord.md, Roblox/roblox-kb/trailers-and-video-marketing.md, Roblox/roblox-kb/influencer-and-creator-marketing.md, Roblox/roblox-kb/development-process-and-speed.md, Mentor/Combined-Brain.md
-related: changelog-writer, update-announcement-writer, short-video-planner, social-post-calendar, launch-teaser-planner, game-dev-weekly, post-mortem-writer
+related: changelog-writer, update-announcement-writer, short-video-planner, social-post-calendar, launch-teaser-planner, rbx-weekly, post-mortem-writer
 ---
 
 # devlog-writer
 
-A devlog tells people what changed and why it matters; the changelog (`changelog-writer`) is the full developer list, the update post (`update-announcement-writer`) is for players of a live game, and `game-dev-weekly` analyses live numbers. This skill turns real project facts into a short post for a development audience. Posting is the user's action: this skill drafts, it does not publish.
+A devlog tells people what changed and why it matters; the changelog (`changelog-writer`) is the full developer list, the update post (`update-announcement-writer`) is for players of a live game, and `rbx-weekly` analyses live numbers. This skill turns real project facts into a short post for a development audience. Posting is the user's action: this skill drafts, it does not publish.
 
 ## When to use
 Weekly during development, or before a launch when a steady posting rhythm is planned. Not for: marketing copy for the game page, or posts about numbers you do not have.

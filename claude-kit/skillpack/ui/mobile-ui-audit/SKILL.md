@@ -4,12 +4,12 @@ description: "Audit every screen of a Roblox game's UI for phones: static scan f
 category: ui
 tags: ui, mobile, phone, touch, scale, offset, aspect ratio, safe area, text size, responsive, screengui, audit
 kb: Roblox/roblox-kb/ui-ux-design.md, Roblox/roblox-kb/cross-platform-and-console.md, Roblox/roblox-kb/first-session-onboarding.md, Roblox/roblox-kb/localization-and-international.md
-related: ui-scale-fixer, safe-area-checker, roblox-ui-responsive, gamepad-ui-navigator, accessibility-checker, localization-ready-checker, hud-layout-planner, first-minute-designer
+related: ui-scale-fixer, safe-area-checker, rbx-ui, gamepad-ui-navigator, accessibility-checker, localization-ready-checker, hud-layout-planner, first-minute-designer
 ---
 
 # mobile-ui-audit
 
-The kit skill `roblox-ui-responsive` teaches how to build responsive UI. This skill is the audit: find what is already broken, rank it, and fix or hand off. Roblox skews young and mobile; a UI that works only at the Studio default size is a launch bug.
+The kit skill `rbx-ui` teaches how to build responsive UI. This skill is the audit: find what is already broken, rank it, and fix or hand off. Roblox skews young and mobile; a UI that works only at the Studio default size is a launch bug.
 
 ## When to use
 Before launch, after adding a screen, when reviews say "can't press the button". Not for: visual design taste (`ui-kit-consistency-checker`), controller navigation (`gamepad-ui-navigator`).
@@ -55,4 +55,4 @@ Viewed sizes: <list or "static only">   Scan before -> after: <counts>
 Auditing only StarterGui and missing UI built in scripts. Trusting AbsoluteSize in Edit mode (it reflects the editor viewport). Using TextScaled everywhere (extreme sizes). Fixing sizes but not the touch target's hit area (a scaled-down image button with tiny hit area). Treating the heuristics as hard rules.
 
 ## Related
-`roblox-ui-responsive`, `ui-scale-fixer`, `safe-area-checker`, `accessibility-checker`, `localization-ready-checker`, `hud-layout-planner`.
+`rbx-ui`, `ui-scale-fixer`, `safe-area-checker`, `accessibility-checker`, `localization-ready-checker`, `hud-layout-planner`.

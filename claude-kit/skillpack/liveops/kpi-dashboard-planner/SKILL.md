@@ -4,7 +4,7 @@ description: "Choose the few metrics that matter for a Roblox game's current sta
 category: liveops
 tags: kpi, dashboard, metrics, targets, scorecard, retention, revenue, analytics api, stage, benchmarks
 kb: Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/_tools/BENCHMARKS.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/discovery-algorithm.md, Roblox/roblox-kb/monetisation-other.md
-related: retention-diagnoser, metrics-snapshot-logger, stat-sheet-explainer, funnel-analyzer, economy-health-monitor, roblox-metrics-benchmarks, roblox-analytics-review, game-dev-weekly
+related: retention-diagnoser, metrics-snapshot-logger, stat-sheet-explainer, funnel-analyzer, economy-health-monitor, rbx-metrics, rbx-analytics, rbx-weekly
 ---
 
 # kpi-dashboard-planner
@@ -24,7 +24,7 @@ Launch prep, a pivot, a new teammate asking "what do we watch", or a dashboard n
 4. Note data latency per KPI (most signals about 24 h, monetisation KPIs about 2 days, ad metrics 48 h, event charts about 24 h) so nobody reacts to an incomplete day.
 5. Add two guard metrics (crash rate, error count) and one economy line if the game has currency (`economy-health-monitor`).
 6. Lay out one page: top row the 3 outcome KPIs with a 7-day trend and the same-weekday-last-week change; below, the funnel and the economy line; a side note listing the last 3 updates so spikes have context. Set alerts only for stability metrics (crash rate, OOM exits) and require persistence (consecutive occurrences) so alerts fire on real spikes.
-7. Write the review ritual: who looks, when (weekly via `game-dev-weekly`), and the rule "one KPI below target gets one change tested".
+7. Write the review ritual: who looks, when (weekly via `rbx-weekly`), and the rule "one KPI below target gets one change tested".
 8. Log the numbers daily or weekly with `metrics-snapshot-logger` so the trends exist.
 
 ## Studio MCP path

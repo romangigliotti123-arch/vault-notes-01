@@ -4,7 +4,7 @@ description: "Compare retention of players who first played before and after a c
 category: liveops
 tags: cohort, retention, before after, first play date, update impact, d1, d7, significance, analytics
 kb: Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/_tools/BENCHMARKS.md
-related: retention-diagnoser, funnel-analyzer, ab-result-reader, experiment-designer, metrics-snapshot-logger, dau-drop-investigator, roblox-analytics-review
+related: retention-diagnoser, funnel-analyzer, ab-result-reader, experiment-designer, metrics-snapshot-logger, dau-drop-investigator, rbx-analytics
 ---
 
 # cohort-reader

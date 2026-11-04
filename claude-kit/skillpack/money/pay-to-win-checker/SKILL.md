@@ -4,7 +4,7 @@ description: "Check every paid offer against the vault's pay-to-win and paid-ran
 category: money
 tags: pay to win, paid random items, loot box, odds, policy, fairness, offers, audit, gating, restrictions
 kb: Roblox/roblox-kb/monetisation-other.md, Roblox/roblox-kb/monetisation-gamepasses.md, Roblox/roblox-kb/age-ratings-moderation-and-tos.md, Roblox/roblox-kb/common-mistakes.md, Roblox/roblox-kb/_tools/CHECKLIST-monetization.md
-related: gamepass-maker, devproduct-handler, starter-pack-designer, vip-pass-designer, limited-offer-designer, publish-readiness-gate, roblox-monetization-audit
+related: gamepass-maker, devproduct-handler, starter-pack-designer, vip-pass-designer, limited-offer-designer, publish-readiness-gate, rbx-monetize-audit
 ---
 
 # pay-to-win-checker
@@ -12,7 +12,7 @@ related: gamepass-maker, devproduct-handler, starter-pack-designer, vip-pass-des
 One job: a pass/fail review of paid offers against the vault's rules. The linter (`scripts/OfferLint.luau`) takes yes/no facts per offer and returns findings with the source note. It judges the description you give it, so the skill's value is in asking the facts honestly and reading the code to verify them. Roblox policy changes: every BLOCK that cites a platform rule must be live-checked (paid random items and restricted-user handling especially) before you tell an owner an offer is fine or not.
 
 ## When to use
-Before launch, before adding any pass, product, crate, spin, egg or bundle, and in a review of an existing shop. Not for: designing the offers (`gamepass-maker`, `devproduct-handler`), a whole-game audit (`roblox-monetization-audit`), age-rating prep (`age-rating-prep`).
+Before launch, before adding any pass, product, crate, spin, egg or bundle, and in a review of an existing shop. Not for: designing the offers (`gamepass-maker`, `devproduct-handler`), a whole-game audit (`rbx-monetize-audit`), age-rating prep (`age-rating-prep`).
 
 ## Inputs (max 2)
 1. The list of paid offers with what each grants (default: read the shop catalogue and the code that grants). 2. Modes: which are competitive pvp (default: assume combat modes are pvp).
@@ -49,4 +49,4 @@ Read the files, fill the facts, run the Lune lint (headless). Policy behaviour s
 Filling the facts from the shop description instead of the code. Trusting that "odds are in the UI" without comparing to the roll code. Treating the lint as legal advice. Forgetting indirect random purchases (keys, luck boosts). Ignoring a mode that is competitive.
 
 ## Related
-`gamepass-maker`, `devproduct-handler`, `starter-pack-designer`, `vip-pass-designer`, `limited-offer-designer`, `roblox-monetization-audit`.
+`gamepass-maker`, `devproduct-handler`, `starter-pack-designer`, `vip-pass-designer`, `limited-offer-designer`, `rbx-monetize-audit`.

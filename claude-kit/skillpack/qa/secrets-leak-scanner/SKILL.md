@@ -4,7 +4,7 @@ description: "Scan a project folder or exported place text for API keys, Open Cl
 category: qa
 tags: secrets, api key, open cloud, webhook, token, password, leak, repo, security scan, redaction, teleportdata
 kb: Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/client-server-and-remotes.md, Mentor/Combined-Brain.md
-related: exploit-audit, server-authority-checker, publish-readiness-gate, asset-license-checker, roblox-remote-security
+related: exploit-audit, server-authority-checker, publish-readiness-gate, asset-license-checker, rbx-remote-sec
 ---
 
 # secrets-leak-scanner

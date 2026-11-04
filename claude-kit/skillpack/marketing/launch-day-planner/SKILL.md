@@ -4,12 +4,12 @@ description: "Plan a Roblox launch or big-update day hour by hour: freeze and pa
 category: marketing
 tags: launch, launch day, release plan, checklist, monitoring, hour by hour, friday, ads gate, hotfix, first 48 hours
 kb: Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/ads-stats-monetisation-playbook.md, Roblox/roblox-kb/community-and-discord.md, Roblox/roblox-kb/discovery-algorithm.md, Roblox/roblox-kb/thumbnails-icons.md
-related: social-post-calendar, launch-teaser-planner, update-announcement-writer, roblox-launch-checklist, sponsored-ad-reviewer, discovery-signal-reader, influencer-outreach-writer
+related: social-post-calendar, launch-teaser-planner, update-announcement-writer, rbx-launch-check, sponsored-ad-reviewer, discovery-signal-reader, influencer-outreach-writer
 ---
 
 # launch-day-planner
 
-A launch is a checklist with a clock. Vault: pick a fixed launch time so the community arrives together, prefer Friday with dev cutoff Wednesday and avoid Tuesday, keep the first post-launch release a bug-fix and polish update, do not judge on one day, and use ads only after retention is proven. Pre-launch prep is `roblox-launch-checklist`; this skill owns the day itself.
+A launch is a checklist with a clock. Vault: pick a fixed launch time so the community arrives together, prefer Friday with dev cutoff Wednesday and avoid Tuesday, keep the first post-launch release a bug-fix and polish update, do not judge on one day, and use ads only after retention is proven. Pre-launch prep is `rbx-launch-check`; this skill owns the day itself.
 
 ## When to use
 The date is chosen and within about a week. Not for: months of promotion (`social-post-calendar`), the post text (`update-announcement-writer`).

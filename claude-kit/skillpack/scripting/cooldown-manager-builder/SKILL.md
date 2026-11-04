@@ -4,7 +4,7 @@ description: "Install one server-side cooldown and debounce helper keyed by User
 category: scripting
 tags: cooldown, debounce, rate limit, touched, spam, remote, ability, server, userid, throttle
 kb: Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/client-server-and-remotes.md
-related: remote-guard-builder, proximity-prompt-wiring, exploit-audit, state-machine-builder, roblox-remote-security
+related: remote-guard-builder, proximity-prompt-wiring, exploit-audit, state-machine-builder, rbx-remote-sec
 ---
 
 # cooldown-manager-builder
@@ -50,4 +50,4 @@ Files plus Lune; the double-fire check against a real remote is `untested` witho
 Checking the cooldown after granting the reward. One shared cooldown for different actions. Using `tick()` or wall clock where `os.clock` suits (a clock that jumps breaks cooldowns). Letting the client report "my cooldown is over". Forgetting that a respawn or teleport may reset the player's state but not the table.
 
 ## Related
-`remote-guard-builder`, `proximity-prompt-wiring`, `exploit-audit`, `roblox-remote-security`.
+`remote-guard-builder`, `proximity-prompt-wiring`, `exploit-audit`, `rbx-remote-sec`.

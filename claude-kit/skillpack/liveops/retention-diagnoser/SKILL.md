@@ -4,12 +4,12 @@ description: "Diagnose weak retention or play-through from a game's headline num
 category: liveops
 tags: retention, d1, d7, churn, diagnose, analytics, metrics, benchmark, play through, session, funnel
 kb: Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/_tools/BENCHMARKS.md, Roblox/roblox-kb/first-session-onboarding.md, Roblox/roblox-kb/updates-live-ops.md
-related: first-minute-designer, funnel-analyzer, cohort-reader, churn-reason-finder, experiment-designer, roblox-analytics-review, roblox-metrics-benchmarks, game-dev-weekly
+related: first-minute-designer, funnel-analyzer, cohort-reader, churn-reason-finder, experiment-designer, rbx-analytics, rbx-metrics, rbx-weekly
 ---
 
 # retention-diagnoser
 
-Metrics say WHERE; this skill says which window is broken and what to test first. Kit skills `roblox-analytics-review` and `roblox-metrics-benchmarks` read dashboards broadly; this one is the narrow diagnosis with an ordered fix list. The weekly routine is `game-dev-weekly`.
+Metrics say WHERE; this skill says which window is broken and what to test first. Kit skills `rbx-analytics` and `rbx-metrics` read dashboards broadly; this one is the narrow diagnosis with an ordered fix list. The weekly routine is `rbx-weekly`.
 
 ## When to use
 Low or falling D1/D7/PTR/session length and no clear cause. Not for: a sudden player-count drop (`dau-drop-investigator`) or monetisation (`shop-conversion-optimizer`).
@@ -61,4 +61,4 @@ Caveats: sample size, genre mismatch, benchmark flags
 Treating indie rules of thumb as laws (genre and age shift them a lot). Changing five things at once after a bad week. Reading D7 before enough users reached day 7. Optimising retention while the real problem is packaging (PTR). Ignoring mobile-vs-PC splits.
 
 ## Related
-`first-minute-designer`, `funnel-analyzer`, `cohort-reader`, `churn-reason-finder`, `experiment-designer`, `roblox-analytics-review`.
+`first-minute-designer`, `funnel-analyzer`, `cohort-reader`, `churn-reason-finder`, `experiment-designer`, `rbx-analytics`.

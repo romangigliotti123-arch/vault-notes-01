@@ -4,7 +4,7 @@ description: "List a Roblox project's technical debt with impact, risk and fix h
 category: workflow
 tags: tech debt, refactor, cleanup, rank, risk, maintenance, backlog, code health
 kb: Roblox/roblox-kb/code-architecture-and-frameworks.md, Roblox/roblox-kb/development-process-and-speed.md, Roblox/roblox-kb/common-mistakes.md, Manager/topic-multi-agent-failure-modes.md, Mentor/Combined-Brain.md
-related: code-style-guide-writer, roblox-luau-style, game-optimizer, script-profiler, scope-creep-guard, sprint-planner, post-mortem-writer
+related: code-style-guide-writer, rbx-luau, game-optimizer, script-profiler, scope-creep-guard, sprint-planner, post-mortem-writer
 ---
 
 # tech-debt-lister
@@ -48,4 +48,4 @@ Rojo project files plus shell commands (`grep`, `git log`); anything needing the
 Listing every style nit (it buries the data-loss risk). Scoring fix_h without test time. A refactor sprint with no feature progress; keep debt to a fixed share of each sprint. Fixing debt in a file a worker is editing right now (ownership clash).
 
 ## Related
-`code-style-guide-writer`, `roblox-luau-style`, `script-profiler`, `scope-creep-guard`, `sprint-planner`, `post-mortem-writer`.
+`code-style-guide-writer`, `rbx-luau`, `script-profiler`, `scope-creep-guard`, `sprint-planner`, `post-mortem-writer`.

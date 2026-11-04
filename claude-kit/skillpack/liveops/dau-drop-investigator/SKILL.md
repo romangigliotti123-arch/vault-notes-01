@@ -4,7 +4,7 @@ description: "Investigate a sudden drop in players: measure it against the same 
 category: liveops
 tags: dau drop, player drop, ccu drop, investigation, step change, regression, traffic, segments, rollback, analytics
 kb: Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/discovery-algorithm.md, Roblox/roblox-kb/testing-debugging-and-qa.md
-related: hotfix-playbook, rollback-planner, retention-diagnoser, cohort-reader, metrics-snapshot-logger, churn-reason-finder, funnel-analyzer, roblox-analytics-review
+related: hotfix-playbook, rollback-planner, retention-diagnoser, cohort-reader, metrics-snapshot-logger, churn-reason-finder, funnel-analyzer, rbx-analytics
 ---
 
 # dau-drop-investigator

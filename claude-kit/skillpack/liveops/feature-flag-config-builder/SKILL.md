@@ -4,7 +4,7 @@ description: "Build live config and feature flags for a Roblox game: typed value
 category: liveops
 tags: config, feature flag, kill switch, rollout, live tuning, creator hub configs, remote config, hotfix, defaults
 kb: Roblox/roblox-kb/ab-testing-and-experiments.md, Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/client-server-and-remotes.md
-related: experiment-designer, live-balance-tuner, rollback-planner, event-planner, hotfix-playbook, datastore-schema-builder, remote-guard-builder, roblox-datastore-safe-save
+related: experiment-designer, live-balance-tuner, rollback-planner, event-planner, hotfix-playbook, datastore-schema-builder, remote-guard-builder, rbx-datastore
 ---
 
 # feature-flag-config-builder

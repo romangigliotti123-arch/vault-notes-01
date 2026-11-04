@@ -4,12 +4,12 @@ description: "Set up the git side of a Rojo project: .gitignore for Roblox, one-
 category: workflow
 tags: git, branch, commit, gitignore, rojo, snapshot, rollback, version control, merge
 kb: Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/development-process-and-speed.md, Roblox/roblox-kb/team-and-budget.md, Manager/topic-multi-agent-failure-modes.md, Mentor/Combined-Brain.md
-related: roblox-rojo-project-setup, folder-structure-planner, ci-check-setter, changelog-writer, version-history-keeper, place-backup-planner, team-roles-planner
+related: rbx-rojo, folder-structure-planner, ci-check-setter, changelog-writer, version-history-keeper, place-backup-planner, team-roles-planner
 ---
 
 # git-workflow-setter
 
-`roblox-rojo-project-setup` (and `games.py init --rojo`) lays out the project and a basic `.gitignore`. This skill sets the habits on top: how branches and commits are named so history, changelog and rollback work. Place-level restore points and Creator Hub version history are `version-history-keeper` and `place-backup-planner` in the publish category; this is about the source repo.
+`rbx-rojo` (and `games.py init --rojo`) lays out the project and a basic `.gitignore`. This skill sets the habits on top: how branches and commits are named so history, changelog and rollback work. Place-level restore points and Creator Hub version history are `version-history-keeper` and `place-backup-planner` in the publish category; this is about the source repo.
 
 ## When to use
 `git init` has not been run, the ignore file is missing entries, commits read "stuff", or a worker is about to edit files and you want a snapshot first. Not for: whether to use Team Create or Rojo (`team-roles-planner`), CI hooks (`ci-check-setter`).
@@ -48,4 +48,4 @@ All steps are plain git commands. GitHub Desktop is a valid GUI for the same rul
 Committing `.rbxl` files (huge, unmergeable). Long-lived branches that diverge from `main`. Force-pushing shared history. Assuming Studio-side edits reach git by themselves. The kit template's own `.gitignore` is minimal (lock files, Packages, sourcemap, .DS_Store): it lacks `*.rbxl`, `*.rbxlx`, `.env`, `*.key` and `build/`, so step 2 adds them and gitcheck proves it.
 
 ## Related
-`roblox-rojo-project-setup`, `folder-structure-planner`, `ci-check-setter`, `changelog-writer`, `version-history-keeper`, `place-backup-planner`.
+`rbx-rojo`, `folder-structure-planner`, `ci-check-setter`, `changelog-writer`, `version-history-keeper`, `place-backup-planner`.

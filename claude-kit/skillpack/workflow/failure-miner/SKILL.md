@@ -4,7 +4,7 @@ description: "Mine recent Claude Code session transcripts for the tool failures 
 category: workflow
 tags: failures, transcripts, claude-md, lint, rules, audit, history, recurring, mistakes, steering
 kb: Manager/topic-multi-agent-failure-modes.md, Manager/topic-observability.md, Manager/src-arxiv-evaluating-agentsmd.md, Manager/src-boris-cherny-tips.md, Manager/topic-context-engineering.md, Mentor/Combined-Brain.md
-related: ai-brief-writer, worker-verifier, code-style-guide-writer, ci-check-setter, eval-bank, decision-log-writer, game-dev-workflow
+related: ai-brief-writer, worker-verifier, code-style-guide-writer, ci-check-setter, eval-bank, decision-log-writer, rbx-workflow
 ---
 
 # failure-miner

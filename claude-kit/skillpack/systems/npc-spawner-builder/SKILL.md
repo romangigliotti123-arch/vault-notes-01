@@ -1,18 +1,18 @@
 ---
 name: npc-spawner-builder
-description: "Build NPC spawn rules with a cost cap: global and per-zone caps checked before spawning, a despawn sweep for NPCs nobody is near, an idle/aggro/return decision with a leash, and server network ownership. Use for enemy and creature spawning; pathfinding is roblox-npc-pathfinding."
+description: "Build NPC spawn rules with a cost cap: global and per-zone caps checked before spawning, a despawn sweep for NPCs nobody is near, an idle/aggro/return decision with a leash, and server network ownership. Use for enemy and creature spawning; pathfinding is rbx-npc."
 category: systems
 tags: npc, spawner, enemies, cap, despawn, aggro, leash, network ownership, zone, budget
 kb: Roblox/roblox-kb/physics-pathfinding-and-npc-ai.md, Roblox/roblox-kb/combat-and-gameplay-systems.md, Roblox/roblox-kb/optimization-and-streaming.md, Roblox/roblox-kb/anti-exploit-and-security.md
-related: roblox-npc-pathfinding, health-damage-builder, loot-drop-builder, hitbox-combat-builder, game-optimizer, lag-hunter
+related: rbx-npc, health-damage-builder, loot-drop-builder, hitbox-combat-builder, game-optimizer, lag-hunter
 ---
 
 # npc-spawner-builder
 
-One job: keep NPC counts and cost bounded. `scripts/NpcBudget.luau` refuses a spawn when the global cap or the zone cap is reached, finds NPCs with no player within the despawn distance, and decides an NPC's next state from distances (aggro inside range, forced return beyond the leash, idle again at home). Models, animation and pathfinding live in the glue and in the installed `roblox-npc-pathfinding` skill.
+One job: keep NPC counts and cost bounded. `scripts/NpcBudget.luau` refuses a spawn when the global cap or the zone cap is reached, finds NPCs with no player within the despawn distance, and decides an NPC's next state from distances (aggro inside range, forced return beyond the leash, idle again at home). Models, animation and pathfinding live in the glue and in the installed `rbx-npc` skill.
 
 ## When to use
-Wave or area-based enemies, ambient creatures, zone spawners. Not for: the AI itself or pathfinding (`roblox-npc-pathfinding`), combat maths, boss scripting.
+Wave or area-based enemies, ambient creatures, zone spawners. Not for: the AI itself or pathfinding (`rbx-npc`), combat maths, boss scripting.
 
 ## Inputs (max 2)
 1. Zones, cap per zone and a global cap (default: 40 global, 10-15 per zone; measure on a phone). 2. Aggro range, leash and despawn distance (default: 40, 80, 200 studs).
@@ -49,4 +49,4 @@ Files + Lune tests only. Everything that needs a running Studio session (frame c
 Caps that count only live models (leaks from failed despawns). Aggro checks every frame for every NPC. NPCs left with client network ownership. Despawn distance below aggro range. Sweeping so rarely that abandoned zones keep full cost.
 
 ## Related
-`roblox-npc-pathfinding`, `health-damage-builder`, `loot-drop-builder`, `game-optimizer`, `lag-hunter`.
+`rbx-npc`, `health-damage-builder`, `loot-drop-builder`, `game-optimizer`, `lag-hunter`.

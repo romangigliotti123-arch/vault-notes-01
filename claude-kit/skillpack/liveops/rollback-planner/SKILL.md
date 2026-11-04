@@ -4,7 +4,7 @@ description: "Plan a reversible release before shipping: classify each change (c
 category: liveops
 tags: rollback, release plan, revert, migration, data safety, backup, kill switch, release, regression, versioning
 kb: Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/ab-testing-and-experiments.md, Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/testing-debugging-and-qa.md
-related: hotfix-playbook, feature-flag-config-builder, event-planner, update-cadence-planner, datastore-schema-builder, live-balance-tuner, roblox-publish-checklist
+related: hotfix-playbook, feature-flag-config-builder, event-planner, update-cadence-planner, datastore-schema-builder, live-balance-tuner, rbx-publish
 ---
 
 # rollback-planner

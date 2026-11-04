@@ -4,12 +4,12 @@ description: "Build the intermission, playing, ending state machine for round ga
 category: systems
 tags: rounds, intermission, state machine, late joiners, countdown, cleanup, round based, minigame
 kb: Roblox/roblox-kb/core-loops-and-game-design.md, Roblox/roblox-kb/matchmaking-and-teleport.md, Roblox/roblox-kb/playtesting-and-feedback.md, Roblox/roblox-kb/first-session-onboarding.md
-related: roblox-round-based-game-loop, lobby-matchmaking-builder, spawn-system-builder, checkpoint-system-builder, health-damage-builder
+related: rbx-rounds, lobby-matchmaking-builder, spawn-system-builder, checkpoint-system-builder, health-damage-builder
 ---
 
 # round-system-builder
 
-One job: decide what state the match is in. `scripts/Rounds.luau` is driven by `tick(dt, readyPlayers)` and calls your `onStart`, `onEnd` and `cleanup` hooks; it knows nothing about maps, teleports or UI. States: Waiting (not enough players) -> Intermission (countdown that aborts if players leave) -> Playing (ends on time, empty, or last player standing) -> Ending (results) -> cleanup -> Waiting. The installed `roblox-round-based-game-loop` skill gives the Roblox walkthrough; this one is the tested logic.
+One job: decide what state the match is in. `scripts/Rounds.luau` is driven by `tick(dt, readyPlayers)` and calls your `onStart`, `onEnd` and `cleanup` hooks; it knows nothing about maps, teleports or UI. States: Waiting (not enough players) -> Intermission (countdown that aborts if players leave) -> Playing (ends on time, empty, or last player standing) -> Ending (results) -> cleanup -> Waiting. The installed `rbx-rounds` skill gives the Roblox walkthrough; this one is the tested logic.
 
 ## When to use
 Round-based games: lobby/intermission/round/results. Not for: queueing into separate servers (`lobby-matchmaking-builder`), map generation, scoring rules.
@@ -49,4 +49,4 @@ Files + Lune tests only. Everything that needs a running Studio session (map/tel
 Cleanup that forgets event connections (leak per round). Starting a round with fewer players than the rules need. Tick loops per system that drift out of sync. Letting spectators affect the round. Teleporting players before the map is loaded.
 
 ## Related
-`roblox-round-based-game-loop`, `lobby-matchmaking-builder`, `spawn-system-builder`, `checkpoint-system-builder`, `health-damage-builder`.
+`rbx-rounds`, `lobby-matchmaking-builder`, `spawn-system-builder`, `checkpoint-system-builder`, `health-damage-builder`.

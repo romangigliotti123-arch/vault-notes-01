@@ -4,7 +4,7 @@ description: "Prepare a Roblox game's store text for other languages: pick langu
 category: marketing
 tags: localization, localisation, translation, store page, languages, csv, auto-translate, thumbnail text, international
 kb: Roblox/roblox-kb/localization-and-international.md, Roblox/roblox-kb/titles-descriptions.md, Roblox/roblox-kb/thumbnails-icons.md, Roblox/roblox-kb/analytics-metrics.md
-related: game-description-writer, store-page-audit, title-generator, roblox-kb-answer, thumbnail-maker, discovery-signal-reader
+related: game-description-writer, store-page-audit, title-generator, rbx-kb, thumbnail-maker, discovery-signal-reader
 ---
 
 # store-localization-writer

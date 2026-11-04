@@ -4,15 +4,15 @@ description: "Review a Roblox game (the user's own or a rival's) from its public
 category: design
 tags: review, critique, rate, game review, competitor, audit, verdict, score, first impression
 kb: Roblox/roblox-kb/core-loops-and-game-design.md, Roblox/roblox-kb/first-session-onboarding.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/_tools/DECISION-RULES.md, Roblox/roblox-kb/_tools/BENCHMARKS.md, Mentor/Combined-Brain.md
-related: game-dev-critic, game-dev-rate, competitor-teardown, retention-diagnoser, store-page-audit, roblox-metrics-benchmarks, first-minute-designer
+related: rbx-critic, rbx-rate, competitor-teardown, retention-diagnoser, store-page-audit, rbx-metrics, first-minute-designer
 ---
 
 # game-reviewer
 
-A review is an evidence-backed opinion with a number, so it can be compared over time. It is NOT the stage gate (`game-dev-critic` owns GOOD / NOT YET / BAD for the user's own games inside `game-dev-workflow`) and NOT a teardown for copying (`competitor-teardown` extracts patterns). Use this for a fast, honest read of any game.
+A review is an evidence-backed opinion with a number, so it can be compared over time. It is NOT the stage gate (`rbx-critic` owns GOOD / NOT YET / BAD for the user's own games inside `rbx-workflow`) and NOT a teardown for copying (`competitor-teardown` extracts patterns). Use this for a fast, honest read of any game.
 
 ## When to use
-"Review my game", "what is wrong with this game", "is this worth continuing", "how does X compare". Not for: code review (`roblox-code-rate`), a numbers-only diagnosis (`retention-diagnoser`).
+"Review my game", "what is wrong with this game", "is this worth continuing", "how does X compare". Not for: code review (`rbx-code-rate`), a numbers-only diagnosis (`retention-diagnoser`).
 
 ## Inputs (max 3)
 1. The game: place/universe link or the project folder. 2. Own game or rival (rival = patterns only, never copy). 3. Numbers if the owner has them (D1, D7, PTR, session length, conversion); default: none, review from the page and play.
@@ -24,7 +24,7 @@ A review is an evidence-backed opinion with a number, so it can be compared over
 4. If numbers were given, compare against `_tools/BENCHMARKS.md` rows (note each row's flag: official, devforum or indie) and say which area the weak number points to (D1 low -> first minute; D7 low -> hooks; PTR low -> packaging).
 5. Weight and verdict: Packaging 15%, First minute 20%, Core loop 25%, Retention 20%, Monetisation 10%, Social 10%. Overall = weighted mean to one decimal. Verdict bands: >=7.5 promising, 5.5-7.4 fixable, <5.5 rethink; confidence LOW/MEDIUM/HIGH from how much you actually observed.
 6. Pick the three highest-leverage fixes (cheapest first among those that move the weakest weighted area), each with the skill to run: `/rbx first-minute-designer`, `/rbx core-loop-designer`, `/rbx game-description-writer`, `/rbx thumbnail-maker`, `/rbx gamepass-maker`, `/rbx retention-diagnoser`.
-7. Rivals: add a "pattern worth borrowing" line (the mechanism, not content). Own game: if a stage decision is pending, say the formal critic is `game-dev-critic`.
+7. Rivals: add a "pattern worth borrowing" line (the mechanism, not content). Own game: if a stage decision is pending, say the formal critic is `rbx-critic`.
 
 ## Studio MCP path
 Own place only: `list_roblox_studios` -> `get_studio_state` -> `start_stop_play` -> `screen_capture` at 0 s, 30 s, 2 min -> `character_navigation` / `user_keyboard_input` to follow the first prompt -> `get_console_output` (errors in the first minute are a finding) -> stop. Never change the place during a review.
@@ -60,4 +60,4 @@ Under 60 lines.
 Scoring from the thumbnail alone. Letting a long development history inflate scores ("works" is not "good"). Treating one creator's indie number as a standard. Reviewing a game you only know from a trailer. Giving ten fixes: pick three.
 
 ## Related
-`game-dev-critic` (stage gate), `game-dev-rate` (idea scoring), `competitor-teardown`, `retention-diagnoser`, `first-minute-designer`, `store-page-audit`.
+`rbx-critic` (stage gate), `rbx-rate` (idea scoring), `competitor-teardown`, `retention-diagnoser`, `first-minute-designer`, `store-page-audit`.

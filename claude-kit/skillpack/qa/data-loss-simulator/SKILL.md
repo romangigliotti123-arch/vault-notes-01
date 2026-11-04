@@ -4,7 +4,7 @@ description: "Replay DataStore outages, throttling, server crashes, stale locks 
 category: qa
 tags: datastore, data loss, outage, throttle, crash, shutdown, bindtoclose, session lock, simulation, persistence, test
 kb: Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/anti-exploit-and-security.md
-related: save-load-tester, datastore-schema-builder, retry-wrapper-builder, join-leave-race-tester, roblox-datastore-safe-save, purchase-flow-tester
+related: save-load-tester, datastore-schema-builder, retry-wrapper-builder, join-leave-race-tester, rbx-datastore, purchase-flow-tester
 ---
 
 # data-loss-simulator

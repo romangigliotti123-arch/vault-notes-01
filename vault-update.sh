@@ -3,8 +3,8 @@
 # Same steps the login agent/timer runs (it passes --quiet). Nothing runs every 15 minutes any more.
 # Usage: bash vault-update.sh [--quiet] [--no-kit] [--no-assets] [--no-ai-vault] [--full-view on|off]
 #        The companion AI Library Vault (next to this vault, folder ai-library-vault) is updated together with this vault by ai-vault-sync.sh; --no-ai-vault skips it.
-#        bash vault-update.sh --set-view light|full   (switch only, no update, works offline; what /light-mode-on-rbxdev-vault and /light-mode-off-rbxdev-vault run)
-#        bash vault-update.sh --clean [--yes] [--include-mine]   (what /update-clean-rbxdev-vault runs: exact copy of the main vault; without --yes it only prints the dry run)
+#        bash vault-update.sh --set-view light|full   (switch only, no update, works offline; what /rbx-light-on and /rbx-light-off run)
+#        bash vault-update.sh --clean [--yes] [--include-mine]   (what /rbx-clean runs: exact copy of the main vault; without --yes it only prints the dry run)
 # YOUR DATA IS KEPT: <vault>/My Research/, <vault>/Games/ (your per-game notes and Games/_Reusable) and any folder holding PROTECTED-RESEARCH.md are protected (git-excluded, never in a patch, never reset or cleaned). The normal update never deletes untracked files.
 # Self-healing: the vault clone is READ-ONLY. If local changes or divergence block the fast-forward, the real changes are saved to
 # <state>/local-changes-<timestamp>.patch (state: ~/.local/state/claudes-vault-sync, macOS ~/Library/Application Support/claudes-vault-sync; newest 5 kept)
@@ -23,7 +23,7 @@ if [ -n "${VAULT_STATE_DIR:-}" ]; then STATE="$VAULT_STATE_DIR"
 elif [ "$(uname -s)" = Darwin ]; then STATE="$HOME/Library/Application Support/claudes-vault-sync"
 else STATE="${XDG_STATE_HOME:-$HOME/.local/state}/claudes-vault-sync"; fi
 GIT="$(command -v git || true)"
-if [ -z "$GIT" ]; then echo "update-rbxdev-vault: git not found"; exit 1; fi
+if [ -z "$GIT" ]; then echo "rbx-update: git not found"; exit 1; fi
 # --- vault-heal (same block in vault-update.sh, mac-sync-setup.sh, linux-sync-setup.sh) ---
 # Self-healing update of the READ-ONLY vault clone. Never fails, never runs git clean. Prints at most one line.
 # core.autocrlf/safecrlf off, fetch, fast-forward; if local changes or divergence block that, the real changes are saved to
@@ -97,7 +97,7 @@ PUBLIC_NOTES_GIT="https://github.com/romangigliotti123-arch/vault-notes-01.git" 
 vault_migrate_origin() { # $1=git $2=vault ; an origin on the old *.netlify.app/vault.git (the website only redirects now) is moved to the GitHub repo once
   [ -n "$PUBLIC_NOTES_GIT" ] || return 0
   case "$("$1" -C "$2" remote get-url origin 2>/dev/null)" in
-    *.netlify.app/vault.git*) "$1" -C "$2" remote set-url origin "$PUBLIC_NOTES_GIT" 2>/dev/null && echo "update-rbxdev-vault: origin moved to $PUBLIC_NOTES_GIT";;
+    *.netlify.app/vault.git*) "$1" -C "$2" remote set-url origin "$PUBLIC_NOTES_GIT" 2>/dev/null && echo "rbx-update: origin moved to $PUBLIC_NOTES_GIT";;
   esac
   return 0
 }
@@ -106,11 +106,11 @@ vault_heal() { # $1=git $2=vault $3=state dir ; echoes one line when something n
   "$G" -C "$V" config core.autocrlf false 2>/dev/null; "$G" -C "$V" config core.safecrlf false 2>/dev/null
   vault_migrate_origin "$G" "$V"
   vault_protect "$G" "$V"
-  if ! "$G" -C "$V" fetch -q origin >/dev/null 2>&1; then MSG="update-rbxdev-vault: fetch failed (offline?), vault left as it is"
+  if ! "$G" -C "$V" fetch -q origin >/dev/null 2>&1; then MSG="rbx-update: fetch failed (offline?), vault left as it is"
   else
     T=origin/main
     "$G" -C "$V" rev-parse -q --verify "$T" >/dev/null 2>&1 || { T='@{u}'; "$G" -C "$V" rev-parse -q --verify "$T" >/dev/null 2>&1 || T=""; }
-    if [ -z "$T" ]; then MSG="update-rbxdev-vault: no upstream branch, vault left as it is"
+    if [ -z "$T" ]; then MSG="rbx-update: no upstream branch, vault left as it is"
     else
       if [ -f "$V/.full-view" ] && [ -f "$V/.obsidian/app.json" ]; then
         CUR="$(vault_json strip < "$V/.obsidian/app.json" 2>/dev/null)"; HEAD="$("$G" -C "$V" show HEAD:.obsidian/app.json 2>/dev/null | vault_json strip 2>/dev/null)"
@@ -135,19 +135,19 @@ vault_heal() { # $1=git $2=vault $3=state dir ; echoes one line when something n
         ls -1d "$S"/collision-backup-* 2>/dev/null | sort -r | tail -n +6 | while IFS= read -r f; do rm -rf "$f"; done
         ls -1 "$S"/local-changes-*.patch 2>/dev/null | sort -r | tail -n +6 | while IFS= read -r f; do rm -f "$f"; done
         ls -1 "$S"/local-changes-*.untracked.txt 2>/dev/null | sort -r | tail -n +6 | while IFS= read -r f; do rm -f "$f"; done
-        if ! "$G" -C "$V" reset --hard -q "$T" >/dev/null 2>&1; then MSG="update-rbxdev-vault: could not reset the vault to the latest (left as it is)"
-        elif [ "$SAVED" = 1 ]; then MSG="update-rbxdev-vault: local changes saved to $P; vault reset to the latest"; fi
+        if ! "$G" -C "$V" reset --hard -q "$T" >/dev/null 2>&1; then MSG="rbx-update: could not reset the vault to the latest (left as it is)"
+        elif [ "$SAVED" = 1 ]; then MSG="rbx-update: local changes saved to $P; vault reset to the latest"; fi
       fi
     fi
   fi
   vault_fullview_apply "$V"
   [ -n "$MSG" ] && echo "$MSG"
   OWN="$(vault_own_count "$G" "$V" 2>/dev/null)"
-  [ "${OWN:-0}" -gt 0 ] 2>/dev/null && echo "update-rbxdev-vault: $OWN of your own files kept (My Research, Games and your other files are never removed by /update-rbxdev-vault)"
+  [ "${OWN:-0}" -gt 0 ] 2>/dev/null && echo "rbx-update: $OWN of your own files kept (My Research, Games and your other files are never removed by /rbx-update)"
   return 0
 }
 # --- end vault-heal ---
-# --- vault-clean (only in vault-update.sh; logic for /update-clean-rbxdev-vault) ---
+# --- vault-clean (only in vault-update.sh; logic for /rbx-clean) ---
 # --clean: make the vault an EXACT copy of origin/main: fetch, reset --hard, git clean -fd (never -x) with explicit excludes for everything protected
 # (My Research/, every folder holding PROTECTED-RESEARCH.md, .full-view, Assets/, .obsidian/workspace*). DESTRUCTIVE: prints a dry run first and applies only with --yes
 # (or after an interactive "yes"). Before deleting it saves a patch of your tracked edits + a list (clean-removed-<ts>.patch/.list.txt, newest 5) and copies the untracked
@@ -162,7 +162,7 @@ vc_show() { # $1=heading $2=text $3=max lines
 vc_files() { find "$1" -type f 2>/dev/null | wc -l | tr -d ' '; }
 vc_kb() { du -sk "$1" 2>/dev/null | cut -f1; }
 vault_clean() { # $1=git $2=vault $3=state $4=yes(0|1) $5=include-mine(0|1) ; returns 0 when applied, 1 when not
-  local G="$1" V="$2" S="$3" YES="$4" INC="$5" TAG=update-clean-rbxdev-vault T TS BK d i a CL LOCAL UP KEEP="" TOTALKB=0 KB OKB=1 MINEOK=1 NOTE="" MINE=0 REMOVED
+  local G="$1" V="$2" S="$3" YES="$4" INC="$5" TAG=rbx-clean T TS BK d i a CL LOCAL UP KEEP="" TOTALKB=0 KB OKB=1 MINEOK=1 NOTE="" MINE=0 REMOVED
   local -a EX
   "$G" -C "$V" config core.autocrlf false 2>/dev/null; "$G" -C "$V" config core.safecrlf false 2>/dev/null
   vault_protect "$G" "$V"
@@ -247,7 +247,7 @@ EOF_IT
 }
 # --- end vault-clean ---
 
-if [ -n "$SETVIEW" ]; then # switch-only (/light-mode-on-rbxdev-vault, /light-mode-off-rbxdev-vault): no fetch, no update, no kit, no assets; works offline
+if [ -n "$SETVIEW" ]; then # switch-only (/rbx-light-on, /rbx-light-off): no fetch, no update, no kit, no assets; works offline
   if [ "$SETVIEW" = full ]; then
     mkdir -p "$VAULT/.git/info"; grep -qxF '/.full-view' "$VAULT/.git/info/exclude" 2>/dev/null || echo '/.full-view' >> "$VAULT/.git/info/exclude"
     echo 'full view on (vault-update.sh --set-view light to undo)' > "$VAULT/.full-view"; vault_fullview_apply "$VAULT"
@@ -266,15 +266,15 @@ elif [ "$FULLVIEW" = off ]; then
   rm -f "$VAULT/.full-view"; "$GIT" -C "$VAULT" checkout -q -- .obsidian/app.json 2>/dev/null
 fi
 BEFORE="$("$GIT" -C "$VAULT" rev-parse --short HEAD 2>/dev/null)"
-[ "$INCMINE" = 1 ] && [ "$CLEAN" = 0 ] && echo "update-rbxdev-vault: --include-mine only works together with --clean, ignored"
+[ "$INCMINE" = 1 ] && [ "$CLEAN" = 0 ] && echo "rbx-update: --include-mine only works together with --clean, ignored"
 if [ "$CLEAN" = 1 ]; then vault_clean "$GIT" "$VAULT" "$STATE" "$YES" "$INCMINE" || exit 0; MSG=""
 else MSG="$(vault_heal "$GIT" "$VAULT" "$STATE")"; fi
 AFTER="$("$GIT" -C "$VAULT" rev-parse --short HEAD 2>/dev/null)"
 [ -n "$MSG" ] && echo "$MSG"
-if [ "$BEFORE" != "$AFTER" ]; then echo "update-rbxdev-vault: vault updated $BEFORE -> $AFTER"
-elif [ "$QUIET" = 0 ]; then echo "update-rbxdev-vault: vault already up to date ($AFTER)"; fi
-if [ -f "$VAULT/.full-view" ]; then echo "update-rbxdev-vault: full view ON (Obsidian indexes everything except Assets/; slower). Switch back: bash vault-update.sh --full-view off"
-else echo "update-rbxdev-vault: light mode (default; Imported/, Library/ and Assets/ are not indexed by Obsidian). Full view: bash vault-update.sh --full-view on"; fi
+if [ "$BEFORE" != "$AFTER" ]; then echo "rbx-update: vault updated $BEFORE -> $AFTER"
+elif [ "$QUIET" = 0 ]; then echo "rbx-update: vault already up to date ($AFTER)"; fi
+if [ -f "$VAULT/.full-view" ]; then echo "rbx-update: full view ON (Obsidian indexes everything except Assets/; slower). Switch back: bash vault-update.sh --full-view off"
+else echo "rbx-update: light mode (default; Imported/, Library/ and Assets/ are not indexed by Obsidian). Full view: bash vault-update.sh --full-view on"; fi
 if [ -f "$VAULT/claude-kit/kit-refresh.sh" ]; then
   [ "$NOKIT" = 1 ] && export CLAUDE_KIT_SKIP=1
   [ "$NOASSETS" = 1 ] && export CLAUDE_ASSETS_SKIP=1
@@ -283,8 +283,8 @@ fi
 # companion AI Library Vault: updated together with this vault (own clone next to it; self-healing, protected My Research); never fails the update
 if [ "$NOAI" = 0 ] && [ -f "$VAULT/ai-vault-sync.sh" ]; then
   AIARGS=(); [ "$QUIET" = 1 ] && AIARGS+=(--quiet); [ -n "$FULLVIEW" ] && AIARGS+=(--full-view "$FULLVIEW")
-  bash "$VAULT/ai-vault-sync.sh" "${AIARGS[@]}" || echo "update-rbxdev-vault: AI Library Vault step failed (non-fatal)"
+  bash "$VAULT/ai-vault-sync.sh" "${AIARGS[@]}" || echo "rbx-update: AI Library Vault step failed (non-fatal)"
 fi
-[ "$QUIET" = 0 ] && echo "update-rbxdev-vault: done"
+[ "$QUIET" = 0 ] && echo "rbx-update: done"
 exit 0
 }

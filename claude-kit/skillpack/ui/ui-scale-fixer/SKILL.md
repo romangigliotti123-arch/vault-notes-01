@@ -4,7 +4,7 @@ description: "Convert Offset-based Roblox UI to Scale with size and aspect-ratio
 category: ui
 tags: ui, scale, offset, constraints, uiaspectratioconstraint, uisizeconstraint, responsive, mobile, aspect ratio
 kb: Roblox/roblox-kb/ui-ux-design.md, Roblox/roblox-kb/cross-platform-and-console.md
-related: mobile-ui-audit, roblox-ui-responsive, safe-area-checker, localization-ready-checker, hud-layout-planner
+related: mobile-ui-audit, rbx-ui, safe-area-checker, localization-ready-checker, hud-layout-planner
 ---
 
 # ui-scale-fixer
@@ -52,4 +52,4 @@ sweep: N issues -> ...      audit counts: before X -> after Y
 Converting with the wrong reference viewport (everything is slightly off). Scaling a button down until its hit area is tiny. Putting `UIAspectRatioConstraint` on a parent frame instead of the object. Using `TextScaled` without limits.
 
 ## Related
-`mobile-ui-audit`, `roblox-ui-responsive`, `safe-area-checker`, `localization-ready-checker`, `hud-layout-planner`.
+`mobile-ui-audit`, `rbx-ui`, `safe-area-checker`, `localization-ready-checker`, `hud-layout-planner`.

@@ -4,12 +4,12 @@ description: "Break a goal or milestone into small verifiable tasks an AI worker
 category: workflow
 tags: tasks, breakdown, decompose, waves, dependencies, ownership, verify, parallel, ledger
 kb: Roblox/roblox-kb/development-process-and-speed.md, Manager/topic-orchestration-patterns.md, Manager/topic-multi-agent-failure-modes.md, Manager/topic-managing-ai-agents-for-roblox-game-dev.md, Mentor/Combined-Brain.md
-related: project-kickoff, ai-brief-writer, worker-verifier, sprint-planner, scope-creep-guard, usage-budgeter, game-dev-workflow
+related: project-kickoff, ai-brief-writer, worker-verifier, sprint-planner, scope-creep-guard, usage-budgeter, rbx-workflow
 ---
 
 # task-breaker
 
-The head manager in `game-dev-workflow` keeps a job ledger (`jobs.md`, template `templates/jobs.md`). This skill produces the rows that go into it: the decomposition itself. It does not write the briefs (`ai-brief-writer`), choose models (`usage-budgeter`) or fit tasks into a week (`sprint-planner`).
+The head manager in `rbx-workflow` keeps a job ledger (`jobs.md`, template `templates/jobs.md`). This skill produces the rows that go into it: the decomposition itself. It does not write the briefs (`ai-brief-writer`), choose models (`usage-budgeter`) or fit tasks into a week (`sprint-planner`).
 
 ## When to use
 A milestone or feature has no task list, or a task is over four hours, or two planned tasks might edit the same file. Not for: design questions (`mvp-definer`), triage of existing bugs (`output-error-triager` and `bug-intake-builder`).

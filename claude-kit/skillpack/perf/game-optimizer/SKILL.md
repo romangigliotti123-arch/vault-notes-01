@@ -62,4 +62,4 @@ Regression guard: re-run scan_place.luau; keep: <numbers>
 Optimising by feel. Testing only on the dev PC. Turning on streaming late and breaking client scripts that assume everything exists (use `WaitForChild`, StreamingIntegrity, Persistent models). Removing collision that gameplay needs. Changing five things at once. Over-optimising past the target.
 
 ## Related
-`lag-hunter`, `script-profiler`, `streaming-enabler`, `part-count-auditor`, `network-traffic-auditor`, `model-cleaner`, `roblox-performance-pass` (kit skill).
+`lag-hunter`, `script-profiler`, `streaming-enabler`, `part-count-auditor`, `network-traffic-auditor`, `model-cleaner`, `rbx-perf` (kit skill).

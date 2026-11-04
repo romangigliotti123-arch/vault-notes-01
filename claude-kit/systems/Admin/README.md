@@ -48,4 +48,4 @@ cd <claude-kit>/systems && python check.py Admin
 ```
 
 ## Sources
-Roblox docs: TextChannel.ShouldDeliverCallback, GroupService:GetGroupsAsync, RemoteEvent security notes (create.roblox.com/docs/scripting/security/security-tactics); KB: `roblox-remote-security` skill.
+Roblox docs: TextChannel.ShouldDeliverCallback, GroupService:GetGroupsAsync, RemoteEvent security notes (create.roblox.com/docs/scripting/security/security-tactics); KB: `rbx-remote-sec` skill.

@@ -4,7 +4,7 @@ description: "Read a Roblox game's organic discovery numbers (impressions, CTR, 
 category: marketing
 tags: discovery, recommendations, impressions, ctr, ptr, qptr, bounce, d1, d7, home, recommended for you, signals
 kb: Roblox/roblox-kb/discovery-algorithm.md, Roblox/roblox-kb/ads-stats-monetisation-playbook.md, Roblox/roblox-kb/thumbnails-icons.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/analytics-metrics.md
-related: sponsored-ad-reviewer, retention-diagnoser, thumbnail-maker, store-page-audit, first-minute-designer, ctr-ab-test-planner, roblox-analytics-review
+related: sponsored-ad-reviewer, retention-diagnoser, thumbnail-maker, store-page-audit, first-minute-designer, ctr-ab-test-planner, rbx-analytics
 ---
 
 # discovery-signal-reader

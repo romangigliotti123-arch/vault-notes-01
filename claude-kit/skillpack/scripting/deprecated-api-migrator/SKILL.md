@@ -4,7 +4,7 @@ description: "Scan scripts for deprecated or legacy Roblox API use, say what rep
 category: scripting
 tags: deprecated, migration, wait, spawn, raycast, physicsservice, collision groups, bodyvelocity, linearvelocity, processreceipt, api
 kb: Roblox/roblox-kb/roblox-platform-changes.md, Roblox/roblox-kb/luau-language-and-types.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/building-art-and-assets.md, Roblox/roblox-kb/anti-exploit-and-security.md
-related: strict-mode-migrator, raycast-recipes, collision-group-setup, exploit-audit, model-cleaner, roblox-code-rate
+related: strict-mode-migrator, raycast-recipes, collision-group-setup, exploit-audit, model-cleaner, rbx-code-rate
 ---
 
 # deprecated-api-migrator
@@ -12,7 +12,7 @@ related: strict-mode-migrator, raycast-recipes, collision-group-setup, exploit-a
 The platform changes faster than any list. This skill finds likely deprecated use with `scripts/DeprecatedScan.luau`, separates what the vault actually records from what is only general knowledge, and forces a live docs check before any edit.
 
 ## When to use
-Pre-launch, after a release-notes read, when code came from old tutorials or free models, or when Studio shows deprecation warnings. Not for: style (use `roblox-luau-style`) or security review (use `exploit-audit`).
+Pre-launch, after a release-notes read, when code came from old tutorials or free models, or when Studio shows deprecation warnings. Not for: style (use `rbx-luau`) or security review (use `exploit-audit`).
 
 ## Inputs (max 2)
 1. Source root or place (default: all scripts). 2. Scope (default: everything; or only `confidence = vault` rules for a conservative pass).

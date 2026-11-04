@@ -1,18 +1,18 @@
 ---
 name: rewarded-ad-planner
-description: "Plan rewarded video ad placements and rewards for a game: eligibility, natural-break placements, optional deterministic consumable rewards, and a check of the plan against the vault's reported targets with a daily-volume estimate. Use when considering rewarded ads; buying ads to promote a game is a different job (game-dev-ads)."
+description: "Plan rewarded video ad placements and rewards for a game: eligibility, natural-break placements, optional deterministic consumable rewards, and a check of the plan against the vault's reported targets with a daily-volume estimate. Use when considering rewarded ads; buying ads to promote a game is a different job (rbx-ads)."
 category: money
 tags: rewarded video, rewarded ads, ads, placement, reward, opt-in, eligibility, dau, monetisation, non-payers
 kb: Roblox/roblox-kb/monetisation-other.md, Roblox/roblox-kb/ads-and-sponsored-experiences.md, Roblox/roblox-kb/ads-stats-monetisation-playbook.md, Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/_tools/CHECKLIST-monetization.md
-related: offer-timing-planner, economy-balancer, pay-to-win-checker, shop-conversion-optimizer, game-dev-ads, premium-benefits-planner
+related: offer-timing-planner, economy-balancer, pay-to-win-checker, shop-conversion-optimizer, rbx-ads, premium-benefits-planner
 ---
 
 # rewarded-ad-planner
 
-One job: decide where a rewarded video fits and what it gives, without hurting the paid shop or the fun. Rewarded video is a beta-style platform feature with eligibility conditions (the vault reports roughly 100,000 DAU during the beta); everything below is Roblox Creator Docs 2026-10 and creator talks and must be live-checked. This skill plans USING ads inside your game; buying ads to promote it is `game-dev-ads` / `roblox-ad-campaign-planner`.
+One job: decide where a rewarded video fits and what it gives, without hurting the paid shop or the fun. Rewarded video is a beta-style platform feature with eligibility conditions (the vault reports roughly 100,000 DAU during the beta); everything below is Roblox Creator Docs 2026-10 and creator talks and must be live-checked. This skill plans USING ads inside your game; buying ads to promote it is `rbx-ads` / `rbx-ad-plan`.
 
 ## When to use
-A game with enough daily players wants a revenue source from non-payers. Not for: promoting the game (`game-dev-ads`), immersive ads or portals (read `ads-and-sponsored-experiences.md` first).
+A game with enough daily players wants a revenue source from non-payers. Not for: promoting the game (`rbx-ads`), immersive ads or portals (read `ads-and-sponsored-experiences.md` first).
 
 ## Inputs (max 3)
 1. DAU and platform mix (default: read the dashboard). 2. The game's natural breaks (lobby, death, results, between rounds) (default: ask). 3. Currencies and paid boosts the reward could overlap (default: read the shop).
@@ -50,4 +50,4 @@ Plan document plus `ad_plan.py` (headless). Everything platform-side stays `unte
 Rewards bigger than what paying gets. Random rewards. Interrupting play. Promising uplift. Forgetting that eligibility may exclude small games. Granting on the client's say-so.
 
 ## Related
-`offer-timing-planner`, `economy-balancer`, `pay-to-win-checker`, `shop-conversion-optimizer`, `game-dev-ads`.
+`offer-timing-planner`, `economy-balancer`, `pay-to-win-checker`, `shop-conversion-optimizer`, `rbx-ads`.

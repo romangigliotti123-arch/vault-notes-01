@@ -4,7 +4,7 @@ description: "Turn a game premise into ONE core loop split into the three layers
 category: design
 tags: core loop, loop, gameplay loop, progression, feedback, juice, cycle time, retention, design
 kb: Roblox/roblox-kb/core-loops-and-game-design.md, Roblox/roblox-kb/player-psychology-and-game-feel.md, Roblox/roblox-kb/genre-mechanics.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/case-studies-pet-simulator-99.md
-related: idea-validator, first-minute-designer, progression-curve-designer, reward-schedule-designer, game-feel-polisher, scope-cutter, feature-prioritizer, roblox-round-based-game-loop
+related: idea-validator, first-minute-designer, progression-curve-designer, reward-schedule-designer, game-feel-polisher, scope-cutter, feature-prioritizer, rbx-rounds
 ---
 
 # core-loop-designer
@@ -12,7 +12,7 @@ related: idea-validator, first-minute-designer, progression-curve-designer, rewa
 Everything else hangs from this. The vault's first rule: define one core loop and make it fun before anything else; every new system must feed it or be cut.
 
 ## When to use
-After `idea-validator` says GO, or when a game feels like a pile of features. Not for: round/intermission structure of a match game (`roblox-round-based-game-loop` covers state flow; use this first for the player-facing loop).
+After `idea-validator` says GO, or when a game feels like a pile of features. Not for: round/intermission structure of a match game (`rbx-rounds` covers state flow; use this first for the player-facing loop).
 
 ## Inputs (max 3)
 1. The premise (default: `docs/idea.md`). 2. Reference game(s) (default: from the validator). 3. Session target (default: 10-15 minute sessions, mobile-first).

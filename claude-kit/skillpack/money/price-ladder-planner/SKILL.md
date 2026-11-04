@@ -4,7 +4,7 @@ description: "Build a Robux price ladder for passes, products and bundles - entr
 category: money
 tags: price, pricing, ladder, robux, tiers, regional pricing, price optimization, test, conversion, bundle
 kb: Roblox/roblox-kb/pricing.md, Roblox/roblox-kb/_tools/PRICE-LADDER.md, Roblox/roblox-kb/monetisation-gamepasses.md, Roblox/roblox-kb/monetisation-devproducts.md, Roblox/roblox-kb/ab-testing-and-experiments.md
-related: gamepass-maker, devproduct-handler, starter-pack-designer, regional-pricing-checker, price-optimization-readiness, shop-conversion-optimizer, roblox-monetization-audit
+related: gamepass-maker, devproduct-handler, starter-pack-designer, regional-pricing-checker, price-optimization-readiness, shop-conversion-optimizer, rbx-monetize-audit
 ---
 
 # price-ladder-planner
@@ -49,4 +49,4 @@ The same procedure from the KB and the script; no tooling beyond Python.
 Copying a competitor's price (different audience and economy). Pricing in a vacuum from developer cost. Comparing units sold instead of revenue per visitor. Changing prices during an event. Ignoring the Robux the buyer has: kids buy fixed Robux packs, so odd prices leave awkward remainders.
 
 ## Related
-`gamepass-maker`, `devproduct-handler`, `starter-pack-designer`, `regional-pricing-checker`, `price-optimization-readiness`, `roblox-monetization-audit`.
+`gamepass-maker`, `devproduct-handler`, `starter-pack-designer`, `regional-pricing-checker`, `price-optimization-readiness`, `rbx-monetize-audit`.

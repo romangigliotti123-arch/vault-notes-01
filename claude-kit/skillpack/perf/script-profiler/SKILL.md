@@ -4,7 +4,7 @@ description: "Find and fix Luau hot spots: capture a Script Profiler / MicroProf
 category: perf
 tags: profiler, microprofiler, script profiler, luau, hot spot, benchmark, heartbeat, loop, cpu, optimise code
 kb: Roblox/roblox-kb/optimization-and-streaming.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/code-architecture-and-frameworks.md, Roblox/roblox-kb/luau-language-and-types.md
-related: game-optimizer, lag-hunter, heartbeat-loop-auditor, object-pool-builder, collection-tag-wiring, actor-parallel-converter, connection-leak-auditor, roblox-code-rate
+related: game-optimizer, lag-hunter, heartbeat-loop-auditor, object-pool-builder, collection-tag-wiring, actor-parallel-converter, connection-leak-auditor, rbx-code-rate
 ---
 
 # script-profiler

@@ -4,7 +4,7 @@ description: "Wire the kit's tested systems (PlayerData, Shop, DailyRewards, Ana
 category: systems
 tags: kit systems, PlayerData, Shop, DailyRewards, Analytics, Admin, integration, wiring, BindToClose, ProcessReceipt
 kb: Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/monetisation-devproducts.md, Roblox/roblox-kb/_tools/CHECKLIST-launch.md
-related: roblox-rojo-project-setup, datastore-schema-builder, devproduct-handler, gamepass-maker, remote-guard-builder, exploit-audit
+related: rbx-rojo, datastore-schema-builder, devproduct-handler, gamepass-maker, remote-guard-builder, exploit-audit
 ---
 
 # kit-system-integrator
@@ -49,4 +49,4 @@ Wired project plus the checker report (FAIL/WARN counts) and the `check.py` resu
 Assigning `ProcessReceipt` twice (the last wins, purchases vanish). Saving only on leave (shutdown loses data). Systems that keep their own copy of player data instead of `session.Data`. Treating a clean static report as a working game. Editing a system's `src/` in the project and forgetting the kit copy.
 
 ## Related
-`roblox-rojo-project-setup`, `datastore-schema-builder`, `devproduct-handler`, `gamepass-maker`, `remote-guard-builder`, `exploit-audit`.
+`rbx-rojo`, `datastore-schema-builder`, `devproduct-handler`, `gamepass-maker`, `remote-guard-builder`, `exploit-audit`.

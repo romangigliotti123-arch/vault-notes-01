@@ -4,7 +4,7 @@ description: "Cluster player feedback (Discord, comments, ratings, playtest note
 category: liveops
 tags: feedback, player feedback, themes, discord, comments, requests, prioritisation, community, playtest, voice of player
 kb: Roblox/roblox-kb/playtesting-and-feedback.md, Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/community-and-discord.md, Roblox/roblox-kb/analytics-metrics.md
-related: churn-reason-finder, retention-diagnoser, patch-notes-writer, update-cadence-planner, game-dev-playtest, discord-server-setup, game-dev-critic
+related: churn-reason-finder, retention-diagnoser, patch-notes-writer, update-cadence-planner, rbx-playtest, discord-server-setup, rbx-critic
 ---
 
 # feedback-synthesizer
@@ -12,7 +12,7 @@ related: churn-reason-finder, retention-diagnoser, patch-notes-writer, update-ca
 The vault: start updates from a problem and a KPI, combine community feedback (Discord, polls, ratings) with metrics and tests, and check requests against the data before building them. This skill does the first half: turn a pile of comments into counted themes with evidence. It uses keyword matching, so it counts, it does not understand; you read the samples.
 
 ## When to use
-Before an update plan, after a rough release, or when Discord is on fire. Not for: structured playtest sessions (`game-dev-playtest`), writing the announcement (`patch-notes-writer`), or diagnosing a metric (`retention-diagnoser`).
+Before an update plan, after a rough release, or when Discord is on fire. Not for: structured playtest sessions (`rbx-playtest`), writing the announcement (`patch-notes-writer`), or diagnosing a metric (`retention-diagnoser`).
 
 ## Inputs (max 2)
 1. The feedback as text, one comment per line, with the source noted (Discord channel, game comments, store reviews, playtest notes); a CSV with a `text` column also works. 2. Time range and what shipped in it.
@@ -55,4 +55,4 @@ Public reply plan, re-check date
 Treating the loudest voice as the majority. Counting one player's ten messages as ten. Building requested features that the data shows no one uses. Ignoring newcomers who never post. Over-trusting keyword themes.
 
 ## Related
-`churn-reason-finder`, `retention-diagnoser`, `patch-notes-writer`, `update-cadence-planner`, `game-dev-playtest`.
+`churn-reason-finder`, `retention-diagnoser`, `patch-notes-writer`, `update-cadence-planner`, `rbx-playtest`.

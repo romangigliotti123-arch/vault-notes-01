@@ -4,12 +4,12 @@ description: "Write the handoff note that lets the next Claude session, worker o
 category: workflow
 tags: handoff, resume, session, context, progress, state, pause, continue
 kb: Manager/topic-long-running-always-on-agents.md, Manager/topic-context-window-management.md, Manager/topic-context-engineering.md, Roblox/roblox-kb/development-process-and-speed.md, Mentor/Combined-Brain.md
-related: project-kickoff, decision-log-writer, worker-verifier, game-dev-workflow, ai-brief-writer, onboarding-new-dev
+related: project-kickoff, decision-log-writer, worker-verifier, rbx-workflow, ai-brief-writer, onboarding-new-dev
 ---
 
 # session-handoff
 
-`game-dev-workflow` already resumes from `Games/<slug>/GAME.md` and the evidence stage. A handoff is the short human-and-AI-readable note for the gap that file does not cover: what exactly was half-finished, how to run it, what was tried and failed. It is not a status report to Roman (that is the worker report) and not a design doc.
+`rbx-workflow` already resumes from `Games/<slug>/GAME.md` and the evidence stage. A handoff is the short human-and-AI-readable note for the gap that file does not cover: what exactly was half-finished, how to run it, what was tried and failed. It is not a status report to Roman (that is the worker report) and not a design doc.
 
 ## When to use
 End of a working session, before `/compact` or a restart, when a worker stops PARTIAL, or when another person or agent takes over. Not for: the permanent record of why something was chosen (`decision-log-writer`), onboarding a new teammate (`onboarding-new-dev`).
@@ -48,4 +48,4 @@ Shell output of the git commands above pasted into the sections; Studio-only fac
 Writing Done from memory of intent instead of from output. Leaving the failed attempts out, which makes the next session retry them. A Next that says "continue the shop". Pasting the whole transcript; the note is a pointer set.
 
 ## Related
-`project-kickoff`, `decision-log-writer`, `worker-verifier`, `ai-brief-writer`, `onboarding-new-dev`, `game-dev-workflow`.
+`project-kickoff`, `decision-log-writer`, `worker-verifier`, `ai-brief-writer`, `onboarding-new-dev`, `rbx-workflow`.

@@ -4,7 +4,7 @@ description: "Add a retry helper with exponential backoff, jitter, a waiting bud
 category: scripting
 tags: retry, backoff, jitter, pcall, datastore, throttle, http, marketplaceservice, memorystore, transient error
 kb: Roblox/roblox-kb/data-persistence.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/testing-debugging-and-qa.md
-related: roblox-datastore-safe-save, datastore-schema-builder, error-logger-builder, lune-unit-test-writer, kit-system-integrator
+related: rbx-datastore, datastore-schema-builder, error-logger-builder, lune-unit-test-writer, kit-system-integrator
 ---
 
 # retry-wrapper-builder
@@ -50,4 +50,4 @@ Lune tests with injected wait and random; real service errors and their exact wo
 Retry storms after an outage (no jitter). Retrying a purchase grant. Unbounded `while not ok` loops. Treating `unknown` as retryable for a harmful write. Hiding failures: log the final one. Using fixed `wait(7)` style delays.
 
 ## Related
-`roblox-datastore-safe-save`, `datastore-schema-builder`, `error-logger-builder`, `lune-unit-test-writer`.
+`rbx-datastore`, `datastore-schema-builder`, `error-logger-builder`, `lune-unit-test-writer`.

@@ -4,12 +4,12 @@ description: "Explain the Creator Hub analytics pages (overview benchmark scorec
 category: liveops
 tags: creator hub, analytics, dashboard, overview, acquisition, home recommendations, retention, monetization, performance, explain, latency
 kb: Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/discovery-algorithm.md, Roblox/roblox-kb/_tools/BENCHMARKS.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/optimization-and-streaming.md
-related: kpi-dashboard-planner, retention-diagnoser, metrics-snapshot-logger, dau-drop-investigator, funnel-analyzer, roblox-analytics-review, roblox-metrics-benchmarks
+related: kpi-dashboard-planner, retention-diagnoser, metrics-snapshot-logger, dau-drop-investigator, funnel-analyzer, rbx-analytics, rbx-metrics
 ---
 
 # stat-sheet-explainer
 
-A translator between the dashboard and a decision. Page names in Creator Hub change; this skill is built from the vault's reading rules, so each explanation names the page by what it measures and says to live-check the exact label. The kit skill `roblox-analytics-review` reviews a whole dashboard; this answers "what is this number and what do I do".
+A translator between the dashboard and a decision. Page names in Creator Hub change; this skill is built from the vault's reading rules, so each explanation names the page by what it measures and says to live-check the exact label. The kit skill `rbx-analytics` reviews a whole dashboard; this answers "what is this number and what do I do".
 
 ## When to use
 A new creator or teammate learning the dashboard, a number that surprises you, or a weekly review where nobody knows which page matters. Not for: choosing KPIs (`kpi-dashboard-planner`) or diagnosing one metric (`retention-diagnoser`).

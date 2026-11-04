@@ -4,7 +4,7 @@ description: "Add one error logger that wraps handlers and risky calls in protec
 category: scripting
 tags: error, logging, pcall, xpcall, traceback, throttle, telemetry, crash, report, analytics, handler
 kb: Roblox/roblox-kb/testing-debugging-and-qa.md, Roblox/roblox-kb/scripting-and-performance.md, Roblox/roblox-kb/analytics-metrics.md
-related: retry-wrapper-builder, lune-unit-test-writer, remote-guard-builder, lag-hunter, roblox-datastore-safe-save, kit-system-integrator
+related: retry-wrapper-builder, lune-unit-test-writer, remote-guard-builder, lag-hunter, rbx-datastore, kit-system-integrator
 ---
 
 # error-logger-builder

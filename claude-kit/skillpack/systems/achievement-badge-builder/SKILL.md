@@ -4,7 +4,7 @@ description: "Build achievements that unlock once, are saved in player data, and
 category: systems
 tags: badges, achievements, BadgeService, AwardBadge, idempotent, retry, unlock, pending queue
 kb: Roblox/roblox-kb/genre-mechanics.md, Roblox/roblox-kb/retention-d1-d7.md, Roblox/roblox-kb/anti-exploit-and-security.md, Roblox/roblox-kb/discovery-algorithm.md
-related: quest-system-builder, first-minute-designer, event-planner, discord-server-setup, roblox-launch-checklist
+related: quest-system-builder, first-minute-designer, event-planner, discord-server-setup, rbx-launch-check
 ---
 
 # achievement-badge-builder
@@ -49,4 +49,4 @@ Files + Lune tests with a failing fake award. Everything that needs a running St
 Marking done only after the badge call succeeds (a crash repeats the unlock effects). Calling `AwardBadge` on the main thread without `pcall`. Awarding in `PlayerAdded` before data loads. Trusting a client remote as the trigger. Creating badges the design never pays out.
 
 ## Related
-`quest-system-builder`, `first-minute-designer`, `event-planner`, `roblox-launch-checklist`.
+`quest-system-builder`, `first-minute-designer`, `event-planner`, `rbx-launch-check`.

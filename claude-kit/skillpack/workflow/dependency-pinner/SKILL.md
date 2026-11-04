@@ -4,12 +4,12 @@ description: "Pin Rojo, StyLua, Selene, luau-lsp, Lune and Wally package version
 category: workflow
 tags: pin, version, rokit, wally, rojo, stylua, selene, lune, dependency, upgrade, toolchain
 kb: Roblox/roblox-kb/version-control-and-tooling.md, Roblox/roblox-kb/tools-and-resources.md, Roblox/roblox-kb/development-process-and-speed.md, Manager/topic-claude-code-features.md, Mentor/Combined-Brain.md
-related: roblox-rojo-project-setup, ci-check-setter, git-workflow-setter, project-kickoff, folder-structure-planner, code-style-guide-writer
+related: rbx-rojo, ci-check-setter, git-workflow-setter, project-kickoff, folder-structure-planner, code-style-guide-writer
 ---
 
 # dependency-pinner
 
-Same toolchain on every machine and for every worker, upgraded on purpose. The kit template ships a pinned `rokit.toml`; `roblox-rojo-project-setup` installs the managers. This skill keeps pins exact, notices drift, and defines the upgrade routine. Installing software is the user's decision: this skill reads and edits pin files, it does not download tools.
+Same toolchain on every machine and for every worker, upgraded on purpose. The kit template ships a pinned `rokit.toml`; `rbx-rojo` installs the managers. This skill keeps pins exact, notices drift, and defines the upgrade routine. Installing software is the user's decision: this skill reads and edits pin files, it does not download tools.
 
 ## When to use
 A new project copies the template, two machines give different lint results, or a tool update is being considered. Not for: choosing which libraries to adopt, or auditing a model's licence (`asset-license-checker`).
@@ -47,4 +47,4 @@ Corrected `rokit.toml`/`wally.toml`, `docs/TOOLCHAIN.md`, the pincheck output.
 Pinning to what the docs say rather than what is installed. Upgrading three tools in one commit. Treating a newer version as automatically better. `@latest` in a team repo.
 
 ## Related
-`roblox-rojo-project-setup`, `ci-check-setter`, `git-workflow-setter`, `project-kickoff`, `code-style-guide-writer`.
+`rbx-rojo`, `ci-check-setter`, `git-workflow-setter`, `project-kickoff`, `code-style-guide-writer`.

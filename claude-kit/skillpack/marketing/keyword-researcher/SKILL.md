@@ -4,7 +4,7 @@ description: "Find the words players type to find a Roblox game like yours: coll
 category: marketing
 tags: keywords, search, seo, genre terms, competition, creator xchange, niche, semantic search, discovery
 kb: Roblox/roblox-kb/titles-descriptions.md, Roblox/roblox-kb/discovery-algorithm.md, Roblox/roblox-kb/ads-and-sponsored-experiences.md, Roblox/roblox-kb/trend-research-and-validation.md
-related: title-generator, game-description-writer, roblox-trend-research, store-page-audit, sponsored-ad-reviewer, tagline-writer
+related: title-generator, game-description-writer, rbx-trends, store-page-audit, sponsored-ad-reviewer, tagline-writer
 ---
 
 # keyword-researcher
@@ -12,7 +12,7 @@ related: title-generator, game-description-writer, roblox-trend-research, store-
 Search is a separate door into a game. Vault: players search by typed name, genre keywords in title and description help, low-competition phrasings are "free visits", and ranking high for your genre keyword against higher-CCU games is an early positive sign. This skill builds the list from live observation. It does not invent volumes: Roblox publishes no search-volume numbers, so everything ranks by what you can see.
 
 ## When to use
-Before `title-generator` or `game-description-writer`, or when the game gets impressions but little search traffic. Not for: ad keyword bidding, which needs Ads Manager's Audience Estimator (`sponsored-ad-reviewer` reads the results); market trends (`roblox-trend-research`).
+Before `title-generator` or `game-description-writer`, or when the game gets impressions but little search traffic. Not for: ad keyword bidding, which needs Ads Manager's Audience Estimator (`sponsored-ad-reviewer` reads the results); market trends (`rbx-trends`).
 
 ## Inputs (max 2)
 1. Genre and fantasy in a sentence (default: `GAME.md`). 2. 3-5 reference games (default: the idea-validator's references).
@@ -48,4 +48,4 @@ Same. The research is manual search on a real device; mark every ranking `observ
 Optimising for words nobody types. Stuffing. Choosing a head term where every top-10 game is large. Mixing in other games' brand names. Treating one search session as truth: results personalise and drift.
 
 ## Related
-`title-generator`, `game-description-writer`, `roblox-trend-research`, `store-page-audit`, `tagline-writer`.
+`title-generator`, `game-description-writer`, `rbx-trends`, `store-page-audit`, `tagline-writer`.

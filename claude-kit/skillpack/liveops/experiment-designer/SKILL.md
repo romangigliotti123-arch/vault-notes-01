@@ -4,7 +4,7 @@ description: "Design a Creator Hub experiment before starting it: one hypothesis
 category: liveops
 tags: experiment, a/b test, hypothesis, configs, creator hub experiments, sample size, mde, guardrail, exposure
 kb: Roblox/roblox-kb/ab-testing-and-experiments.md, Roblox/roblox-kb/analytics-metrics.md, Roblox/roblox-kb/updates-live-ops.md, Roblox/roblox-kb/first-session-onboarding.md
-related: ab-result-reader, feature-flag-config-builder, cohort-reader, retention-diagnoser, ctr-ab-test-planner, live-balance-tuner, roblox-analytics-review
+related: ab-result-reader, feature-flag-config-builder, cohort-reader, retention-diagnoser, ctr-ab-test-planner, live-balance-tuner, rbx-analytics
 ---
 
 # experiment-designer

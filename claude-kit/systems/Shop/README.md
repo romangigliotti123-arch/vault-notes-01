@@ -49,7 +49,7 @@ Client UI: `ReplicatedStorage.ShopRequest:FireServer("product", "Coins100")` / `
 - Roblox keeps calling `ProcessReceipt` until it says granted: an unknown product id retries forever (the log tells you), so keep `products` in sync with the Creator Dashboard.
 - Pass perks that live in the world (a door, a tool) should check `HasPass` on the server at use time, not a client flag.
 - Do not use `data.Receipts` for anything else. Keep it in the saved record; a separate in-memory table would lose the idempotency across servers.
-- Prices/ids belong to the Creator Dashboard; monetisation fairness rules are in the vault (`roblox-monetisation-setup`, `game-dev-critic`).
+- Prices/ids belong to the Creator Dashboard; monetisation fairness rules are in the vault (`rbx-monetize`, `rbx-critic`).
 
 ## Tests (2026-11-01)
 ```

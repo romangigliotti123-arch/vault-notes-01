@@ -12,7 +12,7 @@ related: thumbnail-maker, game-icon-maker, game-description-writer, experiment-d
 A test that cannot be read is worse than no test. This skill fixes the design before any image goes live: one variable, one metric, one hold time, one decision rule. In-game feature tests use `experiment-designer` (Creator Hub experiments); this is for packaging.
 
 ## When to use
-You have two or more thumbnail/icon/title candidates, or CTR/PTR is low. Not for: in-game tuning, ad budget planning (`roblox-ad-campaign-planner`).
+You have two or more thumbnail/icon/title candidates, or CTR/PTR is low. Not for: in-game tuning, ad budget planning (`rbx-ad-plan`).
 
 ## Inputs (max 3)
 1. The candidates (default: `art/thumbnail-plan.md`). 2. Traffic: impressions and visits per day (Creator Hub analytics; default: unknown = plan for low traffic). 3. Which mechanism is available (default: check live).
