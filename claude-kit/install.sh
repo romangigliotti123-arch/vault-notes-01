@@ -144,6 +144,10 @@ if [ -f "$MODS/.claude-plugin/marketplace.json" ] && [ $DRY = 0 ] && [ $MODS_ON 
         r="$(claude plugin install "$m@$MK" 2>&1)" || { printf '%s' "$r" | grep -qi already || { ok=0; why="install of $m failed"; }; }
       done
     fi
+    if [ $ok = 1 ]; then   # SM: copy semantics: a plugin that was already installed keeps its old copy until updated (rbx-graph 0.2.0 = link only)
+      claude plugin marketplace update "$MK" >/dev/null 2>&1
+      for m in rbx-subagent-hud rbx-graph; do claude plugin update "$m@$MK" >/dev/null 2>&1; done
+    fi
     if [ $ok = 1 ]; then echo "mods: rbx-subagent-hud (/rbx-subagent-hud), rbx-graph (/rbx-graph): installed"
     else echo "mods: not installed ($why). In a Claude session run: /plugin marketplace add $MODS  then  /plugin install rbx-subagent-hud@$MK  and  /plugin install rbx-graph@$MK  then  /reload-plugins"; fi
   else

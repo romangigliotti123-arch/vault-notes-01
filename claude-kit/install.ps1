@@ -176,6 +176,10 @@ if ((Test-Path -LiteralPath (Join-Path $modsDir '.claude-plugin\marketplace.json
         if ($r.code -ne 0 -and $r.out -notmatch 'already') { $ok = $false; $why = "install of $m failed" }
       }
     }
+    if ($ok) {   # SM: copy semantics: a plugin that was already installed keeps its old copy until updated (rbx-graph 0.2.0 = link only)
+      [void](ClaudeRun $cl.Source @('plugin', 'marketplace', 'update', $mk))
+      foreach ($m in 'rbx-subagent-hud', 'rbx-graph') { [void](ClaudeRun $cl.Source @('plugin', 'update', "$m@$mk")) }
+    }
     $env:CLAUDE_CONFIG_DIR = $prevCfg; if (-not $prevCfg) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }
     if ($ok) { Write-Output 'mods: rbx-subagent-hud (/rbx-subagent-hud), rbx-graph (/rbx-graph): installed' }
     else { Write-Output "mods: not installed ($why). In a Claude session run: /plugin marketplace add $modsDir  then  /plugin install rbx-subagent-hud@$mk  and  /plugin install rbx-graph@$mk  then  /reload-plugins" }

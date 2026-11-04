@@ -10,13 +10,14 @@
 #    access (the notes then stay queued). Env CLAUDE_LEARN_SKIP=1 skips this part.
 # 1b) mode sync (see below): refreshes the project folders where /rbx-load copied the skills/agents. Env CLAUDE_MODE_SKIP=1 skips it.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller.
+# Last line (only when the kit changed and the caller is not the current vault-update.sh, which prints it itself): "Your vault is up to date as of ... (local time)" (tools/vault-published.py).
 {
 D="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$D/install.sh" ]; then
   out="$(CLAUDE_KIT_NOFOOTER=1 bash "$D/install.sh" 2>&1)" || out="kit refresh failed: $out"
   case "$out" in
     *"installed 0 new, updated 0, unchanged "*"replaced-yours 0 "*) ;;
-    *) printf '%s kit-refresh: %s\n' "$(date '+%F %T')" "$(printf '%s' "$out" | tr '\n' ' ')" ;;
+    *) KCHANGED=1; printf '%s kit-refresh: %s\n' "$(date '+%F %T')" "$(printf '%s' "$out" | tr '\n' ' ')" ;;
   esac
 fi
 # 1b) tools/vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/rbx-load) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips this part.
@@ -48,6 +49,13 @@ if [ "${CLAUDE_LEARN_SKIP:-0}" != 1 ] && [ -f "$D/tools/learn.py" ]; then
   for p in python3 python; do
     if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then "$p" -I "$D/tools/learn.py" flush --quiet >/dev/null 2>&1; break; fi
   done
+fi
+if [ "${KCHANGED:-0}" = 1 ] && [ -z "${VAULT_UPDATE_LINE:-}" ]; then
+  PL=""
+  for p in python3 python; do
+    if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then [ -f "$D/tools/vault-published.py" ] && PL="$("$p" -I "$D/tools/vault-published.py" --vault "$(dirname "$D")" 2>/dev/null | tail -n 1)"; break; fi
+  done
+  echo "${PL:-Your vault is up to date.}"
 fi
 exit 0
 }

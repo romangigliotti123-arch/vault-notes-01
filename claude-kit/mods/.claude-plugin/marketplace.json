@@ -16,7 +16,7 @@
     {
       "name": "rbx-graph",
       "source": "./rbx-graph",
-      "description": "/rbx-graph opens a side pane with the link graph of the vault: centre note, links in and out, search, preview.",
+      "description": "/rbx-graph replies with the clickable link to the vault graph site and nothing else.",
       "author": {
         "name": "Roman"
       }

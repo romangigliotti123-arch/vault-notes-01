@@ -295,6 +295,7 @@ if (Test-Path -LiteralPath $marker) { Write-Output 'rbx-update: full view ON (Ob
 else { Write-Output 'rbx-update: light mode (default; Imported/, Library/ and Assets/ are not indexed by Obsidian). Full view: vault-update.ps1 -FullView on' }
 $kr = Join-Path $vault 'claude-kit\kit-refresh.ps1'
 if (Test-Path -LiteralPath $kr) {
+  $env:VAULT_UPDATE_LINE = '1'   # this script prints the final line itself
   if ($NoKit) { $env:CLAUDE_KIT_SKIP = '1' }
   if ($NoAssets) { $env:CLAUDE_ASSETS_SKIP = '1' }
   & powershell -NoProfile -ExecutionPolicy Bypass -File $kr
@@ -312,4 +313,10 @@ if (-not $NoAiVault) {
   }
 }
 if (-not $Quiet) { Write-Output 'rbx-update: done' }
+# last line of /rbx-update: "Your vault is up to date as of <Weekday D Month YYYY, h:mm am/pm> (local time)" (tools\vault-published.ps1; plain "Your vault is up to date." when there is no commit date)
+$pubLine = ''
+$pubScript = Join-Path $vault 'claude-kit\tools\vault-published.ps1'
+if (Test-Path -LiteralPath $pubScript) { try { $pubLine = @((& powershell -NoProfile -ExecutionPolicy Bypass -File $pubScript -Vault $vault | Out-String) -split "`r?`n" | Where-Object { $_.Trim() })[-1] } catch { } }
+if (-not $pubLine) { $pubLine = 'Your vault is up to date.' }
+Write-Output $pubLine
 exit 0

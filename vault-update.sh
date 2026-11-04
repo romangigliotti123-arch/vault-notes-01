@@ -247,6 +247,17 @@ EOF_IT
 }
 # --- end vault-clean ---
 
+# last line of /rbx-update: "Your vault is up to date as of <Weekday D Month YYYY, h:mm am/pm> (local time)" (tools/vault-published.py; plain "Your vault is up to date." when no python or no commit date)
+vault_published_line() { # $1 = vault ; prints exactly one line, never fails
+  local p l=""
+  for p in python3 python; do
+    if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then
+      [ -f "$1/claude-kit/tools/vault-published.py" ] && l="$("$p" -I "$1/claude-kit/tools/vault-published.py" --vault "$1" 2>/dev/null | tail -n 1)"
+      break
+    fi
+  done
+  echo "${l:-Your vault is up to date.}"
+}
 if [ -n "$SETVIEW" ]; then # switch-only (/rbx-light-on, /rbx-light-off): no fetch, no update, no kit, no assets; works offline
   if [ "$SETVIEW" = full ]; then
     mkdir -p "$VAULT/.git/info"; grep -qxF '/.full-view' "$VAULT/.git/info/exclude" 2>/dev/null || echo '/.full-view' >> "$VAULT/.git/info/exclude"
@@ -276,6 +287,7 @@ elif [ "$QUIET" = 0 ]; then echo "rbx-update: vault already up to date ($AFTER)"
 if [ -f "$VAULT/.full-view" ]; then echo "rbx-update: full view ON (Obsidian indexes everything except Assets/; slower). Switch back: bash vault-update.sh --full-view off"
 else echo "rbx-update: light mode (default; Imported/, Library/ and Assets/ are not indexed by Obsidian). Full view: bash vault-update.sh --full-view on"; fi
 if [ -f "$VAULT/claude-kit/kit-refresh.sh" ]; then
+  export VAULT_UPDATE_LINE=1   # this script prints the final line itself
   [ "$NOKIT" = 1 ] && export CLAUDE_KIT_SKIP=1
   [ "$NOASSETS" = 1 ] && export CLAUDE_ASSETS_SKIP=1
   bash "$VAULT/claude-kit/kit-refresh.sh"
@@ -286,5 +298,6 @@ if [ "$NOAI" = 0 ] && [ -f "$VAULT/ai-vault-sync.sh" ]; then
   bash "$VAULT/ai-vault-sync.sh" "${AIARGS[@]}" || echo "rbx-update: AI Library Vault step failed (non-fatal)"
 fi
 [ "$QUIET" = 0 ] && echo "rbx-update: done"
+vault_published_line "$VAULT"
 exit 0
 }

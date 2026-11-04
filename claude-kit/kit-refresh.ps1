@@ -8,6 +8,7 @@
 # 4) tools\learn.py flush --quiet: sends the notes queued by /rbx-learn to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write
 #    access (the notes then stay queued). Env CLAUDE_LEARN_SKIP=1 skips this part.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller. Env CLAUDE_KIT_HOME is honoured by install.ps1.
+# Last line (only when the kit changed and the caller is not the current vault-update.ps1, which prints it itself): "Your vault is up to date as of ... (local time)" (tools\vault-published.ps1).
 $ErrorActionPreference = 'Continue'
 $env:CLAUDE_KIT_NOFOOTER = '1'
 $d = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -18,6 +19,7 @@ if ($env:CLAUDE_KIT_SKIP -ne '1') {
       $out = (& powershell -NoProfile -ExecutionPolicy Bypass -File $inst 2>&1 | Out-String).Trim()
     } catch { $out = 'kit refresh failed: ' + $_.Exception.Message }
     if ($out -notmatch 'installed 0 new, updated 0, unchanged \d+, replaced-yours 0 ') {
+      $kChanged = $true
       Write-Output ("{0} kit-refresh: {1}" -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), ($out -replace "\s*\r?\n\s*", ' '))
     }
   }
@@ -73,5 +75,12 @@ if (($env:CLAUDE_LEARN_SKIP -ne '1') -and (Test-Path -LiteralPath $learn)) {
       if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $learn, 'flush', '--quiet')) *> $null; break }
     }
   } catch { }
+}
+if ($kChanged -and -not $env:VAULT_UPDATE_LINE) {
+  $pl = ''
+  $pubScript = Join-Path $d 'tools\vault-published.ps1'
+  if (Test-Path -LiteralPath $pubScript) { try { $pl = @((& powershell -NoProfile -ExecutionPolicy Bypass -File $pubScript -Vault (Split-Path -Parent $d) | Out-String) -split "`r?`n" | Where-Object { $_.Trim() })[-1] } catch { } }
+  if (-not $pl) { $pl = 'Your vault is up to date.' }
+  Write-Output $pl
 }
 exit 0
