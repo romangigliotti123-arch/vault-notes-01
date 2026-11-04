@@ -13,6 +13,7 @@ Public knowledge bases imported into `~/claude-host/imported-vaults/<slug>/` (ma
 | awesome-roblox | 3 | CC0-1.0 | https://github.com/awesome-roblox/awesome-roblox @ ac2d275801 | Curated list of Roblox open-source libraries, tools and games (CC0). |
 | game-mechanics | 256 | MIT | https://github.com/saschb2b/game-mechanics @ cca7ec63d8 | Personal knowledge base of game mechanics, reward loops, world-building and design patterns (game design / live-ops thinking). |
 | luau-site | 63 | MIT | https://github.com/luau-lang/site @ c0eb09dc75 | Official Luau language site: syntax, type system, performance, library reference, RFCs. |
+| ro-engineer | 11 | MIT | https://github.com/excaldev/ro-engineer @ d86f0c04d9 | REFERENCE ONLY. Roblox/Luau engineering reference notes (architecture choice, pooling, cleanup/lifecycle, state, sharp-edges checklist, testing evidence, retention ethics). Young single-maintainer repo; unverified, modified (see its SOURCE.md); the vault's own skills are rewritten from these ideas and win on conflicts. |
 | roblox-creator-docs | 1039 | CC-BY-4.0 | https://github.com/Roblox/creator-docs @ 02c23e6297 | Official Roblox Creator Hub documentation (en-us): Studio, Luau, engine API guides, monetisation, UGC, performance, publishing. Core Roblox reference. |
 
 ## Reference only (no reusable license, template-style or off-topic; NOT copied)

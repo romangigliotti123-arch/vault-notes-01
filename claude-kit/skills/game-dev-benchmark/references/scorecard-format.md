@@ -4,6 +4,7 @@
 | file | gate name | notes |
 |---|---|---|
 | `<name>-qa/gate.json`, `gate-critic.json`, `gate-*.json`, `*-gate.json` anywhere under the game folder (depth <= 5; `benchmarks/`, `packages/`, `node_modules/`, `.git/` skipped) | folder name without `-qa` (`visual-qa` -> `visual`) | A record scored by the critic (`scorer: critic` or `critic` in the file name) beats a builder-scored one; otherwise the newest file wins. |
+| `code-quality/gate.json` (written by the critic or roblox-pre-delivery-reviewer, format in the roblox-code-rate skill: SE-n checks, severity-scored) | `code-quality` | Generic extra gate, weight 10, not required; open CRITICAL/HIGH/MEDIUM items make it fail (cap 69). |
 | `placement-qa/scan-critic.json` (else `scan-builder.json`) | read for `placement` | per-check pass rate P1..P7 over the models; also the model paths used by the spec scan points |
 | `critic/<date>-<stage>.md` with `verdict:` frontmatter | `critic` | newest by date; `score` is the factor mean (1-10) |
 | `benchmark-scores.json` | `spec` (with `--spec`) | `{"spec", "scorer", "features": {id: 0..1}, "rubric": {B1: 1..10}, "evidence": {B1: "text"}}` |

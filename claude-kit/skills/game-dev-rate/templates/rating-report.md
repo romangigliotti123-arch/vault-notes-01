@@ -19,6 +19,9 @@ Raw weighted: <x.xx> · spread min <n> max <n>
 | Ad-ability | 3 | | |
 | Update potential | 7 | | |
 
+## Ethics check (every retention / monetisation / social hook the idea uses)
+| hook | principle | fair or pressure | player gets if they ignore it | fix if pressure |
+|---|---|---|---|---|
 ## Strengths (top 3, each with the criterion and the fact behind it)
 ## Weaknesses (top 3, with the criterion and what would show it is real)
 ## Concrete fixes (ordered by overall-score gain; each: change -> criterion it lifts -> expected new score -> cost)

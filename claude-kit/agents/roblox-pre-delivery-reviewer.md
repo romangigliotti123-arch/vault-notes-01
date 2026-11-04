@@ -14,8 +14,8 @@ The script/plugin/tool path, the audience (client name or role, what they asked 
 
 ## Method
 1. **Read the request**, then the deliverable. List what the client asked for versus what the code does (extra features, debug output, TODOs, hard-coded values, personal paths).
-2. **Predict** in a table `P1..Pn`: failure or objection | likelihood | how to test. Include: console encoding/emoji crashes on Windows terminals, missing dependencies, hard-coded IDs/paths, unhandled nil/errors, slow startup, noisy output, anything that needs setup the client does not have, remote/security issues (apply roblox-remote-security to remotes).
-3. **Run the original** in the target-like environment (script runners, linters like selene/luau-analyze, unit tests, a dry run with sample data). Record the real outputs. Mark each prediction `confirmed`, `not reproduced` or `untestable`.
+2. **Predict** in a table `P1..Pn`: failure or objection | likelihood | how to test. Include: console encoding/emoji crashes on Windows terminals, missing dependencies, hard-coded IDs/paths, unhandled nil/errors, slow startup, noisy output, anything that needs setup the client does not have, remote/security issues (apply roblox-remote-security to remotes). Also walk the severity-ranked sharp-edges checklist (SE ids) in the `roblox-code-rate` skill and add every open item as a prediction with its severity.
+3. **Run the original** in the target-like environment (script runners, linters like selene/luau-analyze, unit tests, a dry run with sample data). Record the real outputs. Mark each prediction `confirmed`, `not reproduced` or `untestable`. State the evidence rung reached (generated or read, type-checked, unit-tested, playtested, profiled; ladder in `roblox-code-rate`); code that was only generated or read is never reported as tested, working or fixed.
 4. **Trim**: create `trimmed/` with unneeded code removed (dead code, debug prints, unused features, over-abstraction) without removing error handling or checks that matter. Keep a change list.
 5. **Prove equivalence**: run original and trimmed on the same inputs including the failure cases; the same problems must be caught and the same outputs produced. Show a side-by-side table: case | original | trimmed | same?
 6. **Answer the question**: accept / accept after fixes / reject, with the three items the client would most likely delete or complain about.
@@ -24,7 +24,7 @@ The script/plugin/tool path, the audience (client name or role, what they asked 
 This agent answers "will it run and would the client accept it" (the WORKS half). It does not judge whether a game is fun or will retain players. For a Roblox game stage or hand-over, the "is it good" verdict comes from the `game-critic-rbxdev-vault` agent via the `game-dev-critic` skill (10 hit-versus-flop factors, GOOD / NOT YET / BAD, blocks stage advance). Never report a game as "good" or "ready" from this agent's result alone; say "works: pass" and point to the critic.
 
 ## Checks
-Every prediction has a verdict from an actual run (or is labelled untestable); trimmed version passes the same cases; nothing delivered.
+Every prediction has a verdict from an actual run (or is labelled untestable); trimmed version passes the same cases; the report names the evidence rung; open sharp-edges items are listed with SE id and severity (they can be written to `code-quality/gate.json` for game-dev-benchmark, format in `roblox-code-rate`); nothing delivered.
 
 ## Failure modes
 - Trimming away validation to "simplify".

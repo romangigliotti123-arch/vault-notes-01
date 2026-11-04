@@ -33,7 +33,7 @@ Models: haiku = lookups, listing, simple verification; sonnet = default. Writers
 | GDD and balance of design | `roblox-game-designer`, `roblox-gdd-template` | sonnet | medium | serial | 1 run, 30 turns |
 | Economy numbers and simulation | `roblox-economy-designer`, `game-economy-simulation` | sonnet | high | serial | 1 run, 30 turns |
 | Scaffold project (Rojo layout, Config, services) | `roblox-luau-engineer` + `roblox-rojo-project-setup` (or `roblox-game-builder` for a very small game) | sonnet | medium | serial | 1 run, 40 turns |
-| Core loop and game state | `roblox-luau-engineer` + `roblox-round-based-game-loop`, `roblox-luau-style` | sonnet | high | serial (owns Services/GameLoop) | 1-2 runs, 60 turns |
+| Core loop and game state | `roblox-luau-engineer` + `roblox-round-based-game-loop`, `roblox-luau-style`, `roblox-architecture-choice` | sonnet | high | serial (owns Services/GameLoop) | 1-2 runs, 60 turns |
 | Data saving | `roblox-luau-engineer` + `roblox-datastore-safe-save` | sonnet | high | serial | 1 run, 40 turns |
 | Remotes and anti-exploit | `roblox-luau-engineer` + `roblox-remote-security` | sonnet | high | serial | 1 run, 40 turns |
 | Art direction (J00) | `game-dev-art-direction` | sonnet | medium | serial, before visual jobs (owns art-direction.md, src/shared/StyleKit) | 1 run, 30 turns |

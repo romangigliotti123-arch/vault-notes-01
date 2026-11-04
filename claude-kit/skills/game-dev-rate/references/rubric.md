@@ -37,3 +37,17 @@ Default weights live in `scripts/score.py` (sum 100) and are derived from the va
 - **Spread rule:** after scoring, if the 12 scores sit within a 2-point band, re-score the best and worst criterion strictly against the anchors, and state the new spread. Real ideas are rarely 7 everywhere.
 - **Caps (computed by `scripts/score.py`):** any gate criterion (loop, f30, money, scope) at 2 or less caps the overall at 5.00; `violates_rules` (pay-to-win, paid randomness, real-money gambling, stranger contact without safeguards) caps it at 3.00.
 - **Bands:** 8.50+ exceptional (build now) · 7.00-8.49 strong · 5.50-6.99 viable with fixes · 4.00-5.49 weak, rework · below 4.00 reject/restart. No score is a promise of success; give the result that would prove it wrong.
+
+## Ethics column: fair or pressure (retention, monetisation, social, update hooks)
+Many Roblox players are children. Every hook below can be fair or pressure; label each hook the idea uses, treat design hypotheses as hypotheses, and measure with the real audience. A `pressure` label is a weakness on the criterion it sits under and a fix; paid randomness and pay-to-win still set `violates_rules` (cap 3.00).
+| Principle (criterion) | Fair | Pressure |
+|---|---|---|
+| Variable reward (ret, money) | Free rolls earned by play, a guaranteed minimum value, honest odds | Paid rolls (this vault bans them), hidden odds, faked near-misses |
+| Scarcity and urgency (ret, upd) | Restock cycles of minutes that create a rush in play; rare spawns that reward whoever is online | Purchase countdowns, "never coming back", deadlines of days that force a login time |
+| Loss aversion (ret) | Theft or loss with ways to protect yourself by playing, cheap to rebuild | Losses only a purchase prevents, streak wipe after one missed day, guilt messages |
+| Goal gradient, completion (ret) | Bars and sets where every slot is earnable by play | A bar that slows near the end to sell a skip; sets finishable only with paid or expired items |
+| Return hooks (ret, upd) | Daily or offline rewards that never destroy progress when skipped; offline caps | Absence costs progress |
+| Social proof (social) | Showing off, co-op bonuses, achievable leaderboard tiers | Status for sale, shaming non-payers |
+| Peak-end (ret, money) | Best moment at the end of a run, quick retry after failure | A purchase prompt timed to the emotional peak or during intense play |
+Hook test (write the answers in the report): which principle, fair or pressure version, what the player gets if they ignore it, does missing it punish or only not reward, would you explain it to a parent. Vault rules win over the source ideas: no paid random rewards (Roblox allows them with disclosed odds and `PolicyService` `ArePaidRandomItemsRestricted` checks; this vault does not), no pressure timers aimed at kids.
+Credit: fair-versus-pressure wording adapted from excaldev/ro-engineer `retention-psychology.md` (MIT, Copyright (c) 2026 excaldev); reference copy in Imported/ro-engineer.

@@ -29,12 +29,24 @@ Output: scorecard + fixes + experiments, each sourced. For a full redesign use t
 
 ```
 Verdict (3 lines)
-Scorecard: item | pass/fail/unknown | evidence or fix | source+flag
+Scorecard: item | pass/fail/unknown | evidence or fix | source+flag | fair/pressure
 Fix list: ranked, effort S/M/L, expected effect (KB example, flagged)
 Experiments (3): change | metric | duration | success threshold | stop rule
 Risks: pay-to-win, RNG disclosure, child safety, economy inflation
 Benchmarks: metric | yours | KB band | flag (use compare.py in roblox-metrics-benchmarks)
 ```
+
+## Fair or pressure column
+Many Roblox players are children. For every offer, prompt and retention hook the audit touches, label the version in use and fix `pressure` ones. Vault rules win on conflicts (marked V).
+| Hook | Fair | Pressure |
+|---|---|---|
+| Random rewards | V: none sold for Robux (eggs, spins, crates, luck boosts). Free rolls earned by play, honest odds, a guaranteed minimum | Paid rolls, hidden odds, faked near-misses. Roblox allows paid random items only with every outcome and its odds shown and `PolicyService` `ArePaidRandomItemsRestricted` honoured; this vault still fails them |
+| Scarcity | Restock rushes of minutes during play | Purchase countdowns, "never coming back", fake sales |
+| Loss and streaks | Protection earned by play, grace days | Losses only a purchase prevents, streak wiped by one missed day |
+| Prompts | After a win or at a need, dismissible, a one-line benefit | During intense play, timed to an emotional peak, confusing currency conversion hiding the Robux cost |
+| Status | Cosmetics others see, co-op bonuses | Status for sale, shaming non-payers |
+| Return hooks | Daily reward that costs nothing to skip | Absence destroys progress |
+Questions per hook: what does the player get if they ignore it, does missing it punish, would you explain it to a parent. Credit: adapted from excaldev/ro-engineer `retention-psychology.md` and `player-incentives.md` (MIT, Copyright (c) 2026 excaldev), reference copies in Imported/ro-engineer.
 
 ## Rules
 
