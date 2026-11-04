@@ -7,6 +7,7 @@ license: "first-party"
 repo_path: "skills/roblox/rbx-monetize/SKILL.md"
 description: "Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, ethical pricing. Use when adding purchases to a Roblox game or auditing existing ones."
 orig_name: "rbx-monetize"
+orig_description: "Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium benefits, ethical pricing. Use when adding purchases or a shop, fixing buy buttons, or deciding what to sell and at what Robux price."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 

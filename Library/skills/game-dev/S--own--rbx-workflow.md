@@ -7,6 +7,7 @@ license: "first-party"
 repo_path: "skills/game-dev/rbx-workflow/SKILL.md"
 description: "Flagship Roblox game workflow, the single entry for every game: finds or creates Games/<game>/, detects the real stage from evidence, resumes the next step, manages specialist workers. A critic must say GOOD before a stage advances; never done without visual, placement and lighting gates."
 orig_name: "rbx-workflow"
+orig_description: "Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<game>/, detects the stage from evidence, resumes the next step, runs workers. A critic must say GOOD before a stage advances; not done without visual, placement and lighting gates."
 orig_argument_hint: "[your game idea, or leave empty]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---

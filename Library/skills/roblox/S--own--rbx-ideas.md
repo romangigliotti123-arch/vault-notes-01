@@ -7,6 +7,7 @@ license: "first-party"
 repo_path: "skills/roblox/rbx-ideas/SKILL.md"
 description: "Generates, scores and plans Roblox game concepts for a solo or small team. Takes an optional seed, gets current patterns from rbx-trends, scores 8 candidates on a fixed rubric, presents the top three, then expands the chosen one into a build plan (systems, milestones with acceptance tests, test plan, first three tasks). Reads the local knowledge base first, the web second."
 orig_name: "rbx-ideas"
+orig_description: "Generates, scores and plans Roblox game concepts for a solo or small team ('what should I build next'): patterns from rbx-trends, 8 candidates on a fixed rubric, top three, the chosen one expanded into a build plan (systems, milestones with acceptance tests, first three tasks)."
 tags: [lib/skill, cat/roblox, src/own]
 ---
 

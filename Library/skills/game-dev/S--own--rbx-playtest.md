@@ -7,6 +7,7 @@ license: "first-party"
 repo_path: "skills/game-dev/rbx-playtest/SKILL.md"
 description: "Playtests a Roblox game: bug and feel report with severities and fixes; fixes bugs red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of the first 30 seconds and core loop. Never launches Studio or a GUI app."
 orig_name: "rbx-playtest"
+orig_description: "Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, else static checks and a code-walk of first 30 seconds, core loop. Never launches Studio or GUI apps."
 orig_argument_hint: "[project folder, default current folder]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---
@@ -38,7 +39,7 @@ Input: the PROJECT folder (default `$PWD`; look for `default.project.json`, `gam
 ## 2. Static checks (evidence, not opinion)
 Ladder, seeded-bad-snippet sensor test, milestone loop: `references/verification-ladder.md`. Computational checks before any LLM review.
 1. `bash <project>/luau-check.sh <project>/src` if the project has it, else `bash ~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh <project>/src`. SKIPPED tools = "tools missing: not verified", never a pass (exit 2 = none available: say so, rely on 2.2 and the code-walk).
-2. `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/vault-mode/.claude/skills/rbx-playtest/scripts/static_scan.py <project>/src`: red-flag table (remote handlers without checks, DataStore without pcall or BindToClose, ProcessReceipt without a receipt check, loadstring, deprecated wait/spawn, non-zero asset ids, infinite loops). Every hit is a lead: open the lines, confirm or dismiss, say which.
+2. `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/vault-mode/.claude/skills/rbx-playtest/scripts/static_scan.py <project>/src`: red-flag table (remote handlers without checks, DataStore without pcall or BindToClose, ProcessReceipt without a receipt check, loadstring, deprecated wait/spawn, non-zero asset ids, infinite loops). Every hit is a lead: open the lines and give each a TRUE-POSITIVE or FALSE-POSITIVE verdict with one evidence line before any fix acts on it (`--triggers` adds SE-n leads by tier). [cold:rbx-playtest/fp-verdict.md] read only for the verdict format or the optional mutation one-off; [cold:rbx-playtest/trigger-table.md] read only to explain a trigger lead.
 3. Structure: `rg -n "RemoteEvent|RemoteFunction" <project>/src | head -30` (list every remote with its handler); `rg -n "PlayerAdded|PlayerRemoving|BindToClose" <project>/src | head`; config ids `rg -n "= 0\b|rbxassetid" <project>/src/shared | head`.
 
 ## 3. Scripted test checklist

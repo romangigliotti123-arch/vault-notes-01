@@ -7,6 +7,7 @@ license: "first-party"
 repo_path: "skills/game-dev/rbx-placement/SKILL.md"
 description: "Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic."
 orig_name: "rbx-placement"
+orig_description: "Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work continues; fixes floating, buried, clipping or tilted models; whole-map scan in Studio. Done only at PLACEMENT GATE: PASS; run before visual QA and the critic."
 orig_argument_hint: "[game slug or project folder]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---

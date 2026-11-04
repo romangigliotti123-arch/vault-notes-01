@@ -7,6 +7,7 @@ license: "first-party"
 repo_path: "skills/roblox/rbx-code-rate/SKILL.md"
 description: "Rates Luau/Roblox code 1.00-10.00 on weighted criteria (server authority, exploit resistance, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploitable remotes or data-loss bugs, scripted total, ordered fixes."
 orig_name: "rbx-code-rate"
+orig_description: "Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server authority, exploits, data safety, correctness, performance, structure, testability) with file:line evidence, hard caps for exploits, scripted total, fixes."
 orig_argument_hint: "<script path or folder> [what it does]"
 tags: [lib/skill, cat/roblox, src/own]
 ---
