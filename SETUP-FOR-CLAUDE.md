@@ -275,7 +275,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-use` (Roblox dev mode) - How any Claude uses the claudes-vault Obsidian vault (~17,000 generated notes: Roblox knowledge base, skill/agent notes, manager research): find it, grep first, read smal
 - `/rbx-visual` (Roblox dev mode) - Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and overlap at three sizes, 7-item rubric, max 3 fix rounds. Don
 - `/rbx-weekly` (Roblox dev mode) - Weekly numbers check for a live Roblox game: the user pastes Creator Dashboard numbers; compared with vault benchmarks, weakest metric diagnosed, update plan written to G
-- `/rbx-workflow` (Roblox dev mode) - Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<game>/, detects the stage from evidence, resumes the next ste
+- `/rbx-workflow` (Roblox dev mode) - Flagship Roblox game workflow, the single entry for every game ('where do I start', 'work on <game>'): finds or creates Games/<game>/, reads its README, detects the stage
 
 ## Using the vault afterwards
 

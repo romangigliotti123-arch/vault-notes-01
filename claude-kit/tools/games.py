@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 """games.py - the per-game community helper for /rbx-workflow. Stdlib only. Never touches anything outside Games/ (and the PROJECT folder, read-only).
 
-Games/ lives in the vault root and is PROTECTED: /rbx-update and /rbx-clean never overwrite or remove it, origin never ships it.
-Layout:  Games/README.md (hub)  Games/_profile.json (onboarding answers)  Games/<slug>/{GAME,design,decisions,systems}.md + playtests/ weekly/ critic/  Games/_Reusable/<name>/README.md + code
+Games/ lives in the loaded PROJECT folder (nearest folder at or above the cwd with .claude/vault-mode.json), never in the vault clone, ~/.claude or HOME; made by the first `init`; updates, unload and sync never touch it.
+Layout:  Games/README.md (hub)  Games/_profile.json (onboarding answers)  Games/<slug>/{README,GAME,design,decisions,systems}.md + playtests/ weekly/ critic/  Games/_Reusable/<name>/README.md + code
+README.md = the resume file (hand-written sections + an AUTO block); GAME.md = stage, numbers, next tasks.
 
   games.py where                                       print the Games root that will be used
   games.py profile [--level L --type T] [--reset]      show / store the one-time onboarding answers (level: new|some|experienced; type: free text)
   games.py init <slug> [--pitch TXT] [--genre TXT] [--project DIR] [--rojo]     create Games/<slug>/ from the templates (idempotent: never overwrites a file).
-       --rojo also scaffolds a Rojo project (default.project.json, src/server, src/client, src/shared, rokit/selene/stylua configs) in --project DIR, or in Games/<slug>/project/ when no DIR is given (kept in the protected Games/ folder so the code is never lost by a vault update), and records it as `project:` in GAME.md
+       --rojo also scaffolds a Rojo project (default.project.json, src/server|client|shared, rokit/selene/stylua configs) in --project DIR, else in Games/<slug>/project/ (kept with the game), and records it as `project:` in GAME.md
   games.py system list                                 the kit's tested drop-in systems (PlayerData, Shop, DailyRewards, Analytics, Admin)
   games.py system add <Name> [--game SLUG | --project DIR]   copy a system's src/ into <project>/src/server/Systems/<Name>/ (never overwrites a changed file: writes <file>.new)
   games.py list                                        games with claimed stage, evidence stage, last change
   games.py detect <slug> [--project DIR] [--json]      read the REAL stage from evidence (files, scripts, playtests, critic verdicts, numbers) and compare with GAME.md
   games.py verdict <slug> [--stage S]                  latest critic verdict (GOOD | NOT YET | BAD) for the stage
+  games.py resume <words>                              "work on X": README path, "Got it" line, latest verdict (several matches: list, exit 1)
+  games.py refresh <slug>                              rewrite only the README's AUTO block
   games.py advance <slug> --to STAGE [--project DIR]   move GAME.md to STAGE only if the critic's latest verdict for the CURRENT stage is GOOD (and, from prototype on, its file says visual: pass AND placement: pass AND lighting: pass AND codegates: ran) and the evidence supports it
   games.py reusable add <name> --src PATH --what TXT [--from-game SLUG] [--tested y|n] [--rating N] [--tags TXT]    save a reusable building block
   games.py reusable list
   games.py contribute <name>                           zip a reusable item into ~/rbx-contribute/ for the owner (never uploads anything)
-Games root: --games DIR, else env GAMES_ROOT, else <vault>/Games (vault = env CLAUDES_VAULT, else ~/Obsidian/claudes-vault).
+Games root: --games DIR, else env GAMES_ROOT, else <loaded project folder>/Games, else an existing legacy <vault>/Games (CLAUDES_VAULT or ~/Obsidian/claudes-vault); else an error.
 """
 import argparse, datetime, glob, json, os, re, shutil, sys, zipfile
 
@@ -37,15 +40,30 @@ def vault_root():
     return None
 
 
+def project_root(start=None):
+    d = os.path.abspath(start or os.getcwd())
+    home = os.path.realpath(os.path.expanduser("~"))
+    while True:
+        if os.path.isfile(os.path.join(d, ".claude", "vault-mode.json")) and os.path.realpath(d) != home:
+            return d
+        up = os.path.dirname(d)
+        if up == d:
+            return None
+        d = up
+
+
 def games_root(a):
     if getattr(a, "games", None):
         return os.path.abspath(a.games)
     if os.environ.get("GAMES_ROOT"):
         return os.path.abspath(os.environ["GAMES_ROOT"])
+    pr = project_root()
+    if pr:
+        return os.path.join(pr, "Games")
     v = vault_root()
-    if not v:
-        sys.exit("games.py: vault not found. Set CLAUDES_VAULT, pass --games DIR, or run /rbx-update first.")
-    return os.path.join(v, "Games")
+    if v and os.path.isdir(os.path.join(v, "Games")):
+        return os.path.join(v, "Games")
+    sys.exit("games.py: no loaded project folder here. Open a project folder (not HOME), run /rbx-load; games go in <folder>/Games/<slug>/. Nothing is created in HOME.")
 
 
 def template_dir():
@@ -125,7 +143,7 @@ def rebuild_hub(root):
              "`/rbx-update` and `/rbx-clean` never touch this folder. Start with `/rbx-workflow`.", "", "## Games", ""]
     for g in games:
         f = fm_of(read(os.path.join(root, g, "GAME.md")))
-        lines.append("- [[%s/GAME|%s]] - stage **%s** - %s" % (g, g, f.get("stage", "?"), f.get("pitch", "")))
+        lines.append("- [[%s/README|%s]] - stage **%s** - %s" % (g, g, f.get("stage", "?"), f.get("pitch", "")))
     if not games:
         lines.append("- (none yet: run /rbx-workflow)")
     lines += ["", "## Reusable building blocks (use these first in every new game)", ""]
@@ -191,6 +209,8 @@ def cmd_init(a):
     if getattr(a, "rojo", False):
         created += ["(project) " + m for m in scaffold_rojo(project, a.slug)]
     rebuild_hub(root)
+    if refresh_readme(root, a.slug) == "created":
+        created.append(os.path.relpath(os.path.join(gd, "README.md"), root))
     print("GAME=%s\nCREATED=%d file(s)%s" % (gd, len(created), ("\n  " + "\n  ".join(created)) if created else " (already existed, nothing overwritten)"))
 
 
@@ -219,7 +239,7 @@ def scaffold_rojo(dest, slug):
     os.makedirs(sysdir, exist_ok=True)
     readme = os.path.join(dest, "README.md")
     if not os.path.exists(readme):
-        write(readme, "# %s\n\nRojo project. Edit files in `src/`, then:\n\n- `rokit install` once (tools pinned in rokit.toml)\n- `rojo serve` and click Connect in the Rojo plugin inside Studio (or `rojo build -o %s.rbxl`)\n- `bash %s/luau-check.sh src` (stylua, selene, luau-lsp)\n- add a tested system: `python %s/games.py system add PlayerData --project .`\n\n`src/server` -> ServerScriptService.Server, `src/client` -> StarterPlayer.StarterPlayerScripts.Client, `src/shared` -> ReplicatedStorage.Shared.\n" % (slug, slug, tpl.replace("\\", "/"), HERE.replace("\\", "/")))
+        write(readme, "# %s\n\nRojo project. Edit `src/`, then:\n\n- `rokit install` once (tools pinned in rokit.toml)\n- `rojo serve` and Connect in the Rojo plugin in Studio (or `rojo build -o %s.rbxl`)\n- `bash %s/luau-check.sh src` (stylua, selene, luau-lsp)\n- add a tested system: `python %s/games.py system add PlayerData --project .`\n\n`src/server` -> ServerScriptService.Server, `src/client` -> StarterPlayer.StarterPlayerScripts.Client, `src/shared` -> ReplicatedStorage.Shared.\n" % (slug, slug, tpl.replace("\\", "/"), HERE.replace("\\", "/")))
         made.append("README.md")
     return made
 
@@ -303,7 +323,7 @@ def verdicts(gd):
             continue
         f = fm_of(read(p))
         if f.get("verdict"):
-            out.append(dict(file=p, stage=f.get("stage", ""), verdict=f.get("verdict", "").upper(), date=f.get("date", ""), score=f.get("score", ""), visual=f.get("visual", "missing"), placement=f.get("placement", "missing"), lighting=f.get("lighting", "missing"), codegates=f.get("codegates", "missing")))
+            out.append(dict(file=p, works=f.get("works", "missing"), stage=f.get("stage", ""), verdict=f.get("verdict", "").upper(), date=f.get("date", ""), score=f.get("score", ""), visual=f.get("visual", "missing"), placement=f.get("placement", "missing"), lighting=f.get("lighting", "missing"), codegates=f.get("codegates", "missing")))
     return out
 
 
@@ -376,6 +396,133 @@ def cmd_list(a):
     print("(%d game(s))" % n)
 
 
+# ---------------------------------------------------------------- README (resume file)
+AUTO_B = "<!-- AUTO:BEGIN games.py rewrites this block; hand-written text goes outside it -->"
+AUTO_E = "<!-- AUTO:END -->"
+
+
+README_TPL = r"""# {{slug}}: resume file
+
+Read this first in a new session. Plain text, no secrets or machine paths, under 150 lines. Stage, tasks, numbers: GAME.md. Update the hand-written sections before ending a session that changed the game; never edit the AUTO block.
+
+<!-- AUTO:BEGIN games.py rewrites this block; hand-written text goes outside it -->
+(filled by games.py)
+<!-- AUTO:END -->
+
+## Pitch
+{{pitch}}
+
+## Core loop
+(what the player does each minute, earns, why they repeat it)
+
+## Target player
+(age band, platform, session length)
+
+## Systems and module map
+(one line per module: what lives where)
+
+## Key decisions and why
+(newest first, one line each; full log in decisions.md)
+
+## Known issues
+(open bugs and gaps)
+
+## Assets and licences
+(source and licence of every asset)
+
+## How to resume
+Read this file, GAME.md (Next tasks), the latest critic/ verdict; run `games.py detect {{slug}}`; do the first next task.
+"""
+
+
+def game_project_dir(gd):
+    for d in (fm_of(read(os.path.join(gd, "GAME.md"))).get("project", ""), os.path.join(gd, "project")):
+        if os.path.isdir(d):
+            return d
+
+
+def readme_state(gd):
+    rp = os.path.join(gd, "README.md")
+    if not os.path.isfile(rp):
+        return "missing"
+    fs = [os.path.join(gd, n) for n in ("design.md", "decisions.md", "systems.md")] + [x for s in ("playtests", "weekly") for x in glob.glob(os.path.join(gd, s, "*.md")) if not x.lower().endswith("readme.md")]
+    for d, dirs, files in os.walk(game_project_dir(gd) or os.devnull):
+        dirs[:] = [x for x in dirs if x.lower() not in (".git", "node_modules", "packages", "systems", "tests", "vendor")]
+        fs += [os.path.join(d, f) for f in files if f.endswith((".lua", ".luau"))]
+    return "stale" if max([os.path.getmtime(x) for x in fs if os.path.isfile(x)] or [0]) > os.path.getmtime(rp) + 2 else "ok"
+
+
+def next_tasks(gm, n=3):
+    m = re.search(r"^## Next tasks[^\n]*\n(.*?)(?=^## |\Z)", gm.replace("\r\n", "\n"), re.M | re.S)
+    return [x.strip() for x in re.findall(r"^\s*-\s*\[ \]\s*(.+)$", m.group(1) if m else "", re.M)][:n]
+
+
+def auto_body(slug, gd):
+    gm = read(os.path.join(gd, "GAME.md"))
+    f, vs, pj = fm_of(gm), verdicts(gd), game_project_dir(gd)
+    v = vs[-1] if vs else None
+    rel = os.path.relpath(pj, gd).replace(os.sep, "/") + "/" if pj and not os.path.relpath(pj, gd).startswith("..") else "outside this folder (GAME.md `project:`)"
+    ev = [d + "/" for d in ("critic", "playtests", "weekly", "placement-qa", "lighting-qa", "visual-qa", "ui-design-qa") if os.path.isdir(os.path.join(gd, d))]
+    nt = next_tasks(gm)
+    return "\n".join([
+        "Stage: %s since %s (check: `games.py detect %s`). Updated %s." % (f.get("stage", "?"), f.get("stage_since", "?"), slug, today()),
+        ("Latest verdict: %s for %s on %s, score %s; works %s, looks %s, placement %s, lighting %s, code gates %s (critic/%s)." % (v["verdict"], v["stage"], v["date"], v["score"] or "?", v["works"], v["visual"], v["placement"], v["lighting"], v["codegates"], os.path.basename(v["file"]))) if v else "Latest verdict: none yet.",
+        "Open and run: " + ("Rojo project in %s: `rojo serve` + Studio plugin Connect, or `rojo build -o %s.rbxl`." % (rel, slug) if pj and os.path.isfile(os.path.join(pj, "default.project.json")) else "no Rojo project or place file yet (project %s)." % (rel if pj else "not set")),
+        "Reports: " + (", ".join(ev) or "none yet") + ".",
+        "Next: " + ("; ".join("%d. %s" % (i + 1, x) for i, x in enumerate(nt)) or "none listed")])
+
+
+def refresh_readme(root, slug):
+    """README skeleton if missing, else only the AUTO block (file time kept: an unedited README still reads stale). -> created | updated | unchanged | None"""
+    gd = game_dir(root, slug)
+    if not os.path.isfile(os.path.join(gd, "GAME.md")):
+        return None
+    p = os.path.join(gd, "README.md")
+    old = read(p)
+    text = old or fill(README_TPL, slug=slug, date=today(), pitch=fm_of(read(os.path.join(gd, "GAME.md"))).get("pitch", "TODO"))
+    blk = AUTO_B + "\n" + auto_body(slug, gd) + "\n" + AUTO_E
+    i, j = text.find(AUTO_B), text.find(AUTO_E)
+    k = text.find("\n## ")
+    new = text[:i] + blk + text[j + len(AUTO_E):] if 0 <= i < j else (text.rstrip("\n") + "\n\n" + blk + "\n" if k < 0 else text[:k + 1] + blk + "\n" + text[k:])
+    if new == text and old:
+        return "unchanged"
+    st = os.stat(p) if old else None
+    write(p, new)
+    if st:
+        os.utime(p, (st.st_atime, st.st_mtime))
+    return "updated" if old else "created"
+
+
+def cmd_refresh(a):
+    root = games_root(a)
+    r = refresh_readme(root, a.slug)
+    if r is None:
+        sys.exit("games.py: no GAME.md for %r" % a.slug)
+    print("README %s: Games/%s/README.md" % (r, a.slug))
+
+
+def cmd_resume(a):
+    root = games_root(a)
+    games = sorted(d for d in os.listdir(root) if os.path.isfile(os.path.join(root, d, "GAME.md"))) if os.path.isdir(root) else []
+    if not games:
+        sys.exit("no games yet: /rbx-workflow")
+    ws = [w for w in re.findall(r"[a-z0-9]+", " ".join(a.name).lower()) if w not in ("game", "the", "my", "a")]
+    info = {g: fm_of(read(os.path.join(root, g, "GAME.md"))) for g in games}
+    hit = [g for g in games if "-".join(ws) == g] or [g for g in games if ws and all(w in g.replace("-", " ") + " " + info[g].get("pitch", "").lower() for w in ws)]
+    if len(hit) != 1:
+        for g in hit or games:
+            print("%s | stage %s | %s" % (g, info[g].get("stage", "?"), info[g].get("pitch", "")[:80]))
+        sys.exit("AMBIGUOUS: ask which" if hit else "NO MATCH")
+    g = hit[0]
+    gd = game_dir(root, g)
+    state = refresh_readme(root, g)
+    nt = next_tasks(read(os.path.join(gd, "GAME.md")), 1)
+    print("README=%s\nGAME=%s\nGot it: read the README for %s (stage %s, next: %s)." % (os.path.join(gd, "README.md"), os.path.join(gd, "GAME.md"), g, info[g].get("stage", "?"), nt[0][:90] if nt else "none listed"))
+    if state == "created":
+        print("README was missing: skeleton created, fill its hand-written sections.")
+    cmd_verdict(argparse.Namespace(games=getattr(a, "games", None), slug=g, stage=None))
+
+
 def cmd_verdict(a):
     gd = game_dir(games_root(a), a.slug)
     vs = verdicts(gd)
@@ -386,6 +533,9 @@ def cmd_verdict(a):
         return
     v = vs[-1]
     print("VERDICT: %s | stage %s | %s | score %s | visual %s | placement %s | lighting %s | code gates %s | %s" % (v["verdict"], v["stage"], v["date"], v["score"], v.get("visual", "missing"), v.get("placement", "missing"), v.get("lighting", "missing"), v.get("codegates", "missing"), os.path.relpath(v["file"], gd)))
+    rs = readme_state(gd)
+    if rs != "ok":
+        print("README: %s (advisory): update the hand-written sections of Games/%s/README.md" % (rs, a.slug))
 
 
 def cmd_advance(a):
@@ -421,6 +571,7 @@ def cmd_advance(a):
     dec = os.path.join(gd, "decisions.md")
     write(dec, read(dec).rstrip() + "\n\n- %s: stage %s -> %s (critic GOOD %s: [[critic/%s]])\n" % (today(), cur, a.to, vs[-1]["date"], os.path.splitext(os.path.basename(vs[-1]["file"]))[0]))
     rebuild_hub(root)
+    refresh_readme(root, a.slug)
     print("ADVANCED %s: %s -> %s" % (a.slug, cur, a.to))
 
 
@@ -504,6 +655,8 @@ def main():
     p = sp.add_parser("system"); p.add_argument("action", choices=["add", "list"]); p.add_argument("name", nargs="?"); p.add_argument("--game"); p.add_argument("--project")
     p = sp.add_parser("detect"); p.add_argument("slug"); p.add_argument("--project"); p.add_argument("--json", action="store_true")
     p = sp.add_parser("verdict"); p.add_argument("slug"); p.add_argument("--stage")
+    p = sp.add_parser("resume"); p.add_argument("name", nargs="*")
+    p = sp.add_parser("refresh"); p.add_argument("slug")
     p = sp.add_parser("advance"); p.add_argument("slug"); p.add_argument("--to", required=True); p.add_argument("--project")
     p = sp.add_parser("reusable"); p.add_argument("action", choices=["add", "list"]); p.add_argument("name", nargs="?")
     p.add_argument("--src"); p.add_argument("--what"); p.add_argument("--from-game", dest="from_game"); p.add_argument("--tested", choices=["y", "n"]); p.add_argument("--rating"); p.add_argument("--tags")
@@ -514,7 +667,7 @@ def main():
     except Exception:
         pass
     {"where": cmd_where, "profile": cmd_profile, "init": cmd_init, "list": cmd_list, "detect": cmd_detect, "verdict": cmd_verdict,
-     "advance": cmd_advance, "reusable": cmd_reusable, "system": cmd_system, "contribute": cmd_contribute}[a.cmd](a)
+     "advance": cmd_advance, "resume": cmd_resume, "refresh": cmd_refresh, "reusable": cmd_reusable, "system": cmd_system, "contribute": cmd_contribute}[a.cmd](a)
 
 
 if __name__ == "__main__":

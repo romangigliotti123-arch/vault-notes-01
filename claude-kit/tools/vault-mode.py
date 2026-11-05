@@ -6,8 +6,8 @@ The kit's skills and agents are NOT installed where every Claude Code session re
 Only the names in <config>/claude-kit/vault-mode/always-on.txt (rbx-load, rbx-unload, rbx-update, rbx-check, rbx-uninstall) stay in <config>/skills.
 
   load   [--project DIR] [--no-link] [--no-text]   copy the store's skills/agents into DIR/.claude/skills|agents (DIR = current folder), list them in DIR/.claude/vault-mode.json,
-                                                   hide them from git (.git/info/exclude), print the confirmation + the mode rules. --no-link: write nothing (session started with --add-dir).
-                                                   In HOME / the config folder / inside it, load is session-only automatically: writes nothing, prints the rules + a skill/agent index to Read on demand.
+                                                   hide them from git (.git/info/exclude; never Games/), print the confirmation, the Games folder line + the mode rules. --no-link: write nothing (session started with --add-dir).
+                                                   In HOME / the config folder / inside it, load is session-only: writes nothing, prints the rules + a skill/agent index.
   unload [--project DIR | --all]                   remove exactly what load added (files whose content is unchanged); never a file of yours
   status [--project DIR]                           mode state of this folder + store/migration summary
   sync   [--quiet]                                 after an update: refresh every folder that has the mode loaded (kit-refresh runs this)
@@ -16,7 +16,7 @@ Only the names in <config>/claude-kit/vault-mode/always-on.txt (rbx-load, rbx-un
   autoload-snippet                                 print the settings.json hook an owner can add by hand to enable auto
   mode-text                                        print the mode rules
   cold   [TOPIC[/FILE]] [--path]                   cold area (<store>/cold: bulk that skills point to with [cold:TOPIC/FILE]; never copied into projects): no argument lists topics, TOPIC lists files,
-                                                   TOPIC/FILE prints the file (--path prints only its path)
+                                                   TOPIC/FILE prints the file (--path: only its path)
 Config dir: --config DIR, else $CLAUDE_CONFIG_DIR, else $CLAUDE_KIT_HOME/.claude, else ~/.claude.
 """
 import argparse
@@ -466,11 +466,24 @@ def one_line(path):
     return d if len(d) <= 110 else d[:107].rstrip() + "..."
 
 
+def games_line(proj, p):
+    if guard(proj, p):
+        return "Games folder: open a project folder to build games (nothing is created in HOME)"
+    gd, found = os.path.join(proj, "Games"), []
+    for d in sorted(os.listdir(gd)) if os.path.isdir(gd) else []:
+        try:
+            found.append("%s %s" % (d, re.search(r"^stage:\s*(\S+)", open(os.path.join(gd, d, "GAME.md"), encoding="utf-8", errors="replace").read(3000), re.M).group(1)))
+        except (OSError, AttributeError):
+            pass
+    return "Games folder: ./Games (%s)" % (("%d game%s: %s%s" % (len(found), "s"[:len(found) != 1], ", ".join(found[:4]), ", ..." * (len(found) > 4))) if found else "none yet")
+
+
 def session_only(a, p, items):
     s, g = counts(items)
     ao = set(always_on(p))
     print("Roblox dev mode loaded for this session only (no folder changed): %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
     print("  a project folder gives the full persistent mode (slash commands, agents listed).")
+    print("  " + games_line(os.path.abspath(a.project or os.getcwd()), p))
     if not a.no_text:
         print()
         cmd_mode_text(a)
@@ -495,6 +508,7 @@ def cmd_load(a, quiet_text=False):
     if a.no_link:
         s, g = counts(items)
         print("Roblox dev mode on (this session only, nothing written): %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
+        print("  " + games_line(proj, p))
         if not a.no_text:
             print()
             cmd_mode_text(a)
@@ -508,6 +522,7 @@ def cmd_load(a, quiet_text=False):
     registry_set(p, proj, marker)
     s, g = counts(marker["items"])
     print("Roblox dev mode on: %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
+    print("  " + games_line(proj, p))
     print("  folder: %s  (copies in .claude/skills and .claude/agents, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
     if first and not had_sk:
         print("  RESTART NEEDED for the slash commands: Claude Code reads a new .claude/skills folder only at start. Type /exit, then run `claude -c` (continues this conversation) and /rbx-workflow etc. are listed.")
@@ -646,6 +661,7 @@ def cmd_status(a):
         print("Roblox dev mode: ON in %s (%d skills, %d agents, since %s)" % (proj, ls, lg, marker.get("loaded_at", "?")))
     else:
         print("Roblox dev mode: off in %s (type /rbx-load to turn it on%s)" % (proj, "; here it loads for the session only, nothing is written" if guard(proj, p) else ""))
+    print(games_line(proj, p))
     print("vault store: %s (%d skills, %d agents) %s" % (p["store"], s, g, "" if items else "NOT INSTALLED: run /rbx-update"))
     others = [k for k in jread(p["reg"], {"projects": {}})["projects"] if os.path.realpath(k) != os.path.realpath(proj)]
     if others:

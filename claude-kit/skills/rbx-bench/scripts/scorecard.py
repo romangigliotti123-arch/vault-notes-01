@@ -360,7 +360,7 @@ def build_critic(root):
     reasons = [short(fm["why"], 300)] if fm.get("why") and status != "pass" else []
     return dict(name="critic", status=status, score=round(score, 1), raw_score=round(base, 1), weight=WEIGHTS["critic"], required=True, checks={}, pass_min=7.0,
                 reasons=reasons, failing=[], scorer="critic", label="verdict " + v, source=os.path.relpath(p, root).replace(os.sep, "/"), sha256=sha256_file(p),
-                mtime=int(os.path.getmtime(p)), verdict=v, stage=fm.get("stage"), works=fm.get("works"), claims=dict(visual=fm.get("visual"), placement=fm.get("placement"), lighting=fm.get("lighting"), codegates=fm.get("codegates"), retro=fm.get("retro")),
+                mtime=int(os.path.getmtime(p)), verdict=v, stage=fm.get("stage"), works=fm.get("works"), claims=dict(visual=fm.get("visual"), placement=fm.get("placement"), lighting=fm.get("lighting"), codegates=fm.get("codegates"), retro=fm.get("retro"), readme=fm.get("readme")),
                 verdict_date=date)
 
 
@@ -581,6 +581,12 @@ def hiccup_integrity(gates, root, integrity):
         integrity.append("hiccup-qa/ exists but the done-step retro never ran (hiccup.py retro): advisory")
 
 
+def readme_integrity(gates, root, integrity):
+    c = str(((gates.get("critic") or {}).get("claims") or {}).get("readme") or "")
+    if os.path.isfile(os.path.join(root, "GAME.md")) and (c in ("stale", "missing") or not os.path.isfile(os.path.join(root, "README.md"))):
+        integrity.append("game README.md is missing or older than the latest change (advisory)")
+
+
 def collect(root, game=None, spec_arg=None, scores_file=None, require_critic=False, project=None, version=None, kit=None, label="", date=None, now=None):
     root = os.path.abspath(root)
     if not os.path.isdir(root):
@@ -636,6 +642,7 @@ def collect(root, game=None, spec_arg=None, scores_file=None, require_critic=Fal
                 integrity.append("critic verdict file claims %s: pass but the %s gate record says %s" % (n, n, actual or "nothing (no record found)"))
     code_gates_integrity(gates, root, integrity)
     hiccup_integrity(gates, root, integrity)
+    readme_integrity(gates, root, integrity)
     if project:
         src = newest_source(project)
         for n, g in gates.items():

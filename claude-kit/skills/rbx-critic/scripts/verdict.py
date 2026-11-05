@@ -30,7 +30,7 @@ THUMBNAIL (rbx-thumbnail, Games/<slug>/thumb-score/gate.json from thumb_score.py
 Only factors present in "scores" count (unscored = N/A for this stage). Critical factors per stage count double and need their minimum.
 --write DIR writes DIR/critic/<date>-<stage>.md with frontmatter (stage, verdict, date, score) + the body from --report. `games.py advance` reads that file.
 """
-import datetime, json, os, sys
+import datetime, json, os, subprocess, sys
 
 VISUAL_STAGES = ("prototype", "playtest", "launch", "growth", "live-ops")
 
@@ -183,6 +183,29 @@ def thumbnail(d, stage, gd=None):
     return "skipped: " + str(g.get("reason", "no reason given"))[:160], []
 
 
+def readme_state(gd, project=None):
+    """ok | stale | missing | n/a: the game README vs the newest design, decisions, systems, playtest, weekly note or Luau source. ADVISORY."""
+    if not gd or not os.path.isdir(gd):
+        return "n/a"
+    rp = os.path.join(gd, "README.md")
+    if not os.path.isfile(rp):
+        return "missing"
+    fs = [os.path.join(gd, n) for n in ("design.md", "decisions.md", "systems.md")] + [os.path.join(gd, s, f) for s in ("playtests", "weekly") if os.path.isdir(os.path.join(gd, s)) for f in os.listdir(os.path.join(gd, s)) if f.endswith(".md") and f.lower() != "readme.md"]
+    pj = project if project and os.path.isdir(project) else os.path.join(gd, "project")
+    return "stale" if max([os.path.getmtime(x) for x in fs if os.path.isfile(x)] + [newest_source(pj) if os.path.isdir(pj) else 0.0]) > os.path.getmtime(rp) + 2 else "ok"
+
+
+def refresh_readme(gd):
+    cfg = os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.path.expanduser("~"), ".claude")
+    for g in (os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools", "games.py"), os.path.join(cfg, "claude-kit", "tools", "games.py")):
+        if os.path.isfile(g) and os.path.isfile(os.path.join(gd, "GAME.md")):
+            try:
+                subprocess.run([sys.executable, "-I", g, "--games", os.path.dirname(os.path.abspath(gd)), "refresh", os.path.basename(os.path.abspath(gd))], capture_output=True, timeout=30)
+            except (OSError, subprocess.SubprocessError):
+                pass
+            return
+
+
 CODE_LABEL = "playable prototype, code gates not run"
 CODE_REQUIRED = ("comment", "scope", "security")
 
@@ -252,6 +275,7 @@ def main():
     rstat, rreasons = retro(d, stage, wdir)
     ustat, ureasons = uidesign(d, stage, wdir)
     tstat, treasons = thumbnail(d, stage, wdir)
+    dstat = readme_state(wdir, d.get("project"))
     if d.get("hard_rule_violation"):
         verdict = "BAD"; reasons.append("hard-rule violation (pay-to-win, paid randomness for kids, pressure timers, stranger contact or copied assets)")
     elif works == "fail-severe":
@@ -275,6 +299,8 @@ def main():
     print("VERDICT: %s | stage %s | mean %.2f | works %s | looks %s | placement %s | lighting %s | code gates %s | retro %s | ui design %s | thumbnail %s" % (verdict, stage, mean, works, vstat, pstat, lstat, cstat, rstat, ustat, tstat))
     if tstat.startswith("skipped") or treasons:
         print("THUMBNAIL: %s (advisory, never changes the verdict)" % ("; ".join(treasons[:2]) or tstat))
+    if dstat in ("stale", "missing"):
+        print("README: %s (advisory): update the hand-written sections of %s/README.md" % (dstat, wdir))
     if ustat.startswith("skipped"):
         print("UI DESIGN: %s (advisory, never changes the verdict)" % "; ".join(ureasons[:2]))
     if rstat == "skipped":
@@ -302,10 +328,11 @@ def main():
         os.makedirs(os.path.join(gd, "critic"), exist_ok=True)
         p = os.path.join(gd, "critic", "%s-%s.md" % (date, stage))
         slug = d.get("game") or os.path.basename(os.path.abspath(gd))
-        head = "---\ntype: critic-verdict\ngame: %s\nstage: %s\nverdict: %s\ndate: %s\nscore: %.2f\nworks: %s\nvisual: %s\nplacement: %s\nlighting: %s\ncodegates: %s\nretro: %s\nuidesign: %s\nthumbnail: %s\n---\n# Critic verdict: %s (%s, %s)\nBack to [[%s/GAME|GAME]] | [[%s/critic/README|all verdicts]]\n\n" % (slug, stage, verdict, date, mean, works, vstat, pstat, lstat, cstat, rstat, ustat, tstat, verdict, stage, date, slug, slug)
+        head = "---\ntype: critic-verdict\ngame: %s\nstage: %s\nverdict: %s\ndate: %s\nscore: %.2f\nworks: %s\nvisual: %s\nplacement: %s\nlighting: %s\ncodegates: %s\nretro: %s\nuidesign: %s\nthumbnail: %s\nreadme: %s\n---\n# Critic verdict: %s (%s, %s)\nBack to [[%s/GAME|GAME]] | [[%s/critic/README|all verdicts]]\n\n" % (slug, stage, verdict, date, mean, works, vstat, pstat, lstat, cstat, rstat, ustat, tstat, dstat, verdict, stage, date, slug, slug)
         with open(p, "w", encoding="utf-8", newline="\n") as f:
             f.write(head + "**Why:** " + "; ".join(reasons) + "\n\n" + body)
         print("WROTE " + p)
+        refresh_readme(gd)
 
 
 if __name__ == "__main__":
