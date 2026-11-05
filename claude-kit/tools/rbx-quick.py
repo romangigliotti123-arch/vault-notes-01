@@ -2,7 +2,7 @@
 """rbx-quick.py: deterministic output for the small toggle/list/status skills (no model judgment). Stdlib; Windows, macOS, Linux.
 The skill body runs this through dynamic shell injection and prints the result as is.
   list                  everything the kit installed (runs kit-list.py, same text)
-  light on|off          Obsidian light / full view of the claudes-vault (runs the vault's vault-update script with --set-view; no update, offline)
+  light on|off          Obsidian light / full view of the claudes-vault (runs the vault's update script with --set-view; no update, offline)
   check                 is a newer vault or kit available (update-check.py, read-only) + the Roblox dev mode status line
 Always exits 0 so the injected command never aborts the skill; failures are printed as one line."""
 import os, subprocess, sys
@@ -28,7 +28,7 @@ def find_vault():
 
 def cmd_list():
     rc, out, err = run([os.path.join(HERE, "kit-list.py")])
-    print(out if out else "rbx-list: no output (%s). Run /rbx-update." % (err.splitlines()[-1] if err else "kit-list failed"))
+    print(out if out else "rbx-list: no output (%s). Run /rbx-update." % (err.splitlines()[-1] if err else "kit-list.py failed"))
 
 
 def cmd_light(mode):
@@ -60,7 +60,7 @@ def cmd_light(mode):
 
 def cmd_check():
     rc, out, err = run([os.path.join(HERE, "update-check.py")], 300)
-    print(out if out else "rbx-check: no output (%s)." % (err.splitlines()[-1] if err else "update-check failed"))
+    print(out if out else "rbx-check: no output (%s)." % (err.splitlines()[-1] if err else "update-check.py failed"))
     rc, out, err = run([os.path.join(HERE, "vault-mode.py"), "status"], 60)
     if out:
         print(out.splitlines()[0])
