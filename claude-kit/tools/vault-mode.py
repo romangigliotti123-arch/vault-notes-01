@@ -529,7 +529,7 @@ def cmd_load(a, quiet_text=False):
     print("  " + games_line(proj, p))
     print("  folder: %s  (copies in .claude/skills and .claude/agents, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
     if first and not had_sk:
-        print("  Type /reload-skills now to list the slash commands (no restart). Skills and agents already work in this chat via the index below.")
+        print("  Type /reload-skills to try to show the new slash commands; if they don't appear, open a new chat in this folder. Skills and agents already work in this chat via the index below.")
     elif first:
         print("  skills are usable now (this folder already had .claude/skills when the session started)")
     for n in notes:
@@ -613,7 +613,7 @@ def cmd_unload(a):
             reg["leftovers"] = sorted(set(reg["leftovers"]) | set(left))
             jwrite(p["reg"], reg)
             print("  (empty folders could not be deleted while Claude is running; they are removed by the next /rbx-update or when you run /rbx-unload again after quitting)")
-        print("Roblox dev mode off in %s: removed %d vault file(s)%s. Type /reload-skills to refresh the skill list (no restart needed; if a skill still shows, start a new chat); the mode rules no longer apply." % (proj, removed, (", kept %d you changed" % kept) if kept else ""))
+        print("Roblox dev mode off in %s: removed %d vault file(s)%s. Skills and agents already listed stay listed in this chat; open a new chat for a clean list; the mode rules no longer apply." % (proj, removed, (", kept %d you changed" % kept) if kept else ""))
     return 0
 
 
