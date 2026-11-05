@@ -5,11 +5,11 @@ description: "Audits a Roblox game's monetisation (gamepasses, developer product
 
 # Roblox monetisation audit
 
-Output: scorecard + fixes + experiments, each sourced. Full redesign: `rbx-money` agent.
+Output: scorecard + fixes + experiments, each sourced. For a full redesign use the `rbx-money` agent.
 
 ## Procedure
 
-1. Collect facts (assume and state): genre/loop, audience age, current offers with Robux price and type, how and where each is shown, metrics (payer conversion, ARPPU, transactions per 30 days, D1), whether prices are scripted via MarketplaceService, RNG items, Premium/subscription/rewarded-ads use.
+1. Collect facts (assume and state): genre/loop, audience age, list of current offers with Robux prices and type, how and where each is shown, metrics (payer conversion, ARPPU, transactions per 30 days, D1), whether prices are scripted via MarketplaceService, RNG items, Premium/subscription/rewarded-ads use.
 2. Load the checklist: `<KB>/_tools/CHECKLIST-monetization.md` (read the `Must` lists), plus `PRICE-LADDER.md` (top sections).
 3. Add targeted evidence:
    ```
@@ -37,9 +37,16 @@ Benchmarks: metric | yours | KB band | flag (use compare.py in rbx-metrics)
 ```
 
 ## Fair or pressure column
-Many Roblox players are children. Label every offer, prompt and retention hook the audit touches fair or pressure and fix `pressure` ones. Vault rules win on conflicts (marked V).
-Hooks to label: random rewards (V: none sold for Robux; free earned rolls with honest odds only; paid rolls and hidden odds are pressure and this vault fails them), scarcity, loss and streaks, prompts, status, return hooks. [cold:rbx-monetize-audit/fair-or-pressure.md] read only when labelling a hook fair or pressure (random rewards, scarcity, loss and streaks, prompts, status, return hooks).
-Questions per hook: what does the player get if they ignore it, does missing it punish, would you explain it to a parent. Credit: adapted from excaldev/ro-engineer `retention-psychology.md` and `player-incentives.md` (MIT, Copyright (c) 2026 excaldev); copies in Imported/ro-engineer.
+Many Roblox players are children. For every offer, prompt and retention hook the audit touches, label the version in use and fix `pressure` ones. Vault rules win on conflicts (marked V).
+| Hook | Fair | Pressure |
+|---|---|---|
+| Random rewards | V: none sold for Robux (eggs, spins, crates, luck boosts). Free rolls earned by play, honest odds, a guaranteed minimum | Paid rolls, hidden odds, faked near-misses. Roblox allows paid random items only with every outcome and its odds shown and `PolicyService` `ArePaidRandomItemsRestricted` honoured; this vault still fails them |
+| Scarcity | Restock rushes of minutes during play | Purchase countdowns, "never coming back", fake sales |
+| Loss and streaks | Protection earned by play, grace days | Losses only a purchase prevents, streak wiped by one missed day |
+| Prompts | After a win or at a need, dismissible, a one-line benefit | During intense play, timed to an emotional peak, confusing currency conversion hiding the Robux cost |
+| Status | Cosmetics others see, co-op bonuses | Status for sale, shaming non-payers |
+| Return hooks | Daily reward that costs nothing to skip | Absence destroys progress |
+Questions per hook: what does the player get if they ignore it, does missing it punish, would you explain it to a parent. Credit: adapted from excaldev/ro-engineer `retention-psychology.md` and `player-incentives.md` (MIT, Copyright (c) 2026 excaldev), reference copies in Imported/ro-engineer.
 
 ## Rules
 

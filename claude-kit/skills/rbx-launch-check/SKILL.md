@@ -5,11 +5,11 @@ description: "Builds a phone-friendly launch checklist (HTML plus markdown) for 
 
 # Roblox launch checklist
 
-Output: `launch-checklist-<game>.html` (tick boxes, progress bar, filters, saved in the browser) and `.md`, tailored to the game, every item sourced.
+Output: `launch-checklist-<game>.html` (tick boxes, progress bar, filters, saved in the browser) and `.md`, tailored to the game, with every item sourced.
 
 ## Inputs (assume and state; do not block)
 
-Game name and genre, stage (concept / alpha / soft launch / pre-launch / relaunch), launch date (default: 4 weeks from today), team size and owners, monetisation plan (passes / products / none yet), platforms (mobile-first default), audience age, ads and Discord planned or not, current D1/PTR if any.
+Game name and genre, stage (concept / alpha / soft launch / pre-launch / relaunch), launch date (default: 4 weeks from today's date), team size and owners, monetisation plan (passes / products / none yet), platforms (mobile-first default), audience age, whether ads and a Discord are planned, current D1/PTR if any.
 
 ## Procedure
 
@@ -22,11 +22,11 @@ Game name and genre, stage (concept / alpha / soft launch / pre-launch / relaunc
    $K find "<genre> launch mistakes" -t common-mistakes -n 5
    $K docs "publish requirements thumbnails experience details" -n 5
    ```
-3. Tailor: drop items that do not apply (e.g. Discord items when none planned; or keep as `could`), keep item text short and imperative, make vague items measurable ("D1 at or above 10% on a soft launch", benchmark flagged indie), add 3-6 game-specific items.
+3. Tailor: drop items that do not apply (for example Discord items when none planned; keep but mark `could`), keep the item text short and imperative, make vague items measurable ("D1 at or above 10% on a soft launch" with the benchmark flagged indie), add 3-6 game-specific items.
 4. Schedule: set `due` relative to launch (T-28, T-14, T-7, T-1, T+0, T+3, T+7) and an `owner`; order within a phase by due date. Priority: `must` for items most widely agreed across KB topics or official requirements; `should` for solid practice; `could` for nice-to-have.
 5. Write `items.json` (schema in `make_checklist.py`), then build:
    `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/vault-mode/.claude/skills/rbx-launch-check/make_checklist.py" items.json launch-checklist-<game>.html --md launch-checklist-<game>.md`
-6. Verify: open the JSON count, confirm every `must` item has `source` and `flag`, spot-check 3 sources against the KB output. Tell the calling session the file path; it may publish the HTML as a private Artifact for phone use.
+6. Verify: open the JSON count, confirm every `must` item has `source` and `flag`, and spot-check 3 sources against the KB output. Tell the calling session the file path; the calling session may publish the HTML as a private Artifact for phone use.
 
 ## Phases (use these names, in order)
 

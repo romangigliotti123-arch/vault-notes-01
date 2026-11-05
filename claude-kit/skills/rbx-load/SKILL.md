@@ -5,7 +5,7 @@ description: "Run /rbx-load to turn on Roblox dev mode for this project folder: 
 
 # rbx-load
 
-The kit is installed but NOT loaded by default; this loads it for the current folder.
+The vault kit is installed but NOT loaded by default, so unrelated Claude sessions stay clean. This command loads it for the current folder.
 
 1. Run: `K="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"; bash "$K/claude-kit/tools/pyrun" "$K/claude-kit/tools/vault-mode.py" load` (it already uses `$CLAUDE_CONFIG_DIR` when set; without `pyrun` use `python3` / `python` / `py -3` on `$K/claude-kit/tools/vault-mode.py`). If the vault skills (for example `rbx-workflow`) already appear in your skill list because Claude was started with `--add-dir <config>/claude-kit/vault-mode`, add `--no-link` (writes nothing).
 2. Reply with the first line it printed (`Roblox dev mode on: N skills, M agents, ...`), the `Games folder:` line, and then only the extra lines it printed about restarting, collisions or skipped items. Do not paraphrase them.

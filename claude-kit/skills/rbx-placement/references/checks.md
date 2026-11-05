@@ -13,12 +13,33 @@ Measured from the model's real geometry (parts, pivot, ray casts, neighbours), n
 | **P7 Connections** | declared `connect` entries end more than `connectTol` from where the next piece starts (stairs, doors, paths, rails, fences: my face `at` front/back/left/right/top/bottom/center vs the target point or the face `toAt` of the instance `to`); a `pair` (mirrored partner across `axis`/`at`) is off, of a different size or does not face the mirrored direction; a `group` member differs from the group median in size or part count (or, with `sameYaw`, in yaw) | `connectTol` 0.1, `pairTol` 0.15, `cloneSizeTol` 5% | `moveBy` |
 
 ## Reference scale by kind (studs; `size` = sorted small, mid, large extents in the pivot frame)
+Roblox default character about 5.5 tall; door about 4 x 7; stair step rise <= 1. Override per object with `expectedSize`, or per project by editing `Placement.Core.KINDS` (size ranges and defaults) once at startup.
 
-Roblox default character about 5.5 tall; door about 4 x 7; stair step rise <= 1. Per-kind size ranges (door, window, npc, sign, chair, table, lamp, crate, fence, wall, stairs, platform, tree, rock, bush, pickup, ground, prop) live in `Placement.Core.KINDS`; override per object with `expectedSize`. Tree/rock/bush use random yaw and larger bury and terrain-fill limits (see P2, P5); pickup floats on purpose and must not collide; ground and prop have no size range (size and facing `unverified`). [cold:rbx-placement/kind-scales.md] read only to look up the default size range or per-kind exceptions of one kind.
+| kind | small | mid | large | notes |
+|---|---|---|---|---|
+| door | 0.1-2 | 3-6 | 6-9 | needs facing, 90 deg grid, may overlap wall/frame/doorway |
+| window | 0.1-2 | 2-8 | 2-8 | needs facing, 90 deg grid |
+| npc, player | 1-4 | 1.5-4 | 4.5-7 | needs facing |
+| sign | 0.05-2 | 1-12 | 1-16 | needs facing, 90 deg grid |
+| chair | 1.5-4 | 1.5-4 | 2-5 | needs facing |
+| table | 2-5 | 2-12 | 2-14 | |
+| lamp | 0.5-4 | 0.5-4 | 5-25 | |
+| crate | 1.5-8 | 1.5-8 | 1.5-8 | |
+| fence | 0.2-2 | 2-10 | 2-20 | |
+| wall | 0.2-4 | 4-60 | 4-300 | 90 deg grid |
+| stairs | 1-60 | 2-40 | 3-40 | |
+| platform | 0.2-6 | 4-400 | 4-400 | |
+| tree | 1-20 | 1-30 | 5-80 | random yaw, bury 1.0, terrain fill 0.4 |
+| rock | 0.5-20 | 0.5-30 | 0.5-30 | random yaw, bury 1.5, terrain fill 0.5 |
+| bush | 0.5-8 | 0.5-8 | 0.5-8 | random yaw, bury 0.5 |
+| pickup | 0.2-4 | 0.5-4 | 0.5-4 | floats on purpose, must not collide |
+| ground | | | | the base surface itself (Baseplate, Floor): not asked to rest on anything |
+| prop | | | | no kind: grounded, upright, on the grid, clear, anchored; size and facing are `unverified` |
 
 ## What the numbers mean (so you can judge a finding)
-
-gap = lowest point minus the highest ray hit under the footprint (positive floats, negative sinks); yaw = atan2(-front.x, -front.z) degrees with a nearest-multiple grid test; overlap depth = smallest overlap over the 15 separating axes of two oriented boxes. [cold:rbx-placement/measure-definitions.md] read only when you must judge whether a measured gap, yaw or overlap finding is correct.
+- gap = lowest point minus the highest ray hit under the footprint (centre plus four corners inset 10%); positive floats, negative sinks. Rays start 4 studs above the lowest point and ignore the model itself and player characters.
+- yaw = atan2(-front.x, -front.z) in degrees; the grid test uses the nearest multiple; facing offset = angle between the front and the direction to the target, both flattened to the ground plane.
+- overlap depth = smallest overlap over the 15 separating axes of two oriented boxes; `move` is the translation of this model that separates it.
 
 ## Waivers, ignores and honesty
 - `intent.waive = { P4 = "reason of at least 10 characters" }` turns a fail into a recorded waiver. More than 10% of the models (minimum 2) with waivers, or ignores (`PlacementIgnore` attribute plus `PlacementIgnoreReason`), fails the gate: fix the models instead.

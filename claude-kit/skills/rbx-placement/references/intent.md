@@ -39,7 +39,8 @@ Placement.place(door, {
 | `connect` `pair` `group` | P7 promises | none |
 | `waive` | `{ P4 = "reason" }`, reason of at least 10 characters | none |
 
-`surfacePath` is the instance (or a descendant) the model must rest on (P2). `face.target` is an instance path or `{x,y,z}` (also `{ dir }`, `{ awayFrom }`, `{ any = true }`); `front` is Front (LookVector), Back, Left or Right; `yawGrid` 0 turns the grid off. [cold:rbx-placement/intent-syntax.md] read only when you need the exact syntax of `expectedSize`, `connect`, `pair` or `group`.
+`surfacePath` is the instance (or a descendant) the model must rest on (P2). `face.target` is an instance path or `{x,y,z}`; also `{ dir = {0,0,1} }`, `{ awayFrom = ... }`, `{ any = true }`. `front` is Front (LookVector), Back, Left or Right. `yawGrid` 0 turns the grid off. `expectedSize` is pivot-frame extents x y z (`sizeTol` 0.2). `connect` entries make my face meet another face (`toAt = "point"` takes `{x,y,z}`). `pair` mirrors a partner across the plane `axis = at`. `group` makes siblings with the same base name match in size, part count and yaw.
 
-Project-wide defaults go in `Placement.config.core` or per call in `opts`; rules by name pattern in `opts.rules`, by path in `opts.intents`; precedence (later wins): defaultIntent, ground name, inferred kind, rules, `opts.intents`, the stored attribute. [cold:rbx-placement/intent-defaults.md] read only when setting project-wide defaults or name-pattern rules for intents.
+Project-wide defaults go in `Placement.config.core` (floatTol, buryTol, defaultYawGrid, bounds ...) or per call in `opts`. Rules by name pattern: `opts.rules = { { pattern = "^lamp", intent = { kind = "lamp" } } }`; explicit by path: `opts.intents = { ["Workspace.Map.Door1"] = {...} }`. Precedence (later wins): defaultIntent, ground name, inferred kind, rules, `opts.intents`, the stored attribute.
+
 Attributes on a model: `PlacementIntent` (JSON), `PlacementKind` (shorthand), `PlacementObject = true` (treat a container Model as one object), `PlacementIgnore = true` with `PlacementIgnoreReason` (skip it in scans; counted against the 10% limit).

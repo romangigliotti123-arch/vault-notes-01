@@ -5,7 +5,7 @@ description: "Given a Roblox dev need (low-poly trees, datastore wrapper, UI fra
 
 # Roblox asset finder
 
-Search local first; never download until the local index misses.
+Use when someone needs a ready-made model, texture, sound, code module, framework or example game for Roblox. Search local first; never download until the local index misses.
 
 ## Where things live
 ASSETS = env `ROBLOX_ASSETS`, else `<vault>/Assets`, else `~/roblox-assets` (Windows `%USERPROFILE%\roblox-assets`). `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/kbq.py where` prints it (empty = not synced on this computer, run /rbx-update: say so, do not invent paths).

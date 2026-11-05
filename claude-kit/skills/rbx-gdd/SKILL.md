@@ -5,7 +5,7 @@ description: "Fills in a 1-3 page game design document for a Roblox experience f
 
 # Roblox GDD template
 
-Output: a filled `GDD-<game>.md` from `TEMPLATE.md` (this folder). Full idea-to-GDD with candidate scoring: `rbx-designer` agent.
+Output: a filled `GDD-<game>.md` built from `TEMPLATE.md` in this folder. For the full idea-to-GDD job with candidate scoring, use the `rbx-designer` agent; this skill is the template plus the fill-in rules.
 
 ## Procedure
 

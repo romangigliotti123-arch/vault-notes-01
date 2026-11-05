@@ -7,19 +7,19 @@ description: "Pattern and review checklist for saving player data without loss o
 
 Code comments: none by default (see rbx-luau, Comments).
 
-Output: working Luau module plus the test list below, or a review verdict with line-level findings.
+Use when a script loads or saves player data. Output: working Luau module plus the test list below, or a review verdict with line-level findings.
 
 ## Rules
 1. Server only. Never touch DataStoreService from a LocalScript. The client never sends "my coins are N"; it requests actions and the server computes.
-2. One profile table per player under one key (`Player_<UserId>`). Key limit 50 chars, value limit about 4 MB; keep profiles small and flat.
+2. One profile table per player under one key (`Player_<UserId>`). Key length limit is 50 chars and a value limit is about 4 MB; keep profiles small and flat.
 3. Write with `UpdateAsync` (read-modify-write), not `SetAsync`, for anything that can change from two servers.
-4. Wrap every DataStore call in `pcall`; retry with exponential backoff (e.g. 1s, 2s, 4s, max 5 tries). Respect request budgets (`DataStoreService:GetRequestBudgetForRequestType`); never save in a tight loop.
-5. Session lock: store `{ jobId, t }` in the profile. On load, if another live JobId holds a fresh lock, wait and retry; a stale lock (older than a few minutes) may be taken. Release it on the final save. If this is too much, use a maintained library (ProfileService / ProfileStore) instead of a hand-rolled lock, and say so.
-6. On load failure do NOT let the player play with default data that would later overwrite the real save: kick with a message, or run in a "not saving" mode.
-7. Save on `Players.PlayerRemoving`, on `game:BindToClose` (all players in parallel, wait until done, inside the shutdown window of about 30s), and autosave every 60-120s only when data changed (dirty flag).
-8. Schema versioning: a `version` field plus `migrate(profile)` with default fill, so new fields never nil-crash old saves.
-9. Studio: enable API Services; use a separate test store name so tests never touch live data.
-10. Purchases and currency: record the processed `PurchaseId` in the profile so a receipt never grants twice (see rbx-monetize).
+4. Wrap every DataStore call in `pcall`; retry with exponential backoff (for example 1s, 2s, 4s, max 5 tries). Respect request budgets (`DataStoreService:GetRequestBudgetForRequestType`) and do not save in a tight loop.
+5. Session lock: store `{ jobId, t }` in the profile. On load, if another live JobId holds a fresh lock, wait and retry; if the lock is stale (older than a few minutes) take it. Release the lock on the final save. If this is too much, use a maintained library (ProfileService / ProfileStore) rather than a hand-rolled lock, and say so.
+6. Load failure means do NOT let the player play with default data that will later overwrite the real save. Kick with a message, or run in a "not saving" mode.
+7. Save on `Players.PlayerRemoving`, on `game:BindToClose` (loop all players, save in parallel, wait until done, stay inside the shutdown window of about 30s), and autosave every 60-120s only when data changed (dirty flag).
+8. Schema versioning: a `version` field plus a `migrate(profile)` function with default fill, so new fields never nil-crash old saves.
+9. Studio: enable API Services for Studio to test; use a separate test store name so test runs do not touch live data.
+10. Purchases and currency: record the processed `PurchaseId` in the profile so a receipt can never grant twice (see rbx-monetize).
 
 ## Skeleton
 ```lua

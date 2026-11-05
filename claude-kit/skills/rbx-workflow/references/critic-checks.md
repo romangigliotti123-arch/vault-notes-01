@@ -1,7 +1,7 @@
 # critic-checks: pass/fail checks the critic runs per factor
 
 Read by `rbx-judge` only for the factors the stage scores. Each line is a check with a number or a gotcha; DR = `Roblox/roblox-kb/_tools/DECISION-RULES.md` (topic in brackets). Trust: official or mixed (official and creators agree) only. A failed check with no cited exception caps that factor at 5; a pass is evidence for 7+. Re-check fast-moving numbers with `kbq.py` before quoting. Patterns only, never copy a game.
-Run a check only where the stage's evidence can show it. At the idea stage a detail the plan has not had to decide yet (pixel sizes, API names, texture caps) is a "to specify" note, not a cap; a plan that contradicts a check (a pay-to-win pass, paid randomness aimed at kids) is a fail. "Rescue from loss" = a loss the design engineers to sell the fix (spiked difficulty, pressure timer, lost-gear ransom); cheap optional revives in a fair game free players can finish are an F7 note, not a cap.
+Run a check only where the stage's evidence can show it. At the idea stage a detail the plan has not had to decide yet (pixel sizes, API names, texture caps) is a "to specify" note, not a cap; a plan that contradicts a check (for example a pay-to-win pass or paid randomness aimed at kids) is a fail. "Rescue from loss" means a loss the design engineers in order to sell the fix (spiked difficulty, a pressure timer, a lost-gear ransom); cheap optional revives in a fair game that free players can finish are a note for F7, not a cap.
 
 Order: spec compliance (each acceptance line met, with evidence) is judged before style or polish; style never lifts a failed spec check. [cold:rbx-workflow/rulings.md] read only for the review-order rationale.
 
@@ -54,9 +54,10 @@ Order: spec compliance (each acceptance line met, with evidence) is judged befor
 - The plan's M1 is the core loop, serial, with its own acceptance test, and no parallel job starts before it passes (manager.md, Core loop first).
 
 ## Stage and growth checks
-
-[cold:rbx-workflow/critic-checks-late.md] read only when the critic scores a playtest, launch, growth or live-ops stage.
+- Playtest: one goal per test and about one minute per check; a retention test is a time-boxed weekend or one week; start closed through a group, open Beta only when playable end to end on every target platform (official; DR playtesting-and-feedback).
+- Launch: before ads confirm eligibility, a stable build, a working onboarding funnel and age-rating settings; a campaign runs 1-2 weeks and is judged after 3-5 days (official; DR ads-and-sponsored-experiences).
+- Growth: under about 500-1,000 DAU use qualitative feedback, not experiments; never act on a result marked NotStatisticallySignificant or Projected; a risky change runs 50/50 against control for about a week (mixed/official; DR analytics-metrics, playtesting-and-feedback).
+- Live-ops: set a crash-rate alert and rollback thresholds before each release and roll back first, then profile; flag a team that cannot ship monthly; ship time-sensitive content behind a config flip (official; DR updates-live-ops).
 
 ## Where sources disagree
-
-[cold:rbx-workflow/critic-checks-late.md] read only when two numbers in these checks conflict (rewarded-video opt-in, A/B length, texture caps).
+- Rewarded-video opt-in target is 13-15 percent or more (one page says 15 percent): use 13-15 percent. A/B length is about one week (one page says two): use one week. Texture caps differ by scope (4096 upload ceiling, 1024 PBR table, 2048 Marketplace accessories, 256 rigid non-albedo): name the scope.

@@ -7,8 +7,7 @@
 - Goodhart: the metric must be the thing you want. For the economy use time to first upgrade and time to unlock the last tier from the plan's targets, not raw coins. Add a guard metric when one number can be gamed (for example frame cost plus part count).
 
 ## Economy example (obby or tycoon)
-
-Economy: metric = seconds until the first upgrade is affordable (down, target under 120) via `game-economy-simulation` on `Config.luau`; one knob per experiment; later tiers must still unlock within the plan's session length. [cold:rbx-tune/economy-example.md] read only when tuning an economy and you want a worked metric/knob/guard-rail example.
+Metric: seconds until the first upgrade is affordable, direction down, target under 120. Evaluator: the simulation script from `game-economy-simulation` run on `Config.luau` values. Knobs, one per experiment: starting coins, first reward size, price of upgrade 1, income per second of the first machine. Guard rails: later tiers still unlock within the plan's session length and `code_gates.py` stays unchanged.
 
 ## Snapshots and reverts
 Copy the files an experiment may touch to `tune/<run-id>/snap/` before the change, or use the project's git (`git stash` or a commit per keep). A revert restores the snapshot exactly, never by hand-editing back. Record crashes (the evaluator errored) as `crash`, restore, and count them in the budget.
@@ -20,5 +19,4 @@ Copy the files an experiment may touch to `tune/<run-id>/snap/` before the chang
 Budget reached, target reached, or three experiments in a row without an improvement (switch the kind of change once, for example from prices to rewards, then stop). Each experiment costs about 300-600 tokens plus the evaluator's printed summary; ten experiments are roughly 6-9k tokens. Low-usage mode: 5 experiments, one change class.
 
 ## Not adopted from the source idea
-
-No unbounded or overnight runs and no disabled permissions: every run has a budget and stays in the project folder. [cold:rbx-tune/sources.md] read only to see what was deliberately not adopted from the source idea.
+Running forever without asking, disabling permissions, and overnight unbounded runs. Here every run has a budget, stays inside the project folder and reports back.

@@ -5,7 +5,7 @@ description: "Sourced packaging brief for a Roblox experience: icon, 3-5 thumbna
 
 # Roblox thumbnail brief
 
-KB-grounded packaging for the experience page (icon, thumbnails, title, description, video) and sponsored-ad creatives (Ad creatives below).
+KB-grounded packaging for the experience page (icon, thumbnails, title, description, video) and for sponsored-ad creatives (section Ad creatives below).
 
 ## Procedure
 
@@ -20,7 +20,7 @@ KB-grounded packaging for the experience page (icon, thumbnails, title, descript
    $K case "<genre>" -n 2
    $K docs "thumbnail requirements icon video" -n 5
    ```
-3. Diagnose first: CTR near 0.5% = packaging problem (repackage before changing gameplay); target 2.5-3%+ (indie, self-reported); high first-play bounce may mean packaging and gameplay mismatch.
+3. Check the diagnosis first: if CTR is near 0.5% treat it as a packaging problem (repackage before changing gameplay); target 2.5-3%+ (indie, self-reported); if first-play bounce is high, the cause may be a mismatch between packaging and gameplay.
 4. Write the brief; cite specs from `docs` output (do not rely on memory for sizes, counts or quotas).
 
 ## Output template
@@ -46,7 +46,7 @@ Evidence table: claim | link | flag | date
 ## Ad creatives (sponsored experiences)
 
 - Concept options: 3 distinct one-line scenes (action moment, reward moment, social moment); pick the one that reads clearest at phone thumbnail size. Keep key content in the centre so crops do not cut it.
-- Ad formats and sizes differ by placement: check live Ads Manager requirements, not memory.
+- Ad formats and sizes differ by placement in Ads Manager: check the live requirements, do not trust memory.
 - No fake counters, fake UI buttons, copied logos or "free Robux" text; all assets owned or original; all-ages safe.
 - Test one variable at a time (icon first, it drives most impressions), fixed period or impressions chosen in advance, judge CTR and D1 of the visitors each variant brought, log the winner with its date.
 - Paid ads: a small daily budget cap approved by the user (spending needs the user's yes); pause variants with the worst cost per retained visit. Budget plan: `rbx-ad-plan`.

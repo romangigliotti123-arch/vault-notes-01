@@ -14,8 +14,11 @@
 - `/rbx-low-usage install-hooks` / `uninstall-hooks`: merge or remove the two hook entries (also offered automatically, with a yes/no, when the mode is turned on and the hooks are missing).
 
 ## Hooks (merged into `~/.claude/settings.json` by `lum.py install-hooks`)
-
-`lum.py install-hooks` merges a `UserPromptSubmit` hook (every prompt) and a `SessionStart` hook (matcher `startup|resume|compact`), each running `scripts/lum hook <event>`; the merge keeps every other key and hook, backs up settings.json first, does nothing if present, refuses an invalid settings.json, and `uninstall-hooks` removes exactly our entries. Installer flags are opt-in (`install.ps1 -WithHooks | -RemoveHooks`, `install.sh --with-hooks | --remove-hooks`); hooks load at session start (or via `/hooks`). [cold:rbx-low-usage/hooks-detail.md] read only to debug or audit the settings.json hook entries.
+- `UserPromptSubmit` -> `sh "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/rbx-low-usage/scripts/lum" hook UserPromptSubmit` (every prompt).
+- `SessionStart`, matcher `startup|resume|compact` -> same command with `SessionStart`.
+- The merge is JSON-aware: it keeps every other key and hook, writes a backup `settings.json.lum-bak-<timestamp>` first, does nothing if our entries exist, refuses to touch an invalid settings.json, and `uninstall-hooks` removes exactly our entries (tested: the file returns to its pre-install content).
+- Installer flags (opt-in, never automatic on `/rbx-update`): `install.ps1 -WithHooks | -RemoveHooks`, `install.sh --with-hooks | --remove-hooks`.
+- Hooks load when a session starts (or via `/hooks`); a session that began before install gets the rules from the skill text until restarted.
 
 ## Limits
 - It is an instruction, not enforcement: Claude can still miss the prefix on a very long or odd turn. The hook repeats the rules every message to make that rare.
@@ -24,5 +27,4 @@
 - Turning the mode off mid-session leaves older reminders in the transcript; the skill's off reply tells Claude to ignore them (tested: replies lose the prefix immediately).
 
 ## Test record (2026-11-01, temp config, haiku, headless)
-
-Tested 2026-11-01: on, three follow-up prompts, `/compact`, fresh session with hooks only, off, PowerShell fallback and hook merge/remove round-trip all behaved as specified. [cold:rbx-low-usage/test-record.md] read only to see what was tested when the mode was built.
+On via skill; 3 further prompts in the same session, each reply began `low usage mode enabled.`; `/compact` then another prompt, still prefixed (transcript: compact_boundary, then SessionStart and UserPromptSubmit attachments); a fresh session without the skill, prefixed by hooks alone; off, then two prompts without the prefix; PowerShell fallback output identical to Python's; hook merge/remove round-trip restores the original settings.json.

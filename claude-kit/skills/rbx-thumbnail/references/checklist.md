@@ -1,6 +1,6 @@
 # Content-rules and quality checklist (run on every prompt before generating and every image after)
 
-Source of truth: the live Roblox Community Standards and Creator Hub thumbnail/icon requirements from the live check, plus `Roblox/roblox-kb/age-ratings-moderation-and-tos.md` and `thumbnails-icons.md`. If this list and a live official page differ, the live page wins; say so.
+Source of truth for the rules: the live Roblox Community Standards and Creator Hub thumbnail/icon requirements found in the live check, plus `Roblox/roblox-kb/age-ratings-moderation-and-tos.md` and `thumbnails-icons.md` in the vault. If this list and a live official page differ, the live page wins; say so.
 
 ## Roblox rules (all must pass)
 - [ ] All ages: no gore, realistic violence, weapons pointed at people, sexual or suggestive content, drugs, hate symbols, self-harm, scary imagery that would mislead a young audience.

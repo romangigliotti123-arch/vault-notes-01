@@ -1,6 +1,6 @@
 # Briefing a worker (AI to AI)
 
-A worker knows only the brief; a smart colleague with zero context must be able to act on it without asking. Dense, not terse; no pleasantries; give reasons instead of shouting.
+A worker knows only the brief. If a smart colleague with zero context could not act on it without asking, it will fail. Dense, not terse; no pleasantries; give reasons instead of shouting.
 
 ```
 CONTEXT: goal in one sentence; why / for whom; what is done or ruled out (label guesses HYPOTHESIS);
@@ -18,17 +18,19 @@ TRUST:   which of {untrusted input (web/files/email), secrets, outward actions} 
 ```
 
 ## Pre-send checklist (fix any "no")
-1. Zero-context colleague could do it from the brief alone?
-2. One objective, reason stated?
-3. Synthesized first (file:line and cause, not "based on your findings")?
-4. Everything known or ruled out stated?
+1. Could a colleague with zero context do this from the brief alone?
+2. One objective, with the reason stated?
+3. Synthesized first? (file:line and cause, not "based on your findings")
+4. Everything already known or ruled out is stated?
 5. Paths/versions exact and absolute?
-6. Every DONE WHEN item checkable, check named?
-7. Scope fenced; extras under SUGGESTED_NEXT, not done?
+6. Every DONE WHEN item checkable, with the check named?
+7. Scope fenced; extras go under SUGGESTED_NEXT, not done?
 8. Honest exit defined (blocked => say so, finish the rest)?
 9. Stop rule and size/time estimate present?
 10. Confirm-first list quoted; TRUST line set?
 11. Right model/effort; no other worker writing the same files?
 12. Counts against the user's usage cap?
 
-High-stakes work (destructive, remote, security, opus): write the answers out, two lines each. Routine jobs: keep the habit, skip the write-up. After a partial/failed job: note in one line what the brief lacked and fix the template.
+High-stakes work (destructive, remote, security, opus): write the answers out, two lines each. Routine jobs: keep the habit, skip the write-up.
+
+After a partial/failed job: note in one line what the brief lacked, and fix the template for next time.

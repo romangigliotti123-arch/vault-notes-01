@@ -22,5 +22,7 @@ Period | headline (one sentence) | table of metrics with change vs previous | to
 Say plainly when data is too thin to conclude.
 
 ## Vault evidence (official first; full list in `Roblox/roblox-kb/analytics-metrics.md`)
-
-Instrument funnels before closed beta or launch; D1/D7/D30 retention is the core health metric; read monetisation through conversion, ARPPU and ARPDAU together; change one thing per test and slice by platform, device, source and cohort. Full list: `Roblox/roblox-kb/analytics-metrics.md`. [cold:rbx-analytics/vault-evidence.md] read only to cite or verify the vault evidence behind a metric recommendation.
+- Instrument funnels and event tracking before closed beta or launch; watch feature engagement and drop-off on launch day (official Creator Docs, Roblox Creators, DevForum).
+- Retention (D1/D7/D30) is the core health metric. Low D1 usually means onboarding problems; diagnose by window and with first-session data.
+- Read monetisation through conversion, ARPPU and ARPDAU together; base analytics do not show how purchase systems perform, so build custom monetisation tracking.
+- Change one thing per test and use Experiments for significance; slice by platform, device, source and cohort.

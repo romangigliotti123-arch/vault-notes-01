@@ -26,11 +26,12 @@ Pick the smallest structure that fits the evidence. Output: a decision record (s
 | Object pool | Profile shows creation/destruction spikes (bullets, hit effects, respawning NPCs) | Reset correctness, peak demand, exhaustion rule, retained memory |
 
 ## Order of questions
-1. Existing pattern for this area? Use it.
-2. Own lifetime (spawns, dies, owns connections)? OOP or components, else a module. Same behaviour reused across unrelated things? Components over inheritance.
-3. Many systems share data? Store; single reader: a local table.
-4. Allocation or destruction in the profile? Pool, then measure again.
-5. ECS only after 1-4 and a benchmark of equivalent behaviour (same physics, fidelity, replication) on the target device.
+1. Is there an existing pattern for this area? Use it.
+2. Does it have its own lifetime (spawns, dies, owns connections)? OOP or components, else a module.
+3. Is the same behaviour reused across unrelated things? Components over inheritance.
+4. Do many systems share data? Store. Single reader: a local table.
+5. Is allocation or destruction in the profile? Pool, and measure again afterwards.
+6. ECS only after 1-5 and a benchmark of equivalent behaviour (same physics, fidelity, replication) on the target device.
 
 ## Examples
 OOP object that ends with its Instance:
@@ -73,10 +74,129 @@ end
 return Turret
 ```
 
-Reference shapes for the other patterns: components on tagged Instances (connect the added/removed signals first, then sweep `GetTagged`; attach is idempotent; detach on tag removal); a pool with a lease contract (`acquire` hands out ownership, `release` accepts only leased parts, resets velocity and parent, idle cap destroys the surplus); a state store (`--!strict`, frozen immutable state, `get`/`set`/`subscribe` returning an unsubscribe function). [cold:rbx-arch/pattern-examples.md] read only when you must write a component (tags), pool or state-store implementation and want a reference shape.
+Component on tagged Instances (connect first, then sweep; attach is idempotent):
+```lua
+--!strict
+local CollectionService = game:GetService("CollectionService")
+
+type Component = { Destroy: (Component) -> () }
+
+local TAG = "Spinner"
+local active: { [Instance]: Component } = {}
+
+local function attach(inst: Instance)
+	if active[inst] then
+		return
+	end
+	active[inst] = {
+		Destroy = function() end,
+	}
+end
+
+local function detach(inst: Instance)
+	local component = active[inst]
+	if component then
+		active[inst] = nil
+		component:Destroy()
+	end
+end
+
+CollectionService:GetInstanceAddedSignal(TAG):Connect(attach)
+CollectionService:GetInstanceRemovedSignal(TAG):Connect(detach)
+for _, inst in CollectionService:GetTagged(TAG) do
+	attach(inst)
+end
+```
+
+Pool with a lease contract (acquire hands out ownership, release accepts only leased parts, idle cap):
+```lua
+--!strict
+local Pool = {}
+Pool.__index = Pool
+
+export type Pool = typeof(setmetatable(
+	{} :: {
+		template: BasePart,
+		idle: { BasePart },
+		leased: { [BasePart]: boolean },
+		idleCap: number,
+	},
+	Pool
+))
+
+function Pool.new(template: BasePart, prewarm: number, idleCap: number): Pool
+	local self = setmetatable({ template = template, idle = {}, leased = {}, idleCap = idleCap }, Pool)
+	for _ = 1, prewarm do
+		table.insert(self.idle, template:Clone())
+	end
+	return self
+end
+
+function Pool.acquire(self: Pool): BasePart
+	local part = table.remove(self.idle) or self.template:Clone()
+	self.leased[part] = true
+	return part
+end
+
+function Pool.release(self: Pool, part: BasePart): boolean
+	if not self.leased[part] then
+		return false
+	end
+	self.leased[part] = nil
+	part.Parent = nil
+	part.AssemblyLinearVelocity = Vector3.zero
+	if #self.idle >= self.idleCap then
+		part:Destroy()
+	else
+		table.insert(self.idle, part)
+	end
+	return true
+end
+
+return Pool
+```
+
 Before release the caller ends hit handlers, tweens and delayed work. Before reuse restore transform, velocity, collision/query/touch flags, transparency, attributes, emitters and children. Idle objects must be inert. Define teardown for active leases, and reject, grow or degrade on exhaustion.
 
-[cold:rbx-arch/pattern-examples.md] read only when you must write a component (tags), pool or state-store implementation and want a reference shape.
+State store (immutable updates, unsubscribe returned):
+```lua
+--!strict
+export type State = { coins: number, zone: string }
+export type Store = {
+	get: (Store) -> State,
+	set: (Store, (State) -> State) -> (),
+	subscribe: (Store, (State, State) -> ()) -> () -> (),
+}
+
+local function newStore(initial: State): Store
+	local state = table.freeze(initial)
+	local listeners: { [number]: (State, State) -> () } = {}
+	local nextId = 0
+	local store = {} :: Store
+	store.get = function()
+		return state
+	end
+	store.set = function(_, update)
+		local old = state
+		state = table.freeze(update(old))
+		for _, fn in listeners do
+			fn(state, old)
+		end
+	end
+	store.subscribe = function(_, fn)
+		nextId += 1
+		local id = nextId
+		listeners[id] = fn
+		return function()
+			listeners[id] = nil
+		end
+	end
+	return store
+end
+
+return newStore
+```
+
 Server owns gameplay state; clients get a snapshot when ready, then diffs, with a sequence number to detect gaps. Never accept state from a client.
 
 ## Ownership map (fill for multi-system work)
@@ -98,5 +218,4 @@ How verified: profile, test, playtest (state which)
 rbx-luau (lifecycle and cleanup), rbx-perf (measure first), rbx-rojo, rbx-code-rate.
 
 ## Credit
-
-Decision rules adapted in our own words from excaldev/ro-engineer (MIT). [cold:rbx-arch/credit.md] read only to verify the source or licence of these rules.
+Decision rules adapted in our own words from excaldev/ro-engineer (MIT, Copyright (c) 2026 excaldev); reference copies under Imported/ro-engineer.

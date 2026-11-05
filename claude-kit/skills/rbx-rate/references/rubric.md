@@ -2,22 +2,20 @@
 
 Default weights live in `scripts/score.py` (sum 100) and are derived from the vault. Where the freshest `_tools/DECISION-RULES` / `BENCHMARKS` contradict a rationale below, pass a weight override and say why in the report.
 
-| id | criterion | wt |
-|---|---|---|
-| loop | Core loop strength | 14 |
-| ret | Retention potential (D1 / D7 / D30) | 14 |
-| f30 | First-30-seconds hook | 10 |
-| feel | Fluidity and feel | 8 |
-| social | Virality and co-play | 9 |
-| money | Monetisation fit | 9 |
-| disc | Discoverability and thumbnail-ability | 8 |
-| scope | Production cost and scope | 8 |
-| diff | Differentiation | 5 |
-| trend | Trend fit | 5 |
-| ad | Ad-ability | 3 |
-| upd | Update potential | 7 |
-
-Gate criteria: loop, f30, money, scope. Why each weight (vault evidence): [cold:rbx-rate/weight-evidence.md] read only to justify or override a criterion weight (vault evidence per criterion).
+| id | criterion | wt | why this weight (vault evidence; paths under `Roblox/roblox-kb/`) |
+|---|---|---|---|
+| loop | Core loop strength | 14 | Official docs rank D1 levers core loop first, first-time experience second, performance third (`retention-d1-d7.md`, flag mixed, 2026-10). "Define a ~30-second loop before coding" (`core-loops-and-game-design.md`). |
+| ret | Retention potential (D1 / D7 / D30) | 14 | Roblox: engagement carries by far the most weight in Home ranking: time played, session count, retention over weeks (`discovery-algorithm.md`, official, 2026-05). Targets and flags come from `_tools/BENCHMARKS.md` (headline D1/D7 rows; indie rows are anecdotes). |
+| f30 | First-30-seconds hook | 10 | "Give a win or reward in the first 30 seconds" and match the thumbnail promise (`first-session-onboarding.md`, mixed, 2026-08). A gate criterion. |
+| feel | Fluidity and feel | 8 | Game feel/juice, input response, camera, sound (`player-psychology-and-game-feel.md`, `vfx-and-particles.md`, `sound-and-music.md`); felt in the first minute and at 60 fps on a phone (`optimization-and-streaming.md`). |
+| social | Virality and co-play | 9 | Co-play is a Home ranking signal; players with friends: about 30% longer sessions, 60% more likely to return D0-D1 (`retention-d1-d7.md`, official, 2026-10; `social-features-and-virality.md`). |
+| money | Monetisation fit | 9 | Cosmetics/convenience/passes without gating core progress; repeatable = product, permanent = pass (`monetisation-gamepasses.md`, `_tools/CHECKLIST-monetization.md`, `_tools/PRICE-LADDER.md`). A gate criterion. |
+| disc | Discoverability and thumbnail-ability | 8 | Play-through rate and thumbnail quality drive Home (`thumbnails-icons.md`, `titles-descriptions.md`, `discovery-algorithm.md`): one searchable hook word and an obvious image. |
+| scope | Production cost and scope | 8 | Solo first release is a 2-4 week MVP; finished simple beats unfinished complex (`development-process-and-speed.md`, indie). A gate criterion. Scored for the team/time the plan assumes. |
+| diff | Differentiation | 5 | Saturation and "known formula plus one twist" (`trend-research-and-validation.md`, `game-ideas-and-genres.md`). |
+| trend | Trend fit | 5 | Alignment with what is performing now; correlation is not cause, so low weight (`trend-research-and-validation.md`; live check). |
+| ad | Ad-ability | 3 | `_tools/AD-PLAYBOOK.md`: ads cannot rescue a weak game; fix retention first. Low weight on purpose. |
+| upd | Update potential | 7 | Players leave when out of content; cadence and events (`updates-live-ops.md`, `events-and-seasonal-content.md`). |
 
 ## Scoring rules
 - Integers or halves, 1-10. **Default is 5, not 7.** Every score of 8+ or 3- needs a cited fact (note path, kbq link or live source) or the words `judgment` / `ESTIMATE` in its evidence line. One evidence line (<= 25 words) per criterion.
@@ -41,7 +39,7 @@ Gate criteria: loop, f30, money, scope. Why each weight (vault evidence): [cold:
 - **Bands:** 8.50+ exceptional (build now) · 7.00-8.49 strong · 5.50-6.99 viable with fixes · 4.00-5.49 weak, rework · below 4.00 reject/restart. No score is a promise of success; give the result that would prove it wrong.
 
 ## Ethics column: fair or pressure (retention, monetisation, social, update hooks)
-Many Roblox players are children. Label each hook the idea uses fair or pressure; treat design hypotheses as hypotheses and measure with the real audience. A `pressure` label is a weakness on its criterion and a fix; paid randomness and pay-to-win still set `violates_rules` (cap 3.00).
+Many Roblox players are children. Every hook below can be fair or pressure; label each hook the idea uses, treat design hypotheses as hypotheses, and measure with the real audience. A `pressure` label is a weakness on the criterion it sits under and a fix; paid randomness and pay-to-win still set `violates_rules` (cap 3.00).
 | Principle (criterion) | Fair | Pressure |
 |---|---|---|
 | Variable reward (ret, money) | Free rolls earned by play, a guaranteed minimum value, honest odds | Paid rolls (this vault bans them), hidden odds, faked near-misses |
@@ -52,4 +50,4 @@ Many Roblox players are children. Label each hook the idea uses fair or pressure
 | Social proof (social) | Showing off, co-op bonuses, achievable leaderboard tiers | Status for sale, shaming non-payers |
 | Peak-end (ret, money) | Best moment at the end of a run, quick retry after failure | A purchase prompt timed to the emotional peak or during intense play |
 Hook test (write the answers in the report): which principle, fair or pressure version, what the player gets if they ignore it, does missing it punish or only not reward, would you explain it to a parent. Vault rules win over the source ideas: no paid random rewards (Roblox allows them with disclosed odds and `PolicyService` `ArePaidRandomItemsRestricted` checks; this vault does not), no pressure timers aimed at kids.
-Credit: adapted from excaldev/ro-engineer `retention-psychology.md` (MIT, Copyright (c) 2026 excaldev); copy in Imported/ro-engineer.
+Credit: fair-versus-pressure wording adapted from excaldev/ro-engineer `retention-psychology.md` (MIT, Copyright (c) 2026 excaldev); reference copy in Imported/ro-engineer.

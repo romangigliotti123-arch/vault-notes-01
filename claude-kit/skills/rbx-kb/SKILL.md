@@ -5,9 +5,10 @@ description: "Cheap, cited answers to Roblox game-making questions from the loca
 
 # Roblox KB answer
 
-Answer from the KB with timestamped citations and an official/indie flag, in few tokens. Do the work yourself; no subagents.
+Answer from the KB, with timestamped citations and an official/indie flag, in as few tokens as possible. Do the work yourself; no subagents.
 
 ## Procedure
+
 Each Bash call is a fresh shell, so set `K` every time:
 
 ```
@@ -43,7 +44,13 @@ At most 8 bullets. Every number or rule has a link and a flag (official | indie 
 - Never invent a number, link or timestamp; copy links exactly from the tool output.
 - If the question needs a plan, audit, diagnosis or code, say which Roblox specialist handles it (rbx-designer, rbx-money, rbx-marketer, rbx-doctor, rbx-liveops, rbx-engineer) or hand to rbx-lead.
 
-Self-check: answer first, then evidence, under about 200 words; every number cites a link and flag; conflicts and age (over 12 months) surfaced; about 4 kbq calls at most unless the question is broad.
+## Self-check
+
+- [ ] Answer first, then evidence; under about 200 words.
+- [ ] Every number cites a source link and flag.
+- [ ] Conflicts and age (over 12 months) surfaced.
+- [ ] No more than about 4 kbq calls unless the question is broad.
 
 ## Learn
-`/rbx-learn` for a verified non-obvious finding (one note each); on a problem run `vault-find.py "<problem>" --type learned` first.
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

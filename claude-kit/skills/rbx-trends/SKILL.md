@@ -5,7 +5,7 @@ description: "Market research on Roblox only: what is popular or trending right 
 
 # Roblox trend research
 
-Output: a pattern library with a date and a source on every claim. Not a list of games to clone, not game ideas (hand those to rbx-ideas).
+Output: a pattern library with a date and a source on every claim. Not a list of games to clone, and not game ideas (hand those requests to rbx-ideas).
 
 ## Hard rules
 
@@ -52,7 +52,7 @@ The local Roblox knowledge base holds dated, sourced, official/indie-flagged mat
 
 It prints a `[K#]` pack. If its first line is not `KB OK` (or it fails), your reply starts with `KB unavailable: <reason>. Fix: <its Fix line>`; never fall back silently.
 
-Treat KB items as Tier A when flagged official (Creator Docs, Roblox sessions) and as Tier C leads when indie/self-reported; cite them as `[K#]` with the timestamp link. KB patterns count toward "shared patterns" (3+ games). The KB is a snapshot dated by its sources: use the web only for live facts it cannot hold (current CCU and chart positions, what rose in the last 90 days, KB gaps). Reduce the search and fetch budget by the number of KB case studies used (minimum 3 searches). Add a `K#` block to the Sources table.
+Treat KB items as Tier A when flagged official (Creator Docs, Roblox sessions) and as Tier C leads when indie/self-reported; cite them as `[K#]` with the timestamp link. KB patterns count toward "shared patterns" (3+ games). The KB is a snapshot dated by its sources, so use the web only for live facts it cannot hold: current CCU and chart positions, what rose in the last 90 days, and anything the KB reports as a gap. Reduce the search and fetch budget below by the number of KB case studies you used (minimum 3 searches). Add a `K#` block to the Sources table.
 
 ## Steps
 
@@ -98,7 +98,9 @@ Per-game breakdowns from step 2 go in the saved file only, not in the chat reply
 
 ## Worked examples (shape only; numbers come from sources at run time)
 
-[cold:rbx-trends/worked-examples.md] read only to see the expected shape of a Broad, a Focused and a saturation-verdict answer.
+1. "What's working on Roblox right now?" leads to Broad mode: about 14 leaders, about 6 shared patterns, each with an S# tag; TL;DR names one trend, one buildable pattern and one caveat ("CCU for 5 games not visible to fetch").
+2. "What do top tycoon games do in the first minute?" leads to Focused mode: 6 to 8 tycoons and 4 overall leaders; the patterns table is weighted towards the first 30 seconds and onboarding; Build lists the 2 cheapest onboarding patterns.
+3. "Is the obby genre saturated?" leads to Focused mode: the TL;DR opens with a saturation verdict (low, medium or high), the evidence for it ([S#] from the last 90 days) and what would show the verdict is wrong; Rising patterns lists the twists that newer obbies use.
 
 ## Self-check before replying
 

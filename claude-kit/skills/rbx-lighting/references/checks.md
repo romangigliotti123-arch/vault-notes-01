@@ -1,6 +1,6 @@
 # Lighting checks L1-L12 (rbx-lighting)
 
-Every check returns `status` (`pass` | `fail` | `skip`), `measured`, `tolerance`, `issues` (with the number), `fixes` (machine-applicable), `warnings`, `unverified`. The report is produced by `LightingCore.verify` (Luau) and `lighting_ref.py` (Python twin); `lighting_gate.py` always recomputes it from the stored state with the Python twin, so the stored status is never trusted. Numbers below are the generic bands; a genre or time of day changes those marked (G) or (T): see `presets.md` and `bands()` in `lighting_ref.py`; constants in `scripts/presets.json`.
+Every check returns `status` (`pass` | `fail` | `skip`), `measured`, `tolerance`, `issues` (what is wrong, with the number), `fixes` (concrete, machine-applicable), `warnings` and `unverified`. The report is produced by `LightingCore.verify` (Luau) and `lighting_ref.py` (Python twin); `lighting_gate.py` always recomputes it from the stored state with the Python twin, so the stored status is never trusted. All numbers below are the generic bands; a genre or a time of day changes the ones marked (G) or (T): see `presets.md` and `bands()` in `lighting_ref.py`. Constants live in `scripts/presets.json`.
 
 L-checks are judged BEFORE the V-checks of `rbx-visual`: a flat, dark or washed-out image is a lighting defect with a number, not a polish opinion. V5 (lighting and atmosphere) is scored by eye only after the L-gate passed.
 
@@ -24,5 +24,4 @@ L-checks are judged BEFORE the V-checks of `rbx-visual`: a flat, dark or washed-
 - `unverified` items (no Theme, no genre) are listed in the report and the gate output. A missing genre uses the generic bands; set the genre.
 
 ## Why a model and not just rules
-
-L6/L9 brightness is an ESTIMATE from a fixed model, not photometry: screenshots (`--shots-from-visual`) decide when they disagree. [cold:rbx-lighting/why.md] read only to understand how the L6/L9 brightness estimate is computed.
+The brightness checks need a number for "dark" and "washed out" without a screenshot. The model (constants `model` in `presets.json`): sRGB albedo to linear, ambient term from Ambient or OutdoorAmbient plus a sky term scaled by EnvironmentDiffuseScale and the sun height, sun term from Brightness, sun height, the surface normal and the shade ray, point-light term from `lightE`, emissive surfaces, 2^ExposureCompensation, a Reinhard-style tone curve, display gamma, then the ColorCorrection contrast and brightness. It ranks scenes correctly (default grey vs preset, night vs day, blown vs crushed) but is NOT photometry: the bands are wide on purpose and screenshots (`--shots-from-visual`) decide when they disagree.

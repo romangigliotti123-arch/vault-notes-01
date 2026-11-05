@@ -1,7 +1,7 @@
 # Visual rubric V1-V7 (the gate scores these; pass = every item >= 7, no open hard fail)
 
-Score from the screenshots and the `ui_overlap` output, not from the code or the plan. Cite the screenshot file and what is visible in it for every score. 7 = a stranger would not call it unfinished; 9 = could sit beside front-page Roblox games. A hard fail caps the item at 4 until fixed. No evidence for an item = 5 and the word `judgment`.
-Rules derive from the Roblox KB notes on UI/UX, art and assets, level design, VFX, game feel and sound. [cold:rbx-visual/sources.md] read only to verify the source of a rubric rule.
+Score from the screenshots and the `ui_overlap` output, not from the code or the plan. Cite the screenshot file and what is visible in it for every score. 7 = a stranger would not call it unfinished; 9 = could sit beside front-page Roblox games. A hard fail caps the item at 4 until fixed. No evidence for an item = 5 and the word `judgment`. Sources for every rule: `Roblox/roblox-kb/ui-ux-design.md`, `building-art-and-assets.md`, `building-and-level-design.md`, `vfx-and-particles.md`, `player-psychology-and-game-feel.md`, `sound-and-music.md`.
+
 | Item | 3 (fail) looks like | 7 (pass) looks like | Hard fails (cap 4) |
 |---|---|---|---|
 | **V1 UI consistency** | each panel styled differently; flat rectangles; mixed fonts | one component set: same corner radius, stroke, shadow, font, text scale, palette and icon style on every panel, button and popup; `ui-kit-consistency-checker` dominant value >= 80% per field | two or more panel styles in one HUD; panels are bare flat colour rectangles with no stroke, corner, gradient, shadow or icon; default font mixed with a custom one |
@@ -13,11 +13,10 @@ Rules derive from the Roblox KB notes on UI/UX, art and assets, level design, VF
 | **V7 First 30 seconds** | looks like a template or debug build | the spawn screenshot reads as a finished game: title or goal visible, HUD tidy, world lit and styled, no debug text or placeholder names, the first action clear, the first reward fires with feedback | debug or placeholder text on screen; default baseplate or spawn pad; a popup covering the first action; nothing visible to do |
 
 ## Prerequisite P0: placement gate
-Score nothing before both gates pass. Placement gate `pass` for the same build (`Games/<slug>/placement-qa/gate.json`, skill `rbx-placement`). V4 hard fails "objects floating with no shadow or support" and "repeated tile with no variation" are judged on a placement-clean map; a floating model is fixed by the placement gate, not argued about here. `visual_gate.py --write` fails while it is missing or failing.
+Before any item is scored, the placement gate must be `pass` for the same build (`Games/<slug>/placement-qa/gate.json`, skill `rbx-placement`: every model in the map has a sane pivot and size, rests on its surface, is upright, faces its target, overlaps nothing, is anchored and lines up with its neighbours). `visual_gate.py --write` adds a reason and fails while it is missing or failing. V4 hard fails "objects floating with no shadow or support" and "repeated tile with no variation" are judged on a placement-clean map, so a floating model is fixed by the placement gate, not argued about here.
 
 ## Prerequisite L0: lighting gate (L-checks before V-checks)
-The lighting gate must be `pass` for the same build (`Games/<slug>/lighting-qa/gate.json`, skill `rbx-lighting`, L1-L12). V5 below is the by-eye judgement of what the L-checks cannot see (mood, focal lighting, taste) and is scored only after L0 passes; "flat", "dark", "washed out", "foggy", "default sky" are L-failures with a measured value, not opinions. `visual_gate.py --require-lighting` fails the visual gate while it is missing or failing.
-
+The lighting gate must be `pass` for the same build (`Games/<slug>/lighting-qa/gate.json`, skill `rbx-lighting`, checks L1-L12: not the default Roblox look, Atmosphere, Sky, effects in sane ranges, palette-cohesive grading, brightness neither crushed nor blown, shadows, genre fog, lit interiors, mobile budget, no duplicate effects, time of day). V5 below is the by-eye judgement of what the L-checks cannot see (mood, focal lighting, taste) and is scored only after L0 passes; "flat", "dark", "washed out", "foggy" and "default sky" are L-failures with a measured value, not opinions. `visual_gate.py --require-lighting` fails the visual gate while it is missing or failing.
 ## How to run the checks
 - V1: `/rbx ui-kit-consistency-checker` or `ui_scan.luau` (dominant value per field) plus the screenshots side by side.
 - V2: `scripts/ui_overlap.luau` (rect checks at phone 844x390, tablet 1180x820, desktop 1920x1080), then look at the `render` preview screenshot at phone size. Findings are leads: open each one; a finding you cannot justify is a defect.
@@ -28,7 +27,7 @@ The lighting gate must be `pass` for the same build (`Games/<slug>/lighting-qa/g
 - V7: the spawn screenshot, then the screenshot after the first reward, with a stopwatch from join if Studio MCP is present.
 
 ## Reference compare (optional, any item scoring <= 7)
-Procedure and prohibitions: SKILL.md step 3b (comparison only; never copy or trace a reference or put one into the game or repo).
+If `<claude config dir>/claude-kit/reference-path.txt` exists (line 1 = folder with `INDEX.md`), grep `INDEX.md` for the item's category or tag, Read 3-6 matching references next to your own screenshot of the same screen, and add 3-5 concrete differences (spacing, stroke, palette count, icon style, lighting, effects) to the defect list; cite the reference paths in the report. File absent = skip silently (written by `claude-kit/tools/refs-sync.py` during setup and `/rbx-update`). Third-party frames, see NOTICE.md in that folder. Comparison only: never copy or trace a reference, never copy one into the game or repo.
 
 ## Screenshots the gate needs (>= 6 distinct files)
 Viewports: `desktop` (real capture) and `phone` (the `ui_overlap` preview rendered at phone size, or a Device Emulator capture). Moments: `spawn` (first frame after join), `action` (mid core loop with the HUD busy: most panels visible, a popup open), `effect` (during a particle or tween). Name files `<viewport>-<moment>[-n].png`; keep them under `Games/<slug>/visual-qa/r<round>/`.

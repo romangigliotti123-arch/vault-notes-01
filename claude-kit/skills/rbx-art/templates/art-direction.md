@@ -27,13 +27,13 @@ Component set (build nothing else): panel, label, button (primary/secondary), st
 
 ## 5. World and model rules
 - Hero objects ({{list: what the player sees/collects/rides/fights most}}) are NEVER a single primitive and NEVER a flat sprite in 3D: each is a multi-part or mesh model (target >= 8 parts or a real mesh) with 3+ materials, rounded/bevelled forms (use meshes, WedgeParts, cylinders/spheres combined, `generate_mesh`/`generate_procedural_model`, or a Creator Store model found with `search_asset` and license-checked), details (eyes, fins, trim, glow), a contact shadow, and an idle animation (bob, tail, spin).
-- Sourcing order: (1) kit `Assets/` models, (2) `search_asset`/`insert_asset` (keep returned ids; never type ids from memory), (3) procedural mesh, (4) hand-built composed model. A bare block is for greybox only and never reaches a screenshot.
-- Ground, paths, walls: material per surface type (not default Plastic), colour from section 2, vary size/rotation/colour of repeated tiles and props, scatter 3+ prop types, round terrain or water instead of flat slabs. Keep to the palette; reserve high contrast for the focal object.
+- Sourcing order: (1) kit `Assets/` models, (2) `search_asset`/`insert_asset` (keep returned ids; never type ids from memory), (3) procedural mesh, (4) hand-built composed model. A bare block is allowed only for greybox and never reaches a screenshot.
+- Ground, paths, walls: material per surface type (not default Plastic), colour from section 2, vary size/rotation/colour of repeated tiles and props, scatter 3+ prop types, round terrain or water instead of flat slabs. Keep the whole scene to the palette; reserve high contrast for the focal object.
 - Scale: character about 5-6.5 studs; doorways/paths >= 10 studs; objects sized to the character, not the grid.
 - Render budget: <= 20k triangles per mesh, one material per mesh, particle rate caps from `particle-effect-planner`.
 
 ## 6. Lighting and atmosphere (`lighting-preset-picker`, applied once, in the project, not by hand each run)
-Preset: {{mood}} | ClockTime | Brightness | Ambient / OutdoorAmbient | Atmosphere (density, haze, colour) | Sky | ColorCorrection | Bloom | SunRays | DepthOfField | Water colour/transparency | Shadows on/off for mobile.
+Preset: {{mood}} | ClockTime | Brightness | Ambient / OutdoorAmbient | Atmosphere (density, haze, colour) | Sky | ColorCorrection (brightness, contrast, saturation, tint) | Bloom | SunRays | DepthOfField | Water colour/transparency | Shadows on/off for mobile.
 Genre preset (`rbx-lighting`: obby | simulator | tower_defense | horror | cartoony | open_world | sci_fi): {{genre_preset}} | time of day (day | golden | night): {{time_of_day}} | phone-first or both: {{platform}}. Applied EARLY with `LightingKit.apply`; the lighting gate checks the scene against this line and the palette above.
 
 ## 7. Juice list (one row per key event; each row needs >= 2 of particle / tween / sound / UI reaction; implemented with `StyleKit/Juice.luau`)

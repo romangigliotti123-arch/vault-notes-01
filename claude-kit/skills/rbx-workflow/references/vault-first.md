@@ -1,6 +1,6 @@
 # vault-first: the shared "never outdated" protocol
 
-Used by rbx-workflow (stages 2-4), rbx-rate, rbx-plan, rbx-ads, rbx-game-update, rbx-thumbnail, rbx-playtest; each does this BEFORE it writes advice. Nothing is cached between runs and no price, ad cost, image-model name, spec or Roblox policy is written into a skill: it comes from the newest vault note or a live check, and the answer says which.
+Used by rbx-workflow (stages 2-4), rbx-rate, rbx-plan, rbx-ads, rbx-game-update, rbx-thumbnail, rbx-playtest. Every run of those skills does this BEFORE it writes advice. Nothing is cached between runs, and no price, ad cost, image-model name, spec or Roblox policy is written into a skill: it comes from the newest vault note or from a live check, and the answer says which.
 
 ## 1. Locate the vault (first existing wins)
 `$CLAUDES_VAULT`, `~/Obsidian/claudes-vault`, `%USERPROFILE%\Obsidian\claudes-vault`. Run `K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"; $K where` once; it prints VAULT, KB (= `<vault>/Roblox/roblox-kb`), ASSETS. No vault: say so, run the vault setup if the user wants it (SETUP-FOR-CLAUDE.md), otherwise continue on live web sources only and label every fact `LIVE ONLY, not from the vault`.

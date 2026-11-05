@@ -6,7 +6,12 @@ argument-hint: "[the vague request]"
 
 # rbx-clarify
 
-Caps questions, always offers a default, stops once the ambiguity is gone. For a one- or two-line request for a new skill, routine, automation, app or game system, or "I want X" without platform, scope, constraints or a finish check. Skip precise edits ("rename X to Y in file Z").
+Stops the agent from building on wrong assumptions. Short on purpose: it caps the number of questions, always offers a default, and stops asking once the ambiguity is gone. Not for trivial fixes where the request is already specific.
+
+## When to use
+- New skill, routine, automation, app, or game system and the request is one or two lines.
+- The user says "I want X" without platform, scope, constraints or a way to tell it is finished.
+- Skip when the task is a precise edit ("rename X to Y in file Z").
 
 ## Steps
 1. Read the request and any project files named in it (CLAUDE.md, existing code). Do not ask what you can read.
@@ -23,7 +28,8 @@ Caps questions, always offers a default, stops once the ambiguity is gone. For a
 7. Ask once: "Build this?" Then hand off to plan-then-build or the relevant builder skill.
 
 ## Game / Roblox question bank
-To score the idea afterwards use rbx-rate. [cold:rbx-clarify/game-question-bank.md] read only when the request is a Roblox game or game idea.
+Genre and target player age; core loop in one sentence; solo or multiplayer; session length; monetisation allowed (passes, products, none); art source (own, free assets, blocks); data persistence needed; target platforms (PC, mobile, console); how a playtest decides "fun enough". To score the idea afterwards use rbx-rate.
+
 ## Failure modes
 - Question spam: more than 7 questions or open-ended essays. Cut to the ones that change the build.
 - Asking things the repo already answers.
@@ -31,8 +37,15 @@ To score the idea afterwards use rbx-rate. [cold:rbx-clarify/game-question-bank.
 - Silent defaults: every default must appear in the spec.
 
 ## Related
-Longer interviews: rjmurillo/requirements-interview, addyosmani/interview-me (library imports). Companions: rbx-karpathy, plan-then-build.
+Longer product interviews: rjmurillo/requirements-interview and addyosmani/interview-me (library imports); this skill is the 2-minute gate. Companions: rbx-karpathy (rule "think before coding"), plan-then-build.
 
 ## Sources
-
-[cold:rbx-clarify/sources.md] read only to verify the source of this idea or its licence/attribution.
+Idea from AI-creator research (catalogue ideas idea-0008, idea-0116). Credit and where it appears:
+- Nate Herk, "Build & Sell with Claude Code (10+ Hour Course)" (2026-03-12) @ 8:00:49, https://www.youtube.com/watch?v=mpALXah_PBg&t=28849s. Seen there as: Ask-until-95%-confident pattern
+- RoboNuggets (Jay E), "7 Claude Code skills I use every single day (Advanced Tutorial)" (2026-05-12) @ 8:48, https://www.youtube.com/watch?v=UpgjdQJShWg&t=528s. Seen there as: align
+- Nate Herk, "How to Use Claude Code Better Than 98% of People" (2026-06-18) @ 21:49, https://www.youtube.com/watch?v=RzLV8sfFdMM&t=1309s. Seen there as: Grill-me skill (Matt Pocock)
+- RoboNuggets (Jay E), "Claude Fable 5 Destroys Every Mobile App Designer" (2026-06-10) @ 6:31, https://www.youtube.com/watch?v=k2VtfRCgXJI&t=391s. Seen there as: align skill
+- Nate Herk, "Build & Sell Grok Bots (2 Hour Course)" (2026-08-31) @ 34:04, https://www.youtube.com/watch?v=4hKJ9X6rGFo&t=2044s. Seen there as: Ask-until-clear interview prompt
+- RoboNuggets (Jay E), "Fable + Sol is a CHEAT CODE for Claude Code (Cheaper, more Powerful)" (2026-07-15) @ 4:45, https://www.youtube.com/watch?v=4kRdt18_dFY&t=285s. Seen there as: /align
+- Nate Herk, "18 Claude Code Token Hacks in 18 Minutes" (2026-04-02) @ 5:07, https://www.youtube.com/watch?v=49V-5Ock8LU&t=307s. Seen there as: Confidence-gate plan mode rule
+The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.

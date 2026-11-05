@@ -51,11 +51,119 @@ Rules:
 3. A character cleaner ends on `CharacterRemoving` or the next `CharacterAdded`, so respawns do not stack connections.
 4. `BindToClose` saves and releases every player (30 second window, run in parallel).
 5. Use the project's Maid, Janitor or Trove if present (current status of each is unverified); otherwise this is enough:
-No Maid/Janitor/Trove in the project: write a small `Cleaner` module (`new`, `add(item)` returning the item, idempotent `destroy()` that releases items in reverse order: connection `:Disconnect()`, Instance `:Destroy()`, function call, thread `pcall(task.cancel, thread)`, other objects `:Destroy()`). [cold:rbx-luau/cleaner-module.md] read only when the project has no Maid, Janitor or Trove and you must write the Cleaner module.
-Wire it per player and per character: one Cleaner each, built in PlayerAdded (plus a GetPlayers loop) and CharacterAdded, destroyed in CharacterRemoving and PlayerRemoving, `playerData[player] = nil`, and BindToClose runs the same release. [cold:rbx-luau/lifetimes-example.md] read only to wire PlayerAdded/CharacterAdded/PlayerRemoving/BindToClose cleanup with the Cleaner above.
-Find leaks: Developer Console Memory tab, watch `LuaHeap`, `InstanceCount` and `PlaceScriptMemory` through a long session; join and leave 50 times and check counts return to baseline. Scene Analysis shows script memory and unparented instances. No documented API lists all connections, so instrument your own.
+```lua
+--!strict
+local Cleaner = {}
+Cleaner.__index = Cleaner
 
-Credit: checklist adapted from excaldev/ro-engineer (MIT, Copyright (c) 2026 excaldev), copy in Imported/ro-engineer/cleanup-lifecycle.md; facts re-checked against the Roblox docs.
+type Item = RBXScriptConnection | Instance | thread | () -> () | { Destroy: (any) -> () }
+
+export type Cleaner = typeof(setmetatable({} :: { items: { Item } }, Cleaner))
+
+function Cleaner.new(): Cleaner
+	return setmetatable({ items = {} }, Cleaner)
+end
+
+function Cleaner.add(self: Cleaner, item: Item): Item
+	table.insert(self.items, item)
+	return item
+end
+
+function Cleaner.destroy(self: Cleaner)
+	local items = self.items
+	self.items = {}
+	for i = #items, 1, -1 do
+		local item = items[i]
+		local kind = typeof(item)
+		if kind == "RBXScriptConnection" then
+			local conn = item :: RBXScriptConnection
+			conn:Disconnect()
+		elseif kind == "Instance" then
+			local inst = item :: Instance
+			inst:Destroy()
+		elseif kind == "function" then
+			local fn = item :: () -> ()
+			fn()
+		elseif kind == "thread" then
+			pcall(task.cancel, item :: thread)
+		else
+			local obj = item :: { Destroy: (any) -> () }
+			obj:Destroy()
+		end
+	end
+end
+
+return Cleaner
+```
+Player and character lifetimes with it:
+```lua
+--!strict
+local Players = game:GetService("Players")
+local Cleaner = require(script.Parent.Cleaner)
+
+local playerData: { [Player]: { coins: number } } = {}
+local playerCleaners: { [Player]: Cleaner.Cleaner } = {}
+local characterCleaners: { [Player]: Cleaner.Cleaner } = {}
+
+local function onCharacterAdded(player: Player, character: Model)
+	local cleaner = Cleaner.new()
+	characterCleaners[player] = cleaner
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		cleaner:add(humanoid.Died:Connect(function()
+			print(player.Name, "died")
+		end))
+	end
+end
+
+local function onCharacterRemoving(player: Player)
+	local cleaner = characterCleaners[player]
+	if cleaner then
+		characterCleaners[player] = nil
+		cleaner:destroy()
+	end
+end
+
+local function onPlayerAdded(player: Player)
+	local cleaner = Cleaner.new()
+	playerCleaners[player] = cleaner
+	playerData[player] = { coins = 0 }
+	cleaner:add(player.CharacterAdded:Connect(function(character)
+		onCharacterAdded(player, character)
+	end))
+	cleaner:add(player.CharacterRemoving:Connect(function()
+		onCharacterRemoving(player)
+	end))
+	if player.Character then
+		onCharacterAdded(player, player.Character)
+	end
+end
+
+local function onPlayerRemoving(player: Player)
+	onCharacterRemoving(player)
+	playerData[player] = nil
+	local cleaner = playerCleaners[player]
+	if cleaner then
+		playerCleaners[player] = nil
+		cleaner:destroy()
+	end
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
+Players.PlayerRemoving:Connect(onPlayerRemoving)
+for _, player in Players:GetPlayers() do
+	task.spawn(onPlayerAdded, player)
+end
+
+game:BindToClose(function()
+	for _, player in Players:GetPlayers() do
+		onPlayerRemoving(player)
+	end
+end)
+```
+Find leaks: Developer Console Memory tab, watch `LuaHeap`, `InstanceCount` and `PlaceScriptMemory` through a long session; join and leave 50 times and check counts return to baseline. The Scene Analysis tool shows script memory and unparented instances. There is no documented API to list all connections, so instrument your own.
+
+Credit: checklist adapted from excaldev/ro-engineer (MIT, Copyright (c) 2026 excaldev), reference copy in Imported/ro-engineer/cleanup-lifecycle.md; facts re-checked against the Roblox docs.
 
 Review output: findings ordered by severity (leaks, race conditions, deprecated API, then style), each with file:line and the fix.
 

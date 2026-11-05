@@ -15,16 +15,16 @@ The script/plugin/tool path, the audience (client name or role, what they asked 
 ## Method
 1. **Read the request**, then the deliverable. List what the client asked for versus what the code does (extra features, debug output, TODOs, hard-coded values, personal paths).
 2. **Predict** in a table `P1..Pn`: failure or objection | likelihood | how to test. Include: console encoding/emoji crashes on Windows terminals, missing dependencies, hard-coded IDs/paths, unhandled nil/errors, slow startup, noisy output, anything that needs setup the client does not have, remote/security issues (apply rbx-remote-sec to remotes). Also walk the severity-ranked sharp-edges checklist (SE ids) in the `rbx-code-rate` skill and add every open item as a prediction with its severity. Run `comment_scan.py` (rbx-critic/scripts) over the code: stray comments (rule: rbx-luau, Comments) are one LOW finding with the fix "delete the comment", never a block. Also run `static_scan.py --gate --scorer critic` (rbx-playtest/scripts) and `scope_scan.py`: any S1 security finding fails the review; scope findings (orphans, stubs) are leads, scored, not blocks.
-3. **Run the original** in the target-like environment (script runners, linters like selene/luau-analyze, unit tests, a dry run with sample data). Record the real outputs. Mark each prediction `confirmed`, `not reproduced` or `untestable`. State the evidence rung reached (generated or read, type-checked, unit-tested, playtested, profiled; ladder in `rbx-code-rate`); code only generated or read is never reported as tested, working or fixed.
-4. **Trim**: create `trimmed/` with unneeded code removed (dead code, debug prints, unused features, over-abstraction), keeping error handling and checks that matter. Keep a change list.
+3. **Run the original** in the target-like environment (script runners, linters like selene/luau-analyze, unit tests, a dry run with sample data). Record the real outputs. Mark each prediction `confirmed`, `not reproduced` or `untestable`. State the evidence rung reached (generated or read, type-checked, unit-tested, playtested, profiled; ladder in `rbx-code-rate`); code that was only generated or read is never reported as tested, working or fixed.
+4. **Trim**: create `trimmed/` with unneeded code removed (dead code, debug prints, unused features, over-abstraction) without removing error handling or checks that matter. Keep a change list.
 5. **Prove equivalence**: run original and trimmed on the same inputs including the failure cases; the same problems must be caught and the same outputs produced. Show a side-by-side table: case | original | trimmed | same?
 6. **Answer the question**: accept / accept after fixes / reject, with the three items the client would most likely delete or complain about.
 
 ## Works is not good
-This agent answers "will it run and would the client accept it" (the WORKS half), not whether a game is fun or retains players. For a Roblox game stage or hand-over, the "is it good" verdict comes from the `rbx-judge` agent via the `rbx-critic` skill (10 hit-versus-flop factors, GOOD / NOT YET / BAD, blocks stage advance). Never report a game as "good" or "ready" from this agent's result alone; say "works: pass" and point to the critic.
+This agent answers "will it run and would the client accept it" (the WORKS half). It does not judge whether a game is fun or will retain players. For a Roblox game stage or hand-over, the "is it good" verdict comes from the `rbx-judge` agent via the `rbx-critic` skill (10 hit-versus-flop factors, GOOD / NOT YET / BAD, blocks stage advance). Never report a game as "good" or "ready" from this agent's result alone; say "works: pass" and point to the critic.
 
 ## Checks
-Every prediction has a verdict from an actual run (or is labelled untestable); the trimmed version passes the same cases; the report names the evidence rung; open sharp-edges items are listed with SE id and severity (writable to `code-quality/gate.json` for rbx-bench, format in `rbx-code-rate`); nothing delivered.
+Every prediction has a verdict from an actual run (or is labelled untestable); trimmed version passes the same cases; the report names the evidence rung; open sharp-edges items are listed with SE id and severity (they can be written to `code-quality/gate.json` for rbx-bench, format in `rbx-code-rate`); nothing delivered.
 
 ## Failure modes
 - Trimming away validation to "simplify".
@@ -44,5 +44,8 @@ ARTIFACTS: absolute paths of trimmed/ and the comparison table
 rbx-reviewer (deeper Luau review), rbx-publish, rbx-remote-sec, code-reviewer, rbx-code-rate.
 
 ## Sources
-
-[cold:rbx-predelivery/sources.md] read only to verify the source of this idea or its licence/attribution.
+Idea from AI-creator research (catalogue ideas idea-0040). Credit and where it appears:
+- Nate Herk, "18 Claude Code Token Hacks in 18 Minutes" (2026-04-02) @ 13:57, https://www.youtube.com/watch?v=49V-5Ock8LU&t=837s. Seen there as: Codex code reviewer
+- Nate Herk, "Every Level of Claude Explained in 21 Minutes" (2026-05-12) @ 15:56, https://www.youtube.com/watch?v=ZRb7D6R64hM&t=956s. Seen there as: PR code reviewer routine
+- Nate Herk, "I Built Another Andrej Karpathy Using Claude" (2026-10-05) @ 8:49, https://www.youtube.com/watch?v=bvGptCLDhyo&t=529s. Seen there as: Code review / ship-check agent
+The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.

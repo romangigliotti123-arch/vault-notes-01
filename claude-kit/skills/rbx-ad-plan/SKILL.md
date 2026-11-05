@@ -9,7 +9,7 @@ Output: a campaign plan (gate, budget table, schedule, creatives, KPIs, stop rul
 
 ## Procedure
 
-1. Inputs (assume and state): game, genre, budget cap/total, launch date, current D1 / first-play bounce / PTR / session length, existing thumbnails, game age (new vs lapsed).
+1. Inputs (assume and state): game, genre, budget cap (or total), launch date, current D1 / first-play bounce / PTR / session length, existing thumbnails, age of game (new vs lapsed).
 2. Evidence:
    ```
    K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS

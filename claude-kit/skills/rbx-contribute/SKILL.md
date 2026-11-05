@@ -7,11 +7,11 @@ disable-model-invocation: true
 
 # rbx-contribute
 
-Contributing is a manual, opt-in hand-over of a `Games/_Reusable/` item to the vault owner, who reviews it before it reaches the shared vault.
+Your `Games/_Reusable/` items stay yours and local. Contributing is a manual, opt-in hand-over to the vault owner, who reviews it before it can reach the shared vault.
 
 ## Do this (only when the user asked)
 1. List the items: `python ~/.claude/claude-kit/tools/games.py reusable list`. Pick the one the user named. If its README says `tested: n` or `rating: unrated`, say so and suggest testing first (the owner will not take untested code).
 2. Check it is shareable: no secrets, no personal paths, no ids that belong to your game, no code copied from another game, licences of anything third-party noted in the README.
 3. Bundle: `python ~/.claude/claude-kit/tools/games.py contribute <name>`. It writes `~/rbx-contribute/<name>-<date>.zip` and prints the path. It does not upload anything.
-4. Tell the user to send the zip to the vault owner (drop location the owner gives, e.g. scp or file share) with the name and a one-line purpose. If the drop location is unknown, say "ask the vault owner"; do not guess an address or a path.
+4. Tell the user how to hand it over: send the zip to the vault owner (copy it to the drop location the owner gives you, for example with scp or a file share) and tell them the name and one-line purpose. If the user does not know the drop location, say "ask the vault owner"; do not guess an address or a path.
 5. Never push to the vault repository or edit the vault clone; it is pull-only.
