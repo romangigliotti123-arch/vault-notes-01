@@ -60,6 +60,35 @@ def sha(p):
     return h.hexdigest()
 
 
+def nsha(p):
+    with open(p, "rb") as f:
+        d = f.read()
+    return hashlib.sha256(d if b"\0" in d[:8192] else d.replace(b"\r\n", b"\n")).hexdigest()
+
+
+def conflict_note(p, proj, key, rel, fd, srcf, h):
+    """a project copy you edited is kept: save the incoming version under claude-kit/state/conflicts/projects/ and list it (kit-conflicts.py)"""
+    cf = os.path.join(p["c"], "claude-kit", "state", "conflicts.json")
+    doc = jread(cf, {})
+    items = doc["items"] if isinstance(doc.get("items"), dict) else {}
+    acked = doc["acked"] if isinstance(doc.get("acked"), dict) else {}
+    ek = "project:%s|%s/%s" % (proj, key, rel)
+    prev = items.get(ek)
+    if acked.get(ek) == h or (prev and prev.get("incoming") == h):
+        return
+    sv = os.path.join(p["c"], "claude-kit", "state", "conflicts", "projects", hashlib.sha1(proj.encode("utf-8")).hexdigest()[:8], *(key + "/" + rel + ".vault-new").split("/"))
+    try:
+        os.makedirs(os.path.dirname(sv), exist_ok=True)
+        shutil.copyfile(srcf, sv)
+    except OSError:
+        sv = ""
+    items[ek] = {"kind": "project", "project": proj, "key": key, "rel": rel, "file": fd, "incoming": h, "notified": False, "at": datetime.date.today().isoformat(),
+                 "saved": os.path.relpath(sv, p["c"]).replace(os.sep, "/") if sv else ""}
+    doc["items"], doc["acked"] = items, acked
+    doc.setdefault("v", 1)
+    jwrite(cf, doc)
+
+
 def jread(p, default):
     try:
         with open(p, "r", encoding="utf-8") as f:
@@ -272,7 +301,9 @@ def ref_line(p):
 def learn_line(p):
     if not os.path.isfile(os.path.join(p["c"], "claude-kit", "tools", "learn.py")):
         return "learn step unavailable (learn.py missing)"
-    pend = os.path.join(p["c"], "claude-kit", "learnings-queue", "pending")
+    pend = os.path.join(p["c"], "claude-kit", "state", "learnings-queue", "pending")
+    if not os.path.isdir(pend):
+        pend = os.path.join(p["c"], "claude-kit", "learnings-queue", "pending")
     n = len([x for x in os.listdir(pend)]) if os.path.isdir(pend) else 0
     return "learn step on" + (" (%d note%s queued)" % (n, "" if n == 1 else "s") if n else "")
 
@@ -378,8 +409,12 @@ def link(proj, p, quiet=False):
                 newrec[rel] = h
                 continue
             if cur is not None and rec.get(rel) != cur:
-                notes.append("kept your edited %s (not refreshed)" % os.path.relpath(fd, proj))
                 newrec[rel] = rec.get(rel, cur)
+                sf = file_src(src, key, rel)
+                if nsha(fd) == nsha(sf):
+                    continue
+                notes.append("kept your edited %s (not refreshed)" % os.path.relpath(fd, proj))
+                conflict_note(p, proj, key, rel, fd, sf, h)
                 continue
             os.makedirs(os.path.dirname(fd), exist_ok=True)
             put_file(file_src(src, key, rel), fd)
@@ -592,6 +627,9 @@ def cmd_status(a):
     if old:
         print("OLD LAYOUT: %d vault skill/agent files are still in %s (they load in every session). Run /rbx-update to move them." % (len(old), p["c"]))
     print("%s; %s" % (ref_line(p), learn_line(p)))
+    kc = jread(os.path.join(p["c"], "claude-kit", "state", "conflicts.json"), {}).get("items")
+    if isinstance(kc, dict) and kc:
+        print("kept vault files: %d (you changed them, so updates left them as they are; review: python %s list)" % (len(kc), os.path.join(p["c"], "claude-kit", "tools", "kit-conflicts.py")))
     return 0
 
 

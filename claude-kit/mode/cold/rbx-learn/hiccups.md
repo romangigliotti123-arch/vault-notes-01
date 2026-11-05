@@ -2,7 +2,7 @@
 
 ## Hiccups: how the live loop works
 
-Tool: `python -I ~/.claude/claude-kit/tools/learn.py hiccup <add|say|list|apply|check|retro|close|trend|share|queue>` (same as `tools/hiccup.py`). Ledger: `<config>/claude-kit/hiccups/ledger.jsonl`, local to this user, at most 120 entries, one JSON object per line.
+Tool: `python -I ~/.claude/claude-kit/tools/learn.py hiccup <add|say|list|apply|check|retro|close|trend|share|queue>` (same as `tools/hiccup.py`). Ledger: `<config>/claude-kit/state/hiccups/ledger.jsonl`, local to this user, at most 120 entries, one JSON object per line.
 
 ### What counts (triggers: log it the moment one happens)
 | kind | trigger |

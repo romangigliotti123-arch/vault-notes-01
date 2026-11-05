@@ -6,7 +6,8 @@
 #   ALWAYS-ON (the only kit skills in ~/.claude/skills, listed in mode/always-on.txt): rbx-load rbx-unload rbx-update rbx-check rbx-uninstall
 #   tools/* -> ~/.claude/claude-kit/tools/        systems/* -> ~/.claude/claude-kit/systems/        skillpack/* -> ~/.claude/claude-kit/skillpack/ (NOT skills: opened on demand by the /rbx router skill)
 # An older install (kit skills/agents directly in ~/.claude/skills and /agents) is migrated by tools/vault-mode.py migrate: kit files move to a backup folder, your own skills/agents/CLAUDE.md are untouched, idempotent, reversible.
-# Kit wins: a target file the user changed is replaced by the kit version, no question. The user's version is first copied to ~/.claude/claude-kit/backup/<date>/<relpath>, so nothing is lost.
+# Your edits win: a vault file you changed is never overwritten or deleted; the incoming version is saved as ~/.claude/claude-kit/state/conflicts/<path>.vault-new and ONE notice line says how to review it (tools/kit-conflicts.py).
+# Your data (learn queue, hiccup ledger, preferences, local rules) lives in ~/.claude/claude-kit/state, which no update touches. Files you never edited update normally.
 # User skills with other names are never touched or removed; similar ones are listed ("kit versions will be used") and the kit entry points say the kit skill wins at routing time.
 # Usage: bash install.sh [--home DIR] [--dry-run] [--with-hooks | --remove-hooks] [--with-mods]     (--home / env CLAUDE_KIT_HOME: install under DIR instead of $HOME, for tests)
 #   --with-mods (opt-in): also install the /rbx-subagent-hud and /rbx-graph Claude Code plugins (plugins load in every session, so they are no longer installed by default).
@@ -23,7 +24,7 @@ trap 'rm -f "$TMP"' EXIT
 if command -v sha256sum >/dev/null 2>&1; then SHA="sha256sum"; else SHA="shasum -a 256"; fi
 sha() { local o; o="$($SHA "$1")"; o="${o#\\}"; printf '%s' "${o%% *}"; }   # GNU sha256sum starts the line with a backslash when the file name contains one (Windows-style --home)
 MANTXT=""; [ -s "$MAN" ] && MANTXT=1      # old manifest present: look entries up with awk
-n_new=0; n_upd=0; n_same=0; n_repl=0; n_gone=0; n_fail=0; first_wf=0; BK="$C/claude-kit/backup/$(date +%Y-%m-%d)"
+n_new=0; n_upd=0; n_same=0; n_repl=0; n_gone=0; n_fail=0; n_conf=0; first_wf=0; BK="$C/claude-kit/backup/$(date +%Y-%m-%d)"
 SM="claude-kit/vault-mode"; AO="rbx-load rbx-unload rbx-update rbx-check rbx-uninstall"
 [ -f "$KIT/mode/always-on.txt" ] && AO="$(grep -v '^#' "$KIT/mode/always-on.txt" | tr -d '\r' | tr '\n' ' ')"
 [ -f "$MAN" ] || first_wf=1      # fresh install: print the welcome text at the end
@@ -57,6 +58,13 @@ put() { # put <src> <rel under ~/.claude>
   elif [ -n "$old" ] && [ "$ds" = "$old" ]; then
     [ $DRY = 1 ] || cpf "$src" "$dst" || { echo "claude-kit: could not write $rel"; n_fail=$((n_fail+1)); printf '%s\t%s\n' "$rel" "$old" >> "$TMP"; return; }
     n_upd=$((n_upd+1))
+  elif [ -n "$old" ] && [ "$old" = "$ns" ]; then      # you edited it, the kit did not change it: yours stays, nothing to report
+    n_same=$((n_same+1))
+  elif [ -n "$MANTXT" ]; then      # you edited it (or it was never recorded): kept; the incoming version goes to state/conflicts (no CRLF/LF normalising in this fallback loop)
+    if [ $DRY = 0 ]; then
+      cr="${rel#claude-kit/}.vault-new"; mkdir -p "$(dirname "$C/claude-kit/state/conflicts/$cr")"; cp "$src" "$C/claude-kit/state/conflicts/$cr"
+    fi
+    n_conf=$((n_conf+1)); [ -n "$old" ] && printf '%s\t%s\n' "$rel" "$old" >> "$TMP"; return
   else
     if [ $DRY = 0 ]; then
       bk="$BK/$rel"; i=1; while [ -e "$bk" ]; do i=$((i+1)); bk="$BK/$rel.$i"; done
@@ -76,6 +84,7 @@ if [ -n "$FASTPY" ] && [ -f "$KIT/tools/kit-install-files.py" ] && [ "${CLAUDE_K
     *"RESULT new="*) r="$(printf '%s\n' "$fo" | grep '^RESULT new=' | tail -1)"
        n_new="${r#*new=}"; n_new="${n_new%% *}"; n_upd="${r#*upd=}"; n_upd="${n_upd%% *}"; n_same="${r#*same=}"; n_same="${n_same%% *}"; n_repl="${r#*repl=}"; n_repl="${n_repl%% *}"
        case "$r" in *gone=*) n_gone="${r#*gone=}"; n_gone="${n_gone%% *}"; n_fail="${r#*fail=}"; n_fail="${n_fail%% *}";; esac
+       case "$r" in *conf=*) n_conf="${r#*conf=}"; n_conf="${n_conf%% *}";; esac
        printf '%s\n' "$fo" | grep '^FAILED ' | head -5; FASTDONE=1;;
     *) echo "claude-kit: fast installer failed, using the slow shell loop ($(printf '%s' "$fo" | tail -1 | cut -c1-160))";;
   esac
@@ -101,6 +110,11 @@ if [ $DRY = 0 ]; then
   [ $FASTDONE = 1 ] || { mkdir -p "$(dirname "$MAN")"; sort -u "$TMP" > "$MAN"; }
   chmod +x "$C/claude-kit/tools/roblox-project-template/luau-check.sh" "$C/claude-kit/tools/studio-setup.sh" 2>/dev/null || true
 fi
+# your data (learn queue, hiccup ledger, mockup preference) lives in claude-kit/state, which no update touches: move an older copy over once (idempotent; silent when nothing moved)
+if [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/kit_state.py" ]; then
+  SPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then SPY="$p"; break; fi; done
+  [ -n "$SPY" ] && CLAUDE_CONFIG_DIR="$C" "$SPY" -I "$C/claude-kit/tools/kit_state.py" migrate --config "$C" 2>&1
+fi
 # move an older always-on layout into the store (idempotent; silent when there is nothing to move)
 if [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/vault-mode.py" ]; then
   MPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then MPY="$p"; break; fi; done
@@ -123,7 +137,12 @@ if [ $DRY = 0 ] && [ -f "$KIT/tools/ui_pref.py" ]; then
     UIM="$(CLAUDE_CONFIG_DIR="$C" "$UPY" -I "$KIT/tools/ui_pref.py" notice $UIARG 2>/dev/null)"; [ -n "$UIM" ] && printf '%s\n' "$UIM"
   fi
 fi
-[ "$n_repl" -gt 0 ] && echo "claude-kit: replaced $n_repl of your edited files with the kit version (kit wins); your originals are saved under $BK"
+[ "$n_repl" -gt 0 ] && echo "claude-kit: replaced $n_repl existing files with the kit version (no earlier install was recorded); your originals are saved under $BK"
+# edited vault files are kept, never overwritten: ONE notice line (kit-refresh.sh defers it so it can come after the project-copy sync; install.sh run alone prints it here)
+if [ $DRY = 0 ] && [ "$n_conf" -gt 0 ] && [ "${CLAUDE_KIT_DEFER_NOTICE:-0}" != 1 ]; then
+  if [ $FASTDONE = 1 ] && [ -f "$C/claude-kit/tools/kit-conflicts.py" ] && [ -n "${FASTPY:-}" ]; then CLAUDE_CONFIG_DIR="$C" "$FASTPY" -I "$C/claude-kit/tools/kit-conflicts.py" notice --config "$C" 2>&1
+  else echo "NOTICE FOR THE USER (show this): $n_conf locally changed vault files kept; incoming versions saved; review with: look in $C/claude-kit/state/conflicts (your files were not changed)"; fi
+fi
 if [ -n "$HOOKS" ]; then
   PY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then PY="$p"; break; fi; done
   if [ -z "$PY" ]; then echo "rbx-low-usage hooks: skipped (no working Python 3)"

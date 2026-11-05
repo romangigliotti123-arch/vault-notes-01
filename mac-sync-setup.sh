@@ -182,7 +182,7 @@ vault_heal "$GIT" "$DEST" "$STATE"
 # Companion AI Library Vault (private repo ai-library-vault) -> next to this vault ($(dirname "$DEST")/ai-library-vault). Share first, then GitHub; non-fatal. Skip: AI_VAULT_SKIP=1
 if [ "${AI_VAULT_SKIP:-0}" != 1 ] && [ -f "$DEST/ai-vault-sync.sh" ]; then bash "$DEST/ai-vault-sync.sh" --dest "$(dirname "$DEST")/ai-library-vault" || echo "AI Library Vault setup failed (non-fatal; run vault-update.sh later)."; fi
 
-# Claude kit (Roblox agents, skills, tools) -> ~/.claude. Idempotent, no questions, kit wins: edited files are backed up then replaced. Skip: CLAUDE_KIT_SKIP=1
+# Claude kit (Roblox agents, skills, tools) -> ~/.claude. Idempotent, no questions, your edits win: edited vault files are kept, the incoming version is saved (kit-conflicts.py). Skip: CLAUDE_KIT_SKIP=1
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$DEST/claude-kit/install.sh" ]; then CLAUDE_KIT_NOFOOTER=1 bash "$DEST/claude-kit/install.sh" || echo "Kit install failed (non-fatal)."; fi
 
 # Assets -> <vault>/Assets from the share (first run downloads everything, about 2.7 GB; later runs only changes). No questions. Skip: CLAUDE_ASSETS_SKIP=1

@@ -2,11 +2,11 @@
 """ui_pref.py: the /rbx-mockup toggle, the Figma notice and the one-time update notice. Stdlib only, no network, no secrets, no tokens.
 
   ui_pref.py get                         prints on or off (default off when unset, unreadable or unanswered)
-  ui_pref.py set on|off                  stores the preference in <claude config dir>/claude-kit/ui-mockup.json (idempotent; same answer = same file)
+  ui_pref.py set on|off                  stores the preference in <claude config dir>/claude-kit/state/ui-mockup.json (idempotent; same answer = same file)
   ui_pref.py toggle ARG                  what /rbx-mockup runs: on|off = set, anything else prints `UIPREF action=status`
   ui_pref.py status [--tools LIST|-] [--game DIR]   mode names, Figma connected or not (+ the notice line), the preference file path
   ui_pref.py figma --tools LIST|- [--game DIR] [--force]   the Figma check of the UI step: ONE line once per game (marker DIR/ui-design-qa/state.json), nothing after that
-  ui_pref.py notice [--mark-only]        the one-time NOTICE FOR THE USER line for existing installs (marker <config>/claude-kit/ui-mockup-notice.done); --mark-only = fresh install, marks silently
+  ui_pref.py notice [--mark-only]        the one-time NOTICE FOR THE USER line for existing installs (marker <config>/claude-kit/state/ui-mockup-notice.done); --mark-only = fresh install, marks silently
   LIST = the tool names the agent sees, comma or newline separated ('-' reads stdin). Connected = any name contains "figma" (case-insensitive).
 Modes: off (default) = automatic design-first; on = manual Nano Banana 2.1 package (ui_mock.py). The preference means only that. The Figma connection is the user's own; this tool never asks for
 or stores a Figma token or account and never installs anything.
@@ -14,6 +14,9 @@ or stores a Figma token or account and never installs anything.
 import json
 import os
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import kit_state
 
 QUESTION = ("Manual UI mockups: want Claude to give you prompts, reference images and steps to make UI mockups yourself with Nano Banana 2.1 on the Gemini website? "
             "Default is no: Claude designs the UI itself first. Change any time with /rbx-mockup on|off.")
@@ -30,7 +33,7 @@ def config_dir():
 
 
 def pref_path():
-    return os.path.join(config_dir(), "claude-kit", "ui-mockup.json")
+    return kit_state.path("ui-mockup.json", config_dir())
 
 
 def get_mode():
@@ -96,7 +99,7 @@ def figma_line(names, game, force=False):
 
 
 def marker_path():
-    return os.path.join(config_dir(), "claude-kit", "ui-mockup-notice.done")
+    return kit_state.path("ui-mockup-notice.done", config_dir())
 
 
 def notice(mark_only=False):

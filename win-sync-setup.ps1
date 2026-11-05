@@ -202,7 +202,7 @@ if (-not $SkipAiVault -and (Test-Path $aiScript)) {
   try { & powershell -NoProfile -ExecutionPolicy Bypass -File $aiScript -Dest (Join-Path (Split-Path $Dest -Parent) 'ai-library-vault') } catch { Write-Output ('AI Library Vault setup failed (non-fatal; run vault-update.ps1 later): ' + $_.Exception.Message) }
 }
 
-# Claude kit (Roblox agents, skills, tools) -> %USERPROFILE%\.claude. Idempotent, no questions, kit wins: edited files are backed up then replaced. Skip with -SkipKit.
+# Claude kit (Roblox agents, skills, tools) -> %USERPROFILE%\.claude. Idempotent, no questions, your edits win: edited vault files are kept, the incoming version is saved (kit-conflicts.py). Skip with -SkipKit.
 $kitScript = Join-Path $Dest 'claude-kit\install.ps1'
 if (-not $SkipKit -and (Test-Path $kitScript)) {
   $env:CLAUDE_KIT_NOFOOTER = '1'
@@ -228,7 +228,7 @@ try {
   $log = Join-Path $StateDir 'pull.log'
   $vbs = Join-Path $StateDir 'pull-hidden.vbs'
   # cmd /c "<git>" -C "<dest>" pull --ff-only >> "<log>" 2>&1, wrapped for cmd's quote rule, then escaped for VBScript
-  # after the pull, refresh the installed kit (agents, skills, tools) from the vault; quiet, kit wins: edited files are backed up then replaced
+  # after the pull, refresh the installed kit (agents, skills, tools) from the vault; quiet, your edits win: edited vault files are kept, the incoming version is saved (kit-conflicts.py)
   $refresh = Join-Path $Dest 'claude-kit\kit-refresh.ps1'
   # runs at logon (and by hand): vault-update.ps1 -Quiet = self-healing fetch + fast-forward (see Heal-Vault) + kit refresh + asset sync; falls back to pull + kit refresh if the script is not there yet
   $upd = Join-Path $Dest 'vault-update.ps1'

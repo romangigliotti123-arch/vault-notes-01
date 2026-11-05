@@ -14,12 +14,15 @@ knowledge; the vault owner's curation step (curate.py) decides what becomes a va
   learn.py status
   learn.py hiccup add|say|list|apply|check|retro|close|trend|share|queue ...    the live hiccup ledger (see hiccup.py): log a hiccup the moment it happens, with a concrete prevention
 
-Queue: <claude config dir>/claude-kit/learnings-queue/{pending,sent,rejected,ready-to-send,repo}. <claude config dir> = $CLAUDE_CONFIG_DIR, else $CLAUDE_KIT_HOME/.claude, else ~/.claude;
+Queue: <claude config dir>/claude-kit/state/learnings-queue/{pending,sent,rejected,ready-to-send,repo}. <claude config dir> = $CLAUDE_CONFIG_DIR, else $CLAUDE_KIT_HOME/.claude, else ~/.claude;
 override with --queue or $VAULT_LEARN_QUEUE. Target repo: $VAULT_LEARNINGS_REPO (a git URL or path; tests) else https://github.com/romangigliotti123-arch/vault-learnings.git.
 Env CLAUDE_LEARN_SKIP=1 turns flush into a no-op. Exit codes: 0 ok, 2 note rejected / usage error.
 Never run by a note: the text of a note is only ever stored, scanned and copied, never executed or followed.
 """
 import argparse, collections, datetime, getpass, hashlib, json, math, os, re, shutil, socket, subprocess, sys, tempfile, time, unicodedata
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import kit_state
 
 OWNER_REPO = "romangigliotti123-arch/vault-learnings"
 SCHEMA = 1
@@ -339,7 +342,7 @@ def config_dir():
 
 
 def queue_dir(arg=None):
-    q = arg or os.environ.get("VAULT_LEARN_QUEUE") or os.path.join(config_dir(), "claude-kit", "learnings-queue")
+    q = arg or os.environ.get("VAULT_LEARN_QUEUE") or kit_state.path("learnings-queue", config_dir())
     return os.path.abspath(os.path.expanduser(q))
 
 

@@ -4,7 +4,7 @@
   python learn_stats.py [--queue DIR] [--clone PATH | --repo owner/name | --offline] [--json] [--history FILE] [--max-fetch N]
 
 Reads (never writes to any of them; the optional --history CSV is the only file it appends to):
-  * the LOCAL learnings queue (learn.py): <claude config dir>/claude-kit/learnings-queue/{pending,sent,rejected,ready-to-send}; --queue DIR or $VAULT_LEARN_QUEUE overrides.
+  * the LOCAL learnings queue (learn.py): <claude config dir>/claude-kit/state/learnings-queue/{pending,sent,rejected,ready-to-send}; --queue DIR or $VAULT_LEARN_QUEUE overrides.
     Counts, oldest pending note, notes per topic, confidence split.
   * the public inbox repo vault-learnings, by ONE of: --clone PATH (a local clone, files are only read; run git pull yourself to refresh), --repo owner/name (read-only `gh api`;
     default romangigliotti123-arch/vault-learnings), or --offline (skip). Counts of inbox/ (waiting for curation), processed/ (accepted) and processed/rejected/, the decisions in
@@ -88,7 +88,8 @@ def queue_dir(arg=None):
     if os.environ.get("VAULT_LEARN_QUEUE"):
         return os.environ["VAULT_LEARN_QUEUE"]
     cfg = os.environ.get("CLAUDE_CONFIG_DIR") or (os.path.join(os.environ["CLAUDE_KIT_HOME"], ".claude") if os.environ.get("CLAUDE_KIT_HOME") else os.path.join(os.path.expanduser("~"), ".claude"))
-    return os.path.join(cfg, "claude-kit", "learnings-queue")
+    new = os.path.join(cfg, "claude-kit", "state", "learnings-queue")
+    return new if os.path.isdir(new) or not os.path.isdir(os.path.join(cfg, "claude-kit", "learnings-queue")) else os.path.join(cfg, "claude-kit", "learnings-queue")
 
 
 def md_files(d):

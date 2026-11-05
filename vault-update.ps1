@@ -296,6 +296,7 @@ else { Write-Output 'rbx-update: light mode (default; Imported/, Library/ and As
 $kr = Join-Path $vault 'claude-kit\kit-refresh.ps1'
 if (Test-Path -LiteralPath $kr) {
   $env:VAULT_UPDATE_LINE = '1'   # this script prints the final line itself
+  if ($Quiet) { $env:VAULT_UPDATE_QUIET = '1' }   # a logon run must not use up the one-time notice about kept files
   if ($NoKit) { $env:CLAUDE_KIT_SKIP = '1' }
   if ($NoAssets) { $env:CLAUDE_ASSETS_SKIP = '1' }
   & powershell -NoProfile -ExecutionPolicy Bypass -File $kr

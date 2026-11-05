@@ -288,6 +288,7 @@ if [ -f "$VAULT/.full-view" ]; then echo "rbx-update: full view ON (Obsidian ind
 else echo "rbx-update: light mode (default; Imported/, Library/ and Assets/ are not indexed by Obsidian). Full view: bash vault-update.sh --full-view on"; fi
 if [ -f "$VAULT/claude-kit/kit-refresh.sh" ]; then
   export VAULT_UPDATE_LINE=1   # this script prints the final line itself
+  [ "$QUIET" = 1 ] && export VAULT_UPDATE_QUIET=1   # a logon run must not use up the one-time notice about kept files
   [ "$NOKIT" = 1 ] && export CLAUDE_KIT_SKIP=1
   [ "$NOASSETS" = 1 ] && export CLAUDE_ASSETS_SKIP=1
   bash "$VAULT/claude-kit/kit-refresh.sh"

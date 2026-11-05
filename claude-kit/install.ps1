@@ -5,7 +5,8 @@
 #   ALWAYS-ON (the only kit skills in %USERPROFILE%\.claude\skills, listed in mode\always-on.txt): rbx-load rbx-unload rbx-update rbx-check rbx-uninstall
 #   tools\* -> %USERPROFILE%\.claude\claude-kit\tools\  systems\* -> %USERPROFILE%\.claude\claude-kit\systems\  skillpack\* -> ...\claude-kit\skillpack\ (NOT skills: opened on demand by the /rbx router skill)
 # An older install (kit skills/agents directly in .claude\skills and \agents) is migrated by tools\vault-mode.py migrate: kit files move to a backup folder, your own skills/agents/CLAUDE.md are untouched, idempotent, reversible.
-# Kit wins: a target file the user changed is replaced by the kit version, no question. The user's version is first copied to %USERPROFILE%\.claude\claude-kit\backup\<date>\<relpath>, so nothing is lost.
+# Your edits win: a vault file you changed is never overwritten or deleted; the incoming version is saved as %USERPROFILE%\.claude\claude-kit\state\conflicts\<path>.vault-new and ONE notice line says how to review it (tools\kit-conflicts.py).
+# Your data (learn queue, hiccup ledger, preferences, local rules) lives in %USERPROFILE%\.claude\claude-kit\state, which no update touches. Files you never edited update normally.
 # User skills with other names are never touched or removed; similar ones are listed ("kit versions will be used") and the kit entry points say the kit skill wins at routing time.
 # Usage: powershell -NoProfile -ExecutionPolicy Bypass -File install.ps1 [-KitHome <dir>] [-DryRun] [-WithHooks | -RemoveHooks] [-WithMods]
 # -WithMods (opt-in): also install the /rbx-subagent-hud and /rbx-graph Claude Code plugins (plugins load in every session, so they are no longer installed by default).
@@ -31,7 +32,7 @@ if (Test-Path -LiteralPath $Man) {
   foreach ($l in [IO.File]::ReadAllLines($Man)) { $p = $l -split "`t"; if ($p.Count -ge 2) { $old[$p[0]] = $p[1] } }
 }
 $new = New-Object System.Collections.Generic.List[string]
-$nNew = 0; $nUpd = 0; $nSame = 0; $nRepl = 0; $nGone = 0; $nFail = 0
+$nNew = 0; $nUpd = 0; $nSame = 0; $nRepl = 0; $nGone = 0; $nFail = 0; $nConf = 0
 $bkRoot = Join-Path $C ('claude-kit\backup\' + (Get-Date -Format 'yyyy-MM-dd'))
 
 # one-time rename migration (old generic command names -> <verb>-<slug>-vault; names in tools\vault-names.json): removes the OLD-named vault skills/agents that the kit installed and that are
@@ -53,6 +54,23 @@ if ((Test-Path -LiteralPath $kr) -and (Test-Path -LiteralPath $Man) -and ((Get-I
   } else { Write-Output 'kit-rename: no working Python 3, so old command names were not migrated; install Python 3 and run the update again' }
 }
 
+# FAST PATH (default): one Python process does the whole copy loop, the stale-file removal and the manifest (tools\kit-install-files.py); the PowerShell loop below is the fallback without Python 3 (or CLAUDE_KIT_SLOW=1)
+$fastDone = $false; $fpy = $null
+foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $fpy = $cmd.Source; break } } catch { } } }
+$kif = Join-Path $Kit 'tools\kit-install-files.py'
+if ($fpy -and (Test-Path -LiteralPath $kif) -and $env:CLAUDE_KIT_SLOW -ne '1') {
+  $ka = @('-I', $kif, '--kit', $Kit, '--config', $C, '--always-on', ($ao -join ' ')); if ($DryRun) { $ka += '--dry-run' }
+  $ea0 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+  $fo = (& $fpy @ka 2>&1 | Out-String); $ErrorActionPreference = $ea0
+  $rm = [regex]::Match($fo, '(?m)^RESULT new=(\d+) upd=(\d+) same=(\d+) repl=(\d+) gone=(\d+) fail=(\d+)(?: conf=(\d+))?')
+  if ($rm.Success) {
+    $nNew = [int]$rm.Groups[1].Value; $nUpd = [int]$rm.Groups[2].Value; $nSame = [int]$rm.Groups[3].Value; $nRepl = [int]$rm.Groups[4].Value; $nGone = [int]$rm.Groups[5].Value; $nFail = [int]$rm.Groups[6].Value
+    if ($rm.Groups[7].Success) { $nConf = [int]$rm.Groups[7].Value }
+    foreach ($fl in ($fo -split "`r?`n" | Where-Object { $_ -like 'FAILED *' } | Select-Object -First 5)) { Write-Output $fl }
+    $fastDone = $true
+  } else { Write-Output ("claude-kit: fast installer failed, using the PowerShell loop (" + (($fo -split "`r?`n" | Where-Object { $_.Trim() } | Select-Object -Last 1)) + ")") }
+}
+if (-not $fastDone) {
 foreach ($sub in 'agents', 'skills', 'mode', 'tools', 'systems', 'skillpack') {
   $root = Join-Path $Kit $sub
   if (-not (Test-Path -LiteralPath $root)) { continue }
@@ -76,6 +94,14 @@ foreach ($sub in 'agents', 'skills', 'mode', 'tools', 'systems', 'skillpack') {
     } elseif ($old.ContainsKey($rel) -and (Sha $dst) -eq $old[$rel]) {
       if (-not $DryRun) { Copy-Item -LiteralPath $_.FullName -Destination $dst -Force }
       $nUpd++
+    } elseif ($old.ContainsKey($rel) -and $old[$rel] -eq $ns) {
+      $nSame++
+    } elseif ($old.Count -gt 0) {
+      if (-not $DryRun) {
+        $cd = Join-Path $C ('claude-kit\state\conflicts\' + (($rel -replace '^claude-kit/', '') + '.vault-new').Replace('/', '\'))
+        New-Item -ItemType Directory -Force (Split-Path -Parent $cd) | Out-Null; Copy-Item -LiteralPath $_.FullName -Destination $cd -Force
+      }
+      $nConf++; $rec = $old[$rel]
     } else {
       if (-not $DryRun) {
         $bk = Join-Path $bkRoot ($rel.Replace('/', '\')); $i = 1
@@ -120,6 +146,10 @@ if (-not $DryRun) {
   New-Item -ItemType Directory -Force (Split-Path -Parent $Man) | Out-Null
   [IO.File]::WriteAllText($Man, (($new | Sort-Object -Unique) -join "`n") + "`n", (New-Object Text.UTF8Encoding $false))
 }
+}
+# your data (learn queue, hiccup ledger, mockup preference) lives in claude-kit\state, which no update touches: move an older copy over once (idempotent; silent when nothing moved)
+$ks = Join-Path $C 'claude-kit\tools\kit_state.py'
+if (-not $DryRun -and $fpy -and (Test-Path -LiteralPath $ks)) { $prevCfgK = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C; $kso = (& $fpy -I $ks migrate --config $C 2>&1 | Out-String).Trim(); $env:CLAUDE_CONFIG_DIR = $prevCfgK; if (-not $prevCfgK) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }; if ($kso) { Write-Output $kso } }
 # move an older always-on layout into the store (idempotent; silent when there is nothing to move)
 $vm = Join-Path $C 'claude-kit\tools\vault-mode.py'
 if (-not $DryRun -and (Test-Path -LiteralPath $vm)) {
@@ -147,7 +177,13 @@ if ((Test-Path -LiteralPath $uip) -and -not $DryRun) {
 }
 
 if ($migrateOut) { Write-Output $migrateOut }
-if ($nRepl) { Write-Output "claude-kit: replaced $nRepl of your edited files with the kit version (kit wins); your originals are saved under $bkRoot" }
+if ($nRepl) { Write-Output "claude-kit: replaced $nRepl existing files with the kit version (no earlier install was recorded); your originals are saved under $bkRoot" }
+# edited vault files are kept, never overwritten: ONE notice line (kit-refresh.ps1 defers it so it can come after the project-copy sync; install.ps1 run alone prints it here)
+if (-not $DryRun -and $nConf -gt 0 -and $env:CLAUDE_KIT_DEFER_NOTICE -ne '1') {
+  $kcn = Join-Path $C 'claude-kit\tools\kit-conflicts.py'
+  if ($fastDone -and $fpy -and (Test-Path -LiteralPath $kcn)) { $prevCfgN = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C; $nto = (& $fpy -I $kcn notice --config $C 2>&1 | Out-String).Trim(); $env:CLAUDE_CONFIG_DIR = $prevCfgN; if (-not $prevCfgN) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }; if ($nto) { Write-Output $nto } }
+  else { Write-Output "NOTICE FOR THE USER (show this): $nConf locally changed vault files kept; incoming versions saved; review with: look in $C\claude-kit\state\conflicts (your files were not changed)" }
+}
 if ($WithHooks -or $RemoveHooks) {
   $py = $null
   foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $py = $cmd.Source; break } } catch { } } }

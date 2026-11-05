@@ -1,7 +1,7 @@
 #!/bin/bash
 # kit-refresh.sh - run right after the vault update (self-healing fetch + fast-forward) (by vault-update.sh, the login agent/timer, or by hand) so installed copies of the kit
 # (agents, skills such as /rbx-workflow, tools) refresh whenever the vault updates, and then syncs <vault>/Assets from the public vault-assets repositories.
-# 1) install.sh (idempotent; kit wins: a file you changed is backed up to claude-kit/backup/<date>/ and replaced). Env CLAUDE_KIT_SKIP=1 skips this part.
+# 1) install.sh (idempotent; a vault file you changed is kept, the incoming version is saved under claude-kit/state/conflicts/ and one notice line says so). Env CLAUDE_KIT_SKIP=1 skips this part.
 # 2) tools/assets-sync.py --vault <this vault>: downloads only new/changed asset files (about 2.7 GB the first time), deletes removed ones.
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools/refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>/claude-kit/roblox-reference and
@@ -14,7 +14,7 @@
 {
 D="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$D/install.sh" ]; then
-  out="$(CLAUDE_KIT_NOFOOTER=1 bash "$D/install.sh" 2>&1)" || out="kit refresh failed: $out"
+  out="$(CLAUDE_KIT_NOFOOTER=1 CLAUDE_KIT_DEFER_NOTICE=1 bash "$D/install.sh" 2>&1)" || out="kit refresh failed: $out"
   case "$out" in
     *"installed 0 new, updated 0, unchanged "*"replaced-yours 0 "*) ;;
     *) KCHANGED=1; printf '%s kit-refresh: %s\n' "$(date '+%F %T')" "$(printf '%s' "$out" | tr '\n' ' ')" ;;
@@ -28,6 +28,15 @@ if [ "${CLAUDE_MODE_SKIP:-0}" != 1 ] && [ -f "$D/tools/vault-mode.py" ]; then
       [ -f "$CFG/claude-kit/tools/vault-mode.py" ] && "$p" -I "$CFG/claude-kit/tools/vault-mode.py" sync --quiet --config "$CFG" 2>&1; break
     fi
   done
+fi
+# 1c) vault files you edited that this update kept: ONE notice line, printed once (state/conflicts.json); nothing when there is nothing new. Env VAULT_UPDATE_QUIET=1 (logon run) leaves it pending.
+if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ]; then
+  CFG="${CLAUDE_CONFIG_DIR:-${CLAUDE_KIT_HOME:-$HOME}/.claude}"; [ -n "${CLAUDE_CONFIG_DIR:-}" ] || [ -n "${CLAUDE_KIT_HOME:-}" ] || CFG="$HOME/.claude"
+  if [ -f "$CFG/claude-kit/tools/kit-conflicts.py" ]; then
+    for p in python3 python; do
+      if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then "$p" -I "$CFG/claude-kit/tools/kit-conflicts.py" notice --config "$CFG" 2>&1; break; fi
+    done
+  fi
 fi
 DO_ASSETS=0; DO_REFS=0
 [ "${CLAUDE_ASSETS_SKIP:-0}" != 1 ] && [ -f "$D/tools/assets-sync.py" ] && DO_ASSETS=1

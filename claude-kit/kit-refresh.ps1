@@ -1,6 +1,6 @@
 # kit-refresh.ps1 - run right after the vault update (self-healing fetch + fast-forward) (by vault-update.ps1, the logon task, or by hand) so installed copies of the kit
 # (agents, skills such as /rbx-workflow, tools) refresh whenever the vault updates, and then syncs <vault>\Assets from the public vault-assets repositories.
-# 1) install.ps1 (idempotent; kit wins: a file you changed is backed up to claude-kit/backup/<date>/ and replaced). Env CLAUDE_KIT_SKIP=1 skips this part.
+# 1) install.ps1 (idempotent; a vault file you changed is kept, the incoming version is saved under claude-kit/state/conflicts/ and one notice line says so). Env CLAUDE_KIT_SKIP=1 skips this part.
 # 2) tools\assets-sync.py --vault <this vault>: downloads only new/changed asset files (about 2.7 GB the first time), deletes removed ones.
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools\refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>\claude-kit\roblox-reference and
@@ -11,6 +11,7 @@
 # Last line (only when the kit changed and the caller is not the current vault-update.ps1, which prints it itself): "Your vault is up to date as of ... (local time)" (tools\vault-published.ps1).
 $ErrorActionPreference = 'Continue'
 $env:CLAUDE_KIT_NOFOOTER = '1'
+$env:CLAUDE_KIT_DEFER_NOTICE = '1'
 $d = Split-Path -Parent $MyInvocation.MyCommand.Path
 if ($env:CLAUDE_KIT_SKIP -ne '1') {
   $inst = Join-Path $d 'install.ps1'
@@ -36,6 +37,22 @@ if (($env:CLAUDE_MODE_SKIP -ne '1') -and (Test-Path -LiteralPath $vmode)) {
       if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $vmode, 'sync', '--quiet')); break }
     }
   } catch { }
+}
+# 1c) vault files you edited that this update kept: ONE notice line, printed once (state\conflicts.json); nothing when there is nothing new. Env VAULT_UPDATE_QUIET=1 (logon run) leaves it pending.
+if ($env:CLAUDE_KIT_SKIP -ne '1') {
+  $cfgK = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } elseif ($env:CLAUDE_KIT_HOME) { Join-Path $env:CLAUDE_KIT_HOME '.claude' } else { Join-Path $env:USERPROFILE '.claude' }
+  $kcf = Join-Path $cfgK 'claude-kit\tools\kit-conflicts.py'
+  if (Test-Path -LiteralPath $kcf) {
+    try {
+      foreach ($c in @(@('python'), @('python3'), @('py', '-3'))) {
+        $exe = (Get-Command $c[0] -ErrorAction SilentlyContinue | Select-Object -First 1)
+        if (-not $exe) { continue }
+        $pre = @(); if ($c.Count -gt 1) { $pre = $c[1..($c.Count - 1)] }
+        & $exe.Source @pre -c "import sys" *> $null
+        if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $kcf, 'notice', '--config', $cfgK)); break }
+      }
+    } catch { }
+  }
 }
 $sync = Join-Path $d 'tools\assets-sync.py'
 $refs = Join-Path $d 'tools\refs-sync.py'
