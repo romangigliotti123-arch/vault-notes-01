@@ -5,3 +5,5 @@ workspace*.json
 .obsidian/cache/
 Assets/
 My Research/
+__pycache__/
+*.pyc
