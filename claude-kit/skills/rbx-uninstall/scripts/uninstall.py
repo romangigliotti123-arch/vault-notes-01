@@ -319,7 +319,7 @@ def plan(a, home, config, vault, keep_final):
     if os.path.isdir(kitroot):
         for r, f in walk_files(kitroot):
             rel = "claude-kit/" + r
-            if rel in ent or r in ("installed.tsv", "installed.tsv.pre-mode") or "__pycache__" in r or r.endswith(".pyc"):
+            if rel in ent or r in ("installed.tsv", "installed.tsv.pre-mode", "ui-mockup-notice.done") or "__pycache__" in r or r.endswith(".pyc"):
                 continue
             if r in ("vault-mode/loaded.json", "vault-mode/layout.json", "vault-mode/migration-last.json"):
                 continue            # the mode's own bookkeeping, not user data

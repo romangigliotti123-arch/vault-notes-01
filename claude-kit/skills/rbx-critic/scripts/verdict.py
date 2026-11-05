@@ -23,6 +23,8 @@ missing, builder-made, stale or incomplete = at most NOT YET and the label "play
 rbx-bench), a low score never changes the verdict. `games.py advance` needs `codegates: ran` (an older file without the line counts as missing).
 HICCUPS (tools/hiccup.py check --scorer critic --write Games/<slug>, read from hiccup-qa/gate-critic.json or given as `hiccup_gate`) are the seventh, ADVISORY: the verdict file carries
 `retro: ran|skipped|n/a` (ran = the critic compared the objective hiccup sources with the ledger AND the done-step retro ran); unreported hiccups are SCORED by rbx-bench and listed, never blocking (RETRO_REQUIRED).
+UI DESIGN (rbx-ui-mockup, Games/<slug>/ui-design-qa/gate.json from ui_compare.py gate|skip) is the eighth, ADVISORY: the verdict file carries
+`uidesign: done|skipped|n/a` (done = a design-first record with a mode auto|figma|manual); never changes the verdict (UIDESIGN_REQUIRED).
 Only factors present in "scores" count (unscored = N/A for this stage). Critical factors per stage count double and need their minimum.
 --write DIR writes DIR/critic/<date>-<stage>.md with frontmatter (stage, verdict, date, score) + the body from --report. `games.py advance` reads that file.
 """
@@ -134,6 +136,28 @@ def retro(d, stage, gd=None):
     return "ran", rs
 
 
+UIDESIGN_REQUIRED = False
+
+
+def uidesign(d, stage, gd=None):
+    """-> (line, reasons). Advisory while UIDESIGN_REQUIRED is False: `done (mode)` / `skipped: reason` / `n/a` from ui-design-qa/gate.json (ui_compare.py)."""
+    if stage not in VISUAL_STAGES:
+        return "n/a", []
+    g = d.get("ui_design_gate")
+    if g is None and gd and os.path.isfile(os.path.join(gd, "ui-design-qa", "gate.json")):
+        g = os.path.join(gd, "ui-design-qa", "gate.json")
+    if isinstance(g, str):
+        try:
+            g = json.load(open(g, encoding="utf-8-sig"))
+        except Exception as e:
+            return "skipped", ["ui design record unreadable: %s" % e]
+    if not isinstance(g, dict):
+        return "skipped", ["no UI design record (rbx-ui-mockup: ui_compare.py gate or skip --write Games/<slug>)"]
+    if g.get("done"):
+        return "done (%s)" % g.get("mode", "auto"), []
+    return "skipped", [str(g.get("reason", "no reason given"))[:160]]
+
+
 CODE_LABEL = "playable prototype, code gates not run"
 CODE_REQUIRED = ("comment", "scope", "security")
 
@@ -201,6 +225,7 @@ def main():
     cstat, clabel, creasons = coding(d, stage)
     wdir = a[a.index("--write") + 1] if "--write" in a and a.index("--write") + 1 < len(a) else None
     rstat, rreasons = retro(d, stage, wdir)
+    ustat, ureasons = uidesign(d, stage, wdir)
     if d.get("hard_rule_violation"):
         verdict = "BAD"; reasons.append("hard-rule violation (pay-to-win, paid randomness for kids, pressure timers, stranger contact or copied assets)")
     elif works == "fail-severe":
@@ -221,7 +246,9 @@ def main():
         if mean < 7.0: reasons.append("mean %.2f is under 7.00" % mean)
     else:
         verdict = "GOOD"; reasons.append("WORKS pass, mean %.2f, all critical factors at minimum" % mean)
-    print("VERDICT: %s | stage %s | mean %.2f | works %s | looks %s | placement %s | lighting %s | code gates %s | retro %s" % (verdict, stage, mean, works, vstat, pstat, lstat, cstat, rstat))
+    print("VERDICT: %s | stage %s | mean %.2f | works %s | looks %s | placement %s | lighting %s | code gates %s | retro %s | ui design %s" % (verdict, stage, mean, works, vstat, pstat, lstat, cstat, rstat, ustat))
+    if ustat.startswith("skipped"):
+        print("UI DESIGN: %s (advisory, never changes the verdict)" % "; ".join(ureasons[:2]))
     if rstat == "skipped":
         print("RETRO: skipped (%s; advisory, scored by rbx-bench)" % "; ".join(rreasons[:2]))
     elif rstat == "ran" and rreasons:
@@ -247,7 +274,7 @@ def main():
         os.makedirs(os.path.join(gd, "critic"), exist_ok=True)
         p = os.path.join(gd, "critic", "%s-%s.md" % (date, stage))
         slug = d.get("game") or os.path.basename(os.path.abspath(gd))
-        head = "---\ntype: critic-verdict\ngame: %s\nstage: %s\nverdict: %s\ndate: %s\nscore: %.2f\nworks: %s\nvisual: %s\nplacement: %s\nlighting: %s\ncodegates: %s\nretro: %s\n---\n# Critic verdict: %s (%s, %s)\nBack to [[%s/GAME|GAME]] | [[%s/critic/README|all verdicts]]\n\n" % (slug, stage, verdict, date, mean, works, vstat, pstat, lstat, cstat, rstat, verdict, stage, date, slug, slug)
+        head = "---\ntype: critic-verdict\ngame: %s\nstage: %s\nverdict: %s\ndate: %s\nscore: %.2f\nworks: %s\nvisual: %s\nplacement: %s\nlighting: %s\ncodegates: %s\nretro: %s\nuidesign: %s\n---\n# Critic verdict: %s (%s, %s)\nBack to [[%s/GAME|GAME]] | [[%s/critic/README|all verdicts]]\n\n" % (slug, stage, verdict, date, mean, works, vstat, pstat, lstat, cstat, rstat, ustat, verdict, stage, date, slug, slug)
         with open(p, "w", encoding="utf-8", newline="\n") as f:
             f.write(head + "**Why:** " + "; ".join(reasons) + "\n\n" + body)
         print("WROTE " + p)

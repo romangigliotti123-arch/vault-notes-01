@@ -134,6 +134,18 @@ if ($renamed -and -not $DryRun -and (Test-Path -LiteralPath $vm)) {
 }
 Write-Output ("claude-kit: installed $nNew new, updated $nUpd, unchanged $nSame, replaced-yours $nRepl" + $(if ($nGone) { ", removed $nGone no longer in the kit" }) + $(if ($nFail) { ", FAILED $nFail" }) + " (into $C)")
 if ($renameMsg) { Write-Output $renameMsg }
+# UI mockups default to automatic design-first: ONE non-blocking NOTICE FOR THE USER line per install (marker claude-kit/ui-mockup-notice.done); a fresh install only sets the marker (the setup text asks the question)
+$uip = Join-Path $Kit 'tools\ui_pref.py'
+if ((Test-Path -LiteralPath $uip) -and -not $DryRun) {
+  foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) {
+    $prevCfgU = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C
+    $ua = @('-I', $uip, 'notice'); if ($firstWf) { $ua += '--mark-only' }
+    $ea1 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'; $uim = (& $cmd.Source @ua 2>$null | Out-String).Trim(); $ErrorActionPreference = $ea1
+    $env:CLAUDE_CONFIG_DIR = $prevCfgU; if (-not $prevCfgU) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }
+    if ($uim) { Write-Output $uim }
+    break } } catch { } } }
+}
+
 if ($migrateOut) { Write-Output $migrateOut }
 if ($nRepl) { Write-Output "claude-kit: replaced $nRepl of your edited files with the kit version (kit wins); your originals are saved under $bkRoot" }
 if ($WithHooks -or $RemoveHooks) {

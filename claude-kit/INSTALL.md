@@ -28,6 +28,8 @@ Default scope is vault + kit + assets (a plain Enter or no answer); "just the va
 - **Not covered**: a compromised GitHub account, a malicious kit release, or a hostile local program. The mode text in `CLAUDE.md` is instructions for Claude, not a sandbox; Claude Code's own permission prompts remain your last line.
 - **Verify**: the installer prints the kit commit; compare with the commit list at github.com/romangigliotti123-arch/vault-kit-01. Remove everything with `/rbx-uninstall`.
 
+UI mockups: updates print ONE notice line the first time (UI mockups default to automatic design-first; `/rbx-mockup on` switches to the manual Nano Banana 2.1 package). The question asked at setup was: Manual UI mockups: want Claude to give you prompts, reference images and steps to make UI mockups yourself with Nano Banana 2.1 on the Gemini website? Default is no: Claude designs the UI itself first. Change any time with /rbx-mockup on|off.
+
 ## Update
 The sync scripts (`win-sync-setup.ps1`, `mac-sync-setup.sh`, `linux-sync-setup.sh`) make the vault update at every logon/login (no 15-minute polling) and on demand (`vault-update.ps1` / `vault-update.sh` in the vault root, or `/rbx-update`); each update runs a self-healing `git fetch` + fast-forward (blocked by local changes: they are saved to `local-changes-<timestamp>.patch` and the vault is reset to the latest, automatically), then `kit-refresh.ps1` / `kit-refresh.sh` (runs the installer quietly, so installed skills refresh by themselves) and then `tools/assets-sync.py` (fills `<vault>/Assets`). A computer set up before that change needs its sync script run once more. By hand: run step 2 again. Files the user edited are replaced by the kit version after a backup (see step 3).
 

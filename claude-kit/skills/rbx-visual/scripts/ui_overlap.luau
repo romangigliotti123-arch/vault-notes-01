@@ -191,6 +191,7 @@ end
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
+local HttpService = game:GetService("HttpService")
 
 local CONFIG = {
 	viewports = {
@@ -293,6 +294,7 @@ for _, vp in CONFIG.viewports do
 	host.ClipsDescendants = true
 	host.Parent = preview
 	local items: { Item } = {}
+	local rects = {}
 	local seq = 0
 	for _, src in sources do
 		local inset = if src.IgnoreGuiInset then 0 else TOPBAR
@@ -356,6 +358,15 @@ for _, vp in CONFIG.viewports do
 				end
 				if item.kind ~= "skip" then
 					table.insert(items, item)
+					table.insert(rects, {
+						path = item.path,
+						kind = item.kind,
+						x = math.round(item.x * 10) / 10,
+						y = math.round(item.y * 10) / 10,
+						w = math.round(item.w * 10) / 10,
+						h = math.round(item.h * 10) / 10,
+						text = if isText then (d :: TextLabel).Text else nil,
+					})
 				end
 			end
 		end
@@ -363,6 +374,7 @@ for _, vp in CONFIG.viewports do
 	local findings = Overlap.analyse(items, vp, { topInset = TOPBAR })
 	total += #findings
 	print(`UI-OVERLAP {vp.name} {vp.w}x{vp.h}: {#items} visible items, {#findings} findings`)
+	print(`UI-RECTS {vp.name} {HttpService:JSONEncode(rects)}`)
 	for _, f in findings do
 		print(`  [{f.rule}] {f.a}{if f.b then " vs " .. f.b else ""}: {f.detail}`)
 	end

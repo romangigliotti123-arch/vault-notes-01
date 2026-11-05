@@ -56,6 +56,7 @@ GATE_RUN = {
     "critic": "Run rbx-critic: its own gate scans, then verdict.py <input.json> --write Games/<slug> so critic/<date>-<stage>.md exists.",
     "lighting": "Run rbx-lighting and keep its gate record in lighting-qa/.",
     "code-gates": "Run python <skills>/rbx-critic/scripts/code_gates.py <project> --scorer critic --write Games/<slug>: it writes comment-scan, scope-scan, security-scan, trigger-scan, bugfix and code-gates/run.json (add --report <final report> for evidence-scan).",
+    "ui-design": "Run rbx-ui-mockup: ui_design.py all, build from the spec, then ui_compare.py gate (or skip --reason) --write Games/<slug>; advisory.",
     "spec": "Fill benchmark-scores.json (features, rubric B1-B7 with evidence) from the standard test game card, then collect again with --spec.",
 }
 FIXES = {
