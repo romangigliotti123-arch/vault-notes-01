@@ -62,7 +62,7 @@ fi
 if [ "${KCHANGED:-0}" = 1 ] && [ -z "${VAULT_UPDATE_LINE:-}" ]; then
   PL=""
   for p in python3 python; do
-    if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then [ -f "$D/tools/vault-published.py" ] && PL="$("$p" -I "$D/tools/vault-published.py" --vault "$(dirname "$D")" 2>/dev/null | tail -n 1)"; break; fi
+    if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then [ -f "$D/tools/vault-published.py" ] && PL="$("$p" -I "$D/tools/vault-published.py" --vault "$(dirname "$D")" --where 2>/dev/null | tail -n 2)"; break; fi
   done
   echo "${PL:-Your vault is up to date.}"
 fi

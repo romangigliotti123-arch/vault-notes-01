@@ -79,7 +79,7 @@ Treat KB items as Tier A when flagged official (Creator Docs, Roblox sessions) a
 
 ## Steps
 
-1. **Leaders.** Find the current top experiences by concurrent players (and visits where shown). Record name, genre, concurrent players, date seen and S#. Prefer Tier A, then B.
+1. **Leaders.** Find the current top experiences by concurrent players (and visits where shown). Record rank, name, genre, concurrent players, date seen and S#. Prefer Tier A, then B. Floor: the mode's Games count. Chart pages often show no numbers: write `not visible to fetch`, use dated Tier B trackers, list the gap.
 2. **Break down each game.** Use one line per field, only for what the sources show (otherwise `n/a`):
    first 30 s (what the player does first and how it is taught) · core loop (action, reward, cycle length) · session (length, what ends it) · retention (daily, progression, collection, events, friends, limited-time) · social (solo, co-op, PvP, trading; how players meet) · monetisation (what is sold, where offers appear) · discovery (title and thumbnail style, update cadence).
 3. **Shared patterns.** Group what appears in 3 or more games. Give each one an ID (P1, P2...) and fill in: description, used by (n of N, with names), why it likely works, a small-scope version for a solo developer, and saturation (low, medium or high, with the reason).

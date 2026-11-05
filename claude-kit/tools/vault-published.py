@@ -2,7 +2,7 @@
 """Last line of /rbx-update: `Your vault is up to date as of Thursday 5 November 2026, 8:40 am (local time)`.
 Time = newest commit date (git log -1 --format=%cI) of the vault clone and of the kit folder's repo (when that is a different repo), in the machine's local time zone.
 No git or no date: prints `Your vault is up to date.` Never fails (exit 0). Usage: vault-published.py [--vault DIR] [--kit DIR] [--utc-offset +HH:MM]
-Test hook: env VAULT_PUBLISHED_UTC_OFFSET (same as --utc-offset) fixes the zone."""
+--where: first print `Vault: <folder> | Kit: <folder>` (installed kit = $CLAUDE_CONFIG_DIR or ~/.claude + claude-kit; `Vault: not found (set CLAUDES_VAULT)` when no clone). Test hook: env VAULT_PUBLISHED_UTC_OFFSET (same as --utc-offset) fixes the zone."""
 import argparse, os, subprocess, sys
 from datetime import datetime, timedelta, timezone
 
@@ -53,6 +53,13 @@ def parse_offset(s):
     return timezone(sign * timedelta(hours=int(h), minutes=int(m or 0)))
 
 
+def where(vault):
+    home = os.path.expanduser("~")
+    v = next((os.path.normpath(c) for c in (vault, os.path.join(home, "Obsidian", "claudes-vault")) if c and os.path.exists(os.path.join(c, ".git"))), "")
+    k = os.path.join(os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.environ.get("CLAUDE_KIT_HOME") or home, ".claude"), "claude-kit")
+    return "Vault: %s | Kit: %s" % (v or "not found (set CLAUDES_VAULT)", os.path.normpath(k))
+
+
 def line(dirs, tz=None):
     dates = repo_dates(dirs)
     if not dates:
@@ -64,10 +71,16 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--vault")
     ap.add_argument("--kit")
+    ap.add_argument("--where", action="store_true")
     ap.add_argument("--utc-offset", default=os.environ.get("VAULT_PUBLISHED_UTC_OFFSET", ""))
     a = ap.parse_args(argv)
+    vault = a.vault or os.environ.get("CLAUDES_VAULT") or os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    if a.where:
+        try:
+            print(where(vault))
+        except Exception:
+            print("Vault: not found (set CLAUDES_VAULT)")
     try:
-        vault = a.vault or os.environ.get("CLAUDES_VAULT") or os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         kit = a.kit or os.path.join(vault, "claude-kit")
         print(line([vault, kit], parse_offset(a.utc_offset) if a.utc_offset else None))
     except Exception:

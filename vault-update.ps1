@@ -317,7 +317,7 @@ if (-not $Quiet) { Write-Output 'rbx-update: done' }
 # last line of /rbx-update: "Your vault is up to date as of <Weekday D Month YYYY, h:mm am/pm> (local time)" (tools\vault-published.ps1; plain "Your vault is up to date." when there is no commit date)
 $pubLine = ''
 $pubScript = Join-Path $vault 'claude-kit\tools\vault-published.ps1'
-if (Test-Path -LiteralPath $pubScript) { try { $pubLine = @((& powershell -NoProfile -ExecutionPolicy Bypass -File $pubScript -Vault $vault | Out-String) -split "`r?`n" | Where-Object { $_.Trim() })[-1] } catch { } }
+if (Test-Path -LiteralPath $pubScript) { try { $pubLine = @((& powershell -NoProfile -ExecutionPolicy Bypass -File $pubScript -Vault $vault -Where | Out-String) -split "`r?`n" | Where-Object { $_.Trim() } | Select-Object -Last 2) -join "`n" } catch { } }
 if (-not $pubLine) { $pubLine = 'Your vault is up to date.' }
 Write-Output $pubLine
 exit 0

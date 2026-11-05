@@ -96,7 +96,7 @@ if (($env:CLAUDE_LEARN_SKIP -ne '1') -and (Test-Path -LiteralPath $learn)) {
 if ($kChanged -and -not $env:VAULT_UPDATE_LINE) {
   $pl = ''
   $pubScript = Join-Path $d 'tools\vault-published.ps1'
-  if (Test-Path -LiteralPath $pubScript) { try { $pl = @((& powershell -NoProfile -ExecutionPolicy Bypass -File $pubScript -Vault (Split-Path -Parent $d) | Out-String) -split "`r?`n" | Where-Object { $_.Trim() })[-1] } catch { } }
+  if (Test-Path -LiteralPath $pubScript) { try { $pl = @((& powershell -NoProfile -ExecutionPolicy Bypass -File $pubScript -Vault (Split-Path -Parent $d) -Where | Out-String) -split "`r?`n" | Where-Object { $_.Trim() } | Select-Object -Last 2) -join "`n" } catch { } }
   if (-not $pl) { $pl = 'Your vault is up to date.' }
   Write-Output $pl
 }

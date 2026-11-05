@@ -248,11 +248,11 @@ EOF_IT
 # --- end vault-clean ---
 
 # last line of /rbx-update: "Your vault is up to date as of <Weekday D Month YYYY, h:mm am/pm> (local time)" (tools/vault-published.py; plain "Your vault is up to date." when no python or no commit date)
-vault_published_line() { # $1 = vault ; prints exactly one line, never fails
+vault_published_line() { # $1 = vault ; prints the location line + the date line, never fails
   local p l=""
   for p in python3 python; do
     if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then
-      [ -f "$1/claude-kit/tools/vault-published.py" ] && l="$("$p" -I "$1/claude-kit/tools/vault-published.py" --vault "$1" 2>/dev/null | tail -n 1)"
+      [ -f "$1/claude-kit/tools/vault-published.py" ] && l="$("$p" -I "$1/claude-kit/tools/vault-published.py" --vault "$1" --where 2>/dev/null | tail -n 2)"
       break
     fi
   done

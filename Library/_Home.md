@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Claude Library
 
-760 items: 617 skills, 143 agents, 25 sources, 32 categories. Generated 2026-11-05 from the git repo claude-library (do not edit here).
+760 items: 617 skills, 143 agents, 25 sources, 32 categories. Generated 2026-11-06 from the git repo claude-library (do not edit here).
 
 - [[Combined-Brain]] - the vault mentor's brain: every creator's principles, methods and disagreements by job (start here with `/rbx-mentor`)
 - [[CAPABILITIES]] - job router: I need to ... -> item, type, path

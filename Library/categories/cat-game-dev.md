@@ -34,4 +34,4 @@ tags: [moc]
 - [s] [[S--own--rbx-tune|rbx-tune]] - Metric-gated tuning loop: pick ONE number (gate score, economy simulation, frame cost), baseline it, single-ch
 - [s] [[S--own--rbx-visual|rbx-visual]] - Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and 
 - [s] [[S--own--rbx-weekly|rbx-weekly]] - Weekly numbers check for a live or launching Roblox game. The user pastes Creator Dashboard numbers (or, later
-- [s] [[S--own--rbx-workflow|rbx-workflow]] - Flagship Roblox game workflow, the single entry for every game ('where do I start'): finds or creates Games/<g
+- [s] [[S--own--rbx-workflow|rbx-workflow]] - Flagship Roblox game workflow, the single entry for every game ('where do I start', 'work on <game>'): finds o

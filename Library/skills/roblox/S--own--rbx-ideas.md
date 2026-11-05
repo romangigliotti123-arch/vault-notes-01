@@ -48,8 +48,8 @@ Solo developer, comfortable with Luau and basic building, Mac with Studio (Rojo 
    $K case "<genre>" -n 3
    $K find "mistakes <genre> scope" -t common-mistakes -n 5
    ```
-   Tag KB evidence `[K#]` with its link, flag and date (official Creator Docs/staff override indie advice; indie CCU/revenue figures are never evidence of demand, only of what creators claim). Then reuse a report saved in this project (`research/roblox-trends-*.md`) if it is 14 days old or less and covers the seed's genre; run rbx-trends (Focused or Broad, which also reads the KB first) only for live facts the KB cannot hold (current charts, CCU, what rose in the last 90 days). If the KB and the web both fail, continue, write `Trend data: unavailable (<reason>)`, and mark Discoverability and Originality scores as low confidence.
-3. **Candidates.** Write 8 one-liners: "<who> does <what> to <goal>, with <twist>". Tag each with the pattern IDs it uses (P#). With a seed, give 8 variations of it (different loops, twists or scopes). Include at least 2 that a solo developer could finish in half the agreed time.
+   Tag KB evidence `[K#]` with its link, flag and date (official Creator Docs/staff override indie advice; indie CCU/revenue figures are never evidence of demand, only of what creators claim). Then reuse a report saved in this project (`research/roblox-trends-*.md`) if it is 14 days old or less and covers the seed's genre and has a Leaders table; otherwise run rbx-trends (Focused or Broad, which also reads the KB first) now for live facts the KB cannot hold (current charts, CCU, what rose in the last 90 days); ideas rest on its chart leaders. If the KB and the web both fail, continue, write `Trend data: unavailable (<reason>)`, and mark Discoverability and Originality scores as low confidence.
+3. **Candidates.** Write 8 one-liners: "<who> does <what> to <goal>, with <twist>". Tag each with its chart anchor: 1 to 2 Leaders-table games it is formula-derived from (rank, CCU, date, [S#]/[K#]), the P# it keeps, and its twist; no such game: `no chart anchor`. Formula only, never content. With a seed, give 8 variations of it (different loops, twists or scopes). Include at least 2 that a solo developer could finish in half the agreed time.
 4. **Score** each candidate with the rubric below. Decide every score against the anchors, with a reason of 3 to 6 words. Keep the reasons out of the reply except for scores of 1 or 2, and show all of them if the user asks. **Drop rule:** drop any candidate that scores 1 on Scope, First 30 seconds or Monetisation fit, or that breaks a hard rule. Ties go to the higher Scope score, then First 30 seconds.
 5. **Self-check**, then reply with the Phase A template.
 
@@ -78,7 +78,8 @@ Assumed: <defaults line> · Trend data: <report date | unavailable>
    Hook: <retention> · Money: <passes/cosmetics/none>
    MVP: <in> | Cut: <out>
    Risk: <main risk>. Test: <cheap early test> (target from the KB benchmarks with flag, e.g. D1)
-   Weakest: <criterion> <n>, <criterion> <n> · Patterns: P#, P#
+   Weakest: <criterion> <n>, <criterion> <n>
+   Anchor: <game #rank, CCU, date [S#]> keeps P# | twist <new> (or: no chart anchor)
 2. ...
 3. ...
 

@@ -4,7 +4,7 @@ description: "Hub of the Manager folder: entry points, trust-weighted creator li
 ---
 # Manager knowledge
 
-Read-only mirror of the manager research (475 notes, synced 2026-11-05): how to run, brief, verify and budget AI agents. Generated; do not edit here.
+Read-only mirror of the manager research (475 notes, synced 2026-11-06): how to run, brief, verify and budget AI agents. Generated; do not edit here.
 
 ## Start here
 

@@ -1,7 +1,7 @@
 # vault-published.ps1 - last line of /rbx-update (Windows, no python needed): "Your vault is up to date as of Thursday 5 November 2026, 8:40 am (local time)".
 # Time = newest commit date (git log -1 --format=%cI) of the vault clone and of the kit folder's repo (when that is a different repo), in the machine's local time zone.
-# No git or no date: prints "Your vault is up to date." Never fails (exit 0). Usage: vault-published.ps1 [-Vault DIR] [-Kit DIR] [-UtcOffset +HH:MM]  (env VAULT_PUBLISHED_UTC_OFFSET = test hook that fixes the zone)
-param([string]$Vault = '', [string]$Kit = '', [string]$UtcOffset = '')
+# No git or no date: prints "Your vault is up to date." Never fails (exit 0). Usage: vault-published.ps1 [-Vault DIR] [-Kit DIR] [-UtcOffset +HH:MM] [-Where] (-Where: first print `Vault: <folder> | Kit: <folder>`)  (env VAULT_PUBLISHED_UTC_OFFSET = test hook that fixes the zone)
+param([string]$Vault = '', [string]$Kit = '', [string]$UtcOffset = '', [switch]$Where)
 $ErrorActionPreference = 'SilentlyContinue'
 $plain = 'Your vault is up to date.'
 try {
@@ -9,6 +9,11 @@ try {
   if (-not $UtcOffset) { $UtcOffset = $env:VAULT_PUBLISHED_UTC_OFFSET }
   if (-not $Vault) { $Vault = if ($env:CLAUDES_VAULT) { $env:CLAUDES_VAULT } else { Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)) } }
   if (-not $Kit) { $Kit = Join-Path $Vault 'claude-kit' }
+  if ($Where) {
+    $v = ''; foreach ($c in @($Vault, (Join-Path $env:USERPROFILE 'Obsidian\claudes-vault'))) { if ($c -and (Test-Path -LiteralPath (Join-Path $c '.git'))) { $v = [IO.Path]::GetFullPath($c); break } }
+    $kc = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $(if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } else { $env:USERPROFILE }) '.claude' }
+    Write-Output ('Vault: ' + $(if ($v) { $v } else { 'not found (set CLAUDES_VAULT)' }) + ' | Kit: ' + [IO.Path]::GetFullPath((Join-Path $kc 'claude-kit')))
+  }
   $git = (Get-Command git.exe -ErrorAction SilentlyContinue | Select-Object -First 1).Source
   if (-not $git -and (Test-Path 'C:\Program Files\Git\cmd\git.exe')) { $git = 'C:\Program Files\Git\cmd\git.exe' }
   $best = $null; $seen = @{}

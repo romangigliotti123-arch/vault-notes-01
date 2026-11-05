@@ -4,7 +4,7 @@ description: "Hub of the Roblox folder: entry points, trust-weighted creator lis
 ---
 # Roblox knowledge
 
-Read-only mirror of the Roblox research (4527 notes, synced 2026-11-05): the knowledge base, per-creator playbooks and themes, official Creator Docs and DevForum notes. Generated; do not edit here.
+Read-only mirror of the Roblox research (4527 notes, synced 2026-11-06): the knowledge base, per-creator playbooks and themes, official Creator Docs and DevForum notes. Generated; do not edit here.
 
 ## Start here
 

@@ -478,9 +478,19 @@ def games_line(proj, p):
     return "Games folder: ./Games (%s)" % (("%d game%s: %s%s" % (len(found), "s"[:len(found) != 1], ", ".join(found[:4]), ", ..." * (len(found) > 4))) if found else "none yet")
 
 
+def print_index(p, items, head):
+    ao = set(always_on(p))
+    print(head + ": when a task matches, Read that SKILL.md first and follow it; for an agent, spawn a general-purpose subagent with its file as the brief.")
+    for key, (src, files) in items.items():
+        name = key.split("/", 1)[1]
+        if name in ao:
+            continue
+        path = os.path.join(src, "SKILL.md") if key.startswith("skills/") else src
+        print("- %s: %s [%s]" % (name[:-3] if name.endswith(".md") else name, one_line(path), path))
+
+
 def session_only(a, p, items):
     s, g = counts(items)
-    ao = set(always_on(p))
     print("Roblox dev mode loaded for this session only (no folder changed): %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
     print("  a project folder gives the full persistent mode (slash commands, agents listed).")
     print("  " + games_line(os.path.abspath(a.project or os.getcwd()), p))
@@ -488,13 +498,7 @@ def session_only(a, p, items):
         print()
         cmd_mode_text(a)
         print()
-        print("Session index (nothing is installed here): when a task matches, Read that SKILL.md first and follow it; for an agent, spawn a general-purpose subagent with its file as the brief.")
-        for key, (src, files) in items.items():
-            name = key.split("/", 1)[1]
-            if name in ao:
-                continue
-            path = os.path.join(src, "SKILL.md") if key.startswith("skills/") else src
-            print("- %s: %s [%s]" % (name[:-3] if name.endswith(".md") else name, one_line(path), path))
+        print_index(p, items, "Session index (nothing is installed here)")
     return 0
 
 
@@ -525,16 +529,16 @@ def cmd_load(a, quiet_text=False):
     print("  " + games_line(proj, p))
     print("  folder: %s  (copies in .claude/skills and .claude/agents, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
     if first and not had_sk:
-        print("  RESTART NEEDED for the slash commands: Claude Code reads a new .claude/skills folder only at start. Type /exit, then run `claude -c` (continues this conversation) and /rbx-workflow etc. are listed.")
-        print("  Until then the mode already works: use the vault skills by reading their SKILL.md in %s." % p["sk"])
+        print("  Type /reload-skills now to list the slash commands (no restart). Skills and agents already work in this chat via the index below.")
     elif first:
         print("  skills are usable now (this folder already had .claude/skills when the session started)")
-    print("  agents are registered at session start (restart as above for them to be listed); until then spawn a general-purpose subagent with the agent file from %s as its brief" % p["ag"])
     for n in notes:
         print("  note: " + n)
     if not a.no_text:
         print()
         cmd_mode_text(a)
+        print()
+        print_index(p, items, "Index for this chat (no restart needed)")
     return 0
 
 
