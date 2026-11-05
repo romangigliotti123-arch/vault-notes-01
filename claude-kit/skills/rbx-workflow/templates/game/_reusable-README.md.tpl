@@ -21,7 +21,7 @@ TODO: where to put it (ServerScriptService / ReplicatedStorage / StarterGui), th
 tested: {{tested}} - TODO: what exactly was run (unit test, Studio playtest, luau-analyze) and what it showed. Never write "tested" for something that was only read.
 
 ## Rating
-{{rating}} (1-10, from game-dev-critic / roblox-code-rate; say who rated and the evidence).
+{{rating}} (1-10, from rbx-critic / rbx-code-rate; say who rated and the evidence).
 
 ## Known limits
 TODO
