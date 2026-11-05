@@ -5,16 +5,15 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/rbx-ads/SKILL.md"
-description: "Ads tutorial and best-way-to-run-ads plan for a specific Roblox game, built from the vault's ads notes, AD-PLAYBOOK and the newest notes every run, then live-checked because ad tools, costs and policy change. Gives a readiness gate, a step-by-step how-to for Roblox sponsored experiences, budget and schedule arithmetic, creative test matrix, targeting, KPIs, stop and scale rules, and an off-platform plan (short video, creators, Discord). Use when the user says how do I run ads for my game, plan an ad campaign, advertise my Roblox game, marketing plan for my game, best way to do Roblox ads, or after rbx-workflow. Never spends money. Callable alone as /rbx-ads."
+description: "Ads plan and tutorial for one Roblox game, live-checked: readiness gate, sponsored-experience how-to, budget and schedule math, creative tests, KPIs, stop and scale rules. Never spends money."
 orig_name: "rbx-ads"
-orig_description: "Ads plan and tutorial for one Roblox game, live-checked: readiness gate, sponsored-experience how-to, budget and schedule math, creative tests, KPIs, stop and scale rules. Never spends money."
 orig_argument_hint: "[game name or path to its game-plan.md; optional budget and pasted metrics]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---
 
 # rbx-ads
 
-> Ads tutorial and best-way-to-run-ads plan for a specific Roblox game, built from the vault's ads notes, AD-PLAYBOOK and the newest notes every run, then live-checked because ad tools, costs and policy change. Gives a readiness gate, a step-by-step how-to for Roblox sponsored experiences, budget and schedule arithmetic, creative test matrix, targeting, KPIs, stop and scale rules, and an off-platform plan (short video, creators, Discord). Use when the user says how do I run ads for my game, plan an ad campaign, advertise my Roblox game, marketing plan for my game, best way to do Roblox ads, or after rbx-workflow. Never spends money. Callable alone as /rbx-ads.
+> Ads plan and tutorial for one Roblox game, live-checked: readiness gate, sponsored-experience how-to, budget and schedule math, creative tests, KPIs, stop and scale rules. Never spends money.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/rbx-ads/SKILL.md` (extra files, if any, sit beside it in the repo)

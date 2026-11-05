@@ -5,16 +5,15 @@ category: "game-dev"
 source: "own"
 license: "first-party"
 repo_path: "skills/game-dev/rbx-thumbnail/SKILL.md"
-description: "Creates image prompts, reference-photo guidance and the actual images for a Roblox game's icon, thumbnails and store screenshots using Google's newest Nano Banana (Gemini image) model, found at run time from the user's own API key, never hard-coded. Reads the newest vault notes on thumbnails, icons and CTR every run, live-checks current specs and the current image-model names, gives prompt templates, character-reference and style-locking tips, A/B variants and a Roblox content-rules checklist. Without an API key it writes the prompts and instructions and stops cleanly. Use when the user says make a thumbnail, icon prompt, game art, nano banana, generate screenshots for my game, store page images, or after rbx-workflow. Callable alone as /rbx-thumbnail."
+description: "Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts, A/B variants, content-rules checklist, images via the user's Gemini API key (Nano Banana); without a key it writes the prompts only."
 orig_name: "rbx-thumbnail"
-orig_description: "Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts, A/B variants, content-rules checklist, images via the user's Gemini API key (Nano Banana); without a key it writes the prompts only."
 orig_argument_hint: "[game name or path to game-plan.md; optional reference photos]"
 tags: [lib/skill, cat/game-dev, src/own]
 ---
 
 # rbx-thumbnail
 
-> Creates image prompts, reference-photo guidance and the actual images for a Roblox game's icon, thumbnails and store screenshots using Google's newest Nano Banana (Gemini image) model, found at run time from the user's own API key, never hard-coded. Reads the newest vault notes on thumbnails, icons and CTR every run, live-checks current specs and the current image-model names, gives prompt templates, character-reference and style-locking tips, A/B variants and a Roblox content-rules checklist. Without an API key it writes the prompts and instructions and stops cleanly. Use when the user says make a thumbnail, icon prompt, game art, nano banana, generate screenshots for my game, store page images, or after rbx-workflow. Callable alone as /rbx-thumbnail.
+> Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts, A/B variants, content-rules checklist, images via the user's Gemini API key (Nano Banana); without a key it writes the prompts only.
 
 Type: skill | Category: [[categories/cat-game-dev|game-dev]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/game-dev/rbx-thumbnail/SKILL.md` (extra files, if any, sit beside it in the repo)
