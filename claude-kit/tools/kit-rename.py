@@ -212,6 +212,16 @@ def cmd_plugins(a):
         nm, _, mk = k.partition("@")
         if mk == MODS_MK and nm in mp and mp[nm] != nm:
             changes.append((k, "%s@%s" % (mp[nm], mk)))
+    if getattr(a, "drop_legacy", False):
+        # no new mods installed: drop the legacy keys instead of renaming them (a renamed key would point at a plugin that is not installed)
+        drops = [k for k, _ in changes]
+        if not drops or a.dry_run:
+            return 0
+        shutil.copyfile(sp, sp + ".rename-bak-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
+        for k in drops:
+            ep.pop(k, None)
+        write_settings(sp, data)
+        return 0
     if not changes:
         return 0
     if a.dry_run:
@@ -435,6 +445,7 @@ def main(argv):
     p = sp.add_parser("plugins")
     p.add_argument("--config")
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--drop-legacy", action="store_true")
     a = ap.parse_args(argv)
     try:
         return {"migrate": cmd_migrate, "table": cmd_table, "plugins": cmd_plugins}[a.cmd](a) or 0

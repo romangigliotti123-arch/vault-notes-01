@@ -181,6 +181,16 @@ if [ -f "$MODS/.claude-plugin/marketplace.json" ] && [ $DRY = 0 ] && [ $MODS_ON 
     echo "mods: claude CLI not found. In a Claude session run: /plugin marketplace add $MODS  then  /plugin install rbx-subagent-hud@$MK  and  /plugin install rbx-graph@$MK  then  /reload-plugins"
   fi
 fi
+# legacy kit-mod plugins (workflow-hud, vault-graph, hud-rbxdev-vault, graph-rbxdev-vault from marketplace roblox-vault-kit-mods; the marketplace now lists only rbx-subagent-hud and rbx-graph) make "not found in marketplace" load errors.
+# On EVERY run without --with-mods (with it, the mods block above already did this): uninstall them with the claude CLI (best effort, never fails the update, silent without the CLI or without legacy plugins).
+if [ $DRY = 0 ] && [ $MODS_ON = 0 ] && command -v claude >/dev/null 2>&1; then
+  lst="$(CLAUDE_CONFIG_DIR="$C" claude plugin list --json 2>/dev/null)"; oldmods=0
+  for om in workflow-hud vault-graph hud-rbxdev-vault graph-rbxdev-vault; do if printf '%s' "$lst" | grep -q "$om@roblox-vault-kit-mods"; then CLAUDE_CONFIG_DIR="$C" claude plugin uninstall "$om@roblox-vault-kit-mods" >/dev/null 2>&1; oldmods=1; fi; done  # legacy plugin names
+  if [ $oldmods = 1 ]; then
+    for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then CLAUDE_CONFIG_DIR="$C" "$p" -I "$KIT/tools/kit-rename.py" plugins --drop-legacy --config "$C" >/dev/null 2>&1; break; fi; done
+    if ! { printf '%s' "$lst" | grep -q "rbx-subagent-hud@roblox-vault-kit-mods" && printf '%s' "$lst" | grep -q "rbx-graph@roblox-vault-kit-mods"; }; then echo "Old vault plugins removed. To add the HUD and graph: run the installer with --with-mods (claude-kit/install.sh --with-mods or install.ps1 -WithMods), then /reload-plugins."; fi
+  fi
+fi
 [ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (kept in the vault under Games/, never overwritten by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest /rbx-contribute; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"
 if [ "${CLAUDE_KIT_NOFOOTER:-0}" != 1 ]; then echo; echo ">>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains)."; fi
 [ "$n_fail" -gt 0 ] && exit 1
