@@ -613,7 +613,7 @@ def cmd_unload(a):
             reg["leftovers"] = sorted(set(reg["leftovers"]) | set(left))
             jwrite(p["reg"], reg)
             print("  (empty folders could not be deleted while Claude is running; they are removed by the next /rbx-update or when you run /rbx-unload again after quitting)")
-        print("Roblox dev mode off in %s: removed %d vault file(s)%s. Skills/agents already listed in this session stay listed until you restart Claude (/exit, then `claude -c`); the mode rules no longer apply." % (proj, removed, (", kept %d you changed" % kept) if kept else ""))
+        print("Roblox dev mode off in %s: removed %d vault file(s)%s. Type /reload-skills to refresh the skill list (no restart needed; if a skill still shows, start a new chat); the mode rules no longer apply." % (proj, removed, (", kept %d you changed" % kept) if kept else ""))
     return 0
 
 
