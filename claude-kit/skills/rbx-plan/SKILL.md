@@ -1,6 +1,6 @@
 ---
 name: rbx-plan
-description: "Turns a rated Roblox idea into game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, routing table (job, skill or agent, model, effort, parallel or serial, budget) with a subagent cap."
+description: "Turns a rated Roblox idea into game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, routing table (job, skill or agent, model, effort, parallel or serial, budget) with a subagent cap. For the design document itself use rbx-gdd."
 argument-hint: "[idea, or path to docs/elaboration.md and docs/rating.md]"
 ---
 

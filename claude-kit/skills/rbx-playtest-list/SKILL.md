@@ -1,6 +1,6 @@
 ---
 name: rbx-playtest-list
-description: "Checklist and bug-report format for playtesting a Roblox experience (first 30 seconds through multiplayer and exploits)."
+description: "Checklist and bug-report format for playtesting a Roblox experience (first 30 seconds through multiplayer and exploits). A static list only; to actually run a playtest and fix bugs use rbx-playtest."
 ---
 
 # Roblox playtest checklist

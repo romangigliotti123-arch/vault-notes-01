@@ -1,6 +1,6 @@
 ---
 name: rbx-thumbnail
-description: "Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts, A/B variants, content-rules checklist, images via the user's Gemini API key (Nano Banana); without a key it writes the prompts only."
+description: "Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts, A/B variants, content-rules checklist, images via the user's Gemini API key (Nano Banana); without a key it writes the prompts only. For the written packaging brief (title, description, video shots) use rbx-thumb-brief."
 argument-hint: "[game name or path to game-plan.md; optional reference photos]"
 ---
 

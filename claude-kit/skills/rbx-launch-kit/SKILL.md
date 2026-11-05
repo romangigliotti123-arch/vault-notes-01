@@ -14,7 +14,7 @@ The critic ran the code gates and the security score (`security-scan/gate.json`)
 
 ## Do this (each step is an existing skill; pass the game's `design.md` and `GAME.md`)
 1. **Packaging** (F8 critical): `rbx-thumbnail` (icon, thumbnails, trailer ideas; image generation only if the user's tooling is set up) and `rbx-thumb-brief` for the ad creative; title and description from `titles-descriptions` (honest: shows real gameplay, matches the first 30-90 seconds). Score every candidate image (`rbx-thumbnail` step 4a) and write `thumbnail: scored <score>/<max> (variants N)` or `thumbnail: skipped: <reason>` in launch.md (advisory; the launch verdict shows it). Output: briefs and prompts, never invented asset ids (use `0`, "SET IN CREATOR HUB").
-2. **Ad plan**: `rbx-ads` with `rbx-ad-plan` (`adcalc.py` does the arithmetic): budget, duration, checkpoints, creative test matrix, stop rules; the readiness gate says no ads before retention is acceptable.
+2. **Ad plan**: `rbx-ads` (`adcalc.py` does the arithmetic): budget, duration, checkpoints, creative test matrix, stop rules; the readiness gate says no ads before retention is acceptable.
 3. **Update calendar**: `rbx-game-update`: first 4 weeks of cadence (1-2 week drops), one event, patch-note template.
 4. **Checklists**: `rbx-publish` and `rbx-launch-check` (`make_checklist.py` makes a phone-friendly HTML) tailored to this game; age rating and monetisation settings per `age-ratings-moderation-and-tos` and `rbx-monetize-audit`.
 5. **Weekly habit**: tell the user that after launch they paste the Creator Dashboard numbers into `/rbx-weekly`.

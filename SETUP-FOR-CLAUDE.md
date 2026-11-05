@@ -18,7 +18,7 @@ If you are a person: open the viewer at [https://vault-hhmi60uo.netlify.app/](ht
 
 ## What the vault is
 
-The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `claudes-vault` with about 7,541 notes in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 13 Roblox agents, 70 skills / slash commands, helper tools) that is installed **but switched off by default**: a normal Claude Code session loads nothing from the vault, and `/rbx-load` turns on "Roblox dev mode" for one project folder and about 1.0 GB of **assets** (zip downloads; 1.4 GB extracted) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
+The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `claudes-vault` with about 7,541 notes in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 13 Roblox agents, 69 skills / slash commands, helper tools) that is installed **but switched off by default**: a normal Claude Code session loads nothing from the vault, and `/rbx-load` turns on "Roblox dev mode" for one project folder and about 1.0 GB of **assets** (zip downloads; 1.4 GB extracted) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
 
 ## What this changes on the computer (nothing else)
 
@@ -212,8 +212,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-unload` - Run /rbx-unload to turn Roblox dev mode off for this folder: removes exactly the vault skills and agents /rbx-load copied here (never your own). Use for unload the vault,
 - `/rbx-update` - Update the claudes-vault and the AI Library Vault on demand: self-healing git update (local changes saved to a patch), refresh the installed kit (skills and agents stay O
 - `/rbx` (Roblox dev mode) - Router for the Roblox skill pack (300+ focused skills outside the skills folder, e.g. thumbnail-maker, gamepass-maker, model-cleaner, game-optimizer). /rbx <name> [args] 
-- `/rbx-ad-plan` (Roblox dev mode) - Plans a Roblox sponsored-experience ad test: readiness gate, budget, day-by-day checkpoints, creative test matrix, stop rules, sourced from the knowledge base. Use to pla
-- `/rbx-ads` (Roblox dev mode) - Ads plan and tutorial for one Roblox game, live-checked: readiness gate, sponsored-experience how-to, budget and schedule math, creative tests, KPIs, stop and scale rules
+- `/rbx-ads` (Roblox dev mode) - Plans, budgets and explains Roblox sponsored-experience ads for one game, live-checked: readiness gate ('is my game ready for ads'), how-to tutorial, budget and schedule 
 - `/rbx-ailib` (Roblox dev mode) - How any Claude finds and uses a skill, agent or research note from the AI Library Vault (10,000+ general AI skills and agents, research on Nate Herk, RoboNuggets, Andrej 
 - `/rbx-analytics` (Roblox dev mode) - Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) ending in a ranked list of changes to test
 - `/rbx-arch` (Roblox dev mode) - Chooses how to structure a Roblox system (plain module, OOP class, CollectionService components, ECS, state store, object pool) by evidence: existing code, lifetimes, pro
@@ -232,7 +231,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-harvest` (Roblox dev mode) - Saves anything reusable built or found good in a game to Games/_Reusable/<name>/ with a README, linked from systems.md so the next game uses it first. Use after a system 
 - `/rbx-idea-creator` (Roblox dev mode) - Start from YOUR idea: '/rbx-idea-creator <idea>' revamps your own game idea into a full rated card (hook, retention, week 1, money, build ease), or with no idea it guides
 - `/rbx-idea-quick` (Roblox dev mode) - Run /rbx-idea-quick for a FAST, ~25-line Roblox game idea checked against today's live charts and trackers (hook, 30 s / 5 min / session loop, why now, solo scope, idea s
-- `/rbx-ideas` (Roblox dev mode) - Claude finds the single best Roblox game idea for you ('what should I build', 'give me a game idea', 'pick one for me'): evidence from trends and the knowledge base, red-
+- `/rbx-ideas` (Roblox dev mode) - Claude finds the single best Roblox game idea for you ('what should I build', 'give me a game idea', 'pick one for me'): evidence from trends and the KB, red-teamed and r
 - `/rbx-karpathy` (Roblox dev mode) - Installs and applies four coding-agent rules in a project CLAUDE.md: think before coding, simplicity first, surgical changes, goal-driven execution. Use for bloated or un
 - `/rbx-kb` (Roblox dev mode) - Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for
 - `/rbx-launch-check` (Roblox dev mode) - Builds a phone-friendly launch checklist (HTML plus markdown) for one Roblox game from the knowledge base: relative due dates, priorities, owners, a source per item. Use 
@@ -257,7 +256,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-placement` (Roblox dev mode) - Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded, upright, facing, overlap, physics flags) before work contin
 - `/rbx-plan` (Roblox dev mode) - Turns a rated Roblox idea into game-plan.md: assumptions, systems (build vs library), milestones with pass/fail acceptance tests, routing table (job, skill or agent, mode
 - `/rbx-playtest` (Roblox dev mode) - Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reproduce, fix, prove green, ledger). Studio MCP if connected, els
-- `/rbx-playtest-list` (Roblox dev mode) - Checklist and bug-report format for playtesting a Roblox experience (first 30 seconds through multiplayer and exploits).
+- `/rbx-playtest-list` (Roblox dev mode) - Checklist and bug-report format for playtesting a Roblox experience (first 30 seconds through multiplayer and exploits). A static list only; to actually run a playtest an
 - `/rbx-publish` (Roblox dev mode) - Checklist for publishing, going live or updating a Roblox experience: settings, safety and age rules, store page, monetisation sanity, performance, rollback. Use for go l
 - `/rbx-rate` (Roblox dev mode) - Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, virality, monetisation, scope, trend fit...) with cited evidence
 - `/rbx-rate-any` (Roblox dev mode) - General 1.00-10.00 rater for anything else the user wants judged (plan, prompt, design, document, product, code, skill; a Roblox game idea is rbx-rate): 5-8 weighted crit
@@ -272,10 +271,10 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-trends` (Roblox dev mode) - Market research on Roblox only: what is popular or trending right now, as a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, socia
 - `/rbx-tune` (Roblox dev mode) - Metric-gated tuning loop: pick ONE number (gate score, economy simulation, frame cost), baseline it, single-change experiments, keep strict improvements, revert the rest,
 - `/rbx-ui` (Roblox dev mode) - Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when crea
-- `/rbx-ui-mockup` (Roblox dev mode) - Design-first Roblox UI: design buttons and screens, export the spec, build, compare.
+- `/rbx-ui-mockup` (Roblox dev mode) - Design-first Roblox UI: design buttons and screens, export the spec, build, compare (mockup first; building a ScreenGui straight in Luau is rbx-ui).
 - `/rbx-use` (Roblox dev mode) - How any Claude uses the claudes-vault Obsidian vault (~17,000 generated notes: Roblox knowledge base, skill/agent notes, manager research): find it, grep first, read smal
 - `/rbx-visual` (Roblox dev mode) - Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and overlap at three sizes, 7-item rubric, max 3 fix rounds. Don
-- `/rbx-weekly` (Roblox dev mode) - Weekly numbers check for a live Roblox game: the user pastes Creator Dashboard numbers; compared with vault benchmarks, weakest metric diagnosed, update plan written to G
+- `/rbx-weekly` (Roblox dev mode) - Weekly numbers check for a live Roblox game: the user pastes Creator Dashboard numbers; compared with vault benchmarks, weakest metric diagnosed (analysis method: rbx-ana
 - `/rbx-workflow` (Roblox dev mode) - Flagship Roblox game workflow, the single entry for every game ('where do I start', 'work on <game>'): finds or creates Games/<game>/, reads its README, detects the stage
 
 ## Using the vault afterwards

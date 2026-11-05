@@ -1,6 +1,6 @@
 ---
 name: rbx-thumb-brief
-description: "Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, video shot list, A/B plan and sponsored-ad creative briefs from the knowledge base's CTR, PTR and discovery rules. Briefs only; no image generation."
+description: "Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, video shot list, A/B plan and sponsored-ad creative briefs from the knowledge base's CTR, PTR and discovery rules. Written briefs only, no images; to make or score the images use rbx-thumbnail."
 ---
 
 # Roblox thumbnail brief
@@ -49,5 +49,5 @@ Evidence table: claim | link | flag | date
 - Ad formats and sizes differ by placement in Ads Manager: check the live requirements, do not trust memory.
 - No fake counters, fake UI buttons, copied logos or "free Robux" text; all assets owned or original; all-ages safe.
 - Test one variable at a time (icon first, it drives most impressions), fixed period or impressions chosen in advance, judge CTR and D1 of the visitors each variant brought, log the winner with its date.
-- Paid ads: a small daily budget cap approved by the user (spending needs the user's yes); pause variants with the worst cost per retained visit. Budget plan: `rbx-ad-plan`.
+- Paid ads: a small daily budget cap approved by the user (spending needs the user's yes); pause variants with the worst cost per retained visit. Budget plan: `rbx-ads`.
 - Deliverable: brief text, prompt/spec sheet per variant, test table (variant | dates | impressions | clicks | CTR | D1).

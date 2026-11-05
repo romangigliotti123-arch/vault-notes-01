@@ -1,6 +1,6 @@
 ---
 name: rbx-ideas
-description: "Claude finds the single best Roblox game idea for you ('what should I build', 'give me a game idea', 'pick one for me'): evidence from trends and the knowledge base, red-teamed and rated by an independent critic, shown as a short dot-point card (hook, retention, week 1, money, build ease). Then 'build it', 'another' or 'plan'. If you already have an idea, use rbx-idea-creator."
+description: "Claude finds the single best Roblox game idea for you ('what should I build', 'give me a game idea', 'pick one for me'): evidence from trends and the KB, red-teamed and rated by an independent critic, as a short dot-point card (hook, retention, week 1, money, build ease). Then 'build it', 'another' or 'plan'. If you already have an idea, use rbx-idea-creator; quick 25-line version: rbx-idea-quick."
 argument-hint: "[genre or theme, optional]"
 ---
 

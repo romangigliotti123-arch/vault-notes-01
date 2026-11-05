@@ -1,6 +1,6 @@
 ---
 name: rbx-gdd
-description: "Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document."
+description: "Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document. For milestones and routing from a rated idea use rbx-plan."
 ---
 
 # Roblox GDD template

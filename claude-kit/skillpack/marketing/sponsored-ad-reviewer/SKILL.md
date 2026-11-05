@@ -1,10 +1,10 @@
 ---
 name: sponsored-ad-reviewer
-description: "Review a Roblox sponsored-experience (or search-ad) campaign's results: compute CTR, cost per play, click-to-play and ROAS with ad_read.py, apply the playbook's stop and scale rules, compare the ad cohort with organic, and choose exactly one next test. Use after a campaign has run through its learning period; planning a campaign is rbx-ad-plan."
+description: "Review a Roblox sponsored-experience (or search-ad) campaign's results: compute CTR, cost per play, click-to-play and ROAS with ad_read.py, apply the playbook's stop and scale rules, compare the ad cohort with organic, and choose exactly one next test. Use after a campaign has run through its learning period; planning a campaign is rbx-ads."
 category: marketing
 tags: ads, sponsored, ads manager, ctr, cpp, roas, creative test, campaign review, search ads, budget, learning period
 kb: Roblox/roblox-kb/ads-stats-monetisation-playbook.md, Roblox/roblox-kb/ads-and-sponsored-experiences.md, Roblox/roblox-kb/_tools/AD-PLAYBOOK.md, Roblox/roblox-kb/_tools/BENCHMARKS.md, Roblox/roblox-kb/discovery-algorithm.md
-related: rbx-ad-plan, rbx-thumb-brief, discovery-signal-reader, ctr-ab-test-planner, retention-diagnoser, thumbnail-maker, rbx-ads
+related: rbx-ads, rbx-thumb-brief, discovery-signal-reader, ctr-ab-test-planner, retention-diagnoser, thumbnail-maker, rbx-ads
 ---
 
 # sponsored-ad-reviewer
@@ -12,7 +12,7 @@ related: rbx-ad-plan, rbx-thumb-brief, discovery-signal-reader, ctr-ab-test-plan
 Ads are retrieval and a data seed, not a ranking hack: ad-acquired players are excluded from Recommended-For-You ranking signals, and ads on a leaky game burn money (vault playbook rule 0). This skill reads a finished or running campaign and decides the next single change. It never spends, starts, pauses or edits a campaign; the owner does. Spending is the owner's decision and only with money they can lose.
 
 ## When to use
-At least about 48 hours of data (the learning period restarts on each pause or edit), ideally 7 days. Not for: designing a first campaign (`rbx-ad-plan`), organic discovery (`discovery-signal-reader`).
+At least about 48 hours of data (the learning period restarts on each pause or edit), ideally 7 days. Not for: designing a first campaign (`rbx-ads`), organic discovery (`discovery-signal-reader`).
 
 ## Inputs (max 3)
 1. Campaign numbers from Ads Manager: spend, impressions, clicks, plays, hours run, objective and audience, creatives with per-creative CTR. 2. Game numbers: D1 and D7 of the ad cohort vs organic, payer conversion, attributed earnings if the objective is Earnings. 3. The owner's budget limit and goal.
@@ -49,4 +49,4 @@ Same. If the owner cannot paste numbers, list the cells to copy and stop; do not
 Judging inside the learning period. Editing or pausing daily (it restarts). Scaling a leaky game out of trouble. Comparing ROAS before earnings are final. Treating a thumbnail win as a retention win. Mixing the old Maximize Plays names with the new objectives.
 
 ## Related
-`rbx-ad-plan`, `rbx-thumb-brief`, `discovery-signal-reader`, `ctr-ab-test-planner`, `retention-diagnoser`.
+`rbx-ads`, `rbx-thumb-brief`, `discovery-signal-reader`, `ctr-ab-test-planner`, `retention-diagnoser`.

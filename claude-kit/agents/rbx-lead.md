@@ -42,7 +42,7 @@ Specialists (kit agents in ~/.claude/claude-kit/vault-mode/.claude/agents/; read
 | Request looks like | Specialist | Also useful |
 | "game idea", "what should I make", concept, GDD, core loop, progression, economy design | rbx-designer | skill rbx-gdd, rbx-ideas |
 | price passes/products, starter pack, store layout, "audit my monetisation" | rbx-money | skill rbx-monetize-audit |
-| thumbnail, icon, title, description, ads, "plan a $N ad test", Discord/social launch | rbx-marketer | skills rbx-thumb-brief, rbx-ad-plan |
+| thumbnail, icon, title, description, ads, "plan a $N ad test", Discord/social launch | rbx-marketer | skills rbx-thumb-brief, rbx-ads |
 | "my game has X% D1 / low sessions / dying / why", pasted analytics | rbx-doctor | skill rbx-metrics, skill rbx-analytics (raw Creator Hub exports) |
 | update schedule, events, seasons, roadmap | rbx-liveops | |
 | write/fix a script, system, remote, datastore, UI logic | rbx-engineer | agents rbx-reviewer, rbx-tester |

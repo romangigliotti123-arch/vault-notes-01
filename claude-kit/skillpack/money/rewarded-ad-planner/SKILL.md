@@ -9,7 +9,7 @@ related: offer-timing-planner, economy-balancer, pay-to-win-checker, shop-conver
 
 # rewarded-ad-planner
 
-One job: decide where a rewarded video fits and what it gives, without hurting the paid shop or the fun. Rewarded video is a beta-style platform feature with eligibility conditions (the vault reports roughly 100,000 DAU during the beta); everything below is Roblox Creator Docs 2026-10 and creator talks and must be live-checked. This skill plans USING ads inside your game; buying ads to promote it is `rbx-ads` / `rbx-ad-plan`.
+One job: decide where a rewarded video fits and what it gives, without hurting the paid shop or the fun. Rewarded video is a beta-style platform feature with eligibility conditions (the vault reports roughly 100,000 DAU during the beta); everything below is Roblox Creator Docs 2026-10 and creator talks and must be live-checked. This skill plans USING ads inside your game; buying ads to promote it is `rbx-ads`.
 
 ## When to use
 A game with enough daily players wants a revenue source from non-payers. Not for: promoting the game (`rbx-ads`), immersive ads or portals (read `ads-and-sponsored-experiences.md` first).

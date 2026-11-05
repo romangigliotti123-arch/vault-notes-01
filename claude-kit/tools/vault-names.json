@@ -408,12 +408,6 @@
    "gen": 2
   },
   {
-   "old": "roblox-ad-campaign-planner",
-   "new": "rbx-ad-plan",
-   "kind": "skill",
-   "gen": 2
-  },
-  {
    "old": "roblox-analytics-review",
    "new": "rbx-analytics",
    "kind": "skill",
@@ -752,6 +746,12 @@
    "kind": "agent",
    "into": "rbx-doctor",
    "why": "dashboard export review is the game doctor's input; weekly procedure stays in skill roblox-analytics-review"
+  },
+  {
+   "old": "roblox-ad-campaign-planner",
+   "kind": "skill",
+   "into": "rbx-ads",
+   "why": "same ads-plan job as rbx-ads (it was the lighter copy); its output skeleton, rules, triggers and adcalc.py moved into rbx-ads (OVERLAP cleanup 2026-11-06)"
   }
  ],
  "kept": [

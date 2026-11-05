@@ -1,6 +1,6 @@
 ---
 name: rbx-ui-mockup
-description: "Design-first Roblox UI: design buttons and screens, export the spec, build, compare."
+description: "Design-first Roblox UI: design buttons and screens, export the spec, build, compare (mockup first; building a ScreenGui straight in Luau is rbx-ui)."
 argument-hint: "[game slug or project folder]"
 ---
 

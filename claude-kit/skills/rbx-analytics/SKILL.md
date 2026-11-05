@@ -1,6 +1,6 @@
 ---
 name: rbx-analytics
-description: "Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) ending in a ranked list of changes to test. Use when asked how a game is doing or what to change next."
+description: "Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) ending in a ranked list of changes to test. Use for a one-off analysis of pasted dashboard data: how a game is doing, what to change next. The recurring per-game weekly loop is rbx-weekly."
 ---
 
 # Roblox analytics review

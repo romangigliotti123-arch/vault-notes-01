@@ -1,6 +1,6 @@
 ---
 name: rbx-launch-check
-description: "Builds a phone-friendly launch checklist (HTML plus markdown) for one Roblox game from the knowledge base: relative due dates, priorities, owners, a source per item. Use for a launch checklist, pre-launch plan, 'am I ready to launch'."
+description: "Builds a phone-friendly launch checklist (HTML plus markdown) for one Roblox game from the knowledge base: relative due dates, priorities, owners, a source per item. Use for a launch checklist, pre-launch plan, 'am I ready to launch'. The go/no-go publish gate is rbx-publish."
 ---
 
 # Roblox launch checklist

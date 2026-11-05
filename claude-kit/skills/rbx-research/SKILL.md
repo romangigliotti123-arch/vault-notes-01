@@ -1,6 +1,6 @@
 ---
 name: rbx-research
-description: "Deep multi-source research (GitHub, YouTube, Reddit, blogs, docs, papers): best creators per source, claims labelled OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE, cited knowledge base, playbook and cheat sheet. Asks for budget and limits first."
+description: "Deep multi-source research (GitHub, YouTube, Reddit, blogs, docs, papers): best creators per source, claims labelled OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE, cited knowledge base, playbook and cheat sheet. Asks for budget and limits first. Roblox market trends only: rbx-trends."
 ---
 
 # rbx-research
