@@ -240,41 +240,31 @@ export function buildRows(recs: readonly Rec[]): Row[] {
     .sort((a, b) => a.depth - b.depth || a.index - b.index)
 }
 
-export type Phase = 0 | 1
+export type Dot = { glyph: string; color: string; isDim: boolean }
 
-export type LineStyle = {
-  color: string
-  isDim: boolean
-  isFlashing: boolean
-  isSolid: boolean
-  glyph: string
-}
-
-const SPIN = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
-
-export function lineStyle(status: RecStatus, tick: number, isSelected: boolean): LineStyle {
-  const phase: Phase = tick % 2 === 0 ? 0 : 1
-  const cyan = isSelected
+/** Status dot: theme keys only, so it follows the person's light/dark theme. Running pulses (bright/dim) on each tick. */
+export function dotOf(status: RecStatus, tick: number): Dot {
   switch (status) {
     case 'running':
-      return {
-        color: cyan ? 'cyan' : phase === 0 ? 'white' : 'gray',
-        isDim: false,
-        isFlashing: true,
-        isSolid: cyan,
-        glyph: SPIN[tick % SPIN.length]!,
-      }
+      return { glyph: '●', color: 'text', isDim: tick % 2 === 1 }
     case 'done':
-      return { color: 'green', isDim: false, isFlashing: false, isSolid: cyan, glyph: '✓' }
+      return { glyph: '●', color: 'success', isDim: false }
     case 'failed':
-      return { color: 'red', isDim: false, isFlashing: false, isSolid: cyan, glyph: '✗' }
     case 'killed':
-      return { color: 'red', isDim: false, isFlashing: false, isSolid: cyan, glyph: '⊘' }
-    case 'waiting':
-      return { color: 'gray', isDim: false, isFlashing: false, isSolid: cyan, glyph: '…' }
+      return { glyph: '●', color: 'error', isDim: false }
     default:
-      return { color: 'gray', isDim: true, isFlashing: false, isSolid: cyan, glyph: '○' }
+      return { glyph: '○', color: 'inactive', isDim: false }
   }
+}
+
+export type Progress = { frac: number; isKnown: boolean }
+
+/** Bar fill for one subagent: full when ended, elapsed/typical (capped at 95%) while running with history, else unknown. */
+export function progressOf(status: RecStatus, elapsedMs: number, typical: Typical): Progress {
+  if (isEnded(status)) return { frac: 1, isKnown: true }
+  if (status !== 'running') return { frac: 0, isKnown: true }
+  if (typical.level === 'none') return { frac: 0, isKnown: false }
+  return { frac: Math.min(0.95, Math.max(0.03, elapsedMs / Math.max(1, typical.ms))), isKnown: true }
 }
 
 export function aggregateStatus(recs: readonly Rec[]): RecStatus {
@@ -291,143 +281,4 @@ export function planItems(tasks: readonly Item[], todos: readonly Item[]): { don
     total: items.length,
     current: items.find(i => i.status === 'active')?.label ?? '',
   }
-}
-
-export function grid<T>(items: readonly T[], perRow: number): T[][] {
-  const n = Math.max(1, perRow)
-  const rows: T[][] = []
-  for (let i = 0; i < items.length; i += n) rows.push(items.slice(i, i + n))
-  return rows
-}
-
-const esc = (s: string): string =>
-  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
-
-type Pt = { x: number; y: number }
-
-const SVG = {
-  bg: '#0a1220',
-  edge: '#164e63',
-  cyan: '#22d3ee',
-  cyanDim: '#155e75',
-  greyHi: '#cbd5e1',
-  greyLo: '#64748b',
-  green: '#22c55e',
-  red: '#ef4444',
-  text: '#e2e8f0',
-  muted: '#94a3b8',
-  node: '#0f1b2e',
-}
-
-function lineAttrs(status: RecStatus, tick: number, isSelected: boolean): string {
-  if (isSelected) return `stroke="${SVG.cyan}" stroke-width="2.2" stroke-opacity="1"`
-  const dots = 'stroke-dasharray="1.5 4.5" stroke-linecap="round" stroke-width="1.8"'
-  if (status === 'running') {
-    return tick % 2 === 0
-      ? `stroke="${SVG.greyHi}" stroke-opacity="1" ${dots}`
-      : `stroke="${SVG.greyLo}" stroke-opacity="0.35" ${dots}`
-  }
-  if (status === 'done') return `stroke="${SVG.green}" stroke-opacity="1" ${dots}`
-  if (status === 'failed' || status === 'killed') return `stroke="${SVG.red}" stroke-opacity="1" ${dots}`
-  return `stroke="${SVG.greyLo}" stroke-opacity="0.45" ${dots}`
-}
-
-function curve(a: Pt, b: Pt): string {
-  const d = Math.max(10, Math.abs(b.y - a.y) * 0.45)
-  return `M${a.x} ${a.y} C${a.x} ${a.y + d} ${b.x} ${b.y - d} ${b.x} ${b.y}`
-}
-
-export type SvgInput = {
-  width: number
-  rows: readonly Row[]
-  tick: number
-  selectedId: string | null
-  isMasterOn: boolean
-}
-
-export type SvgOut = { source: string; width: number; height: number; alt: string }
-
-const R = 13
-const CELL = 64
-const ROW_H = 62
-
-export function buildSvg(input: SvgInput): SvgOut {
-  const W = Math.max(160, Math.round(input.width))
-  const cx = W / 2
-  const cols = Math.max(1, Math.floor((W - 16) / CELL))
-  const hub: Pt = { x: cx, y: 62 }
-  const pos = new Map<string, Pt>()
-  let y = 92
-  const depths = [...new Set(input.rows.map(r => r.depth))].sort((a, b) => a - b)
-  for (const d of depths) {
-    for (const row of grid(
-      input.rows.filter(r => r.depth === d),
-      cols,
-    )) {
-      row.forEach((r, i) => pos.set(r.rec.id, { x: (W - row.length * CELL) / 2 + CELL * i + CELL / 2, y: y + R }))
-      y += ROW_H
-    }
-  }
-  const H = Math.max(110, y + 6)
-  const lines: string[] = []
-  const nodes: string[] = []
-  const rec = new Map(input.rows.map(r => [r.rec.id, r.rec]))
-
-  const kids = input.rows.map(r => r.rec).filter(r => r.parentId === undefined || !rec.has(r.parentId))
-  const trunkStatus = aggregateStatus(kids)
-  if (input.rows.length > 0) {
-    lines.push(`<path d="M${cx} 44 L${cx} ${hub.y}" fill="none" ${lineAttrs(trunkStatus, input.tick, false)}/>`)
-  }
-  for (const r of input.rows) {
-    const to = pos.get(r.rec.id)!
-    const parent = r.rec.parentId === undefined ? undefined : pos.get(r.rec.parentId)
-    const from: Pt = parent === undefined ? hub : { x: parent.x, y: parent.y + R + 2 }
-    const sel = input.selectedId === r.rec.id
-    lines.push(
-      `<path d="${curve(from, { x: to.x, y: to.y - R - 3 })}" fill="none" ${lineAttrs(r.rec.status, input.tick, sel)}/>`,
-    )
-  }
-  for (const r of input.rows) {
-    const p = pos.get(r.rec.id)!
-    const s = r.rec.status
-    const sel = input.selectedId === r.rec.id
-    const ring = s === 'done' ? SVG.green : s === 'failed' || s === 'killed' ? SVG.red : s === 'running' ? SVG.greyHi : SVG.greyLo
-    const g: string[] = []
-    if (sel) g.push(`<circle cx="${p.x}" cy="${p.y}" r="${R + 5}" fill="none" stroke="${SVG.cyan}" stroke-width="1.6" filter="url(#glow)"/>`)
-    g.push(`<circle cx="${p.x}" cy="${p.y}" r="${R}" fill="${SVG.node}" stroke="${ring}" stroke-width="1.8"/>`)
-    if (s === 'running') {
-      const rot = (input.tick * 60) % 360
-      g.push(
-        `<circle cx="${p.x}" cy="${p.y}" r="${R - 5}" fill="none" stroke="${SVG.cyan}" stroke-width="2" stroke-linecap="round" stroke-dasharray="14 40" transform="rotate(${rot} ${p.x} ${p.y})"/>`,
-      )
-    } else if (s === 'done') {
-      g.push(`<path d="M${p.x - 5} ${p.y} L${p.x - 1.5} ${p.y + 4} L${p.x + 5.5} ${p.y - 4}" fill="none" stroke="${SVG.green}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>`)
-    } else if (s === 'failed' || s === 'killed') {
-      g.push(`<path d="M${p.x - 4.5} ${p.y - 4.5} L${p.x + 4.5} ${p.y + 4.5} M${p.x + 4.5} ${p.y - 4.5} L${p.x - 4.5} ${p.y + 4.5}" fill="none" stroke="${SVG.red}" stroke-width="2.2" stroke-linecap="round"/>`)
-    } else {
-      g.push(`<circle cx="${p.x}" cy="${p.y}" r="2.2" fill="${SVG.greyLo}"/>`)
-    }
-    g.push(
-      `<text x="${p.x}" y="${p.y + R + 13}" text-anchor="middle" font-size="9" fill="${sel ? SVG.cyan : SVG.text}" font-family="system-ui,sans-serif">${r.index} ${esc(clip(r.rec.name, 9))}</text>`,
-    )
-    nodes.push(`<g>${g.join('')}</g>`)
-  }
-  const diamond = `${cx},${12} ${cx + 16},${28} ${cx},${44} ${cx - 16},${28}`
-  const inner = `${cx},${20} ${cx + 8},${28} ${cx},${36} ${cx - 8},${28}`
-  const c = counts(input.rows.map(r => r.rec))
-  const master =
-    `<polygon points="${diamond}" fill="${SVG.node}" stroke="${SVG.cyan}" stroke-width="1.8" filter="url(#glow)"/>` +
-    `<polygon points="${inner}" fill="${input.isMasterOn ? SVG.cyan : SVG.cyanDim}"/>` +
-    `<text x="${cx + 24}" y="26" font-size="10" font-weight="700" fill="${SVG.text}" font-family="system-ui,sans-serif">MASTER AGENT</text>` +
-    `<text x="${cx + 24}" y="38" font-size="9" fill="${SVG.muted}" font-family="system-ui,sans-serif">(Orchestrator)</text>`
-  const source =
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">` +
-    `<defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>` +
-    `<rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="10" fill="${SVG.bg}" stroke="${SVG.edge}"/>` +
-    lines.join('') +
-    nodes.join('') +
-    master +
-    `</svg>`
-  const alt = `Master agent with ${c.total} subagents: ${c.done} done, ${c.running} running, ${c.queued} queued, ${c.failed} failed`
-  return { source, width: W, height: H, alt }
 }

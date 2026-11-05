@@ -1,22 +1,23 @@
 import { atom, read, update } from 'claude-code'
 import type { EngineInterface as Engine, Register, RenderElement } from 'claude-code'
 
-import type { Hist, Rec, RecStatus } from '../types'
+import type { Hist, Prompt, Rec, RecStatus, Turn } from '../types'
 import {
   addPrompt,
-  aggregateStatus,
   buildRows,
-  buildSvg,
+  dotOf,
+  progressOf,
+  typicalFor,
+  type Row,
+  type Progress,
   clip,
   counts,
   emptyHist,
   estimate,
   etaLabel,
   fmt,
-  grid,
   isActive,
   isEnded,
-  lineStyle,
   mergeRecs,
   planItems,
   promptFor,
@@ -153,6 +154,182 @@ const toItemStatus = (s: string): 'done' | 'active' | 'pending' =>
 async function select($: Engine, id: string | null): Promise<void> {
   await update($, selA, cur => (id === null || cur === id ? null : id))
   await update($, expA, () => false)
+}
+
+// ---------------------------------------------------------------------------
+// Look and feel. Every colour is a theme key (follows the person's light/dark
+// theme); nothing is hard-coded. Change a knob here, nothing else needs to move.
+// The pane is plain Box/Text/Button: no Svg, no image, so text is crisp and in
+// the app's own font on every surface (terminal included).
+// ---------------------------------------------------------------------------
+const K = {
+  accent: 'claude', // master diamond, selected agent, prompt card border
+  title: 'text', // names
+  working: 'warning', // "working" / ETA line
+  ok: 'success', // done
+  bad: 'error', // failed
+  rail: 'inactive', // connector line and unfilled bar track
+  bar: 'subtle', // running bar fill (neutral); done/failed bars use ok/bad
+} as const
+const SPACE = { section: 1 } as const // blank rows between header, tree and card
+const BAR_CHAR = '━' // bar glyph; '▬' or '█' for a heavier bar
+const RAIL_INDENT = 2 // extra columns per nesting level
+
+type UiKit = ReturnType<Engine['ui']['resolve']>
+
+function bar(ui: UiKit, w: number, p: Progress, color: string, tick: number): RenderElement {
+  const n = Math.max(1, w)
+  if (!p.isKnown) {
+    // No history to estimate from: a short segment slides along the track.
+    const seg = Math.max(2, Math.floor(n / 5))
+    const at = (tick * 2) % (n - seg + 1)
+    return (
+      <ui.Text>
+        <ui.Text color={K.rail}>{BAR_CHAR.repeat(at)}</ui.Text>
+        <ui.Text color={color}>{BAR_CHAR.repeat(seg)}</ui.Text>
+        <ui.Text color={K.rail}>{BAR_CHAR.repeat(n - seg - at)}</ui.Text>
+      </ui.Text>
+    )
+  }
+  const f = Math.round(p.frac * n)
+  return (
+    <ui.Text>
+      <ui.Text color={color}>{BAR_CHAR.repeat(f)}</ui.Text>
+      <ui.Text color={K.rail}>{BAR_CHAR.repeat(n - f)}</ui.Text>
+    </ui.Text>
+  )
+}
+
+type HeaderIn = { cols: number; turn: Turn; c: ReturnType<typeof counts>; label: string; isBusy: boolean; elapsed: number }
+
+/** Master status, summary line, ETA and an overall bar. */
+function viewHeader(ui: UiKit, hd: HeaderIn): RenderElement {
+  const { c, turn } = hd
+  const status = turn.isOn ? 'working' : hd.isBusy ? 'waiting for agents' : 'idle'
+  const allDone = c.total > 0 && c.done === c.total
+  return (
+    <ui.Box flexDirection="column">
+      <ui.Box flexDirection="row">
+        <ui.Text color={K.accent} bold>{'◆ '}</ui.Text>
+        <ui.Text bold>{'Master '}</ui.Text>
+        <ui.Text color={hd.isBusy ? K.working : K.rail}>{status}</ui.Text>
+        {turn.start > 0 && <ui.Text dimColor>{` ${fmt(hd.elapsed)}`}</ui.Text>}
+      </ui.Box>
+      {c.total === 0 ? (
+        <ui.Text dimColor>No subagents in this turn.</ui.Text>
+      ) : (
+        <ui.Box flexDirection="column">
+          <ui.Box flexDirection="row">
+            <ui.Text color={allDone ? K.ok : K.title} bold>{`${c.done}/${c.total} done`}</ui.Text>
+            <ui.Text dimColor>{`  ${c.running + c.queued} running  ${c.failed} failed`}</ui.Text>
+          </ui.Box>
+          {bar(ui, hd.cols - 1, { frac: c.done / c.total, isKnown: true }, c.failed > 0 ? K.bad : K.ok, 0)}
+        </ui.Box>
+      )}
+      {hd.label !== '' && <ui.Text color={K.working}>{clip(hd.label, hd.cols)}</ui.Text>}
+      {hd.label === '' && turn.isOn && c.total > 0 && c.running + c.queued === 0 && (
+        <ui.Text dimColor>{'master is working on the result'}</ui.Text>
+      )}
+    </ui.Box>
+  )
+}
+
+type AgentIn = {
+  r: Row
+  isLast: boolean
+  isSel: boolean
+  cols: number
+  now: number
+  tick: number
+  prog: Progress
+  onPress: () => void
+}
+
+/** One subagent: connector rail on the left, then name + time, type/model, and a slim bar. */
+function viewAgent(ui: UiKit, a: AgentIn): RenderElement {
+  const { rec } = a.r
+  const indent = RAIL_INDENT * (a.r.depth - 1)
+  const dot = dotOf(rec.status, a.tick)
+  const cw = Math.max(8, a.cols - 3 - indent)
+  const time = fmt((rec.end ?? a.now) - rec.start)
+  const name = clip(`${a.r.index}. ${rec.name}`, Math.max(4, cw - time.length - 4))
+  const meta = [rec.type, rec.model].filter(Boolean).join(' · ')
+  const barColor = rec.status === 'done' ? K.ok : isEnded(rec.status) ? K.bad : a.isSel ? K.accent : K.bar
+  const rail = a.isLast ? '╰╴\n \n ' : '├╴\n│\n│'
+  return (
+    <ui.Box flexDirection="row" paddingLeft={indent}>
+      <ui.Box width={2} flexShrink={0}>
+        <ui.Text color={K.rail}>{rail}</ui.Text>
+      </ui.Box>
+      <ui.Box flexDirection="column" flexGrow={1}>
+        <ui.Button key={`agent:${rec.id}`} plain onPress={a.onPress}>
+          <ui.Text color={dot.color} dimColor={dot.isDim}>{dot.glyph}</ui.Text>
+          <ui.Text color={a.isSel ? K.accent : K.title} bold={a.isSel}>{` ${name} `}</ui.Text>
+          <ui.Text dimColor>{time}</ui.Text>
+        </ui.Button>
+        <ui.Text dimColor>{`  ${clip(meta, cw - 2)}`}</ui.Text>
+        {bar(ui, cw - 2, a.prog, barColor, a.tick)}
+      </ui.Box>
+    </ui.Box>
+  )
+}
+
+type CardIn = {
+  sel: Row
+  p: Prompt | undefined
+  isExp: boolean
+  now: number
+  onClose: () => void
+  onMore: () => void
+  onView: () => void
+}
+
+/** The prompt the master sent the selected subagent (collapsible). */
+function viewCard(ui: UiKit, k: CardIn): RenderElement {
+  const { sel, p } = k
+  const text = p?.text ?? ''
+  const isLong = text.length > PREVIEW_CHARS
+  const shown = isLong && !k.isExp ? text.slice(0, PREVIEW_CHARS) + '…' : text
+  const model = p?.model ?? sel.rec.model
+  return (
+    <ui.Box flexDirection="column" borderStyle="round" borderColor={K.accent} paddingX={1}>
+      <ui.Box flexDirection="row" justifyContent="space-between">
+        <ui.Text bold color={K.accent}>{`SUBAGENT ${sel.index} PROMPT (from Master Agent)`}</ui.Text>
+        <ui.Button key="card-close" role="dismiss" plain onPress={k.onClose}>
+          {'x close'}
+        </ui.Button>
+      </ui.Box>
+      <ui.Text dimColor>
+        {`${sel.rec.name} · ${sel.rec.type}${model ? ' · ' + model : ''} · ${sel.rec.status} ${fmt((sel.rec.end ?? k.now) - sel.rec.start)}`}
+      </ui.Text>
+      <ui.Text>{p === undefined ? 'Prompt not captured (this agent started before the HUD loaded).' : shown}</ui.Text>
+      {p !== undefined && p.isTruncated && k.isExp && (
+        <ui.Text dimColor>{`(stored first ${text.length} of ${p.chars} characters)`}</ui.Text>
+      )}
+      <ui.Box flexDirection="row" gap={2}>
+        {isLong && (
+          <ui.Button key="card-more" plain onPress={k.onMore}>
+            {k.isExp ? 'show less' : `show more (${text.length} chars)`}
+          </ui.Button>
+        )}
+        <ui.Button key="card-view" plain dimColor onPress={k.onView}>
+          {'view transcript'}
+        </ui.Button>
+      </ui.Box>
+    </ui.Box>
+  )
+}
+
+/** Plan (tasks/todos) progress, one line. */
+function viewPlan(ui: UiKit, v: { cols: number; plan: ReturnType<typeof planItems> }): RenderElement {
+  const pct = Math.round((v.plan.done / v.plan.total) * 100)
+  const bw = Math.max(8, Math.min(20, v.cols - 14))
+  return (
+    <ui.Box flexDirection="row">
+      {bar(ui, bw, { frac: pct / 100, isKnown: true }, v.plan.done === v.plan.total ? K.ok : K.accent, 0)}
+      <ui.Text dimColor>{` ${pct}% plan ${v.plan.done}/${v.plan.total}`}</ui.Text>
+    </ui.Box>
+  )
 }
 
 export const register: Register = on => {
@@ -342,8 +519,7 @@ export const register: Register = on => {
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
-    const { Box, Text, Button } = $.ui.resolve(e)
-    const Svg = e.surface === 'terminal' ? null : $.ui.resolve(e).Svg
+    const ui = $.ui.resolve(e)
     const cols = Math.max(12, e.props.bodyColumns)
     const now = await read($, nowA)
     const tick = await read($, tickA)
@@ -352,197 +528,53 @@ export const register: Register = on => {
     const selId = await read($, selA)
     const isExp = await read($, expA)
     const prompts = await read($, promptsA)
+    const hist = await loadHist($)
     const recs = (await read($, recsA)).filter(r => r.turn === turn.n)
     const rows = buildRows(recs)
     const c = counts(recs)
     const sel = rows.find(r => r.rec.id === selId)
     const plan = planItems(await read($, tasksA), await read($, todosA))
-    const trunk = lineStyle(aggregateStatus(recs), tick, false)
-    const label = etaLabel(eta)
     const isBusy = turn.isOn || c.running + c.queued > 0
     const elapsed = turn.start === 0 ? 0 : (isBusy ? now : turn.end) - turn.start
 
-    const header = (
-      <Box flexDirection="column">
-        <Box flexDirection="row">
-          <Text color="cyan" bold>
-            {'◆ '}
-          </Text>
-          <Text bold>{'MASTER '}</Text>
-          <Text color={isBusy ? 'yellow' : 'cyan'}>{turn.isOn ? 'working' : isBusy ? 'waiting for agents' : 'idle'}</Text>
-          {turn.start > 0 && <Text dimColor>{` ${fmt(elapsed)}`}</Text>}
-        </Box>
-        {c.total === 0 ? (
-          <Text dimColor>No subagents in this turn.</Text>
-        ) : (
-          <Box flexDirection="row">
-            <Text color={c.done === c.total ? 'green' : 'cyan'} bold>{`${c.done}/${c.total} done`}</Text>
-            <Text dimColor>{`  ${c.running + c.queued} running  ${c.failed} failed`}</Text>
-          </Box>
-        )}
-        {label !== '' && <Text color="yellow">{clip(label, cols)}</Text>}
-        {label === '' && turn.isOn && c.total > 0 && c.running + c.queued === 0 && (
-          <Text dimColor>{'master is working on the result'}</Text>
-        )}
-      </Box>
-    )
-
-    const chipRows: RenderElement[] = []
-    if (Svg === null) {
-      const groups = [...new Set(rows.map(r => r.depth))].sort((a, b) => a - b)
-      const perOf = (indent: number): number => Math.max(1, Math.min(4, Math.floor((cols - 2 - indent) / 17)))
-      const total = groups.reduce((n, d) => n + grid(rows.filter(r => r.depth === d), perOf(2 * (d - 1))).length, 0)
-      let k = 0
-      if (rows.length > 0) {
-        chipRows.push(
-          <Text color={trunk.color} dimColor={trunk.isDim}>
-            {'┊'}
-          </Text>,
-        )
-      }
-      for (const d of groups) {
-        const indent = 2 * (d - 1)
-        const per = perOf(indent)
-        const w = Math.max(10, Math.floor((cols - 2 - indent) / per))
-        for (const row of grid(rows.filter(r => r.depth === d), per)) {
-          k++
-          const isLast = k === total
-          chipRows.push(
-            <Box flexDirection="row">
-              <Text color="cyan" dimColor>
-                {(isLast ? '╰' : '├') + '┄'.repeat(1 + indent)}
-              </Text>
-              {row.map(r => {
-                const st = lineStyle(r.rec.status, tick, r.rec.id === selId)
-                return (
-                  <Text color={st.color} dimColor={st.isDim}>
-                    {(st.isSolid ? '━' : '┄').repeat(w - 1) + ' '}
-                  </Text>
-                )
-              })}
-            </Box>,
-            <Box flexDirection="row">
-              <Text dimColor>{(isLast ? ' ' : '┊') + ' '.repeat(1 + indent)}</Text>
-              {row.map(r => {
-                const st = lineStyle(r.rec.status, tick, r.rec.id === selId)
-                const isSel = r.rec.id === selId
-                const name = clip(`${d > 1 ? '↳ ' : ''}${r.index} ${r.rec.name}`, w - 4)
-                return (
-                  <Box width={w}>
-                    <Button key={`agent:${r.rec.id}`} plain onPress={() => select($, r.rec.id)}>
-                      <Text color={st.color}>{st.glyph}</Text>
-                      <Text color={isSel ? 'cyan' : undefined} bold={isSel}>{` ${name}`}</Text>
-                    </Button>
-                  </Box>
-                )
-              })}
-            </Box>,
-            <Box flexDirection="row">
-              <Text dimColor>{(isLast ? ' ' : '┊') + ' '.repeat(1 + indent)}</Text>
-              {row.map(r => (
-                <Box width={w}>
-                  <Button key={`agent:${r.rec.id}:b`} plain dimColor onPress={() => select($, r.rec.id)}>
-                    {`  ${clip(`${r.rec.type} ${fmt((r.rec.end ?? now) - r.rec.start)}`, w - 4)}`}
-                  </Button>
-                </Box>
-              ))}
-            </Box>,
-          )
-        }
-      }
-    }
-
-    const svg =
-      Svg === null || rows.length === 0
-        ? null
-        : buildSvg({
-            width: Math.min(420, Math.max(180, cols * 7)),
-            rows,
-            tick,
-            selectedId: selId,
-            isMasterOn: isBusy,
-          })
-
-    const list =
-      Svg === null
-        ? null
-        : rows.map(r => {
-            const st = lineStyle(r.rec.status, tick, r.rec.id === selId)
-            const isSel = r.rec.id === selId
-            return (
-              <Button key={`agent:${r.rec.id}`} plain onPress={() => select($, r.rec.id)}>
-                <Text color={st.color}>{st.glyph}</Text>
-                <Text color={isSel ? 'cyan' : undefined} bold={isSel}>
-                  {` ${'  '.repeat(r.depth - 1)}${r.index}. ${clip(r.rec.name, Math.max(6, cols - 22 - 2 * r.depth))} `}
-                </Text>
-                <Text dimColor>{`${r.rec.type} ${fmt((r.rec.end ?? now) - r.rec.start)}`}</Text>
-              </Button>
-            )
-          })
-
-    const p = sel === undefined ? undefined : promptFor(prompts, sel.rec)
-    const text = p?.text ?? ''
-    const isLong = text.length > PREVIEW_CHARS
-    const shown = isLong && !isExp ? text.slice(0, PREVIEW_CHARS) + '…' : text
-    const card =
-      sel === undefined ? null : (
-        <Box flexDirection="column" borderStyle="round" borderColor="cyan" paddingX={1}>
-          <Box flexDirection="row" justifyContent="space-between">
-            <Text bold color="cyan">{`SUBAGENT ${sel.index} PROMPT (from Master Agent)`}</Text>
-            <Button key="card-close" role="dismiss" plain onPress={() => select($, null)}>
-              {'x close'}
-            </Button>
-          </Box>
-          <Text dimColor>
-            {`${sel.rec.name} · ${sel.rec.type}${(p?.model ?? sel.rec.model) ? ' · ' + (p?.model ?? sel.rec.model) : ''} · ${sel.rec.status} ${fmt((sel.rec.end ?? now) - sel.rec.start)}`}
-          </Text>
-          <Text>{p === undefined ? 'Prompt not captured (this agent started before the HUD loaded).' : shown}</Text>
-          {p !== undefined && p.isTruncated && isExp && (
-            <Text dimColor>{`(stored first ${text.length} of ${p.chars} characters)`}</Text>
-          )}
-          <Box flexDirection="row" gap={2}>
-            {isLong && (
-              <Button key="card-more" plain onPress={() => update($, expA, v => !v)}>
-                {isExp ? 'show less' : `show more (${text.length} chars)`}
-              </Button>
-            )}
-            <Button
-              key="card-view"
-              plain
-              dimColor
-              onPress={async () => {
-                try {
-                  await $.ui.view({ agentId: sel.rec.id })
-                } catch {
-                  // The view switch works only on the person's own input.
-                }
-              }}
-            >
-              {'view transcript'}
-            </Button>
-          </Box>
-        </Box>
-      )
-
-    const pct = plan.total === 0 ? 0 : Math.round((plan.done / plan.total) * 100)
-    const bw = Math.max(8, Math.min(20, cols - 14))
-    const filled = Math.round((pct / 100) * bw)
-
     return (
-      <Box flexDirection="column">
-        {header}
-        {Svg !== null && svg !== null && <Svg source={svg.source} alt={svg.alt} width={svg.width} height={svg.height} />}
-        {chipRows}
-        {list}
-        {card}
-        {plan.total > 0 && (
-          <Box flexDirection="row">
-            <Text color={plan.done === plan.total ? 'green' : 'cyan'}>{'█'.repeat(filled)}</Text>
-            <Text dimColor>{'░'.repeat(bw - filled)}</Text>
-            <Text dimColor>{` ${pct}% plan ${plan.done}/${plan.total}`}</Text>
-          </Box>
+      <ui.Box flexDirection="column" gap={SPACE.section}>
+        {viewHeader(ui, { cols, turn, c, label: etaLabel(eta), isBusy, elapsed })}
+        {rows.length > 0 && (
+          <ui.Box flexDirection="column">
+            <ui.Text color={K.rail}>{'│'}</ui.Text>
+            {rows.map((r, i) =>
+              viewAgent(ui, {
+                r,
+                isLast: i === rows.length - 1,
+                isSel: r.rec.id === selId,
+                cols,
+                now,
+                tick,
+                prog: progressOf(r.rec.status, (r.rec.end ?? now) - r.rec.start, typicalFor(hist, r.rec)),
+                onPress: () => select($, r.rec.id),
+              }),
+            )}
+          </ui.Box>
         )}
-      </Box>
+        {sel !== undefined &&
+          viewCard(ui, {
+            sel,
+            p: promptFor(prompts, sel.rec),
+            isExp,
+            now,
+            onClose: () => select($, null),
+            onMore: () => update($, expA, v => !v),
+            onView: async () => {
+              try {
+                await $.ui.view({ agentId: sel.rec.id })
+              } catch {
+                // The view switch works only on the person's own input.
+              }
+            },
+          })}
+        {plan.total > 0 && viewPlan(ui, { cols, plan })}
+      </ui.Box>
     )
   })
 

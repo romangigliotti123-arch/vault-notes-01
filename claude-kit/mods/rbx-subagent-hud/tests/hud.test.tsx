@@ -7,13 +7,14 @@ import {
   MAX_PROMPT_CHARS,
   addPrompt,
   buildRows,
-  buildSvg,
   classOf,
   counts,
   emptyHist,
   estimate,
   etaLabel,
-  lineStyle,
+  dotOf,
+  progressOf,
+  typicalFor,
   mergeRecs,
   median,
   recordDuration,
@@ -166,37 +167,28 @@ test('history: rolling median is bounded and ignores bad durations', () => {
   expect(recordWrap(emptyHist(), 31 * 60_000).wrap).toEqual([])
 })
 
-test('flashing: running alternates grey, done and failed hold their colour', () => {
-  expect(lineStyle('running', 0, false)).toMatchObject({ color: 'white', isFlashing: true, glyph: '⠋' })
-  expect(lineStyle('running', 1, false)).toMatchObject({ color: 'gray', isFlashing: true })
-  expect(lineStyle('running', 2, false).color).toBe('white')
+test('dot: running pulses on theme keys, done and failed hold their colour, queued is hollow', () => {
+  expect(dotOf('running', 0)).toMatchObject({ glyph: '●', color: 'text', isDim: false })
+  expect(dotOf('running', 1)).toMatchObject({ color: 'text', isDim: true })
+  expect(dotOf('running', 2).isDim).toBe(false)
   for (const tick of [0, 1, 2, 3]) {
-    expect(lineStyle('done', tick, false)).toMatchObject({ color: 'green', isFlashing: false, glyph: '✓' })
-    expect(lineStyle('failed', tick, false)).toMatchObject({ color: 'red', isFlashing: false, glyph: '✗' })
-    expect(lineStyle('queued', tick, false)).toMatchObject({ color: 'gray', isDim: true, isFlashing: false })
+    expect(dotOf('done', tick)).toMatchObject({ color: 'success', isDim: false })
+    expect(dotOf('failed', tick)).toMatchObject({ color: 'error', isDim: false })
+    expect(dotOf('killed', tick).color).toBe('error')
   }
-  expect(lineStyle('running', 1, true)).toMatchObject({ color: 'cyan', isSolid: true })
+  expect(dotOf('queued', 0)).toMatchObject({ glyph: '○', color: 'inactive' })
 })
 
-test('svg: lines flash grey then green, selected ring, escaped text, bounded size', () => {
-  const rows = buildRows([
-    rec({ id: 'a', name: 'Build terrain' }),
-    rec({ id: 'b', name: 'A <b> & "c"', status: 'done' }),
-    rec({ id: 'c', status: 'failed' }),
-  ])
-  const s0 = buildSvg({ width: 300, rows, tick: 0, selectedId: null, isMasterOn: true })
-  const s1 = buildSvg({ width: 300, rows, tick: 1, selectedId: 'a', isMasterOn: true })
-  expect(s0.source).toContain('stroke="#cbd5e1" stroke-opacity="1"')
-  expect(s1.source).toContain('stroke="#64748b" stroke-opacity="0.35"')
-  expect(s0.source).toContain('stroke="#22c55e"')
-  expect(s0.source).toContain('stroke="#ef4444"')
-  expect(s0.source).not.toContain('<b>')
-  expect(s0.source).toContain('&lt;b&gt;')
-  expect(s0.source).not.toContain('r="18" fill="none" stroke="#22d3ee"')
-  expect(s1.source).toContain('r="18" fill="none" stroke="#22d3ee"')
-  expect(s0.alt).toBe('Master agent with 3 subagents: 1 done, 1 running, 0 queued, 1 failed')
-  const big = buildRows(Array.from({ length: 60 }, (_, i) => rec({ id: `n${i}`, start: T0 + i })))
-  expect(buildSvg({ width: 300, rows: big, tick: 0, selectedId: null, isMasterOn: true }).source.length).toBeLessThan(131072)
+test('progress: ended is full, running follows the typical time (capped), unknown without history, queued empty', () => {
+  const none = typicalFor(emptyHist(), { type: 'general-purpose', name: 'x' })
+  const known = typicalFor(histOf([60_000, 60_000], []), { type: 'general-purpose', name: 'Build terrain' })
+  expect(progressOf('done', 5, none)).toEqual({ frac: 1, isKnown: true })
+  expect(progressOf('failed', 5, none)).toEqual({ frac: 1, isKnown: true })
+  expect(progressOf('running', 30_000, known)).toEqual({ frac: 0.5, isKnown: true })
+  expect(progressOf('running', 600_000, known).frac).toBe(0.95)
+  expect(progressOf('running', 0, known).frac).toBe(0.03)
+  expect(progressOf('running', 30_000, none).isKnown).toBe(false)
+  expect(progressOf('queued', 0, known)).toEqual({ frac: 0, isKnown: true })
 })
 
 test('prompts: capped in number and length, newest kept, same call replaced', () => {
@@ -358,7 +350,7 @@ test('finished agents feed the history that later estimates use', async ($, on) 
   await ui.unmount()
 })
 
-test('flashing in the pane: grey lines alternate each tick, turn green and hold when the agent is done', async ($, on) => {
+test('pulsing dot: bright and dim alternate each tick while running, turn green and hold when done', async ($, on) => {
   const { clock, w } = world(on)
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.turn.start({ text: 'go', turnId: 'm1' })
@@ -366,27 +358,26 @@ test('flashing in the pane: grey lines alternate each tick, turn green and hold 
   w.agents = [listed('ag1', 'Build terrain')]
   await clock.advance(500)
   const ui = await $.ui.mount({ ...PANE, surface: 'terminal' })
-  const line = async () => (await ui.find({ type: 'Text', text: /^┄+ $/ }))?.props['color']
+  const dot = async () => (await ui.find({ type: 'Text', text: '●' }))?.props
   const seen: unknown[] = []
   for (let i = 0; i < 4; i++) {
-    seen.push(await line())
+    seen.push((await dot())?.['dimColor'] === true)
     await clock.advance(500)
   }
-  expect(new Set(seen)).toEqual(new Set(['white', 'gray']))
   expect(seen[0]).not.toBe(seen[1])
   expect(seen[0]).toBe(seen[2])
+  expect((await dot())?.['color']).toBe('text')
   w.agents = [listed('ag1', 'Build terrain', 'completed')]
   await clock.advance(1000)
-  const after: unknown[] = []
   for (let i = 0; i < 4; i++) {
-    after.push(await line())
+    const p = await dot()
+    expect([p?.['color'], p?.['dimColor']]).toEqual(['success', false])
     await clock.advance(500)
   }
-  expect(after).toEqual(['green', 'green', 'green', 'green'])
   await ui.unmount()
 })
 
-test('failed agent: red line and cross glyph, queued agent static grey', async ($, on) => {
+test('failed agent: red dot, queued agent hollow grey, failed count in the summary', async ($, on) => {
   const { clock, w } = world(on)
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.turn.start({ text: 'go', turnId: 'm1' })
@@ -395,10 +386,8 @@ test('failed agent: red line and cross glyph, queued agent static grey', async (
   w.agents = [listed('ag1', 'Build terrain', 'failed'), listed('ag2', 'Later task', 'pending')]
   await clock.advance(1000)
   const ui = await $.ui.mount({ ...PANE, surface: 'terminal' })
-  const lines = await ui.findAll({ type: 'Text', text: /^┄+ $/ })
-  expect(lines.map(l => l.props['color'])).toEqual(['red', 'gray'])
-  expect((await ui.find({ type: 'Text', text: '✗' }))?.props['color']).toBe('red')
-  expect((await ui.find({ type: 'Text', text: '○' }))?.props['color']).toBe('gray')
+  expect((await ui.find({ type: 'Text', text: '●' }))?.props['color']).toBe('error')
+  expect((await ui.find({ type: 'Text', text: '○' }))?.props['color']).toBe('inactive')
   expect((await ui.find({ type: 'Text', text: /1 failed/ }))?.text).toContain('1 failed')
   await ui.unmount()
 })
@@ -424,7 +413,7 @@ test('click: a subagent shows the prompt the master sent, again or close dismiss
   expect(await ui.find({ type: 'Text', text: /PROMPT \(from/ })).toBeUndefined()
 
   await ui.press({ key: 'agent:ag1' })
-  const meta = await ui.find({ type: 'Text', text: /general-purpose · haiku/ })
+  const meta = await ui.find({ type: 'Text', text: /· running/ })
   expect(meta?.text).toContain('Build terrain · general-purpose · haiku · running')
   const preview = await ui.find({ type: 'Text', text: /^CONTEXT: lorem/ })
   expect(preview?.text.length).toBe(601)
@@ -463,7 +452,7 @@ test('prompt capture is bounded in the pane: 60 long prompts keep the newest 50,
   await ui.unmount()
 })
 
-test('nested agents are drawn on a lower level, indented', async ($, on) => {
+test('nested agents are drawn on a lower level, indented, with a rail', async ($, on) => {
   const { clock, w } = world(on)
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.turn.start({ text: 'go', turnId: 'm1' })
@@ -472,9 +461,9 @@ test('nested agents are drawn on a lower level, indented', async ($, on) => {
   w.agents = [listed('ag1', 'Build terrain'), listed('ag2', 'Place trees', 'running', 'ag1')]
   await clock.advance(1000)
   const ui = await $.ui.mount({ ...PANE, surface: 'terminal' })
-  expect((await ui.find({ type: 'Text', text: /↳ 2 Place trees/ }))?.text).toContain('↳ 2 Place trees')
-  expect((await ui.find({ type: 'Text', text: /^├┄$/ }))?.text).toBe('├┄')
-  expect((await ui.find({ type: 'Text', text: /^╰┄┄┄$/ }))?.text).toBe('╰┄┄┄')
+  expect((await ui.find({ type: 'Text', text: /2\. Place trees/ }))?.text).toContain('2. Place trees')
+  expect((await ui.find({ type: 'Text', text: /^├╴/ }))?.text).toBe('├╴\n│\n│')
+  expect((await ui.find({ type: 'Text', text: /^╰╴/ }))?.text).toBe('╰╴\n \n ')
   await ui.unmount()
 })
 
@@ -487,15 +476,15 @@ test('narrow pane: 24 columns keeps every row inside the width', async ($, on) =
   await clock.advance(1000)
   const ui = await $.ui.mount({ ...PANE, props: { ...PANE.props, bodyColumns: 24 }, surface: 'terminal' })
   const buttons = await ui.findAll({ type: 'Button' })
-  expect(buttons.length).toBe(10)
-  for (const b of buttons) expect(b.text.length).toBeLessThanOrEqual(24)
-  const connectors = await ui.findAll({ type: 'Text', text: /^┄+ $/ })
-  expect(connectors).toHaveLength(5)
-  for (const t of connectors) expect(t.text.length).toBeLessThanOrEqual(22)
+  expect(buttons.length).toBe(5)
+  for (const b of buttons) expect(b.text.length).toBeLessThanOrEqual(24 - 2)
+  const bars = await ui.findAll({ type: 'Text', text: /^━+$/ })
+  expect(bars.length).toBeGreaterThan(0)
+  for (const t of bars) expect(t.text.length).toBeLessThanOrEqual(24)
   await ui.unmount()
 })
 
-test('desktop, vscode and mobile draw the graph as an Svg plus a list of Buttons', async ($, on) => {
+test('every surface draws the same native layout: no Svg, a Button per subagent, prompt on click', async ($, on) => {
   const { clock, w } = world(on)
   await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
   await $.turn.start({ text: 'go', turnId: 'm1' })
@@ -503,21 +492,17 @@ test('desktop, vscode and mobile draw the graph as an Svg plus a list of Buttons
   await $.agent.spawn(spawnArgs('p', 'Write shop UI'))
   w.agents = [listed('ag1', 'Build terrain'), listed('ag2', 'Write shop UI', 'completed')]
   await clock.advance(1000)
-  for (const surface of ['desktop', 'vscode', 'mobile'] as const) {
+  for (const surface of ['desktop', 'vscode', 'mobile', 'terminal'] as const) {
     const ui = await $.ui.mount({ ...PANE, surface })
-    const svg = await ui.find({ type: 'Svg' })
-    expect(svg?.props['alt']).toBe('Master agent with 2 subagents: 1 done, 1 running, 0 queued, 0 failed')
-    expect(String(svg?.props['source'])).toContain('MASTER AGENT')
+    expect(await ui.find({ type: 'Svg' })).toBeUndefined()
     expect(await ui.findAll({ type: 'Button', text: /\d\. / })).toHaveLength(2)
+    expect((await ui.find({ type: 'Text', text: /1\/2 done/ }))?.text).toBe('1/2 done')
+    expect((await ui.find({ type: 'Text', text: /^Master/ }))?.text).toBe('Master ')
     await ui.press({ key: 'agent:ag1' })
     expect((await ui.find({ type: 'Text', text: 'Prompt text' }))?.text).toBe('Prompt text')
-    expect(String((await ui.find({ type: 'Svg' }))?.props['source'])).toContain('r="18"')
     await ui.press({ key: 'agent:ag1' })
     await ui.unmount()
   }
-  const term = await $.ui.mount({ ...PANE, surface: 'terminal' })
-  expect(await term.find({ type: 'Svg' })).toBeUndefined()
-  await term.unmount()
 })
 
 test('re-render is stable: the same state draws the same tree', async ($, on) => {
@@ -561,6 +546,7 @@ test('plan bar: shown as a compact line when tasks or todos exist', async ($, on
   })
   const ui = await $.ui.mount({ ...PANE, surface: 'terminal' })
   expect((await ui.find({ type: 'Text', text: /plan/ }))?.text).toBe(' 50% plan 1/2')
+  expect(await ui.find({ type: 'Text', text: /^━+$/ })).toBeDefined()
   await ui.unmount()
 })
 

@@ -8,7 +8,7 @@
     {
       "name": "rbx-subagent-hud",
       "source": "./rbx-subagent-hud",
-      "description": "Side pane: the master agent with its subagents below it, connected by flashing dotted lines (grey running, green done), done count, time estimate, click a subagent to see its prompt.",
+      "description": "Native side pane: the master agent with one card per subagent below it (pulsing dot, name, time, slim progress bar, theme colours), done count, time estimate, click a subagent to see its prompt.",
       "author": {
         "name": "Roman"
       }

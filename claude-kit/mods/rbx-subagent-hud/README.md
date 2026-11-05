@@ -1,34 +1,33 @@
 # rbx-subagent-hud
 
-A side pane that shows the master agent (the session you talk to) at the top and the subagents it starts below it, joined by dotted lines. It answers four questions while a request runs: which subagents exist, which are done, what did the master tell each one, and about how long is left. It makes no notifications, plays no sounds and uses no network. It writes one small file, the finished-subagent durations the estimate learns from (see "Time estimate").
+A native side pane: the master agent at the top and one card per subagent below it, joined by a thin connector line. It answers four questions while a request runs: which subagents exist, which are done, what did the master tell each one, and about how long is left. It is plain app text (theme colours, the app's own font), not a picture, and the same layout is used on the desktop app, VS Code, mobile and the terminal. It makes no notifications, plays no sounds and uses no network. It writes one small file, the finished-subagent durations the estimate learns from (see "Time estimate").
 
 ## What it shows
 
-Terminal (and any surface without vector drawing):
-
 ```
-◆ MASTER working 1m02s
+◆ Master working 1m02s
 1/5 done  3 running  1 failed
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ~3 min left (estimate)
-┊
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-┊ ✓ 1 Build terrain    ⠴ 2 Write shop UI
-┊   general-purpose 2s   general-purpose 1m
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-┊ ✗ 3 Audit scripts    ⠴ 5 Check lighting
-┊   Explore 2s           general-purpose 1m
-╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-    ⠴ ↳ 4 Place trees
-      general-purpose 1m
+
+│
+├╴● 1. Build terrain       2s
+│   general-purpose · sonnet
+│   ━━━━━━━━━━━━━━━━━━━━━━━
+├╴● 2. Write shop UI       1m
+│   general-purpose
+│   ━━━━━━━━━━━━━━━━━━━━━━━
+╰╴● 3. Audit scripts       12s
 ```
 
-Desktop app, VS Code and mobile draw a vector graph (glowing cyan diamond for the master, one circle per subagent, curved dotted lines) with a list of buttons under it, one per subagent.
-
-- Layout: the master on top, the subagents it started in rows below it (rows wrap to the pane width), a subagent started by a subagent one level lower and indented.
-- Lines: grey dotted lines that flash (bright and dim every half second) while the subagent runs; when it finishes the line turns green and stops flashing; red for failed or stopped; dim and steady for queued. Glyphs carry the same meaning without colour: spinner (running), check (done), cross (failed), circle (queued).
-- Counter: `2/4 done`, how many run, how many failed, for the current request. A request starts when you send a prompt; the subagents it starts (also background ones that report back in later master turns) count together. A new prompt resets it; a subagent still running from before carries over.
-- Click a subagent (its node, its name or its second line) to open a card with the prompt the master sent it, plus description, type, model, status and time. "show more" expands a long prompt, click the subagent again or "x close" dismisses the card, "view transcript" switches the main view to that subagent's transcript.
+- Header: master status (working, waiting for agents, idle) with elapsed time, the `done / running / failed` summary with an overall bar, and the time estimate.
+- One row per subagent: status dot (pulses while running, green done, red failed or stopped, hollow grey queued), numbered name, elapsed time, type and model, and a slim bar. The bar fills toward the typical time of that kind of subagent (never past 95% while it runs); with no history yet a short segment slides along it. Done is a full green bar, failed a full red one.
+- Nesting: a subagent started by a subagent is indented one level.
+- Counter: `2/4 done` for the current request. A request starts when you send a prompt; the subagents it starts (also background ones that report back in later master turns) count together. A new prompt resets it; a subagent still running from before carries over.
+- Click a subagent to open a card with the prompt the master sent it, plus description, type, model, status and time. "show more" expands a long prompt, click the subagent again or "x close" dismisses the card, "view transcript" switches the main view to that subagent's transcript.
 - Plan line: if the task list or TodoWrite is in use, a compact bar `50% plan 1/2` is kept at the bottom.
+
+Tweaking the look: the colours (theme keys only, so light and dark follow the app), spacing and bar glyph are the `K`, `SPACE`, `BAR_CHAR` and `RAIL_INDENT` knobs at the top of the view section of `hooks/register.tsx`; each part of the pane is one small function (`viewHeader`, `viewAgent`, `viewCard`, `viewPlan`).
 
 ## How to open
 
@@ -67,9 +66,8 @@ Replace `<kit>` with the folder the kit is installed in. Run `/reload-plugins` i
 ## Limits
 
 - Remote Control and mobile views cannot show it. Panes and the above-prompt line are drawn only on the local terminal, desktop app and VS Code; a phone or remote client gets the normal transcript only.
-- Only a button can be clicked: on the desktop the graph itself is a picture, so you click the buttons listed under it (numbered like the circles).
 - The engine reports an agent only as spawned or ended: start and end times are measured by the HUD (about half a second resolution); an agent that started before the mod loaded shows time from load and has no prompt to show.
 - A subagent that is woken again after it finished (SendMessage) stays shown as done.
 - The estimate learns from your own runs; the first runs show "estimating...". Durations are kept per machine, not shared.
-- The flashing is drawn by redrawing twice a second while something runs; nothing is redrawn while the master and all subagents are idle.
+- The pulsing dot is drawn by redrawing twice a second while something runs; nothing is redrawn while the master and all subagents are idle.
 - Kept in memory: the last 60 subagents and the last 50 prompts (20000 characters each, longer ones are cut and marked).
