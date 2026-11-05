@@ -163,6 +163,10 @@ def clean_marker(m):
             continue
         items[k] = {"files": {r: h for r, h in files.items() if rel_ok(r) and isinstance(h, str)}}
     m["items"] = items
+    if m.get("rules_file") not in ("created", "user"):
+        m.pop("rules_file", None)
+    if m.get("rules_pre") not in ("", "\n", "\n\n"):
+        m.pop("rules_pre", None)
     m["created"] = [c for c in (m.get("created") if isinstance(m.get("created"), list) else []) if c in (".claude/skills", ".claude/agents")]
     return m
 
@@ -260,6 +264,104 @@ def exclude_write(proj, keys):
     except OSError:
         return False
     return True
+
+
+RB = "<!-- >>> roblox-vault-mode rules (managed by /rbx-load; /rbx-unload removes this block; edit outside it) >>> -->"
+RE = "<!-- <<< roblox-vault-mode rules <<< -->"
+
+
+def rules_path(proj):
+    return os.path.join(proj, ".claude", "CLAUDE.md")
+
+
+def rules_split(t):
+    """(before, after) around the managed block, or None."""
+    i = t.find(RB)
+    if i < 0:
+        return None
+    j = t.find(RE, i)
+    if j < 0:
+        return None
+    k = j + len(RE)
+    if t[k:k + 2] == "\r\n":
+        k += 2
+    elif t[k:k + 1] == "\n":
+        k += 1
+    return t[:i], t[k:]
+
+
+def rules_block(p):
+    try:
+        body = open(p["rules"], encoding="utf-8").read()
+    except OSError:
+        return None
+    return RB + "\n" + body.rstrip("\n") + "\n" + RE + "\n"
+
+
+def rules_write(proj, p, marker):
+    """write/refresh the mode rules block in <proj>/.claude/CLAUDE.md. True when the file changed."""
+    blk = rules_block(p)
+    if not blk:
+        return False
+    f = rules_path(proj)
+    try:
+        old = open(f, encoding="utf-8", newline="").read() if os.path.isfile(f) else None
+    except (OSError, UnicodeError):
+        return False
+    if old is None:
+        new = blk
+        marker["rules_file"] = "created"
+    else:
+        sp = rules_split(old)
+        if sp:
+            new = sp[0] + blk + sp[1]
+        else:
+            pre = "" if (not old or old.endswith("\n\n")) else ("\n" if old.endswith("\n") else "\n\n")
+            new = old + pre + blk
+            marker["rules_file"] = "user"
+            marker["rules_pre"] = pre
+    if new == old:
+        return False
+    try:
+        os.makedirs(os.path.dirname(f), exist_ok=True)
+        with open(f, "w", encoding="utf-8", newline="") as fh:
+            fh.write(new)
+    except OSError:
+        return False
+    return True
+
+
+def rules_remove(proj, marker):
+    f = rules_path(proj)
+    if not marker.get("rules_file") or not os.path.isfile(f):
+        return
+    try:
+        old = open(f, encoding="utf-8", newline="").read()
+    except (OSError, UnicodeError):
+        return
+    sp = rules_split(old)
+    if not sp:
+        return
+    before, after = sp
+    pre = marker.get("rules_pre") or ""
+    if pre and before.endswith(pre):
+        before = before[:-len(pre)]
+    new = before + after
+    try:
+        if not new.strip() and marker.get("rules_file") == "created":
+            os.remove(f)
+        else:
+            with open(f, "w", encoding="utf-8", newline="") as fh:
+                fh.write(new)
+    except OSError:
+        pass
+
+
+def excl_keys(marker):
+    ks = list(marker["items"].keys())
+    if marker.get("rules_file") == "created":
+        ks.append("CLAUDE.md")
+    return ks
 
 
 def exclude_strip(t):
@@ -522,12 +624,14 @@ def cmd_load(a, quiet_text=False):
     had_sk = os.path.isdir(os.path.join(proj, ".claude", "skills"))
     first = not os.path.isfile(os.path.join(proj, ".claude", "vault-mode.json"))
     marker, notes, changed = link(proj, p)
-    hidden = exclude_write(proj, marker["items"].keys())
+    rules_write(proj, p, marker)
+    jwrite(os.path.join(proj, ".claude", "vault-mode.json"), marker)
+    hidden = exclude_write(proj, excl_keys(marker))
     registry_set(p, proj, marker)
     s, g = counts(marker["items"])
     print("Roblox dev mode on: %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
     print("  " + games_line(proj, p))
-    print("  folder: %s  (copies in .claude/skills and .claude/agents, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
+    print("  folder: %s  (copies in .claude/skills and .claude/agents, rules saved for this folder, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
     if first and not had_sk:
         print("  Type /reload-skills to try to show the new slash commands; if they don't appear, open a new chat in this folder. Skills and agents already work in this chat via the index below.")
     elif first:
@@ -589,6 +693,7 @@ def cmd_unload(a):
                 else:
                     kept += 1
                     print("  kept %s (you changed it)" % os.path.relpath(fd, proj))
+        rules_remove(proj, marker)
         os.remove(mpath)
         for key in marker.get("items", {}):
             d = dest_of(proj, key)
@@ -706,8 +811,11 @@ def cmd_sync(a):
         if guard(proj, p):
             continue
         marker, notes, changed = link(proj, p)
+        if rules_write(proj, p, marker):
+            changed = True
+            jwrite(os.path.join(proj, ".claude", "vault-mode.json"), marker)
         if changed:
-            exclude_write(proj, marker["items"].keys())
+            exclude_write(proj, excl_keys(marker))
             registry_set(p, proj, marker)
             n += 1
             if not a.quiet:
@@ -852,7 +960,9 @@ def cmd_auto(a):
     if not store_items(p) or guard(proj, p):
         return 0
     marker, notes, changed = link(proj, p)
-    exclude_write(proj, marker["items"].keys())
+    rules_write(proj, p, marker)
+    jwrite(os.path.join(proj, ".claude", "vault-mode.json"), marker)
+    exclude_write(proj, excl_keys(marker))
     registry_set(p, proj, marker)
     s, g = counts(marker["items"])
     print("Roblox dev mode on (auto-loaded for this Roblox project): %d skills, %d agents, %s, %s. /rbx-unload turns it off." % (s, g, ref_line(p), learn_line(p)))

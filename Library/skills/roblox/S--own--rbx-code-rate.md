@@ -20,6 +20,8 @@ Repo file: `skills/roblox/rbx-code-rate/SKILL.md` (extra files, if any, sit besi
 
 Related: [[A--own--rbx-auditor]], [[A--own--rbx-reviewer]], [[S--own--rbx-bench]], [[S--own--rbx-critic]], [[S--own--rbx-datastore]], [[S--own--rbx-rate-any]], [[S--own--rbx-remote-sec]]
 
+Creator videos (notes are in the AI Library Vault, Creators/videos): 2025-01-30-best-model-for-rag-gpt-4o-vs-claude-3-5-vs-gemini-flash-2-0, 2025-02-05-deep-dive-into-llms-like-chatgpt, 2025-09-03-beginner-s-guide-to-workflow-evaluation-in-n8n-stop-guessing, 2025-09-26-3-hidden-data-table-hacks-for-smarter-ai-agents, 2026-08-04-5000-hours-of-building-ai-in-just-17-minutes, 2026-10-02-how-to-actually-build-sell-software-with-ai-as-a-non-techie
+
 ---
 # rbx-code-rate
 
@@ -108,6 +110,8 @@ When the code belongs to a game (`Games/<slug>/`), also write `code-quality/gate
 ```
 The comment scan is its own gate: `comment_scan.py <project> --write Games/<slug>` writes `comment-scan/gate.json` (checks CM1-CM3, weight 10 like any extra gate), a scored finding that never blocks. Include only applicable ids. Passing item = 10; an open item scores CRITICAL 0, HIGH 3, MEDIUM 6, LOW 8. `result` is `fail` while any CRITICAL, HIGH or MEDIUM item is open.
 
+Credit: checklist adapted from excaldev/ro-engineer `sharp-edges.md` and `testing.md` (MIT, Copyright (c) 2026 excaldev); reference copies in Imported/ro-engineer. Rows were re-checked against the Roblox docs.
+
 ## Failure modes
 - Rating without a review: scores become taste. Run the reviewer first.
 - Flat scores: use the anchors; security and data usually score lowest in prototypes.
@@ -117,5 +121,11 @@ The comment scan is its own gate: `comment_scan.py <project> --write Games/<slug
 rbx-reviewer, rbx-remote-sec, rbx-datastore, rbx-luau, rbx-perf, rbx-rate, rbx-rate-any, rbx-auditor.
 
 ## Sources
-
-[cold:rbx-code-rate/sources.md] read only to verify the source of this idea or its licence/attribution.
+Idea from AI-creator research (catalogue ideas idea-0071). Credit and where it appears:
+- Nate Herk, "Best Model for RAG? GPT-4o vs Claude 3.5 vs Gemini Flash 2.0 (n8n Experiment Results)" (2025-01-30) @ 2:39, https://www.youtube.com/watch?v=_DbZjllXDv8&t=159s. Seen there as: Consistent LLM response grader (ChatGPT with source PDF)
+- Andrej Karpathy, "Deep Dive into LLMs like ChatGPT" (2025-02-05) @ 1:28:44, https://www.youtube.com/watch?v=7xTGNNLPyMI&t=5324s. Seen there as: LLM judge (answer checker)
+- Nate Herk, "Beginner's Guide to Workflow Evaluation in n8n (Stop Guessing!)" (2025-09-03) @ 13:15, https://www.youtube.com/watch?v=-zFd1nPn6U0&t=795s. Seen there as: AI correctness judge (1-5 rater)
+- Nate Herk, "3 Hidden Data Table Hacks for Smarter AI Agents" (2025-09-26) @ 13:29, https://www.youtube.com/watch?v=lcNN3X9gXls&t=809s. Seen there as: Correctness evaluator (LLM-as-judge scorer)
+- Nate Herk, "5000 Hours of Building AI in Just 17 Minutes" (2026-08-04) @ 9:41, https://www.youtube.com/watch?v=7WZ6XldxX0U&t=581s. Seen there as: LLM-as-a-judge
+- Nate Herk, "How to Actually Build & Sell Software with AI as a Non-Techie" (2026-10-02) @ 36:42, https://www.youtube.com/watch?v=l8ywUsEJ2XQ&t=2202s. Seen there as: LLM-as-a-judge (customer support reply grader)
+The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.

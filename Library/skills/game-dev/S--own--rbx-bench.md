@@ -25,7 +25,7 @@ Related: [[S--gamedev-agent-skills--tower-defense]]
 
 Precedence: When a kit skill and another installed skill cover the same job, use the kit skill.
 
-Gates (visual V1-V7, placement P1-P7, lighting, critic) judge one game at a time; this skill reads what they already wrote, turns it into one comparable number per run, and measures the vault itself. It never changes a gate, a verdict or a game.
+Why this exists: the gates (visual V1-V7, placement P1-P7, lighting, critic) pass or fail one game at a time, and nobody could tell whether a new vault version builds better games or what load mode costs every session. This skill reads what the gates already wrote, turns it into one comparable number per run, and measures the vault itself. It never changes a gate, a verdict or a game.
 
 ## Three tools (stdlib Python, run with `claude-kit/tools/pyrun` or `python -I`)
 - **Score a game**: `python scripts/scorecard.py collect Games/<slug> [--spec obby|tycoon|tower-defense] [--require-critic]` writes `benchmarks/runs/<id>/scorecard.json` + `.md` (per-gate pass/fail, per-check scores, weighted overall 0-100, top 3 problems with fixes, integrity flags) and appends a row to `benchmarks/history.csv` (date, vault version, game, scores). Every `gate.json` / `gate-*.json` under the game folder is discovered, so a new gate appears without a code change. The `hiccup` gate (`hiccup-qa/`, written by `tools/hiccup.py check|retro`: H1 reported vs objective events, H2 pre-flight run, H3 retro run) is scored, never blocking; the card shows the hiccups-per-game trend of the personal ledger.
@@ -42,4 +42,5 @@ Gates (visual V1-V7, placement P1-P7, lighting, critic) judge one game at a time
 - Do not edit anything outside the benchmark folder, the game folder's `benchmark-*.json` files and the report you were asked for.
 
 ## Learn
-`/rbx-learn` for a verified non-obvious finding (one note each); on a problem run `vault-find.py "<problem>" --type learned` first.
+
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

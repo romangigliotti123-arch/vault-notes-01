@@ -24,7 +24,7 @@ Related: [[S--own--rbx-analytics]]
 
 Code comments: none by default (see rbx-luau, Comments).
 
-Output: product list (names, purpose, Robux price, grant logic), working Luau, then a checklist verdict.
+Output: configured product list (names, purpose, price in Robux, grant logic) and working Luau, then a checklist verdict.
 
 ## Choose the product type
 - Game pass: one-time permanent unlock (VIP area, extra slot). Check ownership with `MarketplaceService:UserOwnsGamePassAsync(userId, passId)` (pcall it, cache per player, re-check on `PromptGamePassPurchaseFinished`).
@@ -54,11 +54,11 @@ end
 Rules: set the callback once, on the server, in one script; return `PurchaseGranted` only after the grant is saved; dedupe by `PurchaseId`; if unsure return `NotProcessedYet` (Roblox retries).
 
 ## Pricing and design checks
-1. Every product has a one-line benefit shown before the prompt; prompts come from a server-validated request, not spam.
+1. Every product has a clear one-line benefit shown before the prompt; prompts come from a server-validated request, not spam.
 2. No pay-to-win that breaks PvP fairness; no real-money-style gambling; no paid random rewards (eggs, spins, crates bought with Robux); no fear-of-missing-out countdowns aimed at kids.
-3. Price ladder: 3-5 tiers, a clearly best-value tier, a cheap entry price. Check current Robux and DevEx rules in official docs, not from memory.
+3. Price ladder: 3-5 tiers, a clearly best-value tier, a cheap entry price. Check current Robux and DevEx rules from official docs rather than quoting numbers from memory.
 4. A free path exists to every core progression step; paid items speed up or decorate.
-5. Test with the Studio purchase flow and a second test account: buy, receive, leave, rejoin, still owned; a failed purchase grants nothing; the same receipt twice grants once.
+5. Test with the Studio purchase flow and a second test account: buy, receive, leave, rejoin, still owned; failed purchase grants nothing; the same receipt twice grants once.
 6. Log purchases (anonymised player id, product, time) for rbx-analytics.
 
 Verdict: list each product with pass/fail on checks 1-5 and the exact fix for each fail.

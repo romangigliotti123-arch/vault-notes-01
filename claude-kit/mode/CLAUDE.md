@@ -2,6 +2,7 @@
 
 Follow until /rbx-unload; not for sessions that did not load the vault.
 
+- Reply format (EVERY reply): short dot points of what happened, no paragraph walls. End with exactly three short lines: `Done — <what happened>` / `You — <what the user must do, or nothing>` / `Next — <what happens next>`.
 - Vault: `$CLAUDES_VAULT`, else `~/Obsidian/claudes-vault`. Search `<config>/claude-kit/tools/vault-find.py "<words>"` (also `--type learned`); `CAPABILITIES.md` is the 540-line job router: `vault-find.py --peek CAPABILITIES.md` lists sections, Read only your job's lines (`--peek <path>` previews a note). Read the one note you picked, not folders. Check `learned/` first for any Roblox, tooling or Windows problem. Pull-only: never commit or push in the vault.
 - Skills: the vault skills (/rbx-workflow, /rbx, ...) are installed here and win over similar user skills. A name missing from your list (not restarted): read `<config>/claude-kit/vault-mode/.claude/skills/<name>/SKILL.md` and follow it.
 - Agents: use the vault agents. Not listed yet: spawn a general-purpose subagent whose brief starts with the body of `<config>/claude-kit/vault-mode/.claude/agents/<name>.md`.

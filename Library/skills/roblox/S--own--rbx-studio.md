@@ -40,14 +40,13 @@ Files in the project folder stay the source of truth in all three modes.
 Run the script yourself only after the user says yes (use `-Yes`/`--yes` only when they said "do it all"):
 - Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File ~/.claude/claude-kit/tools/studio-setup.ps1 [-DryRun] [-Yes] [-WithWally] [-Scope user|project|local]`
 - macOS/Linux: `bash ~/.claude/claude-kit/tools/studio-setup.sh [--dry-run] [--yes] [--with-wally] [--scope user|project|local]` (Linux: toolchain only, Studio does not run there).
-The script installs the Rokit toolchain manager, pins the toolchain with `rokit install` in `claude-kit/systems`, installs the Rojo plugin, registers the `Roblox_Studio` MCP server and prints a verification table; idempotent, `-DryRun` changes nothing, exit 2 lists what is missing. [cold:rbx-studio/setup-details.md] read only when running or debugging the studio-setup scripts (what each of the five steps installs, pinned versions).
+What it does, in order: (1) Rokit toolchain manager via winget `Rojo.Rokit` / `brew install rokit`; (2) `rokit install` in `claude-kit/systems` (pins rojo 7.7.1, selene 0.29.0, stylua 2.3.1, luau-lsp 1.70.1, lune 0.10.4 from their official GitHub releases; Wally with the flag); (3) `rojo plugin install` (Studio plugin); (4) `claude mcp add --scope user Roblox_Studio -- cmd.exe /c %LOCALAPPDATA%\Roblox\mcp.bat` (macOS: `/Applications/RobloxStudio.app/Contents/MacOS/StudioMCP`); (5) a verification table. Idempotent; `-DryRun` changes nothing; ends with exit 2 and the list of what is missing if something is.
 Use `--scope project` (run inside the game folder) when the user does not want the MCP server available in all their projects.
 **Only the user can do these** (tell them, do not try): install Roblox Studio and sign in with their Roblox account; in Studio open Assistant > ... > Manage MCP Servers > turn on **Enable Studio as MCP server** (Studio then writes `mcp.bat`); restart Studio and Claude Code; keep Studio open with the place loaded. `/mcp` should list `Roblox_Studio` connected.
 Which server, in order: (1) the **built-in Studio MCP** (docs: create.roblox.com/docs/studio/mcp; Windows config `cmd.exe /c %LOCALAPPDATA%\Roblox\mcp.bat`); (2) only when Studio has no Manage MCP Servers setting, the older `Roblox/studio-rust-mcp-server` (archived April 2026, "no longer being actively developed"); do not install it for the user. Not tested live in Studio by the vault: the first real connection is the test. Use `script_grep` or `search_game_tree` before reading whole scripts and `multi_edit` instead of rewriting them. Clients can read and modify the open place: connect only trusted clients, keep version history or a copy. [cold:rbx-studio/builtin-mcp.md] read only when connecting, comparing the two servers or choosing a tool.
 
 ## Studio MCP tools (about 25; names as the server reports them)
-
-About 25 tools (scripts, `execute_luau`, explore, playtest and input, assets, `http_get`, `list_roblox_studios`); use only tools that actually appear in your tool list. [cold:rbx-studio/mcp-tools.md] read only when you need the exact Studio MCP tool names and which tool does what.
+Scripts: `script_read`, `multi_edit` (creates the script if missing; needs `datamodel_type` Edit), `script_search`, `script_grep`. Run code: `execute_luau` (`datamodel_type` Edit, Client or Server). Explore: `search_game_tree`, `inspect_instance`, `subagent` (explore / playtest). Playtest: `get_studio_state`, `start_stop_play`, `get_console_output`, `screen_capture`; input simulation: `character_navigation`, `user_keyboard_input`, `user_mouse_input`. Assets: `search_asset`, `insert_asset`, `generate_mesh`, `generate_material`, `generate_procedural_model`, `wait_job_finished`, `upload_image`, `store_image`. Docs: `http_get` (Roblox docs only), `skill`. Session: `list_roblox_studios`. Use only tools that actually appear in your tool list.
 
 ## Mode 1 loop: write, run, read, fix (this is the stage evidence)
 1. `list_roblox_studios` -> pick the studio whose place name matches the game; confirm with the user if two are open. `get_studio_state`.
@@ -66,12 +65,11 @@ Commands (run in the project folder): `rokit install` once; `rojo serve` then Co
 Evidence from this mode is "checked, not run": say so.
 
 ## Troubleshooting
-
-Symptoms: `mcp__Roblox_Studio__*` tools missing, `rokit` "not found in manifest", Rojo plugin shows no project. [cold:rbx-studio/troubleshooting.md] read only when Studio MCP tools are missing, `rokit` says not found in manifest, or the Rojo plugin shows no project.
+`mcp__Roblox_Studio__*` tools missing: Studio closed, MCP toggle off, or Claude Code not restarted; `claude mcp get Roblox_Studio` shows the registration; `%LOCALAPPDATA%\Roblox\mcp.bat` must exist (written by Studio when the toggle is on). JSON config typos prevent loading. `rokit` commands "not found in manifest": run them inside a folder that has `rokit.toml` (`claude-kit/systems` or the project). Rojo plugin shows no project: `rojo serve` must be running in the project folder with the default port. Windows without winget: install Rokit from github.com/rojo-rbx/rokit/releases.
 
 ## Honesty
 This host (and many clients) cannot sign in to Studio for the user, so live-Studio behaviour of the kit's code is `untested` until the user runs it. Say that plainly; never describe a Studio run that did not happen.
 
 ## Learn
 
-Verified something non-obvious? Record it with `/rbx-learn` (one finding per note). Hit a problem? Check `vault-find.py "<problem>" --type learned` first.
+When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

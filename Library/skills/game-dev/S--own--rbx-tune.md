@@ -39,5 +39,4 @@ Change ONE thing, measure (twice when the number is noisy), keep it only if the 
 Stop at the budget, at the target, or after 3 non-improving experiments in a row (change the kind of change once, then stop). Report kept changes with before and after, discarded ideas (so nobody retries them), and the output of `tune_check.py check Games/<slug> --write Games/<slug>`. The critic runs the evaluator itself; a builder-made number is evidence only.
 
 ## Sources
-
-[cold:rbx-tune/sources.md] read only to verify the source of this idea or its licence/attribution.
+Loop idea (baseline, one change, keep or revert, ledger) from Andrej Karpathy's autoresearch (github.com/karpathy/autoresearch). The repository has no LICENSE file, so only the idea is used, written in our own words; its unbounded "never stop" mode and disabled permissions are not adopted.

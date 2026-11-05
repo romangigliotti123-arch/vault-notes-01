@@ -22,7 +22,7 @@ Repo file: `skills/roblox/rbx-rounds/SKILL.md` (extra files, if any, sit beside 
 
 Code comments: none by default (see rbx-luau, Comments).
 
-Server-authoritative state machine in one ModuleScript (`RoundService`), one loop, state replicated via attributes or one RemoteEvent.
+Server-authoritative state machine in one ModuleScript (`RoundService`), driven by a single loop, with state replicated through attributes or one RemoteEvent.
 
 ## States
 `Lobby` (waiting for min players) -> `Intermission` (countdown, vote map/mode) -> `Starting` (teleport/spawn, freeze, load map) -> `InRound` (rules, timer) -> `Ending` (winner, rewards, results UI) -> cleanup -> `Lobby`.
