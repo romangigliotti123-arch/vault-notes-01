@@ -12,19 +12,19 @@ Takes the user's own idea (or guides them to one) and turns it into the same sho
 
 1. Say `Using your idea: <idea in one line>` and keep it as the core. Do not ask them to restate it or to answer questions; assume the defaults.
 2. Run the rbx-ideas Engine on it. Keep the user's core fantasy and verb; develop around it: sharpen the hook, fix the first 30 seconds, add a D1 reason, week-1 loop, ethical money, build ease. If the idea is a chart clone, say so in one line and change only what is needed to give it a new verb or combination (Keeps | New), staying as close to the user's intent as possible. If it breaks a hard rule, say which and offer the closest allowed version.
-3. Same independent critic (rbx-judge), red-team and saved file `research/idea-<slug>.md`; show the card; the same closing line.
+3. Same critic (rbx-judge, or `No independent critic - self-review only` on the first line when agents are unavailable), red-team and saved file `research/idea-<slug>.md`; show the card (cap 40 lines, TL;DR on top); the same closing line.
 
 ## Without an idea (guided funnel)
 
-Ask with the AskUserQuestion tool when it exists (one question per round, 4 options plus the automatic Other); otherwise a numbered list in plain text. Every round includes a "Surprise me" option and a skip is always fine: it means Claude picks the strongest option for the earlier answers. Maximum 5 rounds, each narrowing from the last. Keep question and options short.
+Ask ONE question per round. With the AskUserQuestion tool: 4 fixed options plus "Surprise me" as a 5th that is not counted (the tool adds Other itself). Without it: a numbered list in plain text, up to 6 options plus "Surprise me", and say once that you are using a list. A skip is always fine: it means Claude picks the strongest option for the earlier answers and applies the default. Maximum 5 questions in total, each narrowing from the last. Keep questions and options short.
 
-1. **Category** (always first). About 6 options, for example: multiplayer voice-chat simulator · tycoon · obby / parkour · horror or co-op survival · social hangout / roleplay · simulator / grinder · Other (type it). Split into two screens if the tool allows only 4 options (first the 4 most common plus "More..."), never more than 2 screens.
+1. **Category** (always first). About 6 options, for example: multiplayer voice-chat simulator · tycoon · obby / parkour · horror or co-op survival · social hangout / roleplay · simulator / grinder · Other (type it). With a 4-option tool: the 4 most common plus "More..." for the rest, never more than 2 screens.
 2. **Core fantasy** inside that category (for example, for a tycoon: run a shop, build a base, manage a team; for a voice-chat game: party game, hangout, mystery or detective).
-3. **Play style**: co-op with friends, solo, or drop-in with strangers (friends-only is the safe default); and session length: 5 minutes, 15 minutes, or long sessions.
-4. **Audience and look**: age band (all ages default; younger skews to easier progression), and art and scope (cartoon low-poly, cozy, spooky, minimal) in one round.
-5. **Money comfort** (optional last round): cosmetics only, cosmetics plus convenience passes, or "no monetisation for now".
+3. **Play style**: co-op with friends, solo, or drop-in with strangers (friends-only is the safe default).
+4. **Session length**: 5 minutes, 15 minutes, or long sessions.
+5. **Audience** (age band; all ages is the default, younger skews to easier progression).
 
-Rounds 2 to 5 use options that depend on the earlier answers (not a fixed list). Stop early when the answers are enough. Voice chat is age-gated on Roblox and not available to all users: for a voice-chat idea give it an optional, non-essential role and a text-free fallback so the game works without it. Then say `Building your idea from: <answers in one line>` and run the Engine with the answers as constraints (silent candidates are variations that fit the answers), the critic, the saved file and the card.
+Art and scope default to cartoon low-poly and money to cosmetics plus convenience passes; ask about them only if the user raises them or a skipped round left the choice open. Rounds after the first use options that depend on the earlier answers (not a fixed list). Stop early once category, fantasy and audience are known; every skipped round gets its default. Record each round in the saved file under `## Funnel answers` (answer, or `skipped -> default applied`). Voice chat is age-gated on Roblox and not available to all users: for a voice-chat idea give it an optional, non-essential role and a text-free fallback so the game works without it. Then run the Engine with the first card line `Building your idea from: <answers in one line>` (part of the card template), with the answers as constraints (silent candidates are variations that fit the answers), the critic, the saved file and the card.
 
 ## After the card
 
