@@ -11,11 +11,14 @@
   python kbq.py case "<genre or game>" [-n 4]   case-study notes (what creators say + transferable patterns)
   python kbq.py docs "<query>" [-n 8]      search official Creator Docs / DevForum notes (out/docs, out/devforum) for API/limit facts
   python kbq.py tools                      list the pre-built quick-reference files in roblox-kb/_tools
+  python kbq.py pack ideas|trends "<seed or genre>"   ONE call = the 5-6 evidence queries of rbx-ideas / rbx-trends as one [K#]-tagged pack; first line is `KB OK ...` or `KB unavailable: <reason>. Fix: ...`
 
 Every hit prints [topic | section | flag | newest-date] then the claim and up to 2 timestamped citations.
 flag: official (Roblox docs/staff/sessions) | indie (creator self-reported) | mixed | devforum (could be staff or community) | unsourced.
 """
 import argparse
+import contextlib
+import io
 import math
 import os
 import re
@@ -33,7 +36,7 @@ for _i, _a in enumerate(sys.argv):
         break
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-if len(sys.argv) > 1 and sys.argv[1] == "where":
+if len(sys.argv) > 1 and sys.argv[1] in ("where", "pack"):
     os.environ["KBQ_WHERE"] = "1"  # where must work even when the vault is missing
 import kbparse as K  # noqa: E402
 
@@ -365,6 +368,84 @@ def cmd_where(a):
     print("KIT_TOOLS=%s" % q(os.path.dirname(os.path.abspath(__file__))))
 
 
+PACKS = {
+    "ideas": [
+        ("route", "game idea %s core loop demand", None),
+        ("section", "game-ideas-and-genres", "instructions"),
+        ("section", "trend-research-and-validation", "instructions"),
+        ("find", "%s saturation demand validate", "game-ideas-and-genres,trend-research-and-validation"),
+        ("case", "%s", 3),
+        ("find", "mistakes %s scope", "common-mistakes"),
+    ],
+    "trends": [
+        ("route", "trends %s", None),
+        ("section", "trend-research-and-validation", "instructions"),
+        ("section", "game-ideas-and-genres", "instructions"),
+        ("case", "%s", 4),
+        ("find", "%s growing saturated demand", "trend-research-and-validation,game-ideas-and-genres"),
+        ("section", "roblox-platform-changes", "date"),
+    ],
+}
+
+
+def _cap(fn, **kw):
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        fn(argparse.Namespace(**kw))
+    return buf.getvalue().strip()
+
+
+def cmd_pack(a):
+    if not K.KB_DIR or not os.path.isdir(K.KB_DIR) or not K.topic_files():
+        print("KB unavailable: vault/knowledge base not found (looked in CLAUDES_VAULT, ~/Obsidian/claudes-vault).")
+        print("Fix: run /rbx-update, or clone the vault to ~/Obsidian/claudes-vault, or set CLAUDES_VAULT=<vault folder> (see INSTALL.md). Until then evidence is web-only.")
+        return
+    q = a.query
+    n_case = len([f for f in os.listdir(K.KB_DIR) if f.startswith("case-studies-")])
+    print("KB OK: %d topic files, %d case studies, vault %s" % (len(K.topic_files()), n_case, os.path.dirname(os.path.dirname(K.KB_DIR)).replace("\\", "/")))
+    k = [0]
+    gaps = []
+
+    def tag(text):
+        out = []
+        for ln in text.splitlines():
+            if ln.startswith("[") or ln.startswith("== "):
+                k[0] += 1
+                ln = "[K%d] %s" % (k[0], ln)
+            out.append(ln)
+        return "\n".join(out)
+
+    for kind, x, y in PACKS[a.kind]:
+        if kind == "route":
+            t = _cap(cmd_route, query=x % q, n=4)
+            print("-- route")
+            print("\n".join(l for l in t.splitlines() if not l.startswith("Next:")))
+        elif kind == "section":
+            t = _cap(cmd_section, topic=x, section=y, max_chars=1500)
+            if t.startswith("no such section") or not t:
+                gaps.append("section %s/%s" % (x, y))
+                continue
+            k[0] += 1
+            print("-- [K%d] section %s %s\n%s" % (k[0], x, y, t))
+        elif kind == "find":
+            t = _cap(cmd_find, query=x % q, n=6, topics=y, kinds=None, official=False, max_chars=300)
+            if t.startswith("(no hits"):
+                gaps.append("find %s" % (x % q))
+                continue
+            print("-- find %s" % (x % q))
+            print(tag(t))
+        elif kind == "case":
+            t = _cap(cmd_case, query=x % q, n=y, max_chars=700)
+            if t.startswith("(no case study"):
+                gaps.append("case %s" % q)
+                continue
+            print("-- case studies")
+            print(tag(t))
+    if gaps:
+        print("-- gaps (say so in the reply): " + "; ".join(gaps))
+    print("Cite as [K#] with the src link, flag and date; indie figures are claims, not demand evidence.")
+
+
 def cmd_tools(a):
     td = os.path.join(K.KB_DIR, "_tools")
     if not os.path.isdir(td):
@@ -390,6 +471,7 @@ def main():
     p = sp.add_parser("docs"); p.add_argument("query"); p.add_argument("-n", type=int, default=8); p.add_argument("--max-chars", type=int, default=420); p.set_defaults(f=cmd_docs)
     p = sp.add_parser("tools"); p.set_defaults(f=cmd_tools)
     p = sp.add_parser("where"); p.set_defaults(f=cmd_where)
+    p = sp.add_parser("pack"); p.add_argument("kind", choices=sorted(PACKS)); p.add_argument("query"); p.set_defaults(f=cmd_pack)
     a = ap.parse_args()
     a.f(a)
 

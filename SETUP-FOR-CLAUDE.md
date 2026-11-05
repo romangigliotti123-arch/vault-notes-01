@@ -18,7 +18,7 @@ If you are a person: open the viewer at [https://vault-hhmi60uo.netlify.app/](ht
 
 ## What the vault is
 
-The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `claudes-vault` with about 7,522 notes in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 13 Roblox agents, 69 skills / slash commands, helper tools) that is installed **but switched off by default**: a normal Claude Code session loads nothing from the vault, and `/rbx-load` turns on "Roblox dev mode" for one project folder and about 1.0 GB of **assets** (zip downloads; 1.4 GB extracted) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
+The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `claudes-vault` with about 7,541 notes in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 13 Roblox agents, 69 skills / slash commands, helper tools) that is installed **but switched off by default**: a normal Claude Code session loads nothing from the vault, and `/rbx-load` turns on "Roblox dev mode" for one project folder and about 1.0 GB of **assets** (zip downloads; 1.4 GB extracted) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
 
 ## What this changes on the computer (nothing else)
 
@@ -119,7 +119,7 @@ if (Test-Path "$V\.git") {
 }
 git -C $V log -1 --format='HEAD %h %cd' --date=short; (git -C $V ls-files '*.md' | Measure-Object -Line).Lines
 ```
-The note count should be about 7,522. The clone is about 110 MB and the first clone can take a few minutes. Never commit or push from the vault.
+The note count should be about 7,541. The clone is about 110 MB and the first clone can take a few minutes. Never commit or push from the vault.
 
 **Do not run the clone's sync scripts (`win-sync-setup.ps1`, `mac-sync-setup.sh`, `linux-sync-setup.sh`) in this setup**: they also register an update task that runs at every logon, which is Step 7 and optional. Steps 4 to 6 below do the rest directly.
 

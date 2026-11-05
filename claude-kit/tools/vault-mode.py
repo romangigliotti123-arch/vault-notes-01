@@ -7,6 +7,7 @@ Only the names in <config>/claude-kit/vault-mode/always-on.txt (rbx-load, rbx-un
 
   load   [--project DIR] [--no-link] [--no-text]   copy the store's skills/agents into DIR/.claude/skills|agents (DIR = current folder), list them in DIR/.claude/vault-mode.json,
                                                    hide them from git (.git/info/exclude), print the confirmation + the mode rules. --no-link: write nothing (session started with --add-dir).
+                                                   In HOME / the config folder / inside it, load is session-only automatically: writes nothing, prints the rules + a skill/agent index to Read on demand.
   unload [--project DIR | --all]                   remove exactly what load added (files whose content is unchanged); never a file of yours
   status [--project DIR]                           mode state of this folder + store/migration summary
   sync   [--quiet]                                 after an update: refresh every folder that has the mode loaded (kit-refresh runs this)
@@ -454,6 +455,36 @@ def registry_set(p, proj, marker):
     jwrite(p["reg"], reg)
 
 
+def one_line(path):
+    try:
+        t = open(path, encoding="utf-8", errors="replace").read()
+    except OSError:
+        return ""
+    m = re.search(r"^description:\s*(.+?)\s*$", t, re.M)
+    d = (m.group(1) if m else "").strip().strip("\"'")
+    d = re.split(r"(?<=[.:;])\s", d, 1)[0]
+    return d if len(d) <= 110 else d[:107].rstrip() + "..."
+
+
+def session_only(a, p, items):
+    s, g = counts(items)
+    ao = set(always_on(p))
+    print("Roblox dev mode loaded for this session only (no folder changed): %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
+    print("  a project folder gives the full persistent mode (slash commands, agents listed).")
+    if not a.no_text:
+        print()
+        cmd_mode_text(a)
+        print()
+        print("Session index (nothing is installed here): when a task matches, Read that SKILL.md first and follow it; for an agent, spawn a general-purpose subagent with its file as the brief.")
+        for key, (src, files) in items.items():
+            name = key.split("/", 1)[1]
+            if name in ao:
+                continue
+            path = os.path.join(src, "SKILL.md") if key.startswith("skills/") else src
+            print("- %s: %s [%s]" % (name[:-3] if name.endswith(".md") else name, one_line(path), path))
+    return 0
+
+
 def cmd_load(a, quiet_text=False):
     p = P(cfg_dir(a))
     proj = os.path.abspath(a.project or os.getcwd())
@@ -468,10 +499,8 @@ def cmd_load(a, quiet_text=False):
             print()
             cmd_mode_text(a)
         return 0
-    why = guard(proj, p)
-    if why:
-        print("vault-mode: not loaded. " + why)
-        return 2
+    if guard(proj, p):
+        return session_only(a, p, items)
     had_sk = os.path.isdir(os.path.join(proj, ".claude", "skills"))
     first = not os.path.isfile(os.path.join(proj, ".claude", "vault-mode.json"))
     marker, notes, changed = link(proj, p)
@@ -516,6 +545,10 @@ def cmd_unload(a):
         mpath = os.path.join(proj, ".claude", "vault-mode.json")
         marker = clean_marker(jread(mpath, None))
         if not marker:
+            if guard(proj, p):
+                print("Nothing to remove in %s: Roblox dev mode here was session-only and wrote nothing. Stop following the vault mode rules; a new session starts clean." % proj)
+                registry_set(p, proj, None)
+                continue
             print("Roblox dev mode was not loaded in %s (no .claude/vault-mode.json); nothing removed." % proj)
             registry_set(p, proj, None)
             continue
@@ -612,7 +645,7 @@ def cmd_status(a):
         ls, lg = counts(marker["items"])
         print("Roblox dev mode: ON in %s (%d skills, %d agents, since %s)" % (proj, ls, lg, marker.get("loaded_at", "?")))
     else:
-        print("Roblox dev mode: off in %s (type /rbx-load to turn it on)" % proj)
+        print("Roblox dev mode: off in %s (type /rbx-load to turn it on%s)" % (proj, "; here it loads for the session only, nothing is written" if guard(proj, p) else ""))
     print("vault store: %s (%d skills, %d agents) %s" % (p["store"], s, g, "" if items else "NOT INSTALLED: run /rbx-update"))
     others = [k for k in jread(p["reg"], {"projects": {}})["projects"] if os.path.realpath(k) != os.path.realpath(proj)]
     if others:

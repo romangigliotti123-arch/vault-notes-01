@@ -46,23 +46,17 @@ Dynamic pages often show no numbers to WebFetch; then write `not visible to fetc
 
 ## Step 0: KB first, web second
 
-The local Roblox knowledge base holds dated, sourced, official/indie-flagged material (516 sources, 90 case studies). Query it before any web search (about 4-6 calls):
+The local Roblox knowledge base holds dated, sourced, official/indie-flagged material (516 sources, 90 case studies). Before any web search, run ONE single-line Bash command (hooks may block multi-line blocks):
 
-```
-K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
-$K route "trends <genre or question>"
-$K section trend-research-and-validation instructions
-$K section game-ideas-and-genres instructions
-$K case "<genre>" -n 4          # case studies with transferable patterns and numbers
-$K find "<genre> growing saturated demand" -t trend-research-and-validation,game-ideas-and-genres -n 8
-$K section roblox-platform-changes date
-```
+`bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/tools/kbq.py" pack trends "<genre or question>"`
+
+It prints a `[K#]` pack. If its first line is not `KB OK` (or it fails), your reply starts with `KB unavailable: <reason>. Fix: <its Fix line>`; never fall back silently.
 
 Treat KB items as Tier A when flagged official (Creator Docs, Roblox sessions) and as Tier C leads when indie/self-reported; cite them as `[K#]` with the timestamp link. KB patterns count toward "shared patterns" (3+ games). The KB is a snapshot dated by its sources: use the web only for live facts it cannot hold (current CCU and chart positions, what rose in the last 90 days, KB gaps). Reduce the search and fetch budget by the number of KB case studies used (minimum 3 searches). Add a `K#` block to the Sources table.
 
 ## Steps
 
-1. **Leaders.** Find the current top experiences by concurrent players (and visits where shown). Record name, genre, concurrent players, date seen and S#. Prefer Tier A, then B.
+1. **Leaders.** Find the current top experiences by concurrent players (and visits where shown). Record rank, name, genre, concurrent players, date seen and S#. Prefer Tier A, then B. Floor: the mode's Games count. Chart pages often show no numbers: write `not visible to fetch`, use dated Tier B trackers, list the gap.
 2. **Break down each game.** Use one line per field, only for what the sources show (otherwise `n/a`):
    first 30 s (what the player does first and how it is taught) · core loop (action, reward, cycle length) · session (length, what ends it) · retention (daily, progression, collection, events, friends, limited-time) · social (solo, co-op, PvP, trading; how players meet) · monetisation (what is sold, where offers appear) · discovery (title and thumbnail style, update cadence).
 3. **Shared patterns.** Group what appears in 3 or more games. Give each one an ID (P1, P2...) and fill in: description, used by (n of N, with names), why it likely works, a small-scope version for a solo developer, and saturation (low, medium or high, with the reason).

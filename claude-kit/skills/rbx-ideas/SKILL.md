@@ -18,18 +18,11 @@ Solo developer comfortable with Luau and basic building, Mac with Studio (Rojo o
 
 ## Phase A: Ideas
 1. **Seed.** Keep the user's idea as the seed; do not ask them to restate it. No seed: vary the genres.
-2. **Evidence, KB first, web second.** Query the local Roblox knowledge base first (about 5 calls; sourced, dated, flagged official/indie):
-   ```
-   K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"   # `$K where` once shows VAULT/KB/ASSETS
-   $K route "game idea <seed or genre> core loop demand"
-   $K section game-ideas-and-genres instructions
-   $K section trend-research-and-validation instructions
-   $K find "<seed/genre> saturation demand validate" -t game-ideas-and-genres,trend-research-and-validation -n 8
-   $K case "<genre>" -n 3
-   $K find "mistakes <genre> scope" -t common-mistakes -n 5
-   ```
-   Tag KB evidence `[K#]` with link, flag and date (official Creator Docs/staff override indie advice; indie CCU/revenue figures are never evidence of demand, only of what creators claim). Then reuse a saved report (`research/roblox-trends-*.md`) if it is 14 days old or less and covers the seed's genre; run rbx-trends (Focused or Broad, which also reads the KB first) only for live facts the KB cannot hold (current charts, CCU, what rose in the last 90 days). If KB and web both fail, continue, write `Trend data: unavailable (<reason>)`, and mark Discoverability and Originality as low confidence.
-3. **Candidates.** 8 one-liners: "<who> does <what> to <goal>, with <twist>", each tagged with the pattern IDs it uses (P#). With a seed: 8 variations (different loops, twists or scopes). At least 2 a solo developer could finish in half the agreed time.
+2. **Evidence, KB first, web second.** Run ONE single-line Bash command (hooks may block multi-line blocks):
+   `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/tools/kbq.py" pack ideas "<seed or genre>"`
+   It prints a `[K#]` pack. If its first line is not `KB OK` (or it fails), your reply starts with `KB unavailable: <reason>. Fix: <its Fix line>`; never fall back silently.
+   Tag KB evidence `[K#]` with link, flag and date (official Creator Docs/staff override indie advice; indie CCU/revenue figures are never evidence of demand, only of what creators claim). Then reuse a saved report (`research/roblox-trends-*.md`) if it is 14 days old or less and covers the seed's genre and has a Leaders table; otherwise run rbx-trends (Focused or Broad) now; ideas rest on its chart leaders. If KB and web both fail, continue, write `Trend data: unavailable (<reason>)`, and mark Discoverability and Originality as low confidence.
+3. **Candidates.** 8 one-liners: "<who> does <what> to <goal>, with <twist>", each tagged with its chart anchor: 1 to 2 Leaders-table games it is formula-derived from (rank, CCU, date, [S#]/[K#]), the P# it keeps, and its twist; no such game: `no chart anchor`. Formula only, never content. With a seed: 8 variations (different loops, twists or scopes). At least 2 a solo developer could finish in half the agreed time.
 4. **Score** each candidate with the rubric below. Decide every score against the anchors, with a reason of 3 to 6 words. Keep reasons out of the reply except for scores of 1 or 2; show all if asked. **Drop rule:** drop any candidate scoring 1 on Scope, First 30 seconds or Monetisation fit, or breaking a hard rule. Ties go to the higher Scope score, then First 30 seconds.
 5. **Self-check**, then reply with the Phase A template.
 
@@ -55,8 +48,9 @@ Assumed: <defaults line> · Trend data: <report date | unavailable>
    First 30 s: <what the player does>
    Hook: <retention> · Money: <passes/cosmetics/none>
    MVP: <in> | Cut: <out>
-   Risk: <main risk>. Test: <cheap early test> (target from the KB benchmarks with flag, e.g. D1)
-   Weakest: <criterion> <n>, <criterion> <n> · Patterns: P#, P#
+   Risk: <main risk>. Test: <cheap early test> (KB benchmark target, flagged)
+   Weakest: <criterion> <n>, <criterion> <n>
+   Anchor: <game #rank, CCU, date [S#]> keeps P# | twist <new> (or: no chart anchor)
 2. ...
 3. ...
 
@@ -95,7 +89,7 @@ Milestones: 4 to 6, sized to the stated time. Every acceptance test must be obse
 ## Self-check before replying
 - [ ] The first phone screen shows the pick (Phase A) or This week (Phase B).
 - [ ] Every candidate has 8 scores checked against the anchors; the drop rule is applied and dropped ideas are listed with the rule they triggered.
-- [ ] Each evidence claim points to a P# or [S#] from the trend report, or is marked UNVERIFIED; no invented numbers or benchmarks.
+- [ ] Every idea has an Anchor line or `no chart anchor`; each evidence claim points to a P#, [S#] or [K#] from the trend report, or is marked UNVERIFIED; no invented numbers or benchmarks.
 - [ ] Hard rules hold: nothing copies a specific game's art, names, maps, code or story; no paid randomness, pressure, pay-to-win or unsafeguarded stranger contact; every library named is on the approved-options list as an option, not an install, and none is archived.
 - [ ] Every milestone has a pass/fail acceptance test; the plan has exactly 3 tasks for this week.
 - [ ] No promise of success; each risk has a check that could prove it wrong.
