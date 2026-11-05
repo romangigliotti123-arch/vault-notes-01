@@ -1,6 +1,6 @@
 ---
 name: rbx-idea-quick
-description: "Run /rbx-idea-quick for ONE short, evidence-backed Roblox game idea that fits what is working now: hook, 30 s / 5 min / session loop, monetisation fit, why now, a solo scope and critic score; offers 'start it'."
+description: "Run /rbx-idea-quick for a FAST, ~25-line Roblox game idea checked against today's live charts and trackers (hook, 30 s / 5 min / session loop, why now, solo scope, idea score); offers 'start it'. For the deep card use rbx-ideas; for your own idea use rbx-idea-creator."
 argument-hint: "[genre or seed, optional]"
 ---
 

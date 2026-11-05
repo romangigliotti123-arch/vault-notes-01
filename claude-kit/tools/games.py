@@ -183,6 +183,45 @@ def cmd_profile(a):
     print(json.dumps(cur) if cur else "PROFILE: none (first run: ask experience level and game type once, then store with --level/--type)")
 
 
+IDEA_MAP = (("core loop", "Core loop", "core loop"), ("hook", "Hook and first 30 seconds", None), ("week 1", "Week-1 loop", None),
+            ("money", "Monetisation", None), ("scores", "Scores", None), ("risks", "Risks and cheapest test", None), ("player", "Target player", "target player"))
+
+
+def parse_idea(path):
+    """research/idea-<slug>.md written by rbx-ideas: front matter (title, slug, pitch, category) plus '## <section>' blocks. -> (front matter dict, {section key: text})"""
+    t = read(path).replace("\r\n", "\n")
+    if not t.strip():
+        sys.exit("games.py: --from-idea file missing or empty: %s" % path)
+    fm = fm_of(t)
+    body = t[t.find("\n---", 4) + 4:] if t.startswith("---\n") and t.find("\n---", 4) > 0 else t
+    secs, cur = {}, None
+    for ln in body.split("\n"):
+        m = re.match(r"^##\s+(.+?)\s*$", ln)
+        if m:
+            h = m.group(1).lower()
+            cur = next((k for k, _, _ in IDEA_MAP if h.startswith(k)), None)
+            if cur and cur not in secs:
+                secs[cur] = []
+            else:
+                cur = None
+        elif cur:
+            secs[cur].append(ln)
+    return fm, {k: "\n".join(v).strip() for k, v in secs.items() if "\n".join(v).strip()}
+
+
+def seed_readme(gd, secs):
+    p = os.path.join(gd, "README.md")
+    t = read(p)
+    if "core loop" in secs:
+        t = t.replace("(what the player does each minute, earns, why they repeat it)", secs["core loop"])
+    if "player" in secs:
+        t = t.replace("(age band, platform, session length)", secs["player"])
+    extra = "".join("## %s\n%s\n\n" % (title, secs[k]) for k, title, _ in IDEA_MAP if k in secs and k not in ("core loop", "player"))
+    if extra and "\n## Systems and module map" in t:
+        t = t.replace("\n## Systems and module map", "\n" + extra.rstrip("\n") + "\n\n## Systems and module map", 1)
+    write(p, t)
+
+
 def cmd_init(a):
     root = games_root(a)
     gd = game_dir(root, a.slug)
@@ -191,7 +230,8 @@ def cmd_init(a):
     project = os.path.abspath(a.project) if a.project else None
     if getattr(a, "rojo", False):
         project = project or os.path.join(gd, "project")
-    kw = dict(slug=a.slug, date=today(), pitch=a.pitch or "TODO one-sentence pitch", genre=a.genre or "TODO", project=project or "TODO")
+    ifm, isecs = parse_idea(a.from_idea) if getattr(a, "from_idea", None) else ({}, {})
+    kw = dict(slug=a.slug, date=today(), pitch=a.pitch or ifm.get("pitch") or "TODO one-sentence pitch", genre=a.genre or ifm.get("category") or "TODO", project=project or "TODO")
     for name in sorted(os.listdir(td)):
         src = os.path.join(td, name)
         if not os.path.isfile(src) or name.startswith("_"):
@@ -211,6 +251,13 @@ def cmd_init(a):
     rebuild_hub(root)
     if refresh_readme(root, a.slug) == "created":
         created.append(os.path.relpath(os.path.join(gd, "README.md"), root))
+        if isecs:
+            seed_readme(gd, isecs)
+    if getattr(a, "from_idea", None):
+        keep = os.path.join(gd, "idea.md")
+        if not os.path.exists(keep):
+            write(keep, read(a.from_idea))
+            created.append(os.path.relpath(keep, root))
     print("GAME=%s\nCREATED=%d file(s)%s" % (gd, len(created), ("\n  " + "\n  ".join(created)) if created else " (already existed, nothing overwritten)"))
 
 
@@ -650,7 +697,7 @@ def main():
     sp = ap.add_subparsers(dest="cmd", required=True)
     sp.add_parser("where")
     p = sp.add_parser("profile"); p.add_argument("--level"); p.add_argument("--type"); p.add_argument("--reset", action="store_true")
-    p = sp.add_parser("init"); p.add_argument("slug"); p.add_argument("--pitch"); p.add_argument("--genre"); p.add_argument("--project"); p.add_argument("--rojo", action="store_true")
+    p = sp.add_parser("init"); p.add_argument("slug"); p.add_argument("--pitch"); p.add_argument("--genre"); p.add_argument("--project"); p.add_argument("--rojo", action="store_true"); p.add_argument("--from-idea", dest="from_idea", help="research/idea-<slug>.md from rbx-ideas: seeds pitch, genre and the README sections")
     sp.add_parser("list")
     p = sp.add_parser("system"); p.add_argument("action", choices=["add", "list"]); p.add_argument("name", nargs="?"); p.add_argument("--game"); p.add_argument("--project")
     p = sp.add_parser("detect"); p.add_argument("slug"); p.add_argument("--project"); p.add_argument("--json", action="store_true")
