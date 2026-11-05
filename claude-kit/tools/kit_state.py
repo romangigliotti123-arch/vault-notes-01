@@ -5,6 +5,7 @@ All of it lives under <claude config dir>/claude-kit/state/, a folder no install
   state/learnings-queue/      queued /rbx-learn notes (pending, sent, rejected, ready-to-send, repo)
   state/hiccups/              the hiccup ledger (ledger.jsonl, games.jsonl, settings.json)
   state/ui-mockup.json        the /rbx-mockup preference            state/ui-mockup-notice.done   one-time notice marker
+  state/thumbnails/           results.jsonl: thumbnail variant results (tools/thumb_record.py), settings.json, queued.json
   state/overrides/            local-rules.md: your own rules, read by the hiccup pre-flight; never touched by an update
   state/conflicts.json, state/conflicts/   vault files you edited that an update kept (see kit-conflicts.py)
 Older installs kept the first four directly under claude-kit/. migrate() moves them over once (idempotent: a file already there is never overwritten, identical leftovers are removed, a differing
@@ -20,7 +21,7 @@ import sys
 STATE = ("claude-kit", "state")
 LEGACY = {"learnings-queue": ("claude-kit", "learnings-queue"), "hiccups": ("claude-kit", "hiccups"),
           "ui-mockup.json": ("claude-kit", "ui-mockup.json"), "ui-mockup-notice.done": ("claude-kit", "ui-mockup-notice.done")}
-NAMES = tuple(LEGACY) + ("overrides", "conflicts", "conflicts.json")
+NAMES = tuple(LEGACY) + ("overrides", "conflicts", "conflicts.json", "thumbnails")
 
 
 def config_dir(cfg=None):

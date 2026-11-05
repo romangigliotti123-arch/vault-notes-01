@@ -61,4 +61,4 @@ Write `art/thumbnail-plan.md` with the concept table, a shot list for the owner 
 - Do not hard-code Roblox sizes or AI model names in outputs; both change.
 
 ## Related
-`game-icon-maker`, `ctr-ab-test-planner`, `game-description-writer`, `rbx-thumbnail` (image generation), `rbx-thumb-brief`, `thumbnail-guideline-checker`.
+`game-icon-maker`, `ctr-ab-test-planner`, `game-description-writer`, `rbx-thumbnail` (image generation; step 4a scores candidates with the click-psychology rubric, `thumb_score.py`), `rbx-thumb-brief`, `thumbnail-guideline-checker`.

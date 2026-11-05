@@ -54,4 +54,4 @@ Pure planning. If no analytics access, list the numbers the owner must copy from
 Testing during an update or event. Calling a winner after a day of data. Clickbait winners with worse retention. Changing the title and thumbnail together. Running many variants on tiny traffic (nothing reaches significance; test bigger differences).
 
 ## Related
-`thumbnail-maker`, `game-icon-maker`, `game-description-writer`, `experiment-designer`, `ab-result-reader`.
+`thumbnail-maker`, `game-icon-maker`, `game-description-writer`, `experiment-designer`, `ab-result-reader`, `rbx-thumbnail` (thumbnail personalization protocol and the results ledger `thumb_record.py`).

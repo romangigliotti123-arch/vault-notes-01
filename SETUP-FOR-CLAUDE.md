@@ -267,7 +267,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-load`, `/rbx-unload`, 
 - `/rbx-setup` (Roblox dev mode) - Run /rbx-setup to see which software the vault setup needs and what is missing on this computer (Windows, macOS, Linux): git, Python, Claude Code, Roblox Studio and its M
 - `/rbx-studio` (Roblox dev mode) - Connects Claude Code to Roblox Studio and the toolchain and says how to use the connection as evidence: official Studio MCP server (scripts, run Luau, playtest, Output, s
 - `/rbx-thumb-brief` (Roblox dev mode) - Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, video shot list, A/B plan and sponsored-ad creative brief
-- `/rbx-thumbnail` (Roblox dev mode) - Image prompts and the images for a Roblox game's icon, thumbnails and store screenshots with Google's newest Nano Banana (Gemini image) model from the user's API key. A/B
+- `/rbx-thumbnail` (Roblox dev mode) - Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts, A/B variants, content-rules checklist, images via the user's Gemini API key (Nan
 - `/rbx-trends` (Roblox dev mode) - Market research on Roblox only: what is popular or trending right now, as a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, socia
 - `/rbx-tune` (Roblox dev mode) - Metric-gated tuning loop: pick ONE number (gate score, economy simulation, frame cost), baseline it, single-change experiments, keep strict improvements, revert the rest,
 - `/rbx-ui` (Roblox dev mode) - Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when crea

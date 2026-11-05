@@ -10,7 +10,7 @@ Claude never presses Publish or changes live settings; this list produces a go /
 1. Build: the exact place version/commit, changelog of what is new, a rollback plan (previous version restorable from Version History in Studio).
 2. Tests: rbx-playtest-list passed on phone-sized emulation and a Local Server with 2+ players; rbx-remote-sec review has no Critical or High left; rbx-datastore tests passed; `static_scan.py --gate` security score 7 or higher (below 7 is a launch blocker).
 3. Safety and policy: the experience questionnaire/maturity rating matches the content; no real-money gambling, no paid random rewards, no misleading claims; user text goes through Roblox filtering (`TextService:FilterStringAsync` / `TextChatService`); no personal data collected; third-party assets licensed.
-4. Store page: title, description, icon, 3+ thumbnails (rbx-thumb-brief), genre, devices, max players, access (public/friends/private) as intended; Social links optional.
+4. Store page: title, description, icon, 3+ thumbnails (rbx-thumb-brief; add the line `thumbnail: scored <score>/<max> (variants N)` or `thumbnail: skipped: <reason>` from rbx-thumbnail 4a, advisory), genre, devices, max players, access (public/friends/private) as intended; Social links optional.
 5. Monetisation: rbx-monetize verdict pass; every product has the correct id in the shipped build; prices as planned.
 6. Performance: rbx-perf numbers within target on the weakest target device; StreamingEnabled decision made.
 7. Observability: custom analytics events for the funnel (spawned, first action, first reward, quit point), error logging to Output or a webhook-free approach, DataStore failure counts.
