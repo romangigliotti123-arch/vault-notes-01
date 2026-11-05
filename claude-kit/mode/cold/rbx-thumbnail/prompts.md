@@ -7,7 +7,7 @@ Use with `scripts/gen_image.py generate --prompt-file F --aspect 16:9` (the only
 ## Candidate sources (every source ends in the same scoring step)
 1. `gen_image.py` from this template (user's own key, spend confirmation).
 2. Manual Nano Banana: the same prompt pasted by the user into the Gemini website; the user saves the images into `art/`.
-3. Blender render (optional pipeline, reserved: not part of this release).
+3. Blender render (optional, free local install, no key): `scripts/blender_gfx.py detect|gen|check|run`, details and UNTESTED LIVE notes in [cold:rbx-thumbnail/blender.md]; without Blender say the `detect` line and use the other sources.
 4. User-supplied images (their own art, an edited screenshot).
 Whatever the source: `thumb_score.py inspect` for the file, then LOOK at it and score it (rubric.md). Provenance (source, model, prompt, date) goes next to the image.
 

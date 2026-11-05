@@ -49,7 +49,7 @@
     "skills/rbx-lighting/scripts/*": {"class": "output-to-user-path", "writes": "<game>/lighting-qa; build_inline.py is a maintainer generator"},
     "skills/rbx-placement/scripts/*": {"class": "output-to-user-path", "writes": "<game>/placement-qa; build_inline.py is a maintainer generator"},
     "skills/rbx-visual/scripts/*": {"class": "output-to-user-path", "writes": "<game>/visual-qa; build_inline.py is a maintainer generator"},
-    "skills/rbx-thumbnail/scripts/*": {"class": "output-to-user-path", "writes": "--out folder; <game>/thumb-score (thumb_score.py gate record)"},
+    "skills/rbx-thumbnail/scripts/*": {"class": "output-to-user-path", "writes": "--out folder; <game>/thumb-score (thumb_score.py gate record); <project>/renders (blender_gfx.py scripts, PNGs, sidecars)"},
     "skills/rbx-tune/*": {"class": "output-to-user-path", "writes": "<game>/tune"},
     "skills/rbx-launch-check/*": {"class": "output-to-user-path", "writes": "--html-out / --md files"},
     "skills/rbx-playtest/scripts/*": {"class": "output-to-user-path", "writes": "stdout; optional report file"},
