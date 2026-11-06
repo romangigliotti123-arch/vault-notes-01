@@ -13,7 +13,8 @@
 D="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$D/install.sh" ]; then
   out="$(CLAUDE_KIT_NOFOOTER=1 bash "$D/install.sh" 2>&1)" || out="kit refresh failed: $out"
-  if [ "$(printf '%s\n' "$out" | wc -l)" = 1 ] && printf '%s\n' "$out" | grep -Eq '^claude-kit: installed 0 new, updated 0, unchanged [0-9]+ \(into .*\)$'; then :
+  chk="$(printf '%s\n' "$out" | grep -v '^similar skills of yours')"   # the informational list of similar user skills alone is not a change
+  if [ "$(printf '%s\n' "$chk" | wc -l)" = 1 ] && printf '%s\n' "$chk" | grep -Eq '^claude-kit: installed 0 new, updated 0, unchanged [0-9]+ \(into .*\)$'; then :
   else KCHANGED=1; printf '%s kit-refresh: %s\n' "$(date '+%F %T')" "$(printf '%s' "$out" | tr '\n' ' ')"; fi
 fi
 # 1b) tools/vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/rbx-load) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips this part.
