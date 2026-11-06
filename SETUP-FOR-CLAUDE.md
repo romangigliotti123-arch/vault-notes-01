@@ -214,7 +214,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-update`, `/rbx-check`,
 - `/rbx-harvest` (vault folder) - Saves anything reusable built or found good in a game to Games/_Reusable/<name>/ with a README, linked from systems.md so the next game uses it first. Use after a system 
 - `/rbx-idea-creator` (vault folder) - Start from YOUR idea: '/rbx-idea-creator <idea>' revamps your own game idea into a full rated card (hook, retention, week 1, money, build ease), or with no idea it guides
 - `/rbx-idea-quick` (vault folder) - Run /rbx-idea-quick for a FAST, ~25-line Roblox game idea checked against today's live charts and trackers (hook, 30 s / 5 min / session loop, why now, solo scope, idea s
-- `/rbx-ideas` (vault folder) - Claude invents a fresh Roblox game idea ('what should I build', 'give me a game idea', 'surprise me'): shows the 3 best of many sparks as short pitches, you pick one, the
+- `/rbx-ideas` (vault folder) - Claude invents ONE fresh Roblox game idea ('what should I build', 'give me a game idea', 'surprise me'), single-player or open-world first and picked for what the charts 
 - `/rbx-karpathy` (vault folder) - Installs and applies four coding-agent rules in a project CLAUDE.md: think before coding, simplicity first, surgical changes, goal-driven execution. Use for bloated or un
 - `/rbx-kb` (vault folder) - Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs, 25 creators), no agents, no big files. Use proactively for
 - `/rbx-launch-check` (vault folder) - Builds a phone-friendly launch checklist (HTML plus markdown) for one Roblox game from the knowledge base: relative due dates, priorities, owners, a source per item. Use 
