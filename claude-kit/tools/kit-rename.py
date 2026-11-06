@@ -324,9 +324,6 @@ def cmd_migrate(a):
             f = os.path.join(c, *rel.split("/"))
             if not os.path.isfile(f):
                 continue
-            if sha(f) != h:
-                kept.append(os.path.relpath(f, c) if not a.dry_run else rel)
-                continue
             if not a.dry_run:
                 dst = os.path.join(backup, *rel.split("/"))
                 os.makedirs(os.path.dirname(dst), exist_ok=True)
