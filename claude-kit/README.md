@@ -2,6 +2,17 @@
 
 Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
+## Quick start
+
+**HOW TO START USING**
+- Start a new Claude session in your vault folder (for example `~/Obsidian/claudes-vault`; Windows `%USERPROFILE%\Obsidian\claudes-vault`). Claude app: New, choose that folder. Terminal: `cd` to it, then `claude`. Obsidian: Open folder as vault on the same path. That folder loads the whole vault automatically; no load command.
+
+**HOW TO SEE SKILLS AND AGENTS**
+- In that session type `/rbx-list` (skills, agents, mods), or type `/` and start typing `rbx-`. To learn what one skill does, ask "what does /rbx-<name> do".
+
+**HOW TO UPDATE**
+- Type `/rbx-update` (works from any session).
+
 Say one sentence on any computer and a Claude agent designs and builds a Roblox game for you, using the vault, the Roblox skills and your downloaded assets. It never asks you questions: if your idea is vague it makes assumptions, writes them down, and carries on.
 
 ## What to run (start Claude in the vault folder, then these)

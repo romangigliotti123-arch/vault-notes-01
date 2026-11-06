@@ -2,6 +2,17 @@ AI READER: this is an instruction to EXECUTE, not a document to summarise. Do ev
 
 # Install the Claude kit (agents, skills, tools) of the Roblox Dev Mastery Vault
 
+## Quick start
+
+**HOW TO START USING**
+- Start a new Claude session in your vault folder (for example `~/Obsidian/claudes-vault`; Windows `%USERPROFILE%\Obsidian\claudes-vault`). Claude app: New, choose that folder. Terminal: `cd` to it, then `claude`. Obsidian: Open folder as vault on the same path. That folder loads the whole vault automatically; no load command.
+
+**HOW TO SEE SKILLS AND AGENTS**
+- In that session type `/rbx-list` (skills, agents, mods), or type `/` and start typing `rbx-`. To learn what one skill does, ask "what does /rbx-<name> do".
+
+**HOW TO UPDATE**
+- Type `/rbx-update` (works from any session).
+
 What it is: Roblox specialist agents (including `rbx-builder`, the single entry point for "make me a Roblox game"), their skills, the `kbq` and `vault-find` search tools and a Rojo/Luau project template. Everything resolves paths at run time; nothing is user-specific.
 
 Default scope is vault + kit + assets (a plain Enter or no answer); "just the vault" and "vault + kit" stay available.
@@ -19,7 +30,7 @@ Default scope is vault + kit + assets (a plain Enter or no answer); "just the va
 4. Set nothing global: do not edit `settings.json` (the one exception is the user-approved hook merge: `install.sh --with-hooks` / `install.ps1 -WithHooks`, never run by default, which adds the two `/rbx-low-usage` hooks and the `rbx-mentor` suggestion hook; each is backed up first, idempotent and removable with `--remove-hooks` / `-RemoveHooks`), environment variables, shell profiles, MCP configuration or permissions. Do not install software. Do not write inside the vault.
 5. Check (cheap): the installer prints `claude-kit: installed N new, updated N, unchanged N` (N is 0 on a second run). Then confirm `~/.claude/claude-kit/vault-mode/.claude/agents/rbx-builder.md` exists and, if python exists, `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/kbq.py where` prints a VAULT path (if it prints an empty VAULT, set nothing; tell the user the vault is not cloned yet).
 6. Optional, never required: the Roblox static checks need Rokit tools (rojo, selene, stylua, luau-lsp). The game builder reports "tools missing" and does a manual review when they are absent. Do not install them unless the user asked. The opt-in helper `~/.claude/claude-kit/tools/studio-setup.ps1` (Windows) / `studio-setup.sh` (macOS/Linux) installs the toolchain (Rokit, Rojo, Selene, StyLua, luau-lsp, Lune) and registers the official Studio MCP server; it explains and asks before each step, so offer it only when the user wants Claude to run or test the game in Roblox Studio. Test it safely with `-DryRun` / `--dry-run` and a temporary `CLAUDE_CONFIG_DIR`.
-7. Final message to the user: the installer line from step 5, then END your final report with the completion block from STEP 6 of SETUP-FOR-CLAUDE.md in the vault root ("The Roblox Dev Mastery Vault is now set up.", grouped slash commands, how it works, and "Built and maintained by Roman (GitHub: romangigliotti123-arch)"). Tell them to load the vault by starting a new Claude session in the vault folder (use the real path); that folder is loaded automatically and no load command exists.
+7. Final message to the user: your own short summary first, then END your final message with the closing block the installer printed (HOW TO START USING, HOW TO SEE SKILLS AND AGENTS, HOW TO UPDATE), copied exactly as printed: no retyping, no code fence, nothing after it.
 
 ## Trust model: what installing and updating means (read once)
 - **Installing runs code from this repository** (Python, bash, PowerShell scripts) with your user rights, no admin. It writes under `~/.claude/claude-kit`, five small commands in `~/.claude/skills`, the vault folder and `<vault>/Assets`. It sends nothing anywhere: it only reads from github.com, raw.githubusercontent.com and the website over HTTPS.
@@ -46,7 +57,7 @@ Your own work is safe: `My Research/` (default output folder of the research ski
 - `/rbx-setup`: table of the software the setup uses (git, Python, Claude Code, Studio and Studio MCP, Rokit + Luau tools, Rojo, Blender + Blender MCP, uv, Obsidian ...), required vs optional, exact install command per OS; installs only after your yes. Setup runs it automatically at the end. By hand: `python tools/setup-check.py`.
 
 - Mods: `/rbx-subagent-hud` shows the master agent and its subagents (done count, time estimate, click a subagent to see its prompt); `/rbx-graph` replies with the link to the vault graph site (kit mods installed with the kit via `claude plugin`; they only show in the terminal and desktop app, not in Remote Control or mobile). The installer registers the local marketplace `roblox-vault-kit-mods` (`claude-kit/mods` in the vault) and installs `rbx-subagent-hud` and `rbx-graph` when the `claude` CLI is on PATH (idempotent); without it, it prints `/plugin marketplace add <path>`, `/plugin install <mod>@roblox-vault-kit-mods`, `/reload-plugins` for you to run in a session. `/rbx-uninstall` removes them first.
-- The installer's last line is always `>>> Load the vault by starting a Claude session in <VAULT path> (then /rbx-list shows everything it contains).` (with <VAULT path> replaced by the real vault path you used).
+- The installer's last output is always the closing block (the three bold headings HOW TO START USING, HOW TO SEE SKILLS AND AGENTS, HOW TO UPDATE, with the real vault path already filled in). Give it to the user exactly as printed.
 
 ## Remove
 **To remove: `/rbx-uninstall`.** It shows a plan first, asks for a yes, copies your games (`Games/`, `Games/_Reusable`, `My Research/`) to `~/Roblox Games` and checks the copy, removes the hooks, then deletes the kit and the vault folder. By hand instead: delete the files listed in `~/.claude/claude-kit/installed.tsv` (first column, relative to `~/.claude/`) and the `~/.claude/claude-kit/` folder. Only do this if the user asks.
