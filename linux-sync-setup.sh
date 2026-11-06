@@ -37,7 +37,7 @@ else STATE="${XDG_STATE_HOME:-$HOME/.local/state}/claudes-vault-sync"; fi
 # Self-healing update of the READ-ONLY vault clone. Never fails, never runs git clean. Prints at most one line.
 # core.autocrlf/safecrlf off, fetch, fast-forward; if local changes or divergence block that, the real changes are saved to
 # <state>/local-changes-<timestamp>.patch (+ untracked list; newest 5 kept) and the vault is reset to origin/main.
-# Full view (marker <vault>/.full-view): after every update .obsidian/app.json gets userIgnoreFilters = ["Assets/"] only; never saved as a local change.
+# Full view (marker <vault>/.full-view): after every update .obsidian/app.json gets userIgnoreFilters = ["Assets/", "Games/", "Models/"] only; never saved as a local change.
 vault_json() { # $1 = mode (strip|set) ; reads JSON text on stdin, writes JSON text on stdout
   local PY="" c; for c in python3 python; do if command -v "$c" >/dev/null 2>&1 && "$c" -c 'import json' >/dev/null 2>&1; then PY="$(command -v "$c")"; break; fi; done
   if [ -n "$PY" ]; then
@@ -49,13 +49,13 @@ o = json.loads(t)
 if mode == "strip":
     o.pop("userIgnoreFilters", None); print(json.dumps(o, sort_keys=True))
 else:
-    o["userIgnoreFilters"] = ["Assets/"]; print(json.dumps(o, indent=2, ensure_ascii=False))
+    o["userIgnoreFilters"] = ["Assets/", "Games/", "Models/"]; print(json.dumps(o, indent=2, ensure_ascii=False))
 ' "$1"
   elif command -v node >/dev/null 2>&1; then
     node -e '
 const m = process.argv[1]; let t = require("fs").readFileSync(0, "utf8").trim() || "{}"; const o = JSON.parse(t);
 if (m === "strip") { delete o.userIgnoreFilters; const k = {}; Object.keys(o).sort().forEach(x => k[x] = o[x]); console.log(JSON.stringify(k)); }
-else { o.userIgnoreFilters = ["Assets/"]; console.log(JSON.stringify(o, null, 2)); }
+else { o.userIgnoreFilters = ["Assets/", "Games/", "Models/"]; console.log(JSON.stringify(o, null, 2)); }
 ' "$1"
   else return 1; fi
 }
@@ -70,19 +70,19 @@ vault_fullview_apply() { # $1 = vault
 # removable), are never in a patch and never touched by reset. Untracked files are never removed by a normal update;
 vault_protected() { # $1=git $2=vault ; prints protected dirs (relative, no trailing slash), 'My Research' first
   local G="$1" V="$2" REG="$2/.git/info/protected-folders.txt" d
-  { echo 'My Research'; echo 'Games'
+  { echo 'My Research'; echo 'Games'; echo 'Models'
     [ -f "$REG" ] && cat "$REG"
     "$G" -C "$V" -c core.quotepath=false ls-files -o --exclude-standard -- '*PROTECTED-RESEARCH.md' 2>/dev/null | sed -n 's#^\(.*\)/PROTECTED-RESEARCH\.md$#\1#p'
   } | awk 'NF && !seen[$0]++' | while IFS= read -r d; do
-    case "$d" in "My Research/"*|"Games/"*) continue;; esac
-    if [ "$d" = "My Research" ] || [ "$d" = "Games" ] || [ -f "$V/$d/PROTECTED-RESEARCH.md" ]; then echo "$d"; fi
+    case "$d" in "My Research/"*|"Games/"*|"Models/"*) continue;; esac
+    if [ "$d" = "My Research" ] || [ "$d" = "Games" ] || [ "$d" = "Models" ] || [ -f "$V/$d/PROTECTED-RESEARCH.md" ]; then echo "$d"; fi
   done
 }
 vault_protect() { # $1=git $2=vault ; sets PROT (newline list) and adds /<dir>/ lines to .git/info/exclude (idempotent)
   local V="$2" EX="$2/.git/info/exclude" REG="$2/.git/info/protected-folders.txt" d
   PROT="$(vault_protected "$1" "$2")"
   mkdir -p "$V/.git/info"
-  printf '%s\n' "$PROT" | tail -n +3 > "$REG"; [ -s "$REG" ] || rm -f "$REG"
+  printf '%s\n' "$PROT" | tail -n +4 > "$REG"; [ -s "$REG" ] || rm -f "$REG"
   while IFS= read -r d; do
     [ -n "$d" ] || continue
     grep -qxF "/$d/" "$EX" 2>/dev/null || echo "/$d/" >> "$EX"
@@ -255,6 +255,6 @@ echo "Done. The vault (pull, kit, assets) updates shortly after boot/login, not 
 echo "Update now, any time: bash \"$DEST/vault-update.sh\"   (or /rbx-update in Claude). Assets are in $DEST/Assets."
 echo "Next: open Obsidian > Open folder as vault > choose $DEST"
 echo "Do not edit notes here (pull is fast-forward only). Remove the sync: bash linux-sync-setup.sh --uninstall"
-if [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of your project, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"; fi
-if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo; echo ">>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains)."; fi
+if [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo "The Roblox Dev Mastery Vault kit is installed. TO USE THE VAULT: load it by starting a Claude session in $DEST (that folder is the loaded vault: the vault skills, agents, art-direction, placement, lighting and visual-QA rules and reference images are there automatically; no load command is needed; your other Claude sessions stay clean). Always available in every session: /rbx-update /rbx-check /rbx-uninstall. In the vault folder: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of the vault, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"; fi
+if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo; echo ">>> Load the vault by starting a Claude session in $DEST (then /rbx-list shows everything it contains)."; fi
 exit 0

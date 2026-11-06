@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """vault_cost.py: what the vault costs a Claude Code session (stdlib only, no tokenizer library).
 
-  python vault_cost.py --kit <kit source dir>                    measure the kit as /rbx-load would load it (always-on set read from mode/always-on.txt)
+  python vault_cost.py --kit <kit source dir>                    measure the kit as the vault folder loads it (always-on set read from mode/always-on.txt)
   python vault_cost.py --config <claude config dir>              measure an INSTALLED kit (<config>/skills = always-on, <config>/claude-kit/vault-mode = the on-demand store)
   python vault_cost.py --kit <dir> --install-test                also run the real installer into a temp HOME, time it, and measure what it installed
 Options: --threshold-chars N (flag descriptions longer than N, default 600) --top N (default 10) --cpt F (characters per token, default 4.0)
@@ -14,7 +14,7 @@ METHOD (stated so the numbers can be challenged; no tiktoken):
   identifiers cost more). Characters = Unicode code points of the UTF-8 text. Treat the numbers as an estimate for COMPARING vault versions, not as a bill.
   What costs context in a session:
    * ALWAYS-ON: every skill in <config>/skills (the 5 maintenance commands) lists `name: description` in every session, loaded mode or not.
-   * LOAD MODE (after /rbx-load): every store skill and agent copied into the project lists `name: description` too; a skill with
+   * LOAD MODE (a session in the vault folder): every store skill and agent copied into the vault folder lists `name: description` too; a skill with
      `disable-model-invocation: true` lists nothing (cost 0 until the user types its command). The mode rules (mode/CLAUDE.md) are printed once at load and stay in the chat.
    * ON INVOKE: the SKILL.md body (and any reference file the model opens) is read only when the skill runs; reported separately (body tokens), never added to the listing total.
   Not counted: tool schemas, Claude Code's own system prompt, the project's CLAUDE.md, the text of command output.
@@ -33,7 +33,7 @@ import sys
 import tempfile
 import time
 
-ALWAYS_ON_DEFAULT = ["rbx-load", "rbx-unload", "rbx-update", "rbx-check", "rbx-uninstall"]
+ALWAYS_ON_DEFAULT = ["rbx-update", "rbx-check", "rbx-uninstall"]
 CPT = 4.0
 
 

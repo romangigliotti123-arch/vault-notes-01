@@ -1,8 +1,8 @@
 # claude-kit installer for Windows (PowerShell 5.1+). Safe to run again. No questions, no admin, sets nothing global.
 #   ON-DEMAND STORE (Roblox dev mode, not read by normal Claude sessions): agents\* -> %USERPROFILE%\.claude\claude-kit\vault-mode\.claude\agents\   skills\* -> ...\vault-mode\.claude\skills\   mode\CLAUDE.md -> ...\vault-mode\CLAUDE.md
-#   /rbx-load copies the store's skills+agents into the CURRENT PROJECT's .claude\ (tools\vault-mode.py); /rbx-unload removes exactly those copies.
-#   COLD AREA: mode\cold\<topic>\* rides the mode\* mapping -> ...\claude-kit\vault-mode\cold\ (installed, refreshed, in installed.tsv, removed by uninstall; never copied into a project; read with tools\vault-mode.py cold).
-#   ALWAYS-ON (the only kit skills in %USERPROFILE%\.claude\skills, listed in mode\always-on.txt): rbx-load rbx-unload rbx-update rbx-check rbx-uninstall
+#   The VAULT FOLDER (the notes clone, e.g. %USERPROFILE%\Obsidian\claudes-vault) is permanently loaded: tools\vault-mode.py load --project <vault> (run here at the end, quietly, and by every update) copies the store's skills+agents+rules into <vault>\.claude\, hidden from git together with Games\ and Models\. Older loaded project folders are cleaned. No load/unload commands exist.
+#   COLD AREA: mode\cold\<topic>\* rides the mode\* mapping -> ...\claude-kit\vault-mode\cold\ (installed, refreshed, in installed.tsv, removed by uninstall; never copied into a folder; read with tools\vault-mode.py cold).
+#   ALWAYS-ON (the only kit skills in %USERPROFILE%\.claude\skills, listed in mode\always-on.txt): rbx-update rbx-check rbx-uninstall
 #   tools\* -> %USERPROFILE%\.claude\claude-kit\tools\  systems\* -> %USERPROFILE%\.claude\claude-kit\systems\  skillpack\* -> ...\claude-kit\skillpack\ (NOT skills: opened on demand by the /rbx router skill)
 # An older install (kit skills/agents directly in .claude\skills and \agents) is migrated by tools\vault-mode.py migrate: kit files move to a backup folder, your own skills/agents/CLAUDE.md are untouched, idempotent, reversible.
 # The vault owns every file it installs: an install/update overwrites each one with the incoming version and removes files that left the kit (no keep, no conflicts). The only content that is yours is your project's Games/ and Models/ folders and anything outside the vault's own paths; nothing here touches them. claude-kit/state/ holds a few tiny settings (rbx-mockup on/off) that are never deleted.
@@ -19,7 +19,7 @@ $Man = Join-Path $C 'claude-kit\installed.tsv'
 function Sha([string]$p) { (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() }
 
 $SM = 'claude-kit/vault-mode'
-$ao = @('rbx-load', 'rbx-unload', 'rbx-update', 'rbx-check', 'rbx-uninstall')
+$ao = @('rbx-update', 'rbx-check', 'rbx-uninstall')
 $aof = Join-Path $Kit 'mode\always-on.txt'
 if (Test-Path -LiteralPath $aof) { $ao = @([IO.File]::ReadAllLines($aof) | ForEach-Object { $_.Trim() } | Where-Object { $_ -and -not $_.StartsWith('#') }) }
 $firstWf = -not (Test-Path -LiteralPath $Man)     # fresh install: print the welcome text at the end
@@ -135,12 +135,26 @@ if (-not $DryRun -and (Test-Path -LiteralPath $vm)) {
   if ($mpy) { $prevCfgM = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C; $mo = (& $mpy -I $vm migrate --config $C 2>&1 | Out-String).Trim(); $env:CLAUDE_CONFIG_DIR = $prevCfgM; if (-not $prevCfgM) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }; if ($mo) { $migrateOut = $mo } }
   elseif (Test-Path -LiteralPath $preMode) { $migrateOut = 'vault-mode: no working Python 3, so the old always-on kit skills were not moved; install Python 3 and run /rbx-update' }
 }
-if ($renamed -and -not $DryRun -and (Test-Path -LiteralPath $vm)) {
-  # folders that have Roblox dev mode loaded: swap the old-named copies for the new-named ones (vault-mode.py sync is idempotent)
-  foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $prevCfgS = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C; $ea1 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'; $so = (& $cmd.Source -I $vm sync --config $C 2>&1 | Out-String).Trim(); $ErrorActionPreference = $ea1; $env:CLAUDE_CONFIG_DIR = $prevCfgS; if (-not $prevCfgS) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }; if ($so) { Write-Output $so }; break } } catch { } } }
+# the vault folder is THE loaded environment: resolve it (the clone that holds this claude-kit folder, $env:CLAUDES_VAULT, the registered one, ~\Obsidian\claudes-vault) and load it quietly (env CLAUDE_KIT_NOLOAD=1: the caller, kit-refresh, does it)
+$vh = ''; $loadOut = ''
+$kitVm = Join-Path $Kit 'tools\vault-mode.py'
+if (Test-Path -LiteralPath $kitVm) {
+  foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) {
+    $prevCfgH = $env:CLAUDE_CONFIG_DIR; $prevKh = $env:CLAUDE_KIT_HOME; $env:CLAUDE_CONFIG_DIR = $C; $env:CLAUDE_KIT_HOME = $KitHome
+    $ea1 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+    $vh = ((& $cmd.Source -I $kitVm home --kit $Kit --config $C 2>$null | Out-String).Trim() -split "`r?`n" | Select-Object -Last 1)
+    if ($vh -and -not $DryRun -and $env:CLAUDE_KIT_NOLOAD -ne '1' -and (Test-Path -LiteralPath $vm)) {
+      $la = @('-I', $vm, 'load', '--project', $vh, '--quiet', '--config', $C); if (-not $firstWf) { $la += '--announce' }
+      $loadOut = (& $cmd.Source @la 2>&1 | Out-String).Trim()
+    }
+    $ErrorActionPreference = $ea1
+    $env:CLAUDE_CONFIG_DIR = $prevCfgH; if (-not $prevCfgH) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }
+    $env:CLAUDE_KIT_HOME = $prevKh; if (-not $prevKh) { Remove-Item Env:\CLAUDE_KIT_HOME -ErrorAction SilentlyContinue }
+    break } } catch { } } }
 }
 Write-Output ("claude-kit: installed $nNew new, updated $nUpd, unchanged $nSame" + $(if ($nGone) { ", removed $nGone no longer in the kit" }) + $(if ($nFail) { ", FAILED $nFail" }) + " (into $C)")
 if ($renameMsg) { Write-Output $renameMsg }
+if ($loadOut) { Write-Output $loadOut }
 # UI mockups default to automatic design-first: ONE non-blocking NOTICE FOR THE USER line per install (marker claude-kit/ui-mockup-notice.done); a fresh install only sets the marker (the setup text asks the question)
 $uip = Join-Path $Kit 'tools\ui_pref.py'
 if ((Test-Path -LiteralPath $uip) -and -not $DryRun) {
@@ -223,7 +237,8 @@ if (-not $DryRun -and -not $WithMods) {
     }
   } catch { }
 }
-if ($firstWf -and -not $DryRun) { Write-Output 'The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of your project, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)' }
-if ($env:CLAUDE_KIT_NOFOOTER -ne '1') { Write-Output ''; Write-Output '>>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains).' }
+if ($vh) { $vsay = $vh } else { $vsay = 'your vault folder (not found on this computer: clone the vault first, see SETUP-FOR-CLAUDE.md, then run this installer again)' }
+if ($firstWf -and -not $DryRun) { Write-Output ('The Roblox Dev Mastery Vault kit is installed. TO USE THE VAULT: load it by starting a Claude session in ' + $vsay + ' (that folder is the loaded vault: the vault skills, agents, art-direction, placement, lighting and visual-QA rules and reference images are there automatically; no load command is needed; your other Claude sessions stay clean). Always available in every session: /rbx-update /rbx-check /rbx-uninstall. In the vault folder: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of the vault, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)') }
+if ($env:CLAUDE_KIT_NOFOOTER -ne '1') { Write-Output ''; Write-Output ('>>> Load the vault by starting a Claude session in ' + $vsay + ' (then /rbx-list shows everything it contains).') }
 if ($nFail) { exit 1 }
 exit 0

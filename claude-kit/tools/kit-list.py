@@ -121,18 +121,18 @@ def main():
         return max(45, min(w, 110 - len(name) - 8))
 
     out = ["Installed from the Roblox Dev Mastery Vault kit.", ""]
-    out += ["Everything except the always-on commands is OFF in normal Claude sessions: type /rbx-load in a project folder to turn on Roblox dev mode (/rbx-unload turns it off).", ""]
+    out += ["Everything except the always-on commands exists only in a Claude session started in the vault folder (the loaded folder); there is no load command.", ""]
     out += ["## Always-on commands (%d)" % len(always), ""]
     for s in always:
         sp = skill_path(s)
         d = one_line(frontmatter_field(sp, "summary"), W(s)) or FALLBACK.get(s) or one_line(desc(sp), W(s)) or "(no description)"
         out += ["- **/%s** %s %s" % (s, dash, d), ""]
-    out += ["## Skills in Roblox dev mode (%d; usable after /rbx-load)" % len(stored), ""]
+    out += ["## Skills in the vault folder (%d; a session started there has them)" % len(stored), ""]
     for s in stored:
         sp = skill_path(s)
         d = one_line(frontmatter_field(sp, "summary"), W(s)) or FALLBACK.get(s) or one_line(desc(sp), W(s)) or "(no description)"
         out += ["- **/%s** %s %s" % (s, dash, d), ""]
-    out += ["## Agents in Roblox dev mode (%d)" % len(agents), ""]
+    out += ["## Agents in the vault folder (%d)" % len(agents), ""]
     for g in agents:
         out += ["- **%s** %s %s" % (g, dash, one_line(desc(agent_path(g)), W(g)) or "(no description)"), ""]
     mods = find_mods(a.mods, config)
@@ -150,7 +150,7 @@ def main():
     out += ["## Mods (%d)" % cnt, ""]
     out += lines or ["- None found (the kit's mods folder is not in the vault clone yet)", ""]
     cold = [r for r in rels if r.startswith("claude-kit/vault-mode/cold/")]
-    out += ["## Cold area (%d files in %d topics)" % (len(cold), len({r.split("/")[3] for r in cold})), "", "- Bulk that skills point to ([cold:topic/file]); not loaded into projects. `python claude-kit/tools/vault-mode.py cold` lists it.", ""]
+    out += ["## Cold area (%d files in %d topics)" % (len(cold), len({r.split("/")[3] for r in cold})), "", "- Bulk that skills point to ([cold:topic/file]); never copied into folders. `python claude-kit/tools/vault-mode.py cold` lists it.", ""]
     pack = os.path.join(config, "claude-kit", "skillpack")
     n = sum(1 for d, _, f in os.walk(pack) if "SKILL.md" in f) if os.path.isdir(pack) else 0
     out += ["## Roblox pack skills (%s)" % (n or "?"), "", "- Run `/rbx list` to browse them, or `/rbx find <words>` to search.", ""]

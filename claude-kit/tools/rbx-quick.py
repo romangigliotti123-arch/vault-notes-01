@@ -3,7 +3,7 @@
 The skill body runs this through dynamic shell injection and prints the result as is.
   list                  everything the kit installed (runs kit-list.py, same text)
   light on|off          Obsidian light / full view of the claudes-vault (runs the vault's update script with --set-view; no update, offline)
-  check                 is a newer vault or kit available (update-check.py, read-only) + the Roblox dev mode status line
+  check                 is a newer vault or kit available (update-check.py, read-only) + the vault-folder status line (is this folder the loaded vault, where the vault is)
 Always exits 0 so the injected command never aborts the skill; failures are printed as one line."""
 import os, subprocess, sys
 

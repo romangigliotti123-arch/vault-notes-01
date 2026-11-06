@@ -3,8 +3,8 @@
 
 The names come from vault-names.json next to this script: "prefix" and "renamed" = EVERY previous name of every item -> its current name
 (generation 1 = the original unsuffixed names, generation 2 = the -rbxdev-vault names and the long game-dev-* / roblox-* names). Run by install.sh / install.ps1
-BEFORE the kit files are copied (so the old manifest <config>/claude-kit/installed.tsv still lists the old names); loaded project folders are refreshed
-afterwards by `vault-mode.py sync`.
+BEFORE the kit files are copied (so the old manifest <config>/claude-kit/installed.tsv still lists the old names); the vault folder is refreshed
+afterwards by `vault-mode.py load`.
 
   migrate [--config DIR] [--dry-run] [--quiet] [--force]   remove the OLD-named vault skills/agents (store and ~/.claude/skills|agents) that the kit installed and that are unchanged;
                                                            move them to <config>/claude-kit/backup/rename-migration-<time>/. Never touches
@@ -134,7 +134,7 @@ def cmd_table(a):
         extra = ("  (command /%s -> /%s)" % (e["command_old"], e["command_new"])) if e.get("command_old") else ""
         print("%-8s gen%s %-42s -> %s%s" % (e["kind"], e.get("gen", "?"), e["old"], e["new"], extra))
     for e in n.get("removed", []):
-        print("%-8s      %-42s merged into %s (removed)" % (e["kind"], e["old"], e.get("into", "")))
+        print("%-8s      %-42s %s" % (e["kind"], e["old"], "gone (removed)" if e.get("gone") else "merged into %s (removed)" % e.get("into", "")))
     return 0
 
 
@@ -245,7 +245,9 @@ def message(names, moved_items, kept, foreign, backup):
         if e["old"] not in moved_items.get(e["kind"], ()):
             continue
         if e.get("merged"):
-            if e["kind"] == "skill":
+            if e.get("gone"):
+                merged.append("/%s is gone (the vault folder is loaded automatically: start a Claude session in it)" % e["old"])
+            elif e["kind"] == "skill":
                 merged.append("/%s is gone, use /%s" % (e["old"], e["new"]))
             else:
                 merged.append("agent %s is gone, use agent %s" % (e["old"], e["new"]))
@@ -265,7 +267,7 @@ def message(names, moved_items, kept, foreign, backup):
         lines.append("  Why: every command of this vault now starts with %s- (type /%s- to list them all) and is short, so it cannot clash with another vault or with your own skills. Nothing else changed; the old names no longer exist on this machine." % (pre, pre))
     if merged:
         lines.append("NOTICE FOR THE USER (show this): %scommands merged, one time: " % ("also " if pairs else "") + ", ".join(merged) + ".")
-        lines.append("  Why: near-duplicate vault skills/agents were merged into one (same job, fewer entries in your context). Nothing else changed; the old ones no longer exist on this machine.")
+        lines.append("  Why: near-duplicate vault skills/agents were merged into one, or the load/unload commands were dropped because the vault folder is loaded automatically (same job, fewer entries in your context). Nothing else changed; the old ones no longer exist on this machine.")
     if backup:
         lines.append("  The removed old files are saved in %s (undo: kit-rename.py migrate --revert). The full old -> new table stays in claude-kit/COMMANDS-RENAMED.txt." % backup)
     for k in kept:
@@ -282,7 +284,7 @@ def write_table_file(c, names, stamp):
             for e in names["renamed"]:
                 f.write("%-6s %-44s -> %s\n" % (e["kind"], e["old"], e["new"]))
             for e in names.get("removed", []):
-                f.write("%-6s %-44s merged into %s (removed)\n" % (e["kind"], e["old"], e.get("into", "")))
+                f.write("%-6s %-44s %s\n" % (e["kind"], e["old"], "gone (removed)" if e.get("gone") else "merged into %s (removed)" % e.get("into", "")))
             f.write("\nTool files (claude-kit/tools/*.py) and the router /%s kept their names.\n" % names.get("prefix"))
     except OSError:
         pass

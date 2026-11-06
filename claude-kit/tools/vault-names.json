@@ -42,34 +42,6 @@
    "always_on": true
   },
   {
-   "old": "load-vault",
-   "new": "rbx-load",
-   "kind": "skill",
-   "gen": 1,
-   "always_on": true
-  },
-  {
-   "old": "load-rbxdev-vault",
-   "new": "rbx-load",
-   "kind": "skill",
-   "gen": 2,
-   "always_on": true
-  },
-  {
-   "old": "unload-vault",
-   "new": "rbx-unload",
-   "kind": "skill",
-   "gen": 1,
-   "always_on": true
-  },
-  {
-   "old": "unload-rbxdev-vault",
-   "new": "rbx-unload",
-   "kind": "skill",
-   "gen": 2,
-   "always_on": true
-  },
-  {
    "old": "uninstall",
    "new": "rbx-uninstall",
    "kind": "skill",
@@ -716,6 +688,30 @@
    "kind": "skill",
    "into": "rbx-ads",
    "why": "same ads-plan job as rbx-ads (it was the lighter copy); its output skeleton, rules, triggers and adcalc.py moved into rbx-ads (OVERLAP cleanup 2026-11-06)"
+  },
+  {
+   "old": "load-vault",
+   "kind": "skill",
+   "gone": true,
+   "why": "removed: the vault folder is permanently loaded, so there is no load/unload command"
+  },
+  {
+   "old": "load-rbxdev-vault",
+   "kind": "skill",
+   "gone": true,
+   "why": "removed: the vault folder is permanently loaded, so there is no load/unload command"
+  },
+  {
+   "old": "unload-vault",
+   "kind": "skill",
+   "gone": true,
+   "why": "removed: the vault folder is permanently loaded, so there is no load/unload command"
+  },
+  {
+   "old": "unload-rbxdev-vault",
+   "kind": "skill",
+   "gone": true,
+   "why": "removed: the vault folder is permanently loaded, so there is no load/unload command"
   }
  ],
  "kept": [

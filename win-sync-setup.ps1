@@ -37,7 +37,7 @@ $gh = (Get-Command gh.exe -ErrorAction SilentlyContinue).Source
 # PROTECTED USER DATA: <vault>\My Research\ and every folder that contains PROTECTED-RESEARCH.md are added to .git\info\exclude on every run (so git never
 # treats them as removable), are never part of a patch, and are never touched by reset. Untracked files are never removed by a normal update; the update
 # Before a reset, untracked files that upstream now tracks (they would be overwritten) are copied to <StateDir>\collision-backup-<timestamp>.
-# Full view (marker file <vault>\.full-view): after every update .obsidian\app.json gets userIgnoreFilters = ["Assets/"] only; that rewrite is never saved as a "local change".
+# Full view (marker file <vault>\.full-view): after every update .obsidian\app.json gets userIgnoreFilters = ["Assets/", "Games/", "Models/"] only; that rewrite is never saved as a "local change".
 function Write-JsonNoBom([string]$path, $obj) {
   $txt = ($obj | ConvertTo-Json -Depth 20)
   [IO.File]::WriteAllText($path, $txt + "`n", (New-Object Text.UTF8Encoding $false))
@@ -52,8 +52,8 @@ function Set-FullViewConfig([string]$vault) {
   $text = '{}'; if (Test-Path -LiteralPath $f) { $text = [IO.File]::ReadAllText($f) }
   if (-not $text.Trim()) { $text = '{}' }
   $o = $text | ConvertFrom-Json
-  if ($o.PSObject.Properties['userIgnoreFilters']) { $o.userIgnoreFilters = @('Assets/') }
-  else { Add-Member -InputObject $o -NotePropertyName userIgnoreFilters -NotePropertyValue @('Assets/') }
+  if ($o.PSObject.Properties['userIgnoreFilters']) { $o.userIgnoreFilters = @('Assets/', 'Games/', 'Models/') }
+  else { Add-Member -InputObject $o -NotePropertyName userIgnoreFilters -NotePropertyValue @('Assets/', 'Games/', 'Models/') }
   New-Item -ItemType Directory -Force (Split-Path $f -Parent) | Out-Null
   Write-JsonNoBom $f $o
 }
@@ -67,7 +67,7 @@ function Add-GitExclude([string]$vault, [string]$line) {
 function Get-ProtectedDirs([string]$git, [string]$vault) {
   $set = New-Object System.Collections.Generic.List[string]
   $set.Add('My Research')
-  $set.Add('Games')   # per-game communities + Games/_Reusable: always protected
+  $set.Add('Games'); $set.Add('Models')   # per-game communities + Games/_Reusable: always protected
   $reg = Join-Path $vault '.git\info\protected-folders.txt'
   $cand = @(); if (Test-Path -LiteralPath $reg) { $cand += @(Get-Content -LiteralPath $reg) }
   foreach ($f in @(& $git -C $vault -c core.quotepath=false ls-files -o --exclude-standard -- '*PROTECTED-RESEARCH.md' 2>$null)) {
@@ -75,9 +75,9 @@ function Get-ProtectedDirs([string]$git, [string]$vault) {
   }
   foreach ($d in $cand) {
     $d = "$d".Trim()
-    if ($d -and $d -ne 'My Research' -and $d -ne 'Games' -and -not $d.StartsWith('Games/') -and -not $d.StartsWith('My Research/') -and -not $set.Contains($d) -and (Test-Path -LiteralPath (Join-Path $vault ($d + '/PROTECTED-RESEARCH.md')))) { $set.Add($d) }
+    if ($d -and $d -ne 'My Research' -and $d -ne 'Games' -and $d -ne 'Models' -and -not $d.StartsWith('Games/') -and -not $d.StartsWith('Models/') -and -not $d.StartsWith('My Research/') -and -not $set.Contains($d) -and (Test-Path -LiteralPath (Join-Path $vault ($d + '/PROTECTED-RESEARCH.md')))) { $set.Add($d) }
   }
-  try { if ($set.Count -gt 2) { Set-Content -LiteralPath $reg -Value @($set | Select-Object -Skip 2) -Encoding UTF8 } elseif (Test-Path -LiteralPath $reg) { Remove-Item -LiteralPath $reg -Force } } catch { }
+  try { if ($set.Count -gt 3) { Set-Content -LiteralPath $reg -Value @($set | Select-Object -Skip 3) -Encoding UTF8 } elseif (Test-Path -LiteralPath $reg) { Remove-Item -LiteralPath $reg -Force } } catch { }
   return @($set)
 }
 function Protect-Vault([string]$git, [string]$vault) {
@@ -95,7 +95,7 @@ function Heal-Vault {
   param([string]$git, [string]$vault, [string]$state)
   $ErrorActionPreference = 'Continue'
   $marker = Join-Path $vault '.full-view'
-  $msg = $null; $prot = @('My Research', 'Games')
+  $msg = $null; $prot = @('My Research', 'Games', 'Models')
   try {
     & $git -C $vault config core.autocrlf false 2>$null | Out-Null
     & $git -C $vault config core.safecrlf false 2>$null | Out-Null
@@ -265,7 +265,7 @@ Write-Output "Update now, any time: powershell -NoProfile -ExecutionPolicy Bypas
 Write-Output "Next: open Obsidian > Open folder as vault > choose $Dest"
 Write-Output 'Do not edit notes here (the update saves any local changes to a patch and resets to the latest). Remove the sync: win-sync-setup.ps1 -Uninstall'
 $kitHome = if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } else { $env:USERPROFILE }
-if (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md')) { Write-Output 'The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of your project, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)' }
-elseif (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\agents\rbx-builder.md')) { Write-Output 'Kit installed (off by default): type /rbx-load in your Roblox project folder, then say "make me a Roblox game: <your idea>" to Claude.' }
-if (-not $SkipKit -and (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md'))) { Write-Output ''; Write-Output '>>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains).' }
+if (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md')) { Write-Output 'The Roblox Dev Mastery Vault kit is installed. TO USE THE VAULT: load it by starting a Claude session in ' + $Dest + ' (that folder is the loaded vault: the vault skills, agents, art-direction, placement, lighting and visual-QA rules and reference images are there automatically; no load command is needed; your other Claude sessions stay clean). Always available in every session: /rbx-update /rbx-check /rbx-uninstall. In the vault folder: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of the vault, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)' }
+elseif (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\agents\rbx-builder.md')) { Write-Output ('Kit installed. Load the vault by starting a Claude session in ' + $Dest + ', then say "make me a Roblox game: <your idea>" to Claude.') }
+if (-not $SkipKit -and (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md'))) { Write-Output ''; Write-Output ('>>> Load the vault by starting a Claude session in ' + $Dest + ' (then /rbx-list shows everything it contains).') }
 exit 0

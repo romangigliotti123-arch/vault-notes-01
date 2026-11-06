@@ -45,7 +45,7 @@ def kit_stale(vault, config):
             inst[p[0]] = p[1]
     kit = os.path.join(vault, "claude-kit")
     differ, new, names = 0, 0, set()
-    ao = ["rbx-load", "rbx-unload", "rbx-update", "rbx-check", "rbx-uninstall"]
+    ao = ["rbx-update", "rbx-check", "rbx-uninstall"]
     try:
         ao = [x.strip() for x in open(os.path.join(kit, "mode", "always-on.txt"), encoding="utf-8") if x.strip() and not x.startswith("#")] or ao
     except OSError:

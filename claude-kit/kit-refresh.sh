@@ -6,23 +6,24 @@
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools/refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>/claude-kit/roblox-reference and
 #    writes <claude config dir>/claude-kit/reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
-# 1b) mode sync (see below): refreshes the project folders where /rbx-load copied the skills/agents. Env CLAUDE_MODE_SKIP=1 skips it.
+# 1b) vault folder load (see below): the vault folder is permanently loaded; every update rewrites its .claude (skills, agents, rules) and cleans folders an older kit loaded. Env CLAUDE_MODE_SKIP=1 skips it.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller.
 # Last line (only when the kit changed and the caller is not the current vault-update.sh, which prints it itself): "Your vault is up to date as of ... (local time)" (tools/vault-published.py).
 {
 D="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$D/install.sh" ]; then
-  out="$(CLAUDE_KIT_NOFOOTER=1 bash "$D/install.sh" 2>&1)" || out="kit refresh failed: $out"
+  out="$(CLAUDE_KIT_NOLOAD=1 CLAUDE_KIT_NOFOOTER=1 bash "$D/install.sh" 2>&1)" || out="kit refresh failed: $out"
   chk="$(printf '%s\n' "$out" | grep -v '^similar skills of yours')"   # the informational list of similar user skills alone is not a change
   if [ "$(printf '%s\n' "$chk" | wc -l)" = 1 ] && printf '%s\n' "$chk" | grep -Eq '^claude-kit: installed 0 new, updated 0, unchanged [0-9]+ \(into .*\)$'; then :
   else KCHANGED=1; printf '%s kit-refresh: %s\n' "$(date '+%F %T')" "$(printf '%s' "$out" | tr '\n' ' ')"; fi
 fi
-# 1b) tools/vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/rbx-load) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips this part.
+# 1b) tools/vault-mode.py load --project <this vault> --quiet --announce: the vault folder is THE loaded environment (its .claude gets the skills, agents and rules; Games/ and Models/ stay out of git); folders an older kit loaded are cleaned
+#     (prints one line then); silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips this part.
 if [ "${CLAUDE_MODE_SKIP:-0}" != 1 ] && [ -f "$D/tools/vault-mode.py" ]; then
   for p in python3 python; do
     if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then
       CFG="${CLAUDE_CONFIG_DIR:-${CLAUDE_KIT_HOME:-$HOME}/.claude}"; [ -n "${CLAUDE_CONFIG_DIR:-}" ] || [ -n "${CLAUDE_KIT_HOME:-}" ] || CFG="$HOME/.claude"
-      [ -f "$CFG/claude-kit/tools/vault-mode.py" ] && "$p" -I "$CFG/claude-kit/tools/vault-mode.py" sync --quiet --config "$CFG" 2>&1; break
+      [ -f "$CFG/claude-kit/tools/vault-mode.py" ] && CLAUDE_CONFIG_DIR="$CFG" "$p" -I "$CFG/claude-kit/tools/vault-mode.py" load --project "$(dirname "$D")" --quiet --announce --config "$CFG" 2>&1; break
     fi
   done
 fi

@@ -4,7 +4,7 @@
 install.sh used to spawn about seven processes per kit file (sha256sum twice, awk, dirname, mkdir, cp, ...): about 4 minutes for ~1000 files on Git Bash
 (process creation is slow there). This does the same work in-process: same layout, same decisions, same installed.tsv.
 
-  kit-install-files.py --kit KITDIR --config CONFIGDIR --always-on "rbx-load rbx-unload ..." [--dry-run]
+  kit-install-files.py --kit KITDIR --config CONFIGDIR --always-on "rbx-update rbx-check ..." [--dry-run]
 
 Layout (relative to CONFIGDIR = ~/.claude):
   tools|systems|skillpack/<r>   -> claude-kit/<sub>/<r>
@@ -27,6 +27,7 @@ import time
 
 SUBS = ("agents", "skills", "mode", "tools", "systems", "skillpack")
 SM = "claude-kit/vault-mode"
+RETIRED = ("rbx-load", "rbx-unload")   # always-on commands that no longer exist: their old global files are removed by the gone-file logic
 
 
 def sha(p):
@@ -162,7 +163,7 @@ def main(argv):
     ap = argparse.ArgumentParser()
     ap.add_argument("--kit", required=True)
     ap.add_argument("--config", required=True)
-    ap.add_argument("--always-on", default="rbx-load rbx-unload rbx-update rbx-check rbx-uninstall")
+    ap.add_argument("--always-on", default="rbx-update rbx-check rbx-uninstall")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
     kit, c = os.path.abspath(a.kit), os.path.abspath(a.config)
@@ -209,7 +210,7 @@ def run(a, kit, c):
                 rec[rel] = old[rel]
     if cleanup_allowed(c):
         for rel in sorted(old):
-            if rel in rec or not safe_rel(rel) or not (rel.startswith("claude-kit/") or (rel.startswith("skills/") and rel.split("/")[1] in ao)):
+            if rel in rec or not safe_rel(rel) or not (rel.startswith("claude-kit/") or (rel.startswith("skills/") and (rel.split("/")[1] in ao or rel.split("/")[1] in RETIRED))):
                 continue
             f = os.path.join(c, *rel.split("/"))
             try:

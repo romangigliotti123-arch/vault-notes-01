@@ -4,6 +4,8 @@
     "Library/",
     "Assets/",
     "Roblox/blender/",
-    "/^Manager\\/src-/"
+    "/^Manager\\/src-/",
+    "Games/",
+    "Models/"
   ]
 }

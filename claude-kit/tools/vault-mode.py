@@ -1,27 +1,25 @@
 #!/usr/bin/env python3
-"""vault-mode.py: Roblox dev mode for the vault kit. Standard library only. Never edits settings.json, never touches ~/.claude/CLAUDE.md.
+"""vault-mode.py: INTERNAL tool of the vault kit (users never type it): it keeps the VAULT FOLDER permanently loaded. Standard library only. Never edits settings.json, never touches ~/.claude/CLAUDE.md.
 
-The kit's skills and agents are NOT installed where every Claude Code session reads them. They live in an on-demand store:
-    <config>/claude-kit/vault-mode/.claude/skills/<name>/   <config>/claude-kit/vault-mode/.claude/agents/<name>.md   <config>/claude-kit/vault-mode/CLAUDE.md (the mode rules)
-Only the names in <config>/claude-kit/vault-mode/always-on.txt (rbx-load, rbx-unload, rbx-update, rbx-check, rbx-uninstall) stay in <config>/skills.
+The vault folder (the clone of the notes repository, e.g. ~/Obsidian/claudes-vault) is THE loaded environment: a Claude session started in it has all vault skills, agents and the vault rules, with no load command.
+The kit's skills and agents are kept in an on-demand store (NOT read by other Claude sessions):
+    <config>/claude-kit/vault-mode/.claude/skills/<name>/   <config>/claude-kit/vault-mode/.claude/agents/<name>.md   <config>/claude-kit/vault-mode/CLAUDE.md (the vault rules)
+Only the names in <config>/claude-kit/vault-mode/always-on.txt (rbx-update, rbx-check, rbx-uninstall) stay in <config>/skills.
 
-  load   [--project DIR] [--no-link] [--no-text]   copy the store's skills/agents into DIR/.claude/skills|agents (DIR = current folder), list them in DIR/.claude/vault-mode.json,
-                                                   hide them from git (.git/info/exclude; never Games/), print the confirmation, the Games folder line + the mode rules. --no-link: write nothing (session started with --add-dir).
-                                                   In HOME / the config folder / inside it, load is session-only: writes nothing, prints the rules + a skill/agent index.
-  unload [--project DIR | --all]                   remove exactly what load added (files whose content is unchanged); never a file of yours
-  status [--project DIR]                           mode state of this folder + store/migration summary
-  sync   [--quiet]                                 after an update: refresh every folder that has the mode loaded (kit-refresh runs this)
+  home   [--kit DIR]                               print the vault folder this machine uses (the clone that holds the installing claude-kit folder, env CLAUDES_VAULT, the registered one, ~/Obsidian/claudes-vault); empty when none
+  load   --project VAULT [--quiet] [--announce]    (installer / updater) copy the store's skills/agents + the rules block into VAULT/.claude (overwritten: the vault owns them), list them in VAULT/.claude/vault-mode.json,
+                                                   hide them AND Games/ + Models/ from git (.git/info/exclude), register VAULT as the home, then remove the vault copies of every older loaded project folder (Games/ and Models/ there are left in place)
+  unload [--project DIR | --all]                   remove exactly what load added (migration / uninstall)
+  status [--project DIR]                           is DIR the loaded vault folder, where the vault is, store/migration summary
+  sync   [--quiet]                                 refresh the registered vault folder (same as load --quiet) after an update
   migrate [--dry-run | --revert] [--old-manifest F] move the old always-on kit skills/agents out of <config>/skills|agents into the store (backup + manifest, idempotent, reversible)
-  auto   [--project DIR] [--always]                for an OPT-IN SessionStart hook: load when DIR looks like a Roblox project (or --always), print the mode rules; silent otherwise
-  autoload-snippet                                 print the settings.json hook an owner can add by hand to enable auto
-  mode-text                                        print the mode rules
-  cold   [TOPIC[/FILE]] [--path]                   cold area (<store>/cold: bulk that skills point to with [cold:TOPIC/FILE]; never copied into projects): no argument lists topics, TOPIC lists files,
+  mode-text                                        print the vault rules
+  cold   [TOPIC[/FILE]] [--path]                   cold area (<store>/cold: bulk that skills point to with [cold:TOPIC/FILE]; never copied into folders): no argument lists topics, TOPIC lists files,
                                                    TOPIC/FILE prints the file (--path: only its path)
 Config dir: --config DIR, else $CLAUDE_CONFIG_DIR, else $CLAUDE_KIT_HOME/.claude, else ~/.claude.
 """
 import argparse
 import datetime
-import fnmatch
 import hashlib
 import json
 import os
@@ -31,11 +29,10 @@ import subprocess
 import sys
 import time
 
-ALWAYS_ON_DEFAULT = ["rbx-load", "rbx-unload", "rbx-update", "rbx-check", "rbx-uninstall"]
-MB = "# >>> roblox-vault-mode (managed by /rbx-load, removed by /rbx-unload) >>>"
+ALWAYS_ON_DEFAULT = ["rbx-update", "rbx-check", "rbx-uninstall"]
+MB = "# >>> roblox-vault-mode (managed by the vault update) >>>"
 ME = "# <<< roblox-vault-mode <<<"
 MB_PREFIX = "# >>> roblox-vault-mode ("
-ROBLOX_MARKERS = ["default.project.json", "*.project.json", "*.rbxl", "*.rbxlx", "*.rbxm", "*.rbxmx", "rokit.toml", "aftman.toml", "wally.toml", "selene.toml", "stylua.toml"]
 
 
 def cfg_dir(a=None):
@@ -214,7 +211,7 @@ def glob_escape(s):
     return re.sub(r"([\\*?\[])", r"\\\1", s)
 
 
-def exclude_write(proj, keys):
+def exclude_write(proj, keys, extra=()):
     g = git_exclude(proj)
     if not g:
         return False
@@ -226,7 +223,7 @@ def exclude_write(proj, keys):
         return False
     base = exclude_strip(old)
     if keys:
-        lines = [MB, "/" + pre + ".claude/vault-mode.json"] + ["/" + pre + ".claude/" + k + ("/" if k.startswith("skills/") else "") for k in sorted(keys)] + [ME]
+        lines = [MB, "/" + pre + ".claude/vault-mode.json"] + ["/" + pre + ".claude/" + k + ("/" if k.startswith("skills/") else "") for k in sorted(keys)] + ["/" + pre + x for x in extra] + [ME]
         base = (base.rstrip("\n") + "\n" if base.strip() else "") + "\n".join(lines) + "\n"
     try:
         os.makedirs(os.path.dirname(ex), exist_ok=True)
@@ -237,7 +234,8 @@ def exclude_write(proj, keys):
     return True
 
 
-RB = "<!-- >>> roblox-vault-mode rules (managed by /rbx-load; /rbx-unload removes this block; edit outside it) >>> -->"
+RB = "<!-- >>> roblox-vault-mode rules (managed by the vault update; rewritten on every update; edit outside it) >>> -->"
+RB_PREFIX = "<!-- >>> roblox-vault-mode rules"
 RE = "<!-- <<< roblox-vault-mode rules <<< -->"
 
 
@@ -247,7 +245,7 @@ def rules_path(proj):
 
 def rules_split(t):
     """(before, after) around the managed block, or None."""
-    i = t.find(RB)
+    i = t.find(RB_PREFIX)
     if i < 0:
         return None
     j = t.find(RE, i)
@@ -330,9 +328,12 @@ def rules_remove(proj, marker):
 
 def excl_keys(marker):
     ks = list(marker["items"].keys())
-    if marker.get("rules_file") == "created":
+    if marker.get("rules_file") == "created" or marker.get("home"):
         ks.append("CLAUDE.md")
     return ks
+
+
+HOME_EXTRA = ("Games/", "Models/")
 
 
 def exclude_strip(t):
@@ -353,11 +354,50 @@ def guard(proj, p):
     rc = os.path.realpath(p["c"])
     rp = os.path.realpath(proj)
     if os.path.realpath(os.path.join(proj, ".claude")) == rc or rp == rc or rp.startswith(rc + os.sep):
-        return ("%s is (or is inside) your Claude config folder; its .claude folder would be your user-wide setup, which would load the vault in EVERY session. "
-                "Open Claude in a project folder (for example your Roblox game's folder) and run /rbx-load there." % proj)
+        return "%s is (or is inside) your Claude config folder; its .claude folder would be your user-wide setup, which would load the vault in EVERY session. The vault folder is the only folder that is loaded." % proj
     if rp == os.path.realpath(os.path.expanduser("~")):
-        return "your home folder is not a project: loading here would put the vault into every session started below it. Open Claude in a project folder and run /rbx-load there."
+        return "your home folder is not the vault folder: loading here would put the vault into every session started below it."
     return None
+
+
+def default_vault():
+    base = os.environ.get("CLAUDE_KIT_HOME") or os.path.expanduser("~")
+    return os.path.join(base, "Obsidian", "claudes-vault")
+
+
+def is_vault_dir(d):
+    return bool(d) and os.path.isdir(d) and os.path.exists(os.path.join(d, ".git"))
+
+
+def registered_home(p):
+    h = jread(p["reg"], {"projects": {}}).get("home")
+    return h if isinstance(h, str) and h else None
+
+
+def resolve_home(p, kit=None):
+    """the vault folder: the clone that holds the installing claude-kit folder (it has vault-update.sh and a .git), env CLAUDES_VAULT, the registered one, ~/Obsidian/claudes-vault. None when there is no clone."""
+    if kit:
+        par = os.path.dirname(os.path.abspath(kit))
+        if os.path.basename(os.path.abspath(kit)) == "claude-kit" and os.path.isfile(os.path.join(par, "vault-update.sh")) and is_vault_dir(par):
+            return par
+    env = os.environ.get("CLAUDES_VAULT")
+    if env and os.path.isdir(env):
+        return os.path.abspath(env)
+    h = registered_home(p)
+    if h and is_vault_dir(h):
+        return h
+    d = default_vault()
+    return d if is_vault_dir(d) else None
+
+
+def vault_hint(p):
+    return resolve_home(p) or registered_home(p) or default_vault()
+
+
+def is_vault_folder(proj, p):
+    """True when proj is the loaded vault folder (marker with home:true)"""
+    m = jread(os.path.join(proj, ".claude", "vault-mode.json"), None)
+    return isinstance(m, dict) and m.get("home") is True
 
 
 def ref_line(p):
@@ -426,8 +466,8 @@ def put_file(s, d):
         os.replace(t, d)
 
 
-def link(proj, p, quiet=False):
-    """create/refresh the project copies. Returns (marker, notes, changed)"""
+def link(proj, p, force=False):
+    """create/refresh the folder copies (force: the vault folder, the vault owns them: overwritten, no keep logic). Returns (marker, notes, changed)"""
     items = store_items(p)
     mpath = os.path.join(proj, ".claude", "vault-mode.json")
     marker = clean_marker(jread(mpath, {"items": {}, "created": []}))
@@ -453,11 +493,11 @@ def link(proj, p, quiet=False):
         user_path = os.path.join(p["c"], "skills", name) if key.startswith("skills/") else os.path.join(p["c"], "agents", name)
         if name in ao:
             continue
-        if not mine and os.path.exists(user_path):
+        if not force and not mine and os.path.exists(user_path):
             notes.append("skipped %s: you already have one of that name in %s (yours wins)" % (key, os.path.dirname(user_path)))
             continue
         dst = dest_of(proj, key)
-        if not mine and os.path.exists(dst):
+        if not force and not mine and os.path.exists(dst):
             notes.append("skipped %s: %s already exists and is not from the vault (left untouched)" % (key, dst))
             continue
         if not mine:
@@ -492,7 +532,8 @@ def link(proj, p, quiet=False):
                 rmdirs_up(fd, os.path.join(proj, ".claude", key.split("/")[0]))
         del marker["items"][key]
         changed = True
-    marker["loaded_at"] = datetime.datetime.now().isoformat(timespec="seconds")
+    if changed or "loaded_at" not in marker:
+        marker["loaded_at"] = datetime.datetime.now().isoformat(timespec="seconds")
     marker["store"] = p["store"]
     jwrite(mpath, marker)
     return marker, notes, changed
@@ -504,9 +545,13 @@ def registry_set(p, proj, marker):
         reg["projects"] = {}
     if marker is None:
         reg["projects"].pop(proj, None)
+        if reg.get("home") == proj:
+            reg.pop("home", None)
     else:
         s, a = counts(marker["items"])
         reg["projects"][proj] = {"at": marker.get("loaded_at"), "skills": s, "agents": a}
+        if marker.get("home"):
+            reg["home"] = proj
     jwrite(p["reg"], reg)
 
 
@@ -521,94 +566,89 @@ def one_line(path):
     return d if len(d) <= 110 else d[:107].rstrip() + "..."
 
 
+def elsewhere(what, p):
+    return "%s: start a session in %s (Games/ and Models/ live in the vault folder; nothing is created here)" % (what, vault_hint(p))
+
+
 def games_line(proj, p):
-    if guard(proj, p):
-        return "Games folder: open a project folder to build games (nothing is created in HOME)"
+    if not is_vault_folder(proj, p):
+        return elsewhere("Games folder", p)
     gd, found = os.path.join(proj, "Games"), []
     for d in sorted(os.listdir(gd)) if os.path.isdir(gd) else []:
         try:
             found.append("%s %s" % (d, re.search(r"^stage:\s*(\S+)", open(os.path.join(gd, d, "GAME.md"), encoding="utf-8", errors="replace").read(3000), re.M).group(1)))
         except (OSError, AttributeError):
             pass
-    return "Games folder: ./Games (%s)" % (("%d game%s: %s%s" % (len(found), "s"[:len(found) != 1], ", ".join(found[:4]), ", ..." * (len(found) > 4))) if found else "none yet")
+    return "Games folder: %s (%s)" % (os.path.join(proj, "Games"), ("%d game%s: %s%s" % (len(found), "s"[:len(found) != 1], ", ".join(found[:4]), ", ..." * (len(found) > 4))) if found else "none yet")
 
 
 def models_line(proj, p):
-    if guard(proj, p):
-        return "Models library: open a project folder to use it (nothing is created in HOME)"
+    if not is_vault_folder(proj, p):
+        return elsewhere("Models library", p)
     md, n = os.path.join(proj, "Models"), 0
     for c in sorted(os.listdir(md)) if os.path.isdir(md) else []:
         cd = os.path.join(md, c)
         n += sum(1 for s in os.listdir(cd) if os.path.isfile(os.path.join(cd, s, "model.md"))) if os.path.isdir(cd) else 0
-    return "Models library: ./Models (%d model%s)" % (n, "s"[:n != 1]) if n else "Models library: ./Models (empty)"
+    return "Models library: %s (%d model%s)" % (md, n, "s"[:n != 1]) if n else "Models library: %s (empty)" % md
 
 
-def print_index(p, items, head):
-    ao = set(always_on(p))
-    print(head + ": when a task matches, Read that SKILL.md first and follow it; for an agent, spawn a general-purpose subagent with its file as the brief.")
-    for key, (src, files) in items.items():
-        name = key.split("/", 1)[1]
-        if name in ao:
+def retire_old(p, home):
+    """remove the vault copies (and rules block) from every folder that an older kit loaded, except the vault folder. Games/ and Models/ there stay. Returns how many folders were cleaned."""
+    reg = jread(p["reg"], {"projects": {}})
+    n = 0
+    for proj in list(reg.get("projects", {}).keys()):
+        if os.path.realpath(proj) == os.path.realpath(home):
             continue
-        path = os.path.join(src, "SKILL.md") if key.startswith("skills/") else src
-        print("- %s: %s [%s]" % (name[:-3] if name.endswith(".md") else name, one_line(path), path))
+        if os.path.isfile(os.path.join(proj, ".claude", "vault-mode.json")):
+            unload_one(p, proj, lambda s: None)
+            n += 1
+        registry_set(p, proj, None)
+    return n
 
 
-def session_only(a, p, items):
-    s, g = counts(items)
-    print("Roblox dev mode loaded for this session only (no folder changed): %d skills, %d agents, %s" % (s, g, ref_line(p)))
-    print("  a project folder gives the full persistent mode (slash commands, agents listed).")
-    print("  " + games_line(os.path.abspath(a.project or os.getcwd()), p))
-    print("  " + models_line(os.path.abspath(a.project or os.getcwd()), p))
-    if not a.no_text:
-        print()
-        cmd_mode_text(a)
-        print()
-        print_index(p, items, "Session index (nothing is installed here)")
+def cmd_home(a):
+    p = P(cfg_dir(a))
+    h = resolve_home(p, getattr(a, "kit", None))
+    if h:
+        print(h)
     return 0
 
 
-def cmd_load(a, quiet_text=False):
+def cmd_load(a):
     p = P(cfg_dir(a))
-    proj = os.path.abspath(a.project or os.getcwd())
+    q = getattr(a, "quiet", False)
+    if not a.project:
+        print("vault-mode: load needs --project <vault folder> (internal command; the installer and the updater run it).")
+        return 2
+    proj = os.path.abspath(a.project)
     items = store_items(p)
     if not items:
         print("vault-mode: the vault kit is not installed (nothing in %s). Run /rbx-update, or the setup in SETUP-FOR-CLAUDE.md." % p["store"])
         return 2
-    if a.no_link:
-        s, g = counts(items)
-        print("Roblox dev mode on (this session only, nothing written): %d skills, %d agents, %s" % (s, g, ref_line(p)))
-        print("  " + games_line(proj, p))
-        print("  " + models_line(proj, p))
-        if not a.no_text:
-            print()
-            cmd_mode_text(a)
-        return 0
-    if guard(proj, p):
-        return session_only(a, p, items)
-    had_sk = os.path.isdir(os.path.join(proj, ".claude", "skills"))
+    why = guard(proj, p)
+    if why:
+        print("vault-mode: " + why)
+        return 2
+    if not os.path.isdir(proj):
+        print("vault-mode: %s does not exist." % proj)
+        return 2
     first = not os.path.isfile(os.path.join(proj, ".claude", "vault-mode.json"))
-    marker, notes, changed = link(proj, p)
+    marker, notes, changed = link(proj, p, force=True)
+    marker["home"] = True
     rules_write(proj, p, marker)
     jwrite(os.path.join(proj, ".claude", "vault-mode.json"), marker)
-    hidden = exclude_write(proj, excl_keys(marker))
+    hidden = exclude_write(proj, excl_keys(marker), HOME_EXTRA)
     registry_set(p, proj, marker)
+    n_old = retire_old(p, proj)
     s, g = counts(marker["items"])
-    print("Roblox dev mode on: %d skills, %d agents, %s" % (s, g, ref_line(p)))
-    print("  " + games_line(proj, p))
-    print("  " + models_line(proj, p))
-    print("  folder: %s  (copies in .claude/skills and .claude/agents, rules saved for this folder, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
-    if first and not had_sk:
-        print("  Type /reload-skills to try to show the new slash commands; if they don't appear, open a new chat in this folder. Skills and agents already work in this chat via the index below.")
-    elif first:
-        print("  skills are usable now (this folder already had .claude/skills when the session started)")
-    for n in notes:
-        print("  note: " + n)
-    if not a.no_text:
-        print()
-        cmd_mode_text(a)
-        print()
-        print_index(p, items, "Index for this chat (no restart needed)")
+    if not q:
+        print("Vault folder loaded: %s (%d skills, %d agents, vault rules in .claude/CLAUDE.md, %s)" % (proj, s, g, "hidden from git, with your Games/ and Models/" if hidden else "not a git repository, nothing to hide"))
+        print("  " + games_line(proj, p))
+        print("  " + models_line(proj, p))
+    if n_old:
+        print("Vault copies removed from %d old project folder%s (your Games/ and Models/ there were left in place). Start sessions in %s instead." % (n_old, "s"[:n_old != 1], proj))
+    if getattr(a, "announce", False) and (first or n_old):
+        print("To use the vault, start a new Claude session in %s (that folder is loaded automatically; no load command is needed)." % proj)
     return 0
 
 
@@ -621,6 +661,54 @@ def cmd_mode_text(a):
     return 0
 
 
+def unload_one(p, proj, say):
+    """remove exactly what load added to proj. Returns (removed, kept) or None when proj had no marker."""
+    mpath = os.path.join(proj, ".claude", "vault-mode.json")
+    marker = clean_marker(jread(mpath, None))
+    if not marker:
+        return None
+    removed = kept = 0
+    left = []
+    for key, rec in marker.get("items", {}).items():
+        for rel, h in (rec.get("files") or {}).items():
+            fd = file_dest(proj, key, rel)
+            if os.path.lexists(fd + ".vmtmp"):
+                os.remove(fd + ".vmtmp")
+            if not os.path.isfile(fd):
+                continue
+            if not owned(proj, fd):
+                kept += 1
+                say("  kept %s (outside the folder's .claude folder)" % fd)
+            else:
+                os.remove(fd)
+                removed += 1
+    rules_remove(proj, marker)
+    os.remove(mpath)
+    for key in marker.get("items", {}):
+        d = dest_of(proj, key)
+        if key.startswith("skills/") and not prune_empty(d) and not has_files(d):
+            left.append(d)
+    for c in sorted(marker.get("created", []), key=len, reverse=True):
+        d = os.path.join(proj, *c.split("/"))
+        if not prune_empty(d) and not has_files(d):
+            left.append(d)
+    if marker.get("created_claude"):
+        d = os.path.join(proj, ".claude")
+        try:
+            os.rmdir(d)
+        except OSError:
+            if os.path.isdir(d) and not has_files(d):
+                left.append(d)
+    exclude_write(proj, [])
+    registry_set(p, proj, None)
+    if left:
+        reg = jread(p["reg"], {"projects": {}})
+        reg.setdefault("leftovers", [])
+        reg["leftovers"] = sorted(set(reg["leftovers"]) | set(left))
+        jwrite(p["reg"], reg)
+    return removed, kept
+
+
 def cmd_unload(a):
     p = P(cfg_dir(a))
     if a.all:
@@ -628,60 +716,15 @@ def cmd_unload(a):
     else:
         projs = [os.path.abspath(a.project or os.getcwd())]
     if not projs:
-        print("Roblox dev mode is not loaded in any folder.")
+        print("The vault is not loaded in any folder.")
         return 0
     for proj in projs:
-        mpath = os.path.join(proj, ".claude", "vault-mode.json")
-        marker = clean_marker(jread(mpath, None))
-        if not marker:
-            if guard(proj, p):
-                print("Nothing to remove in %s: Roblox dev mode here was session-only and wrote nothing. Stop following the vault mode rules; a new session starts clean." % proj)
-                registry_set(p, proj, None)
-                continue
-            print("Roblox dev mode was not loaded in %s (no .claude/vault-mode.json); nothing removed." % proj)
+        r = unload_one(p, proj, print)
+        if r is None:
+            print("The vault was not loaded in %s (no .claude/vault-mode.json); nothing removed." % proj)
             registry_set(p, proj, None)
             continue
-        removed = kept = 0
-        left = []
-        for key, rec in marker.get("items", {}).items():
-            for rel, h in (rec.get("files") or {}).items():
-                fd = file_dest(proj, key, rel)
-                if os.path.lexists(fd + ".vmtmp"):
-                    os.remove(fd + ".vmtmp")
-                if not os.path.isfile(fd):
-                    continue
-                if not owned(proj, fd):
-                    kept += 1
-                    print("  kept %s (outside the project's .claude folder)" % fd)
-                else:
-                    os.remove(fd)
-                    removed += 1
-        rules_remove(proj, marker)
-        os.remove(mpath)
-        for key in marker.get("items", {}):
-            d = dest_of(proj, key)
-            if key.startswith("skills/") and not prune_empty(d) and not has_files(d):
-                left.append(d)
-        for c in sorted(marker.get("created", []), key=len, reverse=True):
-            d = os.path.join(proj, *c.split("/"))
-            if not prune_empty(d) and not has_files(d):
-                left.append(d)
-        if marker.get("created_claude"):
-            d = os.path.join(proj, ".claude")
-            try:
-                os.rmdir(d)
-            except OSError:
-                if os.path.isdir(d) and not has_files(d):
-                    left.append(d)
-        exclude_write(proj, [])
-        registry_set(p, proj, None)
-        if left:
-            reg = jread(p["reg"], {"projects": {}})
-            reg.setdefault("leftovers", [])
-            reg["leftovers"] = sorted(set(reg["leftovers"]) | set(left))
-            jwrite(p["reg"], reg)
-            print("  (empty folders could not be deleted while Claude is running; they are removed by the next /rbx-update or when you run /rbx-unload again after quitting)")
-        print("Roblox dev mode off in %s: removed %d vault file(s)%s. Skills and agents already listed stay listed in this chat; open a new chat for a clean list; the mode rules no longer apply." % (proj, removed, (", left %d outside the project's .claude folder" % kept) if kept else ""))
+        print("Vault copies removed from %s: %d file(s)%s. Games/ and Models/ were not touched." % (proj, r[0], (", left %d outside the folder's .claude folder" % r[1]) if r[1] else ""))
     return 0
 
 
@@ -727,21 +770,22 @@ def cmd_status(a):
     proj = os.path.abspath(a.project or os.getcwd())
     items = store_items(p)
     s, g = counts(items)
-    marker = clean_marker(jread(os.path.join(proj, ".claude", "vault-mode.json"), None))
-    if marker:
+    mpath = os.path.join(proj, ".claude", "vault-mode.json")
+    marker = clean_marker(jread(mpath, None))
+    vh = vault_hint(p)
+    if marker and marker.get("home"):
         ls, lg = counts(marker["items"])
-        print("Roblox dev mode: ON in %s (%d skills, %d agents, since %s)" % (proj, ls, lg, marker.get("loaded_at", "?")))
+        print("Vault folder: this folder (%s) is the loaded vault: dev mode ON (%d skills, %d agents, refreshed %s)" % (proj, ls, lg, marker.get("loaded_at", "?")))
+    elif os.path.isdir(vh) and os.path.realpath(proj).startswith(os.path.realpath(vh) + os.sep):
+        print("Vault folder: you are inside the vault (%s) but not at its top: start the session in %s itself so its skills and rules load" % (proj, vh))
     else:
-        print("Roblox dev mode: off in %s (type /rbx-load to turn it on%s)" % (proj, "; here it loads for the session only, nothing is written" if guard(proj, p) else ""))
+        print("Vault folder: dev mode is OFF in %s (not the vault folder). The vault is %s: start a Claude session there to use it%s" % (proj, vh, "" if os.path.isdir(vh) else " (folder not found: run the setup)"))
     print(games_line(proj, p))
     print(models_line(proj, p))
     print("vault store: %s (%d skills, %d agents) %s" % (p["store"], s, g, "" if items else "NOT INSTALLED: run /rbx-update"))
-    others = [k for k in jread(p["reg"], {"projects": {}})["projects"] if os.path.realpath(k) != os.path.realpath(proj)]
-    if others:
-        print("also loaded in: " + ", ".join(others[:8]) + (" ..." if len(others) > 8 else ""))
     print("always-on commands: " + ", ".join("/" + x for x in always_on(p)))
     cf = cold_files(p)
-    print("cold area: %s (%d files in %d topics; read on demand, never copied into projects)" % (p["cold"], sum(len(v) for v in cf.values()), len(cf)))
+    print("cold area: %s (%d files in %d topics; read on demand, never copied into folders)" % (p["cold"], sum(len(v) for v in cf.values()), len(cf)))
     rl = jread(os.path.join(p["store"], "rename-last.json"), None)
     if rl and rl.get("moved"):
         print("commands renamed or merged on %s: every vault command now starts with %s- (old -> new list: %s)" % (rl.get("at", "?"), rl.get("prefix", "rbx"), os.path.join(p["c"], "claude-kit", "COMMANDS-RENAMED.txt")))
@@ -763,27 +807,13 @@ def sweep_leftovers(p):
 def cmd_sync(a):
     p = P(cfg_dir(a))
     sweep_leftovers(p)
-    reg = jread(p["reg"], {"projects": {}})
-    n = 0
-    for proj in list(reg["projects"].keys()):
-        if not os.path.isfile(os.path.join(proj, ".claude", "vault-mode.json")):
-            registry_set(p, proj, None)
-            continue
-        if guard(proj, p):
-            continue
-        marker, notes, changed = link(proj, p)
-        if rules_write(proj, p, marker):
-            changed = True
-            jwrite(os.path.join(proj, ".claude", "vault-mode.json"), marker)
-        if changed:
-            exclude_write(proj, excl_keys(marker))
-            registry_set(p, proj, marker)
-            n += 1
-            if not a.quiet:
-                print("vault-mode: refreshed %s" % proj)
-    if n and a.quiet:
-        print("vault-mode: refreshed Roblox dev mode in %d folder(s)" % n)
-    return 0
+    h = registered_home(p)
+    if not h or not is_vault_dir(h):
+        h = resolve_home(p)
+    if not h:
+        return 0
+    a.project, a.quiet, a.announce = h, a.quiet, False
+    return cmd_load(a)
 
 
 # ---------------------------------------------------------------- migration of the old always-on layout
@@ -809,6 +839,8 @@ def old_layout_entries(p, manifest):
     res = []
     for rel, h in manifest.items():
         parts = rel.split("/")
+        if parts[0] == "skills" and len(parts) >= 3 and parts[1] in ("rbx-load", "rbx-unload"):
+            continue            # retired commands: the installer removes their old global files
         if parts[0] == "skills" and len(parts) >= 3 and parts[1] not in ao:
             if keep_lum and parts[1] == "rbx-low-usage" and parts[2] == "scripts":
                 continue            # the user's settings.json hooks call these paths; they stay until the hooks are re-installed
@@ -894,49 +926,13 @@ def cmd_migrate(a):
     ns = len(set(m["rel"].split("/")[1] for m in moved if m["rel"].startswith("skills/")))
     na = len([m for m in moved if m["rel"].startswith("agents/")])
     print("vault-mode: moved %d vault skills and %d agents out of your always-on %s/skills and /agents into the on-demand store (backup + list: %s). "
-          "Claude sessions no longer load the vault unless you type /rbx-load; your own skills, agents and CLAUDE.md were not touched. Undo: vault-mode.py migrate --revert."
+          "Claude sessions no longer load the vault unless they are started in the vault folder; your own skills, agents and CLAUDE.md were not touched. Undo: vault-mode.py migrate --revert."
           % (ns, na, c, backup))
     for m in moved:
         if m["edited"]:
             print("  you had edited %s: your version is in the backup" % m["rel"])
     for d in left:
         print("  left in place (contains files that are not from the kit): %s" % d)
-    return 0
-
-
-# ---------------------------------------------------------------- opt-in auto load
-def looks_roblox(proj):
-    try:
-        names = os.listdir(proj)
-    except OSError:
-        return False
-    return any(fnmatch.fnmatch(n, pat) for n in names for pat in ROBLOX_MARKERS)
-
-
-def cmd_auto(a):
-    p = P(cfg_dir(a))
-    proj = os.path.abspath(a.project or os.getcwd())
-    if not (a.always or looks_roblox(proj)):
-        return 0
-    if not store_items(p) or guard(proj, p):
-        return 0
-    marker, notes, changed = link(proj, p)
-    rules_write(proj, p, marker)
-    jwrite(os.path.join(proj, ".claude", "vault-mode.json"), marker)
-    exclude_write(proj, excl_keys(marker))
-    registry_set(p, proj, marker)
-    s, g = counts(marker["items"])
-    print("Roblox dev mode on (auto-loaded for this Roblox project): %d skills, %d agents, %s. /rbx-unload turns it off." % (s, g, ref_line(p)))
-    print()
-    cmd_mode_text(a)
-    return 0
-
-
-def cmd_snippet(a):
-    cmd = 'sh "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/tools/pyrun" "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/tools/vault-mode.py" auto'
-    print(json.dumps({"hooks": {"SessionStart": [{"matcher": "startup|resume", "hooks": [{"type": "command", "command": cmd, "timeout": 20}]}]}}, indent=2))
-    print("\n# Add this to a project's .claude/settings.json (that project only) or ~/.claude/settings.json (every project; the hook still loads only for folders with a Roblox marker: " + ", ".join(ROBLOX_MARKERS) + ").")
-    print("# Add `--always` after `auto` to load in every folder. Nothing in the kit adds this for you.")
     return 0
 
 
@@ -949,14 +945,16 @@ def main(argv):
     ap = argparse.ArgumentParser(prog="vault-mode.py", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name in ("load", "unload", "status", "sync", "migrate", "auto", "autoload-snippet", "mode-text", "cold"):
+    for name in ("home", "load", "unload", "status", "sync", "migrate", "mode-text", "cold"):
         s = sp.add_parser(name)
         s.add_argument("--config", default=argparse.SUPPRESS)
-        if name in ("load", "unload", "status", "auto"):
+        if name in ("load", "unload", "status"):
             s.add_argument("--project")
         if name == "load":
-            s.add_argument("--no-link", action="store_true")
-            s.add_argument("--no-text", action="store_true")
+            s.add_argument("--quiet", action="store_true")
+            s.add_argument("--announce", action="store_true")
+        if name == "home":
+            s.add_argument("--kit")
         if name == "unload":
             s.add_argument("--all", action="store_true")
         if name == "sync":
@@ -966,21 +964,19 @@ def main(argv):
             s.add_argument("--revert", action="store_true")
             s.add_argument("--force", action="store_true")
             s.add_argument("--old-manifest")
-        if name == "auto":
-            s.add_argument("--always", action="store_true")
         if name == "cold":
             s.add_argument("target", nargs="?")
             s.add_argument("--path", action="store_true")
     a = ap.parse_args(argv)
-    fn = {"load": cmd_load, "unload": cmd_unload, "status": cmd_status, "sync": cmd_sync, "migrate": cmd_migrate, "auto": cmd_auto, "autoload-snippet": cmd_snippet, "mode-text": cmd_mode_text, "cold": cmd_cold}[a.cmd]
+    fn = {"home": cmd_home, "load": cmd_load, "unload": cmd_unload, "status": cmd_status, "sync": cmd_sync, "migrate": cmd_migrate, "mode-text": cmd_mode_text, "cold": cmd_cold}[a.cmd]
     store = P(cfg_dir(a))["store"]
     try:
-        if a.cmd in ("load", "unload", "sync", "auto", "migrate") and os.path.isdir(store):
+        if a.cmd in ("load", "unload", "sync", "migrate") and os.path.isdir(store):
             with Lock(os.path.join(store, ".mode.lock")):
                 return fn(a) or 0
         return fn(a) or 0
     except Exception as e:      # never break a hook or the refresh
-        if a.cmd in ("auto", "sync"):
+        if a.cmd == "sync":
             return 0
         print("vault-mode: failed: %r" % (e,), file=sys.stderr)
         return 1

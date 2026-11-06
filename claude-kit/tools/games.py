@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """games.py - the per-game community helper for /rbx-workflow. Stdlib only. Never touches anything outside Games/ (and the PROJECT folder, read-only).
 
-Games/ lives in the loaded PROJECT folder (nearest folder at or above the cwd with .claude/vault-mode.json), never in the vault clone, ~/.claude or HOME; made by the first `init`; updates, unload and sync never touch it.
+Games/ lives in the VAULT FOLDER (the loaded folder: nearest folder at or above the cwd with .claude/vault-mode.json), never in ~/.claude or HOME; in any other folder this tool says to start a session in the vault folder and creates nothing; made by the first `init`; updates never touch it (git-excluded).
 Layout:  Games/README.md (hub)  Games/_profile.json (onboarding answers)  Games/<slug>/{README,GAME,design,decisions,systems}.md + playtests/ weekly/ critic/  Games/_Reusable/<name>/README.md + code
 README.md = the resume file (hand-written sections + an AUTO block); GAME.md = stage, numbers, next tasks.
 
@@ -19,7 +19,7 @@ README.md = the resume file (hand-written sections + an AUTO block); GAME.md = s
   games.py advance <slug> --to STAGE [--project DIR]   move GAME.md to STAGE only if the critic's latest verdict for the CURRENT stage is GOOD (and, from prototype on, its file says visual: pass AND placement: pass AND lighting: pass AND codegates: ran) and the evidence supports it
   games.py reusable add <name> --src PATH --what TXT [--from-game SLUG] [--tested y|n] [--rating N] [--tags TXT]    save a reusable building block
   games.py reusable list
-Games root: --games DIR, else env GAMES_ROOT, else <loaded project folder>/Games, else an existing legacy <vault>/Games (CLAUDES_VAULT or ~/Obsidian/claudes-vault); else an error.
+Games root: --games DIR, else env GAMES_ROOT, else <vault folder>/Games (the nearest folder with .claude/vault-mode.json); else an error that names the vault folder.
 """
 import argparse, datetime, glob, json, os, re, shutil, sys, zipfile
 
@@ -37,6 +37,23 @@ def vault_root():
         if c and os.path.isdir(c):
             return os.path.abspath(c)
     return None
+
+
+def vault_hint():
+    """where the vault folder is, for the 'start a session in ...' message: the registered one (loaded.json 'home' in the Claude config folder), else the usual places"""
+    cfg = os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.environ.get("CLAUDE_KIT_HOME") or os.path.expanduser("~"), ".claude")
+    try:
+        with open(os.path.join(cfg, "claude-kit", "vault-mode", "loaded.json"), encoding="utf-8") as f:
+            h = json.load(f).get("home")
+        if isinstance(h, str) and h:
+            return h
+    except (OSError, ValueError, AttributeError):
+        pass
+    return vault_root() or os.path.join(os.path.expanduser("~"), "Obsidian", "claudes-vault")
+
+
+def not_in_vault(what):
+    return "%s: this folder is not the vault folder, so nothing was created; start a Claude session in %s (that folder is loaded automatically) and run it there. %s" % (what, vault_hint(), "Games go in Games/<slug>/ of the vault folder." if what == "games.py" else "Models go in Models/ of the vault folder.")
 
 
 def project_root(start=None):
@@ -59,10 +76,7 @@ def games_root(a):
     pr = project_root()
     if pr:
         return os.path.join(pr, "Games")
-    v = vault_root()
-    if v and os.path.isdir(os.path.join(v, "Games")):
-        return os.path.join(v, "Games")
-    sys.exit("games.py: no loaded project folder here. Open a project folder (not HOME), run /rbx-load; games go in <folder>/Games/<slug>/. Nothing is created in HOME.")
+    sys.exit(not_in_vault("games.py"))
 
 
 def template_dir():

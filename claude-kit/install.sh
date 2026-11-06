@@ -1,9 +1,9 @@
 #!/bin/bash
 # claude-kit installer for macOS/Linux (also works in Git Bash on Windows). Safe to run again. No questions, no sudo, sets nothing global.
 #   ON-DEMAND STORE (Roblox dev mode, not read by normal Claude sessions): agents/* -> ~/.claude/claude-kit/vault-mode/.claude/agents/   skills/* -> ~/.claude/claude-kit/vault-mode/.claude/skills/   mode/CLAUDE.md -> ~/.claude/claude-kit/vault-mode/CLAUDE.md
-#   /rbx-load copies the store's skills+agents into the CURRENT PROJECT's .claude/ (tools/vault-mode.py); /rbx-unload removes exactly those copies.
-#   COLD AREA: mode/cold/<topic>/* rides the mode/* mapping -> ~/.claude/claude-kit/vault-mode/cold/ (installed, refreshed, in installed.tsv, removed by uninstall; never copied into a project; read with tools/vault-mode.py cold).
-#   ALWAYS-ON (the only kit skills in ~/.claude/skills, listed in mode/always-on.txt): rbx-load rbx-unload rbx-update rbx-check rbx-uninstall
+#   The VAULT FOLDER (the notes clone, e.g. ~/Obsidian/claudes-vault) is permanently loaded: tools/vault-mode.py load --project <vault> (run here at the end, quietly, and by every update) copies the store's skills+agents+rules into <vault>/.claude/, hidden from git together with Games/ and Models/. Older loaded project folders are cleaned. No load/unload commands exist.
+#   COLD AREA: mode/cold/<topic>/* rides the mode/* mapping -> ~/.claude/claude-kit/vault-mode/cold/ (installed, refreshed, in installed.tsv, removed by uninstall; never copied into a folder; read with tools/vault-mode.py cold).
+#   ALWAYS-ON (the only kit skills in ~/.claude/skills, listed in mode/always-on.txt): rbx-update rbx-check rbx-uninstall
 #   tools/* -> ~/.claude/claude-kit/tools/        systems/* -> ~/.claude/claude-kit/systems/        skillpack/* -> ~/.claude/claude-kit/skillpack/ (NOT skills: opened on demand by the /rbx router skill)
 # An older install (kit skills/agents directly in ~/.claude/skills and /agents) is migrated by tools/vault-mode.py migrate: kit files move to a backup folder, your own skills/agents/CLAUDE.md are untouched, idempotent, reversible.
 # The vault owns every file it installs: an install/update overwrites each one with the incoming version and removes files that left the kit (no keep, no conflicts). The only content that is yours is your project's Games/ and Models/ folders and anything outside the vault's own paths; nothing here touches them. claude-kit/state/ holds a few tiny settings (rbx-mockup on/off) that are never deleted.
@@ -24,7 +24,7 @@ if command -v sha256sum >/dev/null 2>&1; then SHA="sha256sum"; else SHA="shasum 
 sha() { local o; o="$($SHA "$1")"; o="${o#\\}"; printf '%s' "${o%% *}"; }   # GNU sha256sum starts the line with a backslash when the file name contains one (Windows-style --home)
 MANTXT=""; [ -s "$MAN" ] && MANTXT=1      # old manifest present: look entries up with awk
 n_new=0; n_upd=0; n_same=0; n_gone=0; n_fail=0; first_wf=0
-SM="claude-kit/vault-mode"; AO="rbx-load rbx-unload rbx-update rbx-check rbx-uninstall"
+SM="claude-kit/vault-mode"; AO="rbx-update rbx-check rbx-uninstall"
 [ -f "$KIT/mode/always-on.txt" ] && AO="$(grep -v '^#' "$KIT/mode/always-on.txt" | tr -d '\r' | tr '\n' ' ')"
 [ -f "$MAN" ] || first_wf=1      # fresh install: print the welcome text at the end
 # an older layout: keep its manifest for the migration step (only once; vault-mode.py migrate moves it into its backup folder)
@@ -97,7 +97,7 @@ if [ $DRY = 0 ] && [ $FASTDONE = 0 ]; then   # fallback loop: files that left th
     [ -s "$TMP.rels" ] || : > "$TMP.skip"
     while [ ! -e "$TMP.skip" ] && IFS="$(printf '\t')" read -r orel _; do
       case "$orel" in ""|/*|*..*|*:*|*"\\"*) continue;; esac
-      case "$orel" in claude-kit/*) ;; skills/*) nm="${orel#skills/}"; nm="${nm%%/*}"; case " $AO " in *" $nm "*) ;; *) continue;; esac;; *) continue;; esac
+      case "$orel" in claude-kit/*) ;; skills/*) nm="${orel#skills/}"; nm="${nm%%/*}"; case " $AO rbx-load rbx-unload " in *" $nm "*) ;; *) continue;; esac;; *) continue;; esac
       grep -qxF -- "$orel" "$TMP.rels" 2>/dev/null && continue
       if [ -f "$C/$orel" ] && [ ! -L "$C/$orel" ]; then rm -f "$C/$orel"; n_gone=$((n_gone+1)); d="$(dirname "$C/$orel")"; while [ "$d" != "$C" ] && [ "$d" != "$C/claude-kit" ] && [ "$d" != "$C/skills" ] && rmdir "$d" 2>/dev/null; do d="$(dirname "$d")"; done; fi
     done < "$MAN"
@@ -115,13 +115,18 @@ if [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/vault-mode.py" ]; then
   elif [ -f "$C/claude-kit/installed.tsv.pre-mode" ]; then echo "vault-mode: no working Python 3, so the old always-on kit skills were not moved; install Python 3 and run /rbx-update"; fi
 fi
 rm -f "$TMP"
-# folders that have Roblox dev mode loaded: swap the old-named copies for the new-named ones (vault-mode.py sync is idempotent)
-if [ $RENAMED = 1 ] && [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/vault-mode.py" ]; then
-  MPY2=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then MPY2="$p"; break; fi; done
-  [ -n "$MPY2" ] && CLAUDE_CONFIG_DIR="$C" "$MPY2" -I "$C/claude-kit/tools/vault-mode.py" sync --config "$C" 2>&1
+# the vault folder is THE loaded environment: resolve it (the clone that holds this claude-kit folder, $CLAUDES_VAULT, the registered one, ~/Obsidian/claudes-vault) and load it quietly (env CLAUDE_KIT_NOLOAD=1: the caller, kit-refresh, does it)
+VH=""; LOADOUT=""
+for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then LPY="$p"; break; fi; done
+if [ -n "${LPY:-}" ] && [ -f "$KIT/tools/vault-mode.py" ]; then
+  VH="$(CLAUDE_KIT_HOME="$H" CLAUDE_CONFIG_DIR="$C" "$LPY" -I "$KIT/tools/vault-mode.py" home --kit "$KIT" --config "$C" 2>/dev/null | tail -n 1)"
+  if [ -n "$VH" ] && [ $DRY = 0 ] && [ "${CLAUDE_KIT_NOLOAD:-0}" != 1 ] && [ -f "$C/claude-kit/tools/vault-mode.py" ]; then
+    LOADOUT="$(CLAUDE_KIT_HOME="$H" CLAUDE_CONFIG_DIR="$C" "$LPY" -I "$C/claude-kit/tools/vault-mode.py" load --project "$VH" --quiet $([ "$first_wf" = 0 ] && echo --announce) --config "$C" 2>&1)"
+  fi
 fi
 echo "claude-kit: installed $n_new new, updated $n_upd, unchanged $n_same$([ "$n_gone" -gt 0 ] && echo ", removed $n_gone no longer in the kit")$([ "$n_fail" -gt 0 ] && echo ", FAILED $n_fail") (into $C)"
 [ -n "$RENAME_MSG" ] && printf '%s\n' "$RENAME_MSG"
+[ -n "$LOADOUT" ] && printf '%s\n' "$LOADOUT"
 # UI mockups default to automatic design-first: ONE non-blocking NOTICE FOR THE USER line per install (marker claude-kit/ui-mockup-notice.done); a fresh install only sets the marker (the setup text asks the question)
 if [ $DRY = 0 ] && [ -f "$KIT/tools/ui_pref.py" ]; then
   UPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then UPY="$p"; break; fi; done
@@ -178,7 +183,8 @@ if [ $DRY = 0 ] && [ $MODS_ON = 0 ] && command -v claude >/dev/null 2>&1; then
     if ! { printf '%s' "$lst" | grep -q "rbx-subagent-hud@roblox-vault-kit-mods" && printf '%s' "$lst" | grep -q "rbx-graph@roblox-vault-kit-mods"; }; then echo "Old vault plugins removed. To add the HUD and graph: run the installer with --with-mods (claude-kit/install.sh --with-mods or install.ps1 -WithMods), then /reload-plugins."; fi
   fi
 fi
-[ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of your project, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"
-if [ "${CLAUDE_KIT_NOFOOTER:-0}" != 1 ]; then echo; echo ">>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains)."; fi
+if [ -n "$VH" ]; then VSAY="$VH"; else VSAY="your vault folder (not found on this computer: clone the vault first, see SETUP-FOR-CLAUDE.md, then run this installer again)"; fi
+[ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed. TO USE THE VAULT: load it by starting a Claude session in $VSAY (that folder is the loaded vault: the vault skills, agents, art-direction, placement, lighting and visual-QA rules and reference images are there automatically; no load command is needed; your other Claude sessions stay clean). Always available in every session: /rbx-update /rbx-check /rbx-uninstall. In the vault folder: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of the vault, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"
+if [ "${CLAUDE_KIT_NOFOOTER:-0}" != 1 ]; then echo; echo ">>> Load the vault by starting a Claude session in $VSAY (then /rbx-list shows everything it contains)."; fi
 [ "$n_fail" -gt 0 ] && exit 1
 exit 0

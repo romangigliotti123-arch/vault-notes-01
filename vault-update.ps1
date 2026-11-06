@@ -4,7 +4,7 @@
 #        The companion AI Library Vault (next to this vault, folder ai-library-vault) is updated together with this vault by ai-vault-sync.ps1; -NoAiVault skips it.
 #        vault-update.ps1 -SetView light|full   (switch only, no update, works offline; what /rbx-light-on and /rbx-light-off run)
 #        vault-update.ps1 -Clean [-Yes] [-IncludeMine]   (what /rbx-clean runs: exact copy of the main vault; without -Yes it only prints the dry run)
-# YOUR DATA IS KEPT: <vault>\My Research\, <vault>\Games\ (your per-game notes and Games\_Reusable) and any folder holding PROTECTED-RESEARCH.md are protected (git-excluded, never in a patch, never reset or cleaned). The normal update never deletes untracked files.
+# YOUR DATA IS KEPT: <vault>\My Research\, <vault>\Games\ and <vault>\Models\ (your games, Games\_Reusable and your saved models) and any folder holding PROTECTED-RESEARCH.md are protected (git-excluded, never in a patch, never reset or cleaned). The normal update never deletes untracked files.
 # Self-healing: the vault clone is READ-ONLY. If local changes or divergence block the fast-forward, the real changes are saved to
 # %LOCALAPPDATA%\claudes-vault-sync\local-changes-<timestamp>.patch (newest 5 kept) and the vault is reset to origin/main. CRLF-only noise is dropped silently.
 # -FullView on: Obsidian indexes everything except Assets\ (slower; ~14,000 more notes). -FullView off: back to light mode. The choice survives updates (marker .full-view).
@@ -27,7 +27,7 @@ if (-not $git) { Write-Output 'rbx-update: git not found (winget install --id Gi
 # PROTECTED USER DATA: <vault>\My Research\ and every folder that contains PROTECTED-RESEARCH.md are added to .git\info\exclude on every run (so git never
 # treats them as removable), are never part of a patch, and are never touched by reset. Untracked files are never removed by a normal update; the update
 # Before a reset, untracked files that upstream now tracks (they would be overwritten) are copied to <StateDir>\collision-backup-<timestamp>.
-# Full view (marker file <vault>\.full-view): after every update .obsidian\app.json gets userIgnoreFilters = ["Assets/"] only; that rewrite is never saved as a "local change".
+# Full view (marker file <vault>\.full-view): after every update .obsidian\app.json gets userIgnoreFilters = ["Assets/", "Games/", "Models/"] only; that rewrite is never saved as a "local change".
 function Write-JsonNoBom([string]$path, $obj) {
   $txt = ($obj | ConvertTo-Json -Depth 20)
   [IO.File]::WriteAllText($path, $txt + "`n", (New-Object Text.UTF8Encoding $false))
@@ -42,8 +42,8 @@ function Set-FullViewConfig([string]$vault) {
   $text = '{}'; if (Test-Path -LiteralPath $f) { $text = [IO.File]::ReadAllText($f) }
   if (-not $text.Trim()) { $text = '{}' }
   $o = $text | ConvertFrom-Json
-  if ($o.PSObject.Properties['userIgnoreFilters']) { $o.userIgnoreFilters = @('Assets/') }
-  else { Add-Member -InputObject $o -NotePropertyName userIgnoreFilters -NotePropertyValue @('Assets/') }
+  if ($o.PSObject.Properties['userIgnoreFilters']) { $o.userIgnoreFilters = @('Assets/', 'Games/', 'Models/') }
+  else { Add-Member -InputObject $o -NotePropertyName userIgnoreFilters -NotePropertyValue @('Assets/', 'Games/', 'Models/') }
   New-Item -ItemType Directory -Force (Split-Path $f -Parent) | Out-Null
   Write-JsonNoBom $f $o
 }
@@ -57,7 +57,7 @@ function Add-GitExclude([string]$vault, [string]$line) {
 function Get-ProtectedDirs([string]$git, [string]$vault) {
   $set = New-Object System.Collections.Generic.List[string]
   $set.Add('My Research')
-  $set.Add('Games')   # per-game communities + Games/_Reusable: always protected, never shipped by origin
+  $set.Add('Games'); $set.Add('Models')   # per-game communities + Games/_Reusable: always protected, never shipped by origin
   $reg = Join-Path $vault '.git\info\protected-folders.txt'
   $cand = @(); if (Test-Path -LiteralPath $reg) { $cand += @(Get-Content -LiteralPath $reg) }
   foreach ($f in @(& $git -C $vault -c core.quotepath=false ls-files -o --exclude-standard -- '*PROTECTED-RESEARCH.md' 2>$null)) {
@@ -65,9 +65,9 @@ function Get-ProtectedDirs([string]$git, [string]$vault) {
   }
   foreach ($d in $cand) {
     $d = "$d".Trim()
-    if ($d -and $d -ne 'My Research' -and $d -ne 'Games' -and -not $d.StartsWith('Games/') -and -not $d.StartsWith('My Research/') -and -not $set.Contains($d) -and (Test-Path -LiteralPath (Join-Path $vault ($d + '/PROTECTED-RESEARCH.md')))) { $set.Add($d) }
+    if ($d -and $d -ne 'My Research' -and $d -ne 'Games' -and $d -ne 'Models' -and -not $d.StartsWith('Games/') -and -not $d.StartsWith('Models/') -and -not $d.StartsWith('My Research/') -and -not $set.Contains($d) -and (Test-Path -LiteralPath (Join-Path $vault ($d + '/PROTECTED-RESEARCH.md')))) { $set.Add($d) }
   }
-  try { if ($set.Count -gt 2) { Set-Content -LiteralPath $reg -Value @($set | Select-Object -Skip 2) -Encoding UTF8 } elseif (Test-Path -LiteralPath $reg) { Remove-Item -LiteralPath $reg -Force } } catch { }
+  try { if ($set.Count -gt 3) { Set-Content -LiteralPath $reg -Value @($set | Select-Object -Skip 3) -Encoding UTF8 } elseif (Test-Path -LiteralPath $reg) { Remove-Item -LiteralPath $reg -Force } } catch { }
   return @($set)
 }
 function Protect-Vault([string]$git, [string]$vault) {
@@ -85,7 +85,7 @@ function Heal-Vault {
   param([string]$git, [string]$vault, [string]$state)
   $ErrorActionPreference = 'Continue'
   $marker = Join-Path $vault '.full-view'
-  $msg = $null; $prot = @('My Research', 'Games')
+  $msg = $null; $prot = @('My Research', 'Games', 'Models')
   try {
     & $git -C $vault config core.autocrlf false 2>$null | Out-Null
     & $git -C $vault config core.safecrlf false 2>$null | Out-Null

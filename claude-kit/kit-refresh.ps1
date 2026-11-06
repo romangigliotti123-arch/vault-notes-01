@@ -9,6 +9,7 @@
 # Last line (only when the kit changed and the caller is not the current vault-update.ps1, which prints it itself): "Your vault is up to date as of ... (local time)" (tools\vault-published.ps1).
 $ErrorActionPreference = 'Continue'
 $env:CLAUDE_KIT_NOFOOTER = '1'
+$env:CLAUDE_KIT_NOLOAD = '1'   # install.ps1 does not load the vault folder; step 1b below does (its output is shown, not folded into the log line)
 $d = Split-Path -Parent $MyInvocation.MyCommand.Path
 if ($env:CLAUDE_KIT_SKIP -ne '1') {
   $inst = Join-Path $d 'install.ps1'
@@ -32,7 +33,7 @@ if (($env:CLAUDE_MODE_SKIP -ne '1') -and (Test-Path -LiteralPath $vmode)) {
       if (-not $exe) { continue }
       $pre = @(); if ($c.Count -gt 1) { $pre = $c[1..($c.Count - 1)] }
       & $exe.Source @pre -c "import sys" *> $null
-      if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $vmode, 'sync', '--quiet')); break }
+      if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $vmode, 'load', '--project', (Split-Path -Parent $d), '--quiet', '--announce')); break }
     }
   } catch { }
 }

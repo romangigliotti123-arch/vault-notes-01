@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """models.py - the small, strict library of reusable 3D models for /rbx-workflow. Stdlib only. Never touches anything outside Models/ (the PROJECT folder is read-only).
 
-Models/ lives in the loaded PROJECT folder (nearest folder at or above the cwd with .claude/vault-mode.json), next to Games/; never in the vault clone, ~/.claude or HOME. Created lazily by the first `add`; updates, unload and sync never touch it.
+Models/ lives in the VAULT FOLDER (nearest folder at or above the cwd with .claude/vault-mode.json), next to Games/; never in ~/.claude or HOME; in any other folder this tool says to start a session in the vault folder and creates nothing. Created lazily by the first `add`; updates, unload and sync never touch it.
 Layout:  Models/README.md (instructions)  Models/INDEX.md (generated, one line per model)  Models/LOG.md (removals)  Models/<category>/<slug>/{model.md, build.luau and/or *.rbxm|*.rbxmx, preview.png}
 
   models.py where                              print the Models root that will be used
@@ -12,7 +12,7 @@ Layout:  Models/README.md (instructions)  Models/INDEX.md (generated, one line p
   models.py list                               every model, one line each
   models.py use <slug> --game <game-slug>      record that a game uses the model
   models.py remove <slug>                      delete a model (logged)
-Models root: --models DIR, else env MODELS_ROOT, else <loaded project folder>/Models; else an error.
+Models root: --models DIR, else env MODELS_ROOT, else <vault folder>/Models; else an error that names the vault folder.
 """
 import argparse, datetime, os, re, shutil, sys
 
@@ -42,7 +42,7 @@ def models_root(a):
     pr = G.project_root()
     if pr:
         return os.path.join(pr, "Models")
-    sys.exit("models.py: no loaded project folder here. Open a project folder (not HOME), run /rbx-load; models go in <folder>/Models/. Nothing is created in HOME.")
+    sys.exit(G.not_in_vault("models.py"))
 
 
 def games_slugs(root):

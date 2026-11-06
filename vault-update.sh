@@ -5,7 +5,7 @@
 #        The companion AI Library Vault (next to this vault, folder ai-library-vault) is updated together with this vault by ai-vault-sync.sh; --no-ai-vault skips it.
 #        bash vault-update.sh --set-view light|full   (switch only, no update, works offline; what /rbx-light-on and /rbx-light-off run)
 #        bash vault-update.sh --clean [--yes] [--include-mine]   (what /rbx-clean runs: exact copy of the main vault; without --yes it only prints the dry run)
-# YOUR DATA IS KEPT: <vault>/My Research/, <vault>/Games/ (your per-game notes and Games/_Reusable) and any folder holding PROTECTED-RESEARCH.md are protected (git-excluded, never in a patch, never reset or cleaned). The normal update never deletes untracked files.
+# YOUR DATA IS KEPT: <vault>/My Research/, <vault>/Games/ and <vault>/Models/ (your games, Games/_Reusable and your saved models) and any folder holding PROTECTED-RESEARCH.md are protected (git-excluded, never in a patch, never reset or cleaned). The normal update never deletes untracked files.
 # Self-healing: the vault clone is READ-ONLY. If local changes or divergence block the fast-forward, the real changes are saved to
 # <state>/local-changes-<timestamp>.patch (state: ~/.local/state/claudes-vault-sync, macOS ~/Library/Application Support/claudes-vault-sync; newest 5 kept)
 # and the vault is reset to origin/main. CRLF-only noise is dropped silently.
@@ -28,7 +28,7 @@ if [ -z "$GIT" ]; then echo "rbx-update: git not found"; exit 1; fi
 # Self-healing update of the READ-ONLY vault clone. Never fails, never runs git clean. Prints at most one line.
 # core.autocrlf/safecrlf off, fetch, fast-forward; if local changes or divergence block that, the real changes are saved to
 # <state>/local-changes-<timestamp>.patch (+ untracked list; newest 5 kept) and the vault is reset to origin/main.
-# Full view (marker <vault>/.full-view): after every update .obsidian/app.json gets userIgnoreFilters = ["Assets/"] only; never saved as a local change.
+# Full view (marker <vault>/.full-view): after every update .obsidian/app.json gets userIgnoreFilters = ["Assets/", "Games/", "Models/"] only; never saved as a local change.
 vault_json() { # $1 = mode (strip|set) ; reads JSON text on stdin, writes JSON text on stdout
   local PY="" c; for c in python3 python; do if command -v "$c" >/dev/null 2>&1 && "$c" -c 'import json' >/dev/null 2>&1; then PY="$(command -v "$c")"; break; fi; done
   if [ -n "$PY" ]; then
@@ -40,13 +40,13 @@ o = json.loads(t)
 if mode == "strip":
     o.pop("userIgnoreFilters", None); print(json.dumps(o, sort_keys=True))
 else:
-    o["userIgnoreFilters"] = ["Assets/"]; print(json.dumps(o, indent=2, ensure_ascii=False))
+    o["userIgnoreFilters"] = ["Assets/", "Games/", "Models/"]; print(json.dumps(o, indent=2, ensure_ascii=False))
 ' "$1"
   elif command -v node >/dev/null 2>&1; then
     node -e '
 const m = process.argv[1]; let t = require("fs").readFileSync(0, "utf8").trim() || "{}"; const o = JSON.parse(t);
 if (m === "strip") { delete o.userIgnoreFilters; const k = {}; Object.keys(o).sort().forEach(x => k[x] = o[x]); console.log(JSON.stringify(k)); }
-else { o.userIgnoreFilters = ["Assets/"]; console.log(JSON.stringify(o, null, 2)); }
+else { o.userIgnoreFilters = ["Assets/", "Games/", "Models/"]; console.log(JSON.stringify(o, null, 2)); }
 ' "$1"
   else return 1; fi
 }
@@ -61,19 +61,19 @@ vault_fullview_apply() { # $1 = vault
 # removable), are never in a patch and never touched by reset. Untracked files are never removed by a normal update;
 vault_protected() { # $1=git $2=vault ; prints protected dirs (relative, no trailing slash), 'My Research' first
   local G="$1" V="$2" REG="$2/.git/info/protected-folders.txt" d
-  { echo 'My Research'; echo 'Games'   # Games = per-game communities + Games/_Reusable: always protected, never shipped by origin
+  { echo 'My Research'; echo 'Games'; echo 'Models'   # Games = per-game communities + Games/_Reusable: always protected, never shipped by origin
     [ -f "$REG" ] && cat "$REG"
     "$G" -C "$V" -c core.quotepath=false ls-files -o --exclude-standard -- '*PROTECTED-RESEARCH.md' 2>/dev/null | sed -n 's#^\(.*\)/PROTECTED-RESEARCH\.md$#\1#p'
   } | awk 'NF && !seen[$0]++' | while IFS= read -r d; do
-    case "$d" in "My Research/"*|"Games/"*) continue;; esac
-    if [ "$d" = "My Research" ] || [ "$d" = "Games" ] || [ -f "$V/$d/PROTECTED-RESEARCH.md" ]; then echo "$d"; fi
+    case "$d" in "My Research/"*|"Games/"*|"Models/"*) continue;; esac
+    if [ "$d" = "My Research" ] || [ "$d" = "Games" ] || [ "$d" = "Models" ] || [ -f "$V/$d/PROTECTED-RESEARCH.md" ]; then echo "$d"; fi
   done
 }
 vault_protect() { # $1=git $2=vault ; sets PROT (newline list) and adds /<dir>/ lines to .git/info/exclude (idempotent)
   local V="$2" EX="$2/.git/info/exclude" REG="$2/.git/info/protected-folders.txt" d
   PROT="$(vault_protected "$1" "$2")"
   mkdir -p "$V/.git/info"
-  printf '%s\n' "$PROT" | tail -n +3 > "$REG"; [ -s "$REG" ] || rm -f "$REG"
+  printf '%s\n' "$PROT" | tail -n +4 > "$REG"; [ -s "$REG" ] || rm -f "$REG"
   while IFS= read -r d; do
     [ -n "$d" ] || continue
     grep -qxF "/$d/" "$EX" 2>/dev/null || echo "/$d/" >> "$EX"
@@ -263,7 +263,7 @@ if [ -n "$SETVIEW" ]; then # switch-only (/rbx-light-on, /rbx-light-off): no fet
     echo 'Light mode off (full view): everything except Assets visible. Slower. Reopen Obsidian.'
   else
     rm -f "$VAULT/.full-view"; "$GIT" -C "$VAULT" checkout -q -- .obsidian/app.json 2>/dev/null
-    echo 'Light mode on: Imported, Library, Assets and source notes hidden. Reopen Obsidian.'
+    echo 'Light mode on: Imported, Library, Assets and source notes hidden (Games and Models always hidden). Reopen Obsidian.'
   fi
   [ "$NOAI" = 0 ] && [ -f "$VAULT/ai-vault-sync.sh" ] && { bash "$VAULT/ai-vault-sync.sh" --set-view "$SETVIEW" || true; }
   exit 0

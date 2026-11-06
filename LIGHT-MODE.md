@@ -4,7 +4,7 @@ Light mode hides only the big supporting folders (Library, Imported, Assets) fro
 
 The vault holds about 7,300 notes. Indexing all of them makes Obsidian lag, so the synced `.obsidian` config opens it light:
 
-- `Imported/`, `Library/` and `Assets/` (the synced Roblox assets, about 48,000 files) are set under Settings > Files and links > Excluded files. Obsidian does not index, search, or graph them. `Roblox/` and `Manager/` (about 3,700 notes) stay indexed.
+- `Games/` and `Models/` (your own games and saved models; always hidden from Obsidian and git), `Imported/`, `Library/` and `Assets/` (the synced Roblox assets, about 48,000 files) are set under Settings > Files and links > Excluded files. Obsidian does not index, search, or graph them. `Roblox/` and `Manager/` (about 3,700 notes) stay indexed.
 - The default graph shows only `Roblox/roblox-kb`, `Manager/` and the Roblox home note (about 620 nodes), with no orphans, tags or attachments.
 - Backlinks, outgoing-links, word-count, Sync and Canvas core plugins are off.
 
@@ -14,7 +14,7 @@ To see Library and Imported (full view), use the switch; do not edit Obsidian's 
 - macOS/Linux: `bash ~/Obsidian/claudes-vault/vault-update.sh --full-view on`
 - Back to light mode: the same command with `-FullView off` / `--full-view off`. In Claude: /rbx-update with full view on or off.
 
-Full view keeps only `Assets/` excluded and is slower: Obsidian indexes about 2,500 more notes (Library and Imported). The choice is a marker file `.full-view` in the vault root (ignored by git) and survives every update: after each update `.obsidian/app.json` is rewritten with `userIgnoreFilters` = `Assets/` only, all other keys untouched, and that rewrite is never treated as a local change. Close and reopen Obsidian after switching.
+Full view keeps only `Assets/`, `Games/` and `Models/` excluded and is slower: Obsidian indexes about 2,500 more notes (Library and Imported). The choice is a marker file `.full-view` in the vault root (ignored by git) and survives every update: after each update `.obsidian/app.json` is rewritten with `userIgnoreFilters` = `Assets/` only, all other keys untouched, and that rewrite is never treated as a local change. Close and reopen Obsidian after switching.
 
 Updates are self-healing: if the vault has local changes (for example Windows line endings or Obsidian rewriting `.obsidian/graph.json`), the update saves them to `local-changes-<timestamp>.patch` in the sync state folder, resets to the latest, and prints one line.
 

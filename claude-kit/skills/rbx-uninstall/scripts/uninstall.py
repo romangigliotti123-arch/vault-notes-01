@@ -210,7 +210,7 @@ def read_manifest(config, vault):
         # no manifest: derive the expected files from the kit source in the vault (files that differ count as edited)
         src = "kit source in vault (installed.tsv missing)"
         kit = os.path.join(vault, "claude-kit")
-        ao = ["rbx-load", "rbx-unload", "rbx-update", "rbx-check", "rbx-uninstall"]
+        ao = ["rbx-update", "rbx-check", "rbx-uninstall"]
         try:
             ao = [x.strip() for x in open(os.path.join(kit, "mode", "always-on.txt"), encoding="utf-8") if x.strip() and not x.startswith("#")] or ao
         except OSError:
@@ -452,7 +452,7 @@ def print_plan(P, keep_final, keep_note, a, real_run):
     say("  total kit files   : %d present (%d listed but already missing)" % (len(P["present"]), len(P["missing"])))
     say("  leftovers         : %d .new files, %d state files, %d unlisted files under <config>/claude-kit" % (len(P["new_files"]), len(P["state_files"]), len(P["extras"])))
     say("  <config>/claude-kit folder (tools, systems, skillpack, the on-demand store of vault skills/agents, installed.tsv)")
-    say("  Roblox dev mode copies (/rbx-load) in project folders: %d%s (removed first, only files that are still unchanged)" % (len(P["mode_projects"]), (" -> " + ", ".join(P["mode_projects"][:5])) if P["mode_projects"] else ""))
+    say("  vault copies in loaded folders (the vault folder's .claude and any older loaded project): %d%s (removed first)" % (len(P["mode_projects"]), (" -> " + ", ".join(P["mode_projects"][:5])) if P["mode_projects"] else ""))
     say("  hooks in settings.json (rbx-low-usage + rbx-mentor): %s" % ("found" if P["hooks"] else "none found") + ("" if P.get("settings_valid", True) else "  WARNING: settings.json is not valid JSON, hooks will NOT be removed"))
     say("  kit mods (plugins): %s" % ("skipped in --home test" if a.home else "claude plugin uninstall rbx-subagent-hud@%s; claude plugin uninstall rbx-graph@%s; claude plugin marketplace remove %s (before the vault is deleted)" % (MARKET, MARKET, MARKET)))
     for k, v in P["sys"]:
@@ -668,9 +668,9 @@ def run_real(a, P, keep_final, keep_note):
     if os.path.isfile(vm) and P["mode_projects"]:
         try:
             code, out = py_run(vm, ["unload", "--all", "--config", config], config)
-            say("      Roblox dev mode: %s" % (" | ".join(out.splitlines()[-3:]) if out else "exit %d" % code))
+            say("      vault copies: %s" % (" | ".join(out.splitlines()[-3:]) if out else "exit %d" % code))
         except Exception as e:
-            say("      Roblox dev mode: could not unload (%s); the copies in your project folders' .claude are listed in %s" % (e, os.path.join(config, "claude-kit", "vault-mode", "loaded.json")))
+            say("      vault copies: could not remove them (%s); the folders are listed in %s" % (e, os.path.join(config, "claude-kit", "vault-mode", "loaded.json")))
     hooks_ok = remove_hooks(P, keep_final)
     remove_sync(P)
     remove_mods(a, config)

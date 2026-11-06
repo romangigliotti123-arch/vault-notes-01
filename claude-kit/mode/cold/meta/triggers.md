@@ -28,7 +28,6 @@
 - **rbx-workflow**: Use when the user says make a game, plan a game, build a Roblox game from start to finish, rbx-workflow, run the game studio, or wants an idea rated and planned and built. No idea yet? /rbx-idea-quick finds one.
 - **rbx-idea-quick**: Use when the user asks for a quick or short game idea, what is hot on Roblox right now, or a fast idea checked against today's live charts.
 - **rbx-karpathy**: Use when the user says add the Karpathy rules, make Claude write less code, stop it changing unrelated things, smaller diffs, think before coding, or when agent edits are bloated or touch unrelated lines.
-- **rbx-load**: Use when the user says /rbx-load, load the vault, Roblox dev mode, enable the vault, or wants to make or work on a Roblox game and the vault skills are not loaded.
 - **rbx-low-usage**: Use when the user says /rbx-low-usage, low usage mode, save usage, stretch my limit, or stop burning my usage.
 - **rbx-make**: Use when the user says make/build/create me a Roblox game (with or without an idea), 'use the vault to build', 'give me game ideas that would do well', or wants a Roblox game designed and built from the vault, skills and assets without being asked questions; delegates to the rbx-builder agent, which researches the vault, writes a scored GDD and a Rojo/Luau project, checks it and reports how to open it in Studio.
 - **rbx-manager**: Use when the user says /rbx-manager, 'act as a manager', 'delegate this', 'run workers/agents', 'parallel agents', 'research this with a budget', or gives a large multi-step job.

@@ -10,7 +10,7 @@ Paste this to Claude: Set up the Roblox Dev Mastery Vault on my computer: fetch 
 
 ## Start here: making a game
 
-In your Roblox project folder type `/rbx-load` (the vault kit is OFF in every other Claude session), then `/rbx-workflow`. To see it end to end first, read `Guides/Worked-Example-Idea-To-Live-Ops.md` (also at `claude-kit/examples/worked-example/README.md`): one game from idea to live-ops, with what you type, what Claude does, the critic's verdicts and the files created at each stage.
+Start a Claude session in the vault folder (for example `~/Obsidian/claudes-vault`; that folder is loaded automatically and the vault kit is OFF in every other Claude session), then run `/rbx-workflow`. To see it end to end first, read `Guides/Worked-Example-Idea-To-Live-Ops.md` (also at `claude-kit/examples/worked-example/README.md`): one game from idea to live-ops, with what you type, what Claude does, the critic's verdicts and the files created at each stage.
 
 ## For agents: start at CAPABILITIES.md
 
@@ -23,7 +23,7 @@ In your Roblox project folder type `/rbx-load` (the vault kit is OFF in every ot
 The Roblox Dev Mastery Vault is an Obsidian vault built only for Roblox: one place where you learn what makes Roblox games succeed, and where AI agents use that knowledge to make games for you. It has two halves:
 
 1. A Roblox knowledge base (about 4,550 notes) built from official Roblox docs and from the transcripts of about 100 Roblox creators: playbooks, decision rules, benchmark numbers, 90 case studies of real games, ads, monetisation, retention, thumbnails, security and Luau.
-2. A manager toolkit (the `claude-kit/`, installed into `~/.claude/claude-kit` but switched OFF by default; `/rbx-load` turns it on for one project folder, `/rbx-unload` off): a flagship `/rbx-workflow`, side skills, 25 Roblox skills and 13 Roblox agents that design, build, rate, market, playtest and update a game, with you acting as the manager.
+2. A manager toolkit (the `claude-kit/`, installed into `~/.claude/claude-kit`; only the vault folder itself is loaded, so every other Claude session stays clean): a flagship `/rbx-workflow`, side skills, 25 Roblox skills and 13 Roblox agents that design, build, rate, market, playtest and update a game, with you acting as the manager.
 
 Who it is for: someone who wants to make or run Roblox games and manage the work with AI, with or without writing Luau themselves. Apart from the setup, nothing in it is general-purpose.
 
@@ -43,7 +43,7 @@ Light mode (the default) hides the big supporting folders (`Library/`, `Imported
 
 ## How it works
 
-1. In your Roblox project folder run `/rbx-load`, then `/rbx-workflow` with your idea (or none).
+1. Start Claude in the vault folder (the loaded folder), then run `/rbx-workflow` with your idea (or none).
 2. Claude elaborates the idea from the vault: core loop, first 30 seconds, progression, monetisation, social hooks, each fact tied to a vault note.
 3. It rates the idea 1.00-10.00 on 12 weighted criteria and checks what is hot now.
 4. It plans the build with agents, models and a budget (`game-plan.md`).
