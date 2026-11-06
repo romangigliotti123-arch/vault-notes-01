@@ -4,6 +4,8 @@
 They live under <claude config dir>/claude-kit/state/, a folder the installer never writes a kit file into and never deletes:
   state/ui-mockup.json          the /rbx-mockup on/off preference
   state/ui-mockup-notice.done   one-time notice marker
+  state/ideas-history.tsv       spark.py hist: titles + one-line pitches of past ideas (capped 200 lines)
+  state/market-brief.md         idea-brief.py: dated market brief for idea generation
 Everything else the vault installs is vault-owned and is overwritten by every install/update. Old leftovers in state/ (learnings-queue, hiccups, conflicts, overrides, thumbnails)
 are ignored by the kit; delete them by hand if you like: they are not read any more.
 
@@ -13,7 +15,7 @@ import os
 import sys
 
 STATE = ("claude-kit", "state")
-NAMES = ("ui-mockup.json", "ui-mockup-notice.done")
+NAMES = ("ui-mockup.json", "ui-mockup-notice.done", "ideas-history.tsv", "market-brief.md")
 
 
 def config_dir(cfg=None):

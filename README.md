@@ -23,7 +23,7 @@ Start a Claude session in the vault folder (for example `~/Obsidian/claudes-vaul
 The Roblox Dev Mastery Vault is an Obsidian vault built only for Roblox: one place where you learn what makes Roblox games succeed, and where AI agents use that knowledge to make games for you. It has two halves:
 
 1. A Roblox knowledge base (about 4,550 notes) built from official Roblox docs and from the transcripts of about 100 Roblox creators: playbooks, decision rules, benchmark numbers, 90 case studies of real games, ads, monetisation, retention, thumbnails, security and Luau.
-2. A manager toolkit (the `claude-kit/`, installed into `~/.claude/claude-kit`; only the vault folder itself is loaded, so every other Claude session stays clean): a flagship `/rbx-workflow`, side skills, 25 Roblox skills and 13 Roblox agents that design, build, rate, market, playtest and update a game, with you acting as the manager.
+2. A manager toolkit (the `claude-kit/`, installed into `~/.claude/claude-kit`; only the vault folder itself is loaded, so every other Claude session stays clean): a flagship `/rbx-workflow`, side skills, 25 Roblox skills and 18 Roblox agents (including the hidden-rubric idea judge) that design, build, rate, market, playtest and update a game, with you acting as the manager.
 
 Who it is for: someone who wants to make or run Roblox games and manage the work with AI, with or without writing Luau themselves. Apart from the setup, nothing in it is general-purpose.
 
