@@ -144,42 +144,6 @@
    "gen": 2
   },
   {
-   "old": "vault-learn",
-   "new": "rbx-learn",
-   "kind": "skill",
-   "gen": 1
-  },
-  {
-   "old": "learn-rbxdev-vault",
-   "new": "rbx-learn",
-   "kind": "skill",
-   "gen": 2
-  },
-  {
-   "old": "vault-curate",
-   "new": "rbx-curate",
-   "kind": "skill",
-   "gen": 1
-  },
-  {
-   "old": "curate-rbxdev-vault",
-   "new": "rbx-curate",
-   "kind": "skill",
-   "gen": 2
-  },
-  {
-   "old": "vault-contribute",
-   "new": "rbx-contribute",
-   "kind": "skill",
-   "gen": 1
-  },
-  {
-   "old": "contribute-rbxdev-vault",
-   "new": "rbx-contribute",
-   "kind": "skill",
-   "gen": 2
-  },
-  {
    "old": "vault-mentor",
    "new": "rbx-mentor",
    "kind": "skill",
@@ -757,7 +721,7 @@
  "kept": [
   "rbx (router skill)",
   "rbx-subagent-hud (mod)",
-  "tool files in claude-kit/tools (vault-find.py, kbq.py, learn.py, ...): namespaced by the claude-kit folder, not slash commands or ~/.claude entries",
+  "tool files in claude-kit/tools (vault-find.py, kbq.py, ...): namespaced by the claude-kit folder, not slash commands or ~/.claude entries",
   "vault-update.sh/.ps1, win-sync-setup.ps1, mac/linux-sync-setup.sh at the vault root: file names inside the vault folder; the logon task calls vault-update.ps1 by path",
   "plugin marketplace name roblox-vault-kit-mods"
  ]

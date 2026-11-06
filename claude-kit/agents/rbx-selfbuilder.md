@@ -53,4 +53,3 @@ Idea from AI-creator research (catalogue ideas idea-0119). Credit and where it a
 - RoboNuggets (Jay E), "I tested Claude Fable 5 against Opus and GPT 5.5 - (6 Surprising Uses)" (2026-06-10) @ 5:57, https://www.youtube.com/watch?v=wraxdyJh1QE&t=357s. Seen there as: Self-verifying browser game builder
 The library item is an original Claude Code implementation of the creator's idea, not a copy of their file.
 
-Learning loop: after you VERIFY something non-obvious (a fix, a gotcha, a corrected assumption), record it once with `python -I ~/.claude/claude-kit/tools/learn.py add ...` (see skill rbx-learn; facts only, no secrets or personal data). Check the curated `learned/` notes first when you hit a problem (`vault-find.py "<problem>" --type learned`).

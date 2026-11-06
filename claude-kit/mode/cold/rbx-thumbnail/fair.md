@@ -16,7 +16,7 @@ The test: could a first-time player recognise this image in the first 60 seconds
 ## How the vault enforces it
 - Rubric gates G1 (promise is real), G2 (rule-safe) and G3 (original vs competitors) fail the candidate whatever its total ([cold:rbx-thumbnail/rubric.md]). A gate is decided by looking, with the first-minute screenshot beside the image.
 - Curiosity is scored only when the game answers it (check 7): a gap with no payoff is bait.
-- The ledger compares qPTR AND average playtime per qualified play: a variant that wins clicks but loses playtime is not called a winner (protocol.md).
+- The decision rule compares qPTR AND average playtime per qualified play: a variant that wins clicks but loses playtime is not called a winner (protocol.md).
 - Social proof is the platform's job: Roblox overlays player counts and likes on the tile, so a fake crowd or counter in the image is both useless and risky.
 
 ## Official sources

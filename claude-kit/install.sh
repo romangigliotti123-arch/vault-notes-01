@@ -6,8 +6,7 @@
 #   ALWAYS-ON (the only kit skills in ~/.claude/skills, listed in mode/always-on.txt): rbx-load rbx-unload rbx-update rbx-check rbx-uninstall
 #   tools/* -> ~/.claude/claude-kit/tools/        systems/* -> ~/.claude/claude-kit/systems/        skillpack/* -> ~/.claude/claude-kit/skillpack/ (NOT skills: opened on demand by the /rbx router skill)
 # An older install (kit skills/agents directly in ~/.claude/skills and /agents) is migrated by tools/vault-mode.py migrate: kit files move to a backup folder, your own skills/agents/CLAUDE.md are untouched, idempotent, reversible.
-# Your edits win: a vault file you changed is never overwritten or deleted; the incoming version is saved as ~/.claude/claude-kit/state/conflicts/<path>.vault-new and ONE notice line says how to review it (tools/kit-conflicts.py).
-# Your data (learn queue, hiccup ledger, preferences, local rules) lives in ~/.claude/claude-kit/state, which no update touches. Files you never edited update normally.
+# The vault owns every file it installs: an install/update overwrites each one with the incoming version and removes files that left the kit (no keep, no conflicts). The only content that is yours is your project's Games/ and Models/ folders and anything outside the vault's own paths; nothing here touches them. claude-kit/state/ holds a few tiny settings (rbx-mockup on/off) that are never deleted.
 # User skills with other names are never touched or removed; similar ones are listed ("kit versions will be used") and the kit entry points say the kit skill wins at routing time.
 # Usage: bash install.sh [--home DIR] [--dry-run] [--with-hooks | --remove-hooks] [--with-mods]     (--home / env CLAUDE_KIT_HOME: install under DIR instead of $HOME, for tests)
 #   --with-mods (opt-in): also install the /rbx-subagent-hud and /rbx-graph Claude Code plugins (plugins load in every session, so they are no longer installed by default).
@@ -24,7 +23,7 @@ trap 'rm -f "$TMP"' EXIT
 if command -v sha256sum >/dev/null 2>&1; then SHA="sha256sum"; else SHA="shasum -a 256"; fi
 sha() { local o; o="$($SHA "$1")"; o="${o#\\}"; printf '%s' "${o%% *}"; }   # GNU sha256sum starts the line with a backslash when the file name contains one (Windows-style --home)
 MANTXT=""; [ -s "$MAN" ] && MANTXT=1      # old manifest present: look entries up with awk
-n_new=0; n_upd=0; n_same=0; n_repl=0; n_gone=0; n_fail=0; n_conf=0; first_wf=0; BK="$C/claude-kit/backup/$(date +%Y-%m-%d)"
+n_new=0; n_upd=0; n_same=0; n_gone=0; n_fail=0; first_wf=0
 SM="claude-kit/vault-mode"; AO="rbx-load rbx-unload rbx-update rbx-check rbx-uninstall"
 [ -f "$KIT/mode/always-on.txt" ] && AO="$(grep -v '^#' "$KIT/mode/always-on.txt" | tr -d '\r' | tr '\n' ' ')"
 [ -f "$MAN" ] || first_wf=1      # fresh install: print the welcome text at the end
@@ -45,9 +44,9 @@ if [ -f "$KIT/tools/kit-rename.py" ] && [ -s "$MAN" ]; then
 fi
 
 cpf() { cp "$1" "$2" 2>/dev/null || { chmod u+w "$2" 2>/dev/null; cp "$1" "$2"; }; }
-put() { # put <src> <rel under ~/.claude>
-  local src="$1" rel="$2" dst="$C/$2" ns old rec ds="" t
-  ns="$(sha "$src")"; old=""; rec="$ns"
+put() { # put <src> <rel under ~/.claude>: missing -> copy, identical -> same, anything else -> overwrite
+  local src="$1" rel="$2" dst="$C/$2" ns ds="" old=""
+  ns="$(sha "$src")"
   [ -n "$MANTXT" ] && old="$(awk -F'\t' -v r="$rel" '$1==r{print $2; exit}' "$MAN" 2>/dev/null)"
   [ -e "$dst" ] && ds="$(sha "$dst")"
   if [ ! -e "$dst" ]; then
@@ -55,24 +54,11 @@ put() { # put <src> <rel under ~/.claude>
     n_new=$((n_new+1))
   elif [ "$ds" = "$ns" ]; then
     n_same=$((n_same+1))
-  elif [ -n "$old" ] && [ "$ds" = "$old" ]; then
-    [ $DRY = 1 ] || cpf "$src" "$dst" || { echo "claude-kit: could not write $rel"; n_fail=$((n_fail+1)); printf '%s\t%s\n' "$rel" "$old" >> "$TMP"; return; }
-    n_upd=$((n_upd+1))
-  elif [ -n "$old" ] && [ "$old" = "$ns" ]; then      # you edited it, the kit did not change it: yours stays, nothing to report
-    n_same=$((n_same+1))
-  elif [ -n "$MANTXT" ]; then      # you edited it (or it was never recorded): kept; the incoming version goes to state/conflicts (no CRLF/LF normalising in this fallback loop)
-    if [ $DRY = 0 ]; then
-      cr="${rel#claude-kit/}.vault-new"; mkdir -p "$(dirname "$C/claude-kit/state/conflicts/$cr")"; cp "$src" "$C/claude-kit/state/conflicts/$cr"
-    fi
-    n_conf=$((n_conf+1)); [ -n "$old" ] && printf '%s\t%s\n' "$rel" "$old" >> "$TMP"; return
   else
-    if [ $DRY = 0 ]; then
-      bk="$BK/$rel"; i=1; while [ -e "$bk" ]; do i=$((i+1)); bk="$BK/$rel.$i"; done
-      mkdir -p "$(dirname "$bk")"; cp -p "$dst" "$bk"; cpf "$src" "$dst" || { echo "claude-kit: could not write $rel"; n_fail=$((n_fail+1)); printf '%s\t%s\n' "$rel" "${old:-$ds}" >> "$TMP"; return; }
-    fi
-    n_repl=$((n_repl+1))
+    [ $DRY = 1 ] || cpf "$src" "$dst" || { echo "claude-kit: could not write $rel"; n_fail=$((n_fail+1)); printf '%s\t%s\n' "$rel" "${old:-$ds}" >> "$TMP"; return; }
+    n_upd=$((n_upd+1))
   fi
-  [ -n "$rec" ] && printf '%s\t%s\n' "$rel" "$rec" >> "$TMP"
+  printf '%s\t%s\n' "$rel" "$ns" >> "$TMP"
 }
 
 # FAST PATH (default): one Python process does the whole copy loop (tools/kit-install-files.py; the shell loop below spawned ~7 processes per file: ~4 minutes on Git Bash).
@@ -82,9 +68,8 @@ if [ -n "$FASTPY" ] && [ -f "$KIT/tools/kit-install-files.py" ] && [ "${CLAUDE_K
   fo="$("$FASTPY" -I "$KIT/tools/kit-install-files.py" --kit "$KIT" --config "$C" --always-on "$AO" $([ $DRY = 1 ] && echo --dry-run) 2>&1)"
   case "$fo" in
     *"RESULT new="*) r="$(printf '%s\n' "$fo" | grep '^RESULT new=' | tail -1)"
-       n_new="${r#*new=}"; n_new="${n_new%% *}"; n_upd="${r#*upd=}"; n_upd="${n_upd%% *}"; n_same="${r#*same=}"; n_same="${n_same%% *}"; n_repl="${r#*repl=}"; n_repl="${n_repl%% *}"
-       case "$r" in *gone=*) n_gone="${r#*gone=}"; n_gone="${n_gone%% *}"; n_fail="${r#*fail=}"; n_fail="${n_fail%% *}";; esac
-       case "$r" in *conf=*) n_conf="${r#*conf=}"; n_conf="${n_conf%% *}";; esac
+       n_new="${r#*new=}"; n_new="${n_new%% *}"; n_upd="${r#*upd=}"; n_upd="${n_upd%% *}"; n_same="${r#*same=}"; n_same="${n_same%% *}"
+       n_gone="${r#*gone=}"; n_gone="${n_gone%% *}"; n_fail="${r#*fail=}"; n_fail="${n_fail%% *}"
        printf '%s\n' "$fo" | grep '^FAILED ' | head -5; FASTDONE=1;;
     *) echo "claude-kit: fast installer failed, using the slow shell loop ($(printf '%s' "$fo" | tail -1 | cut -c1-160))";;
   esac
@@ -106,14 +91,22 @@ done
 
 fi
 
+if [ $DRY = 0 ] && [ $FASTDONE = 0 ]; then   # fallback loop: files that left the kit are removed (the old manifest is still in $MAN here)
+  if [ -n "$MANTXT" ] && [ -s "$MAN" ]; then
+    cut -f1 "$TMP" | sort -u > "$TMP.rels" 2>/dev/null
+    [ -s "$TMP.rels" ] || : > "$TMP.skip"
+    while [ ! -e "$TMP.skip" ] && IFS="$(printf '\t')" read -r orel _; do
+      case "$orel" in ""|/*|*..*|*:*|*"\\"*) continue;; esac
+      case "$orel" in claude-kit/*) ;; skills/*) nm="${orel#skills/}"; nm="${nm%%/*}"; case " $AO " in *" $nm "*) ;; *) continue;; esac;; *) continue;; esac
+      grep -qxF -- "$orel" "$TMP.rels" 2>/dev/null && continue
+      if [ -f "$C/$orel" ] && [ ! -L "$C/$orel" ]; then rm -f "$C/$orel"; n_gone=$((n_gone+1)); d="$(dirname "$C/$orel")"; while [ "$d" != "$C" ] && [ "$d" != "$C/claude-kit" ] && [ "$d" != "$C/skills" ] && rmdir "$d" 2>/dev/null; do d="$(dirname "$d")"; done; fi
+    done < "$MAN"
+    rm -f "$TMP.rels" "$TMP.skip"
+  fi
+fi
 if [ $DRY = 0 ]; then
   [ $FASTDONE = 1 ] || { mkdir -p "$(dirname "$MAN")"; sort -u "$TMP" > "$MAN"; }
   chmod +x "$C/claude-kit/tools/roblox-project-template/luau-check.sh" "$C/claude-kit/tools/studio-setup.sh" 2>/dev/null || true
-fi
-# your data (learn queue, hiccup ledger, mockup preference) lives in claude-kit/state, which no update touches: move an older copy over once (idempotent; silent when nothing moved)
-if [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/kit_state.py" ]; then
-  SPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then SPY="$p"; break; fi; done
-  [ -n "$SPY" ] && CLAUDE_CONFIG_DIR="$C" "$SPY" -I "$C/claude-kit/tools/kit_state.py" migrate --config "$C" 2>&1
 fi
 # move an older always-on layout into the store (idempotent; silent when there is nothing to move)
 if [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/vault-mode.py" ]; then
@@ -127,7 +120,7 @@ if [ $RENAMED = 1 ] && [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/vault-mode.py" 
   MPY2=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then MPY2="$p"; break; fi; done
   [ -n "$MPY2" ] && CLAUDE_CONFIG_DIR="$C" "$MPY2" -I "$C/claude-kit/tools/vault-mode.py" sync --config "$C" 2>&1
 fi
-echo "claude-kit: installed $n_new new, updated $n_upd, unchanged $n_same, replaced-yours $n_repl$([ "$n_gone" -gt 0 ] && echo ", removed $n_gone no longer in the kit")$([ "$n_fail" -gt 0 ] && echo ", FAILED $n_fail") (into $C)"
+echo "claude-kit: installed $n_new new, updated $n_upd, unchanged $n_same$([ "$n_gone" -gt 0 ] && echo ", removed $n_gone no longer in the kit")$([ "$n_fail" -gt 0 ] && echo ", FAILED $n_fail") (into $C)"
 [ -n "$RENAME_MSG" ] && printf '%s\n' "$RENAME_MSG"
 # UI mockups default to automatic design-first: ONE non-blocking NOTICE FOR THE USER line per install (marker claude-kit/ui-mockup-notice.done); a fresh install only sets the marker (the setup text asks the question)
 if [ $DRY = 0 ] && [ -f "$KIT/tools/ui_pref.py" ]; then
@@ -136,12 +129,6 @@ if [ $DRY = 0 ] && [ -f "$KIT/tools/ui_pref.py" ]; then
     UIARG=""; [ "$first_wf" = 1 ] && UIARG="--mark-only"
     UIM="$(CLAUDE_CONFIG_DIR="$C" "$UPY" -I "$KIT/tools/ui_pref.py" notice $UIARG 2>/dev/null)"; [ -n "$UIM" ] && printf '%s\n' "$UIM"
   fi
-fi
-[ "$n_repl" -gt 0 ] && echo "claude-kit: replaced $n_repl existing files with the kit version (no earlier install was recorded); your originals are saved under $BK"
-# edited vault files are kept, never overwritten: ONE notice line (kit-refresh.sh defers it so it can come after the project-copy sync; install.sh run alone prints it here)
-if [ $DRY = 0 ] && [ "$n_conf" -gt 0 ] && [ "${CLAUDE_KIT_DEFER_NOTICE:-0}" != 1 ]; then
-  if [ $FASTDONE = 1 ] && [ -f "$C/claude-kit/tools/kit-conflicts.py" ] && [ -n "${FASTPY:-}" ]; then CLAUDE_CONFIG_DIR="$C" "$FASTPY" -I "$C/claude-kit/tools/kit-conflicts.py" notice --config "$C" 2>&1
-  else echo "NOTICE FOR THE USER (show this): $n_conf locally changed vault files kept; incoming versions saved; review with: look in $C/claude-kit/state/conflicts (your files were not changed)"; fi
 fi
 if [ -n "$HOOKS" ]; then
   PY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then PY="$p"; break; fi; done
@@ -191,7 +178,7 @@ if [ $DRY = 0 ] && [ $MODS_ON = 0 ] && command -v claude >/dev/null 2>&1; then
     if ! { printf '%s' "$lst" | grep -q "rbx-subagent-hud@roblox-vault-kit-mods" && printf '%s' "$lst" | grep -q "rbx-graph@roblox-vault-kit-mods"; }; then echo "Old vault plugins removed. To add the HUD and graph: run the installer with --with-mods (claude-kit/install.sh --with-mods or install.ps1 -WithMods), then /reload-plugins."; fi
   fi
 fi
-[ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (kept in the vault under Games/, never overwritten by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest /rbx-contribute; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"
+[ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in your project's Games/ folder, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"
 if [ "${CLAUDE_KIT_NOFOOTER:-0}" != 1 ]; then echo; echo ">>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains)."; fi
 [ "$n_fail" -gt 0 ] && exit 1
 exit 0

@@ -25,4 +25,3 @@ Design-first UI: no screen or button is built before it exists as a design with 
 - Mockup images are style hints only; no copying other games' UI; no real brands in prompts or references; text and sizes come from the spec.
 - Automatic image generation (Gemini through `rbx-thumbnail/scripts/gen_image.py`, the only client) is a quiet advanced path: [cold:rbx-ui-mockup/advanced.md] read only when the user explicitly asks for generated UI images.
 - Pipeline detail, spec schema, failure modes: [cold:rbx-ui-mockup/pipeline.md] read when a step fails or the spec or compare output is unclear.
-- Hiccup in this pipeline (tool error, browser missing, repeat fix round): `python -I ~/.claude/claude-kit/tools/learn.py hiccup add ...` per `rbx-learn`.

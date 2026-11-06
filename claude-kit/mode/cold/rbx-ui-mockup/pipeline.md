@@ -22,5 +22,3 @@ Built side = `UI-RECTS <viewport> [json]` lines printed by `rbx-visual/scripts/u
 ## Failure modes
 Missing browser (HTML only; tell the user to open the file); browser launches but returns nothing (timeout, then model fallback); fonts not installed on the machine (generic sans fallback: sizes stay exact, glyph widths may differ a little); built UI not named like the spec (everything shows as missing: rename the Instances); a ui_overlap built before this change has no UI-RECTS lines (rebuild with `python scripts/build_inline.py`); the preview host places GUIs below the top bar inset when `IgnoreGuiInset` is false: positions are in full-viewport pixels.
 
-## Learning
-Log recurring problems with `learn.py hiccup add` (area `rbx-ui-mockup`), e.g. kind tool-error, redo, wrong-assumption.

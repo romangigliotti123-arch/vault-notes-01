@@ -52,7 +52,7 @@ vault_fullview_apply() { # $1 = vault
   return 0
 }
 # PROTECTED USER DATA: <vault>/My Research/ and every folder that holds PROTECTED-RESEARCH.md are added to .git/info/exclude on every run (git never treats them as
-# removable), are never in a patch and never touched by reset. Untracked files are never removed by a normal update; it prints "N of your own files kept".
+# removable), are never in a patch and never touched by reset. Untracked files are never removed by a normal update;
 vault_protected() { # $1=git $2=vault ; prints protected dirs (relative, no trailing slash), 'My Research' first
   local G="$1" V="$2" REG="$2/.git/info/protected-folders.txt" d
   { echo 'My Research'; echo 'Games'
@@ -136,8 +136,6 @@ vault_heal() { # $1=git $2=vault $3=state dir ; echoes one line when something n
   fi
   vault_fullview_apply "$V"
   [ -n "$MSG" ] && echo "$MSG"
-  OWN="$(vault_own_count "$G" "$V" 2>/dev/null)"
-  [ "${OWN:-0}" -gt 0 ] 2>/dev/null && echo "rbx-update: $OWN of your own files kept (My Research, Games and your other files are never removed by /rbx-update)"
   return 0
 }
 # --- end vault-heal ---
@@ -182,7 +180,7 @@ vault_heal "$GIT" "$DEST" "$STATE"
 # Companion AI Library Vault (private repo ai-library-vault) -> next to this vault ($(dirname "$DEST")/ai-library-vault). Share first, then GitHub; non-fatal. Skip: AI_VAULT_SKIP=1
 if [ "${AI_VAULT_SKIP:-0}" != 1 ] && [ -f "$DEST/ai-vault-sync.sh" ]; then bash "$DEST/ai-vault-sync.sh" --dest "$(dirname "$DEST")/ai-library-vault" || echo "AI Library Vault setup failed (non-fatal; run vault-update.sh later)."; fi
 
-# Claude kit (Roblox agents, skills, tools) -> ~/.claude. Idempotent, no questions, your edits win: edited vault files are kept, the incoming version is saved (kit-conflicts.py). Skip: CLAUDE_KIT_SKIP=1
+# Claude kit (Roblox agents, skills, tools) -> ~/.claude. Idempotent, no questions, the vault owns its files: every update overwrites them with the new version. Skip: CLAUDE_KIT_SKIP=1
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$DEST/claude-kit/install.sh" ]; then CLAUDE_KIT_NOFOOTER=1 bash "$DEST/claude-kit/install.sh" || echo "Kit install failed (non-fatal)."; fi
 
 # Assets -> <vault>/Assets from the share (first run downloads everything, about 2.7 GB; later runs only changes). No questions. Skip: CLAUDE_ASSETS_SKIP=1
@@ -221,6 +219,6 @@ echo "Update now, any time: bash \"$DEST/vault-update.sh\"   (or /rbx-update in 
 echo "Next: open Obsidian > File > Open folder as vault > choose $DEST"
 echo "Updates appear automatically as files change on disk."
 echo "Do not edit notes on the Mac (pull is fast-forward only)."
-if [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (kept in the vault under Games/, never overwritten by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest /rbx-contribute; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"; fi
+if [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo "The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in your project's Games/ folder, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"; fi
 
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo; echo ">>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains)."; fi

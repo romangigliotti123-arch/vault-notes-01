@@ -1,6 +1,6 @@
 ---
 name: rbx-load
-description: "Run /rbx-load to turn on Roblox dev mode for this project folder: loads the vault kit (skills, agents, art-direction and visual-QA rules, reference images, learn step); other sessions stay clean. Use when the user wants to make or work on a Roblox game and the vault skills are not loaded."
+description: "Run /rbx-load to turn on Roblox dev mode for this project folder: loads the vault kit (skills, agents, art-direction and visual-QA rules, reference images); other sessions stay clean. Use when the user wants to make or work on a Roblox game and the vault skills are not loaded."
 ---
 
 # rbx-load

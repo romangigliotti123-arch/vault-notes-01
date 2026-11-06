@@ -36,7 +36,7 @@ $gh = (Get-Command gh.exe -ErrorAction SilentlyContinue).Source
 # the real changes as <StateDir>\local-changes-<timestamp>.patch (+ a list of untracked files; newest 5 kept), then resets to origin/main.
 # PROTECTED USER DATA: <vault>\My Research\ and every folder that contains PROTECTED-RESEARCH.md are added to .git\info\exclude on every run (so git never
 # treats them as removable), are never part of a patch, and are never touched by reset. Untracked files are never removed by a normal update; the update
-# prints "N of your own files kept". Before a reset, untracked files that upstream now tracks (they would be overwritten) are copied to <StateDir>\collision-backup-<timestamp>.
+# Before a reset, untracked files that upstream now tracks (they would be overwritten) are copied to <StateDir>\collision-backup-<timestamp>.
 # Full view (marker file <vault>\.full-view): after every update .obsidian\app.json gets userIgnoreFilters = ["Assets/"] only; that rewrite is never saved as a "local change".
 function Write-JsonNoBom([string]$path, $obj) {
   $txt = ($obj | ConvertTo-Json -Depth 20)
@@ -95,7 +95,7 @@ function Heal-Vault {
   param([string]$git, [string]$vault, [string]$state)
   $ErrorActionPreference = 'Continue'
   $marker = Join-Path $vault '.full-view'
-  $msg = $null; $kept = $null; $prot = @('My Research', 'Games')
+  $msg = $null; $prot = @('My Research', 'Games')
   try {
     & $git -C $vault config core.autocrlf false 2>$null | Out-Null
     & $git -C $vault config core.safecrlf false 2>$null | Out-Null
@@ -157,8 +157,7 @@ function Heal-Vault {
     }
   } catch { $msg = ('rbx-update: heal failed (' + $_.Exception.Message + '), continuing') }
   try { if (Test-Path -LiteralPath $marker) { Set-FullViewConfig $vault } } catch { }
-  try { $n = Get-OwnFileCount $git $vault $prot; if ($n -gt 0) { $kept = "rbx-update: $n of your own files kept (My Research, Games and your other files are never removed by /rbx-update)" } } catch { }
-  return @(@($script:originMoved, $msg, $kept) | Where-Object { $_ })
+  return @(@($script:originMoved, $msg) | Where-Object { $_ })
 }
 #endregion
 
@@ -202,7 +201,7 @@ if (-not $SkipAiVault -and (Test-Path $aiScript)) {
   try { & powershell -NoProfile -ExecutionPolicy Bypass -File $aiScript -Dest (Join-Path (Split-Path $Dest -Parent) 'ai-library-vault') } catch { Write-Output ('AI Library Vault setup failed (non-fatal; run vault-update.ps1 later): ' + $_.Exception.Message) }
 }
 
-# Claude kit (Roblox agents, skills, tools) -> %USERPROFILE%\.claude. Idempotent, no questions, your edits win: edited vault files are kept, the incoming version is saved (kit-conflicts.py). Skip with -SkipKit.
+# Claude kit (Roblox agents, skills, tools) -> %USERPROFILE%\.claude. Idempotent, no questions, the vault owns its files: every update overwrites them with the new version. Skip with -SkipKit.
 $kitScript = Join-Path $Dest 'claude-kit\install.ps1'
 if (-not $SkipKit -and (Test-Path $kitScript)) {
   $env:CLAUDE_KIT_NOFOOTER = '1'
@@ -228,7 +227,7 @@ try {
   $log = Join-Path $StateDir 'pull.log'
   $vbs = Join-Path $StateDir 'pull-hidden.vbs'
   # cmd /c "<git>" -C "<dest>" pull --ff-only >> "<log>" 2>&1, wrapped for cmd's quote rule, then escaped for VBScript
-  # after the pull, refresh the installed kit (agents, skills, tools) from the vault; quiet, your edits win: edited vault files are kept, the incoming version is saved (kit-conflicts.py)
+  # after the pull, refresh the installed kit (agents, skills, tools) from the vault; quiet, the vault owns its files: every update overwrites them with the new version
   $refresh = Join-Path $Dest 'claude-kit\kit-refresh.ps1'
   # runs at logon (and by hand): vault-update.ps1 -Quiet = self-healing fetch + fast-forward (see Heal-Vault) + kit refresh + asset sync; falls back to pull + kit refresh if the script is not there yet
   $upd = Join-Path $Dest 'vault-update.ps1'
@@ -266,7 +265,7 @@ Write-Output "Update now, any time: powershell -NoProfile -ExecutionPolicy Bypas
 Write-Output "Next: open Obsidian > Open folder as vault > choose $Dest"
 Write-Output 'Do not edit notes here (the update saves any local changes to a patch and resets to the latest). Remove the sync: win-sync-setup.ps1 -Uninstall'
 $kitHome = if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } else { $env:USERPROFILE }
-if (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md')) { Write-Output 'The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (kept in the vault under Games/, never overwritten by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest /rbx-contribute; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)' }
+if (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md')) { Write-Output 'The Roblox Dev Mastery Vault kit is installed and OFF by default, so your other Claude sessions stay clean (nothing from the vault is loaded). In a Roblox project folder start Claude and type /rbx-load: that session enters Roblox dev mode (the vault skills, agents, art-direction, placement, lighting and visual-QA rules, reference images, learn step) and /rbx-unload turns it off again. Always available: /rbx-load /rbx-unload /rbx-update /rbx-check /rbx-uninstall. After /rbx-load: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in your project's Games/ folder, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)' }
 elseif (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\agents\rbx-builder.md')) { Write-Output 'Kit installed (off by default): type /rbx-load in your Roblox project folder, then say "make me a Roblox game: <your idea>" to Claude.' }
 if (-not $SkipKit -and (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md'))) { Write-Output ''; Write-Output '>>> Type /rbx-load in a Roblox project folder to use the kit (then /rbx-list shows everything it contains).' }
 exit 0

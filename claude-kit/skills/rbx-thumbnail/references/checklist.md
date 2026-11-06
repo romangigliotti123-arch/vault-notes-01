@@ -30,5 +30,4 @@ Candidate prompt template with the click slots: [cold:rbx-thumbnail/prompts.md] 
 3. `thumb_score.py score S.json --write Games/<slug>` ranks 2-5 variants and writes `thumb-score/gate.json`. Pass = no failed gate and 32 of 46 (assumption); fix the 3 lowest checks, cap 3 rounds. No game folder: omit `--write`.
 4. Report `thumbnail: scored <score>/<max> (variants N)`, or `thumb_score.py skip --reason "<why>" --write Games/<slug>` for `thumbnail: skipped: <reason>` (hotfix, no store page yet, user declined). Advisory: it never blocks.
 5. Why a check matters, with evidence grades A/B/C: [cold:rbx-thumbnail/principles.md] read when explaining a score or choosing what to vary. An idea that bends the truth: [cold:rbx-thumbnail/fair.md] read first.
-6. After the user runs a Roblox thumbnail personalization test: [cold:rbx-thumbnail/protocol.md] read for the steps, then `python -I ~/.claude/claude-kit/tools/thumb_record.py add|decide|summary` (local ledger in `claude-kit/state/thumbnails/`; sharing is opt-in via `thumb_record.py share on`).
-7. A hiccup in this work (tool error, bad file, repeat fix round): `python -I ~/.claude/claude-kit/tools/learn.py hiccup add ...` per `rbx-learn`.
+6. After the user runs a Roblox thumbnail personalization test: [cold:rbx-thumbnail/protocol.md] read for the steps and the decision rule.

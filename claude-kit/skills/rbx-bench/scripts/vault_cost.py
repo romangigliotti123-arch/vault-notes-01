@@ -250,12 +250,12 @@ def disk_report(kit=None, config=None):
                                  by_folder={s: dir_size(os.path.join(kit, s))[0] for s in sorted(os.listdir(kit)) if os.path.isdir(os.path.join(kit, s))})
     if config and os.path.isdir(os.path.join(config, "claude-kit")):
         ck = os.path.join(config, "claude-kit")
-        b, n = dir_size(ck, skip=("backup", "learnings-queue", "roblox-reference"))
+        b, n = dir_size(ck, skip=("backup", "roblox-reference"))
         sk_b = 0
         for d in os.listdir(os.path.join(config, "skills")) if os.path.isdir(os.path.join(config, "skills")) else []:
             sk_b += dir_size(os.path.join(config, "skills", d))[0]
         out["kit_installed"] = dict(path=ck, bytes=b + sk_b, files=n, mb=round((b + sk_b) / 1048576, 2),
-                                    by_folder={s: dir_size(os.path.join(ck, s))[0] for s in sorted(os.listdir(ck)) if os.path.isdir(os.path.join(ck, s)) and s not in ("backup", "learnings-queue", "roblox-reference")})
+                                    by_folder={s: dir_size(os.path.join(ck, s))[0] for s in sorted(os.listdir(ck)) if os.path.isdir(os.path.join(ck, s)) and s not in ("backup", "roblox-reference")})
     return out
 
 

@@ -2,7 +2,7 @@
 
 # Built-in Roblox Studio MCP first, older Rust server as fallback
 
-STATUS: wording checked against the Roblox docs (create.roblox.com/docs/studio/mcp) and the Roblox/studio-rust-mcp-server README on 2026-11-05. NOT tested live in Studio by this vault: no Studio was run while writing this. Treat the first real connection as the test, and record what you see with `/rbx-learn`.
+STATUS: wording checked against the Roblox docs (create.roblox.com/docs/studio/mcp) and the Roblox/studio-rust-mcp-server README on 2026-11-05. NOT tested live in Studio by this vault: no Studio was run while writing this. Treat the first real connection as the test and report what you see.
 
 ## 1. Built-in server (use this first)
 - Enable: in Studio open Assistant, then `...` > Manage MCP Servers, then turn on Enable Studio as MCP server. Restart Studio and the AI client.

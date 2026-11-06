@@ -29,4 +29,3 @@ Cite a note path or link for every number. Patterns only: never rate or recommen
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

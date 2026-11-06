@@ -30,7 +30,6 @@ Same flow, with push-back. A generic 50-stage obby ("no hook, skip the rating an
 - **You type:** `/rbx-harvest generic-obby` (it also runs at the end of a build).
 - **Claude does:** copies the tested, reusable part to `Games/_Reusable/obby-course-generator/` with a README (what, how to use, which game, tested or not, rating): front matter `tested: y`, `rating: 6.8`, `from_game: generic-obby`. It listed the block's known gaps rather than hiding them.
 - **Found again:** a later new-game prompt, `vault-find.py "I want to make a new obby with generated stages"`, returns `1. [roblox:reusable] obby-course-generator (reusable, 6.8)` before the game's own notes. A different prompt (cozy cafe with daily rewards) returns the cafe game first, so it is relevance, not a fixed boost.
-- Want it in the shared vault for everyone? `/rbx-contribute` prepares it for review; nothing is sent without your say-so.
 
 ## From examples/worked-example/README.md :: Mentor beside any job (real run)
 

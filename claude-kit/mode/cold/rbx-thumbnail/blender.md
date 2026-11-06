@@ -37,7 +37,7 @@ Primitives always work (cube, sphere, cone, cylinder, torus, gem). Models: an OB
 EEVEE 64 samples (timeout 180 s); Cycles CPU 128 with denoise (timeout 420 s); hard cap 256 only with `--allow-high`; per side 512..4096. Ladder: EEVEE, then Cycles CPU 64 once, then report "render failed" and stop. Success = exit 0 + PNG of the declared size under `renders/`. `check` is an allow-list ast refusal: only bpy, bmesh, mathutils, math, random, colorsys, sys.argv; refuses os, subprocess, socket, shutil, ctypes, urllib, http, requests, importlib, pathlib, eval, exec, compile, open, getattr, `__import__`, dunder attributes, file saves, preferences, bpy.utils, save_render and path-like strings (paths arrive only as `--out-dir`/`--subject`). It is best effort, not a sandbox: run only scripts you or the vault generated, and give pasted third-party scripts the same check. The environment is reduced to a short whitelist, no add-ons, no `-y`.
 LLM-written bpy is fine (the AI part of this pipeline): describe the scene, write plain bpy, run it through `check` then `run`; stale API names are the common failure, the table above is the fix.
 
-## Open questions (UNTESTED LIVE; answer on the first real run and record with /rbx-learn)
+## Open questions (UNTESTED LIVE; answer on the first real run)
 1. Does EEVEE render with `-b` on this GPU/driver; Cycles CPU time at 1920x1080 and 128 samples.
 2. `write_still` file naming (extension, no `####`) per version.
 3. Camera distance with sensor fit AUTO for 16:9 and 1:1; world gradient direction; `shift_x/shift_y` sign (left-third placement).

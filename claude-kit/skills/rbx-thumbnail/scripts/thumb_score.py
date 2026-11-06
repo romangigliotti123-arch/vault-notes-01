@@ -14,7 +14,7 @@ header-level facts about the file, and writes the advisory gate record the verdi
 
 SCORES.json: {"game": "slug", "genre": "obby", "kind": "thumbnail", "variants": [{"id": "A", "image": "art/a.png", "control": true,
   "gates": {"G1": "pass", "G2": "pass", "G3": "pass"}, "scores": {"1": 2, "2": 1, ... "13": 2}}]}   (image and control optional)
-Weights (3/2/1), the pass bar 32 of 46 and the file limits are the vault's ASSUMPTIONS from evidence grades, not fitted to data; the result ledger (tools/thumb_record.py) is meant to replace them.
+Weights (3/2/1), the pass bar 32 of 46 and the file limits are the vault's ASSUMPTIONS from evidence grades, not fitted to data.
 """
 import datetime
 import json

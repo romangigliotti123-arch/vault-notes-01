@@ -24,4 +24,3 @@ NEEDS: anything the user must do or approve (or "none")
 NEXT: sensible follow-up steps
 ARTIFACTS: absolute paths / URLs / IDs of everything produced, with counts (or "none")
 
-Learning loop: after you VERIFY something non-obvious (a fix, a gotcha, a corrected assumption), record it once with `python -I ~/.claude/claude-kit/tools/learn.py add ...` (see skill rbx-learn; facts only, no secrets or personal data). Check the curated `learned/` notes first when you hit a problem (`vault-find.py "<problem>" --type learned`).

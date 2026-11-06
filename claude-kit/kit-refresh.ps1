@@ -1,17 +1,14 @@
 # kit-refresh.ps1 - run right after the vault update (self-healing fetch + fast-forward) (by vault-update.ps1, the logon task, or by hand) so installed copies of the kit
 # (agents, skills such as /rbx-workflow, tools) refresh whenever the vault updates, and then syncs <vault>\Assets from the public vault-assets repositories.
-# 1) install.ps1 (idempotent; a vault file you changed is kept, the incoming version is saved under claude-kit/state/conflicts/ and one notice line says so). Env CLAUDE_KIT_SKIP=1 skips this part.
+# 1) install.ps1 (idempotent; every vault file is overwritten with the incoming version, files that left the kit are removed). Env CLAUDE_KIT_SKIP=1 skips this part.
 # 2) tools\assets-sync.py --vault <this vault>: downloads only new/changed asset files (about 2.7 GB the first time), deletes removed ones.
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools\refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>\claude-kit\roblox-reference and
 #    writes <claude config dir>\claude-kit\reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
-# 4) tools\learn.py flush --quiet: sends the notes queued by /rbx-learn to the public inbox repo vault-learnings. Silent when nothing is queued, offline, or this machine has no write
-#    access (the notes then stay queued). Env CLAUDE_LEARN_SKIP=1 skips this part.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller. Env CLAUDE_KIT_HOME is honoured by install.ps1.
 # Last line (only when the kit changed and the caller is not the current vault-update.ps1, which prints it itself): "Your vault is up to date as of ... (local time)" (tools\vault-published.ps1).
 $ErrorActionPreference = 'Continue'
 $env:CLAUDE_KIT_NOFOOTER = '1'
-$env:CLAUDE_KIT_DEFER_NOTICE = '1'
 $d = Split-Path -Parent $MyInvocation.MyCommand.Path
 if ($env:CLAUDE_KIT_SKIP -ne '1') {
   $inst = Join-Path $d 'install.ps1'
@@ -19,7 +16,7 @@ if ($env:CLAUDE_KIT_SKIP -ne '1') {
     try {
       $out = (& powershell -NoProfile -ExecutionPolicy Bypass -File $inst 2>&1 | Out-String).Trim()
     } catch { $out = 'kit refresh failed: ' + $_.Exception.Message }
-    if ($out -notmatch 'installed 0 new, updated 0, unchanged \d+, replaced-yours 0 ') {
+    if ($out -notmatch '^claude-kit: installed 0 new, updated 0, unchanged \d+ \(into [^\r\n]*\)$') {
       $kChanged = $true
       Write-Output ("{0} kit-refresh: {1}" -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), ($out -replace "\s*\r?\n\s*", ' '))
     }
@@ -37,22 +34,6 @@ if (($env:CLAUDE_MODE_SKIP -ne '1') -and (Test-Path -LiteralPath $vmode)) {
       if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $vmode, 'sync', '--quiet')); break }
     }
   } catch { }
-}
-# 1c) vault files you edited that this update kept: ONE notice line, printed once (state\conflicts.json); nothing when there is nothing new. Env VAULT_UPDATE_QUIET=1 (logon run) leaves it pending.
-if ($env:CLAUDE_KIT_SKIP -ne '1') {
-  $cfgK = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } elseif ($env:CLAUDE_KIT_HOME) { Join-Path $env:CLAUDE_KIT_HOME '.claude' } else { Join-Path $env:USERPROFILE '.claude' }
-  $kcf = Join-Path $cfgK 'claude-kit\tools\kit-conflicts.py'
-  if (Test-Path -LiteralPath $kcf) {
-    try {
-      foreach ($c in @(@('python'), @('python3'), @('py', '-3'))) {
-        $exe = (Get-Command $c[0] -ErrorAction SilentlyContinue | Select-Object -First 1)
-        if (-not $exe) { continue }
-        $pre = @(); if ($c.Count -gt 1) { $pre = $c[1..($c.Count - 1)] }
-        & $exe.Source @pre -c "import sys" *> $null
-        if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $kcf, 'notice', '--config', $cfgK)); break }
-      }
-    } catch { }
-  }
 }
 $sync = Join-Path $d 'tools\assets-sync.py'
 $refs = Join-Path $d 'tools\refs-sync.py'
@@ -80,18 +61,6 @@ if ($doAssets -or $doRefs) {
       if ($doAssets) { & $py @($pyPre + @('-I', $sync, '--vault', $vault)) }   # streams its own progress lines (first sync); prints nothing when nothing changed
     } catch { Write-Output ("{0} assets-sync: failed (non-fatal): {1}" -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), $_.Exception.Message) }
   }
-}
-$learn = Join-Path $d 'tools\learn.py'
-if (($env:CLAUDE_LEARN_SKIP -ne '1') -and (Test-Path -LiteralPath $learn)) {
-  try {
-    foreach ($c in @(@('python'), @('python3'), @('py', '-3'))) {
-      $exe = (Get-Command $c[0] -ErrorAction SilentlyContinue | Select-Object -First 1)
-      if (-not $exe) { continue }
-      $pre = @(); if ($c.Count -gt 1) { $pre = $c[1..($c.Count - 1)] }
-      & $exe.Source @pre -c "import sys" *> $null
-      if ($LASTEXITCODE -eq 0) { & $exe.Source @($pre + @('-I', $learn, 'flush', '--quiet')) *> $null; break }
-    }
-  } catch { }
 }
 if ($kChanged -and -not $env:VAULT_UPDATE_LINE) {
   $pl = ''

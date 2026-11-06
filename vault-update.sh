@@ -58,7 +58,7 @@ vault_fullview_apply() { # $1 = vault
   return 0
 }
 # PROTECTED USER DATA: <vault>/My Research/ and every folder that holds PROTECTED-RESEARCH.md are added to .git/info/exclude on every run (git never treats them as
-# removable), are never in a patch and never touched by reset. Untracked files are never removed by a normal update; it prints "N of your own files kept".
+# removable), are never in a patch and never touched by reset. Untracked files are never removed by a normal update;
 vault_protected() { # $1=git $2=vault ; prints protected dirs (relative, no trailing slash), 'My Research' first
   local G="$1" V="$2" REG="$2/.git/info/protected-folders.txt" d
   { echo 'My Research'; echo 'Games'   # Games = per-game communities + Games/_Reusable: always protected, never shipped by origin
@@ -142,8 +142,6 @@ vault_heal() { # $1=git $2=vault $3=state dir ; echoes one line when something n
   fi
   vault_fullview_apply "$V"
   [ -n "$MSG" ] && echo "$MSG"
-  OWN="$(vault_own_count "$G" "$V" 2>/dev/null)"
-  [ "${OWN:-0}" -gt 0 ] 2>/dev/null && echo "rbx-update: $OWN of your own files kept (My Research, Games and your other files are never removed by /rbx-update)"
   return 0
 }
 # --- end vault-heal ---
@@ -288,7 +286,6 @@ if [ -f "$VAULT/.full-view" ]; then echo "rbx-update: full view ON (Obsidian ind
 else echo "rbx-update: light mode (default; Imported/, Library/ and Assets/ are not indexed by Obsidian). Full view: bash vault-update.sh --full-view on"; fi
 if [ -f "$VAULT/claude-kit/kit-refresh.sh" ]; then
   export VAULT_UPDATE_LINE=1   # this script prints the final line itself
-  [ "$QUIET" = 1 ] && export VAULT_UPDATE_QUIET=1   # a logon run must not use up the one-time notice about kept files
   [ "$NOKIT" = 1 ] && export CLAUDE_KIT_SKIP=1
   [ "$NOASSETS" = 1 ] && export CLAUDE_ASSETS_SKIP=1
   bash "$VAULT/claude-kit/kit-refresh.sh"

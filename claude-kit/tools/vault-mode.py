@@ -61,35 +61,6 @@ def sha(p):
     return h.hexdigest()
 
 
-def nsha(p):
-    with open(p, "rb") as f:
-        d = f.read()
-    return hashlib.sha256(d if b"\0" in d[:8192] else d.replace(b"\r\n", b"\n")).hexdigest()
-
-
-def conflict_note(p, proj, key, rel, fd, srcf, h):
-    """a project copy you edited is kept: save the incoming version under claude-kit/state/conflicts/projects/ and list it (kit-conflicts.py)"""
-    cf = os.path.join(p["c"], "claude-kit", "state", "conflicts.json")
-    doc = jread(cf, {})
-    items = doc["items"] if isinstance(doc.get("items"), dict) else {}
-    acked = doc["acked"] if isinstance(doc.get("acked"), dict) else {}
-    ek = "project:%s|%s/%s" % (proj, key, rel)
-    prev = items.get(ek)
-    if acked.get(ek) == h or (prev and prev.get("incoming") == h):
-        return
-    sv = os.path.join(p["c"], "claude-kit", "state", "conflicts", "projects", hashlib.sha1(proj.encode("utf-8")).hexdigest()[:8], *(key + "/" + rel + ".vault-new").split("/"))
-    try:
-        os.makedirs(os.path.dirname(sv), exist_ok=True)
-        shutil.copyfile(srcf, sv)
-    except OSError:
-        sv = ""
-    items[ek] = {"kind": "project", "project": proj, "key": key, "rel": rel, "file": fd, "incoming": h, "notified": False, "at": datetime.date.today().isoformat(),
-                 "saved": os.path.relpath(sv, p["c"]).replace(os.sep, "/") if sv else ""}
-    doc["items"], doc["acked"] = items, acked
-    doc.setdefault("v", 1)
-    jwrite(cf, doc)
-
-
 def jread(p, default):
     try:
         with open(p, "r", encoding="utf-8") as f:
@@ -401,16 +372,6 @@ def ref_line(p):
     return "reference images not downloaded yet (/rbx-update fetches them)"
 
 
-def learn_line(p):
-    if not os.path.isfile(os.path.join(p["c"], "claude-kit", "tools", "learn.py")):
-        return "learn step unavailable (learn.py missing)"
-    pend = os.path.join(p["c"], "claude-kit", "state", "learnings-queue", "pending")
-    if not os.path.isdir(pend):
-        pend = os.path.join(p["c"], "claude-kit", "learnings-queue", "pending")
-    n = len([x for x in os.listdir(pend)]) if os.path.isdir(pend) else 0
-    return "learn step on" + (" (%d note%s queued)" % (n, "" if n == 1 else "s") if n else "")
-
-
 def counts(keys):
     return sum(1 for k in keys if k.startswith("skills/")), sum(1 for k in keys if k.startswith("agents/"))
 
@@ -511,22 +472,14 @@ def link(proj, p, quiet=False):
             if cur == h:
                 newrec[rel] = h
                 continue
-            if cur is not None and rec.get(rel) != cur:
-                newrec[rel] = rec.get(rel, cur)
-                sf = file_src(src, key, rel)
-                if nsha(fd) == nsha(sf):
-                    continue
-                notes.append("kept your edited %s (not refreshed)" % os.path.relpath(fd, proj))
-                conflict_note(p, proj, key, rel, fd, sf, h)
-                continue
             os.makedirs(os.path.dirname(fd), exist_ok=True)
             put_file(file_src(src, key, rel), fd)
             newrec[rel] = h
             changed = True
-        for rel, h in rec.items():          # file left the kit: remove if unchanged
+        for rel, h in rec.items():          # file left the kit: remove (project copies are vault-owned)
             if rel not in files:
                 fd = file_dest(proj, key, rel)
-                if os.path.isfile(fd) and owned(proj, fd) and sha(fd) == h:
+                if os.path.isfile(fd) and owned(proj, fd):
                     os.remove(fd)
                     rmdirs_up(fd, os.path.join(proj, ".claude", key.split("/")[0]))
                     changed = True
@@ -534,7 +487,7 @@ def link(proj, p, quiet=False):
     for key in [k for k in marker["items"] if k not in items]:   # whole skill/agent left the kit
         for rel, h in marker["items"][key]["files"].items():
             fd = file_dest(proj, key, rel)
-            if os.path.isfile(fd) and owned(proj, fd) and sha(fd) == h:
+            if os.path.isfile(fd) and owned(proj, fd):
                 os.remove(fd)
                 rmdirs_up(fd, os.path.join(proj, ".claude", key.split("/")[0]))
         del marker["items"][key]
@@ -593,7 +546,7 @@ def print_index(p, items, head):
 
 def session_only(a, p, items):
     s, g = counts(items)
-    print("Roblox dev mode loaded for this session only (no folder changed): %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
+    print("Roblox dev mode loaded for this session only (no folder changed): %d skills, %d agents, %s" % (s, g, ref_line(p)))
     print("  a project folder gives the full persistent mode (slash commands, agents listed).")
     print("  " + games_line(os.path.abspath(a.project or os.getcwd()), p))
     if not a.no_text:
@@ -613,7 +566,7 @@ def cmd_load(a, quiet_text=False):
         return 2
     if a.no_link:
         s, g = counts(items)
-        print("Roblox dev mode on (this session only, nothing written): %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
+        print("Roblox dev mode on (this session only, nothing written): %d skills, %d agents, %s" % (s, g, ref_line(p)))
         print("  " + games_line(proj, p))
         if not a.no_text:
             print()
@@ -629,7 +582,7 @@ def cmd_load(a, quiet_text=False):
     hidden = exclude_write(proj, excl_keys(marker))
     registry_set(p, proj, marker)
     s, g = counts(marker["items"])
-    print("Roblox dev mode on: %d skills, %d agents, %s, %s" % (s, g, ref_line(p), learn_line(p)))
+    print("Roblox dev mode on: %d skills, %d agents, %s" % (s, g, ref_line(p)))
     print("  " + games_line(proj, p))
     print("  folder: %s  (copies in .claude/skills and .claude/agents, rules saved for this folder, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
     if first and not had_sk:
@@ -687,12 +640,9 @@ def cmd_unload(a):
                 if not owned(proj, fd):
                     kept += 1
                     print("  kept %s (outside the project's .claude folder)" % fd)
-                elif sha(fd) == h:
+                else:
                     os.remove(fd)
                     removed += 1
-                else:
-                    kept += 1
-                    print("  kept %s (you changed it)" % os.path.relpath(fd, proj))
         rules_remove(proj, marker)
         os.remove(mpath)
         for key in marker.get("items", {}):
@@ -718,7 +668,7 @@ def cmd_unload(a):
             reg["leftovers"] = sorted(set(reg["leftovers"]) | set(left))
             jwrite(p["reg"], reg)
             print("  (empty folders could not be deleted while Claude is running; they are removed by the next /rbx-update or when you run /rbx-unload again after quitting)")
-        print("Roblox dev mode off in %s: removed %d vault file(s)%s. Skills and agents already listed stay listed in this chat; open a new chat for a clean list; the mode rules no longer apply." % (proj, removed, (", kept %d you changed" % kept) if kept else ""))
+        print("Roblox dev mode off in %s: removed %d vault file(s)%s. Skills and agents already listed stay listed in this chat; open a new chat for a clean list; the mode rules no longer apply." % (proj, removed, (", left %d outside the project's .claude folder" % kept) if kept else ""))
     return 0
 
 
@@ -784,10 +734,7 @@ def cmd_status(a):
     old = [k for k in old_layout(p)]
     if old:
         print("OLD LAYOUT: %d vault skill/agent files are still in %s (they load in every session). Run /rbx-update to move them." % (len(old), p["c"]))
-    print("%s; %s" % (ref_line(p), learn_line(p)))
-    kc = jread(os.path.join(p["c"], "claude-kit", "state", "conflicts.json"), {}).get("items")
-    if isinstance(kc, dict) and kc:
-        print("kept vault files: %d (you changed them, so updates left them as they are; review: python %s list)" % (len(kc), os.path.join(p["c"], "claude-kit", "tools", "kit-conflicts.py")))
+    print(ref_line(p))
     return 0
 
 
@@ -965,7 +912,7 @@ def cmd_auto(a):
     exclude_write(proj, excl_keys(marker))
     registry_set(p, proj, marker)
     s, g = counts(marker["items"])
-    print("Roblox dev mode on (auto-loaded for this Roblox project): %d skills, %d agents, %s, %s. /rbx-unload turns it off." % (s, g, ref_line(p), learn_line(p)))
+    print("Roblox dev mode on (auto-loaded for this Roblox project): %d skills, %d agents, %s. /rbx-unload turns it off." % (s, g, ref_line(p)))
     print()
     cmd_mode_text(a)
     return 0

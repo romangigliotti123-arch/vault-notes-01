@@ -4,7 +4,7 @@
 
 How to use: look at the image at full size, then again reduced to about 150 px (icon) or 320 px wide (thumbnail). Decide the three gates (pass or fail), score the 13 checks 0, 1 or 2 from the anchors below, put them in a scores file (`thumb_score.py template`), run `thumb_score.py score S.json --write Games/<slug>`. The tool does the arithmetic, the ranking of 2-5 variants, the file checks and the gate record. Never score an image you have not looked at.
 
-ASSUMPTION label: the weights (3/2/1 from the evidence grade), the pass bar of 32 (70% of 46) and every threshold are the vault's judgement, not fitted to data and not Roblox rules. The result ledger (`tools/thumb_record.py summary`, [cold:rbx-thumbnail/protocol.md]) exists to replace them with measured ones once 20 or more decided variants per genre exist. Evidence for each check: [cold:rbx-thumbnail/principles.md].
+ASSUMPTION label: the weights (3/2/1 from the evidence grade), the pass bar of 32 (70% of 46) and every threshold are the vault's judgement, not fitted to data and not Roblox rules. Evidence for each check: [cold:rbx-thumbnail/principles.md].
 
 Weight = 3 for a mechanism with grade A evidence, 2 for official guidance (grade B), 1 for convention (grade C). Max = (3+3+3+2+2+2+2+1+1+1+1+1+1) x 2 = 46. Ship = no failed gate AND total at least 32 AND the file checks pass. Otherwise fix the three checks that lose the most points and score again (cap 3 rounds).
 
@@ -38,4 +38,4 @@ Thumbnail: file exists and is not empty; PNG/JPEG/GIF/BMP header size read; aspe
 ## Reading the result
 - Table columns: total of 46, gates, file checks, PASS or FAIL, difference to the control variant. One variant scored = fine for polishing, but the platform test needs 2 to 5 active thumbnails; more than 5 candidates: pick the top 5.
 - Variants for a test should differ by ONE feature group each from a control, so a later win or loss means something (protocol.md).
-- The gate record is advisory: it is shown in the verdict and the scorecard and never blocks. A final record that failed counts as a failing gate record for the hiccup check, like any other gate.
+- The gate record is advisory: it is shown in the verdict and the scorecard and never blocks. A final record that failed counts as a failing gate record, like any other gate.

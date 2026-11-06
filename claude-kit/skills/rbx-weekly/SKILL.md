@@ -23,4 +23,3 @@ Benchmarks are bands, not promises; flag (official/mixed/indie) shown next to ea
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

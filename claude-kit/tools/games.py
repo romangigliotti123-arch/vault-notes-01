@@ -19,7 +19,6 @@ README.md = the resume file (hand-written sections + an AUTO block); GAME.md = s
   games.py advance <slug> --to STAGE [--project DIR]   move GAME.md to STAGE only if the critic's latest verdict for the CURRENT stage is GOOD (and, from prototype on, its file says visual: pass AND placement: pass AND lighting: pass AND codegates: ran) and the evidence supports it
   games.py reusable add <name> --src PATH --what TXT [--from-game SLUG] [--tested y|n] [--rating N] [--tags TXT]    save a reusable building block
   games.py reusable list
-  games.py contribute <name>                           zip a reusable item into ~/rbx-contribute/ for the owner (never uploads anything)
 Games root: --games DIR, else env GAMES_ROOT, else <loaded project folder>/Games, else an existing legacy <vault>/Games (CLAUDES_VAULT or ~/Obsidian/claudes-vault); else an error.
 """
 import argparse, datetime, glob, json, os, re, shutil, sys, zipfile
@@ -675,22 +674,6 @@ def cmd_reusable(a):
     print("REUSABLE=%s\nREADME=%s\nNEXT: open the README and fill 'How to use' and 'Tested' with what you actually ran" % (dst, readme))
 
 
-def cmd_contribute(a):
-    root = games_root(a)
-    src = os.path.join(root, "_Reusable", a.name)
-    if not os.path.isdir(src):
-        sys.exit("games.py: no such reusable item %r" % a.name)
-    out_dir = os.path.join(os.path.expanduser("~"), "rbx-contribute")
-    os.makedirs(out_dir, exist_ok=True)
-    zp = os.path.join(out_dir, "%s-%s.zip" % (a.name, today()))
-    with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:
-        for d, _, files in os.walk(src):
-            for fn in files:
-                full = os.path.join(d, fn)
-                z.write(full, os.path.join(a.name, os.path.relpath(full, src)))
-    print("BUNDLE=%s\nNothing was uploaded. To contribute it, send this file to the vault owner (scp or a file share, ask the owner where) and ask them to review it." % zp)
-
-
 def main():
     ap = argparse.ArgumentParser(description="per-game community helper")
     ap.add_argument("--games")
@@ -707,14 +690,13 @@ def main():
     p = sp.add_parser("advance"); p.add_argument("slug"); p.add_argument("--to", required=True); p.add_argument("--project")
     p = sp.add_parser("reusable"); p.add_argument("action", choices=["add", "list"]); p.add_argument("name", nargs="?")
     p.add_argument("--src"); p.add_argument("--what"); p.add_argument("--from-game", dest="from_game"); p.add_argument("--tested", choices=["y", "n"]); p.add_argument("--rating"); p.add_argument("--tags")
-    p = sp.add_parser("contribute"); p.add_argument("name")
     a = ap.parse_args()
     try:
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     except Exception:
         pass
     {"where": cmd_where, "profile": cmd_profile, "init": cmd_init, "list": cmd_list, "detect": cmd_detect, "verdict": cmd_verdict,
-     "advance": cmd_advance, "resume": cmd_resume, "refresh": cmd_refresh, "reusable": cmd_reusable, "system": cmd_system, "contribute": cmd_contribute}[a.cmd](a)
+     "advance": cmd_advance, "resume": cmd_resume, "refresh": cmd_refresh, "reusable": cmd_reusable, "system": cmd_system}[a.cmd](a)
 
 
 if __name__ == "__main__":

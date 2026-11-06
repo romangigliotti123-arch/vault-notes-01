@@ -30,5 +30,3 @@ Gate record fields understood generically: status from `result` / `status` / `ve
 ## vault_cost.py
 JSON: `always_on`, `load_mode` (skills, agents, listing_tokens, rules_tokens, hidden_from_listing), `totals` (session_without_load_tokens, session_with_load_tokens, load_adds_tokens, description_tokens_all), `top_by_listing` / `top_by_body` / `top_by_disk`, `flagged` (threshold_chars, items, tokens_saved_if_trimmed_to_threshold), `disk`, `install` (seconds, tool), `vault_version`, `method`. History: `cost-history.csv` next to `--out`. Method: tokens = ceil(chars / 4); listing = `name: description`; a skill with `disable-model-invocation: true` lists nothing.
 
-## learn_stats.py
-Local queue (`pending`, `sent`, `rejected`, `ready-to-send`, oldest pending age, topics), inbox repo (`inbox`, `processed_accepted`, `processed_rejected`, CURATION-LOG decisions and rates, reject rule codes, topics) from `--clone PATH` or read-only `gh api`. `LEARN_STATS_GH` overrides the gh command (tests).

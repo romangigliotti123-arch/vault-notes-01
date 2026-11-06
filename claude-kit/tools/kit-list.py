@@ -10,7 +10,6 @@ MARKET = "roblox-vault-kit-mods"
 FALLBACK = {
     "rbx-make": "Designs and builds a Roblox game end to end from the vault, skills and assets",
     "rbx-research": "Deep multi-source research on a topic with every claim labelled by evidence level",
-    "rbx-contribute": "Packages one of your reusable items into a zip to offer to the vault owner",
     "rbx-ailib": "How Claude finds and uses skills, agents and notes in the AI Library Vault",
     "rbx-use": "How Claude should use the claudes-vault Obsidian vault",
 }

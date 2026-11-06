@@ -26,7 +26,7 @@ if (-not $git) { Write-Output 'rbx-update: git not found (winget install --id Gi
 # the real changes as <StateDir>\local-changes-<timestamp>.patch (+ a list of untracked files; newest 5 kept), then resets to origin/main.
 # PROTECTED USER DATA: <vault>\My Research\ and every folder that contains PROTECTED-RESEARCH.md are added to .git\info\exclude on every run (so git never
 # treats them as removable), are never part of a patch, and are never touched by reset. Untracked files are never removed by a normal update; the update
-# prints "N of your own files kept". Before a reset, untracked files that upstream now tracks (they would be overwritten) are copied to <StateDir>\collision-backup-<timestamp>.
+# Before a reset, untracked files that upstream now tracks (they would be overwritten) are copied to <StateDir>\collision-backup-<timestamp>.
 # Full view (marker file <vault>\.full-view): after every update .obsidian\app.json gets userIgnoreFilters = ["Assets/"] only; that rewrite is never saved as a "local change".
 function Write-JsonNoBom([string]$path, $obj) {
   $txt = ($obj | ConvertTo-Json -Depth 20)
@@ -85,7 +85,7 @@ function Heal-Vault {
   param([string]$git, [string]$vault, [string]$state)
   $ErrorActionPreference = 'Continue'
   $marker = Join-Path $vault '.full-view'
-  $msg = $null; $kept = $null; $prot = @('My Research', 'Games')
+  $msg = $null; $prot = @('My Research', 'Games')
   try {
     & $git -C $vault config core.autocrlf false 2>$null | Out-Null
     & $git -C $vault config core.safecrlf false 2>$null | Out-Null
@@ -147,8 +147,7 @@ function Heal-Vault {
     }
   } catch { $msg = ('rbx-update: heal failed (' + $_.Exception.Message + '), continuing') }
   try { if (Test-Path -LiteralPath $marker) { Set-FullViewConfig $vault } } catch { }
-  try { $n = Get-OwnFileCount $git $vault $prot; if ($n -gt 0) { $kept = "rbx-update: $n of your own files kept (My Research, Games and your other files are never removed by /rbx-update)" } } catch { }
-  return @(@($script:originMoved, $msg, $kept) | Where-Object { $_ })
+  return @(@($script:originMoved, $msg) | Where-Object { $_ })
 }
 #endregion
 
@@ -296,7 +295,6 @@ else { Write-Output 'rbx-update: light mode (default; Imported/, Library/ and As
 $kr = Join-Path $vault 'claude-kit\kit-refresh.ps1'
 if (Test-Path -LiteralPath $kr) {
   $env:VAULT_UPDATE_LINE = '1'   # this script prints the final line itself
-  if ($Quiet) { $env:VAULT_UPDATE_QUIET = '1' }   # a logon run must not use up the one-time notice about kept files
   if ($NoKit) { $env:CLAUDE_KIT_SKIP = '1' }
   if ($NoAssets) { $env:CLAUDE_ASSETS_SKIP = '1' }
   & powershell -NoProfile -ExecutionPolicy Bypass -File $kr

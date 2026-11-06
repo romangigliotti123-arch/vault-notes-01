@@ -1,7 +1,7 @@
 ---
 name: rbx-bench
-description: "Measures whether vault changes make better Roblox games and what load mode costs: scorecard.py (0-100 card, compare), 3 standard test games, vault_cost.py (load-mode tokens), learn_stats.py."
-argument-hint: "[game folder | compare | cost | learn]"
+description: "Measures whether vault changes make better Roblox games and what load mode costs: scorecard.py (0-100 card, compare), 3 standard test games, vault_cost.py (load-mode tokens)."
+argument-hint: "[game folder | compare | cost]"
 ---
 
 # rbx-bench
@@ -11,9 +11,9 @@ Precedence: When a kit skill and another installed skill cover the same job, use
 Why this exists: the gates (visual V1-V7, placement P1-P7, lighting, critic) pass or fail one game at a time, and nobody could tell whether a new vault version builds better games or what load mode costs every session. This skill reads what the gates already wrote, turns it into one comparable number per run, and measures the vault itself. It never changes a gate, a verdict or a game.
 
 ## Three tools (stdlib Python, run with `claude-kit/tools/pyrun` or `python -I`)
-- **Score a game**: `python scripts/scorecard.py collect Games/<slug> [--spec obby|tycoon|tower-defense] [--require-critic]` writes `benchmarks/runs/<id>/scorecard.json` + `.md` (per-gate pass/fail, per-check scores, weighted overall 0-100, top 3 problems with fixes, integrity flags) and appends a row to `benchmarks/history.csv` (date, vault version, game, scores). Every `gate.json` / `gate-*.json` under the game folder is discovered, so a new gate appears without a code change. The `hiccup` gate (`hiccup-qa/`, written by `tools/hiccup.py check|retro`: H1 reported vs objective events, H2 pre-flight run, H3 retro run) is scored, never blocking; the card shows the hiccups-per-game trend of the personal ledger.
+- **Score a game**: `python scripts/scorecard.py collect Games/<slug> [--spec obby|tycoon|tower-defense] [--require-critic]` writes `benchmarks/runs/<id>/scorecard.json` + `.md` (per-gate pass/fail, per-check scores, weighted overall 0-100, top 3 problems with fixes, integrity flags) and appends a row to `benchmarks/history.csv` (date, vault version, game, scores). Every `gate.json` / `gate-*.json` under the game folder is discovered, so a new gate appears without a code change.
 - **Compare**: `scorecard.py compare <A> <B>` (scorecard file, run id, `baseline`, `last`, `prev`); `baseline set <scorecard.json>`; `--strict` exits 1 on a regression. `history`, `verify` (were the scored gate files edited afterwards?), `spec show <id>`.
-- **Vault cost**: `python scripts/vault_cost.py --kit <kit> [--install-test]` (or `--config ~/.claude`): skills/agents loaded by `/rbx-load`, estimated tokens of every description and of the mode rules (chars / 4, method stated in the report), install time, disk size, 10 heaviest skills, descriptions over the threshold. `python scripts/learn_stats.py [--clone PATH | --repo owner/name]`: queue and inbox counts, accepted/rejected ratio, notes per topic (read-only).
+- **Vault cost**: `python scripts/vault_cost.py --kit <kit> [--install-test]` (or `--config ~/.claude`): skills/agents loaded by `/rbx-load`, estimated tokens of every description and of the mode rules (chars / 4, method stated in the report), install time, disk size, 10 heaviest skills, descriptions over the threshold.
 
 ## The standard benchmark
 `benchmarks/standard/{obby,tycoon,tower-defense}.json` (+ `.md` cards): fixed prompt, target features, required screenshots, scan points, rubric. Run the SAME prompt in every vault version you compare. How to run, save, score and avoid score gaming: `references/protocol.md` (read it before a benchmark build). Output formats: `references/scorecard-format.md`.
@@ -26,4 +26,3 @@ Why this exists: the gates (visual V1-V7, placement P1-P7, lighting, critic) pas
 
 ## Learn
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

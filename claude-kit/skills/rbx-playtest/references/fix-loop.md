@@ -20,7 +20,7 @@ Write at most 3, ranked, each with the evidence that would kill it. Test with te
 Fix the cause, not the symptom: grep all callers and sibling code with the same pattern. Keep the red check as the regression check (project `tests/` for Lune tests, otherwise `Games/<slug>/bugfix/<id>/`). Show it green. Re-run `static_scan.py`, and for map bugs the placement verify, so the fix did not move the problem.
 
 ## Phase 4: ledger
-`Games/<slug>/bugfix/<id>.md` from `templates/bugfix.md`: symptom, `## RED` (command and output excerpt), cause with file:line, fix, `## GREEN` (same command, passing output). `code_gates.py` check FL1 scores the share of ledgers that have both blocks (1 of 2 complete = 5.0, below the 7.0 pass mark; scored, not blocking). A fix without a ledger is `untested` in the report. A non-obvious cause also goes to `/rbx-learn`.
+`Games/<slug>/bugfix/<id>.md` from `templates/bugfix.md`: symptom, `## RED` (command and output excerpt), cause with file:line, fix, `## GREEN` (same command, passing output). `code_gates.py` check FL1 scores the share of ledgers that have both blocks (1 of 2 complete = 5.0, below the 7.0 pass mark; scored, not blocking). A fix without a ledger is `untested` in the report.
 
 ## Scanner leads
 A scanner hit (`static_scan.py`, `--triggers`, `scope_scan.py`) is a lead. Before it enters a fix loop give it a TRUE-POSITIVE or FALSE-POSITIVE verdict with one evidence line (the failing line or the guard, quoted); no evidence = open and unverified, not fixed on a guess. Fix true leads in tier order: exploits and data loss, crashes, leaks, performance. [cold:rbx-playtest/fp-verdict.md] read only for the line format or the optional mutation-testing one-off (not a standing rule).

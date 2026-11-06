@@ -23,7 +23,7 @@ Goal: answer "does vault version B build better games than version A, and at wha
    `python scripts/scorecard.py collect Games/<slug> --spec <id> --require-critic --project <project folder> --label "<vault version> run n"`.
    `--require-critic` counts every gate not scored by the critic as 0.
 7. **Compare.** First run of a spec: `scorecard.py baseline set <scorecard.json>`. Later versions: `scorecard.py compare baseline <new scorecard.json> --strict`. Read: overall delta, gate deltas, per-check deltas, regressions. One run per version is a sample, not proof: repeat 3 times and compare medians when the difference is under 10 points (model variance is real).
-8. **Report.** Per run: scorecard card, the compare, the cost line (`vault_cost.py`), the learning stats if relevant (`learn_stats.py`). State what was not measured.
+8. **Report.** Per run: scorecard card, the compare, the cost line (`vault_cost.py`). State what was not measured.
 
 ## Avoiding score gaming
 - The score is computed from the gate records the gates themselves wrote. Do not hand-write `gate.json`; use `visual_gate.py --write`, `placement_gate.py ingest`, `verdict.py --write`. `scorecard.py verify <scorecard.json>` re-hashes the scored files, so edits after scoring show as CHANGED.
@@ -39,4 +39,4 @@ Goal: answer "does vault version B build better games than version A, and at wha
 - Cost numbers (`vault_cost.py`) are estimates (chars / 4). A change that raises scores 3 points and costs 2000 more tokens in every session is a trade-off to decide, not a win.
 
 ## Order of use
-`vault_cost.py` (cost of the version) -> build -> critic scores -> `scorecard.py collect` -> `compare baseline` -> `learn_stats.py` (did the loop capture anything) -> report.
+`vault_cost.py` (cost of the version) -> build -> critic scores -> `scorecard.py collect` -> `compare baseline` -> report.

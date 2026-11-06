@@ -39,4 +39,3 @@ Why this exists: a generated map with the engine's default lighting (flat grey a
 
 ## Learn
 
-When this run verifies something non-obvious (a value that looked right in Studio, a fix, a gotcha, a corrected assumption), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
