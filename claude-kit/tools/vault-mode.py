@@ -706,7 +706,7 @@ def unload_one(p, proj, say):
         reg.setdefault("leftovers", [])
         reg["leftovers"] = sorted(set(reg["leftovers"]) | set(left))
         jwrite(p["reg"], reg)
-    return removed, kept
+    return removed, kept, left
 
 
 def cmd_unload(a):
@@ -724,6 +724,8 @@ def cmd_unload(a):
             print("The vault was not loaded in %s (no .claude/vault-mode.json); nothing removed." % proj)
             registry_set(p, proj, None)
             continue
+        if r[2]:
+            print("  (empty folders could not be deleted while Claude is running; they are removed by the next /rbx-update after you quit)")
         print("Vault copies removed from %s: %d file(s)%s. Games/ and Models/ were not touched." % (proj, r[0], (", left %d outside the folder's .claude folder" % r[1]) if r[1] else ""))
     return 0
 
