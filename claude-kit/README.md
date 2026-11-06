@@ -10,6 +10,13 @@ Built and maintained by Roman (GitHub: romangigliotti123-arch)
 **HOW TO SEE SKILLS AND AGENTS**
 - In that session type `/rbx-list` (skills, agents, mods), or type `/` and start typing `rbx-`. To learn what one skill does, ask "what does /rbx-<name> do".
 
+**HOW TO MAKE A GAME IDEA**
+- `/rbx-ideas`: finds ONE fresh idea based on what is doing best on the charts (single-player or open world). Reply "another" for a different one, "build it" to create the game folder, "plan" for the full plan.
+- `/rbx-idea-creator`: type it with your own idea to build it up, or on its own and it asks a few quick questions.
+
+**HOW TO BUILD A GAME**
+- `/rbx-workflow`: takes a game from idea to launch one stage at a time. Games live in `Games/<game name>/` in your vault folder (each has a README). In any new session say "I want to work on <game name>" and Claude picks it up. Good reusable models are saved to `Models/` in your vault folder automatically.
+
 **HOW TO UPDATE**
 - Type `/rbx-update` (works from any session).
 
