@@ -20,4 +20,4 @@ Replace `<kit>` with the kit folder. Run `/reload-plugins` in an open session af
 
 ## Updates
 
-`install.sh --with-mods` / `install.ps1 -WithMods` re-copy the mods from the kit: an installed rbx-graph older than the kit's (version 0.2.0 is the link-only one) is updated in place.
+`install.sh` / `install.ps1` (the mods are installed by default; `--no-mods` / `-NoMods` skips them) re-copy the mods from the kit: an installed rbx-graph older than the kit's (version 0.2.0 is the link-only one) is updated in place.

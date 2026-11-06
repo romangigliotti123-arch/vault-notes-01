@@ -5,12 +5,16 @@ LLMs cannot be random, so the seeds are drawn here with random.SystemRandom (OS 
 
   spark.py draw [--n N] [--lane single|open|any]   N numbered seed sets (default 3, max 12), each:
         Odd domain: / Core verb: / Feeling: / Constraint: / Setting twist: (the twist is optional, drawn ~2 times in 3)
+        each seed set is one group of 4 to 5 parts; a spark collides parts of 2 or 3 seed sets
         --lane single  drops entries that need other players (tag mp)
         --lane open    drops entries that need a closed/linear space (tag linear) and multiplayer-only ones are kept
         --lane any     (default) no filtering
+        entries tagged pressure (countdown, timer, rising-hazard shapes that break the hard rules) are dropped in every lane
         --seed S       deterministic draw, for tests only
   spark.py hist add "<title>" "<one-line pitch>"   remember an idea (state/ideas-history.tsv, newest last, capped at 200 lines)
-  spark.py hist check "<one-line pitch>"           prints NEW (exit 0) or SIMILAR: <title> (exit 1, best match) when token Jaccard >= 0.5
+  spark.py hist check ["<new title>"] "<one-line pitch>"   prints NEW (exit 0) or SIMILAR: <title> (exit 1, best match). SIMILAR when: same title (case-insensitive) or
+        title tokens Jaccard >= 0.6 vs a stored title, or pitch Jaccard >= 0.5 vs a stored pitch, or pitch-vs-title / title-vs-pitch Jaccard >= 0.6.
+        One argument is used as both title and pitch.
   spark.py hist list                               date, title, pitch of every remembered idea
 Data: data/spark-lists.json next to this file. History lives in <claude config dir>/claude-kit/state/ (kit_state.py); vault-managed, tiny.
 """
@@ -27,9 +31,10 @@ import kit_state  # noqa: E402
 
 CAP = 200
 THRESH = 0.5
+TITLE_THRESH = 0.6
 STOP = set("a an the of to and or in on for with is are be it its that this you your they their as at by from into who what when then than but not no can will just".split())
 LABELS = (("domain", "Odd domain"), ("verb", "Core verb"), ("feeling", "Feeling"), ("constraint", "Constraint"), ("twist", "Setting twist"))
-DROP = {"single": {"mp"}, "open": {"linear"}, "any": set()}
+DROP = {"single": {"mp", "pressure"}, "open": {"linear", "pressure"}, "any": {"pressure"}}
 
 
 def load_lists():
@@ -117,13 +122,22 @@ def cmd_hist(args):
         os.replace(tmp, p)
         print("added (%d kept)" % len(rows))
         return 0
-    if args[:1] == ["check"] and len(args) == 2:
-        t = tokens(args[1])
+    if args[:1] == ["check"] and len(args) in (2, 3):
+        title, pitch = (args[1], args[1]) if len(args) == 2 else (args[1], args[2])
+        tt, tp = tokens(title), tokens(pitch)
         best = None
-        for d, title, pitch in read_hist():
-            j = jaccard(t, tokens(pitch))
-            if j >= THRESH and (best is None or j > best[0]):
-                best = (j, title)
+        for d, st, sp in read_hist():
+            stt, stp = tokens(st), tokens(sp)
+            j = 0.0
+            if clean(title).lower() == st.lower():
+                j = 1.0
+            else:
+                j = max(j, jaccard(tt, stt) if jaccard(tt, stt) >= TITLE_THRESH else 0.0)
+                j = max(j, jaccard(tp, stp) if jaccard(tp, stp) >= THRESH else 0.0)
+                j = max(j, jaccard(tp, stt) if jaccard(tp, stt) >= TITLE_THRESH else 0.0)
+                j = max(j, jaccard(tt, stp) if jaccard(tt, stp) >= TITLE_THRESH else 0.0)
+            if j and (best is None or j > best[0]):
+                best = (j, st)
         if best:
             print("SIMILAR: %s" % best[1])
             return 1

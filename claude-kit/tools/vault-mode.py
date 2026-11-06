@@ -739,6 +739,10 @@ def cold_files(p):
 
 def cmd_cold(a):
     p = P(cfg_dir(a))
+    if not os.path.isdir(p["cold"]):   # bare kit copy (not installed into vault-mode/): read the kit's own mode/cold next to tools/
+        kit_cold = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "mode", "cold")
+        if os.path.isdir(kit_cold):
+            p["cold"] = kit_cold
     base = os.path.realpath(p["cold"])
     arg = (a.target or "").strip().replace("\\", "/").strip("/")
     files = cold_files(p)

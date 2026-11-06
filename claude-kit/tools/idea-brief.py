@@ -24,7 +24,7 @@ MAX_CHARS = 16000
 SECTIONS = ("What is doing well now", "What is fading", "Patterns", "What players ask for", "Gaps")
 HEAD = re.compile(r"^# Market brief \((\d{4}-\d{2}-\d{2})\)\s*$")
 URL = re.compile(r"https?://|www\.", re.I)
-TAG = re.compile(r"\[[^\]\s][^\]]{0,30}\]")
+TAG = re.compile(r"\[[^\]\s][^\]]{0,60}\]")
 
 
 def brief_path():

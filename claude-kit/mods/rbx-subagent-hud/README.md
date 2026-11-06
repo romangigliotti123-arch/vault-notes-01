@@ -61,7 +61,7 @@ UNINSTALL: `claude plugin uninstall rbx-subagent-hud@roblox-vault-kit-mods`
 
 UNINSTALL (also drop the marketplace): `claude plugin marketplace remove roblox-vault-kit-mods`
 
-Replace `<kit>` with the folder the kit is installed in. Run `/reload-plugins` in an open session after installing. This mod replaces the legacy plugins `hud-rbxdev-vault` and `workflow-hud`: `install.sh --with-mods` / `install.ps1 -WithMods` uninstall those and install this one.
+Replace `<kit>` with the folder the kit is installed in. Run `/reload-plugins` in an open session after installing. This mod replaces the legacy plugins `hud-rbxdev-vault` and `workflow-hud`: `install.sh` / `install.ps1` (the mods are installed by default; `--no-mods` / `-NoMods` skips them) uninstall those and install this one.
 
 ## Limits
 

@@ -16,7 +16,7 @@ afterwards by `vault-mode.py load`.
                                                            Idempotent: a second run finds nothing and prints nothing.
   migrate --revert                                          restore the files of the last migration (and the settings.json backup if unchanged since); automatic migration is then off
   plugins [--config DIR] [--dry-run]                        rename the enabledPlugins keys of the kit mods in settings.json (workflow-hud / hud-rbxdev-vault -> rbx-subagent-hud,
-                                                           vault-graph / graph-rbxdev-vault -> rbx-graph; backup first); the installers run it with --with-mods
+                                                           vault-graph / graph-rbxdev-vault -> rbx-graph; backup first); the installers run it unless --no-mods
   table                                                     print the old -> new table (and the merged/removed items)
 
 The names file also has a "removed" list: skills/agents that were MERGED into another item and no longer exist ("into" names the item that took over).

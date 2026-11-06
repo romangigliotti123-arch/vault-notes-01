@@ -37,7 +37,6 @@ Format: **Game** - trick. Fresh because. Steal it by.
 
 **Tower of Hell / Obby** - random-ish short climbs with no checkpoints. Fresh because the fail-restart loop is simple and clip-ready. Steal it by: one pure skill challenge with a visible top. [K:case-studies-tower-of-hell, case-studies-obby]
 **Doors** - a corridor of rooms with a monster that has simple readable rules. Fresh because each room is a mini puzzle and the danger is learnable. Steal it by: repeated rooms plus a monster with one clear rule. [K:case-studies-doors]
-**Grow a Garden / Steal a Brainrot (steal loops)** - your progress is visible and others can take from it. Fresh because stealing makes idle games social. Steal it by: put your progress on display with a risk. [K:case-studies-grow-a-garden, case-studies-steal-a-brainrot]
 **Murder Mystery 2** - hidden roles on a small map. Fresh because social deduction fits short rounds. Steal it by: a small map, a secret, a short round. [K:case-studies-murder-mystery-2]
 **Dress to Impress** - the player's creation is judged by others. Fresh because the fun is being rated. Steal it by: make a creative theme plus a judging moment. [K:case-studies-dress-to-impress]
 **Animal Hospital** - cute staff, anomalies hidden among routine patients. Fresh because the pattern-spot game wears a gentle skin. Steal it by: a spot-the-wrong-thing job under a calm theme. [K:case-studies-animal-hospital; the KB marks the blend claim single-source]
@@ -50,4 +49,3 @@ Format: **Game** - trick. Fresh because. Steal it by.
 ## How to use this file
 - Pick the trick that matches the seed set (verb, constraint, feeling), not the genre.
 - Write the trick as one sentence about the player's hands or mind, never the theme.
-- If your idea has no entry-like trick, it is probably generic: add one strange rule.

@@ -330,7 +330,7 @@ def plan(a, home, config, vault, keep_final):
     except (OSError, ValueError):
         P["mode_projects"] = []
     st = []
-    for n in ("rbx-low-usage.on", "low-usage-mode.on", "mentor-hook.off"):  # legacy marker name included
+    for n in ("rbx-low-usage.on", "low-usage-mode.on", "mentor-hook.off", "mods-choice", "mods-block.txt"):  # legacy marker name included
         if os.path.isfile(os.path.join(config, "state", n)):
             st.append("state/" + n)
     P["state_files"] = st

@@ -17,7 +17,7 @@ if ($env:CLAUDE_KIT_SKIP -ne '1') {
     try {
       $out = (& powershell -NoProfile -ExecutionPolicy Bypass -File $inst 2>&1 | Out-String).Trim()
     } catch { $out = 'kit refresh failed: ' + $_.Exception.Message }
-    $chk = (($out -split "`r?`n" | Where-Object { $_ -notmatch '^similar skills of yours' }) -join "`n").Trim()
+    $chk = (($out -split "`r?`n" | Where-Object { $_ -notmatch '^(similar skills of yours|Mods up to date|Mods skipped)' }) -join "`n").Trim()
     if ($chk -notmatch '^claude-kit: installed 0 new, updated 0, unchanged \d+ \(into [^\r\n]*\)$') {
       $kChanged = $true
       Write-Output ("{0} kit-refresh: {1}" -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), ($out -replace "\s*\r?\n\s*", ' '))

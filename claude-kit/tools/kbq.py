@@ -11,13 +11,14 @@
   python kbq.py case "<genre or game>" [-n 4]   case-study notes (what creators say + transferable patterns)
   python kbq.py docs "<query>" [-n 8]      search official Creator Docs / DevForum notes (out/docs, out/devforum) for API/limit facts
   python kbq.py tools                      list the pre-built quick-reference files in roblox-kb/_tools
-  python kbq.py pack ideas|trends "<seed or genre>"   ONE call = the 5-6 evidence queries of rbx-ideas / rbx-trends as one [K#]-tagged pack; first line is `KB OK ...` or `KB unavailable: <reason>. Fix: ...`
+  python kbq.py pack ideas|trends "<seed or genre>"   ONE call = the 5-6 evidence queries of rbx-ideas / rbx-trends as one pack with stable topic-qualified tags [K:<topic>#id] (irrelevant hits dropped; may say `no relevant KB evidence`); first line is `KB OK ...` or `KB unavailable: <reason>. Fix: ...`
 
 Every hit prints [topic | section | flag | newest-date] then the claim and up to 2 timestamped citations.
 flag: official (Roblox docs/staff/sessions) | indie (creator self-reported) | mixed | devforum (could be staff or community) | unsourced.
 """
 import argparse
 import contextlib
+import hashlib
 import io
 import math
 import os
@@ -395,55 +396,94 @@ def _cap(fn, **kw):
     return buf.getvalue().strip()
 
 
+GENERIC = {"game", "roblox", "player", "idea", "play", "single", "solo", "multiplayer", "style", "like", "based"}
+
+
+def _blocks(text):
+    """Split find/case output into hit blocks (a block starts at a line beginning with '[' or '== ')."""
+    out = []
+    for ln in text.splitlines():
+        if ln.startswith("[") or ln.startswith("== "):
+            out.append([ln])
+        elif out:
+            out[-1].append(ln)
+    return ["\n".join(b).strip() for b in out]
+
+
+def _stable(prefix, text):
+    return "[K:%s#%s]" % (prefix, hashlib.md5(text.encode("utf-8")).hexdigest()[:4])
+
+
+def _relevant(text, qt):
+    """Relevance floor: a hit must share enough of the user's own non-generic words (2 when the query has 4 or more of them)."""
+    need = 2 if len(qt) >= 4 else 1
+    return len(qt & set(K.tokens(text))) >= need
+
+
 def cmd_pack(a):
     if not K.KB_DIR or not os.path.isdir(K.KB_DIR) or not K.topic_files():
         print("KB unavailable: vault/knowledge base not found (looked in CLAUDES_VAULT, ~/Obsidian/claudes-vault).")
         print("Fix: run /rbx-update, or clone the vault to ~/Obsidian/claudes-vault, or set CLAUDES_VAULT=<vault folder> (see INSTALL.md). Until then evidence is web-only.")
         return
     q = a.query
+    qt = set(K.tokens(q)) - GENERIC
     n_case = len([f for f in os.listdir(K.KB_DIR) if f.startswith("case-studies-")])
     print("KB OK: %d topic files, %d case studies, vault %s" % (len(K.topic_files()), n_case, os.path.dirname(os.path.dirname(K.KB_DIR)).replace("\\", "/")))
-    k = [0]
     gaps = []
-
-    def tag(text):
-        out = []
-        for ln in text.splitlines():
-            if ln.startswith("[") or ln.startswith("== "):
-                k[0] += 1
-                ln = "[K%d] %s" % (k[0], ln)
-            out.append(ln)
-        return "\n".join(out)
+    routes = ""
+    body = []   # blocks that passed the relevance floor; stable tags: [K:<topic>#hash], [K:<topic>/<section>], [K:<case-study>]
 
     for kind, x, y in PACKS[a.kind]:
         if kind == "route":
             t = _cap(cmd_route, query=x % q, n=4)
-            print("-- route")
-            print("\n".join(l for l in t.splitlines() if not l.startswith("Next:")))
+            routes = "\n".join(l for l in t.splitlines() if not l.startswith("Next:"))
         elif kind == "section":
             t = _cap(cmd_section, topic=x, section=y, max_chars=1500)
             if t.startswith("no such section") or not t:
                 gaps.append("section %s/%s" % (x, y))
                 continue
-            k[0] += 1
-            print("-- [K%d] section %s %s\n%s" % (k[0], x, y, t))
+            if not _relevant(t, qt):
+                gaps.append("section %s/%s (not relevant to the query)" % (x, y))
+                continue
+            body.append("-- [K:%s/%s] section %s %s\n%s" % (x, y, x, y, t))
         elif kind == "find":
             t = _cap(cmd_find, query=x % q, n=6, topics=y, kinds=None, official=False, max_chars=300)
             if t.startswith("(no hits"):
                 gaps.append("find %s" % (x % q))
                 continue
-            print("-- find %s" % (x % q))
-            print(tag(t))
+            keep = []
+            for b in _blocks(t):
+                first = b.split("\n")[0]
+                if not _relevant(first, qt):
+                    continue
+                m = re.match(r"\[([a-z0-9-]+) \|", b)
+                keep.append("%s %s" % (_stable(m.group(1) if m else "kb", first), b))
+            if keep:
+                body.append("-- find %s\n%s" % (x % q, "\n".join(keep)))
+            else:
+                gaps.append("find %s (nothing relevant)" % (x % q))
         elif kind == "case":
             t = _cap(cmd_case, query=x % q, n=y, max_chars=700)
             if t.startswith("(no case study"):
                 gaps.append("case %s" % q)
                 continue
-            print("-- case studies")
-            print(tag(t))
+            keep = []
+            for b in _blocks(t):
+                m = re.match(r"== (\S+) \| genre: (.*)", b.split("\n")[0])
+                if m and _relevant(m.group(1).replace("-", " ") + " " + m.group(2), qt):
+                    keep.append("[K:%s] %s" % (m.group(1), b))
+            if keep:
+                body.append("-- case studies\n" + "\n\n".join(keep))
+            else:
+                gaps.append("case %s (nothing relevant)" % q)
+    if not body:
+        print("no relevant KB evidence for this query: say so on the card, do not pad it, use the brief only.")
+    else:
+        print("-- route\n" + routes)
+        print("\n".join(body))
     if gaps:
         print("-- gaps (say so in the reply): " + "; ".join(gaps))
-    print("Cite as [K#] with the src link, flag and date; indie figures are claims, not demand evidence.")
+    print("Cite exactly as the tag printed ([K:<topic>#id], [K:<topic>/<section>] or [K:<case-study>]) with the src link, flag and date; indie figures are claims, not demand evidence.")
 
 
 def cmd_tools(a):
