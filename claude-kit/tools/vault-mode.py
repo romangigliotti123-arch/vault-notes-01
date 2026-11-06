@@ -533,6 +533,16 @@ def games_line(proj, p):
     return "Games folder: ./Games (%s)" % (("%d game%s: %s%s" % (len(found), "s"[:len(found) != 1], ", ".join(found[:4]), ", ..." * (len(found) > 4))) if found else "none yet")
 
 
+def models_line(proj, p):
+    if guard(proj, p):
+        return "Models library: open a project folder to use it (nothing is created in HOME)"
+    md, n = os.path.join(proj, "Models"), 0
+    for c in sorted(os.listdir(md)) if os.path.isdir(md) else []:
+        cd = os.path.join(md, c)
+        n += sum(1 for s in os.listdir(cd) if os.path.isfile(os.path.join(cd, s, "model.md"))) if os.path.isdir(cd) else 0
+    return "Models library: ./Models (%d model%s)" % (n, "s"[:n != 1]) if n else "Models library: ./Models (empty)"
+
+
 def print_index(p, items, head):
     ao = set(always_on(p))
     print(head + ": when a task matches, Read that SKILL.md first and follow it; for an agent, spawn a general-purpose subagent with its file as the brief.")
@@ -549,6 +559,7 @@ def session_only(a, p, items):
     print("Roblox dev mode loaded for this session only (no folder changed): %d skills, %d agents, %s" % (s, g, ref_line(p)))
     print("  a project folder gives the full persistent mode (slash commands, agents listed).")
     print("  " + games_line(os.path.abspath(a.project or os.getcwd()), p))
+    print("  " + models_line(os.path.abspath(a.project or os.getcwd()), p))
     if not a.no_text:
         print()
         cmd_mode_text(a)
@@ -568,6 +579,7 @@ def cmd_load(a, quiet_text=False):
         s, g = counts(items)
         print("Roblox dev mode on (this session only, nothing written): %d skills, %d agents, %s" % (s, g, ref_line(p)))
         print("  " + games_line(proj, p))
+        print("  " + models_line(proj, p))
         if not a.no_text:
             print()
             cmd_mode_text(a)
@@ -584,6 +596,7 @@ def cmd_load(a, quiet_text=False):
     s, g = counts(marker["items"])
     print("Roblox dev mode on: %d skills, %d agents, %s" % (s, g, ref_line(p)))
     print("  " + games_line(proj, p))
+    print("  " + models_line(proj, p))
     print("  folder: %s  (copies in .claude/skills and .claude/agents, rules saved for this folder, %s; /rbx-unload removes exactly these)" % (proj, "hidden from git" if hidden else "not a git repository, nothing to hide"))
     if first and not had_sk:
         print("  Type /reload-skills to try to show the new slash commands; if they don't appear, open a new chat in this folder. Skills and agents already work in this chat via the index below.")
@@ -721,6 +734,7 @@ def cmd_status(a):
     else:
         print("Roblox dev mode: off in %s (type /rbx-load to turn it on%s)" % (proj, "; here it loads for the session only, nothing is written" if guard(proj, p) else ""))
     print(games_line(proj, p))
+    print(models_line(proj, p))
     print("vault store: %s (%d skills, %d agents) %s" % (p["store"], s, g, "" if items else "NOT INSTALLED: run /rbx-update"))
     others = [k for k in jread(p["reg"], {"projects": {}})["projects"] if os.path.realpath(k) != os.path.realpath(proj)]
     if others:
