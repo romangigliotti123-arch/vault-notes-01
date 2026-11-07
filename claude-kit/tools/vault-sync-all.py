@@ -135,6 +135,8 @@ def main():
         print("Assets incomplete: %s. To finish, run (resumes): %s" % (reason, retry), flush=True)
         write_state("incomplete", "- Assets: INCOMPLETE (%s). To finish, run this (it resumes where it stopped): %s" % (reason, retry))
         return 0
+    if not st["done"] and not st["total"]:
+        print("assets: already up to date", flush=True)
     gb = dir_gb(os.path.join(vault, "Assets"))
     print("assets: complete (%.1f GB in %s, %ds)" % (gb, os.path.join(vault, "Assets"), time.time() - t0), flush=True)
     write_state("complete", "- Assets: downloaded and verified (%.1f GB) in %s." % (gb, os.path.join(vault, "Assets")))

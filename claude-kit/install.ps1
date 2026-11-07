@@ -200,7 +200,7 @@ $mbF = Join-Path $sd 'mods-block.txt'
 Remove-Item -LiteralPath $mbF -Force -ErrorAction SilentlyContinue
 $mb = ''
 if ($kpy -and (Test-Path -LiteralPath (Join-Path $Kit 'tools\kit-mods.py'))) {
-  $ka = @('-I', (Join-Path $Kit 'tools\kit-mods.py'), '--kit', $Kit, '--config', $C, '--on-cmd', $mCmd, '--off-cmd', $mOff)
+  $ka = @('-I', (Join-Path $Kit 'tools\kit-mods.py'), '--kit', $Kit, '--config', $C, '--on-cmd', $mCmd.Replace('"', '\"'), '--off-cmd', $mOff.Replace('"', '\"'))
   if ($vh) { $ka += @('--vault', $vh) }
   if ($DryRun) { $ka += '--dry-run' }
   if ($NoMods) { $ka += '--no-mods' }
@@ -220,7 +220,7 @@ $assetB = ''
 if ((-not $DryRun) -and $vh -and (Test-Path -LiteralPath $vh) -and $env:CLAUDE_KIT_NOFOOTER -ne '1' -and $env:CLAUDE_KIT_NOLOAD -ne '1' -and $env:CLAUDE_KIT_NOSYNC -ne '1') {
   $rcmd = 'powershell -NoProfile -ExecutionPolicy Bypass -File "' + $inst + '"'
   if ($kpy -and (Test-Path -LiteralPath (Join-Path $Kit 'tools\vault-sync-all.py'))) {
-    $sa = @('-I', (Join-Path $Kit 'tools\vault-sync-all.py'), '--vault', $vh, '--config', $C, '--retry-cmd', $rcmd)
+    $sa = @('-I', (Join-Path $Kit 'tools\vault-sync-all.py'), '--vault', $vh, '--config', $C, '--retry-cmd', $rcmd.Replace('"', '\"'))
     if (-not $assetsOn) { $sa += '--no-assets' }
     if ($env:CLAUDE_SYNC_BASE) { $sa += @('--base', $env:CLAUDE_SYNC_BASE) }
     if ($env:CLAUDE_SYNC_DRY -eq '1') { $sa += '--dry-run' }

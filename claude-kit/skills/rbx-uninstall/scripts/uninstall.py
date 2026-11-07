@@ -558,10 +558,12 @@ MARKET = "roblox-vault-kit-mods"
 
 
 def mod_cmds():
-    return [["claude", "plugin", "uninstall", "%s@%s" % (m, MARKET)] for m in MODS] + [["claude", "plugin", "marketplace", "remove", MARKET]]
+    # the mods live at PROJECT scope of the vault folder (run with cwd = the vault folder); older kits installed them at user scope: both are removed
+    return ([["claude", "plugin", "uninstall", "%s@%s" % (m, MARKET), "--scope", "project"] for m in MODS] + [["claude", "plugin", "uninstall", "%s@%s" % (m, MARKET), "--scope", "user"] for m in MODS]
+            + [["claude", "plugin", "marketplace", "remove", MARKET]])
 
 
-def remove_mods(a, config):
+def remove_mods(a, config, vault=None):
     """Kit mods (Claude Code plugins). Runs BEFORE the vault is deleted. Skipped under --home tests (like schtasks)."""
     if a.home:
         say("mods: skipped (--home test)")
@@ -573,7 +575,7 @@ def remove_mods(a, config):
     env = dict(os.environ, CLAUDE_CONFIG_DIR=config)
     for c in mod_cmds():
         try:
-            r = subprocess.run([exe] + c[1:], capture_output=True, text=True, timeout=120, env=env, stdin=subprocess.DEVNULL)
+            r = subprocess.run([exe] + c[1:], capture_output=True, text=True, timeout=120, env=env, stdin=subprocess.DEVNULL, cwd=(vault if vault and os.path.isdir(vault) else None))
             out = (r.stdout + r.stderr).strip().splitlines()
             say("mods: %s -> %s" % (" ".join(c[1:]), "ok" if r.returncode == 0 else "exit %d (%s)" % (r.returncode, out[-1][:100] if out else "")))
         except Exception as e:
@@ -673,7 +675,7 @@ def run_real(a, P, keep_final, keep_note):
             say("      vault copies: could not remove them (%s); the folders are listed in %s" % (e, os.path.join(config, "claude-kit", "vault-mode", "loaded.json")))
     hooks_ok = remove_hooks(P, keep_final)
     remove_sync(P)
-    remove_mods(a, config)
+    remove_mods(a, config, vault)
     # 3 manifest files
     say("[3/6] deleting kit files listed in installed.tsv")
     skip = set(P["edited"] + P["extras"]) if a.keep_edited else set()
