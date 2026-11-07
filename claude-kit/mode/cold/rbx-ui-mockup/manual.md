@@ -4,7 +4,7 @@
 
 `/rbx-mockup on` stores the preference; the next UI step builds `ui-mockup/` with `ui_mock.py package`: `prompts/00-style-sheet.md` then one prompt per screen (text placeholders `[TITLE]`, `[BUTTON]`, `[NUMBER]` only), `references/` (the user's own screenshots, the automatic design sheet frames as layout references), `INSTRUCTIONS.md` (numbered steps), `CHECKLIST.md`, `status.json`, an empty `results/`.
 
-After the images arrive the user can say `prototype this mockup` (with the images in the game folder): `rbx-ui-prototype` reads them and writes one clickable HTML prototype in `ui/prototype/` (buttons, animations, screen navigation, fake coins, device switcher) plus a Roblox handoff for `rbx-ui`. It is a stand-in, never the game.
+After the images arrive the user can say `prototype this mockup` (with the images in the game folder): `rbx-ui-prototype` reads them and writes one clickable HTML prototype in `ui/prototype/` (buttons, animations, screen navigation, fake coins, device switcher with phone/tablet rotate to portrait or landscape) plus a Roblox handoff for `rbx-ui`. It is a stand-in, never the game.
 
 ## What Google says (read 2026-11-05; state only this, never "free")
 - Help page https://support.google.com/gemini/answer/14286560 : you must be signed in; on the web open the left sidebar and choose Images; Nano Banana 2 is used with the Flash and Pro Gemini models and accepts several reference images; Nano Banana Pro is for regenerating with more detail and needs a Google AI plan; downloads are 2K with a plan and 1K without one; personal accounts need age 13+ to generate (18+ to edit).

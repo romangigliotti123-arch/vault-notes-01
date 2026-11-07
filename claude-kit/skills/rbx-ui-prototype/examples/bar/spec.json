@@ -1,0 +1,683 @@
+{
+ "game": "moonlit-bakery",
+ "style": {
+  "palette": {
+   "bg": "#1D1B4C",
+   "panel": "#3B3694",
+   "cream": "#FFF3D6",
+   "accent": "#FFB81F",
+   "text": "#FFFFFF",
+   "warn": "#F03E5B",
+   "ok": "#2FC455",
+   "premium": "#9A4DFF"
+  },
+  "fonts": {
+   "title": "FredokaOne",
+   "body": "BuilderSansBold"
+  },
+  "corner": 0.22,
+  "stroke": 3,
+  "spacing": [
+   4,
+   8,
+   12,
+   16,
+   24
+  ],
+  "rarity": {
+   "common": "#AAB4C8",
+   "uncommon": "#5FD35F",
+   "rare": "#3FA7FF",
+   "epic": "#B45CFF",
+   "legendary": "#FFB81F"
+  }
+ },
+ "frames": [
+  "phone",
+  "tablet",
+  "desktop"
+ ],
+ "buttons": [
+  {
+   "name": "Primary",
+   "text": "Bake",
+   "fill": "accent",
+   "text_color": "text",
+   "w": 220,
+   "h": 64
+  },
+  {
+   "name": "Secondary",
+   "text": "Use",
+   "fill": "panel",
+   "text_color": "text",
+   "w": 160,
+   "h": 48
+  },
+  {
+   "name": "Positive",
+   "text": "Claim",
+   "fill": "ok",
+   "text_color": "text",
+   "w": 160,
+   "h": 48
+  },
+  {
+   "name": "Danger",
+   "text": "Sell",
+   "fill": "warn",
+   "text_color": "text",
+   "w": 160,
+   "h": 48
+  },
+  {
+   "name": "Premium",
+   "text": "Open",
+   "fill": "premium",
+   "text_color": "text",
+   "w": 160,
+   "h": 48
+  }
+ ],
+ "screens": [
+  {
+   "name": "Home",
+   "purpose": "bake to earn coins and XP; daily reward, crate, settings, next quest",
+   "elements": [
+    {
+     "name": "LevelBadge",
+     "type": "icon",
+     "rect": [
+      0.03,
+      0.06,
+      0.09,
+      0.04
+     ],
+     "text": "3"
+    },
+    {
+     "name": "XpBar",
+     "type": "bar",
+     "rect": [
+      0.14,
+      0.07,
+      0.2,
+      0.02
+     ],
+     "value": 0.83
+    },
+    {
+     "name": "CoinPill",
+     "type": "chip",
+     "rect": [
+      0.4,
+      0.06,
+      0.28,
+      0.04
+     ],
+     "text": "240",
+     "font": "body"
+    },
+    {
+     "name": "GemPill",
+     "type": "chip",
+     "rect": [
+      0.7,
+      0.06,
+      0.27,
+      0.04
+     ],
+     "text": "12",
+     "font": "body"
+    },
+    {
+     "name": "Scene",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.12,
+      0.94,
+      0.5
+     ]
+    },
+    {
+     "name": "BakeButton",
+     "type": "button",
+     "rect": [
+      0.1,
+      0.52,
+      0.8,
+      0.07
+     ],
+     "variant": "Primary",
+     "text": "BAKE"
+    },
+    {
+     "name": "DailyTile",
+     "type": "button",
+     "rect": [
+      0.03,
+      0.64,
+      0.3,
+      0.07
+     ],
+     "variant": "Secondary",
+     "text": "Daily"
+    },
+    {
+     "name": "CrateTile",
+     "type": "button",
+     "rect": [
+      0.35,
+      0.64,
+      0.3,
+      0.07
+     ],
+     "variant": "Secondary",
+     "text": "Crate"
+    },
+    {
+     "name": "SettingsTile",
+     "type": "button",
+     "rect": [
+      0.67,
+      0.64,
+      0.3,
+      0.07
+     ],
+     "variant": "Secondary",
+     "text": "Settings"
+    },
+    {
+     "name": "QuestCard",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.73,
+      0.94,
+      0.12
+     ],
+     "text": "Bake 12 pastries"
+    },
+    {
+     "name": "NavBar",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.9,
+      0.94,
+      0.08
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Shop",
+   "purpose": "ovens, crates and gems in tabs; skeleton while loading",
+   "elements": [
+    {
+     "name": "LevelBadge",
+     "type": "icon",
+     "rect": [
+      0.03,
+      0.06,
+      0.09,
+      0.04
+     ],
+     "text": "3"
+    },
+    {
+     "name": "XpBar",
+     "type": "bar",
+     "rect": [
+      0.14,
+      0.07,
+      0.2,
+      0.02
+     ],
+     "value": 0.83
+    },
+    {
+     "name": "CoinPill",
+     "type": "chip",
+     "rect": [
+      0.4,
+      0.06,
+      0.28,
+      0.04
+     ],
+     "text": "240",
+     "font": "body"
+    },
+    {
+     "name": "GemPill",
+     "type": "chip",
+     "rect": [
+      0.7,
+      0.06,
+      0.27,
+      0.04
+     ],
+     "text": "12",
+     "font": "body"
+    },
+    {
+     "name": "Tabs",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.12,
+      0.94,
+      0.06
+     ],
+     "text": "Ovens | Crates | Gems"
+    },
+    {
+     "name": "ShopGrid",
+     "type": "grid",
+     "rect": [
+      0.03,
+      0.2,
+      0.94,
+      0.68
+     ],
+     "cols": 2
+    },
+    {
+     "name": "BuyButton",
+     "type": "button",
+     "rect": [
+      0.05,
+      0.38,
+      0.4,
+      0.05
+     ],
+     "variant": "Positive",
+     "text": "150"
+    },
+    {
+     "name": "NavBar",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.9,
+      0.94,
+      0.08
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Collection",
+   "purpose": "12 pastries with rarity borders; detail pane with Display and Sell",
+   "elements": [
+    {
+     "name": "LevelBadge",
+     "type": "icon",
+     "rect": [
+      0.03,
+      0.06,
+      0.09,
+      0.04
+     ],
+     "text": "3"
+    },
+    {
+     "name": "XpBar",
+     "type": "bar",
+     "rect": [
+      0.14,
+      0.07,
+      0.2,
+      0.02
+     ],
+     "value": 0.83
+    },
+    {
+     "name": "CoinPill",
+     "type": "chip",
+     "rect": [
+      0.4,
+      0.06,
+      0.28,
+      0.04
+     ],
+     "text": "240",
+     "font": "body"
+    },
+    {
+     "name": "GemPill",
+     "type": "chip",
+     "rect": [
+      0.7,
+      0.06,
+      0.27,
+      0.04
+     ],
+     "text": "12",
+     "font": "body"
+    },
+    {
+     "name": "Progress",
+     "type": "bar",
+     "rect": [
+      0.03,
+      0.12,
+      0.94,
+      0.02
+     ],
+     "value": 0.25
+    },
+    {
+     "name": "RarityChips",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.15,
+      0.94,
+      0.05
+     ]
+    },
+    {
+     "name": "Grid",
+     "type": "grid",
+     "rect": [
+      0.03,
+      0.21,
+      0.94,
+      0.35
+     ],
+     "cols": 3
+    },
+    {
+     "name": "Detail",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.58,
+      0.94,
+      0.3
+     ]
+    },
+    {
+     "name": "DisplayButton",
+     "type": "button",
+     "rect": [
+      0.06,
+      0.8,
+      0.4,
+      0.05
+     ],
+     "variant": "Primary",
+     "text": "Display"
+    },
+    {
+     "name": "SellButton",
+     "type": "button",
+     "rect": [
+      0.54,
+      0.8,
+      0.4,
+      0.05
+     ],
+     "variant": "Danger",
+     "text": "Sell 1"
+    },
+    {
+     "name": "NavBar",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.9,
+      0.94,
+      0.08
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Quests",
+   "purpose": "daily quest list with claim buttons and reorder on claim",
+   "elements": [
+    {
+     "name": "LevelBadge",
+     "type": "icon",
+     "rect": [
+      0.03,
+      0.06,
+      0.09,
+      0.04
+     ],
+     "text": "3"
+    },
+    {
+     "name": "XpBar",
+     "type": "bar",
+     "rect": [
+      0.14,
+      0.07,
+      0.2,
+      0.02
+     ],
+     "value": 0.83
+    },
+    {
+     "name": "CoinPill",
+     "type": "chip",
+     "rect": [
+      0.4,
+      0.06,
+      0.28,
+      0.04
+     ],
+     "text": "240",
+     "font": "body"
+    },
+    {
+     "name": "GemPill",
+     "type": "chip",
+     "rect": [
+      0.7,
+      0.06,
+      0.27,
+      0.04
+     ],
+     "text": "12",
+     "font": "body"
+    },
+    {
+     "name": "QuestList",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.12,
+      0.94,
+      0.7
+     ]
+    },
+    {
+     "name": "ClaimButton",
+     "type": "button",
+     "rect": [
+      0.72,
+      0.18,
+      0.22,
+      0.05
+     ],
+     "variant": "Positive",
+     "text": "Claim"
+    },
+    {
+     "name": "NavBar",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.9,
+      0.94,
+      0.08
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Lab",
+   "purpose": "button sizes x colours, states and controls spec sheet",
+   "elements": [
+    {
+     "name": "LevelBadge",
+     "type": "icon",
+     "rect": [
+      0.03,
+      0.06,
+      0.09,
+      0.04
+     ],
+     "text": "3"
+    },
+    {
+     "name": "XpBar",
+     "type": "bar",
+     "rect": [
+      0.14,
+      0.07,
+      0.2,
+      0.02
+     ],
+     "value": 0.83
+    },
+    {
+     "name": "CoinPill",
+     "type": "chip",
+     "rect": [
+      0.4,
+      0.06,
+      0.28,
+      0.04
+     ],
+     "text": "240",
+     "font": "body"
+    },
+    {
+     "name": "GemPill",
+     "type": "chip",
+     "rect": [
+      0.7,
+      0.06,
+      0.27,
+      0.04
+     ],
+     "text": "12",
+     "font": "body"
+    },
+    {
+     "name": "ButtonMatrix",
+     "type": "grid",
+     "rect": [
+      0.03,
+      0.12,
+      0.94,
+      0.4
+     ],
+     "cols": 5
+    },
+    {
+     "name": "Controls",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.55,
+      0.94,
+      0.3
+     ]
+    },
+    {
+     "name": "NavBar",
+     "type": "panel",
+     "rect": [
+      0.03,
+      0.9,
+      0.94,
+      0.08
+     ]
+    }
+   ]
+  },
+  {
+   "name": "ChestReveal",
+   "purpose": "shake, burst, item slam, rarity text, collect or open again",
+   "elements": [
+    {
+     "name": "Rays",
+     "type": "panel",
+     "rect": [
+      0.0,
+      0.2,
+      1.0,
+      0.5
+     ]
+    },
+    {
+     "name": "RarityText",
+     "type": "label",
+     "rect": [
+      0.2,
+      0.2,
+      0.6,
+      0.06
+     ],
+     "text": "EPIC!",
+     "font": "title"
+    },
+    {
+     "name": "ItemCard",
+     "type": "panel",
+     "rect": [
+      0.2,
+      0.28,
+      0.6,
+      0.3
+     ]
+    },
+    {
+     "name": "CollectButton",
+     "type": "button",
+     "rect": [
+      0.1,
+      0.66,
+      0.38,
+      0.06
+     ],
+     "variant": "Positive",
+     "text": "Collect"
+    },
+    {
+     "name": "AgainButton",
+     "type": "button",
+     "rect": [
+      0.52,
+      0.66,
+      0.38,
+      0.06
+     ],
+     "variant": "Premium",
+     "text": "Again"
+    }
+   ]
+  }
+ ],
+ "prototype": {
+  "source": [
+   "ui-craft-guide.md research (screenshots read, not shipped)"
+  ],
+  "rect_source": "estimated from the phone portrait layout of index.html",
+  "placeholder_art": "inline SVG pastries, chests, icons; replace with ImageLabel assets",
+  "not_buildable": [
+   "text-stroke outline + duplicate shadow copy",
+   "repeating-linear-gradient stripes",
+   "skewX shine bar",
+   "SVG hold ring",
+   "canvas particles",
+   "WebAudio synth"
+  ]
+ }
+}
