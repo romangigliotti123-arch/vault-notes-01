@@ -3,6 +3,7 @@
  "rbx-ui": "shop screen; menu layout; hud layout; buttons overlap; gui tiny on phones; screen works on phones; fix ui layout; build a menu",
  "rbx-ui-mockup": "design the buttons first; design every button state; mockup first; design the screens before building",
  "rbx-new-skill": "make my own skill; create a skill for me; make me my own agent; custom skill for my workflow; build my own agent",
+ "rbx-perf-models": "optimize all my models; make my map cheaper without changing how it looks; turn off collision on decorations; remove invisible leftover parts; clean up duplicate parts; optimization pass inside studio",
  "rbx-ui-prototype": "prototype this mockup; clickable prototype; clickable page in browser; interactive html demo; mockup image to html",
  "rbx-ideas": "find me a game idea; give me a game idea; surprise me with an idea; what should i build; fresh game idea; deep idea card",
  "rbx-idea-quick": "quick game idea; fast idea; one quick idea",

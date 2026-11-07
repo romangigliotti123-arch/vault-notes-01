@@ -2,7 +2,7 @@
 
 Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
-The short version is in `START-HERE.md`. This is the long one: read only the part you need. Everything below is generated from the real kit (67 skills, 18 agents), so it matches your install.
+The short version is in `START-HERE.md`. This is the long one: read only the part you need. Everything below is generated from the real kit (68 skills, 18 agents), so it matches your install.
 
 | Jump to | |
 |---|---|
@@ -14,7 +14,7 @@ The short version is in `START-HERE.md`. This is the long one: read only the par
 
 ## 1. What the vault is
 
-A folder of Roblox research notes plus a Claude kit. Start a Claude session in the folder and Claude has the notes, 67 skills and 18 agents loaded. It does not ask questions it can answer itself: it writes down its assumptions and carries on.
+A folder of Roblox research notes plus a Claude kit. Start a Claude session in the folder and Claude has the notes, 68 skills and 18 agents loaded. It does not ask questions it can answer itself: it writes down its assumptions and carries on.
 
 ### Where everything lives
 
@@ -84,6 +84,7 @@ Type `/rbx-list` to see what is installed, or `/` then `rbx-`.
 | make a shop or menu screen | `/rbx-ui` (design first with `/rbx-ui-mockup`) |
 | click through a mockup before building | `/rbx-ui-prototype` |
 | make my own skill or agent | `/rbx-new-skill` |
+| make my models cheaper without changing how they look | `/rbx-perf-models` (dry run first, then one yes) |
 | check my scripts | `/rbx-code-rate`, `/rbx-remote-sec`, `/rbx-datastore` |
 | set up prices and passes | `/rbx-monetize`, then `/rbx-monetize-audit` |
 | make a thumbnail | `/rbx-thumbnail` |
@@ -96,7 +97,7 @@ Not sure? Just describe the task in plain words ("I want to make a shop screen")
 
 ## 5. Every skill and agent
 
-67 skills, grouped. Always available everywhere: `/rbx-update`, `/rbx-check`, `/rbx-uninstall`. The rest work in a session started in the vault folder.
+68 skills, grouped. Always available everywhere: `/rbx-update`, `/rbx-check`, `/rbx-uninstall`. The rest work in a session started in the vault folder.
 
 ### Ideas
 
@@ -163,6 +164,7 @@ Writing, structuring and reviewing scripts.
 | `/rbx-rounds` | Architecture for round-based Roblox games with a server state machine, teams, spawning and cleanup |
 | `/rbx-leaderboard` | Implement global leaderboards, badges, timed live events and daily rewards safely |
 | `/rbx-perf` | Find and fix performance problems in a Roblox experience: frame time, memory. |
+| `/rbx-perf-models` | Run inside any game open in Studio: scans every model and part. |
 | `/rbx-rojo` | Set up a file-based Roblox project so Luau lives as plain files under version control. |
 | `/rbx-studio` | Connects Claude Code to Roblox Studio and the toolchain and says how to use the connection as. |
 | `/rbx-karpathy` | Installs and applies four coding-agent rules in a project CLAUDE.md. |
