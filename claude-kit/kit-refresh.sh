@@ -4,8 +4,8 @@
 # 1) install.sh (idempotent; every vault file is overwritten with the incoming version, files that left the kit are removed). Env CLAUDE_KIT_SKIP=1 skips this part.
 # 2) tools/assets-sync.py --vault <this vault>: downloads only new/changed asset files (1.02 GB of zips the first time), deletes removed ones.
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
-# 3) tools/refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>/claude-kit/roblox-reference and
-#    writes <claude config dir>/claude-kit/reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
+# 3) tools/refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <vault>/.rbx/claude-kit/roblox-reference and
+#    writes <vault>/.rbx/claude-kit/reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
 # 1b) vault folder load (see below): the vault folder is permanently loaded; every update rewrites its .claude (skills, agents, rules) and cleans folders an older kit loaded. Env CLAUDE_MODE_SKIP=1 skips it.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller.
 # Last line (only when the kit changed and the caller is not the current vault-update.sh, which prints it itself): "Your vault is up to date as of ... (local time)" (tools/vault-published.py).
@@ -23,7 +23,8 @@ if [ "${CLAUDE_MODE_SKIP:-0}" != 1 ] && [ -f "$D/tools/vault-mode.py" ]; then
   for p in python3 python; do
     if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then
       CFG="${CLAUDE_CONFIG_DIR:-${CLAUDE_KIT_HOME:-$HOME}/.claude}"; [ -n "${CLAUDE_CONFIG_DIR:-}" ] || [ -n "${CLAUDE_KIT_HOME:-}" ] || CFG="$HOME/.claude"
-      [ -f "$CFG/claude-kit/tools/vault-mode.py" ] && CLAUDE_CONFIG_DIR="$CFG" "$p" -I "$CFG/claude-kit/tools/vault-mode.py" load --project "$(dirname "$D")" --quiet --announce --config "$CFG" 2>&1; break
+      KHD="$CFG"; [ -d "$(dirname "$D")/.rbx/claude-kit" ] && KHD="$(dirname "$D")/.rbx"      # ONE FOLDER: the installed kit is <vault>/.rbx/claude-kit
+      [ -f "$KHD/claude-kit/tools/vault-mode.py" ] && RBX_KIT_HOME="$KHD" CLAUDE_CONFIG_DIR="$CFG" "$p" -I "$KHD/claude-kit/tools/vault-mode.py" load --project "$(dirname "$D")" --quiet --announce --config "$CFG" 2>&1; break
     fi
   done
 fi

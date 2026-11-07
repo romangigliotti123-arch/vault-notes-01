@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """kit_state.py: where the vault keeps the few tiny settings that must survive an update (stdlib only; imported by ui_pref.py).
 
-They live under <claude config dir>/claude-kit/state/, a folder the installer never writes a kit file into and never deletes:
+They live under <kit home>/claude-kit/state/ (<vault>/.rbx, else the claude config dir), a folder the installer never writes a kit file into and never deletes:
   state/ui-mockup.json          the /rbx-mockup on/off preference
   state/ui-mockup-notice.done   one-time notice marker
   state/ideas-history.tsv       spark.py hist: titles + one-line pitches of past ideas (capped 200 lines)
@@ -14,18 +14,17 @@ are ignored by the kit; delete them by hand if you like: they are not read any m
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
+
 STATE = ("claude-kit", "state")
 NAMES = ("ui-mockup.json", "ui-mockup-notice.done", "ideas-history.tsv", "market-brief.md")
 
 
 def config_dir(cfg=None):
-    if cfg:
-        return os.path.abspath(os.path.expanduser(cfg))
-    if os.environ.get("CLAUDE_CONFIG_DIR"):
-        return os.path.abspath(os.path.expanduser(os.environ["CLAUDE_CONFIG_DIR"]))
-    if os.environ.get("CLAUDE_KIT_HOME"):
-        return os.path.join(os.path.abspath(os.path.expanduser(os.environ["CLAUDE_KIT_HOME"])), ".claude")
-    return os.path.join(os.path.expanduser("~"), ".claude")
+    """the folder that holds claude-kit/: <vault>/.rbx (ONE FOLDER) or the Claude config folder (legacy layout)"""
+    return kit_paths.kit_home(cfg, os.path.abspath(__file__))
 
 
 def state_dir(cfg=None):

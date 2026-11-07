@@ -19,7 +19,7 @@ The day before launch and before major updates. Not for: diagnosing retention af
 
 ## Procedure
 1. Open the live analytics pages (Evidence) and list which metrics exist today (errors/crashes, data save failures, purchases and receipts, retention/playtime, concurrent users, by-country if shown). Record the date.
-2. `python -I ~/.claude/claude-kit/skillpack/publish/post-launch-monitor/scripts/monitor_plan.py --template > release/monitor.json` and fill it. Healthy and alarm values come from the pre-launch playtest and earlier updates (`basis` says which); where no basis exists write "unknown, baseline at hour 1" and set the alarm to "any rise above the hour-1 baseline by a stated factor you choose" rather than a fake benchmark.
+2. `python -I .rbx/claude-kit/skillpack/publish/post-launch-monitor/scripts/monitor_plan.py --template > release/monitor.json` and fill it. Healthy and alarm values come from the pre-launch playtest and earlier updates (`basis` says which); where no basis exists write "unknown, baseline at hour 1" and set the alarm to "any rise above the hour-1 baseline by a stated factor you choose" rather than a fake benchmark.
 3. Checkpoints: at least one in the first two hours and one at 72 hours (defaults 1, 6, 24, 48, 72). Put them in calendars with the owner's time zone.
 4. Rollback block: trigger (specific metric + condition), how (`version-history-keeper` restore, publish, restart servers), and the named restore point from the release log.
 5. Include a privacy line: check the inbox for right-to-be-forgotten messages daily (`privacy-data-checker`) and a by-country look if a region restriction could apply (`regional-availability-checker`).

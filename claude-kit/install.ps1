@@ -17,7 +17,30 @@ $assetsOn = (-not $NoAssets) -and ($env:CLAUDE_ASSETS_SKIP -ne '1')
 $Kit = Split-Path -Parent $MyInvocation.MyCommand.Path
 $C = Join-Path $KitHome '.claude'
 if (-not $PSBoundParameters.ContainsKey('KitHome') -and -not $env:CLAUDE_KIT_HOME -and $env:CLAUDE_CONFIG_DIR) { $C = $env:CLAUDE_CONFIG_DIR }
-$Man = Join-Path $C 'claude-kit\installed.tsv'
+function Get-Py { foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { return $cmd.Source } } catch { } } }; return $null }
+# ONE FOLDER: the kit is installed INSIDE the vault folder (<vault>\.rbx\claude-kit); only 3 stub skills + a pointer file stay in $C. No vault folder (kit-only install, tests): the old layout in $C.
+$vh = ''; $py0 = Get-Py; $kpk = Join-Path $Kit 'tools\kit_paths.py'
+if ($py0 -and (Test-Path -LiteralPath $kpk)) {
+  $pCfg0 = $env:CLAUDE_CONFIG_DIR; $pKh0 = $env:CLAUDE_KIT_HOME; $env:CLAUDE_CONFIG_DIR = $C; $env:CLAUDE_KIT_HOME = $KitHome
+  $ea0 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+  $vh = [string](((& $py0 -I $kpk vault --config $C 2>$null | Out-String).Trim() -split "`r?`n" | Select-Object -Last 1))
+  $ErrorActionPreference = $ea0
+  $env:CLAUDE_CONFIG_DIR = $pCfg0; if (-not $pCfg0) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }
+  $env:CLAUDE_KIT_HOME = $pKh0; if (-not $pKh0) { Remove-Item Env:\CLAUDE_KIT_HOME -ErrorAction SilentlyContinue }
+}
+$KH = $C; if ($vh -and (Test-Path -LiteralPath $vh -PathType Container)) { if ($env:RBX_LAYOUT -ne 'legacy') { $KH = Join-Path $vh '.rbx' } } else { $vh = '' }      # env RBX_LAYOUT=legacy keeps the old layout (claude-kit in the config folder; tests)
+$env:RBX_KIT_HOME = $KH
+$relocMsg = ''
+if (($KH -ne $C) -and -not $DryRun -and $py0 -and (Test-Path -LiteralPath (Join-Path $C 'claude-kit') -PathType Container) -and (Test-Path -LiteralPath (Join-Path $Kit 'tools\vault-mode.py'))) {   # MIGRATION of an old install: move ~\.claude\claude-kit into the vault folder (idempotent, resumable; only provable duplicates are deleted)
+  New-Item -ItemType Directory -Force (Join-Path $KH 'claude-kit') | Out-Null
+  $pCfg1 = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C
+  $ea0 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+  $relocMsg = (& $py0 -I (Join-Path $Kit 'tools\vault-mode.py') relocate --config $C 2>&1 | Out-String).Trim()
+  $ErrorActionPreference = $ea0
+  $env:CLAUDE_CONFIG_DIR = $pCfg1; if (-not $pCfg1) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }
+  if ($relocMsg) { Write-Output $relocMsg }
+}
+$Man = Join-Path $KH 'claude-kit\installed.tsv'
 function Sha([string]$p) { (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() }
 
 $SM = 'claude-kit/vault-mode'
@@ -26,8 +49,8 @@ $aof = Join-Path $Kit 'mode\always-on.txt'
 if (Test-Path -LiteralPath $aof) { $ao = @([IO.File]::ReadAllLines($aof) | ForEach-Object { $_.Trim() } | Where-Object { $_ -and -not $_.StartsWith('#') }) }
 $firstWf = -not (Test-Path -LiteralPath $Man)     # fresh install: print the welcome text at the end
 # an older layout: keep its manifest for the migration step (only once; vault-mode.py migrate moves it into its backup folder)
-$preMode = Join-Path $C 'claude-kit\installed.tsv.pre-mode'
-if ((Test-Path -LiteralPath $Man) -and -not (Test-Path -LiteralPath (Join-Path $C 'claude-kit\vault-mode\layout.json')) -and -not (Test-Path -LiteralPath $preMode) -and -not $DryRun) { Copy-Item -LiteralPath $Man -Destination $preMode }
+$preMode = Join-Path $KH 'claude-kit\installed.tsv.pre-mode'
+if ((Test-Path -LiteralPath $Man) -and -not (Test-Path -LiteralPath (Join-Path $KH 'claude-kit\vault-mode\layout.json')) -and -not (Test-Path -LiteralPath $preMode) -and -not $DryRun) { Copy-Item -LiteralPath $Man -Destination $preMode }
 $old = @{}
 if (Test-Path -LiteralPath $Man) {
   foreach ($l in [IO.File]::ReadAllLines($Man)) { $p = $l -split "`t"; if ($p.Count -ge 2) { $old[$p[0]] = $p[1] } }
@@ -59,7 +82,7 @@ $fastDone = $false; $fpy = $null
 foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $fpy = $cmd.Source; break } } catch { } } }
 $kif = Join-Path $Kit 'tools\kit-install-files.py'
 if ($fpy -and (Test-Path -LiteralPath $kif) -and $env:CLAUDE_KIT_SLOW -ne '1') {
-  $ka = @('-I', $kif, '--kit', $Kit, '--config', $C, '--always-on', ($ao -join ' ')); if ($DryRun) { $ka += '--dry-run' }
+  $ka = @('-I', $kif, '--kit', $Kit, '--config', $C, '--kit-home', $KH, '--always-on', ($ao -join ' ')); if ($DryRun) { $ka += '--dry-run' }
   $ea0 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
   $fo = (& $fpy @ka 2>&1 | Out-String); $ErrorActionPreference = $ea0
   $rm = [regex]::Match($fo, '(?m)^RESULT new=(\d+) upd=(\d+) same=(\d+) gone=(\d+) fail=(\d+)')
@@ -78,9 +101,9 @@ foreach ($sub in 'agents', 'skills', 'mode', 'tools', 'systems', 'skillpack') {
     $rel = switch ($sub) {
       'agents' { "$SM/.claude/$r" }
       'mode' { "$SM/" + $r.Substring(5) }
-      'skills' { $nm = $r.Split('/')[1]; if ($ao -contains $nm) { $r } else { "$SM/.claude/$r" } }
+      'skills' { $nm = $r.Split('/')[1]; if (($ao -contains $nm) -and ($KH -eq $C)) { $r } else { "$SM/.claude/$r" } }
       default { "claude-kit/$r" } }
-    $dst = Join-Path $C ($rel.Replace('/', '\'))
+    $dst = Join-Path $(if ($rel.StartsWith('claude-kit/')) { $KH } else { $C }) ($rel.Replace('/', '\'))
     $rec = $null
     try {
     $ns = Sha $_.FullName; $rec = $ns
@@ -101,7 +124,7 @@ foreach ($sub in 'agents', 'skills', 'mode', 'tools', 'systems', 'skillpack') {
   }
 }
 $layOk = $true
-$layF = Join-Path $C 'claude-kit\vault-mode\layout.json'
+$layF = Join-Path $KH 'claude-kit\vault-mode\layout.json'
 if (Test-Path -LiteralPath $layF) { try { $lay = Get-Content -LiteralPath $layF -Raw | ConvertFrom-Json; if ($lay.auto -eq $false -or $lay.rename_auto -eq $false) { $layOk = $false } } catch { } }
 if ($layOk) {
   $seen = New-Object 'System.Collections.Generic.HashSet[string]'
@@ -110,13 +133,14 @@ if ($layOk) {
     if ($seen.Contains($rel)) { continue }
     $parts = $rel.Split('/')
     if ($rel.StartsWith('/') -or ($parts -contains '..') -or $rel.Contains(':') -or $rel.Contains('\')) { continue }
-    if (-not ($rel.StartsWith('claude-kit/') -or ($rel.StartsWith('skills/') -and $parts.Count -gt 1 -and ($ao -contains $parts[1])))) { continue }
-    $f = Join-Path $C ($rel.Replace('/', '\'))
+    if (-not ($rel.StartsWith('claude-kit/') -or ($rel.StartsWith('skills/') -and $parts.Count -gt 1 -and (($KH -eq $C -and ($ao -contains $parts[1])) -or $parts[1] -eq 'rbx-load' -or $parts[1] -eq 'rbx-unload')))) { continue }
+    $kb0 = if ($rel.StartsWith('claude-kit/')) { $KH } else { $C }
+    $f = Join-Path $kb0 ($rel.Replace('/', '\'))
     try {
       if ((Test-Path -LiteralPath $f -PathType Leaf) -and -not ((Get-Item -LiteralPath $f -Force).Attributes -band [IO.FileAttributes]::ReparsePoint)) {
         if (-not $DryRun) {
           Remove-Item -LiteralPath $f -Force
-          $stop = Join-Path $C $parts[0]; $d = Split-Path -Parent $f
+          $stop = Join-Path $kb0 $parts[0]; $d = Split-Path -Parent $f
           while ($d.Length -gt $stop.Length -and $d.StartsWith($stop + '\') -and -not (Get-ChildItem -LiteralPath $d -Force | Select-Object -First 1)) { Remove-Item -LiteralPath $d -Force; $d = Split-Path -Parent $d }
         }
         $nGone++
@@ -130,21 +154,35 @@ if (-not $DryRun) {
 }
 }
 # move an older always-on layout into the store (idempotent; silent when there is nothing to move)
-$vm = Join-Path $C 'claude-kit\tools\vault-mode.py'
+$vm = Join-Path $KH 'claude-kit\tools\vault-mode.py'
 if (-not $DryRun -and (Test-Path -LiteralPath $vm)) {
   $mpy = $null
   foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $mpy = $cmd.Source; break } } catch { } } }
-  if ($mpy) { $prevCfgM = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C; $mo = (& $mpy -I $vm migrate --config $C 2>&1 | Out-String).Trim(); $env:CLAUDE_CONFIG_DIR = $prevCfgM; if (-not $prevCfgM) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }; if ($mo) { $migrateOut = $mo } }
+  if ($mpy) { $prevCfgM = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C; $mo = (& $mpy -I $vm migrate --config $C 2>&1 | Out-String).Trim(); $env:CLAUDE_CONFIG_DIR = $prevCfgM; if (-not $prevCfgM) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }; if ($mo) { $migrateOut = $mo }
+    if ($KH -ne $C) {   # ONE FOLDER: the 3 thin stub skills + where.py + the pointer file in $C (an old full copy is replaced, anything of yours in it is backed up first); hooks of an old install are re-pointed
+      $pCfg2 = $env:CLAUDE_CONFIG_DIR; $env:CLAUDE_CONFIG_DIR = $C
+      $ea0 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+      $so = (& $mpy -I $vm stubs --config $C --quiet 2>&1 | Out-String).Trim(); if ($so) { Write-Output $so }
+      $sj = Join-Path $C 'settings.json'
+      if (Test-Path -LiteralPath $sj) {
+        $sjt = [IO.File]::ReadAllText($sj)
+        $mhp = Join-Path $KH 'claude-kit\tools\mentor-hook.py'; $lmp = Join-Path $KH 'claude-kit\vault-mode\.claude\skills\rbx-low-usage\scripts\lum.py'
+        if (($sjt -match 'claude-kit/tools/mentor-hook') -and (Test-Path -LiteralPath $mhp)) { (& $mpy -I $mhp install-hooks --config $C 2>&1 | Out-String) -split "`r?`n" | Where-Object { $_ -match 'path updated' } | ForEach-Object { Write-Output $_ } }
+        if (($sjt -match 'rbx-low-usage/scripts/lum') -and (Test-Path -LiteralPath $lmp)) { (& $mpy -I $lmp install-hooks --config $C 2>&1 | Out-String) -split "`r?`n" | Where-Object { $_ -match 'hooks: installed' } | ForEach-Object { Write-Output $_ } }
+      }
+      $ErrorActionPreference = $ea0
+      $env:CLAUDE_CONFIG_DIR = $pCfg2; if (-not $pCfg2) { Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue }
+    } }
   elseif (Test-Path -LiteralPath $preMode) { $migrateOut = 'vault-mode: no working Python 3, so the old always-on kit skills were not moved; install Python 3 and run /rbx-update' }
 }
 # the vault folder is THE loaded environment: resolve it (the clone that holds this claude-kit folder, $env:CLAUDES_VAULT, the registered one, ~\Obsidian\claudes-vault) and load it quietly (env CLAUDE_KIT_NOLOAD=1: the caller, kit-refresh, does it)
-$vh = ''; $loadOut = ''
+$loadOut = ''
 $kitVm = Join-Path $Kit 'tools\vault-mode.py'
 if (Test-Path -LiteralPath $kitVm) {
   foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) {
     $prevCfgH = $env:CLAUDE_CONFIG_DIR; $prevKh = $env:CLAUDE_KIT_HOME; $env:CLAUDE_CONFIG_DIR = $C; $env:CLAUDE_KIT_HOME = $KitHome
     $ea1 = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
-    $vh = ((& $cmd.Source -I $kitVm home --kit $Kit --config $C 2>$null | Out-String).Trim() -split "`r?`n" | Select-Object -Last 1)
+    if (-not $vh) { $vh = [string]((& $cmd.Source -I $kitVm home --kit $Kit --config $C 2>$null | Out-String).Trim() -split "`r?`n" | Select-Object -Last 1) }
     if ($vh -and -not $DryRun -and $env:CLAUDE_KIT_NOLOAD -ne '1' -and (Test-Path -LiteralPath $vm)) {
       $la = @('-I', $vm, 'load', '--project', $vh, '--quiet', '--config', $C); if (-not $firstWf) { $la += '--announce' }
       $loadOut = (& $cmd.Source @la 2>&1 | Out-String).Trim()
@@ -154,7 +192,7 @@ if (Test-Path -LiteralPath $kitVm) {
     $env:CLAUDE_KIT_HOME = $prevKh; if (-not $prevKh) { Remove-Item Env:\CLAUDE_KIT_HOME -ErrorAction SilentlyContinue }
     break } } catch { } } }
 }
-Write-Output ("claude-kit: installed $nNew new, updated $nUpd, unchanged $nSame" + $(if ($nGone) { ", removed $nGone no longer in the kit" }) + $(if ($nFail) { ", FAILED $nFail" }) + " (into $C)")
+Write-Output ("claude-kit: installed $nNew new, updated $nUpd, unchanged $nSame" + $(if ($nGone) { ", removed $nGone no longer in the kit" }) + $(if ($nFail) { ", FAILED $nFail" }) + " (into $KH)")
 if ($renameMsg) { Write-Output $renameMsg }
 if ($loadOut) { Write-Output $loadOut }
 # UI mockups default to automatic design-first: ONE non-blocking NOTICE FOR THE USER line per install (marker claude-kit/ui-mockup-notice.done); a fresh install only sets the marker (the setup text asks the question)
@@ -173,13 +211,13 @@ if ($migrateOut) { Write-Output $migrateOut }
 if ($WithHooks -or $RemoveHooks) {
   $py = $null
   foreach ($n in 'python3', 'python', 'py') { $cmd = Get-Command $n -ErrorAction SilentlyContinue; if ($cmd -and $cmd.Source -notmatch 'WindowsApps') { try { & $cmd.Source -c 'import sys' 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $py = $cmd.Source; break } } catch { } } }
-  $lum = Join-Path $C 'claude-kit\vault-mode\.claude\skills\rbx-low-usage\scripts\lum.py'
+  $lum = Join-Path $KH 'claude-kit\vault-mode\.claude\skills\rbx-low-usage\scripts\lum.py'
   if (-not $py) { Write-Output 'rbx-low-usage hooks: skipped (no working Python 3)' }
   elseif ($DryRun) { Write-Output 'rbx-low-usage hooks: dry run, settings.json not touched' }
   elseif (-not (Test-Path -LiteralPath $lum)) { Write-Output 'rbx-low-usage hooks: skipped (skill not installed)' }
   else { $env:CLAUDE_CONFIG_DIR = $C; & $py -I $lum $(if ($RemoveHooks) { 'uninstall-hooks' } else { 'install-hooks' }) --config $C }
   # rbx-mentor suggestion hook (UserPromptSubmit; same opt-in flags, backup first, idempotent)
-  $mh = Join-Path $C 'claude-kit\tools\mentor-hook.py'
+  $mh = Join-Path $KH 'claude-kit\tools\mentor-hook.py'
   if ($py -and -not $DryRun -and (Test-Path -LiteralPath $mh)) { $env:CLAUDE_CONFIG_DIR = $C; & $py -I $mh $(if ($RemoveHooks) { 'uninstall-hooks' } else { 'install-hooks' }) --config $C }
 }
 # similar user skills (other names) -> listed; the kit wins at routing time (precedence line in the kit entry points)
@@ -190,7 +228,7 @@ if ((Test-Path -LiteralPath $sim)) {
 # kit mods (Claude Code plugins: /rbx-subagent-hud agent sidebar, /rbx-graph vault graph link): tools\kit-mods.py, PROJECT scope of the vault folder (see the header). ON BY DEFAULT (opt out: -NoMods).
 # Never fails the install: any problem prints ONE "Mods skipped: <reason>. Run again later: <command>" line. State file claude-kit\state\mods-choice: "on" after a successful install, "off" after -NoMods. Mods installed once and later removed with /plugin are NOT brought back by updates (-WithMods forces).
 # Legacy plugin names (workflow-hud, vault-graph, hud-rbxdev-vault, graph-rbxdev-vault) are uninstalled on every run that can list plugins; user-scope copies of the two mods are migrated to the vault folder.
-$sd = Join-Path $C 'claude-kit\state'
+$sd = Join-Path $KH 'claude-kit\state'
 $inst = Join-Path $Kit 'install.ps1'; if ($vh) { $vi = Join-Path $vh 'claude-kit\install.ps1'; if (Test-Path -LiteralPath $vi) { $inst = $vi } }   # a path that survives (the installer may run from a temporary clone of the kit repository)
 $mCmd = 'powershell -NoProfile -ExecutionPolicy Bypass -File "' + $inst + '" -WithMods'
 $mOff = 'powershell -NoProfile -ExecutionPolicy Bypass -File "' + $inst + '" -NoMods'
@@ -237,7 +275,7 @@ if ($vh) { $vsay = $vh } else { $vsay = 'your vault folder (not found on this co
 if ($firstWf -and -not $DryRun) { Write-Output ('The Roblox Dev Mastery Vault kit is installed. Start a new Claude session in ' + $vsay + ' to use it. Always available: /rbx-update /rbx-check /rbx-uninstall. Two mods (agent sidebar, graph view) are enabled for the vault folder only; turn them off with /plugin or -NoMods. More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual). Built and maintained by Roman (GitHub: romangigliotti123-arch)') }
 $cbl = New-Object System.Collections.Generic.List[string]
 function CBadd($s) { [void]$cbl.Add([string]$s) }
-CBadd '**HOW TO START USING**'; CBadd ('- Start a new Claude session in ' + $vsay + '; that folder has everything loaded.'); if ($assetB) { CBadd $assetB }; CBadd ''; CBadd '**HOW TO SEE SKILLS AND AGENTS**'; CBadd '- Type /rbx-list in that session, or / then rbx-. Make your own skill: ask Claude to use /rbx-new-skill.'; CBadd ''; CBadd $mb; CBadd ''; CBadd '**HOW TO MAKE A GAME IDEA**'; CBadd '- /rbx-ideas finds one fresh idea (reply another, build it or plan); /rbx-idea-creator starts from yours.'; CBadd ''; CBadd '**HOW TO BUILD A GAME**'; CBadd '- /rbx-workflow builds a game stage by stage; resume with "I want to work on <game name>".'; CBadd ''; CBadd '**HOW TO UPDATE**'; CBadd '- Type /rbx-update (works from any session).'; CBadd ''; CBadd '**NOT SURE WHICH SKILL?**'; CBadd '- Just describe what you want; Claude offers the right skill and you reply yes.'; CBadd ''; CBadd 'More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual).'
+CBadd '**HOW TO START USING**'; CBadd ('- Start a new Claude session in ' + $vsay + '; that folder has everything loaded.'); if ($assetB) { CBadd $assetB }; CBadd ''; CBadd '**HOW TO SEE SKILLS AND AGENTS**'; CBadd '- Type /rbx-list in that session, or / then rbx-. Make your own skill: ask Claude to use /rbx-new-skill.'; CBadd ''; CBadd $mb; CBadd ''; CBadd '**HOW TO MAKE A GAME IDEA**'; CBadd '- /rbx-ideas finds one fresh idea (reply another, build it or plan); /rbx-idea-creator starts from yours.'; CBadd ''; CBadd '**HOW TO BUILD A GAME**'; CBadd '- /rbx-workflow builds a game stage by stage; resume with "I want to work on <game name>".'; CBadd ''; CBadd '**HOW TO UPDATE**'; CBadd '- Type /rbx-update (works from any session, even after you move the vault folder).'; CBadd ''; CBadd '**NOT SURE WHICH SKILL?**'; CBadd '- Just describe what you want; Claude offers the right skill and you reply yes.'; CBadd ''; CBadd 'More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual).'
 $cb = ($cbl -join "`n")
 if (-not $DryRun -and $vh -and (Test-Path -LiteralPath $vh)) {
   try { [IO.File]::WriteAllText((Join-Path $vh 'START-HERE.md'), $cb + "`n", (New-Object Text.UTF8Encoding $false)) } catch { }

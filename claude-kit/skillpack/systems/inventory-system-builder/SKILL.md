@@ -24,7 +24,7 @@ Adding a backpack, hotbar, storage, equipment or any item list that must survive
 4. Take items only through `inv:remove(data, id, qty)` or `inv:removeUid(data, uid)`. Never trust a client-sent id, quantity or uid: look the uid up with `inv:findUid`, which only finds items this player owns.
 5. Run `inv:validate(data)` on load and before save; any returned problem is logged with the player id and the offending slot is quarantined, not deleted (deleted items cannot be restored).
 6. Client view: send a copy `{ slot -> {id, qty} }` over a rate-limited RemoteEvent (see `remote-guard-builder`) after each change; the client never writes. Equip/use actions are requests the server validates (owns it, cooldown, state).
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/inventory-system-builder/scripts/tests/Inventory.test.luau` (quote the "N passed, 0 failed" line) and `luau-check.sh scripts/Inventory.luau`. Add schema migrations through `datastore-schema-builder` when you change item ids later.
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/inventory-system-builder/scripts/tests/Inventory.test.luau` (quote the "N passed, 0 failed" line) and `luau-check.sh scripts/Inventory.luau`. Add schema migrations through `datastore-schema-builder` when you change item ids later.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Inventory.luau` and `Items.luau` -> `start_stop_play` -> `execute_luau` (Server) to add, overfill and remove items for the test player and print `inv:validate(data)` -> `get_console_output` to read the result. Instance Tools in the Backpack are a separate display layer: untested until run in Studio.
@@ -43,7 +43,7 @@ Files + Lune tests only; the DataStore round trip is the kit PlayerData's test. 
 - [ ] Quantities 0, negative, fractional, NaN and huge are refused (test 3).
 - [ ] Unique items have distinct uids and removing one uid never removes another (test 5).
 - [ ] `validate` flags unknown ids, overstacked slots and unique items without a uid (test 6).
-- [ ] Inventory Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/inventory-system-builder/scripts/tests/Inventory.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Inventory Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/inventory-system-builder/scripts/tests/Inventory.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Storing item names the client typed. Using the Backpack instances as the source of truth (clients can influence what is parented where). Removing the old id when renaming an item instead of migrating it. Letting a full inventory eat a purchase: for a paid grant, refuse BEFORE charging or hold the item in a claim queue. Giving every item a uid (data bloat): only unique items need one.

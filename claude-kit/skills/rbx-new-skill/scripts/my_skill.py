@@ -54,6 +54,20 @@ def cfg_dir(a):
     return os.path.join(os.path.expanduser("~"), ".claude")
 
 
+def kh_dir(a):
+    """the folder that holds claude-kit/: <vault>/.rbx (ONE FOLDER: this script lives inside it, else the pointer file) or the config folder (legacy)"""
+    parts = HERE.replace("\\", "/").split("/")
+    if ".rbx" in parts:
+        return "/".join(parts[:parts.index(".rbx") + 1])
+    try:
+        v = open(os.path.join(cfg_dir(a), "rbx-dev-vault.path"), encoding="utf-8").read().splitlines()[0].strip()
+        if v and os.path.isdir(os.path.join(v, ".rbx", "claude-kit")):
+            return os.path.join(v, ".rbx")
+    except (OSError, IndexError):
+        pass
+    return cfg_dir(a)
+
+
 def read(p):
     try:
         with io.open(p, encoding="utf-8-sig", errors="replace") as f:
@@ -116,7 +130,7 @@ def vault_of(a):
     env = os.environ.get("CLAUDES_VAULT")
     if env and os.path.isdir(env):
         return os.path.abspath(env)
-    vm = os.path.join(cfg_dir(a), "claude-kit", "tools", "vault-mode.py")
+    vm = os.path.join(kh_dir(a), "claude-kit", "tools", "vault-mode.py")
     if os.path.isfile(vm):
         try:
             r = subprocess.run([sys.executable, "-I", vm, "--config", cfg_dir(a), "home"], capture_output=True, text=True, timeout=30)
@@ -142,7 +156,7 @@ def vault_items(a, vault):
     bases = []
     if vault:
         bases.append(os.path.join(vault, ".claude"))
-    bases.append(os.path.join(cfg_dir(a), "claude-kit", "vault-mode", ".claude"))
+    bases.append(os.path.join(kh_dir(a), "claude-kit", "vault-mode", ".claude"))
     for b in bases:
         sd, ad = os.path.join(b, "skills"), os.path.join(b, "agents")
         for n in sorted(os.listdir(sd)) if os.path.isdir(sd) else []:
@@ -176,7 +190,7 @@ def own_items(vault):
 
 def hints(a):
     """extra trigger phrases the vault keeps per skill (tools/data/skill-match-hints.json), used only to make the overlap check smarter"""
-    for p in (os.path.join(cfg_dir(a), "claude-kit", "tools", "data", "skill-match-hints.json"), os.path.join(HERE, "..", "..", "..", "tools", "data", "skill-match-hints.json")):
+    for p in (os.path.join(kh_dir(a), "claude-kit", "tools", "data", "skill-match-hints.json"), os.path.join(HERE, "..", "..", "..", "tools", "data", "skill-match-hints.json")):
         try:
             d = json.load(io.open(p, encoding="utf-8"))
             return {k: v for k, v in d.items() if isinstance(v, str) and not k.startswith("_")}
@@ -337,12 +351,12 @@ def check_item(a, path, quiet=False):
     base = None
     try:
         import importlib.util
-        for p in (os.path.join(HERE, "..", "..", "rbx-bench", "scripts", "vault_cost.py"), os.path.join(cfg_dir(a), "claude-kit", "vault-mode", ".claude", "skills", "rbx-bench", "scripts", "vault_cost.py")):
+        for p in (os.path.join(HERE, "..", "..", "rbx-bench", "scripts", "vault_cost.py"), os.path.join(kh_dir(a), "claude-kit", "vault-mode", ".claude", "skills", "rbx-bench", "scripts", "vault_cost.py")):
             if os.path.isfile(p):
                 spec = importlib.util.spec_from_file_location("vault_cost_ns", p)
                 m = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(m)
-                base = m.measure_installed(cfg_dir(a), 4.0, 600, 3)["totals"]["session_with_load_tokens"] if os.path.isdir(os.path.join(cfg_dir(a), "claude-kit", "vault-mode")) else None
+                base = m.measure_installed(cfg_dir(a), 4.0, 600, 3)["totals"]["session_with_load_tokens"] if os.path.isdir(os.path.join(kh_dir(a), "claude-kit", "vault-mode")) else None
                 break
     except Exception:
         base = None
@@ -416,7 +430,7 @@ def cmd_selftest(a):
 
 def cmd_sync(a):
     v = need_vault(a)
-    vm = os.path.join(cfg_dir(a), "claude-kit", "tools", "vault-mode.py")
+    vm = os.path.join(kh_dir(a), "claude-kit", "tools", "vault-mode.py")
     if not os.path.isfile(vm):
         vm = os.path.join(HERE, "..", "..", "..", "tools", "vault-mode.py")
     if not os.path.isfile(vm):

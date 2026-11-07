@@ -24,7 +24,7 @@ Games where players queue in a lobby place and are teleported into match servers
 4. Teleport with `TeleportAsync` inside `pcall` and retry on failure (vault example: up to 5 attempts; use `Portals.retryDelay` from `teleport-hub-builder` if you want the same backoff) and handle `TeleportInitFailed` for failures after a successful call. On final failure put the players back into the queue head.
 5. In the match server, identify it by a non-empty `PrivateServerId` with `PrivateServerOwnerId == 0` (reserved) and read the expected player list from `TeleportData`; players not in the list are kicked or sent back.
 6. Return flow: after the round, teleport back to the lobby place (again with retries); store results in PlayerData before leaving.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/lobby-matchmaking-builder/scripts/tests/Matchmaker.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/lobby-matchmaking-builder/scripts/tests/Matchmaker.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Matchmaker.luau` and the queue/teleport script -> `start_stop_play` -> `execute_luau` (Server) to enqueue fake users and print the matches from `step()` -> `get_console_output` to read the result. Teleports need a published multi-place experience: `untested` until run live.
@@ -42,7 +42,7 @@ Files + Lune tests only. Everything that needs a running Studio session (Reserve
 - [ ] A full match starts immediately; a short one only after the wait and with the minimum met (Matchmaker tests 1-3).
 - [ ] Parties are never split (test 4); double queueing and oversized parties are refused (test 5).
 - [ ] A failed teleport puts players back (design doc says how; `untested` until run).
-- [ ] Matchmaker Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/lobby-matchmaking-builder/scripts/tests/Matchmaker.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Matchmaker Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/lobby-matchmaking-builder/scripts/tests/Matchmaker.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Teleporting without `pcall`. Creating a reserved server per player instead of per match. Trusting a client-sent party. Starting a match with fewer players than the rules need. No path back to the lobby on failure (players stranded).

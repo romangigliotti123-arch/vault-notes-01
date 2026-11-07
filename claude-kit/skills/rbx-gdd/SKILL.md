@@ -12,7 +12,7 @@ Output: a filled `GDD-<game>.md` built from `TEMPLATE.md` in this folder. For th
 1. Read `TEMPLATE.md` (same folder). Copy it to `GDD-<game>.md` in the project (or the path given).
 2. Gather KB support (about 5 kbq calls):
    ```
-   K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
+   K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
    $K section core-loops-and-game-design instructions
    $K section first-session-onboarding instructions
    $K find "<genre> core loop progression economy sinks" -n 8

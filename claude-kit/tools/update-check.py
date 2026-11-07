@@ -7,6 +7,10 @@ Prints: UP TO DATE, or N new commits (subjects, max 10), the kit skills/agents t
 Exit: 0 up to date, 10 updates available, 3 cannot check."""
 import argparse, hashlib, os, re, subprocess, sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
+
 ENV = dict(os.environ, GIT_TERMINAL_PROMPT="0", LC_ALL="C")
 
 
@@ -19,7 +23,7 @@ def git(vault, *a, timeout=120):
 
 
 def find_vault(arg):
-    for c in (arg, os.environ.get("CLAUDES_VAULT"), os.path.join(os.path.expanduser("~"), "Obsidian", "claudes-vault")):
+    for c in (arg, kit_paths.find_vault(None, os.path.abspath(__file__))):
         if c and os.path.isdir(os.path.join(c, ".git")):
             return c
     return None
@@ -33,7 +37,7 @@ def sha(path):
     return h.hexdigest()
 
 
-def kit_stale(vault, config):
+def kit_stale(vault, config, one=False):
     """Installed kit (manifest) vs the vault's claude-kit working tree. Returns (n_differ, n_missing_from_install, names)."""
     man = os.path.join(config, "claude-kit", "installed.tsv")
     if not os.path.isfile(man):
@@ -67,7 +71,7 @@ def kit_stale(vault, config):
                 elif sub == "agents":
                     rel = sm + "/.claude/" + r
                 else:
-                    rel = r if r.split("/")[1] in ao else sm + "/.claude/" + r
+                    rel = r if (r.split("/")[1] in ao and not one) else sm + "/.claude/" + r
                 if rel not in inst:
                     new += 1
                 elif inst[rel] != sha(full):
@@ -127,6 +131,8 @@ def main():
         print("rbx-check: no vault clone found (set CLAUDES_VAULT or pass --vault). Run the vault setup first.")
         return 3
     config = a.config or os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.path.expanduser("~"), ".claude")
+    kh = kit_paths.kit_home(config, os.path.abspath(__file__))      # ONE FOLDER: <vault>/.rbx, else the config folder (legacy)
+    one = os.path.realpath(kh) != os.path.realpath(config)
     rc, url, _ = git(vault, "remote", "get-url", a.remote)
     if rc != 0:
         print("rbx-check: vault has no remote '%s'." % a.remote)
@@ -172,10 +178,10 @@ def main():
                 print("  " + c)
             if len(code) > 25:
                 print("  ... and %d more" % (len(code) - 25))
-    stale = kit_stale(vault, config)
+    stale = kit_stale(vault, kh, one)
     kit_note = ""
     if stale is None:
-        print("\nInstalled kit: no manifest at %s (kit not installed here)." % os.path.join(config, "claude-kit", "installed.tsv"))
+        print("\nInstalled kit: no manifest at %s (kit not installed here)." % os.path.join(kh, "claude-kit", "installed.tsv"))
     else:
         d, n, names = stale
         if d or n:

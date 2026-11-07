@@ -19,7 +19,7 @@ A release or event date is set and the next four weeks need structure. Not for: 
 
 ## Procedure
 1. Pick channels honestly: one platform done well beats five (vault); a Roblox group or community page announcement reaches members in-platform.
-2. Generate the grid: `python -I ~/.claude/claude-kit/skillpack/marketing/social-post-calendar/scripts/calendar_gen.py month --start YYYY-MM-DD --release YYYY-MM-DD --event YYYY-MM-DD --short-per-week 3`. Read the FLAG lines: a release not on a Friday or on a Tuesday is called out; decide or change the date.
+2. Generate the grid: `python -I .rbx/claude-kit/skillpack/marketing/social-post-calendar/scripts/calendar_gen.py month --start YYYY-MM-DD --release YYYY-MM-DD --event YYYY-MM-DD --short-per-week 3`. Read the FLAG lines: a release not on a Friday or on a Tuesday is called out; decide or change the date.
 3. Give every slot a purpose from this set only: tease (image, silhouette, hint), countdown, announce (release-day, with the Details Page URL), recap (clip or thanks to testers), proof (a metric or player clip), ask (poll or what-next question), behind the scenes (one system devlog), community (showcase, see `community-showcase-planner`). A slot with no purpose is deleted.
 4. Cadence floor: 2-3 short-form clips per week is a floor from creators, not a target; a calendar the owner cannot keep is worse than a smaller one. Judge results after 30-60 days.
 5. Ground each post in a true fact (the build exists, the date is firm). Do not announce what you may not ship (vault: cancelled sponsored events frustrated players).

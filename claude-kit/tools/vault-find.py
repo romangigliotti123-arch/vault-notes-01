@@ -16,6 +16,10 @@ Games/ (the user's per-game notes and Games/_Reusable/<name>/README.md building 
 """
 import argparse, hashlib, importlib.util, json, math, os, re, sys, time
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
+
 STOP = set("a an the and or of for to in on with by is are be it its this that i me my we you your do does need want how what which when where can could should would please use using make get from as at into about any all some new".split())
 
 
@@ -39,10 +43,13 @@ def find_vaults(explicit):
     cands = []
     for p in explicit:
         cands.append(p)
+    kv = kit_paths.find_vault(None, os.path.abspath(__file__))      # ONE FOLDER: the vault that holds this kit, env, pointer, cwd, defaults
+    if kv:
+        cands.append(kv)
     for env in ("CLAUDES_VAULT", "AI_LIBRARY_VAULT"):
         if os.environ.get(env):
             cands.append(os.environ[env])
-    cands += [os.path.join(home(), "Obsidian", "claudes-vault"), os.path.join(home(), "Obsidian", "ai-library-vault")]
+    cands += [os.path.join(home(), "Obsidian", "rbx-dev-vault"), os.path.join(home(), "Obsidian", "claudes-vault"), os.path.join(home(), "Obsidian", "ai-library-vault")]
     out, seen = [], set()
     for c in cands:
         c = os.path.abspath(os.path.expanduser(c))
@@ -252,8 +259,7 @@ def cache_dir():
     d = os.environ.get("CLAUDE_KIT_CACHE")
     if d:
         return d
-    c = os.environ.get("CLAUDE_CONFIG_DIR")
-    return os.path.join(c if c else os.path.join(home(), ".claude"), "claude-kit", "cache")
+    return os.path.join(kit_paths.kit_home(None, os.path.abspath(__file__)), "claude-kit", "cache")
 
 
 def load_index(side, v, include_all, reindex):

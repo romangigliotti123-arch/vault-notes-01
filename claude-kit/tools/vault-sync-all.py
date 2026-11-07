@@ -2,12 +2,15 @@
 """vault-sync-all.py: INTERNAL tool of the vault kit, run by install.sh / install.ps1 as the last big step of the single installer run (users never type it).
 One call does the three downloads for a vault folder, in order: vault-shards.py (extra notes repositories), refs-sync.py (Roblox reference screenshots, ~30 MB) and assets-sync.py (the asset zips, ~1 GB).
 Prints short progress lines (`assets: 3/6 zips ...`), FAILS SOFT (always exits 0): a failed or incomplete download prints ONE `Assets incomplete: <reason>. To finish, run (resumes): <command>` line.
-Writes <config>/claude-kit/state/assets-status.txt: line 1 = complete | incomplete | skipped | dryrun, line 2 = the ready-made closing-block bullet. Re-running resumes (assets-sync keeps verified zips and resumes partial ones).
+Writes .rbx/claude-kit/state/assets-status.txt: line 1 = complete | incomplete | skipped | dryrun, line 2 = the ready-made closing-block bullet. Re-running resumes (assets-sync keeps verified zips and resumes partial ones).
 Usage: vault-sync-all.py --vault DIR [--config DIR] [--base URL[,URL]] [--no-assets] [--dry-run] [--retry-cmd TEXT]
 Standard library only. Env CLAUDE_REFS_SKIP=1 skips the references (as in refs-sync.py)."""
 import argparse, os, re, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
 
 
 def run_stream(args, env, on_line):
@@ -53,7 +56,7 @@ def main():
         base += ["--base", b]
     dry = ["--dry-run"] if a.dry_run else []
     retry = a.retry_cmd or ("%s -I %s --vault %s" % (py, os.path.join(HERE, "vault-sync-all.py"), vault))
-    state = os.path.join(cfg, "claude-kit", "state", "assets-status.txt")
+    state = os.path.join(kit_paths.kit_home(cfg, os.path.abspath(__file__)), "claude-kit", "state", "assets-status.txt")
 
     def write_state(kind, text):
         try:

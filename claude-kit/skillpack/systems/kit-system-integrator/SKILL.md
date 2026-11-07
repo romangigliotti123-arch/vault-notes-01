@@ -18,12 +18,12 @@ Starting a game on the kit, adding a system, or reviewing a project that already
 1. Project folder (default: the current Rojo project). 2. Which systems are wanted (default: PlayerData + Shop; DailyRewards/Analytics/Admin when the design calls for them).
 
 ## Procedure
-1. Install what is needed: `python ~/.claude/claude-kit/tools/games.py system add <Name> --project <project>` copies `src/` to `src/server/Systems/<Name>/`. Read each system's README (setup, config, pitfalls) before wiring.
+1. Install what is needed: `python .rbx/claude-kit/tools/games.py system add <Name> --project <project>` copies `src/` to `src/server/Systems/<Name>/`. Read each system's README (setup, config, pitfalls) before wiring.
 2. Order of wiring in one server script: create PlayerData with the template and migrations; on `PlayerAdded` call `LoadAsync` and keep `session.Data` in a table by user id; give `getData(userId)` and `saveNow(userId)` closures to Shop and DailyRewards; start Shop (the ONLY `ProcessReceipt` owner) and Analytics; add Admin last.
 3. Shutdown: `game:BindToClose` releases all sessions (`PlayerData:ReleaseAll`); `Players.PlayerRemoving` releases the player's session after any pending trade/round cleanup. Both must exist.
 4. Pack modules (Wallet, Inventory, Quests, ...) store their state inside `session.Data`: add their default tables to the PlayerData template and bump the schema version with a migration when changing shapes (`datastore-schema-builder`).
-5. Run the checker: `python -I ~/.claude/claude-kit/skillpack/systems/kit-system-integrator/scripts/integrate_check.py <project>`; fix every FAIL, read every WARN. Re-run until FAIL is 0.
-6. Run the kit's own gate: `cd ~/.claude/claude-kit/systems && python check.py` (stylua, selene, luau-lsp, Lune tests) and quote its final line.
+5. Run the checker: `python -I .rbx/claude-kit/skillpack/systems/kit-system-integrator/scripts/integrate_check.py <project>`; fix every FAIL, read every WARN. Re-run until FAIL is 0.
+6. Run the kit's own gate: `cd .rbx/claude-kit/systems && python check.py` (stylua, selene, luau-lsp, Lune tests) and quote its final line.
 7. Live test (`untested` until done in Studio): join, change data, leave, rejoin; buy a product with a test account twice (retry) and confirm one grant; stop the server mid-play and confirm the data saved.
 
 ## Studio MCP path

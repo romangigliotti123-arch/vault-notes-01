@@ -21,7 +21,7 @@ Optional self-test, no cost, no network: `python scripts/selftest.py` (ends with
 It asks four things first: usage budget, time limit, worker cap, depth (with the optional creator-credibility check). "Just go" uses the safest Light defaults: about $1, 30 minutes, 1 worker, quick scan, credibility off.
 
 ## 4. Where your research is saved
-- If you have a `claudes-vault` clone (`$CLAUDES_VAULT`, else `~/Obsidian/claudes-vault`): `<vault>/My Research/<topic-slug>/`. That folder is local and private, is never changed or deleted by vault updates, and each topic folder has a `PROTECTED-RESEARCH.md` marker. Do not delete it.
+- If you have a `claudes-vault` clone (`$CLAUDES_VAULT`, else `~/Obsidian/rbx-dev-vault`): `<vault>/My Research/<topic-slug>/`. That folder is local and private, is never changed or deleted by vault updates, and each topic folder has a `PROTECTED-RESEARCH.md` marker. Do not delete it.
 - Otherwise: `./research/<topic-slug>/` in the folder where you ran it.
 - `--out DIR` overrides (never into the vault's Library/, Roblox/, Manager/, Imported/ or Assets/ folders). Claude tells you the path at the end of every run.
 

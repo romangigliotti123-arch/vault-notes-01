@@ -19,7 +19,7 @@ Low or falling D1/D7/PTR/session length and no clear cause. Not for: a sudden pl
 
 ## Procedure
 1. Collect the numbers and the date range; say if the sample is small. If the owner has Creator Hub "similar experiences" benchmarks, those override the vault's rules of thumb.
-2. Run the comparison: `python -I ~/.claude/claude-kit/skillpack/liveops/retention-diagnoser/scripts/diagnose.py --d1 <pct> --d7 <pct> --ptr <pct> --conv <pct> --session-min <m>` (add `--first-session-drop <pct>` if known). It prints each metric with its status (LOW / ok / strong) and its source label and flag, then the ordered fix list.
+2. Run the comparison: `python -I .rbx/claude-kit/skillpack/liveops/retention-diagnoser/scripts/diagnose.py --d1 <pct> --d7 <pct> --ptr <pct> --conv <pct> --session-min <m>` (add `--first-session-drop <pct>` if known). It prints each metric with its status (LOW / ok / strong) and its source label and flag, then the ordered fix list.
 3. Interpret by window (vault analytics rule: low D1 = onboarding; D7 gap = missing hooks):
    - First session/D1 low: onboarding stall, unclear goal, mobile control friction, bugs. Test: `first-minute-designer` timed run, first-session funnel (`funnel-analyzer`), crash/error check.
    - D1 fine, D7 low: nothing pulls them back across days. Test: one return hook (streak or daily reward, timed events, friend loop, unfinished goal), then `event-planner`.

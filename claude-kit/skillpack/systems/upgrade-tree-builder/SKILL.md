@@ -24,7 +24,7 @@ Upgrade menus, skill trees, tycoon upgrades. Not for: temporary effects (`boost-
 4. Remote `BuyUpgrade(id)` (rate-limited): `tree:buy(data, id)` returns `ok, reason` (`max level`, `requires speed`, `cannot afford`). The price comes from the server table, never the client.
 5. Read levels where stats are computed: `tree:level(data, "speed")` on the server each time the stat is needed (or cache and invalidate on buy).
 6. Respec: confirm in the UI, call `tree:respec(data)`; it returns the refund added through the wallet under the sink/source name `respec`. Floor refunds so repeated respecs cannot mint currency; test this with a loop.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/upgrade-tree-builder/scripts/tests/UpgradeTree.test.luau` (quote the "N passed, 0 failed" line); add a test that buying every node in dependency order reaches the expected total spend.
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/upgrade-tree-builder/scripts/tests/UpgradeTree.test.luau` (quote the "N passed, 0 failed" line); add a test that buying every node in dependency order reaches the expected total spend.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Nodes.luau` and `UpgradeTree.luau` -> `start_stop_play` -> `execute_luau` (Server) to buy a chain of upgrades with a funded test player and print levels and balance -> `get_console_output` to read the result. Tree UI is Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (UI, sta
 - [ ] Respec refunds a floored share and total currency never increases across buy/respec loops (test 4).
 - [ ] Cycles, unknown and unreachable prerequisites fail at construction (test 5).
 - [ ] Every node's level is read by a server formula (grep).
-- [ ] UpgradeTree Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/upgrade-tree-builder/scripts/tests/UpgradeTree.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] UpgradeTree Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/upgrade-tree-builder/scripts/tests/UpgradeTree.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Costs read from the client. Respec at 100% (free rearranging removes commitment) or above (mints currency). Prerequisite chains so long that early players see a wall of locked nodes. Changing node ids after launch without migrating saved levels.

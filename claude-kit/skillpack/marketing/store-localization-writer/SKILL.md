@@ -23,7 +23,7 @@ Adding languages to the page, or fixing machine-translated store text. Not for: 
 3. Source table: write `loc/source.csv` with columns `key,source,context` (context says where the string appears, which disambiguates identical words). Keep placeholders such as `{Player_Name}` exactly as written. Do not bake text into images where avoidable; text on thumbnails is localised as separate images.
 4. Brief for translators: audience age, tone (friendly, short), terms that must stay in English (game name, brand terms), genre words that have no equivalent (agree a workaround), length limits (Spanish is about 30% longer, German more; design with room).
 5. Translate (human) or stopgap with auto-translation, then audit: mistranslations, untranslated leaks, bloated tables. Auto-translation fills only blanks and manual entries win (official docs per the vault), but a 2026 report says it can override; verify in game.
-6. Verify the returned file: `python -I ~/.claude/claude-kit/skillpack/marketing/store-localization-writer/scripts/loc_check.py loc/source_es.csv --lang es --name "<Game Name>" --limit title=<live limit> --limit description=<live limit>`. Fix every FAIL; read each WARN with the translator.
+6. Verify the returned file: `python -I .rbx/claude-kit/skillpack/marketing/store-localization-writer/scripts/loc_check.py loc/source_es.csv --lang es --name "<Game Name>" --limit title=<live limit> --limit description=<live limit>`. Fix every FAIL; read each WARN with the translator.
 7. Locale test: set the play language in Studio's player emulator or the client and look at the real page text and the first screen.
 8. Measure per region later (conversion and ARPU differ a lot by market, vault anecdote); hand to `discovery-signal-reader` after two weeks.
 

@@ -20,7 +20,7 @@ Adding a collaborator, contractor or tester; after a team change; before launch;
 ## Procedure
 1. Open the live collaboration and groups pages (Evidence); copy the permission levels, the friends-only rule for Edit on user-owned games, the age-pairing rules and the money-permission rules with the date.
 2. Build `roles.csv` with columns `person,role,permissions,twosv` where permissions is a semicolon list using the live permission names mapped onto the script's money words (payouts, revenue, ad_account, ad_invoices, analytics, ownership).
-3. Run `python -I ~/.claude/claude-kit/skillpack/marketing/roblox-group-setup/scripts/roles_check.py roles.csv`. Fix every FAIL: too many money holders, a money role without two-step verification, ownership held by more than one person.
+3. Run `python -I .rbx/claude-kit/skillpack/marketing/roblox-group-setup/scripts/roles_check.py roles.csv`. Fix every FAIL: too many money holders, a money role without two-step verification, ownership held by more than one person.
 4. Least privilege by task: scripters get script edit, artists get asset and place edit only for the window they need it, testers get Play only (anyone can have Play; Edit needs a friend on user-owned games), contractors get time-boxed access with an end date in the table.
 5. On group games prefer role-based Edit across all games for permanent staff (e.g. audio artist) and per-game Edit for temporary work.
 6. Team Create age-check: collaborators and owners must complete the age check before joining; pairing by age group is limited, so confirm that a minor collaborator can join before promising it.

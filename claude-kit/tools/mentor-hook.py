@@ -175,10 +175,22 @@ def install(c):
     if not isinstance(hooks, dict):
         print("mentor hook: NOT changed, settings.json 'hooks' is not an object.")
         return 2
-    if present(data):
-        print("mentor hook: already installed (no change)")
-        return 0
     cmd = 'sh "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/tools/mentor-hook" hook'
+    if "/.rbx/claude-kit/" in HERE.replace(os.sep, "/"):      # ONE FOLDER: the kit lives in the vault folder (the update re-writes this path if the folder is moved)
+        cmd = 'sh "%s/mentor-hook" hook' % HERE.replace(os.sep, "/")
+    if present(data):
+        fixed = 0
+        for g in (hooks.get("UserPromptSubmit") or []):
+            for h in (g.get("hooks") or []) if isinstance(g, dict) else []:
+                if is_ours(h) and h.get("command") != cmd:
+                    h["command"] = cmd
+                    fixed += 1
+        if fixed:
+            write_settings(path, data)
+            print("mentor hook: path updated in " + path)
+        else:
+            print("mentor hook: already installed (no change)")
+        return 0
     hooks.setdefault("UserPromptSubmit", []).append({"hooks": [{"type": "command", "command": cmd, "timeout": 10}]})
     os.makedirs(c, exist_ok=True)
     write_settings(path, data)

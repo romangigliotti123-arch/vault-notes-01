@@ -12,7 +12,7 @@ Precedence: When a kit skill and another installed skill cover the same job, use
 
 Makes a skill or an agent that belongs to the USER, not to the vault. Your files live in the vault folder: `My-Skills/<name>/SKILL.md` and `My-Agents/<name>.md`. Names start with `my-` (the vault's start with `rbx-`, so they never collide). Updates, sync and uninstall never delete or overwrite them (uninstall copies them to the keep folder), they are git-excluded like `Games/`, and each is copied into `<vault>/.claude/skills|agents` so sessions in the vault see it. This skill never edits a vault-owned file.
 
-Run the helper as `M="bash ${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/tools/pyrun <this skill's folder>/scripts/my_skill.py"` (every Bash call is a fresh shell; add `--vault <folder>` only if it cannot find the vault).
+Run the helper as `M="bash .rbx/claude-kit/tools/pyrun <this skill's folder>/scripts/my_skill.py"` (every Bash call is a fresh shell; add `--vault <folder>` only if it cannot find the vault).
 
 ## Steps
 1. Goal: one line of what it should do and when. Skill or agent? Default skill (instructions Claude follows in the main chat). Agent only for a separate worker with its own tools and context (a reviewer, a checker). Ask once if unclear.

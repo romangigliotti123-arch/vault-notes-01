@@ -18,13 +18,13 @@ Before launch, before adding any pass, product, crate, spin, egg or bundle, and 
 1. The list of paid offers with what each grants (default: read the shop catalogue and the code that grants). 2. Modes: which are competitive pvp (default: assume combat modes are pvp).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 5000` (the pay-to-win rule and the paid-random-items rule) and `section monetisation-gamepasses rules`. Live-check the platform's current paid-random-items page for the restricted-user API names and the odds-disclosure format.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 5000` (the pay-to-win rule and the paid-random-items rule) and `section monetisation-gamepasses rules`. Live-check the platform's current paid-random-items page for the restricted-user API names and the odds-disclosure format.
 2. For each offer fill the facts honestly by READING the grant code, not the product description: `pvp`, `grantsCombatPower`, `gatesCoreProgress`, `requiresHardCurrency`, `randomized`, `oddsShown`, `restrictionPathHandled`, `popupOnJoin`, `timerSkipOrAppointment`, `limitedStock`.
 3. Run `OfferLint.check(offers)` (in a Lune script or the command bar). It returns `findings, blocked`. BLOCK: gating core progress, combat power in pvp, random items without shown odds, random items without the restriction path. WARN: hard-currency-only tasks, appointment or buyable timers, sales on join, limited stock.
 4. Fix BLOCKs by redesign, not by rewording: move power to cosmetics or progression speed, show every outcome with numeric odds before spend (including keys, re-rolls and luck boosts), gate random items per player and give restricted players a free, fixed or direct path.
 5. Treat WARNs as questions for the owner; record the decision and the reason. The vault carries one dissent on limited stock (a creator reports it sells), so a WARN there is a test, not a ban.
 6. Random items checklist: server-side generation only (`anti-exploit-and-security`), odds in the UI equal the odds in code (read both), pity or direct-purchase alternative considered, regional and age rules checked (`age-rating-prep`).
-7. Report: findings table, what was verified in code, what stays unverified. Test: `lune run ../skillpack/money/pay-to-win-checker/scripts/tests/OfferLint.test.luau` from `~/.claude/claude-kit/systems`.
+7. Report: findings table, what was verified in code, what stays unverified. Test: `lune run ../skillpack/money/pay-to-win-checker/scripts/tests/OfferLint.test.luau` from `.rbx/claude-kit/systems`.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `execute_luau` (Edit) to read the catalogue module and print offers -> `get_console_output`. For random items, `start_stop_play` and call the roll function 1000 times on the server to compare observed odds to the displayed odds. Live restriction behaviour needs a test account in a restricted region or age: `untested`.

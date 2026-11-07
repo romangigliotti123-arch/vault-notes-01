@@ -29,6 +29,10 @@ import subprocess
 import sys
 import time
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
+
 ALWAYS_ON_DEFAULT = ["rbx-update", "rbx-check", "rbx-uninstall"]
 MB = "# >>> roblox-vault-mode (managed by the vault update) >>>"
 ME = "# <<< roblox-vault-mode <<<"
@@ -45,8 +49,9 @@ def cfg_dir(a=None):
 
 
 def P(c):
-    s = os.path.join(c, "claude-kit", "vault-mode")
-    return {"c": c, "store": s, "sk": os.path.join(s, ".claude", "skills"), "ag": os.path.join(s, ".claude", "agents"), "rules": os.path.join(s, "CLAUDE.md"),
+    kh = kit_paths.kit_home(c, os.path.abspath(__file__))       # the folder that holds claude-kit/: <vault>/.rbx (one folder) or the config folder (legacy)
+    s = os.path.join(kh, "claude-kit", "vault-mode")
+    return {"c": c, "kh": kh, "store": s, "sk": os.path.join(s, ".claude", "skills"), "ag": os.path.join(s, ".claude", "agents"), "rules": os.path.join(s, "CLAUDE.md"),
             "cold": os.path.join(s, "cold"), "always": os.path.join(s, "always-on.txt"), "reg": os.path.join(s, "loaded.json"), "layout": os.path.join(s, "layout.json")}
 
 
@@ -342,7 +347,7 @@ def excl_keys(marker):
     return ks
 
 
-HOME_EXTRA = ("Games/", "Models/", "My-Skills/", "My-Agents/", "START-HERE.md", ".claude/settings.json")
+HOME_EXTRA = ("Games/", "Models/", "My-Skills/", "My-Agents/", "START-HERE.md", ".claude/settings.json", ".rbx/")
 
 
 def exclude_strip(t):
@@ -370,8 +375,8 @@ def guard(proj, p):
 
 
 def default_vault():
-    base = os.environ.get("CLAUDE_KIT_HOME") or os.path.expanduser("~")
-    return os.path.join(base, "Obsidian", "claudes-vault")
+    d = kit_paths.defaults()
+    return next((x for x in d if is_vault_dir(x)), d[0])      # an existing claudes-vault keeps its name; a new one is rbx-dev-vault
 
 
 def is_vault_dir(d):
@@ -389,9 +394,9 @@ def resolve_home(p, kit=None):
         par = os.path.dirname(os.path.abspath(kit))
         if os.path.basename(os.path.abspath(kit)) == "claude-kit" and os.path.isfile(os.path.join(par, "vault-update.sh")) and is_vault_dir(par):
             return par
-    env = os.environ.get("CLAUDES_VAULT")
-    if env and os.path.isdir(env):
-        return os.path.abspath(env)
+    v = kit_paths.find_vault(p["c"], os.path.abspath(__file__))      # this tool's folder, env, pointer, cwd (a loaded vault), defaults
+    if v:
+        return v
     h = registered_home(p)
     if h and is_vault_dir(h):
         return h
@@ -410,7 +415,7 @@ def is_vault_folder(proj, p):
 
 
 def ref_line(p):
-    f = os.path.join(p["c"], "claude-kit", "reference-path.txt")
+    f = os.path.join(p["kh"], "claude-kit", "reference-path.txt")
     try:
         d = open(f, encoding="utf-8").read().splitlines()[0].strip()
         n = sum(1 for ln in open(os.path.join(d, "INDEX.md"), encoding="utf-8") if ln.startswith("img/"))
@@ -719,6 +724,8 @@ def cmd_load(a):
     jwrite(os.path.join(proj, ".claude", "vault-mode.json"), marker)
     hidden = exclude_write(proj, excl_keys(marker), HOME_EXTRA)
     registry_set(p, proj, marker)
+    if os.path.realpath(p["kh"]) != os.path.realpath(p["c"]):
+        kit_paths.write_pointer(p["c"], os.path.abspath(proj))      # the one line outside the vault folder that says where it is
     n_old = retire_old(p, proj)
     s, g = counts(marker["items"])
     us, ug = counts(marker.get("user_items", {}))
@@ -888,7 +895,7 @@ def cmd_status(a):
     print("cold area: %s (%d files in %d topics; read on demand, never copied into folders)" % (p["cold"], sum(len(v) for v in cf.values()), len(cf)))
     rl = jread(os.path.join(p["store"], "rename-last.json"), None)
     if rl and rl.get("moved"):
-        print("commands renamed or merged on %s: every vault command now starts with %s- (old -> new list: %s)" % (rl.get("at", "?"), rl.get("prefix", "rbx"), os.path.join(p["c"], "claude-kit", "COMMANDS-RENAMED.txt")))
+        print("commands renamed or merged on %s: every vault command now starts with %s- (old -> new list: %s)" % (rl.get("at", "?"), rl.get("prefix", "rbx"), os.path.join(p["kh"], "claude-kit", "COMMANDS-RENAMED.txt")))
     old = [k for k in old_layout(p)]
     if old:
         print("OLD LAYOUT: %d vault skill/agent files are still in %s (they load in every session). Run /rbx-update to move them." % (len(old), p["c"]))
@@ -951,16 +958,16 @@ def old_layout_entries(p, manifest):
 
 
 def old_layout(p):
-    man = read_manifest(os.path.join(p["c"], "claude-kit", "installed.tsv"))
+    man = read_manifest(os.path.join(p["kh"], "claude-kit", "installed.tsv"))
     return [rel for rel, h in old_layout_entries(p, man) if os.path.isfile(os.path.join(p["c"], *rel.split("/")))]
 
 
 def cmd_migrate(a):
     p = P(cfg_dir(a))
-    c = p["c"]
+    c, kh = p["c"], p["kh"]
     lay = jread(p["layout"], {})
     if a.revert:
-        last = jread(os.path.join(c, "claude-kit", "vault-mode", "migration-last.json"), None)
+        last = jread(os.path.join(kh, "claude-kit", "vault-mode", "migration-last.json"), None)
         if not last:
             print("vault-mode: no migration to revert.")
             return 0
@@ -978,18 +985,18 @@ def cmd_migrate(a):
         return 0
     if lay.get("auto") is False and not a.force:
         return 0
-    mfile = a.old_manifest or os.path.join(c, "claude-kit", "installed.tsv.pre-mode")
+    mfile = a.old_manifest or os.path.join(kh, "claude-kit", "installed.tsv.pre-mode")
     if not os.path.isfile(mfile):
-        mfile = os.path.join(c, "claude-kit", "installed.tsv")
+        mfile = os.path.join(kh, "claude-kit", "installed.tsv")
     man = read_manifest(mfile)
     ents = old_layout_entries(p, man)
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    backup = os.path.join(c, "claude-kit", "backup", "mode-migration-" + stamp)
+    backup = os.path.join(kh, "claude-kit", "backup", "mode-migration-" + stamp)
     moved, edited, dirs = [], [], set()
     if not a.dry_run:
         planned = [{"rel": rel, "edited": sha(os.path.join(c, *rel.split("/"))) != h, "sha": h} for rel, h in ents if os.path.isfile(os.path.join(c, *rel.split("/")))]
         if planned:
-            jwrite(os.path.join(c, "claude-kit", "vault-mode", "migration-last.json"), {"at": stamp, "backup": backup, "moved": planned, "manifest": mfile})
+            jwrite(os.path.join(kh, "claude-kit", "vault-mode", "migration-last.json"), {"at": stamp, "backup": backup, "moved": planned, "manifest": mfile})
     for rel, h in ents:
         f = os.path.join(c, *rel.split("/"))
         if not os.path.isfile(f):
@@ -1020,7 +1027,7 @@ def cmd_migrate(a):
         shutil.move(mfile, os.path.join(backup, "installed.tsv.pre-mode"))
     info = {"at": stamp, "backup": backup, "moved": moved, "manifest": mfile}
     jwrite(os.path.join(backup, "migration.json"), info)
-    jwrite(os.path.join(c, "claude-kit", "vault-mode", "migration-last.json"), info)
+    jwrite(os.path.join(kh, "claude-kit", "vault-mode", "migration-last.json"), info)
     lay.update({"layout": 1, "auto": True, "migrated": stamp})
     jwrite(p["layout"], lay)
     ns = len(set(m["rel"].split("/")[1] for m in moved if m["rel"].startswith("skills/")))
@@ -1036,6 +1043,147 @@ def cmd_migrate(a):
     return 0
 
 
+# ---------------------------------------------------------------- ONE FOLDER: relocate the legacy kit, write the 3 stub skills
+STUB_MARK = "<!-- rbx-stub: the full text is in the vault folder -->"
+
+
+def frontmatter(path):
+    try:
+        ln = open(path, encoding="utf-8", errors="replace").read().replace("\r\n", "\n").split("\n")
+    except OSError:
+        return None
+    if not ln or ln[0].strip() != "---":
+        return None
+    for i in range(1, len(ln)):
+        if ln[i].strip() == "---":
+            return ln[1:i]
+    return None
+
+
+def stub_text(name, fm, where):
+    return "\n".join(["---"] + fm + ["---", "", STUB_MARK, "",
+        "Run `python3 \"%s\"` (Windows: `python` or `py -3`). It prints `VAULT`, `KIT` and `SKILL`: read the file named after `SKILL` and follow it exactly (everything of the vault lives in that one folder, wherever it is)." % where.replace("\\", "/"),
+        "If it prints `VAULT NOT FOUND`: ask the user where the rbx-dev-vault folder is (it may have been moved), then run it again with `--set <folder>`; with no folder at all, follow the setup runbook SETUP-FOR-CLAUDE.md.", ""])
+
+
+def put_text(path, text):
+    try:
+        if open(path, encoding="utf-8", newline="").read() == text:
+            return False
+    except OSError:
+        pass
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".%d.tmp" % os.getpid()
+    with open(tmp, "w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
+    os.replace(tmp, path)
+    return True
+
+
+def cmd_stubs(a):
+    """~/.claude keeps only 3 thin stub skills (same description as the full skill) + where.py + the pointer. An old full copy is replaced; anything of yours in it is backed up first."""
+    p = P(cfg_dir(a))
+    if os.path.realpath(p["kh"]) == os.path.realpath(p["c"]):
+        return 0            # legacy layout (no vault folder): the full skills stay in the config folder
+    wsrc = os.path.join(p["kh"], "claude-kit", "tools", "kit_paths.py")
+    stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    changed, saved = [], []
+    for n in always_on(p):
+        full = os.path.join(p["sk"], n, "SKILL.md")
+        fm = frontmatter(full)
+        if fm is None or not os.path.isfile(wsrc):
+            print("vault-mode: stub for /%s not written (the store has no %s yet; run /rbx-update)" % (n, "SKILL.md" if fm is None else "kit_paths.py"))
+            continue
+        d = os.path.join(p["c"], "skills", n)
+        os.makedirs(d, exist_ok=True)
+        bdir = os.path.join(p["kh"], "claude-kit", "backup", "migration-" + stamp, "skills", n)
+        for dp, dn, fn in os.walk(d, topdown=False):
+            for f in fn:
+                fp = os.path.join(dp, f)
+                rel = os.path.relpath(fp, d).replace(os.sep, "/")
+                if rel in ("SKILL.md", "where.py"):
+                    continue
+                twin = os.path.join(p["sk"], n, *rel.split("/"))
+                if os.path.isfile(twin) and sha(twin) == sha(fp):
+                    os.remove(fp)                        # provably the kit's own file: it lives in the store now
+                else:
+                    os.makedirs(os.path.dirname(os.path.join(bdir, *rel.split("/"))), exist_ok=True)
+                    shutil.move(fp, os.path.join(bdir, *rel.split("/")))
+                    saved.append("skills/%s/%s" % (n, rel))
+            if dp != d:
+                try:
+                    os.rmdir(dp)
+                except OSError:
+                    pass
+        sk = os.path.join(d, "SKILL.md")
+        try:
+            cur = open(sk, encoding="utf-8", errors="replace").read()
+        except OSError:
+            cur = None
+        if cur is not None and STUB_MARK not in cur and cur.replace("\r\n", "\n") != open(full, encoding="utf-8", errors="replace").read().replace("\r\n", "\n"):
+            os.makedirs(bdir, exist_ok=True)
+            shutil.copyfile(sk, os.path.join(bdir, "SKILL.md"))
+            saved.append("skills/%s/SKILL.md" % n)
+        w = os.path.join(d, "where.py")
+        if put_text(sk, stub_text(n, fm, w)):
+            changed.append(n)
+        if not os.path.isfile(w) or sha(w) != sha(wsrc):
+            put_file(wsrc, w)
+            if n not in changed:
+                changed.append(n)
+    vault = os.path.dirname(p["kh"])
+    kit_paths.write_pointer(p["c"], vault)
+    if changed and not getattr(a, "quiet", False):
+        print("vault-mode: the %d always-available commands are thin stubs in %s now (their full text and tools live in %s)" % (len(changed), os.path.join(p["c"], "skills"), vault))
+    for s in saved:
+        print("  you had changed %s: your copy is in %s" % (s, os.path.join(p["kh"], "claude-kit", "backup", "migration-" + stamp)))
+    return 0
+
+
+def cmd_relocate(a):
+    """MIGRATION of an old install: move <config>/claude-kit into <vault>/.rbx/claude-kit, entry by entry. Idempotent and resumable (run again any time); a file is only deleted when it is provably a duplicate
+    (identical to the new copy, or identical to what the old manifest says the kit installed); a different file is kept where it is and reported."""
+    p = P(cfg_dir(a))
+    src, dst = os.path.join(p["c"], "claude-kit"), os.path.join(p["kh"], "claude-kit")
+    if os.path.realpath(p["kh"]) == os.path.realpath(p["c"]) or not os.path.isdir(src):
+        return 0
+    man = read_manifest(os.path.join(src, "installed.tsv"))
+    moved = dup = 0
+    kept = []
+    for dp, dn, fn in os.walk(src, topdown=False):
+        for f in fn:
+            fp = os.path.join(dp, f)
+            rel = os.path.relpath(fp, src).replace(os.sep, "/")
+            if f.endswith(".lock") or "__pycache__" in rel or f.endswith(".pyc"):
+                os.remove(fp)
+                continue
+            d = os.path.join(dst, *rel.split("/"))
+            if os.path.islink(fp):
+                kept.append(rel)
+                continue
+            if not os.path.lexists(d):
+                os.makedirs(os.path.dirname(d), exist_ok=True)
+                shutil.move(fp, d)
+                moved += 1
+            elif sha(fp) == sha(d) or man.get("claude-kit/" + rel) == sha(fp):
+                os.remove(fp)
+                dup += 1
+            else:
+                kept.append(rel)
+        if dp != src:
+            try:
+                os.rmdir(dp)
+            except OSError:
+                pass
+    try:
+        os.rmdir(src)
+    except OSError:
+        pass
+    if moved or dup or kept:
+        print("vault-mode: the kit now lives in the vault folder (%s); moved %d files from %s, dropped %d duplicates%s" % (os.path.dirname(p["kh"]), moved, src, dup, ("; kept %d files that differ from the new copy in %s (not deleted): %s" % (len(kept), src, ", ".join(kept[:5]))) if kept else ""))
+    return 0
+
+
 def main(argv):
     for st in (sys.stdout, sys.stderr):
         try:
@@ -1045,11 +1193,13 @@ def main(argv):
     ap = argparse.ArgumentParser(prog="vault-mode.py", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name in ("home", "load", "unload", "status", "sync", "migrate", "mode-text", "cold"):
+    for name in ("home", "load", "unload", "status", "sync", "migrate", "mode-text", "cold", "relocate", "stubs"):
         s = sp.add_parser(name)
         s.add_argument("--config", default=argparse.SUPPRESS)
         if name in ("load", "unload", "status"):
             s.add_argument("--project")
+        if name == "stubs":
+            s.add_argument("--quiet", action="store_true")
         if name == "load":
             s.add_argument("--quiet", action="store_true")
             s.add_argument("--announce", action="store_true")
@@ -1068,10 +1218,10 @@ def main(argv):
             s.add_argument("target", nargs="?")
             s.add_argument("--path", action="store_true")
     a = ap.parse_args(argv)
-    fn = {"home": cmd_home, "load": cmd_load, "unload": cmd_unload, "status": cmd_status, "sync": cmd_sync, "migrate": cmd_migrate, "mode-text": cmd_mode_text, "cold": cmd_cold}[a.cmd]
+    fn = {"home": cmd_home, "load": cmd_load, "unload": cmd_unload, "status": cmd_status, "sync": cmd_sync, "migrate": cmd_migrate, "mode-text": cmd_mode_text, "cold": cmd_cold, "relocate": cmd_relocate, "stubs": cmd_stubs}[a.cmd]
     store = P(cfg_dir(a))["store"]
     try:
-        if a.cmd in ("load", "unload", "sync", "migrate") and os.path.isdir(store):
+        if a.cmd in ("load", "unload", "sync", "migrate", "stubs") and os.path.isdir(store):
             with Lock(os.path.join(store, ".mode.lock")):
                 return fn(a) or 0
         return fn(a) or 0

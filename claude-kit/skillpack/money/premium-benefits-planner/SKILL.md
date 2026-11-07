@@ -18,7 +18,7 @@ You want Premium-only perks, a Premium prompt, or an answer to "what does Premiu
 1. The existing perks and reward loops (default: read `design/` and the shop catalogue). 2. Whether the audience is mostly young or has many adults (default: assume mixed; affects pressure and regional notes).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 5000` and `section business-and-payouts rules`. Write down the Premium payout, Creator Rewards and Premium-prompt rules with their dates.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 5000` and `section business-and-payouts rules`. Write down the Premium payout, Creator Rewards and Premium-prompt rules with their dates.
 2. Pick perks: exclusive cosmetics, a chat or lobby flair, a small daily bonus or a saved-slot convenience. The vault's rule: Premium perks should be exclusive merch, not tactical advantages. Run `pay-to-win-checker` on them.
 3. Make the check server-side: the server reads the player's membership (live-check the current API; historically `Player.MembershipType == Enum.MembershipType.Premium`) when granting the perk, never a client flag. Cache with the join and refresh on membership change events.
 4. Prompt rules: use the platform's Premium purchase prompt at a natural moment (profile, shop tab), do not use the modal as a paywall and do not promise Robux (vault). Pair it with `offer-timing-planner` limits.
@@ -42,7 +42,7 @@ Plan document and hand checklist. The perk code is one function; test it with a 
 - [ ] Every perk is cosmetic or convenience and passes `pay-to-win-checker` (quote "0 block").
 - [ ] The membership check runs on the server (name the file and function).
 - [ ] No rate or percentage appears without a date and "live-check".
-- [ ] `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 1500` was run and its Premium rule quoted in the plan.
+- [ ] `python -I .rbx/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 1500` was run and its Premium rule quoted in the plan.
 - [ ] The Premium branch is marked `untested` unless a real Premium account tested it.
 
 ## Pitfalls

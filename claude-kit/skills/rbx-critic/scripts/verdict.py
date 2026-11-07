@@ -170,7 +170,7 @@ def readme_state(gd, project=None):
 
 def refresh_readme(gd):
     cfg = os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.path.expanduser("~"), ".claude")
-    for g in (os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools", "games.py"), os.path.join(cfg, "claude-kit", "tools", "games.py")):
+    for g in (os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools", "games.py"), os.path.join(cfg, "claude-kit", "tools", "games.py"), os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "tools", "games.py")):
         if os.path.isfile(g) and os.path.isfile(os.path.join(gd, "GAME.md")):
             try:
                 subprocess.run([sys.executable, "-I", g, "--games", os.path.dirname(os.path.abspath(gd)), "refresh", os.path.basename(os.path.abspath(gd))], capture_output=True, timeout=30)

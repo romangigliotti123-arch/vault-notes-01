@@ -24,7 +24,7 @@ Top players by score, wealth, wins, time or any stat; weekly boards. Not for: de
 4. Writes: on the server, when the stat changes, `if board:shouldWrite(userId, score) then pcall(store.SetAsync, store, tostring(userId), board:clean(score)) end`. The gate refuses invalid, equal or lower scores and enforces the gap, so spamming the stat cannot flood the store. Call `board:forget(userId)` on leave.
 5. The score comes from server state (the saved stat in PlayerData), never from a remote. Flag impossible jumps in the same place (`Analytics` event) rather than inside the board.
 6. Display: names via `Players:GetNameFromUserIdAsync` cached by user id (it yields and can fail: pcall); numbers through `Leaderboard.short`. A player outside the page sees their own rank only if you fetch it separately; `Leaderboard.rank` returns nil for "not in the top N", which is a normal answer.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/leaderboard-builder/scripts/tests/Leaderboard.test.luau` (quote the "N passed, 0 failed" line); the glue is `untested` until run on a published place with API access (DataStores need it in Studio).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/leaderboard-builder/scripts/tests/Leaderboard.test.luau` (quote the "N passed, 0 failed" line); the glue is `untested` until run on a published place with API access (DataStores need it in Studio).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Leaderboard.luau` and the glue script -> `start_stop_play` -> `execute_luau` (Server) to write three test scores through `shouldWrite` and read `board:top(3)` -> `get_console_output` to read the result. DataStore access in Studio needs API access enabled and a published place: `untested` until then.
@@ -43,7 +43,7 @@ Files + Lune tests with a fake fetch. Everything that needs a running Studio ses
 - [ ] Negative, NaN, infinite, huge and non-number scores are refused (test 4).
 - [ ] A user is written only when the score improved and the gap has passed (test 5).
 - [ ] No remote accepts a score from a client (grep the handlers).
-- [ ] Leaderboard Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/leaderboard-builder/scripts/tests/Leaderboard.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Leaderboard Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/leaderboard-builder/scripts/tests/Leaderboard.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Calling `GetSortedAsync` per player per join. Writing every stat change. Storing floats. Showing an all-time board that nobody new can ever enter (add weekly boards). Resolving names for 50 rows on the main thread every refresh. Trusting a client-sent score.

@@ -24,7 +24,7 @@ Any weapon, tool or ability with cooldown or ammo. Not for: hit detection, healt
 4. On `ok` run hit detection with `HitCheck` (ranges and angles also come from the server table) and then `health:damage(state, dmg, type)`; on refusal do nothing and optionally tell the client the reason for UI.
 5. Reload: `Reload(weaponName)` remote -> `weapons:reload`; the module sets the ammo to full and blocks activation for `reload` seconds. Cancel-on-switch policies are a design choice in the glue.
 6. Clean up per-player state on leave (`weapons:forget(userId)`); ammo for saved/persistent weapons can be stored in `data` instead if it must survive death.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/tool-weapon-system-builder/scripts/tests/Weapons.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/tool-weapon-system-builder/scripts/tests/Weapons.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Weapons.luau`, the weapon table and the Activate handler -> `start_stop_play` -> `execute_luau` (Server) to fire a weapon twice quickly and once after the cooldown with a fake equipped state -> `get_console_output` to read the result. Tool models, animations and client prediction are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (Tool in
 - [ ] Not equipped, dead, unknown and non-string weapon names are refused (test 2).
 - [ ] Ammo runs out, reload refills after its time (test 3).
 - [ ] No remote carries a damage number (grep the handlers).
-- [ ] Weapons Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/tool-weapon-system-builder/scripts/tests/Weapons.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Weapons Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/tool-weapon-system-builder/scripts/tests/Weapons.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Cooldown kept on the client. `os.time()` for sub-second cooldowns (use `os.clock`). Firing allowed while reloading because the reload flag is a client Attribute. Damage multiplied by a client-supplied value. Forgetting `forget` on leave.

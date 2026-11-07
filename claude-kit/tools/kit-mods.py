@@ -2,10 +2,14 @@
 """kit-mods.py: INTERNAL tool of the vault kit, run by install.sh / install.ps1 for the two kit mods (Claude Code plugins rbx-subagent-hud and rbx-graph). Users never type it.
 The mods are installed at PROJECT scope of the VAULT FOLDER (claude plugin ... --scope project, run inside the vault folder): the hooks apply only to Claude sessions started in that folder, enabledPlugins lives in <vault>/.claude/settings.json
 (hidden from git by vault-mode.py). No user-scope plugin or user settings are written. An older USER-scope install of the two mods is migrated (uninstalled from user scope, installed at project scope, one notice line).
-Prints ONE of: `Mods installed: ...` / `Mods up to date: ...` / `Mods skipped: <reason>. Run again later: <command>` (+ the migration notice) and writes <config>/claude-kit/state/mods-block.txt (the closing-block section) and mods-choice (on|off).
+Prints ONE of: `Mods installed: ...` / `Mods up to date: ...` / `Mods skipped: <reason>. Run again later: <command>` (+ the migration notice) and writes .rbx/claude-kit/state/mods-block.txt (the closing-block section) and mods-choice (on|off).
 Never fails the install: always exits 0. Standard library only.
 Usage: kit-mods.py --kit DIR --config DIR [--vault DIR] [--no-mods | --with-mods] [--dry-run] [--on-cmd TEXT] [--off-cmd TEXT]"""
 import argparse, json, os, re, shutil, subprocess, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
 
 MK = "roblox-vault-kit-mods"
 MODS = ("rbx-subagent-hud", "rbx-graph")
@@ -58,7 +62,7 @@ def main():
     a = ap.parse_args()
     kit, cfg = os.path.abspath(a.kit), os.path.abspath(a.config)
     vault = os.path.abspath(a.vault) if a.vault and os.path.isdir(a.vault) else ""
-    sd = os.path.join(cfg, "claude-kit", "state")
+    sd = os.path.join(kit_paths.kit_home(cfg, os.path.abspath(__file__)), "claude-kit", "state")
     on_cmd = a.on_cmd or ("python -I %s --kit %s --config %s --vault %s --with-mods" % (os.path.join(kit, "tools", "kit-mods.py"), kit, cfg, vault))
     off_cmd = a.off_cmd or on_cmd.replace("--with-mods", "--no-mods").replace("-WithMods", "-NoMods")
     modes_on = not a.no_mods

@@ -19,12 +19,12 @@ The icon is the auto-generated default, a raw screenshot or plain AI art, or loo
 
 ## Procedure
 1. Live-check the current icon requirements on Creator Docs (size, format, file size, content rules). Vault says a 512x512 square stays sharp and scales to about 150x150 in places; write what you find with the date into `art/icon-plan.md`, never from memory.
-2. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section thumbnails-icons rules --max-chars 4000`. Note the flags: raw screenshots and plain AI icons are called the worst options in the newest indie guidance; the vault also holds older conflicting views (`section thumbnails-icons disagree`).
+2. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section thumbnails-icons rules --max-chars 4000`. Note the flags: raw screenshots and plain AI icons are called the worst options in the newest indie guidance; the vault also holds older conflicting views (`section thumbnails-icons disagree`).
 3. Concept: one subject filling the frame, a large readable expression (grin, fear, shock) if it has a face, blue or green backdrop with a red or vivid subject for instant read (indie, multiple creators), one progression cue only if true (for example a growth number). Horror: mood and shadow, not oversaturated brights.
 4. Neighbour pass: put the 3-4 neighbour icons beside a mock of yours. Ask: what colour and shape do they share, and what can I do that is different and still honest. Write the answer in one line.
 5. Build 2-3 variants one variable apart (expression, backdrop colour, subject crop). Base is a real render (`thumbnail-maker` step 3); AI art only for background. No text unless one short word survives step 6.
 6. Glance test: shrink to about 150x150, look away, look back. If you cannot say the game and its feel in one sentence, redesign (vault: half-second rule).
-7. Check specs with the live numbers: `python -I ~/.claude/claude-kit/skillpack/marketing/thumbnail-maker/scripts/image_specs.py art/icon*.png --expect <WxH> --aspect 1:1 --max-mb <N>`.
+7. Check specs with the live numbers: `python -I .rbx/claude-kit/skillpack/marketing/thumbnail-maker/scripts/image_specs.py art/icon*.png --expect <WxH> --aspect 1:1 --max-mb <N>`.
 8. Consistency: icon, thumbnails and title share colours, character and tone (vault: keep a consistent recognisable style; `brand-kit-builder`).
 9. Hand the variants to `ctr-ab-test-planner`. The owner uploads; you never upload.
 

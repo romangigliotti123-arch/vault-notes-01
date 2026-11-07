@@ -24,7 +24,7 @@ Player and NPC health, hazards, environmental damage. Not for: deciding who was 
 4. Order is fixed: resistance, then armor, then the minimum (default 1) so armor can never make a hit free; True damage is for hazards like the void. Document the order in the design doc so balance changes use the same maths.
 5. Healing: `h:heal(state, amount)` is capped at max and ignores the dead; revive explicitly with `h:revive`. Regen: call `h:tick(state, dt)` from the single server loop, not per-entity threads.
 6. Mirror to the Humanoid: set `Humanoid.Health = state.hp` after changes (display only). Do not let `Humanoid:TakeDamage` be the source of truth if you use this module.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/health-damage-builder/scripts/tests/Health.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/health-damage-builder/scripts/tests/Health.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Health.luau` and the mirroring script -> `start_stop_play` -> `execute_luau` (Server) to apply damage of each type to a test state and print hp -> `get_console_output` to read the result. Humanoid mirroring and death/respawn flow are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (Humanoi
 - [ ] Negative, zero, NaN, infinite and non-number damage does nothing (test 2).
 - [ ] Death fires once; the dead take no damage or healing (test 3).
 - [ ] Regen waits for the delay (test 5); resist over 1 is rejected (test 6).
-- [ ] Health Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/health-damage-builder/scripts/tests/Health.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Health Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/health-damage-builder/scripts/tests/Health.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Letting a client call damage or heal remotes. Percent armor that reaches 100% (immortal) - keep resist below 1 in design even though 1 is allowed. Two sources of truth (Humanoid and module). Regen ticking per entity thread. Counting overkill as dealt damage in stats (the module returns the clamped value).

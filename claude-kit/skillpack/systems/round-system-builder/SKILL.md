@@ -24,7 +24,7 @@ Round-based games: lobby/intermission/round/results. Not for: queueing into sepa
 4. Decide the intermission: vault examples quote 5-10 s for a single indie round game (self-reported); start short and lengthen only if players need time to read. Voting between intermission and round is an optional stage (a vault source suggests ~5 s) handled in the glue before `onStart`.
 5. Late joiners: `joinGrace` lets them in during the first N seconds; after that they spectate until the next round. Never insert a late joiner into a round whose map state they have not received.
 6. Cleanup discipline: every connection and instance a round creates is registered and destroyed in `cleanup`; test by running 20 rounds in Studio and watching the Memory/Instance counts return to baseline (live observation, not in Lune).
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/round-system-builder/scripts/tests/Rounds.test.luau` (quote the "N passed, 0 failed" line) for the state logic.
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/round-system-builder/scripts/tests/Rounds.test.luau` (quote the "N passed, 0 failed" line) for the state logic.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Rounds.luau` and the round loop script -> `start_stop_play` -> `execute_luau` (Server) to start a local server with two test players, run one full round and read the state log -> `get_console_output` to read the result. Map loading, teleports and the HUD are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (map/tel
 - [ ] Time, last-standing and empty endings fire `onEnd` once and `cleanup` runs after the end screen (tests 3-4, 6).
 - [ ] Late joiners play only inside the grace window (test 5).
 - [ ] A 20-round Studio run returns instance counts to baseline (`untested` unless run).
-- [ ] Rounds Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/round-system-builder/scripts/tests/Rounds.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Rounds Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/round-system-builder/scripts/tests/Rounds.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Cleanup that forgets event connections (leak per round). Starting a round with fewer players than the rules need. Tick loops per system that drift out of sync. Letting spectators affect the round. Teleporting players before the map is loaded.

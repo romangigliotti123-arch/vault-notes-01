@@ -19,7 +19,7 @@ After an update, onboarding change, thumbnail swap or ad push, when you want to 
 
 ## Procedure
 1. Put the data in `cohorts.csv` with columns `first_play_date,new_users,d1_returned,d7_returned`. Note the traffic events in the window (ad start or stop, creator video, front-page feature, bot clean-up) from your own log.
-2. Run `python -I ~/.claude/claude-kit/skillpack/liveops/cohort-reader/scripts/cohort.py --csv cohorts.csv --change 2026-10-20 --window d1 --as-of <today>`. It skips the change day itself, skips cohorts younger than the window (D7 needs 7 days; recent dates are empty by design), pools before and after, and prints both rates, the gap in points, a 95 percent interval and a two-proportion z test.
+2. Run `python -I .rbx/claude-kit/skillpack/liveops/cohort-reader/scripts/cohort.py --csv cohorts.csv --change 2026-10-20 --window d1 --as-of <today>`. It skips the change day itself, skips cohorts younger than the window (D7 needs 7 days; recent dates are empty by design), pools before and after, and prints both rates, the gap in points, a 95 percent interval and a two-proportion z test.
 3. Stop condition: if it prints CANNOT READ (fewer than 200 users in a group), widen the window or wait; do not read noise.
 4. Check what else moved: compare the share of new users by acquisition source, platform and weekday before and after (Creator Hub breakdowns). A retention change that is only a traffic-mix change is not the update's effect (vault: a retention drop may only reflect a traffic source shift).
 5. Use a same-weekday comparison when you have the history, and read the post-spike baseline about a week later, not the first days (novelty and spikes fade; vault).

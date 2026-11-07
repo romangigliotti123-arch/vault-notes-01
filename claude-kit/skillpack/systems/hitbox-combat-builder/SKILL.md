@@ -24,7 +24,7 @@ Server-side verification for melee swings, projectiles resolved on hit, and area
 4. Run the optional raycast on the server (`workspace:Raycast` with an exclusion filter for both characters) and pass `blocked`. Keep rays few: one per claim.
 5. On `true`: call the damage path once. `swingId` comes from the server's own swing counter for that player (issued when `Activate` succeeded), so a client cannot reuse or invent ids.
 6. Tune `range` and `maxAngle` from playtests with real latency; log refusals by reason to see if honest players hit the wall (too many 'out of range' means widen the lag allowance, not remove the check).
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/hitbox-combat-builder/scripts/tests/HitCheck.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/hitbox-combat-builder/scripts/tests/HitCheck.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `HitCheck.luau` and the Hit handler -> `start_stop_play` -> `execute_luau` (Server) to build claims from two test characters and print the verdicts -> `get_console_output` to read the result. Real lag behaviour needs two clients with network simulation: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (real la
 - [ ] One swing hits a target once (test 4).
 - [ ] Blocked, NaN and infinite positions are refused (test 5); refused claims do not burn the swing id (test 6).
 - [ ] No remote carries positions, speeds or damage (grep).
-- [ ] HitCheck Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/hitbox-combat-builder/scripts/tests/HitCheck.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] HitCheck Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/hitbox-combat-builder/scripts/tests/HitCheck.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Trusting the client's reported positions. Unlimited lag allowance (turns it into a long-range cheat). Network ownership of weapons or NPCs left with a client. Re-issuing swing ids from the client. Making the angle check so strict that mobile aim fails.

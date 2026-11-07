@@ -23,7 +23,7 @@ Any shipped update, hotfix or balance change. Not for: marketing copy and hype (
 3. Label paid content as paid (gamepass, Robux item) and keep the notes from reading like an ad. Announce monetisation in update logs (vault) but not hidden among fixes.
 4. Headline: version or update number plus the theme, within 60 characters (the Events and Updates entry text limit in the vault; notification strings 99). Write both strings now.
 5. Fixed section: list the real bugs players reported (this is the trust line). Add known issues you have not fixed yet.
-6. Write the file, then lint it: `python -I ~/.claude/claude-kit/skillpack/liveops/patch-notes-writer/scripts/patchlint.py notes.md`. Fix every ERROR; read each warning (balance without a number, code-like words, paid item not labelled, missing Fixed or New). Exit 1 means do not publish.
+6. Write the file, then lint it: `python -I .rbx/claude-kit/skillpack/liveops/patch-notes-writer/scripts/patchlint.py notes.md`. Fix every ERROR; read each warning (balance without a number, code-like words, paid item not labelled, missing Fixed or New). Exit 1 means do not publish.
 7. Post order: in-game update list or shop panel (vault: a visible changelog in the shop), Discord, then the platform entry. Keep a stats and drop-rate reference page updated with each balance change.
 8. For a rollback or a silent hotfix: add the fix to the next notes (vault: same-day silent patch, then include it in the changelog) and say it is already live.
 

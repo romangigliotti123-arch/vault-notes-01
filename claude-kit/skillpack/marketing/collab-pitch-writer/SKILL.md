@@ -39,7 +39,7 @@ Text only. Everything is `untested` until a reply arrives.
 `marketing/collab-<partner>.md`: partner notes, value table, format, message draft, follow-up date, agreement checklist.
 
 ## Acceptance checks
-- [ ] `python -I ~/.claude/claude-kit/skillpack/marketing/influencer-outreach-writer/scripts/outreach_lint.py message.txt` prints no FAIL (link, concrete offer, no pressure, no placeholders left); output quoted.
+- [ ] `python -I .rbx/claude-kit/skillpack/marketing/influencer-outreach-writer/scripts/outreach_lint.py message.txt` prints no FAIL (link, concrete offer, no pressure, no placeholders left); output quoted.
 - [ ] The message names one specific thing the writer actually played or read.
 - [ ] The ask is small, dated and mutual; both sides' effort is written.
 - [ ] Any shared numbers have a date and the owner's approval.

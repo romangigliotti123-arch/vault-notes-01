@@ -24,7 +24,7 @@ Car/boat/plane spawners, rideable pets, rentable vehicles. Not for: handling phy
 4. Seats: on a seat's `GetPropertyChangedSignal("Occupant")` (server) call `vehicles:sit` / `leaveSeat`; when `sit` refuses (not the owner), eject the humanoid. Seat numbers map to `VehicleSeat`/`Seat` parts by attribute.
 5. Network ownership: while a driver is seated, `SetNetworkOwner(driverPlayer)` on the chassis root part is the usual choice for smooth driving; set it back to the server (`nil`) when the driver leaves and before despawn. Vault: network ownership given to clients is a known exploit surface, so keep speed/teleport sanity checks server-side.
 6. Every 10 s: `for _, id in vehicles:sweep(presentPlayers) do destroyModel(id) end` and on `PlayerRemoving` despawn the owner's vehicles if empty. Destroy models fully (connections too).
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/vehicle-system-builder/scripts/tests/Vehicles.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/vehicle-system-builder/scripts/tests/Vehicles.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Vehicles.luau` and the spawn/seat scripts -> `start_stop_play` -> `execute_luau` (Server) to spawn for two test players, seat them and print the sweep result -> `get_console_output` to read the result. Physics, seat detection and ownership handover are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (models,
 - [ ] Only the owner takes the driver seat; seat conflicts, bad seats and double seating are refused (tests 2-3).
 - [ ] Sweep removes abandoned/ownerless empty vehicles and never an occupied one (test 4).
 - [ ] A Studio run of 20 spawn/despawn cycles leaves the instance count at baseline (`untested` unless run).
-- [ ] Vehicles Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/vehicle-system-builder/scripts/tests/Vehicles.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Vehicles Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/vehicle-system-builder/scripts/tests/Vehicles.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Letting a client name the vehicle to spawn without an ownership check. Leaving network ownership on a player after they exit. Models that outlive their owner. Unlimited spawns that fill the server with parts. Trusting client-reported vehicle speed.

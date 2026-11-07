@@ -6,7 +6,7 @@ argument-hint: "[your game idea, or leave empty to be guided]"
 
 # Roblox idea creator
 
-Takes the user's own idea (or guides them to one), develops the best variation of it through the blind maker and judge loop, and shows the same short card as `rbx-ideas`. The pipeline is NOT repeated here: read the **Engine** section of `rbx-ideas` (`~/.claude/claude-kit/vault-mode/.claude/skills/rbx-ideas/SKILL.md` or the installed `rbx-ideas` skill, via the Skill tool or Read) and follow its steps, hard rules, defaults, saved-file format, card and "After the card" replies exactly. Difference: the seed comes from the user instead of the charts. Not for "what should I build" with no input from the user: that is `rbx-ideas`.
+Takes the user's own idea (or guides them to one), develops the best variation of it through the blind maker and judge loop, and shows the same short card as `rbx-ideas`. The pipeline is NOT repeated here: read the **Engine** section of `rbx-ideas` (`.rbx/claude-kit/vault-mode/.claude/skills/rbx-ideas/SKILL.md` or the installed `rbx-ideas` skill, via the Skill tool or Read) and follow its steps, hard rules, defaults, saved-file format, card and "After the card" replies exactly. Difference: the seed comes from the user instead of the charts. Not for "what should I build" with no input from the user: that is `rbx-ideas`.
 
 ## With an idea (`/rbx-idea-creator <idea>`)
 

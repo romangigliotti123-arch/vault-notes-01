@@ -19,7 +19,7 @@ Before publish, when adding a DataStore, leaderboard, analytics call, webhook, D
 
 ## Procedure
 1. Open the live RTBF pages (Evidence) and copy the current template format, token spelling, template limit and the deletion deadline into the notes with the date.
-2. Run `python -I ~/.claude/claude-kit/skillpack/publish/privacy-data-checker/scripts/rtbf_check.py <project>`. Read each store row: OK = user id in name/scope; WARN = it must be in every key; the key list shows expressions without a user id.
+2. Run `python -I .rbx/claude-kit/skillpack/publish/privacy-data-checker/scripts/rtbf_check.py <project>`. Read each store row: OK = user id in name/scope; WARN = it must be in every key; the key list shows expressions without a user id.
 3. Fix keys that hold personal data but no user id: rename going forward (migrate with `datastore-schema-builder`), because entries without the id cannot be matched by automated deletion.
 4. Write templates (`name_pattern`, `scope_pattern`, `key_pattern` with the exact case-sensitive id token from the live page) for every store holding user data, then run `rtbf_check.py <project> --templates templates.json`: a `FAIL` means a store no template covers. Keep within the template limit.
 5. Run `python -I .../tos-compliance-checker/scripts/compliance_gap.py <project> --focus data`. Remove any personal data sent off-platform; webhooks that receive player ids need a deletion route.

@@ -41,7 +41,7 @@ Same. The research is manual search on a real device; mark every ranking `observ
 - [ ] Every ranking note has an observation date from this run.
 - [ ] No term with fit 0 is placed anywhere.
 - [ ] No claimed search volume without a stated source (none exists officially).
-- [ ] The title candidate list passes `python -I ~/.claude/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py` with the chosen keywords in it.
+- [ ] The title candidate list passes `python -I .rbx/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py` with the chosen keywords in it.
 - [ ] A re-check date is set.
 
 ## Pitfalls

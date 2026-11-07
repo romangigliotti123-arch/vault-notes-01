@@ -18,7 +18,7 @@ Designing or changing currency amounts, adding a new source (quest, drop, daily)
 1. Every currency source and sink with a per-hour estimate for a typical active player (default: read the code and `design/core-loop.md`, then ask for gaps). 2. Session shape: hours per day for casual and committed players (default: 0.5 and 3). 3. The price points of the main goals (default: the shop's list).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section core-loops-and-game-design rules --max-chars 4000` (find "Balance the economy with sources, sinks and caps") and the event-currency rule in `monetisation-other`.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section core-loops-and-game-design rules --max-chars 4000` (find "Balance the economy with sources, sinks and caps") and the event-currency rule in `monetisation-other`.
 2. List sources and sinks in a table: name, per-hour amount at typical play, capped (yes/no), who is affected (all or payers). Flag any source with no cap and any sink only payers use.
 3. Simulate: in a Lune script call `Economy.simulate({ sources = ..., sinks = ..., hours = 20, startBalance = 0 })` for casual and committed players. Read `verdict`: `inflating` (spent is below 60% of income, a default to tune), `starved` (more than 30% of demand unmet) or `balanced`.
 4. Check goal timing: `Economy.hoursToEarn(price, incomePerHour)` for each major goal. Casual players should reach the first goal within the first sessions (see `first-minute-designer`); the last goal should take long enough to last a season.
@@ -26,7 +26,7 @@ Designing or changing currency amounts, adding a new source (quest, drop, daily)
 6. Re-run the simulation after each change and keep a table of before/after.
 7. Paid currency: list every developer product that grants currency and run the same simulation with the pack bought once per day; if the pack grants more than a day of committed play, buyers skip the game and lifetime value drops.
 8. Plan the real measurement: log every grant and spend with the Analytics system (`Analytics:Economy` with Source/Sink flows) so `sink-source-mapper` can compare the model with reality after launch.
-9. Test: `lune run ../skillpack/money/economy-balancer/scripts/tests/Economy.test.luau` from `~/.claude/claude-kit/systems`.
+9. Test: `lune run ../skillpack/money/economy-balancer/scripts/tests/Economy.test.luau` from `.rbx/claude-kit/systems`.
 
 ## Studio MCP path
 Maths needs no Studio. To read real values from a place: `list_roblox_studios` -> `get_studio_state` -> `execute_luau` (Edit) to print reward constants from your config module -> `get_console_output`. Whether the numbers FEEL right is a play test: `untested`.

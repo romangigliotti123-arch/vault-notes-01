@@ -38,6 +38,9 @@ def marker_path(c):
 
 
 def hook_cmd(event):
+    here = os.path.dirname(os.path.abspath(__file__)).replace(os.sep, "/")
+    if "/.rbx/claude-kit/" in here:      # ONE FOLDER: the kit lives in the vault folder (the update re-writes this path if the folder is moved)
+        return '"' + here + '/lum" hook ' + event
     return '"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/vault-mode/.claude/skills/rbx-low-usage/scripts/lum" hook ' + event
 
 
@@ -119,6 +122,12 @@ def install_hooks(c):
     changed = False
     for ev, group in wanted().items():
         if present[ev]:
+            want = group["hooks"][0]["command"]
+            for g in hooks.get(ev) or []:
+                for h in (g.get("hooks") or []) if isinstance(g, dict) else []:
+                    if is_ours(h) and h.get("command") != want:      # the kit moved (old config path / moved vault folder): re-point
+                        h["command"] = want
+                        changed = True
             continue
         hooks.setdefault(ev, []).append(group)
         changed = True

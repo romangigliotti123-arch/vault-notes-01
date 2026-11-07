@@ -1,6 +1,6 @@
 # Roblox Dev Mastery Vault
 
-A Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. (Folder and repo name: `claudes-vault`.)
+A Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. (Folder and repo name: `rbx-dev-vault`.)
 
 Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
@@ -10,20 +10,20 @@ Paste this to Claude: Set up the Roblox Dev Mastery Vault on my computer: fetch 
 
 ## Start here: making a game
 
-Start a Claude session in the vault folder (for example `~/Obsidian/claudes-vault`; that folder is loaded automatically and the vault kit is OFF in every other Claude session), then run `/rbx-workflow`. To see it end to end first, read `Guides/Worked-Example-Idea-To-Live-Ops.md` (also at `claude-kit/examples/worked-example/README.md`): one game from idea to live-ops, with what you type, what Claude does, the critic's verdicts and the files created at each stage.
+Start a Claude session in the vault folder (for example `~/Obsidian/rbx-dev-vault`; that folder is loaded automatically and the vault kit is OFF in every other Claude session), then run `/rbx-workflow`. To see it end to end first, read `Guides/Worked-Example-Idea-To-Live-Ops.md` (also at `claude-kit/examples/worked-example/README.md`): one game from idea to live-ops, with what you type, what Claude does, the critic's verdicts and the files created at each stage.
 
 ## For agents: start at CAPABILITIES.md
 
 - `CAPABILITIES.md` (vault root) is a job router: "I need to review code / rate something 1-10 / research a topic / run agents ..." -> the item to use, its type and path (kit commands, Roblox knowledge base, Manager research, library picks).
 - **Entry point: the vault mentor.** `/rbx-mentor` (or the agent `rbx-coach`) works alongside you on any job and suggests the right skill, agent, note or creator method at each step. It reads `CAPABILITIES.md` and `Mentor/Combined-Brain.md` first: the principles, methods and disagreements of every creator in both vaults, by job, with trust labels (creators weighted by the credibility audit; weak or unaudited creators never count as authorities). Optional hook that suggests vault matches on every prompt: `bash claude-kit/install.sh --with-hooks` / `install.ps1 -WithHooks`.
-- Search both vaults by words: `bash ~/.claude/claude-kit/tools/pyrun ~/.claude/claude-kit/tools/vault-find.py "<what you need>"` (skills `rbx-use`, `rbx-ailib`). Read the one note you chose and follow it.
+- Search both vaults by words: `bash <vault>/.rbx/claude-kit/tools/pyrun <vault>/.rbx/claude-kit/tools/vault-find.py "<what you need>"` (skills `rbx-use`, `rbx-ailib`). Read the one note you chose and follow it.
 
 ## What it is
 
 The Roblox Dev Mastery Vault is an Obsidian vault built only for Roblox: one place where you learn what makes Roblox games succeed, and where AI agents use that knowledge to make games for you. It has two halves:
 
 1. A Roblox knowledge base built from official Roblox docs and from the transcripts of about 100 Roblox creators: playbooks, decision rules, benchmark numbers, 90 case studies of real games, ads, monetisation, retention, thumbnails, security and Luau.
-2. A manager toolkit (the `claude-kit/`, installed into `~/.claude/claude-kit`; only the vault folder itself is loaded, so every other Claude session stays clean): a flagship `/rbx-workflow`, side skills, 25 Roblox skills and 18 Roblox agents (including the hidden-rubric idea judge) that design, build, rate, market, playtest and update a game, with you acting as the manager.
+2. A manager toolkit (the `claude-kit/`, installed into `<vault>/.rbx/claude-kit`; only the vault folder itself is loaded, so every other Claude session stays clean): a flagship `/rbx-workflow`, side skills, 25 Roblox skills and 18 Roblox agents (including the hidden-rubric idea judge) that design, build, rate, market, playtest and update a game, with you acting as the manager.
 
 Who it is for: someone who wants to make or run Roblox games and manage the work with AI, with or without writing Luau themselves. Apart from the setup, nothing in it is general-purpose.
 

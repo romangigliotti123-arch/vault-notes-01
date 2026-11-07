@@ -18,7 +18,7 @@ A holiday item, an event shop, a one-week bundle, a sale. Not for: a new player'
 1. The event or season, its dates and the content calendar (default: ask for start and end as UTC times). 2. What sells: cosmetics, boosts, bundles (default: a cosmetic plus a bundle).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 4000` and `section events-and-seasonal-content rules --max-chars 3000`.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 4000` and `section events-and-seasonal-content rules --max-chars 3000`.
 2. Define each offer as `{ id, startsAt, endsAt, consumable, keepOwned, ... }` with ONE window for everyone, in server time. A countdown that restarts per player or per join is fake urgency and is rejected by `LimitedWindow.lint`.
 3. Non-consumables (skins, pets): `keepOwned = true`; buyers keep it after the window. Consumables may expire.
 4. Prefer limited time over limited stock. If you choose a stock cap anyway (the dissent), say why and test it; `lint` will warn.
@@ -26,7 +26,7 @@ A holiday item, an event shop, a one-week bundle, a sale. Not for: a new player'
 6. Server check at purchase: `LimitedWindow.canBuy(offer, os.time(), alreadyOwned)`; the product grant (`devproduct-handler`) refuses outside the window or when a permanent item is already owned. The client only shows a countdown computed from the server's end time.
 7. No pay-to-win: run `pay-to-win-checker` (event power items are still power).
 8. After the event: remove the offer from sale, keep ownership, record sales vs the plan, and write the next event's calendar entry (`event-planner`).
-9. Test: `lune run ../skillpack/money/limited-offer-designer/scripts/tests/LimitedWindow.test.luau` from `~/.claude/claude-kit/systems`.
+9. Test: `lune run ../skillpack/money/limited-offer-designer/scripts/tests/LimitedWindow.test.luau` from `.rbx/claude-kit/systems`.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` to add `LimitedWindow.luau` and the purchase guard -> `start_stop_play` -> `execute_luau` (Server) to evaluate `status` and `canBuy` at a time before, inside and after the window -> `get_console_output`. A live purchase and real event timing need a published place: `untested`.

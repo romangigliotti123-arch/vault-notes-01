@@ -19,7 +19,7 @@ Adding or changing chat commands, custom chat UI, signs, nicknames, pet names, b
 
 ## Procedure
 1. Open the live chat guidelines page (Evidence) and copy the current rule list into the notes with the date. If it differs from the rules below, use the page.
-2. Run `python -I ~/.claude/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project> --focus chat`. Read each `file:line`.
+2. Run `python -I .rbx/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project> --focus chat`. Read each `file:line`.
 3. Legacy chat: any `[FAIL] legacy chat API` row means migrate to TextChatService (`TextChannel`, `SendAsync`); the vault note says the legacy system must be migrated. Stop the release on it.
 4. Filtering: for each text input, trace the string from the remote handler to every place another player can see it; it must pass the server-side filter first (`GetNonChatStringForBroadcastAsync` for non-chat text, `TextChannel:SendAsync` for chat) inside `pcall`. A filtered result is shown, never the raw string.
 5. Rate limits: shared editable text (signs, boards) gets a server-side cooldown keyed by UserId; the Creator Docs example uses one post per minute per player. Never trust a client timer.

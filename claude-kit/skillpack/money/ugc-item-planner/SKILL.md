@@ -18,7 +18,7 @@ Planning avatar items, deciding between Marketplace and in-game sale, or checkin
 1. Who owns the account and its status (ID verified? Roblox Plus or Premium? age?) (default: ask). 2. The game's theme and what players already wear or ask for (default: read community posts). 3. Budget for upload fees and the publishing advance (default: unknown, ask).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section ugc-and-avatar-economy rules --max-chars 5000`. List: eligibility, fees, advance, one-per-day limits for some item types, availability choices, moderation delay.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section ugc-and-avatar-economy rules --max-chars 5000`. List: eligibility, fees, advance, one-per-day limits for some item types, availability choices, moderation delay.
 2. Eligibility gate first. The vault reports ID verification, a Roblox Plus or Premium tier, compliance with Community Standards and Marketplace Policies, an upload fee per submission and a publishing advance. If any is missing, stop and put it in the report; do not plan sales on an ineligible account.
 3. Pick the route per item: (a) Marketplace upload for items sold anywhere, (b) sell avatar items in your own game for the game-owner commission (the vault reports 40% on in-game purchases; live-check), (c) in-experience creation with an Avatar Creation Token (items are not listed on the Marketplace and cannot be resold).
 4. Pick item types by effort and fit: classic clothing is the lowest-cost entry; accessories need cages and validation; emotes and animation packs have their own fees and specs; bundles need a body part. Prefer items players already ask for in this game. Timed rentals can add a cheaper tier (vault: some clothing types).
@@ -42,7 +42,7 @@ Plan document and hand checklist. Anything about the live Marketplace, current f
 ## Acceptance checks
 - [ ] Every eligibility requirement has a stated status (yes, no, unknown) and a source line.
 - [ ] No fee, commission or percentage appears without "live-check".
-- [ ] `python -I ~/.claude/claude-kit/tools/kbq.py section ugc-and-avatar-economy rules --max-chars 1500` was run and quoted.
+- [ ] `python -I .rbx/claude-kit/tools/kbq.py section ugc-and-avatar-economy rules --max-chars 1500` was run and quoted.
 - [ ] No item copies another creator's work; IP check listed per item.
 - [ ] Budget (fees plus advance) is in the plan before the release order.
 

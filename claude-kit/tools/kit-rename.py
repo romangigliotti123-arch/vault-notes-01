@@ -31,6 +31,9 @@ import os
 import re
 import shutil
 import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STORE = "claude-kit/vault-mode/.claude"
@@ -51,6 +54,23 @@ def cfg_dir(a=None):
     if os.environ.get("CLAUDE_KIT_HOME"):
         return os.path.abspath(os.path.join(os.path.expanduser(os.environ["CLAUDE_KIT_HOME"]), ".claude"))
     return os.path.join(os.path.expanduser("~"), ".claude")
+
+
+def KH(c):
+    """the folder that holds claude-kit/ (<vault>/.rbx in the one-folder layout, else the config folder c)"""
+    return kit_paths.kit_home(c, os.path.abspath(__file__))
+
+
+def at(c, rel):
+    """absolute path of a manifest entry: claude-kit/... lives in the kit home, skills/... agents/... in the config folder"""
+    return os.path.join(KH(c) if rel.startswith("claude-kit/") else c, *rel.split("/"))
+
+
+def relat(c, path):
+    k = os.path.realpath(KH(c))
+    rp = os.path.realpath(path)
+    base = k if rp.startswith(k + os.sep) and k != os.path.realpath(c) else c
+    return os.path.relpath(path, base).replace(os.sep, "/")
 
 
 def sha(p):
@@ -181,7 +201,10 @@ def fix_settings(c, stamp, dry):
         return None
     if not LUM_ANY_RX.search(txt):
         return None
-    new_path = '"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/%s/skills/%s/scripts/lum"' % (STORE, lum_skill_name(load_names()))
+    if os.path.realpath(KH(c)) != os.path.realpath(c):      # ONE FOLDER: the kit is in the vault's .rbx folder
+        new_path = '"%s/%s/skills/%s/scripts/lum"' % (KH(c).replace(os.sep, "/"), STORE, lum_skill_name(load_names()))
+    else:
+        new_path = '"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/%s/skills/%s/scripts/lum"' % (STORE, lum_skill_name(load_names()))
     counter = [0]
     _repoint(data, new_path, counter)
     if not counter[0]:
@@ -279,7 +302,7 @@ def message(names, moved_items, kept, foreign, backup):
 
 def write_table_file(c, names, stamp):
     try:
-        with open(os.path.join(c, "claude-kit", "COMMANDS-RENAMED.txt"), "w", encoding="utf-8", newline="\n") as f:
+        with open(os.path.join(KH(c), "claude-kit", "COMMANDS-RENAMED.txt"), "w", encoding="utf-8", newline="\n") as f:
             f.write("Commands renamed on %s (vault prefix: %s; rule <prefix>-<short-name>; type /%s- to list every vault command)\n\n" % (stamp, names.get("prefix"), names.get("prefix")))
             for e in names["renamed"]:
                 f.write("%-6s %-44s -> %s\n" % (e["kind"], e["old"], e["new"]))
@@ -293,16 +316,16 @@ def write_table_file(c, names, stamp):
 def cmd_migrate(a):
     c = cfg_dir(a)
     names = load_names()
-    lay_path = os.path.join(c, "claude-kit", "vault-mode", "layout.json")
+    lay_path = os.path.join(KH(c), "claude-kit", "vault-mode", "layout.json")
     lay = jread(lay_path, {})
-    last_path = os.path.join(c, "claude-kit", "vault-mode", "rename-last.json")
+    last_path = os.path.join(KH(c), "claude-kit", "vault-mode", "rename-last.json")
     if a.revert:
         return revert(c, lay, lay_path, last_path)
     if lay.get("rename_auto") is False and not a.force:
         return 0
-    man = read_manifest(os.path.join(c, "claude-kit", "installed.tsv"))
+    man = read_manifest(os.path.join(KH(c), "claude-kit", "installed.tsv"))
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    backup = os.path.join(c, "claude-kit", "backup", "rename-migration-" + stamp)
+    backup = os.path.join(KH(c), "claude-kit", "backup", "rename-migration-" + stamp)
     moved, kept, foreign, moved_items = [], [], [], {"skill": set(), "agent": set()}
     prune = []
     if not a.dry_run:
@@ -311,7 +334,7 @@ def cmd_migrate(a):
             spec = entries_for(item)
             if spec:
                 for rel, h in man.items():
-                    f = os.path.join(c, *rel.split("/"))
+                    f = at(c, rel)
                     if (any(rel.startswith(q) for q in spec.get("dir", [])) or rel in spec.get("exact", [])) and os.path.isfile(f) and sha(f) == h:
                         planned.append({"rel": rel, "sha": h, "old": item["old"], "new": item["new"], "kind": item["kind"]})
         if planned:
@@ -323,7 +346,7 @@ def cmd_migrate(a):
         owned = [(rel, h) for rel, h in man.items()
                  if any(rel.startswith(p) for p in spec.get("dir", [])) or rel in spec.get("exact", [])]
         for rel, h in owned:
-            f = os.path.join(c, *rel.split("/"))
+            f = at(c, rel)
             if not os.path.isfile(f):
                 continue
             if not a.dry_run:
@@ -334,11 +357,11 @@ def cmd_migrate(a):
             moved.append({"rel": rel, "sha": h, "old": item["old"], "new": item["new"], "kind": item["kind"]})
             moved_items[item["kind"]].add(item["old"])
         # an old-named skill/agent that the kit manifest does not know = the user's own
-        cands = [os.path.join(c, "skills", item["old"]), os.path.join(c, *STORE.split("/"), "skills", item["old"])] if item["kind"] == "skill" else \
-                [os.path.join(c, "agents", item["old"] + ".md"), os.path.join(c, *STORE.split("/"), "agents", item["old"] + ".md")]
+        cands = [os.path.join(c, "skills", item["old"]), os.path.join(KH(c), *STORE.split("/"), "skills", item["old"])] if item["kind"] == "skill" else \
+                [os.path.join(c, "agents", item["old"] + ".md"), os.path.join(KH(c), *STORE.split("/"), "agents", item["old"] + ".md")]
         for cand in cands:
             if os.path.exists(cand):
-                crel = os.path.relpath(cand, c).replace(os.sep, "/")
+                crel = relat(c, cand)
                 if not any(rel == crel or rel.startswith(crel + "/") for rel, _ in owned):
                     if cand not in foreign:
                         foreign.append(cand)
@@ -365,7 +388,7 @@ def cmd_migrate(a):
               % (len(moved), len(kept), len(foreign), "; would repoint the low-usage hooks in settings.json" if st else ""))
         return 0
     for f in prune:
-        for stop in (os.path.join(c, "skills"), os.path.join(c, "agents"), os.path.join(c, *STORE.split("/"), "skills"), os.path.join(c, *STORE.split("/"), "agents"), os.path.join(c, *COLD_BASE.split("/"), "cold")):
+        for stop in (os.path.join(c, "skills"), os.path.join(c, "agents"), os.path.join(KH(c), *STORE.split("/"), "skills"), os.path.join(KH(c), *STORE.split("/"), "agents"), os.path.join(KH(c), *COLD_BASE.split("/"), "cold")):
             if os.path.realpath(f).startswith(os.path.realpath(stop) + os.sep):
                 rmdirs_up(os.path.dirname(f), stop)
                 break
@@ -395,12 +418,12 @@ def revert(c, lay, lay_path, last_path):
     n = 0
     for rec in last.get("moved", []):
         src = os.path.join(last["backup"], *rec["rel"].split("/"))
-        dst = os.path.join(c, *rec["rel"].split("/"))
+        dst = at(c, rec["rel"])
         if os.path.isfile(src) and not os.path.exists(dst):
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             shutil.copyfile(src, dst)
             n += 1
-    mp = os.path.join(c, "claude-kit", "installed.tsv")
+    mp = os.path.join(KH(c), "claude-kit", "installed.tsv")
     if os.path.isfile(mp) and last.get("moved"):          # the restored files are vault-owned again (so `migrate --force` can remove them once more)
         have = read_manifest(mp)
         add = [(r["rel"] + chr(9) + r["sha"] + chr(10)) for r in last["moved"] if r["rel"] not in have]

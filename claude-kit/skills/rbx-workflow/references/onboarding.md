@@ -1,6 +1,6 @@
 # onboarding: first run only
 
-Run once per user and vault. `G profile` (G = `python ~/.claude/claude-kit/tools/games.py`) prints the stored answers in `Games/_profile.json` (protected, survives updates). If it prints a JSON with `level` and `type`, skip this file entirely.
+Run once per user and vault. `G profile` (G = `python .rbx/claude-kit/tools/games.py`) prints the stored answers in `Games/_profile.json` (protected, survives updates). If it prints a JSON with `level` and `type`, skip this file entirely.
 
 ## Ask (one AskUserQuestion with two questions; headless: take the defaults and say so)
 1. "How much Roblox / Luau experience do you have?" options: New to Roblox development | Some (made a few things) | Experienced.

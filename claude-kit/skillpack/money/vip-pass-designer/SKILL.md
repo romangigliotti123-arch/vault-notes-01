@@ -18,14 +18,14 @@ A VIP or "supporter" tier is planned, or an existing one makes buyers far richer
 1. The other passes and boosts that exist or are planned, with the currencies they touch (default: none). 2. Competitive modes, if any (default: assume pvp exists and keep VIP out of it).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-gamepasses rules --max-chars 4000`. Note the flags (official vs indie) and the "free players must reach all core content" rule.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-gamepasses rules --max-chars 4000`. Note the flags (official vs indie) and the "free players must reach all core content" rule.
 2. List candidate perks in three buckets: identity (chat tag, name colour, lobby area, cosmetic), convenience (extra storage, auto-collect, faster queue, saved loadouts), progression speed (a multiplier). Prefer the first two; the vault warns that single XP or coin boosters cap spend and that buyers who never need to spend again lower lifetime value.
 3. If you include a multiplier, keep it small and let `scripts/PerkStack.luau` combine it with every other perk: bonuses ADD (2x and 1.5x give 2.5x) and clip to a cap you choose (default 3, a starting point). Run `PerkStack.audit` over every perk you plan to sell to see which targets would exceed the cap if one player owned all of them.
 4. Check the share: `PerkStack.perkShare(multiplier)` shows what fraction of a buyer's income comes from the perk (2x means 0.5). If free players would earn under half of a buyer's rate in a shared mode, cut the multiplier or move the perk to cosmetics.
 5. Run `pay-to-win-checker` on the final list: no perk may change damage, health or aim in competitive play or gate core progress.
 6. Price with `price-ladder-planner` (core or higher rung; bundle logic: a bundle of all current and future passes at a modest discount is a creator-reported pattern, test it).
 7. Wire: the pass goes in `Passes.luau` (`gamepass-maker`); perks read `ShopService.HasPass(player, "VIP")` on the server at the moment a reward is computed, then call `PerkStack.multiplier(activePerks, "coins", cap)`.
-8. Test: `lune run ../skillpack/money/vip-pass-designer/scripts/tests/PerkStack.test.luau` from `~/.claude/claude-kit/systems`.
+8. Test: `lune run ../skillpack/money/vip-pass-designer/scripts/tests/PerkStack.test.luau` from `.rbx/claude-kit/systems`.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` to add `PerkStack.luau` and the reward code -> `start_stop_play` -> `execute_luau` (Server) to compute a reward for a test player with and without the pass (`ShopService.HasPass`) -> `get_console_output`. Buying the real pass needs a published place and a test account: `untested` until the owner buys.

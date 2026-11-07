@@ -20,7 +20,7 @@ Before transferring a game to a group, before accepting one, and when starting a
 ## Procedure
 1. Open the live ownership-transfer and groups pages (Evidence); copy the prerequisites, request expiry, re-transfer cooldown and discovery notes with the date.
 2. Back up first: run `place-backup-planner` and keep the verified manifest.
-3. Make the gate file: `python -I ~/.claude/claude-kit/skillpack/publish/group-ownership-setup/scripts/transfer_gates.py --template > release/transfer.json`.
+3. Make the gate file: `python -I .rbx/claude-kit/skillpack/publish/group-ownership-setup/scripts/transfer_gates.py --template > release/transfer.json`.
 4. Work each gate with a real check and paste evidence: sender email verified; private ModuleScripts and InsertService assets moved to the group; user-owned packages recreated or replaced with group-owned ones (`list_assets.luau` helps); Open Cloud API keys reviewed (keys follow the access of the user who generated them, so regenerate under an account that keeps access); Place Copying disabled before private assets go in; roles least-privilege (run `collaborator-permissions-setter`).
 5. Money: agree splits in writing; Roblox does not arbitrate group disputes. Model the split math with the group payout rules (per-game and group-wide percentages, remainder to the group balance); subscription split percentages for private servers are fixed at purchase time.
 6. Run `python -I .../publish-readiness-gate/scripts/gate.py release/transfer.json`. NO-GO lists each blocker; fix, re-collect evidence, re-run.

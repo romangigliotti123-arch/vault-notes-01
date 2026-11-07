@@ -24,7 +24,7 @@ Hubs with portals to experiences/places, adventure worlds with separate places, 
 4. For each group: reserved destinations call `TeleportService:ReserveServer(placeId)` once per party and set `TeleportOptions.ReservedServerId` (vault: exactly one routing field per options); others use plain options. Wrap `TeleportAsync` in `pcall`; on error wait `portals:retryDelay(attempt)` and retry, and when it returns nil call `portals:failed(ids)` and tell the players.
 5. Handle `TeleportInitFailed` (failures after a successful call) the same way; never leave a party half-teleported without telling them.
 6. Carry data with `TeleportData` only as a hint (party id, destination); the arrival server re-validates everything from its own saved data, never trusting the payload.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/teleport-hub-builder/scripts/tests/Portals.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/teleport-hub-builder/scripts/tests/Portals.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Destinations.luau`, `Portals.luau` and the portal handler -> `start_stop_play` -> `execute_luau` (Server) to plan teleports for fake users and print groups/reasons -> `get_console_output` to read the result. Real teleports need published places: `untested` until run.
@@ -42,7 +42,7 @@ Files + Lune tests only. Everything that needs a running Studio session (Telepor
 - [ ] Only named, set destinations resolve; non-strings and id 0 are refused (Portals test 1).
 - [ ] A party is split into batches of `maxGroup` (test 2); size limits enforced (test 3).
 - [ ] Cooldown blocks repeats and `failed` releases it (test 4); retry delays back off and stop (test 5).
-- [ ] Portals Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/teleport-hub-builder/scripts/tests/Portals.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Portals Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/teleport-hub-builder/scripts/tests/Portals.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Accepting a place id from the client. Teleporting without `pcall`. New reserved server per player of one party. Trusting `TeleportData` on arrival. Forgetting `failed` so a failed teleport locks the player out for the cooldown.

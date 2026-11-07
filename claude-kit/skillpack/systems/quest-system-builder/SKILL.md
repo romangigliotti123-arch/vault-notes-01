@@ -24,7 +24,7 @@ Starter quests, daily or weekly objectives, story steps, tutorials that grant th
 4. Rewards: `reward = function(data) return wallet:add(data, "Coins", 50, "quest:wood", "quest:wood") end` (idempotent key = quest id) or `inv:add(...)`; return false to refuse (full inventory) and the quest stays claimable.
 5. `ClaimQuest(id)` remote (rate-limited) -> `quests:claim(data, id)`; reply with the result string for the UI. `isAvailable` hides locked quests; `value` and goal amount drive the progress bar.
 6. State is `data.Quests = { progress, claimed }`, small and serialisable; add the fields to the PlayerData template and a migration if you rename quest ids (`datastore-schema-builder`). For dailies, clear `claimed[id]` and `progress[id]` at the reset boundary on the server.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/quest-system-builder/scripts/tests/Quests.test.luau` (quote the "N passed, 0 failed" line); add one test per reward that calls `claim` twice and checks the balance.
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/quest-system-builder/scripts/tests/Quests.test.luau` (quote the "N passed, 0 failed" line); add one test per reward that calls `claim` twice and checks the balance.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Defs.luau` and `Quests.luau` -> `start_stop_play` -> `execute_luau` (Server) to report events for the test player, claim, and print `data.Quests` -> `get_console_output` to read the result. Quest UI and world markers are Studio work: `untested` here.
@@ -44,7 +44,7 @@ Files + Lune tests only. Everything that needs a running Studio session (UI, eve
 - [ ] A reward is paid once even if `claim` is called twice (test 3).
 - [ ] A refused reward leaves the quest claimable (test 5).
 - [ ] Chains with unknown or looping prerequisites fail at construction (test 6).
-- [ ] Quests Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/quest-system-builder/scripts/tests/Quests.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Quests Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/quest-system-builder/scripts/tests/Quests.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Letting the client report progress. Marking claimed before the reward succeeds. Progress that counts events from before the quest was available (the module ignores unavailable quests on purpose). Reward values hard-coded in several places. Quest ids renamed without a migration.

@@ -24,7 +24,7 @@ Enemy drops, chests, eggs, crates, spin wheels, any random reward. Not for: wher
 4. Luck: server-side boost value from `boost-potion-builder` or a pass, bounded 1..100 by the module; it multiplies every non-common entry equally. Do not make odds worse for loyal or high-spending players (vault: criticised as unfair).
 5. Paid random (Robux or a currency bought with Robux): show all outcomes and numeric odds before spending, including indirect purchases such as keys, gate the feature by the player's region policy (PolicyService - live-check), keep odds independent of spend, and name each item's acquisition route (vault). Refuse the roll BEFORE charging when the inventory is full, and never silently swap duplicates.
 6. Log every roll through the `log` callback (table, id, rarity, luck, pity-forced) to your analytics so you can compare real drop rates to stated odds weekly; investigate any gap.
-7. Presentation (egg shake, reveal) is client-side AFTER the server result arrives; hide rarity until the reveal if you like, but the odds table stays visible. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/loot-drop-builder/scripts/tests/LootTable.test.luau` (quote the "N passed, 0 failed" line).
+7. Presentation (egg shake, reveal) is client-side AFTER the server result arrives; hide rarity until the reveal if you like, but the odds table stays visible. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/loot-drop-builder/scripts/tests/LootTable.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `LootTable.luau` and the table definitions -> `start_stop_play` -> `execute_luau` (Server) to roll 1000 times for a test player and print the counts next to `loot:odds()` -> `get_console_output` to read the result. Egg animations and the store-page odds panel are Studio/UI work: `untested` here.
@@ -44,7 +44,7 @@ Files + Lune tests, including the seeded 20000-roll frequency check. Everything 
 - [ ] 20000 seeded rolls land near stated odds (test 8: quote it).
 - [ ] Luck is bounded and leaves the base rarity alone (test 5); rng outside [0,1) fails (test 6).
 - [ ] For paid rolls: the disclosure checklist in step 5 is ticked in the design doc.
-- [ ] LootTable Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/loot-drop-builder/scripts/tests/LootTable.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] LootTable Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/loot-drop-builder/scripts/tests/LootTable.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 A client-supplied roll, luck or result. One `Random.new()` per call (repeated seeds). Showing different odds than the roll uses. Pity counters stored only in memory (lost on rejoin: it lives in `data.Loot`). Luck that scales the common item too, which makes it a no-op. Treating a pity threshold from a video as verified.

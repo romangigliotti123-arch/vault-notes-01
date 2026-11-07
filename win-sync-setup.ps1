@@ -5,7 +5,13 @@
 # Assets (1.02 GB of zips the first time) are synced into <vault>\Assets from the host PC's Tailscale share, never from GitHub.
 # Exit codes: 0 ok, 1 git/gh missing or clone failed, 2 not logged in to GitHub (run: gh auth login), 3 task setup failed.
 param(
-  [string]$Dest = (Join-Path $env:USERPROFILE 'Obsidian\claudes-vault'),
+  # ONE FOLDER: the vault folder is where everything lives (default Obsidian\rbx-dev-vault; an existing claudes-vault folder keeps its name; a moved folder is found through the pointer file)
+  [string]$Dest = $(
+    $ob0 = Join-Path $env:USERPROFILE 'Obsidian'
+    $cfg0 = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $(if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } else { $env:USERPROFILE }) '.claude' }
+    $pv0 = ''; $pf0 = Join-Path $cfg0 'rbx-dev-vault.path'; if (Test-Path -LiteralPath $pf0) { $pv0 = [string]([IO.File]::ReadAllLines($pf0) | Select-Object -First 1) }
+    if ($pv0 -and (Test-Path -LiteralPath (Join-Path $pv0 '.git'))) { $pv0 } elseif ((Test-Path -LiteralPath (Join-Path $ob0 'claudes-vault\.git')) -and -not (Test-Path -LiteralPath (Join-Path $ob0 'rbx-dev-vault'))) { Join-Path $ob0 'claudes-vault' } else { Join-Path $ob0 'rbx-dev-vault' }
+  ),
   [string]$TaskName = 'ClaudesVaultPull',
   [string]$StateDir = (Join-Path $env:LOCALAPPDATA 'claudes-vault-sync'),
   [int]$Minutes = 0,   # ignored (kept so old command lines still work); there is no interval any more
@@ -233,15 +239,28 @@ try {
   $upd = Join-Path $Dest 'vault-update.ps1'
   $cmd = 'cmd /c "' + ('if exist "{4}" (powershell.exe -NoProfile -ExecutionPolicy Bypass -File "{4}" -Quiet >> "{2}" 2>&1) else ("{0}" -C "{1}" pull --ff-only >> "{2}" 2>&1 & if exist "{3}" powershell.exe -NoProfile -ExecutionPolicy Bypass -File "{3}" >> "{2}" 2>&1)' -f $git, $Dest, $log, $refresh, $upd) + '"'
   $vbsCmd = $cmd.Replace('"', '""')
+  # the logon job reads the pointer file at run time (a moved vault folder still updates): the vault path inside the command is replaced by the pointer's folder when that has vault-update.ps1
+  $cfgP = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $(if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } else { $env:USERPROFILE }) '.claude' }
   $vbsText = @(
     'Set sh = CreateObject("WScript.Shell")',
     'Set fso = CreateObject("Scripting.FileSystemObject")',
+    ('destp = "{0}"' -f $Dest.Replace('"', '""')),
+    ('ptrp = "{0}"' -f (Join-Path $cfgP 'rbx-dev-vault.path').Replace('"', '""')),
+    'cmdp = "' + "$vbsCmd" + '"',
+    'If fso.FileExists(ptrp) Then',
+    '  Set pf = fso.OpenTextFile(ptrp, 1)',
+    '  If Not pf.AtEndOfStream Then pv = Trim(pf.ReadLine())',
+    '  pf.Close',
+    '  If pv <> "" Then',
+    '    If fso.FileExists(pv & "\vault-update.ps1") Then cmdp = Replace(cmdp, destp, pv)',
+    '  End If',
+    'End If',
     ('logp = "{0}"' -f $log.Replace('"', '""')),
     'If fso.FileExists(logp) Then',
     '  If fso.GetFile(logp).Size > 200000 Then fso.DeleteFile logp',
     'End If',
     'sh.Environment("Process")("GIT_TERMINAL_PROMPT") = "0"',
-    ('sh.Run "{0}", 0, True' -f $vbsCmd)
+    'sh.Run cmdp, 0, True'
   ) -join "`r`n"
   Set-Content -Path $vbs -Value $vbsText -Encoding ASCII
 
@@ -265,9 +284,9 @@ Write-Output "Update now, any time: powershell -NoProfile -ExecutionPolicy Bypas
 Write-Output "Next: open Obsidian > Open folder as vault > choose $Dest"
 Write-Output 'Do not edit notes here (the update saves any local changes to a patch and resets to the latest). Remove the sync: win-sync-setup.ps1 -Uninstall'
 $kitHome = if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } else { $env:USERPROFILE }
-if (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md')) { Write-Output ('The Roblox Dev Mastery Vault kit is installed. Start a new Claude session in ' + $Dest + ' to use it. Always available: /rbx-update /rbx-check /rbx-uninstall. Two mods (agent sidebar, graph view) are enabled for the vault folder only; turn them off with /plugin or -NoMods. More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual). Built and maintained by Roman (GitHub: romangigliotti123-arch)') }
+if (Test-Path (Join-Path $Dest '.rbx\claude-kit\vault-mode\.claude\skills\rbx-workflow\SKILL.md')) { Write-Output ('The Roblox Dev Mastery Vault kit is installed. Start a new Claude session in ' + $Dest + ' to use it. Always available: /rbx-update /rbx-check /rbx-uninstall. Two mods (agent sidebar, graph view) are enabled for the vault folder only; turn them off with /plugin or -NoMods. More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual). Built and maintained by Roman (GitHub: romangigliotti123-arch)') }
 elseif (Test-Path (Join-Path $kitHome '.claude\claude-kit\vault-mode\.claude\agents\rbx-builder.md')) { Write-Output ('Kit installed. Load the vault by starting a Claude session in ' + $Dest + ', then say "make me a Roblox game: <your idea>" to Claude.') }
-$modsF = Join-Path $kitHome '.claude\claude-kit\state\mods-block.txt'; $modsB = ''; if (Test-Path -LiteralPath $modsF) { try { $modsB = ([IO.File]::ReadAllText($modsF)).Trim() } catch { } }
+$modsF = Join-Path $Dest '.rbx\claude-kit\state\mods-block.txt'; $modsB = ''; if (Test-Path -LiteralPath $modsF) { try { $modsB = ([IO.File]::ReadAllText($modsF)).Trim() } catch { } }
 if (-not $modsB) { $modsB = (@('**THE TWO MODS (NOT INSTALLED)**', ('- Skipped: the installer did not report them. The vault works without them. To install them run: powershell -NoProfile -ExecutionPolicy Bypass -File "' + (Join-Path $Dest 'claude-kit\install.ps1') + '" -WithMods   then type /reload-plugins.'), '- They are Claude Code plugins that add an agent sidebar (/rbx-subagent-hud) and a graph view (/rbx-graph) and register hooks; they are installed for the vault folder only (project scope), so they apply only to sessions started in that folder. Turn them off any time with /plugin or the installer''s -NoMods.') -join "`n") }
 if (-not $SkipKit -and (Test-Path (Join-Path $Dest 'START-HERE.md'))) { Write-Output ''; Write-Output '=== COPY THIS TO THE USER EXACTLY, AS THE END OF YOUR FINAL MESSAGE (nothing after it; also saved as START-HERE.md in the vault folder) ==='; Write-Output ([IO.File]::ReadAllText((Join-Path $Dest 'START-HERE.md')).TrimEnd()); Write-Output '=== END OF THE BLOCK TO COPY ===' }
 exit 0

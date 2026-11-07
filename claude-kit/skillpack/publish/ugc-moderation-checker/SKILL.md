@@ -18,7 +18,7 @@ Plots with names, signs and boards, drawing or image upload, custom pet/item nam
 1. Project folder (default: current). 2. The list of creation features (default: the scan finds them).
 
 ## Procedure
-1. Run `python -I ~/.claude/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project> --focus ugc` and note each lead.
+1. Run `python -I .rbx/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project> --focus ugc` and note each lead.
 2. Build the path table, one row per creation feature: input (what the player types/draws/places), storage (attribute, DataStore, instance), who sees it (self, friends, server), and where the filter runs. Every row must end in a server-side filter call before any other player can see the result (see `chat-compliance-checker` for text; images and builds need a policy: no player-uploaded images unless the platform tools provide moderated paths, `live-check`).
 3. Rate limit creation per player on the server (cooldown + size caps) so spam cannot flood a server; clear per-player tables on leave.
 4. Staff removal: provide a server command or admin path (kit `Admin` system) to clear any plot, name or sign by UserId, and log who removed what.

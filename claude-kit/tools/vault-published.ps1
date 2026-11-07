@@ -8,10 +8,12 @@ try {
   $inv = [Globalization.CultureInfo]::InvariantCulture
   if (-not $UtcOffset) { $UtcOffset = $env:VAULT_PUBLISHED_UTC_OFFSET }
   if (-not $Vault) { $Vault = if ($env:CLAUDES_VAULT) { $env:CLAUDES_VAULT } else { Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)) } }
+  if ((Split-Path -Leaf $Vault) -eq '.rbx') { $Vault = Split-Path -Parent $Vault }      # ONE FOLDER: this copy lives in <vault>\.rbx\claude-kit\tools
   if (-not $Kit) { $Kit = Join-Path $Vault 'claude-kit' }
   if ($Where) {
-    $v = ''; foreach ($c in @($Vault, (Join-Path $env:USERPROFILE 'Obsidian\claudes-vault'))) { if ($c -and (Test-Path -LiteralPath (Join-Path $c '.git'))) { $v = [IO.Path]::GetFullPath($c); break } }
+    $v = ''; foreach ($c in @($Vault, (Join-Path $env:USERPROFILE 'Obsidian\rbx-dev-vault'), (Join-Path $env:USERPROFILE 'Obsidian\claudes-vault'))) { if ($c -and (Test-Path -LiteralPath (Join-Path $c '.git'))) { $v = [IO.Path]::GetFullPath($c); break } }
     $kc = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $(if ($env:CLAUDE_KIT_HOME) { $env:CLAUDE_KIT_HOME } else { $env:USERPROFILE }) '.claude' }
+    if ($v -and (Test-Path -LiteralPath (Join-Path $v '.rbx\claude-kit'))) { $kc = Join-Path $v '.rbx' }
     Write-Output ('Vault: ' + $(if ($v) { $v } else { 'not found (set CLAUDES_VAULT)' }) + ' | Kit: ' + [IO.Path]::GetFullPath((Join-Path $kc 'claude-kit')))
   }
   $git = (Get-Command git.exe -ErrorAction SilentlyContinue | Select-Object -First 1).Source

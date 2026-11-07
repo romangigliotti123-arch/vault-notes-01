@@ -7,13 +7,13 @@ description: "Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, g
 
 Code comments: none by default (see rbx-luau, Comments).
 
-Faster path: `python ~/.claude/claude-kit/tools/games.py init <slug> --rojo` scaffolds this whole layout; Studio connection and the toolchain installer are in the `rbx-studio` skill.
+Faster path: `python .rbx/claude-kit/tools/games.py init <slug> --rojo` scaffolds this whole layout; Studio connection and the toolchain installer are in the `rbx-studio` skill.
 
 Goal: Luau lives in git as plain files, Studio syncs via the Rojo plugin, and Claude can read/edit/lint the code without Studio open.
 
 ## Steps
 1. Install a toolchain manager (Rokit or Aftman) from its official releases page. Download and inspect the install step yourself; do not pipe an install script from the internet into a shell without the user's approval. On Windows prefer `winget`/release binaries.
-2. Pin tools in `rokit.toml` (or `aftman.toml`): `rojo`, `wally`, `selene`, `stylua`. Prefer the pinned `rokit.toml` from the kit template (`~/.claude/claude-kit/tools/roblox-project-template/`).
+2. Pin tools in `rokit.toml` (or `aftman.toml`): `rojo`, `wally`, `selene`, `stylua`. Prefer the pinned `rokit.toml` from the kit template (`.rbx/claude-kit/tools/roblox-project-template/`).
 3. `rojo init` then edit `default.project.json`: map `src/server` to `ServerScriptService`, `src/shared` to `ReplicatedStorage.Shared`, `src/client` to `StarterPlayer.StarterPlayerScripts`, packages to `ReplicatedStorage.Packages`.
 4. Script file naming: `*.server.luau` (Script), `*.client.luau` (LocalScript), `*.luau` (ModuleScript), `init.luau` for folder modules.
 5. Config files: `selene.toml` (std = roblox), `stylua.toml`, `wally.toml` for packages, `.gitignore` (Packages, `*.rbxl` autosaves, `sourcemap.json`).

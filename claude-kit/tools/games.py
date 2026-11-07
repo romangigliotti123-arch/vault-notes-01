@@ -23,6 +23,10 @@ Games root: --games DIR, else env GAMES_ROOT, else <vault folder>/Games (the nea
 """
 import argparse, datetime, glob, json, os, re, shutil, sys, zipfile
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
+
 STAGES = ["idea", "prototype", "playtest", "launch", "growth", "live-ops"]
 HERE = os.path.dirname(os.path.abspath(__file__))
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,48}$")
@@ -33,15 +37,13 @@ def today():
 
 
 def vault_root():
-    for c in (os.environ.get("CLAUDES_VAULT"), os.path.join(os.path.expanduser("~"), "Obsidian", "claudes-vault")):
-        if c and os.path.isdir(c):
-            return os.path.abspath(c)
-    return None
+    v = kit_paths.find_vault(None, os.path.abspath(__file__))
+    return v
 
 
 def vault_hint():
     """where the vault folder is, for the 'start a session in ...' message: the registered one (loaded.json 'home' in the Claude config folder), else the usual places"""
-    cfg = os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.environ.get("CLAUDE_KIT_HOME") or os.path.expanduser("~"), ".claude")
+    cfg = kit_paths.kit_home(None, os.path.abspath(__file__))
     try:
         with open(os.path.join(cfg, "claude-kit", "vault-mode", "loaded.json"), encoding="utf-8") as f:
             h = json.load(f).get("home")
@@ -49,7 +51,7 @@ def vault_hint():
             return h
     except (OSError, ValueError, AttributeError):
         pass
-    return vault_root() or os.path.join(os.path.expanduser("~"), "Obsidian", "claudes-vault")
+    return vault_root() or kit_paths.defaults()[0]
 
 
 def not_in_vault(what):

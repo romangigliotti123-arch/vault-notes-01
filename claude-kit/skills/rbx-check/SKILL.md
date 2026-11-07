@@ -4,6 +4,8 @@ description: "Check whether a newer vault or kit exists, changing nothing: fetch
 allowed-tools: Bash(bash *claude-kit/tools/pyrun *rbx-quick.py*)
 ---
 
-!`bash "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/tools/pyrun" "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/tools/rbx-quick.py" check`
+The stub in `~/.claude/skills/rbx-check` ran `where.py`, which printed `VAULT <folder>` and `KIT <folder>` (the kit lives in the vault folder: `<vault>/.rbx/claude-kit`; the folder may have been moved, where.py finds it again). Run this one command with `<KIT>` = the printed KIT folder:
 
-Reply with the output above exactly as printed. Nothing else: no commentary, no code fence, no footer, no tool calls.
+`bash "<KIT>/tools/pyrun" "<KIT>/tools/rbx-quick.py" check`
+
+Reply with its output exactly as printed. Nothing else: no commentary, no code fence, no footer, no other tool calls.

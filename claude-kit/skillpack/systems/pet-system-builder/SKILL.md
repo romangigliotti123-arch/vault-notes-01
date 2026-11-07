@@ -24,7 +24,7 @@ Pet simulators, companion systems, any collection where owned creatures boost ea
 4. Remotes (rate-limited): `EquipPet(uid)`, `UnequipPet(uid)`, `FusePet(petId)`. The server calls `pets:equip(data, uid)` / `unequip` / `fuse`. Power for earnings is `pets:power(data, boosts:multiplier(data, "coins"))` computed on the server at the moment of earning; the client never sends power.
 5. Wire the trade lock: `Trade.new({ ..., locked = function(data, uid) return pets:locked(data, uid) end })`. Unequip happens automatically when a pet leaves the inventory (`init` prunes missing uids on every call).
 6. Inventory limits: a full pet inventory must refuse new pets BEFORE a paid hatch charges (see `loot-drop-builder` step on refusing early). Add a clear message and a sell/fuse path.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/pet-system-builder/scripts/tests/Pets.test.luau` (quote the "N passed, 0 failed" line); check that fuse leaves equipped pets alone and never loses pets when the output cannot be added (test 3).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/pet-system-builder/scripts/tests/Pets.test.luau` (quote the "N passed, 0 failed" line); check that fuse leaves equipped pets alone and never loses pets when the output cannot be added (test 3).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `PetDefs.luau`, `Pets.luau` and the three remotes -> `start_stop_play` -> `execute_luau` (Server) to grant three pets, equip two, fuse, and print `pets:power(data)` -> `get_console_output` to read the result. Following/animation of pet models is separate Studio work and `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (pet mod
 - [ ] Power is computed from server data only and scales with the server multiplier (test 2).
 - [ ] Fuse consumes exactly `fuseCount` unequipped pets and is all-or-nothing (test 3).
 - [ ] Equipped pets are locked for trading (test 5).
-- [ ] Pets Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/pet-system-builder/scripts/tests/Pets.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Pets Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/pet-system-builder/scripts/tests/Pets.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Sending power or multiplier from the client. Fusing equipped pets. Random fusing that is really a paid gamble (disclosure rules apply). Pet defs removed in an update while players own them (migrate, do not delete). Exponential power with no sinks, which collapses the economy. Per-pet model instances with scripts: use one controller for all pets.

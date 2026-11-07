@@ -23,7 +23,7 @@ Chosen: our own small implementation in the ProfileStore style (session lock ins
 - `tests/PlayerData.test.luau` Lune tests.
 
 ## Setup
-1. Copy the `src/` files into your server scripts folder (or run `python ~/.claude/claude-kit/tools/games.py system add PlayerData --project <project>`).
+1. Copy the `src/` files into your server scripts folder (or run `python .rbx/claude-kit/tools/games.py system add PlayerData --project <project>`).
 2. One server script:
 ```lua
 local PlayerDataService = require(script.Parent.Systems.PlayerData.PlayerDataService)

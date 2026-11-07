@@ -192,7 +192,7 @@ function Invoke-CleanVault {
   if ($LASTEXITCODE -ne 0) { Write-Output "${tag}: no origin/main, nothing changed"; return }
   & $git -C $vault update-index -q --refresh 2>$null | Out-Null
   $keep = @($prot | Where-Object { -not $includeMine -or ($_ -ne 'My Research' -and -not $_.StartsWith('My Research/')) })
-  $ex = @('-e', '/.full-view', '-e', '/Assets/', '-e', '/.obsidian/workspace*')
+  $ex = @('-e', '/.full-view', '-e', '/Assets/', '-e', '/.rbx/', '-e', '/.obsidian/workspace*')
   foreach ($d in $keep) { $ex += @('-e', "/$d/") }
   $cl = @(& $git -C $vault -c core.quotepath=false clean -nd @ex 2>$null | ForEach-Object { $_ -replace '^Would remove ', '' })
   $local = @(& $git -C $vault -c core.quotepath=false status --porcelain --untracked-files=no 2>$null)

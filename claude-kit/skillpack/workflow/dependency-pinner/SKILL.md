@@ -18,7 +18,7 @@ A new project copies the template, two machines give different lint results, or 
 1. The project folder (default: current; files `rokit.toml` or `aftman.toml`, `wally.toml`). 2. The template to compare against (default: `tools/roblox-project-template/rokit.toml`).
 
 ## Procedure
-1. Run `python dependency-pinner/scripts/pincheck.py rokit.toml [wally.toml] --against ~/.claude/claude-kit/tools/roblox-project-template/rokit.toml`. FAIL lines are unpinned entries (`@latest`, ranges, no version); WARN lines are drift from the template.
+1. Run `python dependency-pinner/scripts/pincheck.py rokit.toml [wally.toml] --against .rbx/claude-kit/tools/roblox-project-template/rokit.toml`. FAIL lines are unpinned entries (`@latest`, ranges, no version); WARN lines are drift from the template.
 2. Fix FAIL by writing the exact `x.y.z` the project is actually using: take it from the tool itself (`rojo --version`, `stylua --version`, `selene --version`, `lune --version`), not from memory. A missing tool stays `missing`.
 3. Decide drift case by case: align the project to the template, or keep the difference and write a `docs/decisions.md` entry (`decision-log-writer`) saying why.
 4. Upgrade routine, one tool at a time on a branch: read the tool's release notes (live check: versions and notes change), change the pin, run `luau-check.sh src`, `rojo build -o build.rbxl`, and the Lune suites; accept only if the output is unchanged or the changes are understood. Commit the pin change alone.

@@ -20,7 +20,7 @@ You need a line for an ad, a caption, a post header, a store opener or a thumbna
 ## Procedure
 1. Find the moment worth a line: the action a stranger repeats, the surprise, or the payoff number. Use real, current features only (vault: show what players will actually do).
 2. Write 12 candidates in four shapes: action ("Steal eggs. Do not get caught."), question the game answers, contrast ("Noob to boss in one hour" only if true), number plus setting ("99 nights, one forest"). 3-7 words each, plain words, no emoji chains.
-3. Put the candidates in `taglines.txt` and run `python -I ~/.claude/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py --file taglines.txt --min-words 3 --max-words 7 --max-emoji 1`. Drop FAIL rows (repeats, reward promises, random caps).
+3. Put the candidates in `taglines.txt` and run `python -I .rbx/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py --file taglines.txt --min-words 3 --max-words 7 --max-emoji 1`. Drop FAIL rows (repeats, reward promises, random caps).
 4. Truth check each survivor against a real feature or clip; delete any line that promises a reward, rank, drop rate or feature that the game does not have today.
 5. Surface fit: for on-platform video there is no promo text allowed (see `trailer-script-writer`), so the line lives in the caption or page, not on the footage; for ad creatives text stays minimal (0-3 words on the image); for short-form put the exact game name in the caption so viewers can search it.
 6. Pick 3: one for ads, one for short-form hook (spoken or subtitled in the first 2 s), one for the page opener. Pair with the matching thumbnail; test one line at a time (`ctr-ab-test-planner`).

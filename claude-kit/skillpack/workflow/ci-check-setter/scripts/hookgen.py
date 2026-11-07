@@ -69,7 +69,7 @@ def gen(project, check_script):
 
 def selftest():
     d = tempfile.mkdtemp()
-    p = gen(d, "~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh")
+    p = gen(d, ".rbx/claude-kit/tools/roblox-project-template/luau-check.sh")
     t = open(p, encoding="utf-8").read()
     assert check_hook(t) == [], check_hook(t)
     assert "\r" not in t
@@ -84,7 +84,9 @@ def main(argv):
     if argv[:1] == ["--selftest"]:
         return selftest()
     if len(argv) >= 2 and argv[0] == "gen":
-        cs = "~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh"
+        cs = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "tools", "roblox-project-template", "luau-check.sh"))   # the installed kit: <vault>/.rbx/claude-kit/tools/... (an absolute path, the hook runs in the game's own folder)
+        if not os.path.isfile(cs):
+            cs = ".rbx/claude-kit/tools/roblox-project-template/luau-check.sh"
         if "--check-script" in argv:
             cs = argv[argv.index("--check-script") + 1]
         print("wrote", gen(argv[1], cs))

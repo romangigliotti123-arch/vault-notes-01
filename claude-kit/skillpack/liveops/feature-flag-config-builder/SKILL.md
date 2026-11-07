@@ -24,7 +24,7 @@ Any value you may want to change without a publish, any unfinished or timed cont
 4. Poll or subscribe; the docs give about 5 minutes for a config change to deploy and publishing a draft is irreversible except by restoring a previous version, so GET the draft and check it before publishing. Use a gradual rollout (15 minutes) for gameplay values.
 5. Gate unfinished content: `if flags:IsOn("newShop", player.UserId)`. Rollout is stable per player and only grows: raising 20 to 50 percent never switches anyone off.
 6. Kill switch: `flags:Kill("eventActive")` forces the default until revived, even if the source is unreachable; wire it to a kit `Admin` command so on-call can use it from in game.
-7. Test: `lune run ../skillpack/liveops/feature-flag-config-builder/scripts/tests/FlagConfig.test.luau` from `~/.claude/claude-kit/systems` (8 tests) and `bash ~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh <FlagConfig.luau>`. Then a Play test: push a bad value, confirm the default is used and the problem is logged.
+7. Test: `lune run ../skillpack/liveops/feature-flag-config-builder/scripts/tests/FlagConfig.test.luau` from `.rbx/claude-kit/systems` (8 tests) and `bash .rbx/claude-kit/tools/roblox-project-template/luau-check.sh <FlagConfig.luau>`. Then a Play test: push a bad value, confirm the default is used and the problem is logged.
 8. Record each flag in `decisions.md` with owner and removal date; delete flags once a feature is permanent.
 
 ## Studio MCP path

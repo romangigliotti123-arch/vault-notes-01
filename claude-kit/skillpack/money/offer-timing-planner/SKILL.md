@@ -18,13 +18,13 @@ Offers feel intrusive, appear in the first minutes, stack, or the shop gets no a
 1. The game's recurring friction points: running out of currency, full inventory, death, waiting for a timer, gated area (default: ask the owner to name three). 2. Where gameplay can pause (default: lobby, results, respawn).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 4000` and note the pop-up and moment-of-need rule. Stop when you can list the vault's four "do not" items.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 4000` and note the pop-up and moment-of-need rule. Stop when you can list the vault's four "do not" items.
 2. Build a table of moments: moment, what the player needs, the offer that solves it, where gameplay can pause, trigger name (`need`, `milestone`, `shopOpen`). Drop any moment where the offer does not solve a real need.
 3. Configure `OfferGate` (`scripts/OfferGate.luau`): allowed triggers, first-session triggers (default player-initiated only), global cooldown (default 300 s), per-offer cooldown (default 1800 s), session cap (default 4). These defaults are starting points for an A/B test, not platform rules.
 4. Server flow: a gameplay system reports a trigger by name; the server calls `OfferGate.canShow(cfg, state, offerId, trigger, os.time())`; if ok it calls `OfferGate.record` and tells that client to show the offer. The client never decides, and a player-opened shop is never blocked.
 5. Keep `state` per player in memory (cooldowns reset each session by design) and read `sessionsPlayed` from saved data.
 6. Run `pay-to-win-checker` on offers shown at "need" moments: an offer sold exactly when a player is stuck must sell convenience, never the only way forward.
-7. Test: `lune run ../skillpack/money/offer-timing-planner/scripts/tests/OfferGate.test.luau` from `~/.claude/claude-kit/systems`.
+7. Test: `lune run ../skillpack/money/offer-timing-planner/scripts/tests/OfferGate.test.luau` from `.rbx/claude-kit/systems`.
 8. Plan the measurement: compare shop opens and purchases before and after (`shop-conversion-optimizer`; `ab-testing-and-experiments.md`). Do not call it better until it is measured.
 
 ## Studio MCP path

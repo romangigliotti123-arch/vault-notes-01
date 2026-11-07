@@ -24,7 +24,7 @@ Wave or area-based enemies, ambient creatures, zone spawners. Not for: the AI it
 4. Ownership: call `SetNetworkOwner(nil)` on NPC root parts so clients cannot move them (vault). Keep NPC state as attributes on the model within the per-instance attribute limit, or in a server table.
 5. Every 2-5 s: `budget:sweep(npcPositions, playerPositions)` returns ids with no player near; despawn them (with `Debris` or `Destroy`) and free the budget. Run `budget:decide(current, nearest, home)` per NPC at a low rate (4-10 Hz), not every frame.
 6. Loot and death: use `loot-drop-builder` and `health-damage-builder`; despawn uncollected drops with a lifetime (vault example 20 s).
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/npc-spawner-builder/scripts/tests/NpcBudget.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/npc-spawner-builder/scripts/tests/NpcBudget.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `NpcBudget.luau` and the spawner script -> `start_stop_play` -> `execute_luau` (Server) to spawn to the cap, remove some, and print `budget:total()` and the sweep result for fake positions -> `get_console_output` to read the result. Pathfinding, models and real frame cost are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (frame c
 - [ ] `remove` frees the budget and is safe twice (test 3).
 - [ ] Sweep lists only NPCs with no player nearby (test 4); decide covers aggro, leash and return (test 5).
 - [ ] A Studio run at the cap stays within the frame budget on the target device (`untested` unless measured).
-- [ ] NpcBudget Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/npc-spawner-builder/scripts/tests/NpcBudget.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] NpcBudget Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/npc-spawner-builder/scripts/tests/NpcBudget.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Caps that count only live models (leaks from failed despawns). Aggro checks every frame for every NPC. NPCs left with client network ownership. Despawn distance below aggro range. Sweeping so rarely that abandoned zones keep full cost.

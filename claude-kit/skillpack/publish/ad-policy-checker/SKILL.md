@@ -19,7 +19,7 @@ Before adding rewarded video, ad billboards or any sponsored content to a game, 
 
 ## Procedure
 1. Open the live advertising standards page (Evidence). Copy the current content rules, disclosure rules, data-privacy rule and integrity rules into the notes with the date.
-2. Run `python -I ~/.claude/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project> --focus ads`. FAIL rows: ad code with no `AreAdsAllowed` read, or a named third-party ad host.
+2. Run `python -I .rbx/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project> --focus ads`. FAIL rows: ad code with no `AreAdsAllowed` read, or a named third-party ad host.
 3. Gate by player: read `PolicyService:GetPolicyInfoForPlayerAsync` per player; when `AreAdsAllowed` is false hide, replace or block the ad for that player. If the whole game is an ad, block ineligible players at entry with a clear message.
 4. Disclosure: every ad is labelled as advertising in the player's language and does not copy Roblox's own disclosure style (different font and colour). Use the localization tools for the label.
 5. Content and data: only ad content you uploaded yourself; no calls to third-party ad servers (even for analytics); no phone numbers or other personal data in ads that lead off-platform; nothing that endangers children or shows violence beyond the rating.

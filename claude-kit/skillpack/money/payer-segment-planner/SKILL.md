@@ -18,9 +18,9 @@ Planning offers or events, explaining lumpy revenue, or deciding whether to buil
 1. A CSV `userId,robux` of spend per player in a window, including zero spenders, ids hashed (default: ask the owner to export from their own analytics; if none exists, say what to log with the Analytics system first). 2. Band edges (default 1,801,5001).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 4000` (veterans, tourists, tiered price range, first purchase).
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 4000` (veterans, tourists, tiered price range, first purchase).
 2. Check the export has no names or personal data; if it does, stop and ask for a hashed version.
-3. Run `python -I ~/.claude/claude-kit/skillpack/money/payer-segment-planner/scripts/segments.py spend.csv --bands 1,801,5001`. It prints players and Robux per band, payer conversion, ARPPU and the revenue share of the top 1, 5 and 10% of payers.
+3. Run `python -I .rbx/claude-kit/skillpack/money/payer-segment-planner/scripts/segments.py spend.csv --bands 1,801,5001`. It prints players and Robux per band, payer conversion, ARPPU and the revenue share of the top 1, 5 and 10% of payers.
 4. Read it: if one band dominates revenue, offers for it matter most; if the smallest paying band is the largest group, the entry rung and starter pack matter most (`starter-pack-designer`).
 5. Per segment plan, in plain terms: non-payers (free paths, soft-currency routes, Premium and rewarded-ad income: `premium-benefits-planner`, `rewarded-ad-planner`), small payers (entry rung, first-purchase moment), core payers (bundles, recurring value, season passes), top payers (cosmetic depth, status, community recognition; never pay-to-win or pressure).
 6. Fairness check: no offer for any segment may gate core progress or give pvp power (`pay-to-win-checker`); do not use anything about a payer's spend to apply pressure or change prices per person (price tests are platform-run).

@@ -18,12 +18,12 @@ Social or roleplay game with groups, events or creators who host. Not for: one-t
 1. Game type and typical group size (default: ask; solo games usually skip). 2. Owner type: individual or group, with revenue split (default: individual).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 5000` and find the paid-access and private-server rule. Confirm the game is public and not on paid access; if paid access is on, stop: they cannot coexist.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 5000` and find the paid-access and private-server rule. Confirm the game is public and not on paid access; if paid access is on, stop: they cannot coexist.
 2. Judge fit: list what a private-server owner gets that a public server does not (control over who joins, rules, events, saved builds, admin tools). If you cannot name two, report "skip".
 3. Features that justify the fee: owner admin panel (kick, ban from the private server, time of day, map choice), reserved capacity, a name and message of the day, saved settings. Build them server-side with the kit `Admin` system where it fits; never trust the client for admin actions.
 4. Price: start from `price-ladder-planner` and `_tools/PRICE-LADDER.md` (creator-reported price points); one monthly price per server to start.
 5. For group-owned games: set the revenue split before selling anything, because split percentages are fixed at purchase (vault).
-6. Projection: `python -I ~/.claude/claude-kit/skillpack/money/private-server-planner/scripts/privserver.py --price <robux> --share <creator share> --new-per-month <n> --churn <0-1>`. The share is REQUIRED because the vault gives no fixed private-server share; read it in Creator Hub the same day. Compare the total with support and moderation work.
+6. Projection: `python -I .rbx/claude-kit/skillpack/money/private-server-planner/scripts/privserver.py --price <robux> --share <creator share> --new-per-month <n> --churn <0-1>`. The share is REQUIRED because the vault gives no fixed private-server share; read it in Creator Hub the same day. Compare the total with support and moderation work.
 7. Regional pricing: review with `regional-pricing-checker`; monthly fees feel different across economies.
 8. Write the Creator Hub checklist for the owner. You never turn private servers on or set prices.
 

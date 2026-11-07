@@ -24,7 +24,7 @@ Crafting benches, cooking, smelting, timed production. Not for: instant item con
 4. `start` checks the recipe, the queue limit and every ingredient, then removes ingredients (with a refund if any removal fails) and appends `{ recipe, doneAt }`; later items queue behind earlier ones. `collect` delivers finished crafts in order and leaves a craft queued when the output does not fit.
 5. Time skips (premium): implement as a developer product through the kit `Shop` whose `grant` moves `doneAt` earlier on the server; do not let the client claim a craft is done.
 6. Offline: nothing runs while away; on join call `collect` once and show what finished. Use `os.time()` (wall clock), never `os.clock()`, for stamps that must survive rejoin.
-7. Removed recipes: `collect` drops queue entries whose recipe no longer exists; decide whether to refund and write it in the design doc. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/crafting-system-builder/scripts/tests/Crafting.test.luau` (quote the "N passed, 0 failed" line).
+7. Removed recipes: `collect` drops queue entries whose recipe no longer exists; decide whether to refund and write it in the design doc. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/crafting-system-builder/scripts/tests/Crafting.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Recipes.luau` and `Crafting.luau` -> `start_stop_play` -> `execute_luau` (Server) to start two crafts, advance a fake clock or wait, call `collect` and print inventory counts -> `get_console_output` to read the result. A bench UI and proximity prompt are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (bench p
 - [ ] A craft is delivered only after its `doneAt` and only once (test 3).
 - [ ] An output that does not fit stays queued (test 4).
 - [ ] Bad recipes are rejected at construction (test 5).
-- [ ] Crafting Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/crafting-system-builder/scripts/tests/Crafting.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Crafting Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/crafting-system-builder/scripts/tests/Crafting.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Consuming ingredients at collect time (they can be traded away in between). Using `os.clock` for offline timers. A client-reported completion time. Unbounded queues. Recipes that create items from nothing (output cheaper than inputs by design is fine; output also an input is a loop).

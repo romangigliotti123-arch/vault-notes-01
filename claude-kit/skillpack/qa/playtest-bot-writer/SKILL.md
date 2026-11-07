@@ -38,7 +38,7 @@ After a gameplay change, before a release, or to time the first minute. Not for:
 As in steps 3-4: `list_roblox_studios` -> `get_studio_state` -> `start_stop_play` -> `execute_luau` (Server/Client) -> `get_console_output` -> `screen_capture` -> `start_stop_play` (stop). One agent at a time uses the session; never publish or save over the user's place.
 
 ## Fallback
-No Studio: unit-test pure logic with Lune using fakes (`~/.claude/claude-kit/systems/_check/harness.luau`; run `lune run <file>` from `systems/`), and give the owner the bot as a Script to paste into ServerScriptService of a test place. Mark results `untested`.
+No Studio: unit-test pure logic with Lune using fakes (`.rbx/claude-kit/systems/_check/harness.luau`; run `lune run <file>` from `systems/`), and give the owner the bot as a Script to paste into ServerScriptService of a test place. Mark results `untested`.
 
 ## Evidence
 `Roblox/roblox-kb/testing-debugging-and-qa.md` (playtest after every few small changes; test solo and multiplayer; client/server toggle; confirm events with prints), `Roblox/roblox-kb/playtesting-and-feedback.md` (bots do not replace watching new players), `Roblox/roblox-kb/first-session-onboarding.md` (the checks to time). Studio tools: `rbx-studio` skill.

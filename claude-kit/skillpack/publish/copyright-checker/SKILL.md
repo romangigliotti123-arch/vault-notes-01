@@ -20,7 +20,7 @@ Before publish, when a game is inspired by a known property, after buying or inh
 ## Procedure
 1. Open the live IP guidelines page (Evidence); copy what counts as infringement and the notice process with the date.
 2. Make `terms.txt` from the owner's list plus the game's own inspirations (titles, character names, famous phrases).
-3. Run `python -I ~/.claude/claude-kit/skillpack/publish/copyright-checker/scripts/ip_scan.py <project> --terms terms.txt`. Read each lead in context.
+3. Run `python -I .rbx/claude-kit/skillpack/publish/copyright-checker/scripts/ip_scan.py <project> --terms terms.txt`. Read each lead in context.
 4. Classify each lead: OWNED (proof: file, receipt, commit), LICENSED (proof: licence text or link, scope and credit terms), ORIGINAL (a generic word), or RISK. For RISK choose replace, remove or get written permission; do not rely on "no profit", "credit given" or "fair use", which the page says do not excuse infringement.
 5. Run `asset-license-checker` for the asset side and `audio-permission-checker` for sound; attach their outputs.
 6. Check the store page text and thumbnails by eye for lookalike characters, logos and copied art (`thumbnail-guideline-checker`).

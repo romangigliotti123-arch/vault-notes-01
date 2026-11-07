@@ -35,7 +35,7 @@ SYSTEMS = {
 FIX = {
     "SC1": "delete the module or require it where it belongs (a module nobody requires is dead code)",
     "SC2": "finish it or delete it; a stub or placeholder is not done",
-    "SC3": "use the vault system: python ~/.claude/claude-kit/tools/games.py system add <Name> --project <dir>",
+    "SC3": "use the vault system: python .rbx/claude-kit/tools/games.py system add <Name> --project <dir>",
     "SC4": "delete the unused export or Config key (add it when something needs it)",
     "SC5": "split the file by responsibility or cut what is not needed",
 }

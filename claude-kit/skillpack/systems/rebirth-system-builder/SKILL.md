@@ -24,7 +24,7 @@ Prestige/rebirth systems in simulators, tycoons and idle games. Not for: designi
 4. Remote `Rebirth(seenCount)` (rate-limited): `rebirth:attempt(data, seenCount)`. A double click or replay carries a stale count and is refused ("stale request"). The client only sees the result string and the new state.
 5. Apply the multiplier on the server where earnings are computed: `earn = base * rebirth:multiplier(data) * pets:power(...)`; combine multipliers by a written rule (multiply across systems, add inside one) and cap the product.
 6. Save immediately after a successful rebirth (`PlayerData:SaveAsync`) so a crash cannot revert the reset but keep the benefit or the reverse.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/rebirth-system-builder/scripts/tests/Rebirth.test.luau` (quote the "N passed, 0 failed" line); test the reset function against a data table with kept and reset fields.
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/rebirth-system-builder/scripts/tests/Rebirth.test.luau` (quote the "N passed, 0 failed" line); test the reset function against a data table with kept and reset fields.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Rebirth.luau` and your reset function -> `start_stop_play` -> `execute_luau` (Server) to grant coins, rebirth twice with the same seen count, and print the data table -> `get_console_output` to read the result. The confirm dialog and effects are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (UI, the
 - [ ] Cannot-afford changes nothing (test 4); max rebirths is enforced (test 5).
 - [ ] Kept fields survive and reset fields reset (test 2, and your own test on the real template).
 - [ ] Free or losing configs are rejected (test 6).
-- [ ] Rebirth Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/rebirth-system-builder/scripts/tests/Rebirth.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Rebirth Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/rebirth-system-builder/scripts/tests/Rebirth.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 A reset that forgets a field (players keep a zone or tool and skip the loop). A cost that grows slower than income so rebirth becomes spam. Multiplier stacking with pets and boosts into numbers that overflow display or break leaderboards. No confirmation, so a stray click wipes progress. Rebirth available in the first minutes.

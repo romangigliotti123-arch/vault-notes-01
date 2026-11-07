@@ -20,12 +20,12 @@ Each folder: `README.md` (what, API, setup, config, pitfalls, sources, test resu
 Pure modules take every Roblox service by injection, so tests run headless in Lune. The `*Service.luau` / `*Glue.luau` files are the thin Roblox wiring: type-checked, **not yet run in live Studio**.
 
 ## Use in a game
-`python ~/.claude/claude-kit/tools/games.py system add <Name> --project <game project folder>` copies `src/` to `<project>/src/server/Systems/<Name>/` (a Rojo project made by `games.py init --rojo` maps it to ServerScriptService). Then follow the system's README Setup.
+`python .rbx/claude-kit/tools/games.py system add <Name> --project <game project folder>` copies `src/` to `<project>/src/server/Systems/<Name>/` (a Rojo project made by `games.py init --rojo` maps it to ServerScriptService). Then follow the system's README Setup.
 Systems fit together through plain data tables: PlayerData holds `Receipts` (Shop) and `Daily` (DailyRewards); Shop/DailyRewards ask for `getData`/`saveNow` callbacks, so they also work with ProfileStore or your own storage.
 
 ## Check everything (what "tested" means here)
 ```
-cd ~/.claude/claude-kit/systems
+cd .rbx/claude-kit/systems
 rokit install            # once: stylua, selene, luau-lsp, lune, rojo (see skill rbx-studio)
 python check.py          # stylua --check, selene, luau-lsp analyze (Luau type checker, Roblox definitions, --!strict files), Lune tests
 ```

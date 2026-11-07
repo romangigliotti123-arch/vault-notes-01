@@ -19,7 +19,7 @@ Before first publish, before renaming, before pushing a metadata update. Not for
 
 ## Procedure
 1. Open the live publishing and descriptions pages (Evidence); copy the current limits and metadata rules with the date.
-2. Screen the name: `python -I ~/.claude/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py "<name>" --max-emoji 2 --max-chars <live limit>`. FAIL rows are fixed; WARN rows are decisions to write down.
+2. Screen the name: `python -I .rbx/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py "<name>" --max-emoji 2 --max-chars <live limit>`. FAIL rows are fixed; WARN rows are decisions to write down.
 3. Description checks by hand against the page: first sentence states the genre and content; the first ~160 characters work as a hook (the note says that is what search snippets and mobile show first); keywords appear naturally, no keyword lists; no tags or hashtags; controls taught in-game, not listed; FAQs short; update notes short; credits and changelog behind a link.
 4. Length: count the description characters and compare with the live limit (the note says 1000); put the number in the settings sheet.
 5. Classification wording: a title or description with social-hangout references makes the maturity system treat the game as a hangout; keep it accurate and align it with the questionnaire (`age-rating-prep`).

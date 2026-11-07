@@ -3,8 +3,8 @@
 # 1) install.ps1 (idempotent; every vault file is overwritten with the incoming version, files that left the kit are removed). Env CLAUDE_KIT_SKIP=1 skips this part.
 # 2) tools\assets-sync.py --vault <this vault>: downloads only new/changed asset files (1.02 GB of zips the first time), deletes removed ones.
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
-# 3) tools\refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>\claude-kit\roblox-reference and
-#    writes <claude config dir>\claude-kit\reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
+# 3) tools\refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <vault>\.rbx\claude-kit\roblox-reference and
+#    writes <vault>\.rbx\claude-kit\reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.
 # Prints a line only when something changed, so the log stays quiet. Never fails the caller. Env CLAUDE_KIT_HOME is honoured by install.ps1.
 # Last line (only when the kit changed and the caller is not the current vault-update.ps1, which prints it itself): "Your vault is up to date as of ... (local time)" (tools\vault-published.ps1).
 $ErrorActionPreference = 'Continue'
@@ -26,6 +26,8 @@ if ($env:CLAUDE_KIT_SKIP -ne '1') {
 }
 # 1b) tools\vault-mode.py sync --quiet: folders that have Roblox dev mode loaded (/rbx-load) get the updated skills/agents; silent when nothing changed. Env CLAUDE_MODE_SKIP=1 skips it.
 $vmode = if ($env:CLAUDE_CONFIG_DIR) { Join-Path $env:CLAUDE_CONFIG_DIR 'claude-kit\tools\vault-mode.py' } elseif ($env:CLAUDE_KIT_HOME) { Join-Path $env:CLAUDE_KIT_HOME '.claude\claude-kit\tools\vault-mode.py' } else { Join-Path $env:USERPROFILE '.claude\claude-kit\tools\vault-mode.py' }
+$khd = Join-Path (Split-Path -Parent $d) '.rbx'      # ONE FOLDER: the installed kit is <vault>\.rbx\claude-kit
+if (Test-Path -LiteralPath (Join-Path $khd 'claude-kit')) { $vmode = Join-Path $khd 'claude-kit\tools\vault-mode.py'; $env:RBX_KIT_HOME = $khd }
 if (($env:CLAUDE_MODE_SKIP -ne '1') -and (Test-Path -LiteralPath $vmode)) {
   try {
     foreach ($c in @(@('python'), @('python3'), @('py', '-3'))) {

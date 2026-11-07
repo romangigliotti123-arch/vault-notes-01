@@ -16,7 +16,7 @@ LLMs cannot be random, so the seeds are drawn here with random.SystemRandom (OS 
         title tokens Jaccard >= 0.6 vs a stored title, or pitch Jaccard >= 0.5 vs a stored pitch, or pitch-vs-title / title-vs-pitch Jaccard >= 0.6.
         One argument is used as both title and pitch.
   spark.py hist list                               date, title, pitch of every remembered idea
-Data: data/spark-lists.json next to this file. History lives in <claude config dir>/claude-kit/state/ (kit_state.py); vault-managed, tiny.
+Data: data/spark-lists.json next to this file. History lives in .rbx/claude-kit/state/ (kit_state.py); vault-managed, tiny.
 """
 import datetime
 import json

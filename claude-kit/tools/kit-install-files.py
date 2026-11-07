@@ -54,7 +54,7 @@ def kit_files(kit):
     return sorted(out, key=lambda x: x[1])
 
 
-def rel_of(sub, r, ao):
+def rel_of(sub, r, ao, one=False):
     if sub in ("tools", "systems", "skillpack"):
         return "claude-kit/" + r
     if sub == "agents":
@@ -62,7 +62,7 @@ def rel_of(sub, r, ao):
     if sub == "mode":
         return "%s/%s" % (SM, r[len("mode/"):])
     nm = r[len("skills/"):].split("/")[0]
-    return r if nm in ao else "%s/.claude/%s" % (SM, r)
+    return r if (nm in ao and not one) else "%s/.claude/%s" % (SM, r)      # one folder: the full text of the always-on skills lives in the store too (the stubs in <config>/skills are written by vault-mode.py stubs)
 
 
 def read_manifest(path):
@@ -163,26 +163,30 @@ def main(argv):
     ap = argparse.ArgumentParser()
     ap.add_argument("--kit", required=True)
     ap.add_argument("--config", required=True)
+    ap.add_argument("--kit-home", help="the folder that holds claude-kit/ (the vault's .rbx folder: ONE FOLDER); default: --config (legacy layout)")
     ap.add_argument("--always-on", default="rbx-update rbx-check rbx-uninstall")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
     kit, c = os.path.abspath(a.kit), os.path.abspath(a.config)
+    kh = os.path.abspath(a.kit_home) if a.kit_home else c
     if a.dry_run:
-        return run(a, kit, c)
-    with Lock(os.path.join(c, "claude-kit", ".install.lock")):
-        return run(a, kit, c)
+        return run(a, kit, c, kh)
+    with Lock(os.path.join(kh, "claude-kit", ".install.lock")):
+        return run(a, kit, c, kh)
 
 
-def run(a, kit, c):
+def run(a, kit, c, kh):
     ao = set(a.always_on.split())
-    man = os.path.join(c, "claude-kit", "installed.tsv")
+    one = os.path.realpath(kh) != os.path.realpath(c)
+    base = lambda rel: kh if rel.startswith("claude-kit/") else c
+    man = os.path.join(kh, "claude-kit", "installed.tsv")
     old = read_manifest(man)
     n_new = n_upd = n_same = n_gone = n_fail = 0
     rec = {}
     for sub, r in kit_files(kit):
         src = os.path.join(kit, *r.split("/"))
-        rel = rel_of(sub, r, ao)
-        dst = os.path.join(c, *rel.split("/"))
+        rel = rel_of(sub, r, ao, one)
+        dst = os.path.join(base(rel), *rel.split("/"))
         try:
             ns = sha(src)
             if os.path.islink(dst) and not os.path.exists(dst):
@@ -208,16 +212,16 @@ def run(a, kit, c):
             rec.pop(rel, None)
             if rel in old:
                 rec[rel] = old[rel]
-    if cleanup_allowed(c):
+    if cleanup_allowed(kh):
         for rel in sorted(old):
-            if rel in rec or not safe_rel(rel) or not (rel.startswith("claude-kit/") or (rel.startswith("skills/") and (rel.split("/")[1] in ao or rel.split("/")[1] in RETIRED))):
+            if rel in rec or not safe_rel(rel) or not (rel.startswith("claude-kit/") or (rel.startswith("skills/") and (rel.split("/")[1] in RETIRED or (not one and rel.split("/")[1] in ao)))):
                 continue
-            f = os.path.join(c, *rel.split("/"))
+            f = os.path.join(base(rel), *rel.split("/"))
             try:
                 if os.path.isfile(f) and not os.path.islink(f):
                     if not a.dry_run:
                         os.remove(f)
-                        rmdirs_up(f, os.path.join(c, rel.split("/")[0]))
+                        rmdirs_up(f, os.path.join(base(rel), rel.split("/")[0]))
                     n_gone += 1
             except OSError:
                 pass

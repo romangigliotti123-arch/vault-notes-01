@@ -24,7 +24,7 @@ Obbies, parkour, stage-based runs, any 'resume where you left' progress. Not for
 4. Respawn: set the player's `RespawnLocation` or teleport to `cp:respawnStage(data)`'s spawn on `CharacterAdded`. The stage lives in saved data, so rejoin resumes it.
 5. Finish: stage == last records `finishedAt`; reward through the Wallet/badge systems and offer a reset (`cp:reset`) for a new run.
 6. Add a physical check too: invisible kill-floor/anti-fly volumes on stage borders are cheap and do not replace the logical check.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/checkpoint-system-builder/scripts/tests/Checkpoints.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/checkpoint-system-builder/scripts/tests/Checkpoints.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Checkpoints.luau` and the touch-handler script -> `start_stop_play` -> `execute_luau` (Server) to simulate touches for stages 1, 3 and 2 in order with a fake clock and print `data.Obby` -> `get_console_output` to read the result. Real `Touched` reliability and respawn placement are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (Touched
 - [ ] Too-fast clears are refused, counted and flagged after the limit (test 4).
 - [ ] Bad stage values (0, negative, fractional, string, NaN) are refused (test 5).
 - [ ] Finish records the time; reset clears progress (test 6).
-- [ ] Checkpoints Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/checkpoint-system-builder/scripts/tests/Checkpoints.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Checkpoints Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/checkpoint-system-builder/scripts/tests/Checkpoints.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Trusting a remote for stage completion. A minimum time guessed rather than measured. Kicking on the first flag (lag causes false positives). Not saving the stage (rejoin restarts). Checkpoint parts that can be moved by the client (anchor them, keep them server-owned).

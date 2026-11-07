@@ -33,7 +33,7 @@ Adding a remote, or after `exploit-audit` listed weak handlers. Not for: decidin
 4. Inside every handler, re-verify context on the server (the guard checks shape, not meaning): the player is alive, within range of the shop/target (`(root.Position - target.Position).Magnitude`), owns the item, has enough currency, and the action is allowed in the current state. Mutate state only after all checks.
 5. Rate limits: set from the real use. Spammable actions (attack, collect) allow the legitimate rate plus slack; purchases are low. A rejection counter per player can feed a flag/kick policy (log first; kick only on clear abuse; `honeypot-remote-builder` for high-confidence detection).
 6. RemoteFunctions: never let a client-invoked function yield on untrusted values or return secrets; prefer events with server-to-client replies. Never `InvokeClient` from the server without a timeout path.
-7. Test: Lune (`lune run ../skillpack/scripting/remote-guard-builder/scripts/tests/RemoteGuard.test.luau` from `~/.claude/claude-kit/systems`) for the guard; then a bad-input pass against each real remote (`remote-fuzzer`): nil, NaN, huge, wrong type, negative, string too long, wrong Instance.
+7. Test: Lune (`lune run ../skillpack/scripting/remote-guard-builder/scripts/tests/RemoteGuard.test.luau` from `.rbx/claude-kit/systems`) for the guard; then a bad-input pass against each real remote (`remote-fuzzer`): nil, NaN, huge, wrong type, negative, string too long, wrong Instance.
 8. Update `remotes.md`; keep it in the repo.
 
 ## Studio MCP path

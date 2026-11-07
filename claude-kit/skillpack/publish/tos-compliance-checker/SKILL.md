@@ -18,8 +18,8 @@ Before the first publish and before updates that add chat, user text or images, 
 1. Project folder (default: current project). 2. One-line list of features players can use that might not be in code yet (default: none).
 
 ## Procedure
-1. Run `python -I ~/.claude/claude-kit/skillpack/publish/age-rating-prep/scripts/feature_scan.py <project>` and keep the lead counts; they decide which rule pages apply.
-2. Run `python -I ~/.claude/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project>`. Exit 1 means at least one FAIL. Each row is `[LEVEL] focus: message <- file:line`.
+1. Run `python -I .rbx/claude-kit/skillpack/publish/age-rating-prep/scripts/feature_scan.py <project>` and keep the lead counts; they decide which rule pages apply.
+2. Run `python -I .rbx/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project>`. Exit 1 means at least one FAIL. Each row is `[LEVEL] focus: message <- file:line`.
 3. For every focus that has a FAIL or WARN, open the matching official page NOW (live-check; titles are in Evidence) and confirm the rule still reads the same. If the page differs from this skill, the page wins; note the difference.
 4. Route each gap: paid_random -> `paid-random-compliance`; ads -> `ad-policy-checker`; chat -> `chat-compliance-checker`; ugc -> `ugc-moderation-checker`; data -> `privacy-data-checker`; region -> `regional-availability-checker`.
 5. Add the features the owner listed in Inputs that the scan cannot see (Studio-side GUI text, uploaded images, external services) as manual rows marked `untested`.

@@ -49,7 +49,7 @@ Pasted fields and screenshots from the owner. Rows that need a live phone view a
 
 ## Acceptance checks
 - [ ] The stranger sentence was written before reading the design docs.
-- [ ] Executed: `python -I ~/.claude/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py "<current title>"` and, when the owner supplies the files, `python -I ~/.claude/claude-kit/skillpack/marketing/thumbnail-maker/scripts/image_specs.py <thumbnails> --expect <live WxH>`; outputs quoted.
+- [ ] Executed: `python -I .rbx/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py "<current title>"` and, when the owner supplies the files, `python -I .rbx/claude-kit/skillpack/marketing/thumbnail-maker/scripts/image_specs.py <thumbnails> --expect <live WxH>`; outputs quoted.
 - [ ] Every row has a score and a reason, none blank.
 - [ ] Limits and rules cite a source and date from this run.
 - [ ] Top three fixes are ordered by the packaging-first rule.

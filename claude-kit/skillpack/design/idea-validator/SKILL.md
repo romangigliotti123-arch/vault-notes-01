@@ -19,7 +19,7 @@ The user has an idea (or three) and wants to know whether it is worth building. 
 
 ## Procedure
 1. Restate the idea as ONE sentence a 12-year-old could repeat (see `one-sentence-pitch`). If you cannot, fail test 1 and stop at the fix.
-2. Run the seven tests. Each is PASS / FAIL / UNSURE with an evidence line. Pull rules with `python -I ~/.claude/claude-kit/tools/kbq.py section game-ideas-and-genres rules --max-chars 3500` and `section core-loops-and-game-design rules`; find comparables with `python -I ~/.claude/claude-kit/tools/kbq.py case "<genre>" -n 3`.
+2. Run the seven tests. Each is PASS / FAIL / UNSURE with an evidence line. Pull rules with `python -I .rbx/claude-kit/tools/kbq.py section game-ideas-and-genres rules --max-chars 3500` and `section core-loops-and-game-design rules`; find comparables with `python -I .rbx/claude-kit/tools/kbq.py case "<genre>" -n 3`.
    1. One sentence: repeatable in 10-15 seconds, understood from a thumbnail.
    2. Proven loop: starts from a working formula with a 10-20 percent twist (vault: change at least about 20 percent of the reference; keep 80-90 percent familiar), not a new genre. Name the 1-2 reference games and the twist.
    3. Core fantasy: a role or feeling the player wants (builder, hatcher, survivor, racer), not a bare mechanic.

@@ -25,7 +25,7 @@ Result per image: PASS / FIX (what) / REJECT (why). Never mark PASS without look
 
 ## Score and test (click psychology)
 Candidate prompt template with the click slots: [cold:rbx-thumbnail/prompts.md] read when writing any icon or thumbnail prompt.
-1. File: `python -I ~/.claude/claude-kit/vault-mode/.claude/skills/rbx-thumbnail/scripts/thumb_score.py inspect <image> [--kind icon]` (size, 16:9 or square, under 3 MB, bottom-edge note).
+1. File: `python -I .rbx/claude-kit/vault-mode/.claude/skills/rbx-thumbnail/scripts/thumb_score.py inspect <image> [--kind icon]` (size, 16:9 or square, under 3 MB, bottom-edge note).
 2. Look at the image at full size and at about 150 px, then `thumb_score.py template` and fill gates G1-G3 (pass/fail) and checks 1-13 (0/1/2): [cold:rbx-thumbnail/rubric.md] read before scoring (anchors, weights, ASSUMPTION labels).
 3. `thumb_score.py score S.json --write Games/<slug>` ranks 2-5 variants and writes `thumb-score/gate.json`. Pass = no failed gate and 32 of 46 (assumption); fix the 3 lowest checks, cap 3 rounds. No game folder: omit `--write`.
 4. Report `thumbnail: scored <score>/<max> (variants N)`, or `thumb_score.py skip --reason "<why>" --write Games/<slug>` for `thumbnail: skipped: <reason>` (hotfix, no store page yet, user declined). Advisory: it never blocks.

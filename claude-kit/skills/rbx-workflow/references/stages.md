@@ -1,6 +1,6 @@
 # stages: detection, Definition of Done, rubric and gates
 
-Six stages: **idea > prototype > playtest > launch > growth > live-ops**. The factor numbers F1-F10 are those of `quality-model.md`. The state of a game lives in `Games/<slug>/` (helper: `python ~/.claude/claude-kit/tools/games.py ...`, called `G` below).
+Six stages: **idea > prototype > playtest > launch > growth > live-ops**. The factor numbers F1-F10 are those of `quality-model.md`. The state of a game lives in `Games/<slug>/` (helper: `python .rbx/claude-kit/tools/games.py ...`, called `G` below).
 
 ## 1. Detect the real stage (evidence beats GAME.md)
 `G detect <slug> --project <project folder>` prints claimed stage (GAME.md), evidence stage and the reasons. Rules it applies, which you then confirm by looking:

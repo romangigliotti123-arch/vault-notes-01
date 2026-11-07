@@ -19,7 +19,7 @@ The date is chosen and within about a week. Not for: months of promotion (`socia
 
 ## Procedure
 1. Choose the slot with the vault's rule set: a Friday (momentum built Wednesday, cutoff Wednesday night or Thursday midday), same hour as past releases, an hour when your main audience is awake (live-check where players are from in Creator Hub). A non-Friday date is allowed, say why.
-2. Generate the clock: `python -I ~/.claude/claude-kit/skillpack/marketing/social-post-calendar/scripts/calendar_gen.py launch --launch "YYYY-MM-DD HH:MM" --hours-before 24 --hours-after 48`. Replace the generic lines with your real tasks and owners.
+2. Generate the clock: `python -I .rbx/claude-kit/skillpack/marketing/social-post-calendar/scripts/calendar_gen.py launch --launch "YYYY-MM-DD HH:MM" --hours-before 24 --hours-after 48`. Replace the generic lines with your real tasks and owners.
 3. T-24 h to T-3 h: freeze code, smoke test on a phone-size client, confirm thumbnails, icon, title and description are final (`store-page-audit`), genre set, Exclude from Recommendations OFF, access public, support channel open, rollback plan written (previous version restorable), server-sync event time set in UTC.
 4. T-1 h to T0: heads-up post, then publish on time, then the announcement post with the Details Page URL on the group, Discord and X; creators with early access post their videos on their own schedule.
 5. T+1 h to T+24 h: watch CCU, errors, first-play bounce, join failures; answer players in one visible place; schedule the first hotfix window; do not rush feature changes. Vault: expect fluctuation and an initial impression burst then normalisation; do not judge on a single day, weekly seasonality peaks Saturday.

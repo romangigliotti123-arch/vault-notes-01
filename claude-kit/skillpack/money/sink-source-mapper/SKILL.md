@@ -18,14 +18,14 @@ Suspected inflation or deflation, after adding a source, before an economy patch
 1. The currency names in the game (default: read the PlayerData template and shop). 2. A window of logged data if it exists (default: none; run the map and ledger first).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section core-loops-and-game-design rules --max-chars 4000` ("Balance the economy with sources, sinks and caps").
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section core-loops-and-game-design rules --max-chars 4000` ("Balance the economy with sources, sinks and caps").
 2. Map in code: search every write to a balance (`coins +=`, `Currency:Add`, `Shop` grants, quest rewards, daily rewards, offline earnings, refunds, admin commands) and every spend. Write a table: name, kind (source/sink), file and function, capped (yes/no), server-only (must be yes).
 3. Route all changes through ONE function per currency (`Grant(player, name, amount)` and `Spend(player, name, amount)`) that updates the balance, calls `Ledger.record(ledger, "source"|"sink", name, amount)` and, with the Analytics system, `Analytics:Economy(...)`. If a change bypasses it, that is a finding.
 4. Keep names stable and few (the Analytics system caps transaction types and SKUs per experience; see its README): `quest_reward`, not `quest_reward_<id>`.
 5. Run the report over a play session or a log: `Ledger.report(ledger)`; read `flags`. A ratio under 0.6 or a source above 60% of income are the defaults (tunable); both are heuristics, not platform rules.
 6. Compare with the model from `economy-balancer`: where reality differs by more than the model's uncertainty, fix the assumption or the code.
 7. Check refunds: a source that grants after a purchase is reversed (or a sink that refunds) must be recorded as its own named flow, otherwise totals drift.
-8. Save the map in `design/economy-map.md`. Test: `lune run ../skillpack/money/sink-source-mapper/scripts/tests/Ledger.test.luau` from `~/.claude/claude-kit/systems`.
+8. Save the map in `design/economy-map.md`. Test: `lune run ../skillpack/money/sink-source-mapper/scripts/tests/Ledger.test.luau` from `.rbx/claude-kit/systems`.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` to install the Grant/Spend wrappers -> `start_stop_play` -> `execute_luau` (Server) to simulate a session of grants and spends and print `Ledger.report` -> `get_console_output`. Live economy data from real players needs a published place and the dashboard: `untested`.

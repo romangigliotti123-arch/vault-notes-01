@@ -16,7 +16,7 @@ Game name and genre, stage (concept / alpha / soft launch / pre-launch / relaunc
 1. Pull the merged base: read `<KB>/_tools/CHECKLIST-launch.md` (its `Must` items per phase) and, if monetisation is in scope, `CHECKLIST-monetization.md`. These are regenerated daily from the KB.
 2. Add what is current and specific: 
    ```
-   K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
+   K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
    $K find "release requirements age rating questionnaire 16+ gate" -t roblox-platform-changes -n 6
    $K find "soft launch before ads D1 first play funnel" -t playtesting-and-feedback,ads-and-sponsored-experiences -n 6
    $K find "<genre> launch mistakes" -t common-mistakes -n 5
@@ -25,7 +25,7 @@ Game name and genre, stage (concept / alpha / soft launch / pre-launch / relaunc
 3. Tailor: drop items that do not apply (for example Discord items when none planned; keep but mark `could`), keep the item text short and imperative, make vague items measurable ("D1 at or above 10% on a soft launch" with the benchmark flagged indie), add 3-6 game-specific items.
 4. Schedule: set `due` relative to launch (T-28, T-14, T-7, T-1, T+0, T+3, T+7) and an `owner`; order within a phase by due date. Priority: `must` for items most widely agreed across KB topics or official requirements; `should` for solid practice; `could` for nice-to-have.
 5. Write `items.json` (schema in `make_checklist.py`), then build:
-   `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/vault-mode/.claude/skills/rbx-launch-check/make_checklist.py" items.json launch-checklist-<game>.html --md launch-checklist-<game>.md`
+   `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/vault-mode/.claude/skills/rbx-launch-check/make_checklist.py" items.json launch-checklist-<game>.html --md launch-checklist-<game>.md`
 6. Verify: open the JSON count, confirm every `must` item has `source` and `flag`, and spot-check 3 sources against the KB output. Tell the calling session the file path; the calling session may publish the HTML as a private Artifact for phone use.
 
 ## Phases (use these names, in order)

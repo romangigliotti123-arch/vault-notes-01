@@ -12,7 +12,7 @@ KB-grounded packaging for the experience page (icon, thumbnails, title, descript
 1. Inputs (assume and state): game name, genre, core fantasy in one line, hook, current CTR/PTR/bounce if known, existing assets, audience, update to promote (if any).
 2. Evidence:
    ```
-   K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
+   K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
    $K section thumbnails-icons instructions
    $K section titles-descriptions instructions
    $K find "thumbnail personalization active thumbnails specs" -t thumbnails-icons -n 6

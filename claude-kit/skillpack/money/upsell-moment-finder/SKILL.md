@@ -18,9 +18,9 @@ You log gameplay events plus purchases and want to know which friction points co
 1. `events.csv` with `userId,t,event` (t in seconds), including a `purchase` event (default: export from the Analytics system's custom events or your own log; hashed ids only). 2. Window and minimum count (defaults 60 s and 30).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 4000` ("Don't push purchases with pop-ups; trigger offers at moments of need").
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-other rules --max-chars 4000` ("Don't push purchases with pop-ups; trigger offers at moments of need").
 2. If events are missing, add them with the kit Analytics system: `out_of_currency`, `inventory_full`, `death`, `blocked_by_gate`, `wait_timer`, `shop_opened`, plus `purchase` from the receipt handler. Keep names stable. Stop here until a few days of data exist.
-3. Run `python -I ~/.claude/claude-kit/skillpack/money/upsell-moment-finder/scripts/moments.py events.csv --window 60 --min-count 30`. Rows marked LOW SAMPLE are not rankable.
+3. Run `python -I .rbx/claude-kit/skillpack/money/upsell-moment-finder/scripts/moments.py events.csv --window 60 --min-count 30`. Rows marked LOW SAMPLE are not rankable.
 4. For the top moments, name the need and the offer that solves it (out of currency: a currency pack as a OneTime bundle; inventory full: storage pass; death streak: a convenience, never pvp power; waiting: nothing paid that removes appointment timers, see the vault rule).
 5. Vary the window (30, 60, 300 s) and see if the ranking holds; unstable rankings mean noise.
 6. Segment: repeat for new versus returning players (`payer-segment-planner`); a moment that works only for veterans should not appear to tourists.

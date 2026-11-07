@@ -7,6 +7,7 @@ Best 1-3 items per common manager job. Format: job | id(s) | why. Own items (no 
 
 ## Work with the vault (start here)
 work alongside an adviser that knows every creator in both vaults and suggests tools as I go | [[S--own--rbx-mentor|rbx-mentor]], [[S--own--rbx-mentor|rbx-mentor]] | /rbx-mentor reads CAPABILITIES.md and Mentor/Combined-Brain.md, then suggests the skill, agent, note or creator method for each step
+add a new skill to the Roblox vault kit (maintainer recipe; host only, not shipped) | [[S--own--vault-skill-builder|vault-skill-builder]] | overlap check, research, SKILL.md from template, wiring list, verify_skill.py gate, real example, build + ff-only publish; the shipped user face is rbx-new-skill
 
 ## Build and fix code
 code review | code-reviewer [a] (in AI Library Vault), code-review-checklist (in AI Library Vault), anthropic-knowledge-work/code-review (in AI Library Vault) | own agent does it end to end; checklist for a quick pass; AKW skill for security/perf/correctness structure

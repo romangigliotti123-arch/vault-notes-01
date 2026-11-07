@@ -19,7 +19,7 @@ Before publish, when adding paid random items, trading, ads, chat or social feat
 
 ## Procedure
 1. Open the live regional content availability page and the content maturity page (Evidence) and copy what they say about country restrictions and policy flags, with the date.
-2. Run `python -I ~/.claude/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project> --focus region` and `--focus all` for context.
+2. Run `python -I .rbx/claude-kit/skillpack/publish/tos-compliance-checker/scripts/compliance_gap.py <project> --focus region` and `--focus all` for context.
 3. List the restricted-feature candidates in this game: paid random items, trading of paid items, ads, social features, text. For each, name the policy property that governs it (from the live page, not memory) and the file:line that reads it.
 4. Design the degraded path per feature: hide, replace or block, never crash. The paid random and ads pages list concrete alternatives (free route, fixed-order outcomes, direct purchase, no ad).
 5. Read the policy once per player at join AND before the gated action when long sessions are possible; cache with a short time, not forever. Never trust a client-supplied value.

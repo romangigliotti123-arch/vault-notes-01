@@ -48,7 +48,7 @@ Dynamic pages often show no numbers to WebFetch; then write `not visible to fetc
 
 The local Roblox knowledge base holds dated, sourced, official/indie-flagged material (516 sources, 90 case studies). Before any web search, run ONE single-line Bash command (hooks may block multi-line blocks):
 
-`bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/tools/kbq.py" pack trends "<genre or question>"`
+`bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/kbq.py" pack trends "<genre or question>"`
 
 It prints a `[K#]` pack. If its first line is not `KB OK` (or it fails), your reply starts with `KB unavailable: <reason>. Fix: <its Fix line>`; never fall back silently.
 

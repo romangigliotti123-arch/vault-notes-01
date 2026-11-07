@@ -5,6 +5,6 @@ disable-model-invocation: true
 allowed-tools: Bash(bash *claude-kit/tools/pyrun *rbx-quick.py*)
 ---
 
-!`bash "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/tools/pyrun" "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/claude-kit/tools/rbx-quick.py" light off`
+!`bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/rbx-quick.py" light off`
 
 Reply with the output above exactly as printed. Nothing else: no commentary, no code fence, no footer, no tool calls.

@@ -18,7 +18,7 @@ Before the first public publish and before major updates. Not for: running the c
 1. The project and what changed (default: the whole game for a first launch). 2. Who accepts risk (default: the owner).
 
 ## Procedure
-1. Create the file: `python -I ~/.claude/claude-kit/skillpack/publish/publish-readiness-gate/scripts/gate.py --template > release/gates.json`. Edit the gate list to the game (add gates, mark genuinely irrelevant ones `na` WITH a reason).
+1. Create the file: `python -I .rbx/claude-kit/skillpack/publish/publish-readiness-gate/scripts/gate.py --template > release/gates.json`. Edit the gate list to the game (add gates, mark genuinely irrelevant ones `na` WITH a reason).
 2. For each gate, run the named skill or check NOW (not from memory), paste the evidence line (command + exact output excerpt, file path + hash, or link), and set `status`. Vault checklist items to include where relevant: validate gifting and trading on the server and run dupe tests, test on mobile, save/rejoin tests, store assets final.
 3. Anything you cannot verify yet is `fail` or an explicit `waived` with an owner and a reason. A waiver is a decision someone owns, not a way to turn red into green.
 4. Run `python -I .../gate.py release/gates.json`; it prints each gate, the waived list and `VERDICT: GO` or `NO-GO` (exit 0 / 1).

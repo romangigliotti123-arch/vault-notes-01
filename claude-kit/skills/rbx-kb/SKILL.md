@@ -12,7 +12,7 @@ Answer from the KB, with timestamped citations and an official/indie flag, in as
 Each Bash call is a fresh shell, so set `K` every time:
 
 ```
-K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
+K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
 $K route "<question in plain words>"                       # 1 call: which topic files + coverage warning
 $K find "<question keywords>" -n 8                         # cited rules, numbers, checklist, if-then items across topics
 $K find "<keywords>" -t <topic1,topic2> -n 8               # narrow to the topics route suggested

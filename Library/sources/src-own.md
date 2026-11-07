@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Source: own
 
-License: first-party. 119 items. Back: [[_Home]]
+License: first-party. 120 items. Back: [[_Home]]
 
 ## Items
 
@@ -121,6 +121,7 @@ License: first-party. 119 items. Back: [[_Home]]
 - [[A--own--sonnet-worker|sonnet-worker]]
 - [[A--own--task-decomposer|task-decomposer]]
 - [[A--own--unity-developer|unity-developer]]
+- [[S--own--vault-skill-builder|vault-skill-builder]]
 - [[A--own--verifier|verifier]]
 - [[S--own--worker-brief-template|worker-brief-template]]
 - [[S--own--worker-report-format|worker-report-format]]

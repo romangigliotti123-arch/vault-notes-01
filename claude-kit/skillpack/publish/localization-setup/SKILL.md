@@ -20,11 +20,11 @@ Before enabling languages, before commissioning translations, and when adding UI
 ## Procedure
 1. Open the live localization page (Evidence); copy the current steps with the date.
 2. Set the source language first (one at a time; it defaults to the account language), then add supported languages. Enable automatic translation: it needs no setup beyond choosing languages and shows how much text is covered.
-3. Run `python -I ~/.claude/claude-kit/skillpack/publish/localization-setup/scripts/loc_scan.py <project>`. HARD_TEXT and CONCAT leads are strings the table will not see or cannot reorder; move runtime text through a translator and a named-placeholder format string instead of `"Coins: " .. n`.
+3. Run `python -I .rbx/claude-kit/skillpack/publish/localization-setup/scripts/loc_scan.py <project>`. HARD_TEXT and CONCAT leads are strings the table will not see or cannot reorder; move runtime text through a translator and a named-placeholder format string instead of `"Coins: " .. n`.
 4. Set `AutoLocalize = false` only on text that must not change (NPC names, street signs, the game name); the AUTOLOCALIZE_OFF list should be short and each entry justified.
 5. Remember the rule from the page: manual translations always display, automatic ones only fill missing strings, so review manual entries carefully, especially entries left empty on purpose.
 6. Translators: add trusted Roblox users as translators to review or supply strings; download the monthly translation analytics to track coverage.
-7. Check each delivered language file: `python -I ~/.claude/claude-kit/skillpack/marketing/store-localization-writer/scripts/loc_check.py strings.csv --lang <code> --name "<Game Name>"`. FAIL rows (missing, placeholder mismatch, name changed) go back to the translator.
+7. Check each delivered language file: `python -I .rbx/claude-kit/skillpack/marketing/store-localization-writer/scripts/loc_check.py strings.csv --lang <code> --name "<Game Name>"`. FAIL rows (missing, placeholder mismatch, name changed) go back to the translator.
 8. Write `release/localization.md`: languages, scan output, opt-outs with reasons, translator list, loc_check outputs, page date. UI overflow checks are handed to `localization-ready-checker`.
 
 ## Studio MCP path

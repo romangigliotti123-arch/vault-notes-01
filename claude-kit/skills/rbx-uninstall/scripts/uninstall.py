@@ -10,9 +10,13 @@ verified) -> 6 delete this skill. Nothing is deleted if step 1 fails.
 Config dir: --config, else --home/.claude, else $CLAUDE_CONFIG_DIR, else ~/.claude.  --home DIR is for tests: it also turns off every
 machine-wide lookup (env CLAUDES_VAULT, scheduled tasks, LOCALAPPDATA state), so a test can never touch the real install.
 Never touched: credentials, other skills/agents/settings, MCP servers, Rokit/Luau tools, $ROBLOX_PROJECTS projects, CLAUDE.md (lines are only listed).
+ONE FOLDER: the kit lives in <vault>/.rbx, so it goes with the vault folder; outside it only the 3 stub skills and the pointer file rbx-dev-vault.path are removed.
+RESCUE: without --keep-dir, Games/, Models/, My-Skills/, My-Agents/ (and My Research) are copied to the PARENT folder of the vault folder (an existing name is never overwritten: "<name> (<vault folder name>)"), verified byte for byte, before anything is deleted.
 """
 import argparse, datetime, hashlib, json, os, re, shutil, stat, subprocess, sys
 
+STUB_NAMES = ("rbx-update", "rbx-check", "rbx-uninstall")
+POINTER = "rbx-dev-vault.path"
 KIT_RE = re.compile(r"claude-kit|claudes?[- ]vault|Roblox Dev Mastery", re.I)
 SELF_PREFIX = "skills/rbx-uninstall/"
 OUT = []
@@ -129,14 +133,37 @@ def is_vault(d):
 
 
 # ---------------------------------------------------------------- locate
+def config_of(a, home):
+    if a.config:
+        return norm(a.config)
+    if a.home:
+        return os.path.join(home, ".claude")
+    return norm(os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(home, ".claude"))
+
+
+def kit_base(vault, config, rel):
+    """claude-kit/... lives in <vault>/.rbx (one folder) when that exists, else in the config folder (old layout); skills/ agents/ stay in the config folder"""
+    if rel.startswith("claude-kit/") and os.path.isdir(os.path.join(vault, ".rbx", "claude-kit")):
+        return os.path.join(vault, ".rbx")
+    return config
+
+
 def find_vault(a, home, ambient):
     if a.vault:
         return norm(a.vault), []
     cands = []
     if ambient:
-        e = os.environ.get("CLAUDES_VAULT")
-        if e:
-            cands.append(norm(e))
+        for k in ("RBX_DEV_VAULT", "CLAUDES_VAULT"):
+            e = os.environ.get(k)
+            if e:
+                cands.append(norm(e))
+    try:
+        pv = open(os.path.join(config_of(a, home), POINTER), encoding="utf-8").read().splitlines()[0].strip()
+        if pv:
+            cands.append(norm(pv))
+    except (OSError, IndexError):
+        pass
+    cands.append(os.path.join(home, "Obsidian", "rbx-dev-vault"))
     cands.append(os.path.join(home, "Obsidian", "claudes-vault"))
     if ambient:
         p = os.path.dirname(os.path.abspath(__file__))
@@ -197,7 +224,9 @@ def refuse_vault(v, home, config, keep_final):
 
 # ---------------------------------------------------------------- plan pieces
 def read_manifest(config, vault):
-    man = os.path.join(config, "claude-kit", "installed.tsv")
+    man = os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit", "installed.tsv")
+    if not os.path.isfile(man):
+        man = os.path.join(config, "claude-kit", "installed.tsv")      # an old install that was not migrated yet
     ent = {}
     src = "manifest"
     if os.path.isfile(man):
@@ -227,9 +256,25 @@ def read_manifest(config, vault):
                 elif sub == "agents":
                     rel = "%s/.claude/agents/%s" % (sm, r)
                 else:
-                    rel = ("skills/%s" % r) if r.split("/")[0] in ao else ("%s/.claude/skills/%s" % (sm, r))
+                    rel = ("skills/%s" % r) if (r.split("/")[0] in ao and not os.path.isdir(os.path.join(vault, ".rbx", "claude-kit"))) else ("%s/.claude/skills/%s" % (sm, r))
                 ent[rel] = sha(a)
     return ent, src
+
+
+def dest_of(name, keep_final, vault, a):
+    """where a rescued folder goes: --keep-dir/<name>, else the PARENT of the vault folder; an existing name is never overwritten ("<name> (<vault folder name>)")"""
+    if a.keep_dir:
+        return os.path.join(keep_final, name)
+    parent = os.path.dirname(vault)
+    cand = os.path.join(parent, name)
+    if not os.path.lexists(cand):
+        return cand
+    vb = os.path.basename(vault)
+    cand, i = os.path.join(parent, "%s (%s)" % (name, vb)), 1
+    while os.path.lexists(cand):
+        i += 1
+        cand = os.path.join(parent, "%s (%s %d)" % (name, vb, i))
+    return cand
 
 
 def area_of(rel):
@@ -289,6 +334,8 @@ def plan(a, home, config, vault, keep_final):
     else:
         gc = gs = 0
     P["games"], P["external"], P["games_files"], P["games_bytes"] = games, external, gc, gs
+    memo = {}
+    P["dest"] = lambda name: memo.setdefault(name, dest_of(name, keep_final, vault, a))
     # research kept too
     for n in sorted(os.listdir(vault)):
         d = os.path.join(vault, n)
@@ -306,7 +353,7 @@ def plan(a, home, config, vault, keep_final):
     P["manifest_src"] = src
     present, edited, missing, areas = [], [], [], {}
     for rel, want in sorted(ent.items()):
-        f = os.path.join(config, rel.replace("/", os.sep))
+        f = os.path.join(kit_base(vault, config, rel), rel.replace("/", os.sep))
         if not os.path.isfile(f):
             missing.append(rel)
             continue
@@ -316,9 +363,9 @@ def plan(a, home, config, vault, keep_final):
             edited.append(rel)
     P["ent"], P["present"], P["missing"], P["edited"], P["areas"] = ent, present, missing, edited, areas
     # leftovers
-    new_files = [r + ".new" for r in present if os.path.isfile(os.path.join(config, (r + ".new").replace("/", os.sep)))]
+    new_files = [r + ".new" for r in present if os.path.isfile(os.path.join(kit_base(vault, config, r), (r + ".new").replace("/", os.sep)))]
     P["new_files"] = new_files
-    kitroot = os.path.join(config, "claude-kit")
+    kitroot = os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit")
     extras = []
     if os.path.isdir(kitroot):
         for r, f in walk_files(kitroot):
@@ -435,16 +482,16 @@ def print_plan(P, keep_final, keep_note, a, real_run):
     say("vault folder  : %s  (%d files, %s)" % (P["vault"], P["vault_files"], hsize(P["vault_bytes"])))
     say("kit file list : %s" % P["manifest_src"])
     say("")
-    say("KEEP - your games. They are copied to: %s" % keep_final)
+    say("KEEP - your games. They are copied to: %s" % (keep_final if a.keep_dir else os.path.dirname(P["vault"])))
     if keep_note:
         say("  (%s)" % keep_note)
     if not P["games"]:
         say("  (no game folders found in %s)" % os.path.join(P["vault"], "Games"))
     for g in P["games"]:
         say("  %-28s %-9s %5d files %9s%s" % (g["slug"], g["kind"], g["files"], hsize(g["bytes"]), "  +project/" if g["project_dir"] else ""))
-    say("  whole Games/ folder: %d files, %s -> %s" % (P["games_files"], hsize(P["games_bytes"]), os.path.join(keep_final, "Games")))
+    say("  whole Games/ folder: %d files, %s -> %s" % (P["games_files"], hsize(P["games_bytes"]), P["dest"]("Games")))
     for r in P["research"]:
-        say("  also kept (your own folders and notes): %s -> %s" % (r, os.path.join(keep_final, r)))
+        say("  also kept (your own folders and notes): %s -> %s" % (r, P["dest"](r)))
     for slug, pp in P["external"]:
         say("  project of %s lives outside the vault, stays IN PLACE (not copied, not touched): %s" % (slug, pp))
     if P["own"]:
@@ -455,7 +502,8 @@ def print_plan(P, keep_final, keep_note, a, real_run):
     say("  kit files by area : %s" % (", ".join("%s %d" % (k, v) for k, v in sorted(P["areas"].items())) or "none"))
     say("  total kit files   : %d present (%d listed but already missing)" % (len(P["present"]), len(P["missing"])))
     say("  leftovers         : %d .new files, %d state files, %d unlisted files under <config>/claude-kit" % (len(P["new_files"]), len(P["state_files"]), len(P["extras"])))
-    say("  <config>/claude-kit folder (tools, systems, skillpack, the on-demand store of vault skills/agents, installed.tsv)")
+    say("  the kit folder claude-kit (tools, systems, skillpack, the on-demand store of vault skills/agents, installed.tsv): %s" % os.path.join(kit_base(P["vault"], P["config"], "claude-kit/"), "claude-kit"))
+    say("  the 3 stub skills %s in %s and the pointer file %s" % (", ".join("/" + n for n in STUB_NAMES), os.path.join(P["config"], "skills"), POINTER))
     say("  vault copies in loaded folders (the vault folder's .claude and any older loaded project): %d%s (removed first)" % (len(P["mode_projects"]), (" -> " + ", ".join(P["mode_projects"][:5])) if P["mode_projects"] else ""))
     say("  hooks in settings.json (rbx-low-usage + rbx-mentor): %s" % ("found" if P["hooks"] else "none found") + ("" if P.get("settings_valid", True) else "  WARNING: settings.json is not valid JSON, hooks will NOT be removed"))
     say("  kit mods (plugins): %s" % ("skipped in --home test" if a.home else "claude plugin uninstall rbx-subagent-hud@%s; claude plugin uninstall rbx-graph@%s; claude plugin marketplace remove %s (before the vault is deleted)" % (MARKET, MARKET, MARKET)))
@@ -533,8 +581,8 @@ def remove_hooks(P, keep_final):
     say("settings.json backed up to %s" % bak)
     ok = True
     for rel, sub in (("claude-kit/vault-mode/.claude/skills/rbx-low-usage/scripts/lum.py", "skills/rbx-low-usage/scripts/lum.py"), ("skills/rbx-low-usage/scripts/lum.py", "skills/rbx-low-usage/scripts/lum.py"), ("claude-kit/tools/mentor-hook.py", "tools/mentor-hook.py")):
-        s = os.path.join(config, rel.replace("/", os.sep))
-        if not os.path.isfile(s) and rel.startswith("skills/") and os.path.isfile(os.path.join(config, "claude-kit", "vault-mode", ".claude", "skills", "rbx-low-usage", "scripts", "lum.py")):
+        s = os.path.join(kit_base(vault, config, rel), rel.replace("/", os.sep))
+        if not os.path.isfile(s) and rel.startswith("skills/") and os.path.isfile(os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit", "vault-mode", ".claude", "skills", "rbx-low-usage", "scripts", "lum.py")):
             continue            # already handled through the store copy above
         if not os.path.isfile(s):
             s = os.path.join(vault, "claude-kit", sub.replace("/", os.sep))
@@ -639,11 +687,11 @@ def run_real(a, P, keep_final, keep_note):
     os.makedirs(keep_final, exist_ok=True)
     try:
         if os.path.isdir(os.path.join(vault, "Games")):
-            n, s = copy_verified(os.path.join(vault, "Games"), os.path.join(keep_final, "Games"))
-            say("      Games: %d files, %s verified (sha256 + size)" % (n, hsize(s)))
+            n, s = copy_verified(os.path.join(vault, "Games"), P["dest"]("Games"))
+            say("      Games: %d files, %s verified (sha256 + size) -> %s" % (n, hsize(s), P["dest"]("Games")))
         for r in P["research"]:
-            n, s = copy_verified(os.path.join(vault, r), os.path.join(keep_final, r))
-            say("      %s: %d files, %s verified" % (r, n, hsize(s)))
+            n, s = copy_verified(os.path.join(vault, r), P["dest"](r))
+            say("      %s: %d files, %s verified -> %s" % (r, n, hsize(s), P["dest"](r)))
         for rel in P["own"]:
             src = os.path.join(vault, rel.replace("/", os.sep))
             if not os.path.isfile(src):
@@ -657,7 +705,7 @@ def run_real(a, P, keep_final, keep_note):
             say("      %d of your own files in the vault copied to %s" % (len(P["own"]), os.path.join(keep_final, "_vault-own-files")))
         if not a.keep_edited:
             for rel in P["edited"] + P["extras"]:
-                src = os.path.join(config, rel.replace("/", os.sep))
+                src = os.path.join(kit_base(vault, config, rel), rel.replace("/", os.sep))
                 dst = os.path.join(keep_final, "_edited-kit-files", rel.replace("/", os.sep))
                 os.makedirs(os.path.dirname(dst), exist_ok=True)
                 shutil.copy2(src, dst)
@@ -670,13 +718,13 @@ def run_real(a, P, keep_final, keep_note):
         return 1
     # 2 hooks + auto-sync
     say("[2/6] removing hooks and auto-sync")
-    vm = os.path.join(config, "claude-kit", "tools", "vault-mode.py")
+    vm = os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit", "tools", "vault-mode.py")
     if os.path.isfile(vm) and P["mode_projects"]:
         try:
             code, out = py_run(vm, ["unload", "--all", "--config", config], config)
             say("      vault copies: %s" % (" | ".join(out.splitlines()[-3:]) if out else "exit %d" % code))
         except Exception as e:
-            say("      vault copies: could not remove them (%s); the folders are listed in %s" % (e, os.path.join(config, "claude-kit", "vault-mode", "loaded.json")))
+            say("      vault copies: could not remove them (%s); the folders are listed in %s" % (e, os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit", "vault-mode", "loaded.json")))
     hooks_ok = remove_hooks(P, keep_final)
     remove_sync(P)
     remove_mods(a, config, vault)
@@ -684,11 +732,11 @@ def run_real(a, P, keep_final, keep_note):
     say("[3/6] deleting kit files listed in installed.tsv")
     skip = set(P["edited"] + P["extras"]) if a.keep_edited else set()
     removed = failed = 0
-    stops = [config, os.path.join(config, "skills"), os.path.join(config, "agents"), os.path.join(config, "claude-kit")]
+    stops = [config, os.path.join(config, "skills"), os.path.join(config, "agents"), os.path.join(config, "claude-kit"), os.path.join(vault, ".rbx"), os.path.join(vault, ".rbx", "claude-kit")]
     for rel in P["present"]:
         if rel.startswith(SELF_PREFIX) or rel in skip:
             continue
-        f = os.path.join(config, rel.replace("/", os.sep))
+        f = os.path.join(kit_base(vault, config, rel), rel.replace("/", os.sep))
         if rmfile(f):
             removed += 1
         else:
@@ -703,15 +751,15 @@ def run_real(a, P, keep_final, keep_note):
             rmtree(d)
     for rel in P["present"]:
         if not rel.startswith(SELF_PREFIX):
-            climb(os.path.join(config, rel.replace("/", os.sep)), stops)
+            climb(os.path.join(kit_base(vault, config, rel), rel.replace("/", os.sep)), stops)
     try:
         os.rmdir(os.path.join(config, "state"))
     except OSError:
         pass
     say("      removed %d files%s" % (removed, (", %d could not be deleted" % failed) if failed else ""))
     # 4 claude-kit
-    say("[4/6] deleting %s" % os.path.join(config, "claude-kit"))
-    kr = os.path.join(config, "claude-kit")
+    say("[4/6] deleting %s" % os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit"))
+    kr = os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit")
     kb = os.path.join(kr, "backup")
     if os.path.isdir(kb) and not a.keep_edited:
         try:
@@ -742,7 +790,19 @@ def run_real(a, P, keep_final, keep_note):
     vault_gone = not os.path.exists(vault)
     say("      %s" % ("vault folder deleted" if vault_gone else "WARNING: vault folder still exists (some files locked); delete it by hand"))
     # 6 self
-    say("[6/6] removing the /rbx-uninstall skill")
+    say("[6/6] removing the /rbx-uninstall skill, the 2 other stub skills and the pointer file")
+    for sn in STUB_NAMES:      # ONE FOLDER: thin stubs (SKILL.md + where.py); anything else a user put there stays
+        sd = os.path.join(config, "skills", sn)
+        if sn != "rbx-uninstall" or not skip:
+            for fn in ("SKILL.md", "where.py"):
+                fp = os.path.join(sd, fn)
+                if os.path.isfile(fp) and (fn == "where.py" or "rbx-stub" in open(fp, encoding="utf-8", errors="replace").read()):
+                    rmfile(fp)
+            try:
+                os.rmdir(sd)
+            except OSError:
+                pass
+    rmfile(os.path.join(config, POINTER))
     selfdir = os.path.join(config, "skills", "rbx-uninstall")
     if os.path.isdir(selfdir):
         if skip:
@@ -763,10 +823,10 @@ def run_real(a, P, keep_final, keep_note):
     say("=" * 70)
     say("DONE" if vault_gone and not failed and hooks_ok else "DONE WITH WARNINGS (see above)")
     say("=" * 70)
-    say("Your games are now in: %s" % keep_final)
-    say("  %s" % os.path.join(keep_final, "Games"))
+    say("Your games are now in: %s" % (keep_final if a.keep_dir else os.path.dirname(vault)))
+    say("  %s" % P["dest"]("Games"))
     for r in P["research"]:
-        say("  %s" % os.path.join(keep_final, r))
+        say("  %s" % P["dest"](r))
     for slug, pp in P["external"]:
         say("  (project of %s, untouched, still at: %s)" % (slug, pp))
     if not a.keep_edited and (P["edited"] or P["extras"]):
@@ -786,7 +846,7 @@ def main(argv):
         pass
     ap = argparse.ArgumentParser(description="Remove the Roblox Dev Mastery Vault kit and keep only your games (dry run unless --yes).")
     ap.add_argument("--vault")
-    ap.add_argument("--keep-dir", help="where the games are copied (default ~/Roblox Games)")
+    ap.add_argument("--keep-dir", help="where the games are copied (default: the PARENT folder of the vault folder)")
     ap.add_argument("--keep-edited", action="store_true", help="leave kit files you edited in place instead of backing them up and deleting them")
     ap.add_argument("--config")
     ap.add_argument("--home", help="use DIR as the home folder (tests)")
@@ -810,8 +870,10 @@ def main(argv):
         else:
             say("Could not find the vault (a folder with Roblox/, Mentor/ and claude-kit/). Pass --vault DIR.")
         return 2
-    keep_dir = norm(a.keep_dir) if a.keep_dir else os.path.join(home, "Roblox Games")
-    keep_final, keep_note = pick_keep_final(keep_dir)
+    if a.keep_dir:
+        keep_final, keep_note = pick_keep_final(norm(a.keep_dir))
+    else:      # ONE FOLDER: Games/ Models/ My-Skills/ My-Agents/ go next to the vault folder; backups of settings.json and edited kit files go to "<vault folder name> uninstall backups" there
+        keep_final, keep_note = pick_keep_final(os.path.join(os.path.dirname(vault), os.path.basename(vault) + " uninstall backups"))
     err = refuse_vault(vault, home, config, keep_final)
     if err:
         say(err)

@@ -18,8 +18,8 @@ You need evidence for a design, tooling or process choice; a worker needs KB pat
 1. The question in one sentence. 2. Domain (default: guess from words: Roblox game/dev vs Manager/agent practice).
 
 ## Procedure
-1. Route first: `python ~/.claude/claude-kit/tools/vault-find.py "<question>" -n 8` (add `--type kb|manager|skillpack|brain`). Read the titles and one-line descriptions, not the notes.
-2. For Roblox facts query the KB: `python ~/.claude/claude-kit/tools/kbq.py find "<query>" -n 8 --official` first (official flags win on numbers), then `kbq.py section <topic> rules --max-chars 1500` for one topic section. For API or limit facts use `kbq.py docs "<query>"`. Never open a whole topic file.
+1. Route first: `python .rbx/claude-kit/tools/vault-find.py "<question>" -n 8` (add `--type kb|manager|skillpack|brain`). Read the titles and one-line descriptions, not the notes.
+2. For Roblox facts query the KB: `python .rbx/claude-kit/tools/kbq.py find "<query>" -n 8 --official` first (official flags win on numbers), then `kbq.py section <topic> rules --max-chars 1500` for one topic section. For API or limit facts use `kbq.py docs "<query>"`. Never open a whole topic file.
 3. For agent and process questions open the matching `Manager/topic-*.md` TL;DR section only, then follow one cited `src-*.md` note if the claim is load-bearing. `Mentor/Combined-Brain.md` has trust-weighted job sections and creator cards.
 4. Apply the trust order: official docs and staff, then TRUSTED creators, then MIXED (needs a second source), then indie single-mention. Label every claim you carry forward: `official`, `TRUSTED`, `indie`, `opinion`. Where sources disagree, report both sides, not a blend.
 5. Check freshness: the note's newest date; for fast-moving topics (monetisation rules, platform changes, tool versions) write `live-check` instead of a number.
@@ -40,7 +40,7 @@ If the scripts or Python are missing, use `rg -n -m 5 "<term>" "<vault>/Roblox/r
 `docs/evidence/<topic>.md`: question, up to five labelled sources with paths and dates, the conclusion, and any live-check items.
 
 ## Acceptance checks
-- [ ] Executed: `python ~/.claude/claude-kit/tools/vault-find.py "<question>" -n 3` returned hits (paste the first line) or `no vault` is stated.
+- [ ] Executed: `python .rbx/claude-kit/tools/vault-find.py "<question>" -n 3` returned hits (paste the first line) or `no vault` is stated.
 - [ ] Executed: `python project-kickoff/scripts/wfdoc.py docs/evidence/<topic>.md --kind kblookup` prints PASS.
 - [ ] Every cited path exists (`test -f` on each).
 - [ ] Every claim carries a trust label; fast-moving facts say live-check.

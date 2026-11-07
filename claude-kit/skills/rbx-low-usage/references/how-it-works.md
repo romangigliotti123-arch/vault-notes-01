@@ -1,6 +1,6 @@
 # rbx-low-usage: how it works
 
-## Pieces (all inside the skill folder, installed to `~/.claude/claude-kit/vault-mode/.claude/skills/rbx-low-usage/`)
+## Pieces (all inside the skill folder, installed to `.rbx/claude-kit/vault-mode/.claude/skills/rbx-low-usage/`)
 - `SKILL.md`: the slash command. Runs `scripts/lum run "<arg>"` through shell injection before Claude reads it, so the switch happens deterministically, then Claude replies from the result line.
 - `scripts/lum`: tiny `sh` launcher. Finds the first working Python 3 (`python3`, `python`, `py`; skips the Windows Store stub) and runs `lum.py`; if none, runs `lum.ps1`. For `hook` it exits at once when the marker is absent (one file test).
 - `scripts/lum.py`: the logic (on/off/status, hook output, settings.json merge/remove). Standard library only, no network.

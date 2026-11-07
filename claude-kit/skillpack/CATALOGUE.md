@@ -1,6 +1,6 @@
 # Roblox skill pack - catalogue
 
-Every planned skill with its one-line job. Skills live in `skillpack/<category>/<name>/SKILL.md` (kit folder `~/.claude/claude-kit/skillpack/`) and are loaded on demand with `/rbx <name>`; they are NOT installed as skills, so they cost no context until used. Status `built` = full skill exists and passes `skillpack.py lint`; `planned` = name and purpose fixed, not written yet (`/rbx <name>` then does a best-effort job from the purpose and the vault, and says so).
+Every planned skill with its one-line job. Skills live in `skillpack/<category>/<name>/SKILL.md` (kit folder `.rbx/claude-kit/skillpack/`) and are loaded on demand with `/rbx <name>`; they are NOT installed as skills, so they cost no context until used. Status `built` = full skill exists and passes `skillpack.py lint`; `planned` = name and purpose fixed, not written yet (`/rbx <name>` then does a best-effort job from the purpose and the vault, and says so).
 
 Quality bar: [QUALITY.md](QUALITY.md). Search: `/rbx find <words>`. Statuses are rewritten by `python tools/skillpack.py catalogue --write`.
 

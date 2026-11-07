@@ -18,9 +18,9 @@ Before opting in, when a game's traffic is large, or when "Plus discounts do not
 1. The project folder (default: the current Rojo project). 2. Transactions per 30 days (default: read from the dashboard; ask).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section pricing rules --max-chars 5000`. Write down the eligibility conditions with dates; live-check them.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section pricing rules --max-chars 5000`. Write down the eligibility conditions with dates; live-check them.
 2. Eligibility with the owner: transaction volume near the stated minimum, all passes and products included, no promoted pass conflicts, decision between managed pricing (on by default, can be disabled per pass) and price optimization.
-3. Scan the code: `python -I ~/.claude/claude-kit/skillpack/money/price-optimization-readiness/scripts/price_scan.py <project dir>`. It lists strings like "Buy for 99 Robux" and assignments like `price = 99` outside Packages, and reports whether `GetProductInfo` is used anywhere. Exit 1 means hard-coded prices exist.
+3. Scan the code: `python -I .rbx/claude-kit/skillpack/money/price-optimization-readiness/scripts/price_scan.py <project dir>`. It lists strings like "Buy for 99 Robux" and assignments like `price = 99` outside Packages, and reports whether `GetProductInfo` is used anywhere. Exit 1 means hard-coded prices exist.
 4. Fix each finding: UI shows the price returned by the platform for that player (live-check the exact API: the vault names `GetProductInfo` with the product or game-pass info type and per-player product-info observers for display); catalogue code keeps ids and names, never prices; any "price" constants that remain must be non-Robux (cooldowns, in-game currency).
 5. Re-scan until clean. A clean scan is NOT proof of eligibility; it removes the most common blocker.
 6. Prepare the opt-in list: every pass and product with id and name; mark any promoted pass (price band rules differ; live-check).

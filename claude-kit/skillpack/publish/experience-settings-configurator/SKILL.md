@@ -19,7 +19,7 @@ Before the first release, before opening the game to a new audience, and when a 
 
 ## Procedure
 1. Open the live publishing pages (Evidence) and write down the current limits and release requirements with the date. They apply to every release, Publish As and audience change, not only the first.
-2. Make the sheet: `python -I ~/.claude/claude-kit/skillpack/publish/experience-settings-configurator/scripts/settings_check.py --template > release/settings.json` and fill it from the project and Creator Hub. Missing fields stay `null` and print as WARN "undecided".
+2. Make the sheet: `python -I .rbx/claude-kit/skillpack/publish/experience-settings-configurator/scripts/settings_check.py --template > release/settings.json` and fill it from the project and Creator Hub. Missing fields stay `null` and print as WARN "undecided".
 3. Put the live limits into `"limits"` where they differ from the defaults (place bytes, early testers, thumbnails, icon px, description chars, genre change days).
 4. Run `python -I .../settings_check.py release/settings.json`. Exit 1 means at least one FAIL; fix the sheet or the project, not the script.
 5. Decide each WARN: devices without a phone, an audience that needs a fee or subscription plan, thumbnails outside the advised count. Write the decision next to the field.

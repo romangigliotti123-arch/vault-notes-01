@@ -9,7 +9,7 @@ related: devproduct-handler, price-ladder-planner, pay-to-win-checker, starter-p
 
 # gamepass-maker
 
-One job: decide the gamepass catalogue and make it work correctly on the server. Ownership checks, caching, retries and the "never trust the client or `wasPurchased`" rule already exist in the kit system `Shop` (`~/.claude/claude-kit/systems/Shop`; 13 Lune tests; NOT live-tested in Studio), so this skill designs the set and feeds Shop. Whole-game review is `rbx-monetize-audit`; consumables and currency packs are `devproduct-handler`.
+One job: decide the gamepass catalogue and make it work correctly on the server. Ownership checks, caching, retries and the "never trust the client or `wasPurchased`" rule already exist in the kit system `Shop` (`.rbx/claude-kit/systems/Shop`; 13 Lune tests; NOT live-tested in Studio), so this skill designs the set and feeds Shop. Whole-game review is `rbx-monetize-audit`; consumables and currency packs are `devproduct-handler`.
 
 ## When to use
 Adding the first passes, adding one, or fixing passes that do not apply perks. Not for: repeatable purchases, subscriptions, UGC items.
@@ -18,19 +18,19 @@ Adding the first passes, adding one, or fixing passes that do not apply perks. N
 1. Game pitch and core loop (default: `GAME.md`, `design/core-loop.md`). 2. Audience and genre (default: all ages, mobile-first, no pay-to-win). 3. Existing passes with ids (default: none; ids are `0` = SET IN CREATOR HUB).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-gamepasses rules --max-chars 4000` and `section pricing rules`. Note each rule's flag (official vs indie).
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-gamepasses rules --max-chars 4000` and `section pricing rules`. Note each rule's flag (official vs indie).
 2. Find the pain points the loop already creates (grinding, waiting, clutter, missing out, losing progress). Vault: best sellers solve a real pain; do not sell items that remove the challenge or fix a loss.
 3. Draft 2-6 passes (vault: keep the set small and valuable; about six at most, 2-5 permanent is a common range). For each: name, one-line benefit, the moment a player wants it, price tier, type (cosmetic, convenience, progression-skip). Mark as REJECTED anything that gates core progress or required skill (the top vault rule: free players must reach all core content), anything pay-to-win in competitive modes, and any pass so strong that buyers never need to spend again (low lifetime value).
 4. Passes are for permanent one-time perks (VIP, bundles, restricted areas, permanent convenience such as extra storage or auto-collect, avatar items). Rebuyable things belong to developer products. Avoid single XP/coin boosters as passes (they cap spend).
 5. Prices: `price-ladder-planner` and `_tools/PRICE-LADDER.md`; entry rung for impulse items, core rung for boosts and convenience, higher rungs for bundles. Every price is a starting test.
 6. Timing: show a pass at the moment of need (full inventory -> storage pass), never in the first 30 seconds; bundle-style offers after the first milestone.
-7. Wire it: install the Shop system if missing (`python ~/.claude/claude-kit/tools/games.py system add Shop --project <project>`), copy `scripts/PassCatalogue.luau` beside `ShopService`, create `Passes.luau` returning entries `{ name, id, benefit, onOwned? }` (`coreProgress = true` makes `build` refuse the entry). Then
+7. Wire it: install the Shop system if missing (`python .rbx/claude-kit/tools/games.py system add Shop --project <project>`), copy `scripts/PassCatalogue.luau` beside `ShopService`, create `Passes.luau` returning entries `{ name, id, benefit, onOwned? }` (`coreProgress = true` makes `build` refuse the entry). Then
    ```lua
    local passes, notes = PassCatalogue.build(require(script.Parent.Passes))
    ShopService.Start({ products = products, passes = passes, getData = ..., saveNow = ... })
    ```
    Perks that live in the world check `ShopService.HasPass(player, "VIP")` on the server at the time of use; `onOwned` runs once per join and right after buying. The client prompts by NAME through Shop's rate-limited remote; it never sends an id or price.
-8. Tests: `lune run ../skillpack/money/gamepass-maker/scripts/tests/PassCatalogue.test.luau` from `~/.claude/claude-kit/systems` (pattern for your own `tests/Passes.test.luau`: build the real list, assert no duplicates, run through `Shop.new` with a fake `ownsPass`, assert a spoofed `wasPurchased` does not grant). Static: `bash ~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh <files>`.
+8. Tests: `lune run ../skillpack/money/gamepass-maker/scripts/tests/PassCatalogue.test.luau` from `.rbx/claude-kit/systems` (pattern for your own `tests/Passes.test.luau`: build the real list, assert no duplicates, run through `Shop.new` with a fake `ownsPass`, assert a spoofed `wasPurchased` does not grant). Static: `bash .rbx/claude-kit/tools/roblox-project-template/luau-check.sh <files>`.
 9. Write the Creator Hub checklist for the owner (create each pass, name, description, icon, price, regional pricing, copy the id into `Passes.luau`). You never create, price or publish passes.
 
 ## Studio MCP path

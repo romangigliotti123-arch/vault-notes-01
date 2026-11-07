@@ -18,7 +18,7 @@ Before first publish, after adding chat, trading, paid random items, user conten
 1. Project folder or Studio place (default: the current project). 2. Intended audience (default: all ages, mobile-first).
 
 ## Procedure
-1. Run `python -I ~/.claude/claude-kit/skillpack/publish/age-rating-prep/scripts/feature_scan.py <project>`; read every lead (keywords produce false positives) and mark each as TRUE feature, FALSE positive or UNSURE.
+1. Run `python -I .rbx/claude-kit/skillpack/publish/age-rating-prep/scripts/feature_scan.py <project>`; read every lead (keywords produce false positives) and mark each as TRUE feature, FALSE positive or UNSURE.
 2. Open the live questionnaire (Creator Hub > experience > settings / maturity or content guidelines; wording is `live-check`) and copy its questions into the notes. Do not rely on remembered question lists.
 3. Answer from the most mature content a player COULD encounter, not the average session (vault: base answers on the most mature content; a mismatch can fail evaluation). Include user-generated paths (chat, names, builds) and anything unlocked later.
 4. Check prohibited themes at every rating: sexual content, nudity, depictions of drugs or tobacco, graphic violence, severe injury, real-world events, alcohol assets labelled as such; remove them rather than rating around them. Simulated gambling (virtual chips, simulated betting) is banned; paid random item generators are allowed only when they follow the rules (`loot-drop-builder` checklist).

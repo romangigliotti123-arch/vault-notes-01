@@ -44,7 +44,7 @@ Same; text only. If the build cannot be played, mark bullets as `unconfirmed` an
 - [ ] Every bullet maps to something confirmed in the build (table filled).
 - [ ] Release time has a time zone and the URL is the Details Page URL.
 - [ ] Removals and nerfs include the reason.
-- [ ] Headline passes `python -I ~/.claude/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py --min-words 3 --max-words 10 "<headline>"`.
+- [ ] Headline passes `python -I .rbx/claude-kit/skillpack/marketing/title-generator/scripts/title_screen.py --min-words 3 --max-words 10 "<headline>"`.
 - [ ] No reward promise, brand name or real person; all-ages language.
 
 ## Pitfalls

@@ -10,7 +10,7 @@ Exact copy of the host's vault: `git fetch`, `reset --hard origin/main`, `git cl
 
 > Games protection needs the current updater: if this vault's `rbx-update` script is older than the one that lists `Games` among the kept folders (the dry run prints `Kept untouched: My Research/, Games/ ...`), run a normal `/rbx-update` once first, then `/rbx-clean`. Read the dry run's `Kept untouched` line before saying yes.
 
-1. Find the vault (first existing wins): `$CLAUDES_VAULT`, `~/Obsidian/claudes-vault`, `%USERPROFILE%\Obsidian\claudes-vault`. If none exists, follow `SETUP-FOR-CLAUDE.md` instead.
+1. Find the vault (first existing wins): `$CLAUDES_VAULT`, `~/Obsidian/rbx-dev-vault`, `~/Obsidian/claudes-vault` (or where the pointer file `~/.claude/rbx-dev-vault.path` says). If none exists, follow `SETUP-FOR-CLAUDE.md` instead.
 2. Dry run first (changes nothing):
    - Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File "<vault>\vault-update.ps1" -Clean`
    - macOS/Linux: `bash "<vault>/vault-update.sh" --clean`

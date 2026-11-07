@@ -37,7 +37,7 @@ A new creator or teammate learning the dashboard, a number that surprises you, o
 | Thumbnails and ratings | click-through, like ratio | judge ratings on a recent window after a fix | `thumbnail-maker` |
 
 5. Latency rules to repeat: most signals about 24 hours, monetisation KPIs about 2 days, ad metrics 48 hours, event charts about 24 hours; day-7 retention is meaningless before a week.
-6. For the API: `python -I ~/.claude/claude-kit/tools/analytics-pull.py --universe <id> --metric ForwardD1Retention --dry-run` shows the request shape for a metric (executed check, no key needed); metric names and breakdowns live on the Supported-metrics page of the analytics docs.
+6. For the API: `python -I .rbx/claude-kit/tools/analytics-pull.py --universe <id> --metric ForwardD1Retention --dry-run` shows the request shape for a metric (executed check, no key needed); metric names and breakdowns live on the Supported-metrics page of the analytics docs.
 
 ## Studio MCP path
 Not applicable (dashboards live in Creator Hub). For logging gaps, `script_grep` for `AnalyticsService` calls and use the kit `Analytics` system.

@@ -6,6 +6,10 @@ No git or no date: prints `Your vault is up to date.` Never fails (exit 0). Usag
 import argparse, os, subprocess, sys
 from datetime import datetime, timedelta, timezone
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
+
 DAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 MONTHS = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
 PLAIN = "Your vault is up to date."
@@ -55,8 +59,8 @@ def parse_offset(s):
 
 def where(vault):
     home = os.path.expanduser("~")
-    v = next((os.path.normpath(c) for c in (vault, os.path.join(home, "Obsidian", "claudes-vault")) if c and os.path.exists(os.path.join(c, ".git"))), "")
-    k = os.path.join(os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.environ.get("CLAUDE_KIT_HOME") or home, ".claude"), "claude-kit")
+    v = next((os.path.normpath(c) for c in (vault, kit_paths.find_vault(None, os.path.abspath(__file__)), os.path.join(home, "Obsidian", "rbx-dev-vault"), os.path.join(home, "Obsidian", "claudes-vault")) if c and os.path.exists(os.path.join(c, ".git"))), "")
+    k = os.path.join(kit_paths.kit_home(None, os.path.abspath(__file__)), "claude-kit")
     return "Vault: %s | Kit: %s" % (v or "not found (set CLAUDES_VAULT)", os.path.normpath(k))
 
 

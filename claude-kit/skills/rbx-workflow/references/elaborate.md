@@ -4,7 +4,7 @@ Goal: turn one sentence into a concrete, sourced design brief in about 20-25 too
 
 ## Setup (each Bash call is a fresh shell, so start with these two lines)
 ```
-K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"; eval "$($K where)"   # VAULT KB ASSETS
+K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"; eval "$($K where)"   # VAULT KB ASSETS
 GENRE="<genre word(s) from the idea>"
 ```
 No python: replace `$K ...` by `rg -n -m5 "<words>" "$KB/<topic>.md"`; topic names are listed in `$KB/README.md`.

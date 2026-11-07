@@ -24,7 +24,7 @@ Team deathmatch, arena, capture modes, any mode with respawns near enemies. Not 
 4. Team balance, no-spawn-in-view and 'safest of N random' variants are changes to the scoring in `pick` only; keep the signature.
 5. Late join and mid-round respawn: use the same call; do not special-case. Spawn parts must be anchored and server-owned.
 6. Cleanup: `spawns:forget(userId)` on leave.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/spawn-system-builder/scripts/tests/Spawns.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/spawn-system-builder/scripts/tests/Spawns.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Spawns.luau` and the respawn handler -> `start_stop_play` -> `execute_luau` (Server) to call `pick` with test enemy positions and print the chosen spawn ids -> `get_console_output` to read the result. Visual indicator and character placement are Studio work: `untested` here.
@@ -42,7 +42,7 @@ Files + Lune tests only. Everything that needs a running Studio session (charact
 - [ ] The chosen spawn belongs to the team and is farthest from enemies (Spawns tests 1-2).
 - [ ] With no enemies it rotates (test 3).
 - [ ] Protection lasts its window and ends on attack (test 4); long windows are rejected (test 5).
-- [ ] Spawns Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/spawn-system-builder/scripts/tests/Spawns.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Spawns Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/spawn-system-builder/scripts/tests/Spawns.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Protection that survives attacking. Spawn parts a client can move. Choosing from `GetChildren()` order (always the same spawn). Counting dead or spectating players as enemies. Long protection windows that make spawn trapping and stalling.

@@ -6,10 +6,10 @@ argument-hint: "[the job you are on, or a question, or 'what would <creator> do 
 
 # rbx-mentor
 
-Mentor mode for this session. The full protocol is in the agent file `~/.claude/claude-kit/vault-mode/.claude/agents/rbx-coach.md` (kit agent `rbx-coach`); this skill puts the main session in that role.
+Mentor mode for this session. The full protocol is in the agent file `.rbx/claude-kit/vault-mode/.claude/agents/rbx-coach.md` (kit agent `rbx-coach`); this skill puts the main session in that role.
 
 ## Do this
-1. Read `~/.claude/claude-kit/vault-mode/.claude/agents/rbx-coach.md` (short) and follow it inline for the rest of the session. If it is missing, the kit is not installed: tell the user to run `/rbx-update` and stop.
+1. Read `.rbx/claude-kit/vault-mode/.claude/agents/rbx-coach.md` (short) and follow it inline for the rest of the session. If it is missing, the kit is not installed: tell the user to run `/rbx-update` and stop.
 2. Arguments given (`$ARGUMENTS`): treat them as the job or question and start at step 1 of the protocol. No arguments: do step 1 (locate vaults, read the first lines of `CAPABILITIES.md` and `Mentor/Combined-Brain.md`), then ask once: "What job are we on?" with the job list from the brain's index (designing a game, scripting/Luau, monetisation, ads and thumbnails, retention and analytics, live-ops, running a game project, using agents and skills, coding with AI, research, running a project with agents).
 2b. Games: if `<vault>/Games/` exists the mentor also knows the user's games and reusable blocks (it runs `games.py list`, `vault-find.py --type reusable` and `--type system` for the kit's tested drop-in systems: PlayerData, Shop, DailyRewards, Analytics, Admin; lookup order reusable, then system, then build) and suggests `/rbx-studio` when the job is running or testing a game in Studio and points to `/rbx-workflow` (resume), `/rbx-critic`, `/rbx-weekly` and `/rbx-harvest` at the right moment.
 2c. Skill pack: the Roblox skill pack (`/rbx`, 300+ focused skills such as thumbnail-maker, gamepass-maker, model-cleaner, game-optimizer, exploit-audit) is searchable with `vault-find.py "<job>" --type skillpack` or `/rbx find <words>`; suggest `/rbx <name>` when a narrow job fits one.

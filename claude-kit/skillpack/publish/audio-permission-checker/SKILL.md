@@ -21,7 +21,7 @@ Before publish, after moving a game to a group or buying one, when audio plays f
 1. Open the live audio assets page (Evidence); copy the current import limits and the permission steps with the date.
 2. Inventory: in Studio run `build/asset-license-checker/scripts/list_assets.luau` (read-only) and keep the audio rows; also use Asset Manager for your own uploads.
 3. Write `audio.csv` with columns `asset_id,title,owner,permission,length_s,size_mb,evidence`. permission is `owned`, `roblox`, `licensed`, `granted` or `unknown`. `licensed` and `granted` need evidence (a licence link or file path, a receipt id, a screenshot of the permission grant).
-4. Run `python -I ~/.claude/claude-kit/skillpack/publish/audio-permission-checker/scripts/audio_check.py audio.csv --scan <project> --max-seconds <live limit> --max-mb <live limit>`. Every FAIL gets fixed: grant the experience access to your own uploads, replace the asset, or add evidence.
+4. Run `python -I .rbx/claude-kit/skillpack/publish/audio-permission-checker/scripts/audio_check.py audio.csv --scan <project> --max-seconds <live limit> --max-mb <live limit>`. Every FAIL gets fixed: grant the experience access to your own uploads, replace the asset, or add evidence.
 5. Test playback with a fresh account that is not a collaborator: audio that works for you can be silent for players if the permission is missing.
 6. Replacement order: your own recording or creation, then Roblox-provided audio from the Creator Store, then a licensed track with the licence on file. Record every replacement in the manifest.
 7. For transfers: grant the receiving group's games access before the move (`group-ownership-setup`).

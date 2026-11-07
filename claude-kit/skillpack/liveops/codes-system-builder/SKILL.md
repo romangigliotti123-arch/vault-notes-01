@@ -25,7 +25,7 @@ You have a code book and need the redeem path in the game. Not for: designing th
 5. Client path: one rate-limited RemoteFunction (kit `RemoteGuard`) that accepts a string of bounded length and returns only a short reason. Never send the code list, the remaining uses or whether a code exists: unknown and expired-removed answer the same.
 6. Logging: map `log(event, userId, fields)` to kit `Analytics:Custom` (events `redeem_ok`, `redeem_rejected`, `redeem_throttled`, `redeem_grant_failed`) with low-cardinality fields (code label, creator). Never log the raw typed text or user names. The creator label gives attribution for the campaign table.
 7. Throttle: five wrong guesses in 60 seconds per player returns `slow_down`; raise the limits only after you see real misses. One redeem per player in flight (`busy`).
-8. Test: `lune run ../skillpack/liveops/codes-system-builder/scripts/tests/RedeemService.test.luau` from `~/.claude/claude-kit/systems` (6 tests: grant once, per-player once, global cap, grant-fail undo, throttle, store errors) plus luau-check. Then a Play test with two clients redeeming the last use.
+8. Test: `lune run ../skillpack/liveops/codes-system-builder/scripts/tests/RedeemService.test.luau` from `.rbx/claude-kit/systems` (6 tests: grant once, per-player once, global cap, grant-fail undo, throttle, store errors) plus luau-check. Then a Play test with two clients redeeming the last use.
 9. Operate: retire leaked codes by changing the book (config flag or republish), publish the active list only to the audience, and expire creator codes later than community codes.
 
 ## Studio MCP path

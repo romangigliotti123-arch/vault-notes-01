@@ -60,5 +60,3 @@ Only when a fix is ordered (the user, or the manager's fix round); the report ab
 4. Ledger `Games/<slug>/bugfix/<id>.md` with a `## RED` and a `## GREEN` block (command plus output). A bug reported fixed without both is `untested`; `code_gates.py` (FL1) scores it.
 
 ## Learn
-
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.

@@ -55,6 +55,6 @@ Why this exists: a game that runs and follows its design was repeatedly declared
 - No publishing, spending or posting; do not edit anything outside the PROJECT folder and `Games/<slug>/visual-qa/`.
 - Scripts: `scripts/Overlap.luau` (pure, tested with Lune), `scripts/ui_overlap.luau` (generated single file for `execute_luau`; rebuild with `python scripts/build_inline.py`), `scripts/visual_gate.py` (gate maths). Source of the rules: `Roblox/roblox-kb/ui-ux-design.md`, `building-art-and-assets.md`, `vfx-and-particles.md`.
 
-## Learn
+Models library: a hero model that passed V4 (and placement) is a candidate for `Models/`: run `models.py check <dir>` (`~/.claude/claude-kit/tools/`); on PASS run `add` and say ONE line `Saved <name> to Models/ (quality x/10, reusable in: ...)`; on FAIL say nothing. Before building a model, `models.py find <words>` and reuse a match.
 
-When this run verifies something non-obvious (a fix, a gotcha, a corrected assumption, a technique that worked), record it with `/rbx-learn` (`learn.py add`, one finding per note). Before researching a problem, check the curated `learned/` notes: `vault-find.py "<problem>" --type learned`.
+## Learn

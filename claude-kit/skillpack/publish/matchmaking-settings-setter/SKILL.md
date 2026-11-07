@@ -20,7 +20,7 @@ When players should land with similar-skill, same-mode or same-language players,
 ## Procedure
 1. Open the live matchmaking pages (Evidence): glossary, attributes and signals, scoring, customize, analytics. Copy the current names of aggregations and any limits into the notes with the date.
 2. Start from the defaults: change only default signal weights first; add custom attributes and signals only for a stated problem (the vault says this is the simplest configuration and the first thing to try).
-3. Write the config: `python -I ~/.claude/claude-kit/skillpack/publish/matchmaking-settings-setter/scripts/mm_config_check.py --template > release/matchmaking.json` and fill it. Attributes come before the signals that use them; data-store keys use the exact case-sensitive id token.
+3. Write the config: `python -I .rbx/claude-kit/skillpack/publish/matchmaking-settings-setter/scripts/mm_config_check.py --template > release/matchmaking.json` and fill it. Attributes come before the signals that use them; data-store keys use the exact case-sensitive id token.
 4. Choose the aggregation by intent: average/median to match the server's typical player, sum for a total, cluster to group the same categorical value (mode), diversify to mix values. If the live page names differ, set `aggregations` in the JSON.
 5. Run `python -I .../mm_config_check.py release/matchmaking.json`; fix every FAIL (undefined attribute, wrong aggregation for the type, zero weights).
 6. In Creator Hub, use Preview and Test (mock servers; hover signal scores to see the formula) before applying to live places. Record the winner of each test case. This stays `untested` here.

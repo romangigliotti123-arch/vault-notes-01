@@ -20,7 +20,7 @@ Before commissioning art, when assets drift, or when a rebrand is planned. Not f
 ## Procedure
 1. Mood: pick one word each for emotion and energy (cosy, intense, mysterious). Vault colour mapping: bright saturated for fantasy or dreamy, muted for somber, high contrast for horror; bright colour for crucial text and buttons; horror avoids oversaturated brights.
 2. Palette: 1 background, 1 text, 1 primary accent, 1 secondary accent, 1 warning. Put hex values in `brand/palette.json` (`{"bg": "#...", "text": "#...", "accent": "#..."}`).
-3. Contrast: `python -I ~/.claude/claude-kit/skillpack/marketing/brand-kit-builder/scripts/contrast.py --palette brand/palette.json` and again with `--large` for big text and UI shapes. Every text/background pair must pass its level; fix the palette, not the check. Avoid the vault's named bad pairing, white on yellow.
+3. Contrast: `python -I .rbx/claude-kit/skillpack/marketing/brand-kit-builder/scripts/contrast.py --palette brand/palette.json` and again with `--large` for big text and UI shapes. Every text/background pair must pass its level; fix the palette, not the check. Avoid the vault's named bad pairing, white on yellow.
 4. Logo and title lockup: one wordmark, a light and a dark version, a minimum size at which it stays readable on a phone, clear space rule, no thin white strokes that vanish on bright backgrounds.
 5. Characters and subjects: the hero's silhouette, one signature colour, the expressions allowed; match Roblox's platform visual style rather than something unrecognisable, unless realism fits the genre (vault).
 6. Type: at most two fonts, one for display and one for body; mobile-readable sizes; text in thumbnails 0-3 words.

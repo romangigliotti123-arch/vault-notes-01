@@ -20,7 +20,7 @@ At every publish, before risky changes, and the moment a rollback is needed. Not
 ## Procedure
 1. Open the live Version History page (Evidence) and copy the current save/publish/restore steps with the date.
 2. Save with notes at every meaningful checkpoint (Save to Roblox with Notes); publish notes auto-draft only from notes logged between publishes, so gaps give no summary.
-3. After the gate says GO (`publish-readiness-gate`), get the version: `python -I ~/.claude/claude-kit/skillpack/publish/version-history-keeper/scripts/release_log.py next release/release-log.jsonl --bump patch`.
+3. After the gate says GO (`publish-readiness-gate`), get the version: `python -I .rbx/claude-kit/skillpack/publish/version-history-keeper/scripts/release_log.py next release/release-log.jsonl --bump patch`.
 4. Publish (owner action). Read the new place version number off Version History or Creator Hub; never guess it.
 5. Record: `python -I .../release_log.py add release/release-log.jsonl --version <v> --place-version <n> --notes "<what changed for players>" --restore "<named restore point, e.g. 'VH #n: release 1.4.2'>" --gate "GO release/gates.json"`. A refusal prints why.
 6. Run `python -I .../release_log.py check release/release-log.jsonl`; it must print `log ok`.

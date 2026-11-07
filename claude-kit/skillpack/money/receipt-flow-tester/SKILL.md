@@ -18,14 +18,14 @@ After wiring `Catalogue` to Shop, after editing any `grant`, before launch, and 
 1. The catalogue module and the data module (default: `Catalogue.luau`, the PlayerData template). 2. The observable each product changes, e.g. `data.coins` (default: read each grant).
 
 ## Procedure
-1. Read the rules: `python -I ~/.claude/claude-kit/tools/kbq.py section monetisation-devproducts rules --max-chars 4000` and `systems/Shop/README.md` (receipt rule). Stop when you can state the five rules.
+1. Read the rules: `python -I .rbx/claude-kit/tools/kbq.py section monetisation-devproducts rules --max-chars 4000` and `systems/Shop/README.md` (receipt rule). Stop when you can state the five rules.
 2. Write a Lune test beside your catalogue (pattern in `scripts/tests/ReceiptScenarios.test.luau`): a factory that builds a fresh `Shop.new({ products = <your products>, getData = ..., saveNow = ..., ownsPass = ..., now = ..., wait = ... })` with fakes whose `loaded` and `saveOk` switches the factory exposes as `setLoaded` and `setSaveOk`.
 3. Run `ReceiptScenarios.run(factory)` once per product you sell: pass the product id, user id and the expected change to the observable. Print each `name`, `pass`, `detail`.
 4. For each failing scenario find the cause: a `grant` that yields, mutates data then returns false, grants into a table that is not saved, or a second `ProcessReceipt` assignment somewhere else in the project (search for `ProcessReceipt`; there must be exactly one owner, Shop).
 5. Add product-specific refusal cases (full inventory, level cap): the grant must return false BEFORE changing data (`Catalogue` supports `refuseWith` fixtures).
 6. Live test script for the owner, on their own published test place only, with the cheapest product and a test account: buy; confirm the reward and `data.Receipts` entry; rejoin and confirm it did not grant again; buy while data is loading if reproducible. Marked `untested` until the owner runs it. You never spend Robux.
 7. Add the test to the project's test run so it stays green.
-8. Test the tester: `lune run ../skillpack/money/receipt-flow-tester/scripts/tests/ReceiptScenarios.test.luau` from `~/.claude/claude-kit/systems` (it must pass the kit Shop and must fail a deliberately naive handler).
+8. Test the tester: `lune run ../skillpack/money/receipt-flow-tester/scripts/tests/ReceiptScenarios.test.luau` from `.rbx/claude-kit/systems` (it must pass the kit Shop and must fail a deliberately naive handler).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` to add the test file (Rojo owners edit files) -> `execute_luau` (Server) to call `Shop:ProcessReceipt` with a fake receipt table for a loaded test player, twice, and compare the reward -> `get_console_output`. Real purchase prompts need a published place and a test account: `untested`.

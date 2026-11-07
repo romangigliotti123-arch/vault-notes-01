@@ -32,7 +32,7 @@ A weekly balance pass, an item everyone picks or nobody does, a reward that skew
 `script_read` the module holding the value -> `multi_edit` to read it from the flag layer -> `start_stop_play` -> `execute_luau` (Server) to run `TuneGuard.check` with the real definition and a proposed value and print the decision.
 
 ## Fallback
-Rojo plus the Lune suite: `lune run ../skillpack/liveops/live-balance-tuner/scripts/tests/TuneGuard.test.luau` from `~/.claude/claude-kit/systems` (8 tests) and luau-check. The live config write itself is manual and `untested` here.
+Rojo plus the Lune suite: `lune run ../skillpack/liveops/live-balance-tuner/scripts/tests/TuneGuard.test.luau` from `.rbx/claude-kit/systems` (8 tests) and luau-check. The live config write itself is manual and `untested` here.
 
 ## Evidence
 `Roblox/roblox-kb/updates-live-ops.md`: use live configs and experiments instead of republishing; balance and economy changes (slightly too hard then ease; buff underused items; act on economy-threatening features); publish a stats and drop-rate reference with each balance change; check key metrics after every update. `ab-testing-and-experiments.md`: gradual rollout for live gameplay values; reward-to-difficulty ratios per segment (indie, reported up to about 10 percent LTV lift). `events-and-seasonal-content.md`: do not secretly boost odds near the end of an event.

@@ -5,7 +5,9 @@
 # User-level only: no sudo, no system settings. Safe to run again.
 set -u
 REPO="romangigliotti123-arch/claudes-vault"
-DEST="$HOME/Obsidian/claudes-vault"
+# ONE FOLDER: the vault folder is where everything lives (default ~/Obsidian/rbx-dev-vault; an existing claudes-vault folder keeps its name; a moved folder is found through the pointer file)
+DEST="$HOME/Obsidian/rbx-dev-vault"; [ -d "$HOME/Obsidian/claudes-vault/.git" ] && [ ! -e "$DEST" ] && DEST="$HOME/Obsidian/claudes-vault"
+PTRF="${CLAUDE_CONFIG_DIR:-${CLAUDE_KIT_HOME:-$HOME}/.claude}/rbx-dev-vault.path"; PV="$(head -n 1 "$PTRF" 2>/dev/null)"; [ -n "$PV" ] && [ -d "$PV/.git" ] && DEST="$PV"
 LABEL="com.roman.vaultpull"
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 LOG="$HOME/Library/Logs/vaultpull.log"
@@ -186,6 +188,13 @@ if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$DEST/claude-kit/install.sh" ]; the
 # Assets -> <vault>/Assets from the share (first run downloads everything, 1.02 GB of zips; later runs only changes). No questions. Skip: CLAUDE_ASSETS_SKIP=1
 if [ "${CLAUDE_ASSETS_SKIP:-0}" != 1 ] && [ -f "$DEST/claude-kit/kit-refresh.sh" ]; then CLAUDE_KIT_SKIP=1 bash "$DEST/claude-kit/kit-refresh.sh" || echo "Asset sync failed (non-fatal; run vault-update.sh later)."; fi
 
+mkdir -p "$STATE"      # the logon job runs this helper: it reads the pointer file at run time, so a moved vault folder still updates
+cat > "$STATE/run-update.sh" <<RUNEOF
+#!/bin/bash
+D='$DEST'
+P="\$(head -n 1 '$PTRF' 2>/dev/null)"; [ -f "\$P/vault-update.sh" ] && D="\$P"
+if [ -f "\$D/vault-update.sh" ]; then /bin/bash "\$D/vault-update.sh" --quiet; else '$GIT' -C "\$D" pull --ff-only; if [ -f "\$D/claude-kit/kit-refresh.sh" ]; then /bin/bash "\$D/claude-kit/kit-refresh.sh"; fi; fi
+RUNEOF
 cat > "$PLIST" <<PLISTEOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -196,7 +205,7 @@ cat > "$PLIST" <<PLISTEOF
   <array>
     <string>/bin/bash</string>
     <string>-c</string>
-    <string>if [ -f "$DEST/vault-update.sh" ]; then /bin/bash "$DEST/vault-update.sh" --quiet; else "$GIT" -C "$DEST" pull --ff-only; if [ -f "$DEST/claude-kit/kit-refresh.sh" ]; then /bin/bash "$DEST/claude-kit/kit-refresh.sh"; fi; fi</string>
+    <string>/bin/bash "$STATE/run-update.sh"</string>
   </array>
   <key>EnvironmentVariables</key>
   <dict><key>PATH</key><string>$(dirname "$GIT"):/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string></dict>
@@ -219,9 +228,9 @@ echo "Update now, any time: bash \"$DEST/vault-update.sh\"   (or /rbx-update in 
 echo "Next: open Obsidian > File > Open folder as vault > choose $DEST"
 echo "Updates appear automatically as files change on disk."
 echo "Do not edit notes on the Mac (pull is fast-forward only)."
-if [ -f "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo "The Roblox Dev Mastery Vault kit is installed. Start a new Claude session in $DEST to use it. Always available: /rbx-update /rbx-check /rbx-uninstall. Two mods (agent sidebar, graph view) are enabled for the vault folder only; turn them off with /plugin or --no-mods. More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual). Built and maintained by Roman (GitHub: romangigliotti123-arch)"; fi
+if [ -f "$DEST/.rbx/claude-kit/vault-mode/.claude/skills/rbx-workflow/SKILL.md" ]; then echo "The Roblox Dev Mastery Vault kit is installed. Start a new Claude session in $DEST to use it. Always available: /rbx-update /rbx-check /rbx-uninstall. Two mods (agent sidebar, graph view) are enabled for the vault folder only; turn them off with /plugin or --no-mods. More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual). Built and maintained by Roman (GitHub: romangigliotti123-arch)"; fi
 
-MODSB="$(cat "${CLAUDE_KIT_HOME:-$HOME}/.claude/claude-kit/state/mods-block.txt" 2>/dev/null)"; [ -n "$MODSB" ] || MODSB="**THE TWO MODS (NOT INSTALLED)**
+MODSB="$(cat "$DEST/.rbx/claude-kit/state/mods-block.txt" 2>/dev/null)"; [ -n "$MODSB" ] || MODSB="**THE TWO MODS (NOT INSTALLED)**
 - Skipped: the installer did not report them. The vault works without them. To install them run: bash \"$DEST/claude-kit/install.sh\" --with-mods   then type /reload-plugins.
 - They are Claude Code plugins that add an agent sidebar (/rbx-subagent-hud) and a graph view (/rbx-graph) and register hooks; they are installed for the vault folder only (project scope), so they apply only to sessions started in that folder. Turn them off any time with /plugin or the installer's --no-mods."
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$DEST/START-HERE.md" ]; then echo; echo "=== COPY THIS TO THE USER EXACTLY, AS THE END OF YOUR FINAL MESSAGE (nothing after it; also saved as START-HERE.md in the vault folder) ==="; cat "$DEST/START-HERE.md"; echo "=== END OF THE BLOCK TO COPY ==="; fi

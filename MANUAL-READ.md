@@ -20,14 +20,14 @@ A folder of Roblox research notes plus a Claude kit. Start a Claude session in t
 
 | Place | What is there | Who owns it |
 |---|---|---|
-| Vault folder (e.g. `~/Obsidian/claudes-vault`) | The notes, this manual, `START-HERE.md`, update scripts | The vault; `/rbx-update` overwrites it |
+| Vault folder (default `~/Obsidian/rbx-dev-vault`; an existing `claudes-vault` keeps its name) | EVERYTHING in one folder: the notes, this manual, `START-HERE.md`, update scripts, your games and the kit. Move the folder and `/rbx-update` finds it again | The vault; `/rbx-update` overwrites its own files |
 | `<vault>/.claude/` | The skills, agents and rules Claude loads in this folder only | The kit; rewritten on update |
 | `<vault>/Games/<game name>/` | Your games, each with a `README.md` to resume from | You; never touched by an update |
 | `<vault>/Models/` | Reusable 3D models Claude saved for you | You; never touched by an update |
 | `<vault>/My-Skills/` and `<vault>/My-Agents/` | Skills and agents you made with `/rbx-new-skill` (names start with `my-`) | You; never touched by an update |
 | `<vault>/Assets/` | Downloaded Roblox assets (models, textures, audio, code) | Downloaded; hidden from git |
-| `~/.claude/claude-kit` | The kit runtime: tools and update scripts | The kit; refreshed on update |
-| `~/.claude/skills` | Only `/rbx-update`, `/rbx-check`, `/rbx-uninstall` | The kit |
+| `<vault>/.rbx/claude-kit` | The kit runtime: tools, skills store, systems (hidden from git, inside the vault folder) | The kit; refreshed on update |
+| `~/.claude/skills` and `~/.claude/rbx-dev-vault.path` | Only three thin stubs (`/rbx-update`, `/rbx-check`, `/rbx-uninstall`) and a one-line pointer to the vault folder | The kit |
 | Your own skills and agents | Your own `~/.claude/skills` and `~/.claude/agents` | You; the vault never overwrites them |
 
 Light mode keeps Obsidian fast by hiding the big folders (Library, Imported, Assets); Claude still searches everything. Details: `LIGHT-MODE.md`.
@@ -52,8 +52,8 @@ Light mode keeps Obsidian fast by hiding the big folders (Library, Imported, Ass
 
 | The install changes | Where |
 |---|---|
-| Clones the vault | `~/Obsidian/claudes-vault` |
-| Installs the kit | `~/.claude/claude-kit` and `~/.claude/skills` (3 always-on commands) |
+| Clones the vault | `~/Obsidian/rbx-dev-vault` |
+| Installs the kit | `<vault>/.rbx/claude-kit`; `~/.claude/skills` gets only 3 thin stub commands plus one pointer file |
 | Writes vault skills and agents | `<vault>/.claude/` (this folder only) |
 | Enables the two mods | `<vault>/.claude/settings.json` (this folder only) |
 | Downloads assets | `<vault>/Assets/` (checked by sha256) |

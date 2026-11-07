@@ -10,8 +10,8 @@ The vault holds 8,054 notes. Indexing all of them makes Obsidian lag, so the syn
 
 To see Library and Imported (full view), use the switch; do not edit Obsidian's settings by hand, because every update resets `.obsidian` to the repo's version:
 
-- Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File "$env:USERPROFILE\Obsidian\claudes-vault\vault-update.ps1" -FullView on`
-- macOS/Linux: `bash ~/Obsidian/claudes-vault/vault-update.sh --full-view on`
+- Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File "$env:USERPROFILE\Obsidian\rbx-dev-vault\vault-update.ps1" -FullView on`
+- macOS/Linux: `bash ~/Obsidian/rbx-dev-vault/vault-update.sh --full-view on`
 - Back to light mode: the same command with `-FullView off` / `--full-view off`. In Claude: /rbx-update with full view on or off.
 
 Full view keeps only `Assets/`, `Games/` and `Models/` excluded and is slower: Obsidian indexes about 2,500 more notes (Library and Imported). The choice is a marker file `.full-view` in the vault root (ignored by git) and survives every update: after each update `.obsidian/app.json` is rewritten with `userIgnoreFilters` = `Assets/` only, all other keys untouched, and that rewrite is never treated as a local change. Close and reopen Obsidian after switching.

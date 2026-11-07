@@ -23,7 +23,7 @@ Filling or refreshing the gallery. Not for: the 16:9 thumbnails, the icon, or ad
 3. For each slot write: what is on screen, where the camera is, the one caption (0-6 words, optional), and the real feature it proves.
 4. Capture plan: Studio freecam with UI hidden (vault freecam shortcuts), narrow field of view for scale, depth of field and bloom for polish; capture from the spawn point of view for authenticity; 16:9; high resolution. Keep the hero subject in the central area. No UI overlays, no off-platform art, no CGI.
 5. Consistency: same time of day, same colour grade, the style guide from `brand-kit-builder` when it exists; the gallery should look like one game.
-6. Check files with `python -I ~/.claude/claude-kit/skillpack/marketing/thumbnail-maker/scripts/image_specs.py gallery/*.png --expect <WxH from step 1> --aspect 16:9 --max-mb <N>`.
+6. Check files with `python -I .rbx/claude-kit/skillpack/marketing/thumbnail-maker/scripts/image_specs.py gallery/*.png --expect <WxH from step 1> --aspect 16:9 --max-mb <N>`.
 7. Honesty pass: every image shows what a new player can actually do or see today; remove anything that needs a paid item to appear without saying so.
 8. Order, caption, and give the owner the upload checklist. Refresh at major updates.
 

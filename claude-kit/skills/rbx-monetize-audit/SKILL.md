@@ -13,7 +13,7 @@ Output: scorecard + fixes + experiments, each sourced. For a full redesign use t
 2. Load the checklist: `<KB>/_tools/CHECKLIST-monetization.md` (read the `Must` lists), plus `PRICE-LADDER.md` (top sections).
 3. Add targeted evidence:
    ```
-   K="bash $HOME/.claude/claude-kit/tools/pyrun $HOME/.claude/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
+   K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
    $K section monetisation-devproducts instructions
    $K section monetisation-gamepasses instructions
    $K section pricing instructions

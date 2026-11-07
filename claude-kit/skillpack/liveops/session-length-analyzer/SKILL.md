@@ -20,7 +20,7 @@ Low session minutes, a retention fix aimed at pacing, or a new mode whose sessio
 ## Procedure
 1. Log session start and end on the server (join time at PlayerAdded, leave at PlayerRemoving; handle shutdown) as a custom event or a counter; do not count time spent AFK or in a menu if you can tell.
 2. Export lengths to `minutes.txt` (one per line) or a CSV with a `session_minutes` column.
-3. Run `python -I ~/.claude/claude-kit/skillpack/liveops/session-length-analyzer/scripts/session.py --minutes minutes.txt`. It prints mean, P10, P50, P90, the share under 2 minutes, a bucket histogram and stop-point candidates (a bucket holding at least 8 percent of sessions and at least 1.8 times its neighbours, a default of this skill).
+3. Run `python -I .rbx/claude-kit/skillpack/liveops/session-length-analyzer/scripts/session.py --minutes minutes.txt`. It prints mean, P10, P50, P90, the share under 2 minutes, a bucket histogram and stop-point candidates (a bucket holding at least 8 percent of sessions and at least 1.8 times its neighbours, a default of this skill).
 4. Read the shape: a big under-2-minute share is a first-impression or load problem (`first-minute-designer`, packaging); a spike at 5-8 minutes is a natural end (a round, a quest, a timer); a long tail is your engaged core and worth protecting.
 5. Tie each candidate bucket to a game event: what happens at that elapsed time (match end, shop close, tutorial end, energy empty)? Check with the server log or a playtest.
 6. Add a goal 2-3 minutes out at that point (vault stop-point rule): a visible next reward, a queued next match, a progress bar that is nearly full. Do not use dark patterns (fake urgency, hidden odds).

@@ -19,7 +19,15 @@ while [ $# -gt 0 ]; do
   case "$1" in --home) [ $# -ge 2 ] || { echo "install.sh: --home needs a folder" >&2; exit 2; }; H="$2"; HOME_GIVEN=1; shift 2;; --dry-run) DRY=1; shift;; --with-hooks) HOOKS=install-hooks; shift;; --remove-hooks) HOOKS=uninstall-hooks; shift;; --with-mods) MODS_ON=1; FORCE=1; shift;; --no-mods) MODS_ON=0; shift;; --no-assets) ASSETS_ON=0; shift;; *) shift;; esac
 done
 C="$H/.claude"; [ $HOME_GIVEN = 0 ] && [ -n "${CLAUDE_CONFIG_DIR:-}" ] && C="$CLAUDE_CONFIG_DIR"
-MAN="$C/claude-kit/installed.tsv"; TMP="$(mktemp "${TMPDIR:-/tmp}/claude-kit.XXXXXX" 2>/dev/null)" || TMP="${TMPDIR:-/tmp}/claude-kit.$$"
+# ONE FOLDER: the kit is installed INSIDE the vault folder (<vault>/.rbx/claude-kit); only 3 stub skills + a pointer file stay in $C. No vault folder (kit-only install, tests): the old layout in $C.
+VH=""; RPY0=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then RPY0="$p"; break; fi; done
+[ -n "$RPY0" ] && [ -f "$KIT/tools/kit_paths.py" ] && VH="$(CLAUDE_KIT_HOME="$H" CLAUDE_CONFIG_DIR="$C" "$RPY0" -I "$KIT/tools/kit_paths.py" vault --config "$C" 2>/dev/null | tail -n 1)"
+KH="$C"; [ -n "$VH" ] && [ -d "$VH" ] && [ "${RBX_LAYOUT:-}" != legacy ] && KH="$VH/.rbx"      # env RBX_LAYOUT=legacy keeps the old layout (claude-kit in the config folder; tests)
+export RBX_KIT_HOME="$KH"
+if [ "$KH" != "$C" ] && [ $DRY = 0 ] && [ -d "$C/claude-kit" ] && [ -f "$KIT/tools/vault-mode.py" ]; then   # MIGRATION of an old install: move ~/.claude/claude-kit into the vault folder (idempotent, resumable; only provable duplicates are deleted)
+  mkdir -p "$KH/claude-kit"; RELOC="$(CLAUDE_CONFIG_DIR="$C" "$RPY0" -I "$KIT/tools/vault-mode.py" relocate --config "$C" 2>&1)"; [ -n "$RELOC" ] && printf '%s\n' "$RELOC"
+fi
+MAN="$KH/claude-kit/installed.tsv"; TMP="$(mktemp "${TMPDIR:-/tmp}/claude-kit.XXXXXX" 2>/dev/null)" || TMP="${TMPDIR:-/tmp}/claude-kit.$$"
 trap 'rm -f "$TMP"' EXIT
 if command -v sha256sum >/dev/null 2>&1; then SHA="sha256sum"; else SHA="shasum -a 256"; fi
 sha() { local o; o="$($SHA "$1")"; o="${o#\\}"; printf '%s' "${o%% *}"; }   # GNU sha256sum starts the line with a backslash when the file name contains one (Windows-style --home)
@@ -29,7 +37,7 @@ SM="claude-kit/vault-mode"; AO="rbx-update rbx-check rbx-uninstall"
 [ -f "$KIT/mode/always-on.txt" ] && AO="$(grep -v '^#' "$KIT/mode/always-on.txt" | tr -d '\r' | tr '\n' ' ')"
 [ -f "$MAN" ] || first_wf=1      # fresh install: print the welcome text at the end
 # an older layout: keep its manifest for the migration step (only once; vault-mode.py migrate moves it into its backup folder)
-if [ -f "$MAN" ] && [ ! -f "$C/$SM/layout.json" ] && [ ! -f "$C/claude-kit/installed.tsv.pre-mode" ] && [ $DRY = 0 ]; then cp "$MAN" "$C/claude-kit/installed.tsv.pre-mode"; fi
+if [ -f "$MAN" ] && [ ! -f "$KH/$SM/layout.json" ] && [ ! -f "$KH/claude-kit/installed.tsv.pre-mode" ] && [ $DRY = 0 ]; then cp "$MAN" "$KH/claude-kit/installed.tsv.pre-mode"; fi
 
 # one-time rename migration (old generic command names -> <verb>-<slug>-vault; names in tools/vault-names.json): removes the OLD-named vault skills/agents that the kit installed and that are
 # unchanged (backup + undo: kit-rename.py migrate --revert); never touches a skill/agent of yours with an old name. Runs BEFORE the copy so the old manifest still lists the old names. Silent when nothing is to do.
@@ -47,6 +55,7 @@ fi
 cpf() { cp "$1" "$2" 2>/dev/null || { chmod u+w "$2" 2>/dev/null; cp "$1" "$2"; }; }
 put() { # put <src> <rel under ~/.claude>: missing -> copy, identical -> same, anything else -> overwrite
   local src="$1" rel="$2" dst="$C/$2" ns ds="" old=""
+  case "$2" in claude-kit/*) dst="$KH/$2";; esac
   ns="$(sha "$src")"
   [ -n "$MANTXT" ] && old="$(awk -F'\t' -v r="$rel" '$1==r{print $2; exit}' "$MAN" 2>/dev/null)"
   [ -e "$dst" ] && ds="$(sha "$dst")"
@@ -66,7 +75,7 @@ put() { # put <src> <rel under ~/.claude>: missing -> copy, identical -> same, a
 FASTPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then FASTPY="$p"; break; fi; done
 FASTDONE=0
 if [ -n "$FASTPY" ] && [ -f "$KIT/tools/kit-install-files.py" ] && [ "${CLAUDE_KIT_SLOW:-0}" != 1 ]; then
-  fo="$("$FASTPY" -I "$KIT/tools/kit-install-files.py" --kit "$KIT" --config "$C" --always-on "$AO" $([ $DRY = 1 ] && echo --dry-run) 2>&1)"
+  fo="$("$FASTPY" -I "$KIT/tools/kit-install-files.py" --kit "$KIT" --config "$C" --kit-home "$KH" --always-on "$AO" $([ $DRY = 1 ] && echo --dry-run) 2>&1)"
   case "$fo" in
     *"RESULT new="*) r="$(printf '%s\n' "$fo" | grep '^RESULT new=' | tail -1)"
        n_new="${r#*new=}"; n_new="${n_new%% *}"; n_upd="${r#*upd=}"; n_upd="${n_upd%% *}"; n_same="${r#*same=}"; n_same="${n_same%% *}"
@@ -84,7 +93,7 @@ for sub in agents skills mode tools systems skillpack; do
       tools|systems|skillpack) rel="claude-kit/$r";;
       agents) rel="$SM/.claude/$r";;
       mode) rel="$SM/${r#mode/}";;
-      skills) nm="${r#skills/}"; nm="${nm%%/*}"; case " $AO " in *" $nm "*) rel="$r";; *) rel="$SM/.claude/$r";; esac;;
+      skills) nm="${r#skills/}"; nm="${nm%%/*}"; case " $AO " in *" $nm "*) if [ "$KH" = "$C" ]; then rel="$r"; else rel="$SM/.claude/$r"; fi;; *) rel="$SM/.claude/$r";; esac;;
     esac
     put "$f" "$rel"
   done < <(find "$KIT/$sub" -type f ! -path '*/__pycache__/*' ! -name '*.pyc' | sort)
@@ -98,34 +107,41 @@ if [ $DRY = 0 ] && [ $FASTDONE = 0 ]; then   # fallback loop: files that left th
     [ -s "$TMP.rels" ] || : > "$TMP.skip"
     while [ ! -e "$TMP.skip" ] && IFS="$(printf '\t')" read -r orel _; do
       case "$orel" in ""|/*|*..*|*:*|*"\\"*) continue;; esac
-      case "$orel" in claude-kit/*) ;; skills/*) nm="${orel#skills/}"; nm="${nm%%/*}"; case " $AO rbx-load rbx-unload " in *" $nm "*) ;; *) continue;; esac;; *) continue;; esac
+      case "$orel" in claude-kit/*) ob="$KH";; skills/*) ob="$C"; nm="${orel#skills/}"; nm="${nm%%/*}"; if [ "$KH" != "$C" ]; then case " rbx-load rbx-unload " in *" $nm "*) ;; *) continue;; esac; else case " $AO rbx-load rbx-unload " in *" $nm "*) ;; *) continue;; esac; fi;; *) continue;; esac
       grep -qxF -- "$orel" "$TMP.rels" 2>/dev/null && continue
-      if [ -f "$C/$orel" ] && [ ! -L "$C/$orel" ]; then rm -f "$C/$orel"; n_gone=$((n_gone+1)); d="$(dirname "$C/$orel")"; while [ "$d" != "$C" ] && [ "$d" != "$C/claude-kit" ] && [ "$d" != "$C/skills" ] && rmdir "$d" 2>/dev/null; do d="$(dirname "$d")"; done; fi
+      if [ -f "$ob/$orel" ] && [ ! -L "$ob/$orel" ]; then rm -f "$ob/$orel"; n_gone=$((n_gone+1)); d="$(dirname "$ob/$orel")"; while [ "$d" != "$ob" ] && [ "$d" != "$ob/claude-kit" ] && [ "$d" != "$C/skills" ] && rmdir "$d" 2>/dev/null; do d="$(dirname "$d")"; done; fi
     done < "$MAN"
     rm -f "$TMP.rels" "$TMP.skip"
   fi
 fi
 if [ $DRY = 0 ]; then
   [ $FASTDONE = 1 ] || { mkdir -p "$(dirname "$MAN")"; sort -u "$TMP" > "$MAN"; }
-  chmod +x "$C/claude-kit/tools/roblox-project-template/luau-check.sh" "$C/claude-kit/tools/studio-setup.sh" 2>/dev/null || true
+  chmod +x "$KH/claude-kit/tools/roblox-project-template/luau-check.sh" "$KH/claude-kit/tools/studio-setup.sh" 2>/dev/null || true
 fi
 # move an older always-on layout into the store (idempotent; silent when there is nothing to move)
-if [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/vault-mode.py" ]; then
+if [ $DRY = 0 ] && [ -f "$KH/claude-kit/tools/vault-mode.py" ]; then
   MPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then MPY="$p"; break; fi; done
-  if [ -n "$MPY" ]; then CLAUDE_CONFIG_DIR="$C" "$MPY" -I "$C/claude-kit/tools/vault-mode.py" migrate --config "$C" 2>&1
-  elif [ -f "$C/claude-kit/installed.tsv.pre-mode" ]; then echo "vault-mode: no working Python 3, so the old always-on kit skills were not moved; install Python 3 and run /rbx-update"; fi
+  if [ -n "$MPY" ]; then CLAUDE_CONFIG_DIR="$C" "$MPY" -I "$KH/claude-kit/tools/vault-mode.py" migrate --config "$C" 2>&1
+    if [ "$KH" != "$C" ]; then   # ONE FOLDER: the 3 thin stub skills + where.py + the pointer file in $C (an old full copy is replaced, anything of yours in it is backed up first); hooks of an old install are re-pointed
+      CLAUDE_CONFIG_DIR="$C" "$MPY" -I "$KH/claude-kit/tools/vault-mode.py" stubs --config "$C" --quiet 2>&1
+      if [ -f "$C/settings.json" ]; then
+        grep -q 'claude-kit/tools/mentor-hook' "$C/settings.json" 2>/dev/null && [ -f "$KH/claude-kit/tools/mentor-hook.py" ] && CLAUDE_CONFIG_DIR="$C" "$MPY" -I "$KH/claude-kit/tools/mentor-hook.py" install-hooks --config "$C" 2>&1 | grep 'path updated'
+        grep -q 'rbx-low-usage/scripts/lum' "$C/settings.json" 2>/dev/null && [ -f "$KH/$SM/.claude/skills/rbx-low-usage/scripts/lum.py" ] && CLAUDE_CONFIG_DIR="$C" "$MPY" -I "$KH/$SM/.claude/skills/rbx-low-usage/scripts/lum.py" install-hooks --config "$C" 2>&1 | grep 'hooks: installed'
+      fi
+    fi
+  elif [ -f "$KH/claude-kit/installed.tsv.pre-mode" ]; then echo "vault-mode: no working Python 3, so the old always-on kit skills were not moved; install Python 3 and run /rbx-update"; fi
 fi
 rm -f "$TMP"
 # the vault folder is THE loaded environment: resolve it (the clone that holds this claude-kit folder, $CLAUDES_VAULT, the registered one, ~/Obsidian/claudes-vault) and load it quietly (env CLAUDE_KIT_NOLOAD=1: the caller, kit-refresh, does it)
-VH=""; LOADOUT=""
+LOADOUT=""
 for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then LPY="$p"; break; fi; done
 if [ -n "${LPY:-}" ] && [ -f "$KIT/tools/vault-mode.py" ]; then
-  VH="$(CLAUDE_KIT_HOME="$H" CLAUDE_CONFIG_DIR="$C" "$LPY" -I "$KIT/tools/vault-mode.py" home --kit "$KIT" --config "$C" 2>/dev/null | tail -n 1)"
-  if [ -n "$VH" ] && [ $DRY = 0 ] && [ "${CLAUDE_KIT_NOLOAD:-0}" != 1 ] && [ -f "$C/claude-kit/tools/vault-mode.py" ]; then
-    LOADOUT="$(CLAUDE_KIT_HOME="$H" CLAUDE_CONFIG_DIR="$C" "$LPY" -I "$C/claude-kit/tools/vault-mode.py" load --project "$VH" --quiet $([ "$first_wf" = 0 ] && echo --announce) --config "$C" 2>&1)"
+  [ -n "$VH" ] || VH="$(CLAUDE_KIT_HOME="$H" CLAUDE_CONFIG_DIR="$C" "$LPY" -I "$KIT/tools/vault-mode.py" home --kit "$KIT" --config "$C" 2>/dev/null | tail -n 1)"
+  if [ -n "$VH" ] && [ $DRY = 0 ] && [ "${CLAUDE_KIT_NOLOAD:-0}" != 1 ] && [ -f "$KH/claude-kit/tools/vault-mode.py" ]; then
+    LOADOUT="$(CLAUDE_KIT_HOME="$H" CLAUDE_CONFIG_DIR="$C" "$LPY" -I "$KH/claude-kit/tools/vault-mode.py" load --project "$VH" --quiet $([ "$first_wf" = 0 ] && echo --announce) --config "$C" 2>&1)"
   fi
 fi
-echo "claude-kit: installed $n_new new, updated $n_upd, unchanged $n_same$([ "$n_gone" -gt 0 ] && echo ", removed $n_gone no longer in the kit")$([ "$n_fail" -gt 0 ] && echo ", FAILED $n_fail") (into $C)"
+echo "claude-kit: installed $n_new new, updated $n_upd, unchanged $n_same$([ "$n_gone" -gt 0 ] && echo ", removed $n_gone no longer in the kit")$([ "$n_fail" -gt 0 ] && echo ", FAILED $n_fail") (into $KH)"
 [ -n "$RENAME_MSG" ] && printf '%s\n' "$RENAME_MSG"
 [ -n "$LOADOUT" ] && printf '%s\n' "$LOADOUT"
 # UI mockups default to automatic design-first: ONE non-blocking NOTICE FOR THE USER line per install (marker claude-kit/ui-mockup-notice.done); a fresh install only sets the marker (the setup text asks the question)
@@ -140,17 +156,17 @@ if [ -n "$HOOKS" ]; then
   PY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then PY="$p"; break; fi; done
   if [ -z "$PY" ]; then echo "rbx-low-usage hooks: skipped (no working Python 3)"
   elif [ $DRY = 1 ]; then echo "rbx-low-usage hooks: dry run, settings.json not touched"
-  elif [ ! -f "$C/$SM/.claude/skills/rbx-low-usage/scripts/lum.py" ]; then echo "rbx-low-usage hooks: skipped (skill not installed)"
-  else CLAUDE_CONFIG_DIR="$C" "$PY" -I "$C/$SM/.claude/skills/rbx-low-usage/scripts/lum.py" "$HOOKS" --config "$C"; fi
+  elif [ ! -f "$KH/$SM/.claude/skills/rbx-low-usage/scripts/lum.py" ]; then echo "rbx-low-usage hooks: skipped (skill not installed)"
+  else CLAUDE_CONFIG_DIR="$C" "$PY" -I "$KH/$SM/.claude/skills/rbx-low-usage/scripts/lum.py" "$HOOKS" --config "$C"; fi
   # rbx-mentor suggestion hook (UserPromptSubmit; same opt-in flags, backup first, idempotent)
-  if [ -n "$PY" ] && [ $DRY = 0 ] && [ -f "$C/claude-kit/tools/mentor-hook.py" ]; then CLAUDE_CONFIG_DIR="$C" "$PY" -I "$C/claude-kit/tools/mentor-hook.py" "$HOOKS" --config "$C"; fi
+  if [ -n "$PY" ] && [ $DRY = 0 ] && [ -f "$KH/claude-kit/tools/mentor-hook.py" ]; then CLAUDE_CONFIG_DIR="$C" "$PY" -I "$KH/claude-kit/tools/mentor-hook.py" "$HOOKS" --config "$C"; fi
 fi
 # similar user skills (other names) -> listed; the kit wins at routing time (precedence line in the kit entry points)
 if [ -f "$KIT/tools/similar-skills.py" ]; then for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then "$p" -I "$KIT/tools/similar-skills.py" --kit "$KIT" --config "$C" 2>/dev/null; break; fi; done; fi
 # kit mods (Claude Code plugins: /rbx-subagent-hud agent sidebar, /rbx-graph vault graph link): tools/kit-mods.py, PROJECT scope of the vault folder (see the header). ON BY DEFAULT (opt out: --no-mods).
 # Never fails the install: any problem prints ONE "Mods skipped: <reason>. Run again later: <command>" line. State file claude-kit/state/mods-choice: "on" after a successful install, "off" after --no-mods. Mods installed once and later removed with /plugin are NOT brought back by updates (--with-mods forces).
 # Legacy plugin names (workflow-hud, vault-graph, hud-rbxdev-vault, graph-rbxdev-vault) are uninstalled on every run that can list plugins; user-scope copies of the two mods are migrated to the vault folder.
-SD="$C/claude-kit/state"
+SD="$KH/claude-kit/state"
 INST="$KIT/install.sh"; [ -n "$VH" ] && [ -f "$VH/claude-kit/install.sh" ] && INST="$VH/claude-kit/install.sh"   # a path that survives (the installer may run from a temporary clone of the kit repository)
 MCMD="bash \"$INST\" --with-mods"; MOFF="bash \"$INST\" --no-mods"
 KPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then KPY="$p"; break; fi; done
@@ -178,7 +194,7 @@ fi
 if [ -n "$VH" ]; then VSAY="$VH"; else VSAY="your vault folder (not found on this computer: clone the vault first, see SETUP-FOR-CLAUDE.md, then run this installer again)"; fi
 [ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed. Start a new Claude session in $VSAY to use it. Always available: /rbx-update /rbx-check /rbx-uninstall. Two mods (agent sidebar, graph view) are enabled for the vault folder only; turn them off with /plugin or --no-mods. More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual). Built and maintained by Roman (GitHub: romangigliotti123-arch)"
 CB="$(printf '%s
-' "**HOW TO START USING**" "- Start a new Claude session in $VSAY; that folder has everything loaded." ${ASSETB:+"$ASSETB"} "" "**HOW TO SEE SKILLS AND AGENTS**" "- Type /rbx-list in that session, or / then rbx-. Make your own skill: ask Claude to use /rbx-new-skill." "" "$MB" "" "**HOW TO MAKE A GAME IDEA**" "- /rbx-ideas finds one fresh idea (reply another, build it or plan); /rbx-idea-creator starts from yours." "" "**HOW TO BUILD A GAME**" "- /rbx-workflow builds a game stage by stage; resume with \"I want to work on <game name>\"." "" "**HOW TO UPDATE**" "- Type /rbx-update (works from any session)." "" "**NOT SURE WHICH SKILL?**" "- Just describe what you want; Claude offers the right skill and you reply yes." "" "More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual).")"
+' "**HOW TO START USING**" "- Start a new Claude session in $VSAY; that folder has everything loaded." ${ASSETB:+"$ASSETB"} "" "**HOW TO SEE SKILLS AND AGENTS**" "- Type /rbx-list in that session, or / then rbx-. Make your own skill: ask Claude to use /rbx-new-skill." "" "$MB" "" "**HOW TO MAKE A GAME IDEA**" "- /rbx-ideas finds one fresh idea (reply another, build it or plan); /rbx-idea-creator starts from yours." "" "**HOW TO BUILD A GAME**" "- /rbx-workflow builds a game stage by stage; resume with \"I want to work on <game name>\"." "" "**HOW TO UPDATE**" "- Type /rbx-update (works from any session, even after you move the vault folder)." "" "**NOT SURE WHICH SKILL?**" "- Just describe what you want; Claude offers the right skill and you reply yes." "" "More details: MANUAL-READ.md in the vault folder (or https://vault-hhmi60uo.netlify.app/manual).")"
 CLOSE_BEGIN="=== COPY THIS TO THE USER EXACTLY, AS THE END OF YOUR FINAL MESSAGE (nothing after it; also saved as START-HERE.md in the vault folder) ==="; CLOSE_END="=== END OF THE BLOCK TO COPY ==="
 if [ $DRY = 0 ] && [ -n "$VH" ] && [ -d "$VH" ]; then
   printf '%s\n' "$CB" > "$VH/START-HERE.md" 2>/dev/null

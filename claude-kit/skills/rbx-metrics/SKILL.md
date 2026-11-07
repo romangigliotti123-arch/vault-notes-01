@@ -10,8 +10,8 @@ Two parts: `benchmarks.md` (the table, same folder) and `compare.py` (determinis
 ## Use
 
 - Look up: read `benchmarks.md` (about 15 rows).
-- Compare: `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/vault-mode/.claude/skills/rbx-metrics/compare.py" --d1 8 --d7 1.5 --session 3 --ptr 2.2 --conv 0.8` (keys: d1 d7 d30 session ptr ctr conv arppu join fs5 bounce cpp optin fps). Output: verdict per metric, flag, sources.
-- More detail on one metric: `bash "$HOME/.claude/claude-kit/tools/pyrun" "$HOME/.claude/claude-kit/tools/kbq.py" num "<metric>"`.
+- Compare: `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/vault-mode/.claude/skills/rbx-metrics/compare.py" --d1 8 --d7 1.5 --session 3 --ptr 2.2 --conv 0.8` (keys: d1 d7 d30 session ptr ctr conv arppu join fs5 bounce cpp optin fps). Output: verdict per metric, flag, sources.
+- More detail on one metric: `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/kbq.py" num "<metric>"`.
 
 ## Rules for using the numbers
 

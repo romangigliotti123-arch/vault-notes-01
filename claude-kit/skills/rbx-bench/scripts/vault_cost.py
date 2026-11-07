@@ -2,7 +2,7 @@
 """vault_cost.py: what the vault costs a Claude Code session (stdlib only, no tokenizer library).
 
   python vault_cost.py --kit <kit source dir>                    measure the kit as the vault folder loads it (always-on set read from mode/always-on.txt)
-  python vault_cost.py --config <claude config dir>              measure an INSTALLED kit (<config>/skills = always-on, <config>/claude-kit/vault-mode = the on-demand store)
+  python vault_cost.py --config <claude config dir>              measure an INSTALLED kit (<config>/skills = always-on, .rbx/claude-kit/vault-mode = the on-demand store)
   python vault_cost.py --kit <dir> --install-test                also run the real installer into a temp HOME, time it, and measure what it installed
 Options: --threshold-chars N (flag descriptions longer than N, default 600) --top N (default 10) --cpt F (characters per token, default 4.0)
          --json | --md FILE | --out DIR (writes vault-cost-<date>.json and .md) --history FILE (append one line to a CSV, default <out>/cost-history.csv) --no-history
@@ -168,12 +168,23 @@ def tree_hash(kit):
     return h.hexdigest()[:10]
 
 
+def kit_home(config):
+    """ONE FOLDER: the folder that holds claude-kit/ for this config folder (<vault>/.rbx via the pointer file rbx-dev-vault.path), else the config folder itself (legacy layout)"""
+    try:
+        v = open(os.path.join(config, "rbx-dev-vault.path"), encoding="utf-8").read().splitlines()[0].strip()
+        if v and os.path.isdir(os.path.join(v, ".rbx", "claude-kit")):
+            return os.path.join(v, ".rbx")
+    except (OSError, IndexError):
+        pass
+    return config
+
+
 def vault_version(kit=None, config=None, explicit=None):
     """-> short version string. Order: explicit/env, KIT-VERSION file, git commit of the kit dir (or its repo), installed.tsv hash, tree hash."""
     v = explicit or os.environ.get("VAULT_VERSION")
     if v:
         return v
-    for base in (kit, config and os.path.join(config, "claude-kit")):
+    for base in (kit, config and os.path.join(kit_home(config), "claude-kit")):
         if base and os.path.isfile(os.path.join(base, "KIT-VERSION")):
             t = read_text(os.path.join(base, "KIT-VERSION")).strip().splitlines()
             if t:
@@ -186,7 +197,7 @@ def vault_version(kit=None, config=None, explicit=None):
         except Exception:
             pass
     if config:
-        m = os.path.join(config, "claude-kit", "installed.tsv")
+        m = os.path.join(kit_home(config), "claude-kit", "installed.tsv")
         if os.path.isfile(m):
             return "manifest-" + hashlib.sha256(open(m, "rb").read()).hexdigest()[:10]
     if kit and os.path.isdir(kit):
@@ -232,7 +243,7 @@ def _from_lists(always, store, rules_text, label, cpt, threshold, top):
 
 
 def measure_installed(config, cpt, threshold, top):
-    store = os.path.join(config, "claude-kit", "vault-mode")
+    store = os.path.join(kit_home(config), "claude-kit", "vault-mode")
     ao_names = read_always_on(os.path.join(store, "always-on.txt"))
     # always-on = the kit skills in <config>/skills (the user's own skills are not the vault's cost)
     sk = os.path.join(config, "skills")
@@ -248,8 +259,8 @@ def disk_report(kit=None, config=None):
         b, n = dir_size(kit)
         out["kit_source"] = dict(path=kit, bytes=b, files=n, mb=round(b / 1048576, 2),
                                  by_folder={s: dir_size(os.path.join(kit, s))[0] for s in sorted(os.listdir(kit)) if os.path.isdir(os.path.join(kit, s))})
-    if config and os.path.isdir(os.path.join(config, "claude-kit")):
-        ck = os.path.join(config, "claude-kit")
+    if config and os.path.isdir(os.path.join(kit_home(config), "claude-kit")):
+        ck = os.path.join(kit_home(config), "claude-kit")
         b, n = dir_size(ck, skip=("backup", "roblox-reference"))
         sk_b = 0
         for d in os.listdir(os.path.join(config, "skills")) if os.path.isdir(os.path.join(config, "skills")) else []:

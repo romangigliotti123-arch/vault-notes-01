@@ -19,7 +19,7 @@ Before enabling private servers, before changing their price, and when adding te
 
 ## Procedure
 1. Open the live private-servers and teleport pages (Evidence); copy the current rules (public prerequisite, price-change effect, Roblox Plus rule, teleport guidance) with the date.
-2. `python -I ~/.claude/claude-kit/skillpack/publish/private-server-settings-setter/scripts/server_plan.py --template > release/servers.json`, fill it; read the price from the live dashboard, never invent one. Put the old price in `previous_price_robux` when changing it.
+2. `python -I .rbx/claude-kit/skillpack/publish/private-server-settings-setter/scripts/server_plan.py --template > release/servers.json`, fill it; read the price from the live dashboard, never invent one. Put the old price in `previous_price_robux` when changing it.
 3. Run `python -I .../server_plan.py release/servers.json --scan <project>`. FAIL examples: private servers on a non-public game, paid access together with private servers, a price change without the acknowledgement flag, `SetTeleportData` carrying value-bearing data.
 4. Price change: it cancels all active subscriptions and players get an inbox message, so change it only when necessary, announce first, and set `ack_price_change_cancels_subs` deliberately.
 5. Teleports: server-side `TeleportAsync` only; `ReservedServerId` from `HttpService:GenerateGUID(false)`; wrap in `pcall` with retries (flooded and failure results need different waits per the page); persist money and inventory in DataStores or MemoryStores, never in teleport data (it is client-visible and unencrypted).

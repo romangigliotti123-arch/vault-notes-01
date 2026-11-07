@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """kit-list.py: list everything the kit installed (Skills / Agents / Mods), markdown for chat, one bullet per item. Read-only, stdlib; Windows, macOS, Linux.
-Reads <config>/claude-kit/installed.tsv, the SKILL.md / agent frontmatter descriptions, and mods/.claude-plugin/marketplace.json
+Reads .rbx/claude-kit/installed.tsv, the SKILL.md / agent frontmatter descriptions, and mods/.claude-plugin/marketplace.json
 (installed state of mods from `claude plugin list --json`, else "installed: unknown").
 Usage: kit-list.py [--config DIR] [--mods DIR] [--width N]"""
 import argparse, json, os, re, shutil, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
 
 MARKET = "roblox-vault-kit-mods"
 # Used only when the SKILL.md has no `summary:` and the description is trigger text with no usable first clause.
@@ -68,7 +71,7 @@ def one_line(s, w=90):
 
 def find_mods(arg, config):
     here = os.path.dirname(os.path.abspath(__file__))
-    cands = [arg, os.environ.get("CLAUDES_VAULT") and os.path.join(os.environ["CLAUDES_VAULT"], "claude-kit", "mods"),
+    cands = [arg, kit_paths.find_vault(None, os.path.abspath(__file__)) and os.path.join(kit_paths.find_vault(None, os.path.abspath(__file__)), "claude-kit", "mods"),
              os.path.join(os.path.expanduser("~"), "Obsidian", "claudes-vault", "claude-kit", "mods"),
              os.path.join(here, "..", "mods"), os.path.join(config, "claude-kit", "mods")]
     for c in cands:
@@ -98,7 +101,8 @@ def main():
     ap.add_argument("--config"); ap.add_argument("--mods"); ap.add_argument("--width", type=int, default=110)
     a = ap.parse_args()
     config = a.config or os.environ.get("CLAUDE_CONFIG_DIR") or os.path.join(os.path.expanduser("~"), ".claude")
-    man = os.path.join(config, "claude-kit", "installed.tsv")
+    kh = kit_paths.kit_home(config, os.path.abspath(__file__))      # ONE FOLDER: <vault>/.rbx, else the config folder (legacy)
+    man = os.path.join(kh, "claude-kit", "installed.tsv")
     if not os.path.isfile(man):
         print("rbx-list: no kit manifest at %s (kit not installed here; run /rbx-update)." % man)
         return 1
@@ -110,10 +114,10 @@ def main():
     agents = sorted({r[len(SM + "agents/"):-3] for r in rels if r.startswith(SM + "agents/") and r.endswith(".md")} | {r[len("agents/"):-3] for r in rels if r.startswith("agents/") and r.endswith(".md")})
     def skill_path(s):
         sp = os.path.join(config, "skills", s, "SKILL.md")
-        return sp if os.path.isfile(sp) else os.path.join(config, "claude-kit", "vault-mode", ".claude", "skills", s, "SKILL.md")
+        return sp if os.path.isfile(sp) else os.path.join(kh, "claude-kit", "vault-mode", ".claude", "skills", s, "SKILL.md")
     def agent_path(g):
         ap_ = os.path.join(config, "agents", g + ".md")
-        return ap_ if os.path.isfile(ap_) else os.path.join(config, "claude-kit", "vault-mode", ".claude", "agents", g + ".md")
+        return ap_ if os.path.isfile(ap_) else os.path.join(kh, "claude-kit", "vault-mode", ".claude", "agents", g + ".md")
     w = min(a.width, 90)
     dash = "—"
 
@@ -135,7 +139,7 @@ def main():
     out += ["## Agents in the vault folder (%d)" % len(agents), ""]
     for g in agents:
         out += ["- **%s** %s %s" % (g, dash, one_line(desc(agent_path(g)), W(g)) or "(no description)"), ""]
-    mods = find_mods(a.mods, config)
+    mods = find_mods(a.mods, kh)
     cnt = 0
     lines = []
     if mods:
@@ -151,7 +155,7 @@ def main():
     out += lines or ["- None found (the kit's mods folder is not in the vault clone yet)", ""]
     cold = [r for r in rels if r.startswith("claude-kit/vault-mode/cold/")]
     out += ["## Cold area (%d files in %d topics)" % (len(cold), len({r.split("/")[3] for r in cold})), "", "- Bulk that skills point to ([cold:topic/file]); never copied into folders. `python claude-kit/tools/vault-mode.py cold` lists it.", ""]
-    pack = os.path.join(config, "claude-kit", "skillpack")
+    pack = os.path.join(kh, "claude-kit", "skillpack")
     n = sum(1 for d, _, f in os.walk(pack) if "SKILL.md" in f) if os.path.isdir(pack) else 0
     out += ["## Roblox pack skills (%s)" % (n or "?"), "", "- Run `/rbx list` to browse them, or `/rbx find <words>` to search.", ""]
     print("\n".join(out).rstrip("\n"))

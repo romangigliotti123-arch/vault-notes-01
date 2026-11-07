@@ -24,7 +24,7 @@ Welcome badge, discovery badges, milestone badges, hidden achievements. Not for:
 4. Flush: call `ach:flush(userId, data)` in its own thread right after an unlock, on join (after `resetAttempts`), and on a slow timer; it yields (network). Entries keep a try counter and park after `maxAttempts` until the next session.
 5. Check the badge before awarding if you want a hard guarantee: `BadgeService:UserHasBadgeAsync` (live-check limits) can be wrapped into `award` so a double award is impossible even when the local flag was lost.
 6. Save the unlock before the badge call (the flag is in `data.Achievements`); on `BindToClose` run one last flush with a short time budget.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/achievement-badge-builder/scripts/tests/Achievements.test.luau` (quote the "N passed, 0 failed" line); verify in a published place with a test account that the badge appears (`untested` until then).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/achievement-badge-builder/scripts/tests/Achievements.test.luau` (quote the "N passed, 0 failed" line); verify in a published place with a test account that the badge appears (`untested` until then).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Achievements.luau` and the award wrapper -> `start_stop_play` -> `execute_luau` (Server) to unlock an achievement for the test player with a fake award function that fails twice, then print `data.Achievements` -> `get_console_output` to read the result. Real badge awarding needs a published place and created badges: `untested` until the owner checks the account.
@@ -43,7 +43,7 @@ Files + Lune tests with a failing fake award. Everything that needs a running St
 - [ ] A failing award is retried and never doubled (test 2).
 - [ ] Badge id 0 unlocks with no badge call (test 3); unknown ids unlock nothing (test 4).
 - [ ] Entries park after the attempt limit and resume next session (test 5).
-- [ ] Achievements Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/achievement-badge-builder/scripts/tests/Achievements.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Achievements Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/achievement-badge-builder/scripts/tests/Achievements.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Marking done only after the badge call succeeds (a crash repeats the unlock effects). Calling `AwardBadge` on the main thread without `pcall`. Awarding in `PlayerAdded` before data loads. Trusting a client remote as the trigger. Creating badges the design never pays out.

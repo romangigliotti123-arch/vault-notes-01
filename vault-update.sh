@@ -175,7 +175,7 @@ vault_clean() { # $1=git $2=vault $3=state $4=yes(0|1) $5=include-mine(0|1) ; re
   done <<EOF_PROT
 $PROT
 EOF_PROT
-  EX=(-e /.full-view -e /Assets/ -e '/.obsidian/workspace*')
+  EX=(-e /.full-view -e /Assets/ -e /.rbx/ -e '/.obsidian/workspace*')
   while IFS= read -r d; do
     [ -n "$d" ] || continue
     if [ "$INC" = 1 ] && { [ "$d" = "My Research" ] || [ "${d#My Research/}" != "$d" ]; }; then continue; fi
@@ -191,7 +191,7 @@ EOF_PROT
   vc_show 'Your edits to tracked files that would be reset (saved to a patch first)' "$LOCAL" 30
   vc_show 'Files the update would change/add/remove to match the main vault' "$UP" 30
   vc_show 'Your own untracked files that would be deleted (copied to a backup first)' "$CL" 40
-  echo "Kept untouched: ${KEEP:+$KEEP, }Assets/ (synced separately), .full-view, .obsidian/workspace*"
+  echo "Kept untouched: ${KEEP:+$KEEP, }Assets/ (synced separately), .rbx/ (the installed kit), .full-view, .obsidian/workspace*"
   if [ "$INC" = 1 ]; then
     if [ "$MINE" = 1 ]; then echo "WARNING --include-mine: My Research/ WILL BE DELETED too: $(vc_files "$V/My Research") files, $(( $(vc_kb "$V/My Research") / 1024 )) MB ($(ls -1A "$V/My Research" | tr '\n' ',' | sed 's/,$//; s/,/, /g')). A backup copy is made first; if the backup fails, My Research is kept."
     else echo "WARNING --include-mine: there is no My Research folder, nothing extra to delete."; fi

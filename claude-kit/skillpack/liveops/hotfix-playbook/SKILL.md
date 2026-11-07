@@ -18,7 +18,7 @@ A live bug, exploit, crash spike, data problem or broken event. Not for: planned
 1. What is wrong, since when, and how many players it touches. 2. What changed recently (last publish, config push, event start).
 
 ## Procedure
-1. Triage and name a severity (S1 data loss, exploit or unplayable; S2 major feature or economy harm; S3 annoying). Start the record: `python -I ~/.claude/claude-kit/skillpack/liveops/hotfix-playbook/scripts/hotfix.py new --title "..." --severity S1 > hotfix-<date>-<slug>.md`.
+1. Triage and name a severity (S1 data loss, exploit or unplayable; S2 major feature or economy harm; S3 annoying). Start the record: `python -I .rbx/claude-kit/skillpack/liveops/hotfix-playbook/scripts/hotfix.py new --title "..." --severity S1 > hotfix-<date>-<slug>.md`.
 2. Stop the bleeding first. If a config or flag controls it, flip it (`feature-flag-config-builder`: kill switch; config changes take about 5 minutes). If an event or item is exploited, disable it and, for exploits, stop grants before fixing the cause (`exploit-audit`). If a publish caused a severe regression, roll back (restore the previous version), then profile (Developer Console, Script Profiler, MicroProfiler).
 3. Post a status line within minutes for S1 and S2 (Discord and in-game banner if you have one): what is known, what is being done, when the next update comes. Silence reads as abandonment (vault).
 4. Reproduce and fix with the smallest change that removes the cause. No refactors, no content. Data-affecting fixes need a backup and a note on who gets compensated (decide the rule before announcing; never promise items you cannot grant).

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """idea-brief.py: the shared MARKET BRIEF the idea skills read instead of searching the web every run (stdlib only; run with `py -I` / pyrun).
 
-File: <claude config dir>/claude-kit/state/market-brief.md (path via kit_state.py). Rebuilt only when stale (> 14 days) or on request; how: mode/cold/rbx-ideas/brief-refresh.md.
+File: .rbx/claude-kit/state/market-brief.md (path via kit_state.py). Rebuilt only when stale (> 14 days) or on request; how: mode/cold/rbx-ideas/brief-refresh.md.
 
   idea-brief.py status   fresh (N days old) <path> | stale (N days old, refresh) | missing        (exit 0 always)
   idea-brief.py path     print the file path

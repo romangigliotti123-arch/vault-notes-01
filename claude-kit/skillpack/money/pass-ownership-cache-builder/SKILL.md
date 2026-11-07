@@ -25,7 +25,7 @@ Perks check passes in many scripts, ownership API calls fail or are called too o
 5. Hook the purchase prompt on the server: on `PromptGamePassPurchaseFinished` call `OwnershipCache.onPromptFinished(cache, userId, passId, wasPurchased)`; it discards the cached answer and asks again whatever `wasPurchased` says (the vault and Shop both treat that flag as untrusted).
 6. On player leaving call `OwnershipCache.clearPlayer`. Never persist pass ownership in your DataStore as truth; it is a cache.
 7. Keep clients out: the client may display a locked/unlocked state from a server-sent flag but never decides.
-8. Test: `lune run ../skillpack/money/pass-ownership-cache-builder/scripts/tests/OwnershipCache.test.luau` from `~/.claude/claude-kit/systems`.
+8. Test: `lune run ../skillpack/money/pass-ownership-cache-builder/scripts/tests/OwnershipCache.test.luau` from `.rbx/claude-kit/systems`.
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (add the module, replace call sites) -> `start_stop_play` -> `execute_luau` (Server) to ask the cache twice for a test player (second must say `cached`) -> `get_console_output`. In Studio ownership of real passes depends on the account and the published place: a real purchase stays `untested`.

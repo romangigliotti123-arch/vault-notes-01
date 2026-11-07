@@ -10,7 +10,7 @@ You do not need to remember any of this: type `/rbx-workflow` any time and it wo
 | The game's community (hub `GAME.md`, design, decisions, systems, critic verdicts, playtests, weekly plans) | `Games/<game>/` in your vault. Protected: `/rbx-update` and `/rbx-clean` never overwrite or remove it. It is yours and is never shipped. |
 | The game's code (Rojo project) | `Games/<game>/project/` by default (also protected). Set `ROBLOX_PROJECTS` to keep projects elsewhere; then `GAME.md` records the path in `project:`. Never the vault root and never `~/.claude`. |
 | Things worth reusing in the next game | `Games/_Reusable/<name>/` (code + notes), searched first by `vault-find.py` |
-| Tested drop-in systems from the kit | `~/.claude/claude-kit/systems/` (PlayerData, Shop, DailyRewards, Analytics, Admin), added with `games.py system add` |
+| Tested drop-in systems from the kit | `.rbx/claude-kit/systems/` (PlayerData, Shop, DailyRewards, Analytics, Admin), added with `games.py system add` |
 
 ## Stage 0: first run (onboarding)
 - **You type:** `/rbx-workflow I want to make a cozy cat cafe tycoon where you run a late-night cafe for stray cats, and every cat has a quirky order and a story you unlock by serving it.`

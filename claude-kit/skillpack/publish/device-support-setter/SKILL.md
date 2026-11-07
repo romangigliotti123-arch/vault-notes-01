@@ -19,7 +19,7 @@ Before publish when picking supported devices, when adding gamepad, touch or VR,
 
 ## Procedure
 1. Open the live console guidelines, cross-platform and input pages (Evidence) and copy the current rules (TV safe areas, D-pad navigation, chat on console, input action system) with the date.
-2. Run `python -I ~/.claude/claude-kit/skillpack/publish/device-support-setter/scripts/device_scan.py <project>`. A FAIL is raw keyboard/mouse handling with no touch, no gamepad and no input-action layer.
+2. Run `python -I .rbx/claude-kit/skillpack/publish/device-support-setter/scripts/device_scan.py <project>`. A FAIL is raw keyboard/mouse handling with no touch, no gamepad and no input-action layer.
 3. For each device build a row: can the player start, move, act, buy, open every menu, exit? Evidence is a code lead and a play note. A device you cannot test stays `untested` and is NOT claimed as supported.
 4. Prefer one input layer (Input Action System or `ContextActionService`) over per-device branches; show prompts that match the active input (`InputActionLabel` or the key-glyph APIs per the page).
 5. Console specifics from the page: relative UI sizes, TV-safe areas, every element reachable with D-pad/select/back, few presses per key action, chat window handling.

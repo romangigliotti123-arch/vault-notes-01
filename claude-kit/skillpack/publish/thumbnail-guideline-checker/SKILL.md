@@ -19,7 +19,7 @@ Before uploading an icon or thumbnail, before a major update's new thumbnail set
 
 ## Procedure
 1. Open the live thumbnails and icons pages (Evidence). Write down the current sizes, aspect ratios and content rules with the date.
-2. Thumbnails: `python -I ~/.claude/claude-kit/skillpack/marketing/thumbnail-maker/scripts/image_specs.py thumb1.png thumb2.png --expect <WxH> --aspect <A:B>` with the live numbers (the 2026-10-28 note says 16:9 at 1920x1080).
+2. Thumbnails: `python -I .rbx/claude-kit/skillpack/marketing/thumbnail-maker/scripts/image_specs.py thumb1.png thumb2.png --expect <WxH> --aspect <A:B>` with the live numbers (the 2026-10-28 note says 16:9 at 1920x1080).
 3. Icon: `python -I .../image_specs.py icon.png --aspect 1:1 --min-width <live minimum>` (the note says square, at least 512 px, previewed at about 150 px).
 4. Content rules by eye (from the pages): authentic gameplay in video thumbnails; no misleading visuals, voiceover or promo claims such as "50% off"; essential text off the bottom edge (player-count metadata covers it); nothing ambiguous; no default auto-generated icon; no copied logos or characters.
 5. Count: the page advises activating several thumbnails (2-5 in the note) so personalisation can work; record the planned number in the settings sheet (`experience-settings-configurator`).

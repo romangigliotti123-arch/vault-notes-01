@@ -3,7 +3,7 @@ tags: [moc]
 ---
 # Category: orchestration
 
-36 items. Back: [[_Home]]
+37 items. Back: [[_Home]]
 
 - [a] [[A--own--adversarial-verifier|adversarial-verifier]] - Read-only falsifier: tries to prove a worker's claims false against real state (files, services, tasks, git, r
 - [a] [[A--own--digest-scout|digest-scout]] - Context-isolated read-heavy subagent: gets a narrow brief and a set of files, docs or articles, reads them in 
@@ -38,6 +38,7 @@ tags: [moc]
 - [s] [[S--own--remote-claude-run|remote-claude-run]] - Run a headless Claude Code agent on another machine (Roman's Linux PC) over SSH, detached with a log, and coll
 - [s] [[S--own--report-reading-protocol|report-reading-protocol]] - Use when a worker or remote agent reports back: read order, claim extraction, one-command spot checks by claim
 - [s] [[S--own--sequential-agent-pipeline|sequential-agent-pipeline]] - Runs a multi-stage task as separate small agents or sessions in order (for example research, then draft, then 
+- [s] [[S--own--vault-skill-builder|vault-skill-builder]] - Maintainer recipe (host only, never shipped) for adding ONE new skill to the Roblox Dev Mastery Vault kit: ove
 - [s] [[S--own--worker-brief-template|worker-brief-template]] - Template and rules for writing a self-contained AI-to-AI brief for a worker agent; use before delegating any j
 - [s] [[S--own--worker-report-format|worker-report-format]] - The standard final-report format every worker returns (RESULT/DONE/VERIFIED/PROBLEMS/NEEDS/NEXT/ARTIFACTS) and
 - [s] [[S--own--worker-report-format-v2|worker-report-format-v2]] - Evidence-bound worker report format (RESULT/HEADLINE/CRITERIA/CHANGES/NOT_CHECKED/PROBLEMS/NEEDS_ROMAN/SUGGEST

@@ -5,10 +5,10 @@
 
 What it does
  1. reads <base>/repos.json (groups.refs.shards; the same file assets-sync.py and vault-shards.py read);
- 2. clones/updates every refs shard (shallow, read-only) into ONE folder, default <claude config dir>/claude-kit/roblox-reference/, so every path in INDEX.md exists:
+ 2. clones/updates every refs shard (shallow, read-only) into ONE folder, default <kit home>/claude-kit/roblox-reference/ (<vault>/.rbx, else the claude config dir), so every path in INDEX.md exists:
     shard 01 holds INDEX.md, README.md, NOTICE.md and most of img/; a later shard holds whole img/<game>/ folders (its "mount" list) and is overlaid on the same folder.
     Each shard keeps its git data in <dest>/.refs-git/<name> (work tree = <dest>); only files that shard tracks are written or removed;
- 3. writes <claude config dir>/claude-kit/reference-path.txt (line 1 = absolute path of <dest>), the file the visual-QA and art-direction skills read. An existing pointer that
+ 3. writes .rbx/claude-kit/reference-path.txt (line 1 = absolute path of <dest>), the file the visual-QA and art-direction skills read. An existing pointer that
     leads to another folder holding an INDEX.md (the user's own library) is left alone unless --force-pointer is given.
 <claude config dir> = --config-dir, else $CLAUDE_CONFIG_DIR, else $CLAUDE_KIT_HOME/.claude, else ~/.claude.
 Silent when nothing changed. Silent (exit 0) when repos.json or GitHub is unreachable or lists no refs group: the references are optional. Prints one line when it installed or updated a shard.
@@ -16,6 +16,10 @@ Env CLAUDE_REFS_SKIP=1 does nothing (used by kit-refresh). The images are third-
 Exit code 0 always, except 2 for usage errors.
 """
 import argparse, json, os, re, subprocess, sys, urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+sys.dont_write_bytecode = True      # no __pycache__ inside the vault folder
+import kit_paths  # noqa: E402
 
 # filled in by the site build with the vault-kit raw URL and the website
 DEFAULT_BASES = ["https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main", "https://vault-hhmi60uo.netlify.app"]
@@ -63,13 +67,8 @@ def git(gd, wt, *a):
 
 
 def config_dir(arg):
-    if arg:
-        return os.path.abspath(os.path.expanduser(arg))
-    if os.environ.get("CLAUDE_CONFIG_DIR"):
-        return os.path.abspath(os.path.expanduser(os.environ["CLAUDE_CONFIG_DIR"]))
-    if os.environ.get("CLAUDE_KIT_HOME"):
-        return os.path.join(os.path.abspath(os.path.expanduser(os.environ["CLAUDE_KIT_HOME"])), ".claude")
-    return os.path.join(os.path.expanduser("~"), ".claude")
+    """the folder that holds claude-kit/: <vault>/.rbx (ONE FOLDER) or the Claude config folder (legacy layout)"""
+    return kit_paths.kit_home(arg, os.path.abspath(__file__))
 
 
 def unsafe(m):

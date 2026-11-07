@@ -24,7 +24,7 @@ Luck/XP/coin potions, event boosts, premium timed perks. Not for: permanent perk
 4. Apply where values are computed: `earn = base * boosts:multiplier(data, "coins") * rebirth:multiplier(data)`; write the cross-system combine rule (multiply across systems, add within a group) so nobody invents a new one per feature.
 5. State is `data.Boosts = { [name] = expiresAt }`; `init` drops expired and unknown entries on every call, so removing a boost in an update is safe. Add `data.Boosts` to the PlayerData template.
 6. HUD: send `boosts:active(data)` (name, seconds left, mult) after each change and every 30 s; the client counts down locally and the server stays the authority. Server-wide boosts: a separate table in a MemoryStore/Attribute, not per player.
-7. Run `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/boost-potion-builder/scripts/tests/Boosts.test.luau` (quote the "N passed, 0 failed" line).
+7. Run `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/boost-potion-builder/scripts/tests/Boosts.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Studio MCP path
 `list_roblox_studios` -> `get_studio_state` -> `multi_edit` (or edit the Rojo files) to add `Boosts.luau` and the potion handler -> `start_stop_play` -> `execute_luau` (Server) to grant two boosts to the test player, print `boosts:multiplier` and `boosts:active` -> `get_console_output` to read the result. HUD and potion tools are Studio work: `untested` here.
@@ -43,7 +43,7 @@ Files + Lune tests only. Everything that needs a running Studio session (HUD, re
 - [ ] Re-granting extends up to the max and no further (test 2).
 - [ ] `add` groups respect the cap and `max` groups take the best (test 3).
 - [ ] Saved boosts expire correctly after offline time and unknown names are dropped (test 4).
-- [ ] Boosts Lune tests pass: `cd ~/.claude/claude-kit/systems && lune run ../skillpack/systems/boost-potion-builder/scripts/tests/Boosts.test.luau` (quote the "N passed, 0 failed" line).
+- [ ] Boosts Lune tests pass: `cd .rbx/claude-kit/systems && lune run ../skillpack/systems/boost-potion-builder/scripts/tests/Boosts.test.luau` (quote the "N passed, 0 failed" line).
 
 ## Pitfalls
 Using `os.clock()` for stamps (resets per server). Granting before removing the potion item (duplicate on crash) or the reverse without a transaction (lost potion): do both in one synchronous step and save. Uncapped stacking multiplied across systems. Client-side countdown treated as truth.
