@@ -5,7 +5,7 @@
 #        The companion AI Library Vault (next to this vault, folder ai-library-vault) is updated together with this vault by ai-vault-sync.sh; --no-ai-vault skips it.
 #        bash vault-update.sh --set-view light|full   (switch only, no update, works offline; what /rbx-light-on and /rbx-light-off run)
 #        bash vault-update.sh --clean [--yes] [--include-mine]   (what /rbx-clean runs: exact copy of the main vault; without --yes it only prints the dry run)
-# YOUR DATA IS KEPT: <vault>/My Research/, <vault>/Games/ and <vault>/Models/ (your games, Games/_Reusable and your saved models) and any folder holding PROTECTED-RESEARCH.md are protected (git-excluded, never in a patch, never reset or cleaned). The normal update never deletes untracked files.
+# YOUR DATA IS KEPT: <vault>/My Research/, <vault>/Games/ and <vault>/Models/ (your games, Games/_Reusable and your saved models), <vault>/My-Skills/ and <vault>/My-Agents/ (your own skills and agents) and any folder holding PROTECTED-RESEARCH.md are protected (git-excluded, never in a patch, never reset or cleaned). The normal update never deletes untracked files.
 # Self-healing: the vault clone is READ-ONLY. If local changes or divergence block the fast-forward, the real changes are saved to
 # <state>/local-changes-<timestamp>.patch (state: ~/.local/state/claudes-vault-sync, macOS ~/Library/Application Support/claudes-vault-sync; newest 5 kept)
 # and the vault is reset to origin/main. CRLF-only noise is dropped silently.
@@ -61,19 +61,19 @@ vault_fullview_apply() { # $1 = vault
 # removable), are never in a patch and never touched by reset. Untracked files are never removed by a normal update;
 vault_protected() { # $1=git $2=vault ; prints protected dirs (relative, no trailing slash), 'My Research' first
   local G="$1" V="$2" REG="$2/.git/info/protected-folders.txt" d
-  { echo 'My Research'; echo 'Games'; echo 'Models'   # Games = per-game communities + Games/_Reusable: always protected, never shipped by origin
+  { echo 'My Research'; echo 'Games'; echo 'Models'; echo 'My-Skills'; echo 'My-Agents'   # Games = per-game communities + Games/_Reusable: always protected, never shipped by origin
     [ -f "$REG" ] && cat "$REG"
     "$G" -C "$V" -c core.quotepath=false ls-files -o --exclude-standard -- '*PROTECTED-RESEARCH.md' 2>/dev/null | sed -n 's#^\(.*\)/PROTECTED-RESEARCH\.md$#\1#p'
   } | awk 'NF && !seen[$0]++' | while IFS= read -r d; do
-    case "$d" in "My Research/"*|"Games/"*|"Models/"*) continue;; esac
-    if [ "$d" = "My Research" ] || [ "$d" = "Games" ] || [ "$d" = "Models" ] || [ -f "$V/$d/PROTECTED-RESEARCH.md" ]; then echo "$d"; fi
+    case "$d" in "My Research/"*|"Games/"*|"Models/"*|"My-Skills/"*|"My-Agents/"*) continue;; esac
+    if [ "$d" = "My Research" ] || [ "$d" = "Games" ] || [ "$d" = "Models" ] || [ "$d" = "My-Skills" ] || [ "$d" = "My-Agents" ] || [ -f "$V/$d/PROTECTED-RESEARCH.md" ]; then echo "$d"; fi
   done
 }
 vault_protect() { # $1=git $2=vault ; sets PROT (newline list) and adds /<dir>/ lines to .git/info/exclude (idempotent)
   local V="$2" EX="$2/.git/info/exclude" REG="$2/.git/info/protected-folders.txt" d
   PROT="$(vault_protected "$1" "$2")"
   mkdir -p "$V/.git/info"
-  printf '%s\n' "$PROT" | tail -n +4 > "$REG"; [ -s "$REG" ] || rm -f "$REG"
+  printf '%s\n' "$PROT" | tail -n +6 > "$REG"; [ -s "$REG" ] || rm -f "$REG"
   while IFS= read -r d; do
     [ -n "$d" ] || continue
     grep -qxF "/$d/" "$EX" 2>/dev/null || echo "/$d/" >> "$EX"

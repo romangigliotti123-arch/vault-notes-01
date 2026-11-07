@@ -714,11 +714,17 @@
    "why": "removed: the vault folder is permanently loaded, so there is no load/unload command"
   }
  ],
+ "user_owned": {
+  "prefix": "my-",
+  "folders": ["My-Skills", "My-Agents"],
+  "why": "the user's own skills and agents (rbx-new-skill): My-Skills/<my-name>/SKILL.md and My-Agents/<my-name>.md in the vault folder, git-excluded, copied into <vault>/.claude by vault-mode.py load, never created, changed or removed by install, update, sync or unload; uninstall copies them to the keep folder. The vault prefix (rbx) and this prefix never collide."
+ },
  "kept": [
   "rbx (router skill)",
   "rbx-subagent-hud (mod)",
   "tool files in claude-kit/tools (vault-find.py, kbq.py, ...): namespaced by the claude-kit folder, not slash commands or ~/.claude entries",
   "vault-update.sh/.ps1, win-sync-setup.ps1, mac/linux-sync-setup.sh at the vault root: file names inside the vault folder; the logon task calls vault-update.ps1 by path",
-  "plugin marketplace name roblox-vault-kit-mods"
+  "plugin marketplace name roblox-vault-kit-mods",
+  "my-* skills and agents: the user's own (My-Skills/, My-Agents/), never renamed or removed by the vault"
  ]
 }

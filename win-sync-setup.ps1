@@ -67,7 +67,7 @@ function Add-GitExclude([string]$vault, [string]$line) {
 function Get-ProtectedDirs([string]$git, [string]$vault) {
   $set = New-Object System.Collections.Generic.List[string]
   $set.Add('My Research')
-  $set.Add('Games'); $set.Add('Models')   # per-game communities + Games/_Reusable: always protected
+  $set.Add('Games'); $set.Add('Models'); $set.Add('My-Skills'); $set.Add('My-Agents')   # per-game communities + Games/_Reusable: always protected
   $reg = Join-Path $vault '.git\info\protected-folders.txt'
   $cand = @(); if (Test-Path -LiteralPath $reg) { $cand += @(Get-Content -LiteralPath $reg) }
   foreach ($f in @(& $git -C $vault -c core.quotepath=false ls-files -o --exclude-standard -- '*PROTECTED-RESEARCH.md' 2>$null)) {
@@ -75,9 +75,9 @@ function Get-ProtectedDirs([string]$git, [string]$vault) {
   }
   foreach ($d in $cand) {
     $d = "$d".Trim()
-    if ($d -and $d -ne 'My Research' -and $d -ne 'Games' -and $d -ne 'Models' -and -not $d.StartsWith('Games/') -and -not $d.StartsWith('Models/') -and -not $d.StartsWith('My Research/') -and -not $set.Contains($d) -and (Test-Path -LiteralPath (Join-Path $vault ($d + '/PROTECTED-RESEARCH.md')))) { $set.Add($d) }
+    if ($d -and $d -ne 'My Research' -and $d -ne 'Games' -and $d -ne 'Models' -and $d -ne 'My-Skills' -and $d -ne 'My-Agents' -and -not $d.StartsWith('Games/') -and -not $d.StartsWith('Models/') -and -not $d.StartsWith('My-Skills/') -and -not $d.StartsWith('My-Agents/') -and -not $d.StartsWith('My Research/') -and -not $set.Contains($d) -and (Test-Path -LiteralPath (Join-Path $vault ($d + '/PROTECTED-RESEARCH.md')))) { $set.Add($d) }
   }
-  try { if ($set.Count -gt 3) { Set-Content -LiteralPath $reg -Value @($set | Select-Object -Skip 3) -Encoding UTF8 } elseif (Test-Path -LiteralPath $reg) { Remove-Item -LiteralPath $reg -Force } } catch { }
+  try { if ($set.Count -gt 5) { Set-Content -LiteralPath $reg -Value @($set | Select-Object -Skip 5) -Encoding UTF8 } elseif (Test-Path -LiteralPath $reg) { Remove-Item -LiteralPath $reg -Force } } catch { }
   return @($set)
 }
 function Protect-Vault([string]$git, [string]$vault) {
@@ -95,7 +95,7 @@ function Heal-Vault {
   param([string]$git, [string]$vault, [string]$state)
   $ErrorActionPreference = 'Continue'
   $marker = Join-Path $vault '.full-view'
-  $msg = $null; $prot = @('My Research', 'Games', 'Models')
+  $msg = $null; $prot = @('My Research', 'Games', 'Models', 'My-Skills', 'My-Agents')
   try {
     & $git -C $vault config core.autocrlf false 2>$null | Out-Null
     & $git -C $vault config core.safecrlf false 2>$null | Out-Null

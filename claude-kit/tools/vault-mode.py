@@ -8,7 +8,7 @@ Only the names in <config>/claude-kit/vault-mode/always-on.txt (rbx-update, rbx-
 
   home   [--kit DIR]                               print the vault folder this machine uses (the clone that holds the installing claude-kit folder, env CLAUDES_VAULT, the registered one, ~/Obsidian/claudes-vault); empty when none
   load   --project VAULT [--quiet] [--announce]    (installer / updater) copy the store's skills/agents + the rules block into VAULT/.claude (overwritten: the vault owns them), list them in VAULT/.claude/vault-mode.json,
-                                                   hide them AND Games/ + Models/ from git (.git/info/exclude), register VAULT as the home, then remove the vault copies of every older loaded project folder (Games/ and Models/ there are left in place)
+                                                   hide them AND Games/ + Models/ + My-Skills/ + My-Agents/ from git (.git/info/exclude), register VAULT as the home, copy the USER's own My-Skills/<my-name>/ and My-Agents/<my-name>.md into VAULT/.claude (the sources are never touched or removed), then remove the vault copies of every older loaded project folder (Games/ and Models/ there are left in place)
   unload [--project DIR | --all]                   remove exactly what load added (migration / uninstall)
   status [--project DIR]                           is DIR the loaded vault folder, where the vault is, store/migration summary
   sync   [--quiet]                                 refresh the registered vault folder (same as load --quiet) after an update
@@ -113,6 +113,8 @@ def store_items(p):
     return items
 
 
+USER_RX = re.compile(r"my-[a-z0-9]+(?:-[a-z0-9]+)*")      # the name rule of the user's own skills/agents (rbx-new-skill): starts with my-, lowercase, digits, hyphens
+USER_DIRS = (("My-Skills", "skills"), ("My-Agents", "agents"))      # user-owned folders in the vault folder: the vault never writes, changes or deletes anything in them
 KEY_RX = re.compile(r"skills/[A-Za-z0-9][A-Za-z0-9._-]*|agents/[A-Za-z0-9][A-Za-z0-9._-]*\.md")
 
 
@@ -131,6 +133,13 @@ def clean_marker(m):
             continue
         items[k] = {"files": {r: h for r, h in files.items() if rel_ok(r) and isinstance(h, str)}}
     m["items"] = items
+    uitems = {}
+    for k, rec in (m.get("user_items") if isinstance(m.get("user_items"), dict) else {}).items():
+        files = rec.get("files") if isinstance(rec, dict) else None
+        if not isinstance(k, str) or not KEY_RX.fullmatch(k) or not USER_RX.fullmatch(k.split("/", 1)[1].rsplit(".md", 1)[0]) or not isinstance(files, dict):
+            continue
+        uitems[k] = {"files": {r: h for r, h in files.items() if rel_ok(r) and isinstance(h, str)}}
+    m["user_items"] = uitems
     if m.get("rules_file") not in ("created", "user"):
         m.pop("rules_file", None)
     if m.get("rules_pre") not in ("", "\n", "\n\n"):
@@ -327,13 +336,13 @@ def rules_remove(proj, marker):
 
 
 def excl_keys(marker):
-    ks = list(marker["items"].keys())
+    ks = list(marker["items"].keys()) + list((marker.get("user_items") or {}).keys())
     if marker.get("rules_file") == "created" or marker.get("home"):
         ks.append("CLAUDE.md")
     return ks
 
 
-HOME_EXTRA = ("Games/", "Models/", "START-HERE.md", ".claude/settings.json")
+HOME_EXTRA = ("Games/", "Models/", "My-Skills/", "My-Agents/", "START-HERE.md", ".claude/settings.json")
 
 
 def exclude_strip(t):
@@ -538,6 +547,76 @@ def link(proj, p, force=False):
     jwrite(mpath, marker)
     return marker, notes, changed
 
+def user_items(proj):
+    """{key: (src, {rel: sha})} for the user's own items: My-Skills/<my-name>/ (a folder with SKILL.md) and My-Agents/<my-name>.md. Only well-formed my- names, no symlinks. Read only."""
+    items = {}
+    sd = os.path.join(proj, "My-Skills")
+    if os.path.isdir(sd) and not os.path.islink(sd):
+        for n in sorted(os.listdir(sd)):
+            d = os.path.join(sd, n)
+            if USER_RX.fullmatch(n) and os.path.isdir(d) and not os.path.islink(d) and os.path.isfile(os.path.join(d, "SKILL.md")):
+                items["skills/" + n] = (d, dict((r, h) for r, h in tree(d).items() if not r.startswith(".edited-in-claude/")))
+    ad = os.path.join(proj, "My-Agents")
+    if os.path.isdir(ad) and not os.path.islink(ad):
+        for f in sorted(os.listdir(ad)):
+            fp = os.path.join(ad, f)
+            if f.endswith(".md") and USER_RX.fullmatch(f[:-3]) and os.path.isfile(fp) and not os.path.islink(fp):
+                items["agents/" + f] = (fp, {f: sha(fp)})
+    return items
+
+
+def user_link(proj, marker):
+    """copy the user's items into proj/.claude (marker["user_items"] lists the copies). The sources in My-Skills/ and My-Agents/ are only ever read. A copy that was edited inside .claude is first saved
+    next to its source (.edited-in-claude/) before it is replaced; a copy whose source is gone is removed (it is only a copy). Returns (changed, notes)."""
+    src_items = user_items(proj)
+    mine_all = marker.setdefault("user_items", {})
+    notes, changed = [], False
+    for key, (src, files) in src_items.items():
+        if key in marker.get("items", {}):
+            notes.append("skipped %s: that name belongs to the vault" % key)
+            continue
+        dst = dest_of(proj, key)
+        mine = mine_all.get(key)
+        if not mine and os.path.exists(dst):
+            notes.append("skipped %s: %s already exists and is not a copy of your My-Skills/My-Agents item (left untouched)" % (key, dst))
+            continue
+        rec = dict((mine or {}).get("files", {}))
+        newrec = {}
+        for rel, h in files.items():
+            fd = file_dest(proj, key, rel)
+            if not owned(proj, fd) and os.path.lexists(fd):
+                continue
+            cur = sha(fd) if os.path.isfile(fd) else None
+            if cur == h:
+                newrec[rel] = h
+                continue
+            if cur is not None and cur != rec.get(rel):         # edited inside .claude: keep that version next to the source before replacing it
+                bak = os.path.join(os.path.dirname(src) if key.startswith("agents/") else src, ".edited-in-claude", *rel.split("/"))
+                os.makedirs(os.path.dirname(bak), exist_ok=True)
+                shutil.copyfile(fd, bak)
+                notes.append("%s was edited inside .claude: your edited copy is saved at %s (edit the file in %s instead)" % (key, bak, os.path.dirname(src) if key.startswith("agents/") else src))
+            os.makedirs(os.path.dirname(fd), exist_ok=True)
+            put_file(file_src(src, key, rel), fd)
+            newrec[rel] = h
+            changed = True
+        for rel in rec:
+            if rel not in files:
+                fd = file_dest(proj, key, rel)
+                if os.path.isfile(fd) and owned(proj, fd):
+                    os.remove(fd)
+                    rmdirs_up(fd, os.path.join(proj, ".claude", key.split("/")[0]))
+                    changed = True
+        mine_all[key] = {"files": newrec}
+    for key in [k for k in mine_all if k not in src_items]:     # the source is gone: remove only the copy
+        for rel, h in mine_all[key]["files"].items():
+            fd = file_dest(proj, key, rel)
+            if os.path.isfile(fd) and owned(proj, fd) and sha(fd) == h:
+                os.remove(fd)
+                rmdirs_up(fd, os.path.join(proj, ".claude", key.split("/")[0]))
+        del mine_all[key]
+        changed = True
+    return changed, notes
+
 
 def registry_set(p, proj, marker):
     reg = jread(p["reg"], {"projects": {}})
@@ -635,14 +714,20 @@ def cmd_load(a):
     first = not os.path.isfile(os.path.join(proj, ".claude", "vault-mode.json"))
     marker, notes, changed = link(proj, p, force=True)
     marker["home"] = True
+    ucopy, unotes = user_link(proj, marker)         # the user's own My-Skills/ and My-Agents/ (sources are only read)
     rules_write(proj, p, marker)
     jwrite(os.path.join(proj, ".claude", "vault-mode.json"), marker)
     hidden = exclude_write(proj, excl_keys(marker), HOME_EXTRA)
     registry_set(p, proj, marker)
     n_old = retire_old(p, proj)
     s, g = counts(marker["items"])
+    us, ug = counts(marker.get("user_items", {}))
+    for n in unotes:
+        print("  " + n)
     if not q:
-        print("Vault folder loaded: %s (%d skills, %d agents, vault rules in .claude/CLAUDE.md, %s)" % (proj, s, g, "hidden from git, with your Games/ and Models/" if hidden else "not a git repository, nothing to hide"))
+        print("Vault folder loaded: %s (%d skills, %d agents, vault rules in .claude/CLAUDE.md, %s)" % (proj, s, g, "hidden from git, with your Games/, Models/, My-Skills/ and My-Agents/" if hidden else "not a git repository, nothing to hide"))
+        if us or ug:
+            print("  Your own: %d skill%s from My-Skills/, %d agent%s from My-Agents/ (copied into .claude; the folders are yours and are never changed by the vault)" % (us, "s"[:us != 1], ug, "s"[:ug != 1]))
         print("  " + games_line(proj, p))
         print("  " + models_line(proj, p))
     if n_old:
@@ -682,9 +767,18 @@ def unload_one(p, proj, say):
             else:
                 os.remove(fd)
                 removed += 1
+    for key, rec in marker.get("user_items", {}).items():      # only the copies in .claude; My-Skills/ and My-Agents/ are never touched. A copy edited inside .claude stays.
+        for rel, h in (rec.get("files") or {}).items():
+            fd = file_dest(proj, key, rel)
+            if os.path.isfile(fd) and owned(proj, fd) and sha(fd) == h:
+                os.remove(fd)
+                removed += 1
+            elif os.path.isfile(fd):
+                kept += 1
+                say("  kept %s (you changed it, or it is outside the folder's .claude folder)" % fd)
     rules_remove(proj, marker)
     os.remove(mpath)
-    for key in marker.get("items", {}):
+    for key in list(marker.get("items", {})) + list(marker.get("user_items", {})):
         d = dest_of(proj, key)
         if key.startswith("skills/") and not prune_empty(d) and not has_files(d):
             left.append(d)
@@ -726,7 +820,7 @@ def cmd_unload(a):
             continue
         if r[2]:
             print("  (empty folders could not be deleted while Claude is running; they are removed by the next /rbx-update after you quit)")
-        print("Vault copies removed from %s: %d file(s)%s. Games/ and Models/ were not touched." % (proj, r[0], (", left %d outside the folder's .claude folder" % r[1]) if r[1] else ""))
+        print("Vault copies removed from %s: %d file(s)%s. Games/, Models/, My-Skills/ and My-Agents/ were not touched." % (proj, r[0], (", left %d outside the folder's .claude folder" % r[1]) if r[1] else ""))
     return 0
 
 

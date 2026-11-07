@@ -1,6 +1,6 @@
 ---
 name: rbx-uninstall
-description: "Remove the whole Roblox Dev Mastery Vault kit from this computer, keeping only the user's games (Games/ incl. _Reusable, plus My Research). Dry-run first; nothing is deleted until the user says yes. Use for /rbx-uninstall, uninstall the vault, remove the kit."
+description: "Remove the whole Roblox Dev Mastery Vault kit from this computer, keeping only the user's games (Games/ incl. _Reusable, plus My Research, Models/, My-Skills/ and My-Agents/). Dry-run first; nothing is deleted until the user says yes. Use for /rbx-uninstall, uninstall the vault, remove the kit."
 disable-model-invocation: true
 ---
 

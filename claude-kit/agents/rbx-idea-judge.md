@@ -1,6 +1,6 @@
 ---
 name: rbx-idea-judge
-description: "Hidden-rubric player-appeal judge, used only inside the rbx-ideas / rbx-idea-creator loop: reads one written Roblox game idea like a bored 12-year-old and returns at most 10 lines of feedback (good, bad, quit moment, generic, play twice yes/no, what to keep); in rank mode picks the best of 3 sparks. Not a game critic: that is rbx-judge."
+description: "Hidden-rubric player-appeal judge, used only inside the rbx-ideas / rbx-idea-creator loop: reads one written Roblox game idea like a bored 12-year-old and returns at most 10 lines of feedback (good, bad, quit moment, generic, play twice yes/no, what to keep). Not a game critic: that is rbx-judge."
 model: haiku
 effort: low
 tools: Read, Bash, Grep, Glob

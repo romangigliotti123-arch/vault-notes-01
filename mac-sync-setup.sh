@@ -55,19 +55,19 @@ vault_fullview_apply() { # $1 = vault
 # removable), are never in a patch and never touched by reset. Untracked files are never removed by a normal update;
 vault_protected() { # $1=git $2=vault ; prints protected dirs (relative, no trailing slash), 'My Research' first
   local G="$1" V="$2" REG="$2/.git/info/protected-folders.txt" d
-  { echo 'My Research'; echo 'Games'; echo 'Models'
+  { echo 'My Research'; echo 'Games'; echo 'Models'; echo 'My-Skills'; echo 'My-Agents'
     [ -f "$REG" ] && cat "$REG"
     "$G" -C "$V" -c core.quotepath=false ls-files -o --exclude-standard -- '*PROTECTED-RESEARCH.md' 2>/dev/null | sed -n 's#^\(.*\)/PROTECTED-RESEARCH\.md$#\1#p'
   } | awk 'NF && !seen[$0]++' | while IFS= read -r d; do
-    case "$d" in "My Research/"*|"Games/"*|"Models/"*) continue;; esac
-    if [ "$d" = "My Research" ] || [ "$d" = "Games" ] || [ "$d" = "Models" ] || [ -f "$V/$d/PROTECTED-RESEARCH.md" ]; then echo "$d"; fi
+    case "$d" in "My Research/"*|"Games/"*|"Models/"*|"My-Skills/"*|"My-Agents/"*) continue;; esac
+    if [ "$d" = "My Research" ] || [ "$d" = "Games" ] || [ "$d" = "Models" ] || [ "$d" = "My-Skills" ] || [ "$d" = "My-Agents" ] || [ -f "$V/$d/PROTECTED-RESEARCH.md" ]; then echo "$d"; fi
   done
 }
 vault_protect() { # $1=git $2=vault ; sets PROT (newline list) and adds /<dir>/ lines to .git/info/exclude (idempotent)
   local V="$2" EX="$2/.git/info/exclude" REG="$2/.git/info/protected-folders.txt" d
   PROT="$(vault_protected "$1" "$2")"
   mkdir -p "$V/.git/info"
-  printf '%s\n' "$PROT" | tail -n +4 > "$REG"; [ -s "$REG" ] || rm -f "$REG"
+  printf '%s\n' "$PROT" | tail -n +6 > "$REG"; [ -s "$REG" ] || rm -f "$REG"
   while IFS= read -r d; do
     [ -n "$d" ] || continue
     grep -qxF "/$d/" "$EX" 2>/dev/null || echo "/$d/" >> "$EX"

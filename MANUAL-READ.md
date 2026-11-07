@@ -2,7 +2,7 @@
 
 Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
-The short version is in `START-HERE.md`. This is the long one: read only the part you need. Everything below is generated from the real kit (66 skills, 18 agents), so it matches your install.
+The short version is in `START-HERE.md`. This is the long one: read only the part you need. Everything below is generated from the real kit (67 skills, 18 agents), so it matches your install.
 
 | Jump to | |
 |---|---|
@@ -14,7 +14,7 @@ The short version is in `START-HERE.md`. This is the long one: read only the par
 
 ## 1. What the vault is
 
-A folder of Roblox research notes plus a Claude kit. Start a Claude session in the folder and Claude has the notes, 66 skills and 18 agents loaded. It does not ask questions it can answer itself: it writes down its assumptions and carries on.
+A folder of Roblox research notes plus a Claude kit. Start a Claude session in the folder and Claude has the notes, 67 skills and 18 agents loaded. It does not ask questions it can answer itself: it writes down its assumptions and carries on.
 
 ### Where everything lives
 
@@ -24,6 +24,7 @@ A folder of Roblox research notes plus a Claude kit. Start a Claude session in t
 | `<vault>/.claude/` | The skills, agents and rules Claude loads in this folder only | The kit; rewritten on update |
 | `<vault>/Games/<game name>/` | Your games, each with a `README.md` to resume from | You; never touched by an update |
 | `<vault>/Models/` | Reusable 3D models Claude saved for you | You; never touched by an update |
+| `<vault>/My-Skills/` and `<vault>/My-Agents/` | Skills and agents you made with `/rbx-new-skill` (names start with `my-`) | You; never touched by an update |
 | `<vault>/Assets/` | Downloaded Roblox assets (models, textures, audio, code) | Downloaded; hidden from git |
 | `~/.claude/claude-kit` | The kit runtime: tools and update scripts | The kit; refreshed on update |
 | `~/.claude/skills` | Only `/rbx-update`, `/rbx-check`, `/rbx-uninstall` | The kit |
@@ -82,6 +83,7 @@ Type `/rbx-list` to see what is installed, or `/` then `rbx-`.
 | continue a game I started | say `I want to work on <game name>` |
 | make a shop or menu screen | `/rbx-ui` (design first with `/rbx-ui-mockup`) |
 | click through a mockup before building | `/rbx-ui-prototype` |
+| make my own skill or agent | `/rbx-new-skill` |
 | check my scripts | `/rbx-code-rate`, `/rbx-remote-sec`, `/rbx-datastore` |
 | set up prices and passes | `/rbx-monetize`, then `/rbx-monetize-audit` |
 | make a thumbnail | `/rbx-thumbnail` |
@@ -94,7 +96,7 @@ Not sure? Just describe the task in plain words ("I want to make a shop screen")
 
 ## 5. Every skill and agent
 
-66 skills, grouped. Always available everywhere: `/rbx-update`, `/rbx-check`, `/rbx-uninstall`. The rest work in a session started in the vault folder.
+67 skills, grouped. Always available everywhere: `/rbx-update`, `/rbx-check`, `/rbx-uninstall`. The rest work in a session started in the vault folder.
 
 ### Ideas
 
@@ -201,6 +203,7 @@ Look things up, get a co-pilot, manage Claude.
 | `/rbx-mentor` | Start the vault mentor: a co-pilot with the combined knowledge of every creator in both vaults |
 | `/rbx-manager` | Turns this session into a manager that delegates: sizes the job, picks model and effort. |
 | `/rbx-low-usage` | Keep Claude in low usage mode for this session and every later one until turned off. |
+| `/rbx-new-skill` | Make your own skill or agent for this vault folder: asks the goal in one line. |
 
 ### Vault care
 
@@ -243,6 +246,10 @@ Claude hands work to these specialists by itself; you rarely call them. Ask for 
 | `rbx-selfbuilder` | Builds a playable single-file HTML game from one description. |
 | `rbx-tester` | Runs a structured Roblox playtest on this computer, finds bugs. |
 | `rbx-verifier` | Verifier subagent for research and reverse-engineering findings. |
+
+### Your own skills and agents
+
+`/rbx-new-skill` makes a skill or an agent that is yours: say `make my own skill` and give the goal in one line. Claude checks that no vault skill already does it, writes `My-Skills/my-<name>/SKILL.md` (or `My-Agents/my-<name>.md`), checks it, shows how many tokens it adds to every session (the whole vault session limit is 10,000) and tries three prompts that should use it and two that should not. Your files stay in the vault folder, are hidden from git like `Games/`, and are copied into `.claude` so sessions in the vault see them; updates and uninstall never delete them (uninstall copies them to the keep folder). It never edits the vault's own skills.
 
 ## 6. The idea flow
 
@@ -290,13 +297,13 @@ By default Claude designs every button and screen before building UI (`/rbx-ui-m
 
 ## 10. Uninstall
 
-`/rbx-uninstall` shows a plan first and deletes nothing until you say yes. It copies your `Games/` (and `My Research`) to a safe folder and checks the copy byte for byte, removes the kit, hooks, scheduled job and the vault folder, and removes itself last. Not touched: other skills and agents, credentials, other settings, MCP servers. To reinstall, repeat the install prompt.
+`/rbx-uninstall` shows a plan first and deletes nothing until you say yes. It copies your `Games/` (and `My Research`, `Models/`, `My-Skills/` and `My-Agents/`) to a safe folder and checks the copy byte for byte, removes the kit, hooks, scheduled job and the vault folder, and removes itself last. Not touched: other skills and agents, credentials, other settings, MCP servers. To reinstall, repeat the install prompt.
 
 ### Safety and privacy
 
 - The install writes only the places in the table in section 2. It stores no secrets and asks for none (image generation uses your own key if you add one).
 - The mods' hooks run only in the vault folder.
-- Updates never edit your `Games/` or `Models/`. Nothing is sent anywhere except git and asset downloads from public GitHub.
+- Updates never edit your `Games/`, `Models/`, `My-Skills/` or `My-Agents/`. Nothing is sent anywhere except git and asset downloads from public GitHub.
 - Notes were gathered by AI from public sources; check numbers against the linked source before relying on them.
 
 ### FAQ

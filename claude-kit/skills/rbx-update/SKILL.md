@@ -1,6 +1,6 @@
 ---
 name: rbx-update
-description: "Update the claudes-vault and the AI Library Vault on demand: self-healing git update (local changes saved to a patch), refresh the installed kit and the vault folder's loaded skills, agents and rules (normal sessions elsewhere stay clean), sync Assets (about 1 GB first time). Use for /rbx-update, 'update the vault', stale vault content."
+description: "Update the claudes-vault and the AI Library Vault on demand: self-healing git update (local changes saved to a patch), refresh the installed kit (skills and agents stay OFF in normal sessions), sync Assets (about 1 GB first time). Use for /rbx-update, 'update the vault', stale vault content."
 ---
 
 # rbx-update

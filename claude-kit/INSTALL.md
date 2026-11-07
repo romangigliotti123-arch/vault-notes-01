@@ -8,7 +8,7 @@ AI READER: this is an instruction to EXECUTE, not a document to summarise. Do ev
 - Start a new Claude session in your vault folder (for example `~/Obsidian/claudes-vault`); that folder has everything loaded.
 
 **HOW TO SEE SKILLS AND AGENTS**
-- Type `/rbx-list` in that session, or `/` then `rbx-`.
+- Type `/rbx-list` in that session, or `/` then `rbx-`. Make your own skill: ask Claude to use `/rbx-new-skill`.
 
 **THE TWO MODS (ALREADY INSTALLED)**
 - Type `/reload-plugins` once; they run in the vault folder only. Remove: `/plugin`, or the installer's `--no-mods`.
@@ -61,8 +61,8 @@ The sync scripts (`win-sync-setup.ps1`, `mac-sync-setup.sh`, `linux-sync-setup.s
 Your own work is safe: `My Research/` (default output folder of the research skill), any folder containing `PROTECTED-RESEARCH.md` and every untracked file you created are never deleted by `/rbx-update` (git-excluded); only edits to tracked (generated) files are patched and reset. `My Research` is a reserved name: the main vault never ships files there. Two commands: `/rbx-update` (overwrites the vault's own files; your `My Research/` and project `Games/` and `Models/` are kept) and `/rbx-clean` (exact copy of the main vault, still keeps My Research; prints a dry run, asks once, backs up what it removes). One-liners: `vault-update.ps1 -Clean [-Yes] [-IncludeMine]` / `bash vault-update.sh --clean [--yes] [--include-mine]` (`-IncludeMine` also deletes My Research, only when you type it).
 
 ## Updates and your changes (the contract)
-- The vault owns every file it installs: an update overwrites each one with the new version (no keep files, no conflicts, no notices) and removes files that left the vault. What is yours: the `Games/` and `Models/` folders of your project and anything outside the vault's own paths; install, update, load, unload and sync never touch them. Only tiny settings (the `/rbx-mockup` choice) live in `~/.claude/claude-kit/state/` and are never deleted. Old leftovers there from earlier versions (learnings-queue, hiccups, conflicts, overrides, thumbnails) are ignored; delete them by hand if you like.
-- Your own skills and agents in `~/.claude/skills/` and `~/.claude/agents/` (names the vault did not install) are never touched; the copies in the vault folder's `.claude/` are vault-owned and are overwritten by every update; `Games/` and `Models/` (git-excluded) are not.
+- The vault owns every file it installs: an update overwrites each one with the new version (no keep files, no conflicts, no notices) and removes files that left the vault. What is yours: the `Games/`, `Models/`, `My-Skills/` and `My-Agents/` folders of your project and anything outside the vault's own paths; install, update, load, unload and sync never touch them. Only tiny settings (the `/rbx-mockup` choice) live in `~/.claude/claude-kit/state/` and are never deleted. Old leftovers there from earlier versions (learnings-queue, hiccups, conflicts, overrides, thumbnails) are ignored; delete them by hand if you like.
+- Your own skills and agents in `~/.claude/skills/` and `~/.claude/agents/` (names the vault did not install) are never touched; the copies in the vault folder's `.claude/` are vault-owned and are overwritten by every update; `Games/`, `Models/`, `My-Skills/` and `My-Agents/` (git-excluded) are not.
 - The first update from an older kit overwrites everything the vault owns once; nothing of yours is lost because nothing of yours was ever in the vault's paths.
 
 ## Check commands

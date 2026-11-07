@@ -295,6 +295,10 @@ def plan(a, home, config, vault, keep_final):
         if os.path.isdir(d) and not os.path.islink(d) and n != "Games":
             if n == "My Research" or os.path.isfile(os.path.join(d, "PROTECTED-RESEARCH.md")):
                 research.append(n)
+    for n in ("Models", "My-Skills", "My-Agents"):     # your saved models and your own skills/agents (rbx-new-skill) are yours too: copied and verified like Games/
+        d = os.path.join(vault, n)
+        if os.path.isdir(d) and not os.path.islink(d) and n not in research:
+            research.append(n)
     P["research"] = research
     P["own"] = own_files(vault, research)
     # kit
@@ -376,7 +380,7 @@ def plan(a, home, config, vault, keep_final):
 
 
 def own_files(vault, skip):
-    """files you added or changed in the vault outside Games/, Assets/ and the kept research folders (git: untracked + modified)"""
+    """files you added or changed in the vault outside Games/, Assets/ and the kept folders (research, Models/, My-Skills/, My-Agents/) (git: untracked + modified)"""
     try:
         r = subprocess.run(["git", "-C", vault, "-c", "core.quotepath=false", "ls-files", "-z", "-o", "-m", "--exclude-standard"], capture_output=True, timeout=120)
     except (OSError, subprocess.SubprocessError):
@@ -440,7 +444,7 @@ def print_plan(P, keep_final, keep_note, a, real_run):
         say("  %-28s %-9s %5d files %9s%s" % (g["slug"], g["kind"], g["files"], hsize(g["bytes"]), "  +project/" if g["project_dir"] else ""))
     say("  whole Games/ folder: %d files, %s -> %s" % (P["games_files"], hsize(P["games_bytes"]), os.path.join(keep_final, "Games")))
     for r in P["research"]:
-        say("  also kept (your own notes): %s -> %s" % (r, os.path.join(keep_final, r)))
+        say("  also kept (your own folders and notes): %s -> %s" % (r, os.path.join(keep_final, r)))
     for slug, pp in P["external"]:
         say("  project of %s lives outside the vault, stays IN PLACE (not copied, not touched): %s" % (slug, pp))
     if P["own"]:

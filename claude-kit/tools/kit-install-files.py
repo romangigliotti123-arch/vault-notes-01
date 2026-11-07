@@ -12,7 +12,7 @@ Layout (relative to CONFIGDIR = ~/.claude):
   mode/<r>                      -> claude-kit/vault-mode/<r>   (mode/cold/<topic>/<file> = the cold area: store only, never copied into a project)
   skills/<name>/<r>             -> skills/<name>/<r> when <name> is in --always-on, else claude-kit/vault-mode/.claude/skills/<name>/<r>
 Per file (the vault owns every file it installs): missing -> copy (new); identical -> unchanged; anything else -> overwritten with the incoming version (updated). No keep, no conflicts, no
-backups. A file that left the kit (it is in the old installed.tsv, not in the kit any more) is removed. Anything not in the manifest is never touched (your Games/, Models/, your own
+backups. A file that left the kit (it is in the old installed.tsv, not in the kit any more) is removed. Anything not in the manifest is never touched (your Games/, Models/, My-Skills/, My-Agents/ (they live in the vault folder, outside CONFIGDIR), your own
 skills and agents, claude-kit/state/ settings).
 installed.tsv ("<rel> TAB <sha256>"; an older third column is read and dropped) is written atomically (sorted, unique) unless --dry-run, only to find files that left the kit and to stay idempotent.
 Last stdout line: "RESULT new=N upd=N same=N gone=N fail=N". Exit 0. A write that fails (read-only file ...) is reported as FAILED and counted in fail.
