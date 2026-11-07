@@ -56,9 +56,14 @@ def cfg_dir(a=None):
     return os.path.join(os.path.expanduser("~"), ".claude")
 
 
+_KH = {}
+
+
 def KH(c):
     """the folder that holds claude-kit/ (<vault>/.rbx in the one-folder layout, else the config folder c)"""
-    return kit_paths.kit_home(c, os.path.abspath(__file__))
+    if c not in _KH:      # resolved once per config folder (the lookup stats the file system; it runs in loops over the whole manifest)
+        _KH[c] = kit_paths.kit_home(c, os.path.abspath(__file__))
+    return _KH[c]
 
 
 def at(c, rel):
