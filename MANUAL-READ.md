@@ -35,15 +35,15 @@ Light mode keeps Obsidian fast by hiding the big folders (Library, Imported, Ass
 
 | Part | What it is | Files | Size |
 |---|---|---:|---:|
-| notes | Notes and sources: the sanitised vault (Library, Roblox, Manager, Imported, scripts, the claude-kit/ copy inside the clone) | 8,742 | 87.1 MB |
-| kit | Kit folder: skills, agents, tools, mods, setup runbook (installed to ~/.claude/claude-kit) | 1,099 | 8.1 MB |
+| notes | Notes and sources: the sanitised vault (Library, Roblox, Manager, Imported, scripts, the claude-kit/ copy inside the clone) | 8,745 | 87.2 MB |
+| kit | Kit folder: skills, agents, tools, mods, setup runbook (installed to ~/.claude/claude-kit) | 1,102 | 8.1 MB |
 | refs | Reference images/library: Roblox reference screenshots (installed to ~/.claude/claude-kit/roblox-reference) | 418 | 46.1 MB |
 | assets | Assets: 3D models, textures, HDRIs, audio, code libraries, catalog (extracted into Assets/; zip download 1.02 GB) | 31,615 | 1.42 GB |
 | &nbsp;&nbsp;vault-assets-01 | 2 zip(s): 3d-models.zip 153.0 MB, textures.zip 733.9 MB | 15,655 | 1.18 GB |
 | &nbsp;&nbsp;vault-assets-02 | 4 zip(s): audio.zip 15.1 MB, catalog.zip 76 KB, code.zip 67.8 MB, hdris.zip 47.8 MB | 15,960 | 232.6 MB |
-| **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **41,874** | **1.56 GB** |
+| **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **41,880** | **1.56 GB** |
 
-**Size on your PC after install: 1.74 GB** (notes clone 205.3 MB incl. git data, kit 8.1 MB, reference images 106.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.75 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.21 GB. `Games/` and `Models/` are yours and add on top.
+**Size on your PC after install: 1.74 GB** (notes clone 205.4 MB incl. git data, kit 8.1 MB, reference images 106.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.76 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.21 GB. `Games/` and `Models/` are yours and add on top.
 
 ## 2. Install and update
 
