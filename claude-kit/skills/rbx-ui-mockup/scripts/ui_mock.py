@@ -98,7 +98,7 @@ def instructions(items, refs_by):
         else:
             steps.append("SCREEN %s. Start from the same chat or a new one. %s, and also upload results/style-sheet.png. Open prompts/%s-%s.md, copy the text in the code block, paste, send." % (it["name"], what, it["id"], it["name"]))
             steps.append("Check screen %s against CHECKLIST.md (positions close to the layout reference, no extra elements, empty corners). One redo at most. Download it and save it as results/%s." % (it["name"], it["file"]))
-    steps.append("Tell Claude the images are in results/ (or just continue): Claude picks them up with `ui_mock.py status`, keeps the spec rectangles as the layout truth, takes colours and icon style from the images, and never copies text from an image.")
+    steps.append("Tell Claude the images are in results/ (or just continue): Claude picks them up with `ui_mock.py status`, keeps the spec rectangles as the layout truth, takes colours and icon style from the images, and never copies text from an image. To click through it first, say: prototype this mockup (rbx-ui-prototype makes one HTML page you open in your browser).")
     return "# Manual UI mockups with Nano Banana 2.1 on the Gemini website\n\n" + "\n".join("%d. %s" % (i, s) for i, s in enumerate(steps, 1)) + "\n\nYou can skip all of this at any time: `/rbx-mockup off` returns to the automatic design-first mode. Nothing waits for these images.\n"
 
 
@@ -203,7 +203,7 @@ def status(proj, write=None):
     if waiting:
         print("  next: keep building from the design sheet spec; images are picked up here when they arrive (INSTRUCTIONS.md step list)")
     else:
-        print("  all images received: take colours and icon style from them, keep the spec rectangles, build, then ui_compare.py gate --mode manual")
+        print("  all images received: take colours and icon style from them, keep the spec rectangles, build, then ui_compare.py gate --mode manual (or say: prototype this mockup, for a clickable HTML page first)")
     if write and waiting:
         import ui_compare
         rec = {"gate": "ui-design", "done": False, "reason": "manual mockups pending: %s" % ", ".join(waiting), "mode": "manual", "result": "skipped", "status": "skipped", "advisory": True}

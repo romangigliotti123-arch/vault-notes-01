@@ -1,0 +1,349 @@
+{
+ "game": "candy-quarry",
+ "style": {
+  "palette": {
+   "bg": "#1B2340",
+   "panel": "#2B3A67",
+   "accent": "#FFC83D",
+   "text": "#FFFFFF",
+   "warn": "#E5484D",
+   "ok": "#4DD6A0"
+  },
+  "fonts": {
+   "title": "FredokaOne",
+   "body": "BuilderSansBold"
+  },
+  "corner": 0.18,
+  "stroke": 3,
+  "spacing": [
+   4,
+   8,
+   16,
+   24
+  ]
+ },
+ "frames": [
+  "phone",
+  "desktop"
+ ],
+ "buttons": [
+  {
+   "name": "Primary",
+   "text": "Shop",
+   "fill": "accent",
+   "text_color": "bg",
+   "w": 160,
+   "h": 48
+  },
+  {
+   "name": "Secondary",
+   "text": "Bag",
+   "fill": "panel",
+   "text_color": "text",
+   "w": 160,
+   "h": 48
+  },
+  {
+   "name": "Danger",
+   "text": "Cancel",
+   "fill": "warn",
+   "text_color": "text",
+   "w": 160,
+   "h": 48
+  }
+ ],
+ "screens": [
+  {
+   "name": "Home",
+   "purpose": "tap the candy to earn coins, open shop and bag",
+   "elements": [
+    {
+     "name": "CoinChip",
+     "type": "chip",
+     "rect": [
+      0.713,
+      0.026,
+      0.11,
+      0.078
+     ],
+     "text": "120",
+     "font": "body"
+    },
+    {
+     "name": "GemChip",
+     "type": "chip",
+     "rect": [
+      0.835,
+      0.026,
+      0.109,
+      0.078
+     ],
+     "text": "5",
+     "font": "body"
+    },
+    {
+     "name": "Logo",
+     "type": "label",
+     "rect": [
+      0.275,
+      0.239,
+      0.145,
+      0.155
+     ],
+     "text": "CANDY QUARRY",
+     "font": "title"
+    },
+    {
+     "name": "MineButton",
+     "type": "button",
+     "variant": "Primary",
+     "rect": [
+      0.533,
+      0.164,
+      0.111,
+      0.244
+     ],
+     "text": ""
+    },
+    {
+     "name": "XpBar",
+     "type": "bar",
+     "rect": [
+      0.071,
+      0.53,
+      0.858,
+      0.116
+     ],
+     "value": 0.0
+    },
+    {
+     "name": "GiftButton",
+     "type": "button",
+     "variant": "Secondary",
+     "rect": [
+      0.071,
+      0.672,
+      0.148,
+      0.111
+     ],
+     "text": "Daily gift"
+    },
+    {
+     "name": "SettingsButton",
+     "type": "button",
+     "variant": "Secondary",
+     "rect": [
+      0.878,
+      0.672,
+      0.051,
+      0.111
+     ],
+     "text": ""
+    },
+    {
+     "name": "ShopButton",
+     "type": "button",
+     "variant": "Primary",
+     "rect": [
+      0.071,
+      0.809,
+      0.424,
+      0.111
+     ],
+     "text": "Shop"
+    },
+    {
+     "name": "BagButton",
+     "type": "button",
+     "variant": "Secondary",
+     "rect": [
+      0.505,
+      0.809,
+      0.424,
+      0.111
+     ],
+     "text": "Bag"
+    }
+   ]
+  },
+  {
+   "name": "Shop",
+   "purpose": "buy picks, boosts and gems with tabs",
+   "elements": [
+    {
+     "name": "BackButton",
+     "type": "button",
+     "variant": "Secondary",
+     "rect": [
+      0.071,
+      0.026,
+      0.051,
+      0.111
+     ],
+     "text": ""
+    },
+    {
+     "name": "Title",
+     "type": "label",
+     "rect": [
+      0.133,
+      0.043,
+      0.12,
+      0.078
+     ],
+     "text": "Shop",
+     "font": "title"
+    },
+    {
+     "name": "CoinChip",
+     "type": "chip",
+     "rect": [
+      0.713,
+      0.043,
+      0.11,
+      0.078
+     ],
+     "text": "120",
+     "font": "body"
+    },
+    {
+     "name": "GemChip",
+     "type": "chip",
+     "rect": [
+      0.835,
+      0.043,
+      0.109,
+      0.078
+     ],
+     "text": "5",
+     "font": "body"
+    },
+    {
+     "name": "TabPicks",
+     "type": "button",
+     "variant": "Primary",
+     "rect": [
+      0.071,
+      0.163,
+      0.281,
+      0.104
+     ],
+     "text": "Picks"
+    },
+    {
+     "name": "TabBoosts",
+     "type": "button",
+     "variant": "Secondary",
+     "rect": [
+      0.359,
+      0.163,
+      0.281,
+      0.104
+     ],
+     "text": "Boosts"
+    },
+    {
+     "name": "TabGems",
+     "type": "button",
+     "variant": "Secondary",
+     "rect": [
+      0.648,
+      0.163,
+      0.281,
+      0.104
+     ],
+     "text": "Gems"
+    },
+    {
+     "name": "ItemGrid",
+     "type": "grid",
+     "rect": [
+      0.073,
+      0.3,
+      0.854,
+      0.565
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Bag",
+   "purpose": "see owned items, equip and unequip",
+   "elements": [
+    {
+     "name": "BackButton",
+     "type": "button",
+     "variant": "Secondary",
+     "rect": [
+      0.071,
+      0.026,
+      0.051,
+      0.111
+     ],
+     "text": ""
+    },
+    {
+     "name": "Title",
+     "type": "label",
+     "rect": [
+      0.133,
+      0.043,
+      0.12,
+      0.078
+     ],
+     "text": "Bag",
+     "font": "title"
+    },
+    {
+     "name": "SlotGrid",
+     "type": "grid",
+     "rect": [
+      0.071,
+      0.163,
+      0.409,
+      0.758
+     ]
+    },
+    {
+     "name": "DetailPanel",
+     "type": "panel",
+     "rect": [
+      0.492,
+      0.163,
+      0.437,
+      0.758
+     ]
+    },
+    {
+     "name": "EquipButton",
+     "type": "button",
+     "variant": "Secondary",
+     "rect": [
+      0.506,
+      0.526,
+      0.409,
+      0.111
+     ],
+     "text": "Equip"
+    }
+   ]
+  }
+ ],
+ "prototype": {
+  "source": "written brief (no image was read)",
+  "rect_source": "getBoundingClientRect in headless Chrome at the phone-landscape device (844x390, the ui_design 'phone' frame); GemChip x derived from CoinChip width plus gap; desktop frame not measured",
+  "html": "index.html",
+  "press": {
+   "down_s": 0.08,
+   "down_scale": 0.92,
+   "release_s": 0.15,
+   "release_overshoot": 1.08
+  },
+  "placeholder_art": "emoji in item art, CSS shapes for coin and gem",
+  "not_buildable": [
+   "conic-gradient cooldown ring",
+   "text-shadow on logo",
+   "emoji art"
+  ]
+ }
+}

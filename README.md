@@ -48,7 +48,7 @@ Light mode (the default) hides the big supporting folders (`Library/`, `Imported
 3. It rates the idea 1.00-10.00 on 12 weighted criteria and checks what is hot now.
 4. It plans the build with agents, models and a budget (`game-plan.md`).
 5. It asks one question, "Ready to build?". On yes, a head manager runs the Roblox agents, builds a Rojo/Luau project, checks it and ends with a playtest report.
-6. Side skills work alone at any point: `/rbx-ads`, `/rbx-game-update`, `/rbx-playtest`, `/rbx-thumbnail`, `/rbx-rate`, `/rbx-plan`, `/rbx-art`, `/rbx-visual` (the visual gate), plus `/rbx-research`, `/rbx-manager` and the vault commands `/rbx-update`, `/rbx-clean`, `/rbx-light-on`, `/rbx-light-off`.
+6. Side skills work alone at any point: `/rbx-ads`, `/rbx-game-update`, `/rbx-playtest`, `/rbx-thumbnail`, `/rbx-rate`, `/rbx-plan`, `/rbx-art`, `/rbx-visual` (the visual gate), `/rbx-ui-prototype` (a clickable HTML page from a UI mockup image), plus `/rbx-research`, `/rbx-manager` and the vault commands `/rbx-update`, `/rbx-clean`, `/rbx-light-on`, `/rbx-light-off`.
 
 Limits: it does not publish to Roblox or spend Robux; Studio playtests run only when the Roblox Studio MCP is connected, otherwise results are files marked untested. The notes are AI-compiled research from public sources: check numbers against the linked sources.
 

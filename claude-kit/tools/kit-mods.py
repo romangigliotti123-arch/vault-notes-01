@@ -26,6 +26,25 @@ def norm(p):
         return os.path.normcase(p or "")
 
 
+def hide_settings(vault):
+    """keep <vault>/.claude/settings.json (enabledPlugins of the mods) out of `git status` of the vault clone (also done by vault-mode.py load; this covers callers that install first)"""
+    try:
+        r = subprocess.run(["git", "-C", vault, "rev-parse", "--git-path", "info/exclude"], capture_output=True, text=True, timeout=30)
+        if r.returncode != 0 or not r.stdout.strip():
+            return
+        ex = r.stdout.strip().splitlines()[0]
+        if not os.path.isabs(ex):
+            ex = os.path.join(vault, ex)
+        cur = open(ex, encoding="utf-8", errors="replace").read() if os.path.exists(ex) else ""
+        if "/.claude/settings.json" in cur.splitlines():
+            return
+        os.makedirs(os.path.dirname(ex), exist_ok=True)
+        with open(ex, "a", encoding="utf-8", newline="\n") as f:
+            f.write(("" if cur.endswith("\n") or not cur else "\n") + "/.claude/settings.json\n")
+    except (OSError, subprocess.SubprocessError):
+        pass
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--kit", required=True)
@@ -96,8 +115,6 @@ def main():
             if not modes_on:
                 mset("off")
                 why = "--no-mods was used"
-        elif not vault and modes_on:
-            state, why = "skipped", "the vault folder was not found on this computer (the mods are installed into it)"
         else:
             es, out = entries()
             if es is None:
@@ -111,9 +128,9 @@ def main():
                     return e.get("scope") == "project" and vault and norm(str(e.get("projectPath", ""))) == norm(vault)
 
                 def uninstall(e):
-                    scope = e.get("scope") or "user"
+                    scope = e.get("scope")
                     cwd = e.get("projectPath") if scope in ("project", "local") and os.path.isdir(str(e.get("projectPath", ""))) else None
-                    run(["plugin", "uninstall", e["id"], "--scope", scope], cwd=cwd)
+                    run(["plugin", "uninstall", e["id"]] + (["--scope", scope] if scope else []), cwd=cwd)
 
                 leg = [e for e in es if mine(e, LEGACY)]
                 for e in leg:
@@ -132,6 +149,8 @@ def main():
                             uninstall(e)
                     mset("off")
                     state, why = "skipped", "--no-mods was used"
+                elif not vault:
+                    state, why = "skipped", "the vault folder was not found on this computer (the mods are installed into it)"
                 elif not force and choice == "off":
                     state, why = "skipped", "you turned the mods off earlier"
                 elif not force and choice == "on" and not have and not leg and not user_copies:
@@ -158,6 +177,7 @@ def main():
                         for m in MODS:
                             run(["plugin", "update", "%s@%s" % (m, MK), "--scope", "project"])
                         mset("on")
+                        hide_settings(vault)
                         state = "installed" if (not have or migrated) else "uptodate"
                         if migrated:
                             notes.append("Mods moved: the two mods were in your Claude user settings (all sessions); they are now installed for the vault folder only (%s)." % vault)

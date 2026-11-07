@@ -129,12 +129,12 @@ Reasons not to build this: <one line, the owner decides>
 Biggest risk: <risk>. Cheapest test: <test measuring 2 numbers>; target D1 <x>%, D7 <y>% (<KB tag>, indie or official)
 
 Detail: research/idea-<slug>.md
-Done — <what happened, one line; the detail file lists the sources behind every tag>
-You — reply "build it" (create the game folder + README), "another" (a different idea), or "plan" (full plan)
-Next — <what happens on your reply>
+**Done** — <what happened, one line; the detail file lists the sources behind every tag>
+**You** — reply "build it" (create the game folder + README), "another" (a different idea), or "plan" (full plan)
+**Next** — <what happens on your reply>
 ```
 
-Output rules (these were real bugs): the TL;DR is the very first line of the reply, nothing above it; any Notes line sits directly under it; print exactly ONE Done/You/Next footer, as the last three lines, and no other "Reply ..." closing line; no progress message or footer is printed before the final card (not while the brief is read, the maker works or the judge runs); the one reply ends with exactly one footer. There is no scores line: only `Build ease x/10` and the judge line show a rating, and the judge's number is never printed.
+Output rules (these were real bugs): the TL;DR is the very first line of the reply, nothing above it; any Notes line sits directly under it; print exactly ONE Done/You/Next footer, as the last three lines, and no other "Reply ..." closing line; no progress message or footer is printed before the final card (not while the brief is read, the maker works or the judge runs); the one reply ends with exactly one footer. The footer labels are always bold (`**Done** — `, `**You** — `, `**Next** — `) so a user-side wrap-up hook recognises the footer and does not ask for a second one. There is no scores line: only `Build ease x/10` and the judge line show a rating, and the judge's number is never printed.
 
 Spell Robux in full where first used and avoid jargon (say "first build" not MVP, "players online" not CCU, or define it in two words). Assumed defaults go in one short line under the title only if they changed something. Do not print the Engine steps, sparks, the judge's raw feedback, the idea drafts or the evidence table in chat: they live in the file.
 
@@ -149,9 +149,9 @@ TL;DR: No idea cleared the judge; best attempt below is weak
 - Keep if you build it: <the judge's Keep part>
 
 Detail: research/idea-<slug>.md
-Done — <one line: tried N ideas, none passed the judge>
-You — reply "another" (a fresh idea), "build it anyway" (create the game folder + README), or "plan" (full card and plan)
-Next — <what happens on your reply>
+**Done** — <one line: tried N ideas, none passed the judge>
+**You** — reply "another" (a fresh idea), "build it anyway" (create the game folder + README), or "plan" (full card and plan)
+**Next** — <what happens on your reply>
 ```
 
 Same output rules as the card: nothing above the TL;DR, exactly one footer, no scores or rubric.
