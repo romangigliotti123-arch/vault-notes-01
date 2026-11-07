@@ -25,7 +25,7 @@ If you are a person: open the viewer at [https://vault-hhmi60uo.netlify.app/](ht
 
 ## What the vault is
 
-The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `rbx-dev-vault` with 7,539 notes (41,913 files in all, 1.56 GB, across notes, kit, reference images and assets) in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 18 Roblox agents (including the hidden-rubric idea judge), 67 skills / slash commands, helper tools) that is installed into `<vault>/.rbx/claude-kit` and **loaded only in the vault folder itself**: a normal Claude Code session elsewhere loads nothing from the vault, a session started in the vault folder has the whole kit with no load command, and the vault comes with 1.42 GB of **assets** (31,615 files; zip downloads 1.02 GB) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
+The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `rbx-dev-vault` with 7,539 notes (41,915 files in all, 1.56 GB, across notes, kit, reference images and assets) in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 18 Roblox agents (including the hidden-rubric idea judge), 67 skills / slash commands, helper tools) that is installed into `<vault>/.rbx/claude-kit` and **loaded only in the vault folder itself**: a normal Claude Code session elsewhere loads nothing from the vault, a session started in the vault folder has the whole kit with no load command, and the vault comes with 1.42 GB of **assets** (31,615 files; zip downloads 1.02 GB) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
 
 ## What this changes on the computer (nothing else)
 
@@ -53,13 +53,13 @@ Do the steps in order (Step 7 only if the user asked for it). Do not ask the use
 
 | Part | What it is | Files | Size |
 |---|---|---:|---:|
-| notes | Notes and sources: the sanitised vault (Library, Roblox, Manager, Imported, scripts, the claude-kit/ copy inside the clone) | 8,762 | 87.4 MB |
+| notes | Notes and sources: the sanitised vault (Library, Roblox, Manager, Imported, scripts, the claude-kit/ copy inside the clone) | 8,764 | 87.4 MB |
 | kit | Kit folder: skills, agents, tools, mods, setup runbook (installed to ~/.claude/claude-kit) | 1,118 | 8.4 MB |
 | refs | Reference images/library: Roblox reference screenshots (installed to ~/.claude/claude-kit/roblox-reference) | 418 | 46.1 MB |
 | assets | Assets: 3D models, textures, HDRIs, audio, code libraries, catalog (extracted into Assets/; zip download 1.02 GB) | 31,615 | 1.42 GB |
 | &nbsp;&nbsp;vault-assets-01 | 2 zip(s): 3d-models.zip 153.0 MB, textures.zip 733.9 MB | 15,655 | 1.18 GB |
 | &nbsp;&nbsp;vault-assets-02 | 4 zip(s): audio.zip 15.1 MB, catalog.zip 76 KB, code.zip 67.8 MB, hdris.zip 47.8 MB | 15,960 | 232.6 MB |
-| **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **41,913** | **1.56 GB** |
+| **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **41,915** | **1.56 GB** |
 
 **Size on your PC after install: 1.74 GB** (notes clone 207.8 MB incl. git data, kit 8.4 MB, reference images 106.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.76 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.21 GB. `Games/` and `Models/` are yours and add on top.
 
@@ -140,7 +140,7 @@ if (Test-Path "$V\.git") {
 }
 git -C $V log -1 --format='HEAD %h %cd' --date=short; (git -C $V ls-files '*.md' | Measure-Object -Line).Lines
 ```
-The Markdown note count should be 8,059. The clone is 207.8 MB (including git data) and the first clone can take a few minutes. Never commit or push from the vault.
+The Markdown note count should be 8,061. The clone is 207.8 MB (including git data) and the first clone can take a few minutes. Never commit or push from the vault.
 
 **Do not run the clone's sync scripts (`win-sync-setup.ps1`, `mac-sync-setup.sh`, `linux-sync-setup.sh`) in this setup**: they also register an update task that runs at every logon, which is Step 7 and optional. Steps 4 to 6 below do the rest directly.
 
