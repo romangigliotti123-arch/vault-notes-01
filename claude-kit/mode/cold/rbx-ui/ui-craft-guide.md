@@ -97,8 +97,19 @@ Performance: animate transform (Position, Size via UIScale, Rotation) and transp
 - Modal over screen: dim to 0.55 in 0.2 s, panel scale 0.8 to 1 Back Out 0.25 s; closing is faster (0.15 s) than opening.
 - Rotate or resize: panels re-flow with UIGridLayout/UIListLayout; fade 0.25 s through the change, never let two states overlap.
 
-## 7. Reward reveal recipe (chest / egg / crate)
-1 Tap: button squash, chest scales 1.1, dim to 0.7 (0.2 s). 2 Anticipation: chest shakes 0.8 s with ramping rotation, sparks rise, pitch rises. 3 Burst: white flash 0.12 s, 30+ particles (coins, stars, confetti) with gravity, screen shake 0.3 s, sunburst rays fade in behind. 4 Reveal: item card slams in (scale 2.2 to 1 Back Out), rarity border and glow, rarity word slams (scale 3 to 1) in rarity colour. 5 Settle: stats count up, "NEW" ribbon, rays keep turning slowly. 6 Collect: claim button (primary, breathing) flies the item and currency to counters, counters bump. Add Skip (tap = jump to step 5) and a fast mode. Never auto-close. Duplicates: show "Duplicate" with the converted currency.
+## 7. Reward reveal recipe (crate / egg / chest): five beats
+Research in one line: players want anticipation, a hard impact and a readable payoff; the build-up is the product, so rarity changes LENGTH and VFX, not just colour; repeated opens need a fast path.
+| Beat | What happens | Time (common / rare / epic / legendary) |
+|---|---|---|
+| 1 Anticipation | crate drops with squash impact (scale 1.2 x .8 then settle), dust ring, small shake; idle glow breathes; prompt "Tap the crate"; 3 escalating taps = creak, shake harder, light leaks through the seams | until the player acts |
+| 2 Build-up | escalating shake (+/-2 to +/-11 deg, scale to 1.12), rising tick pitch, rumble swell and riser, spark rate grows, rim light and halo grow; near-miss tease: in the last 45 percent the light flickers through LOWER tiers then settles on the real colour (keep the light generic warm white earlier: Overwatch found early coloured lights weakened suspense) | 0.7 / 1.0 / 1.4 / 2.0 s |
+| 3 Impact | pull-back (squat, lid winds up 6 deg, latch click) 150 ms, then hit-stop 120 ms, slow-mo 0.35x for 150 ms, lid blast with overshoot (to -86 deg, back to -60), white or tier-tinted flash, shockwave rings, lens-flare streaks, speed lines, light beam, camera push 1.0 to 1.08 to 1.0, shake 10-26 px decaying, particles in rarity colours | 0.45 s |
+| 4 Reveal | item rises from the mouth, flips (scale-x 1 to 0, swap face, 0 to 1 with overshoot: 100 + 240 ms), name card, rarity text slam (scale 3 to 1), stars fill one by one (130 ms apart), NEW ribbon, rays length and brightness scale with tier, confetti epic+, screen-wide fireworks and a longer hold for legendary | 0.9 / 1.4 / 1.8 / 2.5 s |
+| 5 Payoff | value count-up with ticks, Collect (card flies to the Collection tab, badge pops), Again | player paced |
+Total from tap to payoff about 1.6 / 2.4 / 3.2 / 4.5 s. Multi-open (x3): one short build-up (0.9 s) for the best tier, three cards flip 300 ms apart, Skip all. Skip must jump to the final state: finish running tweens, wipe particles, cancel decorative timers; never leave timers or particles behind. Never auto-close; the crate is committed when the build-up starts, so closing mid-way never loses an item.
+Sound (layered, never single beeps): wood creak plus latch click on tap; rattle ticks rising in pitch; low rumble swell plus a filtered-noise riser into the hit; impact = sub boom plus noise burst plus a metallic clang; shimmer or chime arpeggio on reveal (2 to 6 notes by rarity, a choir-like pad for legendary); coin shower sprinkle; tick per count-up step; a quick flutter for the near-miss tease. Route through one compressor and a short reverb; keep stingers 1-2 s except legendary.
+VFX: spotlight dim (everything but the crate), vignette pulse tinted by rarity, additive glow bloom behind the crate, god rays from the mouth, flare streaks, sparkle trails (streak particles), soft glow sprites on particles, floating embers, ground shadow and a light pool under the crate.
+Crate art: chunky 3/4 view, layered planks with grain, metal bands with rivets, emblem on the lock, thick dark outline, rim highlight, one palette per tier (silver, gold, honey, teal with glowing runes, purple with a crown). In Roblox: stacked ImageLabels or Frames, lid as its own element pivoted with AnchorPoint and tweened Rotation.
 
 ## 8. Mistakes to avoid
 - Pure black outlines and pure white fills everywhere (looks like a default theme); use shaded hues.
@@ -134,5 +145,8 @@ Articles and docs:
 - Roblox Creator Docs Font datatype and Enum.Font pages: FredokaOne, LuckiestGuy, Gotham SSm weights, Builder Sans, legacy enum mapping.
 - Roblox Creator Docs UIStroke class: ApplyStrokeMode, LineJoinMode, Thickness, BorderStrokePosition, StrokeSizingMode.
 - UI-animation guidance (skills.cat micro-interactions, playbooks.com gesture-responses): press scale 0.95-0.97, press response under 100 ms, release 150-300 ms with cubic-bezier(.34,1.56,.64,1), ripples 400-600 ms.
+- Kotaku, loot-box opening (why it feels like Christmas): faint glow leaking from the seams as a teaser, signal rarity late, soft tactile sounds, camera and kinetic effects, keep animations short when people open many (Halo 5, Duelyst).
+- Roblox DevForum "What makes a good loot box opening animation" (devforum.roblox.com/t/1999029): drop-and-slam with bounce, box punched open from inside, more dramatic animation for legendary, particle colours tied to rarity, more build-up.
+- Game Wisdom / gurugamer / dotgg loot-box writeups: a rare item can flash past before the real result (near-miss-like presentation); Roblox hatch-script pages show players ask for skip because long hatch animations become a time sink.
 - Rarity colour ladders (starship-survivors wiki, WoW-style tables): grey, green, blue, purple, orange/gold; glow and shape complexity rise with tier.
 Not found (said honestly): no talk transcript for "Juice It or Lose It", no Material or Apple HIG page returned numbers; touch target minimums used (44 px Apple, 48 dp Material) are from general knowledge.
