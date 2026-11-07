@@ -43,7 +43,7 @@ Light mode keeps Obsidian fast by hiding the big folders (Library, Imported, Ass
 | &nbsp;&nbsp;vault-assets-02 | 4 zip(s): audio.zip 15.1 MB, catalog.zip 76 KB, code.zip 67.8 MB, hdris.zip 47.8 MB | 15,960 | 232.6 MB |
 | **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **41,884** | **1.56 GB** |
 
-**Size on your PC after install: 1.74 GB** (notes clone 205.9 MB incl. git data, kit 8.2 MB, reference images 106.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.76 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.21 GB. `Games/` and `Models/` are yours and add on top.
+**Size on your PC after install: 1.74 GB** (notes clone 206.0 MB incl. git data, kit 8.2 MB, reference images 106.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.76 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.21 GB. `Games/` and `Models/` are yours and add on top.
 
 ## 2. Install and update
 
