@@ -22,6 +22,8 @@ Most Roblox players are on phones. Design for a phone first, then enlarge.
 
 9. Overlap: stack neighbouring panels in HUD slots with `UIListLayout` instead of hand-placing them; keep bottom-left and bottom-right free for touch controls; one popup, banner or hint at a time through a queue; DisplayOrder per layer (HUD < popups < toasts). Measure instead of guessing: `rbx-visual/scripts/ui_overlap.luau` reports overlaps, hidden elements, off-screen items and small or low-contrast text at phone 844x390, tablet 1180x820 and desktop 1920x1080. The ready component set is the StyleKit of `rbx-art`.
 
+10. Polish: buttons with lip, outline and highlight, motion numbers, reward reveals, palettes, text outline recipes and a mistakes list: [cold:rbx-ui/ui-craft-guide.md] read when designing or polishing any game UI or choosing animation numbers. The working bar example is `rbx-ui-prototype/examples/bar/`.
+
 Output a screenshot checklist: device | screen | overlap/overflow | fix.
 
 ## Vault evidence (official Creator Docs and DevForum; full list in `Roblox/roblox-kb/ui-ux-design.md`)

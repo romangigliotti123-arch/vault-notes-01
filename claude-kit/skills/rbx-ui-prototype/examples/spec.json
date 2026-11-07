@@ -333,6 +333,8 @@
   "source": "written brief (no image was read)",
   "rect_source": "getBoundingClientRect in headless Chrome at the phone-landscape device (844x390, the ui_design 'phone' frame); GemChip x derived from CoinChip width plus gap; desktop frame not measured",
   "html": "index.html",
+  "devices": {"phone": {"portrait": [390, 844], "landscape": [844, 390]}, "tablet": {"portrait": [820, 1180], "landscape": [1180, 820]}, "desktop": {"landscape": [1280, 720]}},
+  "orientation_note": "portrait: shop 2 columns, home one column; landscape: shop 4 columns, home two columns, bag grid beside detail panel; safe areas per orientation (phone portrait T47 B34, landscape L47 R47 B21)",
   "press": {
    "down_s": 0.08,
    "down_scale": 0.92,

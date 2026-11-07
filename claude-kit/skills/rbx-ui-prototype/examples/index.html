@@ -24,7 +24,8 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 #shell{position:relative}
 #shell.turn,#shell.turn #frame{transition:width .28s cubic-bezier(.3,.9,.3,1),height .28s cubic-bezier(.3,.9,.3,1),transform .28s cubic-bezier(.3,.9,.3,1)}
 #frame{position:absolute;left:0;top:0;transform-origin:0 0;border-radius:28px;overflow:hidden;box-shadow:0 0 0 6px #05070f,0 0 0 8px #2a3566;background:#000}
-#safe{position:absolute;inset:0;pointer-events:none;display:none;border-style:solid;border-color:rgba(255,70,70,.28);border-width:var(--st) var(--sr) var(--sb) var(--sl);outline:2px dashed rgba(255,120,120,.9);outline-offset:-2px}
+#safe{position:absolute;inset:0;pointer-events:none;display:none;outline:2px dashed rgba(255,120,120,.9);outline-offset:-2px}
+#safe b{position:absolute;inset:0;border-style:solid;border-color:rgba(255,70,70,.28);border-width:var(--st) var(--sr) var(--sb) var(--sl)}
 #frame.showsafe #safe{display:block}
 #safe i{position:absolute;display:none;background:#000;box-shadow:0 0 0 2px rgba(255,120,120,.9)}
 #frame[data-notch="1"][data-orient=tall] .notch{display:block;left:50%;top:0;width:34%;height:calc(var(--st)*.55);transform:translateX(-50%);border-radius:0 0 1em 1em}
@@ -36,7 +37,6 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 #notes ul{padding-left:18px;display:grid;gap:4px;margin-top:8px}#notes li{color:#c3cdf5}#notes b{color:#fff}
 .badges{display:flex;flex-wrap:wrap;gap:5px}.badge{background:#1d3a35;color:#7bf0c4;border:1px solid #2a6b5a;border-radius:6px;padding:2px 7px;font-size:12px}
 .kbd{font-family:Consolas,monospace;background:#222c55;border-radius:4px;padding:0 5px}
-@media (prefers-reduced-motion:reduce){#shell.turn,#shell.turn #frame,#rotate svg{transition:none}}
 @media (max-width:900px){#notes.open{position:fixed;inset:auto 0 0 0;max-height:55vh;width:auto;border-top:1px solid #34407a;z-index:5}}
 /* === 3. GAME UI (everything in em: one --u scale like UIScale) === */
 #ui{position:absolute;inset:0;overflow:hidden;font-family:var(--font-body);font-size:calc(var(--u)*3.7);color:var(--text);background:linear-gradient(180deg,#33437a 0,#1b2340 55%,#121830 100%);user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
@@ -110,7 +110,7 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
   <button class="tool" id="notes-btn" aria-expanded="false">Notes</button>
 </header>
 <div id="work">
-  <main id="stage"><div id="shell"><div id="frame" data-orient="tall"><div id="ui"></div><div id="toasts"></div><div id="safe"><i class="notch"></i><i class="homebar"></i></div></div></div><div id="info"></div></main>
+  <main id="stage"><div id="shell"><div id="frame" data-orient="tall"><div id="ui"></div><div id="toasts"></div><div id="safe"><b></b><i class="notch"></i><i class="homebar"></i></div></div></div><div id="info"></div></main>
   <aside id="notes" aria-label="Prototype notes">
     <section id="constraints"><h3>Roblox constraints (all of this is buildable)</h3>
       <div class="badges"><span class="badge">UICorner</span><span class="badge">UIStroke</span><span class="badge">UIGradient (linear)</span><span class="badge">UIListLayout</span><span class="badge">UIGridLayout</span><span class="badge">UIPadding</span><span class="badge">UIAspectRatioConstraint</span><span class="badge">UIScale + TweenService</span><span class="badge">ScreenInsets</span><span class="badge">ScreenOrientation</span><span class="badge">ClipsDescendants</span></div>
