@@ -8,14 +8,15 @@
 # An older install (kit skills/agents directly in ~/.claude/skills and /agents) is migrated by tools/vault-mode.py migrate: kit files move to a backup folder, your own skills/agents/CLAUDE.md are untouched, idempotent, reversible.
 # The vault owns every file it installs: an install/update overwrites each one with the incoming version and removes files that left the kit (no keep, no conflicts). The only content that is yours is your project's Games/ and Models/ folders and anything outside the vault's own paths; nothing here touches them. claude-kit/state/ holds a few tiny settings (rbx-mockup on/off) that are never deleted.
 # User skills with other names are never touched or removed; similar ones are listed ("kit versions will be used") and the kit entry points say the kit skill wins at routing time.
-# Usage: bash install.sh [--home DIR] [--dry-run] [--with-hooks | --remove-hooks] [--no-mods]     (--home / env CLAUDE_KIT_HOME: install under DIR instead of $HOME, for tests)
-#   MODS (default ON, no flag): also installs the /rbx-subagent-hud (agent sidebar) and /rbx-graph (vault graph link) Claude Code plugins from claude-kit/mods. They register hooks and are enabled in the user's ~/.claude plugin settings, so they apply to ALL Claude sessions. --no-mods: do not install them and uninstall them if present (a later update will not bring them back); --with-mods: accepted (old docs), also re-installs them after --no-mods or after you removed them with /plugin. Any problem (no claude CLI, offline, plugins disabled by policy, plugin errors) prints ONE "Mods skipped: <reason>. Run again later: <command>" line and the install still succeeds.
+# Usage: bash install.sh [--home DIR] [--dry-run] [--with-hooks | --remove-hooks] [--no-mods] [--no-assets]     (--home / env CLAUDE_KIT_HOME: install under DIR instead of $HOME, for tests)
+#   ONE RUN DOES EVERYTHING: after the kit files, the two mods and the vault load, this script runs tools/vault-sync-all.py for the resolved vault folder: extra notes repositories (vault-shards.py), the Roblox reference screenshots (refs-sync.py, ~30 MB) and the asset zips (assets-sync.py, ~1 GB), with short progress lines (`assets: 3/6 zips ...`). It FAILS SOFT: a failed download prints ONE `Assets incomplete: <reason>. To finish, run (resumes): <command>` line and the script still exits 0; running it again resumes. --no-assets (env CLAUDE_ASSETS_SKIP=1) skips the asset zips only. Callers that sync themselves (kit-refresh, the sync-setup scripts: env CLAUDE_KIT_NOFOOTER=1 or CLAUDE_KIT_NOLOAD=1) skip this part. Test knobs: env CLAUDE_SYNC_BASE (a mirror URL), CLAUDE_SYNC_DRY=1 (report only).
+#   MODS (default ON, no flag): tools/kit-mods.py installs the /rbx-subagent-hud (agent sidebar) and /rbx-graph (vault graph link) Claude Code plugins from the vault's claude-kit/mods at PROJECT scope of the VAULT FOLDER (claude plugin ... --scope project, enabledPlugins in <vault>/.claude/settings.json, hidden from git): the hooks apply only to sessions started in the vault folder, never to other sessions. An older USER-scope install is migrated (uninstalled from user scope, installed at project scope, one notice line). --no-mods: do not install them and uninstall them (both scopes) if present (a later update will not bring them back); --with-mods: accepted (old docs), also re-installs them after --no-mods or after you removed them with /plugin. Any problem (no claude CLI, offline, plugins disabled by policy, plugin errors) prints ONE "Mods skipped: <reason>. Run again later: <command>" line and the install still succeeds.
 #   --with-hooks / --remove-hooks (opt-in, never automatic): merge into / remove from ~/.claude/settings.json the two /rbx-low-usage hooks and the rbx-mentor suggestion hook (backup first, idempotent, keeps all other settings).
 set -u
 KIT="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
-H="${CLAUDE_KIT_HOME:-$HOME}"; DRY=0; HOOKS=""; MODS_ON=1; FORCE=0; HOME_GIVEN=0; [ -n "${CLAUDE_KIT_HOME:-}" ] && HOME_GIVEN=1
+H="${CLAUDE_KIT_HOME:-$HOME}"; DRY=0; HOOKS=""; MODS_ON=1; FORCE=0; ASSETS_ON=1; [ "${CLAUDE_ASSETS_SKIP:-0}" = 1 ] && ASSETS_ON=0; HOME_GIVEN=0; [ -n "${CLAUDE_KIT_HOME:-}" ] && HOME_GIVEN=1
 while [ $# -gt 0 ]; do
-  case "$1" in --home) [ $# -ge 2 ] || { echo "install.sh: --home needs a folder" >&2; exit 2; }; H="$2"; HOME_GIVEN=1; shift 2;; --dry-run) DRY=1; shift;; --with-hooks) HOOKS=install-hooks; shift;; --remove-hooks) HOOKS=uninstall-hooks; shift;; --with-mods) MODS_ON=1; FORCE=1; shift;; --no-mods) MODS_ON=0; shift;; *) shift;; esac
+  case "$1" in --home) [ $# -ge 2 ] || { echo "install.sh: --home needs a folder" >&2; exit 2; }; H="$2"; HOME_GIVEN=1; shift 2;; --dry-run) DRY=1; shift;; --with-hooks) HOOKS=install-hooks; shift;; --remove-hooks) HOOKS=uninstall-hooks; shift;; --with-mods) MODS_ON=1; FORCE=1; shift;; --no-mods) MODS_ON=0; shift;; --no-assets) ASSETS_ON=0; shift;; *) shift;; esac
 done
 C="$H/.claude"; [ $HOME_GIVEN = 0 ] && [ -n "${CLAUDE_CONFIG_DIR:-}" ] && C="$CLAUDE_CONFIG_DIR"
 MAN="$C/claude-kit/installed.tsv"; TMP="$(mktemp "${TMPDIR:-/tmp}/claude-kit.XXXXXX" 2>/dev/null)" || TMP="${TMPDIR:-/tmp}/claude-kit.$$"
@@ -146,69 +147,37 @@ if [ -n "$HOOKS" ]; then
 fi
 # similar user skills (other names) -> listed; the kit wins at routing time (precedence line in the kit entry points)
 if [ -f "$KIT/tools/similar-skills.py" ]; then for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then "$p" -I "$KIT/tools/similar-skills.py" --kit "$KIT" --config "$C" 2>/dev/null; break; fi; done; fi
-# kit mods (Claude Code plugins: /rbx-subagent-hud agent sidebar, /rbx-graph vault graph link) from <vault>/claude-kit/mods. ON BY DEFAULT (opt out: --no-mods). They register hooks and are enabled in the user's ~/.claude plugin settings for ALL sessions; the welcome text and the closing block say so.
+# kit mods (Claude Code plugins: /rbx-subagent-hud agent sidebar, /rbx-graph vault graph link): tools/kit-mods.py, PROJECT scope of the vault folder (see the header). ON BY DEFAULT (opt out: --no-mods).
 # Never fails the install: any problem prints ONE "Mods skipped: <reason>. Run again later: <command>" line. State file claude-kit/state/mods-choice: "on" after a successful install, "off" after --no-mods. Mods installed once and later removed with /plugin are NOT brought back by updates (--with-mods forces).
-# Legacy plugin names (workflow-hud, vault-graph, hud-rbxdev-vault, graph-rbxdev-vault) are uninstalled on every run that can list plugins.
-MODS="$KIT/mods"; MK="roblox-vault-kit-mods"; MSTATE=""; MWHY=""; SD="$C/claude-kit/state"; MCH=""
-[ -f "$SD/mods-choice" ] && MCH="$(tr -d ' \r\n' < "$SD/mods-choice")"
-MCMD="bash \"$KIT/install.sh\" --with-mods"
-mset() { [ $DRY = 1 ] && return 0; { mkdir -p "$SD" && printf '%s\n' "$1" > "$SD/mods-choice"; } 2>/dev/null; return 0; }
-mfirst() { printf '%s' "$1" | head -n 1 | cut -c1-120; }
-if [ $DRY = 1 ]; then MSTATE=skipped; MWHY="dry run"
-elif [ ! -f "$MODS/.claude-plugin/marketplace.json" ]; then MSTATE=skipped; MWHY="the mods folder is missing from this kit"
-elif ! command -v claude >/dev/null 2>&1; then
-  MSTATE=skipped; MWHY="the claude command was not found on this computer"
-  [ $MODS_ON = 0 ] && { mset off; MWHY="--no-mods was used"; }
+# Legacy plugin names (workflow-hud, vault-graph, hud-rbxdev-vault, graph-rbxdev-vault) are uninstalled on every run that can list plugins; user-scope copies of the two mods are migrated to the vault folder.
+SD="$C/claude-kit/state"
+INST="$KIT/install.sh"; [ -n "$VH" ] && [ -f "$VH/claude-kit/install.sh" ] && INST="$VH/claude-kit/install.sh"   # a path that survives (the installer may run from a temporary clone of the kit repository)
+MCMD="bash \"$INST\" --with-mods"; MOFF="bash \"$INST\" --no-mods"
+KPY=""; for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then KPY="$p"; break; fi; done
+rm -f "$SD/mods-block.txt" 2>/dev/null
+if [ -n "$KPY" ] && [ -f "$KIT/tools/kit-mods.py" ]; then
+  "$KPY" -I "$KIT/tools/kit-mods.py" --kit "$KIT" --config "$C" --vault "$VH" --on-cmd "$MCMD" --off-cmd "$MOFF" $([ $DRY = 1 ] && echo --dry-run) $([ $MODS_ON = 0 ] && echo --no-mods) $([ $FORCE = 1 ] && echo --with-mods) 2>&1
+  MB="$(cat "$SD/mods-block.txt" 2>/dev/null)"
 else
-  export CLAUDE_CONFIG_DIR="$C"
-  lst="$(claude plugin list --json 2>&1)"; lrc=$?
-  if [ $lrc != 0 ]; then MSTATE=skipped; MWHY="claude plugin list failed ($(mfirst "$lst"))"
+  echo "Mods skipped: no working Python 3 on this computer. Run again later: $MCMD"
+fi
+[ -n "$MB" ] || MB="**THE TWO MODS (NOT INSTALLED)**
+- Skipped: the mods step did not run. The vault works without them. To install them run: $MCMD   then start a new session in the vault folder.
+- They are Claude Code plugins that add an agent sidebar (/rbx-subagent-hud) and a graph view (/rbx-graph) and register hooks; they are installed for the vault folder only (project scope), so they apply only to sessions started in that folder. Turn them off any time with /plugin or the installer's --no-mods."
+# the single run also downloads the rest: extra notes repositories, reference screenshots, assets (tools/vault-sync-all.py; fails soft, prints ONE retry line, exits 0)
+SYNCRAN=0; ASSETB=""
+if [ $DRY = 0 ] && [ -n "$VH" ] && [ -d "$VH" ] && [ "${CLAUDE_KIT_NOFOOTER:-0}" != 1 ] && [ "${CLAUDE_KIT_NOLOAD:-0}" != 1 ] && [ "${CLAUDE_KIT_NOSYNC:-0}" != 1 ]; then
+  if [ -n "$KPY" ] && [ -f "$KIT/tools/vault-sync-all.py" ]; then
+    SYNCRAN=1
+    "$KPY" -I "$KIT/tools/vault-sync-all.py" --vault "$VH" --config "$C" --retry-cmd "bash \"$INST\"" $([ $ASSETS_ON = 0 ] && echo --no-assets) $([ -n "${CLAUDE_SYNC_BASE:-}" ] && echo --base "$CLAUDE_SYNC_BASE") $([ "${CLAUDE_SYNC_DRY:-0}" = 1 ] && echo --dry-run) 2>&1
+    ASSETB="$(sed -n 2p "$SD/assets-status.txt" 2>/dev/null)"
   else
-    leg=0; for om in workflow-hud vault-graph hud-rbxdev-vault graph-rbxdev-vault; do if printf '%s' "$lst" | grep -q "$om@$MK"; then claude plugin uninstall "$om@$MK" >/dev/null 2>&1; leg=1; fi; done  # legacy plugin names
-    if [ $leg = 1 ]; then for p in python3 python py; do if command -v "$p" >/dev/null 2>&1 && "$p" -c "import sys" >/dev/null 2>&1; then "$p" -I "$KIT/tools/kit-rename.py" plugins --drop-legacy --config "$C" >/dev/null 2>&1; break; fi; done; fi
-    [ $leg = 1 ] && claude plugin marketplace update "$MK" >/dev/null 2>&1   # a legacy plugin was uninstalled: refresh the marketplace listing before installing the new names
-    have=0; if printf '%s' "$lst" | grep -q "rbx-subagent-hud@$MK" && printf '%s' "$lst" | grep -q "rbx-graph@$MK"; then have=1; fi
-    if [ $MODS_ON = 0 ]; then   # opt out: remove the two mods if present
-      for m in rbx-subagent-hud rbx-graph; do printf '%s' "$lst" | grep -q "$m@$MK" && claude plugin uninstall "$m@$MK" >/dev/null 2>&1; done
-      mset off; MSTATE=skipped; MWHY="--no-mods was used"
-    elif [ $FORCE = 0 ] && [ "$MCH" = off ]; then MSTATE=skipped; MWHY="you turned the mods off earlier"
-    elif [ $FORCE = 0 ] && [ "$MCH" = on ] && [ $have = 0 ] && [ $leg = 0 ]; then MSTATE=skipped; MWHY="you removed them earlier with /plugin"
-    else
-      ok=1; why=""
-      if [ $have = 0 ]; then
-        r="$(claude plugin marketplace add "$MODS" 2>&1)" || { printf '%s' "$r" | grep -qi already || { ok=0; why="marketplace add failed ($(mfirst "$r"))"; }; }
-        for m in rbx-subagent-hud rbx-graph; do
-          [ $ok = 1 ] || break
-          r="$(claude plugin install "$m@$MK" 2>&1)" || { printf '%s' "$r" | grep -qi already || { ok=0; why="install of $m failed ($(mfirst "$r"))"; }; }
-        done
-      fi
-      if [ $ok = 1 ]; then   # copy semantics: an installed plugin keeps its old copy until updated
-        claude plugin marketplace update "$MK" >/dev/null 2>&1
-        for m in rbx-subagent-hud rbx-graph; do claude plugin update "$m@$MK" >/dev/null 2>&1; done
-        mset on; if [ $have = 1 ]; then MSTATE=uptodate; else MSTATE=installed; fi
-      else MSTATE=skipped; MWHY="$why"; fi
-    fi
+    echo "Assets incomplete: no working Python 3 on this computer. To finish, install Python 3 and run (resumes): bash \"$INST\""
+    ASSETB="- Assets: INCOMPLETE (no working Python 3). Install Python 3, then run this (it resumes): bash \"$INST\""
   fi
 fi
-case "$MSTATE" in
-  installed) echo "Mods installed: rbx-subagent-hud, rbx-graph";;
-  uptodate) echo "Mods up to date: rbx-subagent-hud, rbx-graph";;
-  *) echo "Mods skipped: $MWHY. Run again later: $MCMD";;
-esac
-# the closing-block section (printed by the footer below, and read by the sync-setup scripts from claude-kit/state/mods-block.txt)
-if [ "$MSTATE" = installed ] || [ "$MSTATE" = uptodate ]; then
-MB="**THE TWO MODS (ALREADY INSTALLED)**
-- Type /reload-plugins once (or start a new session) to activate them. They are Claude Code plugins that add an agent sidebar and a graph view and register hooks; they are enabled in your Claude user settings ($C) and apply to ALL your Claude sessions, not only the vault folder.
-- /rbx-subagent-hud opens the agent sidebar; /rbx-graph shows the link to the vault graph site.
-- To turn them off: /plugin (disable or uninstall rbx-subagent-hud and rbx-graph), or run the installer with --no-mods: bash \"$KIT/install.sh\" --no-mods"
-else
-MB="**THE TWO MODS (NOT INSTALLED)**
-- Skipped: $MWHY. The vault works without them. To install them run: $MCMD   then type /reload-plugins.
-- They are Claude Code plugins that add an agent sidebar (/rbx-subagent-hud) and a graph view (/rbx-graph) and register hooks; installing them changes your Claude user settings ($C) and applies to ALL your Claude sessions. Turn them off any time with /plugin or the installer's --no-mods."
-fi
-if [ $DRY = 0 ]; then { mkdir -p "$SD" && printf '%s\n' "$MB" > "$SD/mods-block.txt"; } 2>/dev/null; fi
 if [ -n "$VH" ]; then VSAY="$VH"; else VSAY="your vault folder (not found on this computer: clone the vault first, see SETUP-FOR-CLAUDE.md, then run this installer again)"; fi
-[ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed. TO USE THE VAULT: load it by starting a Claude session in $VSAY (that folder is the loaded vault: the vault skills, agents, art-direction, placement, lighting and visual-QA rules and reference images are there automatically; no load command is needed; your other Claude sessions stay clean). Always available in every session: /rbx-update /rbx-check /rbx-uninstall. In the vault folder: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of the vault, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Two mods (Claude Code plugins that add an agent sidebar and a graph view and register hooks) are part of the kit: they are enabled in your Claude user settings and apply to all your Claude sessions; turn them off with /plugin or run the installer with --no-mods. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"
-if [ "${CLAUDE_KIT_NOFOOTER:-0}" != 1 ]; then echo; printf '%s\n' "**HOW TO START USING**" "- Start a new Claude session in $VSAY (Claude app: New, choose that folder; terminal: cd \"$VSAY\" then claude; Obsidian: Open folder as vault on the same path). That folder loads the whole vault automatically; no load command." "" "**HOW TO SEE SKILLS AND AGENTS**" "- In that session type /rbx-list (skills, agents, mods), or type / and start typing rbx-. To learn what one skill does, ask \"what does /rbx-<name> do\"." "" "$MB" "" "**HOW TO MAKE A GAME IDEA**" "- /rbx-ideas: finds ONE fresh idea based on what is doing best on the charts (single-player or open world). Reply \"another\" for a different one, \"build it\" to create the game folder, \"plan\" for the full plan." "- /rbx-idea-creator: type it with your own idea to build it up, or on its own and it asks a few quick questions." "" "**HOW TO BUILD A GAME**" "- /rbx-workflow: takes a game from idea to launch one stage at a time. Games live in $VSAY/Games/<game name>/ (each has a README). In any new session say \"I want to work on <game name>\" and Claude picks it up. Good reusable models are saved to $VSAY/Models/ automatically." "" "**HOW TO UPDATE**" "- Type /rbx-update (works from any session)."; fi
+[ "$first_wf" = 1 ] && [ $DRY = 0 ] && echo "The Roblox Dev Mastery Vault kit is installed. TO USE THE VAULT: load it by starting a Claude session in $VSAY (that folder is the loaded vault: the vault skills, agents, art-direction, placement, lighting and visual-QA rules and reference images are there automatically; no load command is needed; your other Claude sessions stay clean). Always available in every session: /rbx-update /rbx-check /rbx-uninstall. In the vault folder: /rbx-idea-quick (one fresh idea) or /rbx-workflow (idea, rating, plan, build); /rbx-make; judgement and your games (in the Games/ folder of the vault, never touched by updates): /rbx-critic /rbx-weekly /rbx-launch-kit /rbx-harvest; Roblox skill pack (300+ focused skills, zero context until used): /rbx list, /rbx find <words>, /rbx <name>; placement, lighting and looks (a game is never called done without them): /rbx-placement /rbx-lighting /rbx-art /rbx-visual; measure the vault itself: /rbx-bench; mentor: /rbx-mentor; research: /rbx-research; manager: /rbx-manager; vault: /rbx-clean /rbx-setup /rbx-light-on /rbx-light-off /rbx-list; usage: /rbx-low-usage. Two mods (Claude Code plugins that add an agent sidebar and a graph view and register hooks) are part of the kit: they are enabled for the vault folder only (project scope), so they apply only to sessions started in the vault folder; turn them off with /plugin or run the installer with --no-mods. Full list: README.md. Built and maintained by Roman (GitHub: romangigliotti123-arch)"
+if [ "${CLAUDE_KIT_NOFOOTER:-0}" != 1 ]; then echo; printf '%s\n' "**HOW TO START USING**" "- Start a new Claude session in $VSAY (Claude app: New, choose that folder; terminal: cd \"$VSAY\" then claude; Obsidian: Open folder as vault on the same path). That folder loads the whole vault automatically; no load command." ${ASSETB:+"$ASSETB"} "" "**HOW TO SEE SKILLS AND AGENTS**" "- In that session type /rbx-list (skills, agents, mods), or type / and start typing rbx-. To learn what one skill does, ask \"what does /rbx-<name> do\"." "" "$MB" "" "**HOW TO MAKE A GAME IDEA**" "- /rbx-ideas: finds ONE fresh idea based on what is doing best on the charts (single-player or open world). Reply \"another\" for a different one, \"build it\" to create the game folder, \"plan\" for the full plan." "- /rbx-idea-creator: type it with your own idea to build it up, or on its own and it asks a few quick questions." "" "**HOW TO BUILD A GAME**" "- /rbx-workflow: takes a game from idea to launch one stage at a time. Games live in $VSAY/Games/<game name>/ (each has a README). In any new session say \"I want to work on <game name>\" and Claude picks it up. Good reusable models are saved to $VSAY/Models/ automatically." "" "**HOW TO UPDATE**" "- Type /rbx-update (works from any session)."; fi
 [ "$n_fail" -gt 0 ] && exit 1
 exit 0

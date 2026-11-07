@@ -40,7 +40,7 @@ The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a 
 - Default mode is **light mode** (see "Light mode" below): keep it.
 - Shell state does not persist between your tool calls: start every block with its variable lines.
 
-Do the steps in order (Step 7 only if the user asked for it). Do not ask the user which method to use; every default is fixed here. The setup downloads about 1.21 GB (1.02 GB of it asset zips) and takes roughly 10 to 20 minutes: run the long commands (the clone, Step 5) as background jobs or with a long timeout, and check their output.
+Do the steps in order (Step 7 only if the user asked for it). Do not ask the user which method to use; every default is fixed here. The setup downloads 1.21 GB (1.02 GB of it asset zips) and takes roughly 10 to 20 minutes: run the long commands (the clone, Step 5) as background jobs or with a long timeout, and check their output.
 
 ## What is in the vault and how much space it needs
 
@@ -54,7 +54,7 @@ Do the steps in order (Step 7 only if the user asked for it). Do not ask the use
 | &nbsp;&nbsp;vault-assets-02 | 4 zip(s): audio.zip 15.1 MB, catalog.zip 76 KB, code.zip 67.8 MB, hdris.zip 47.8 MB | 15,960 | 232.6 MB |
 | **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **41,854** | **1.56 GB** |
 
-**Size on your PC after install: 1.74 GB** (notes clone 204.2 MB incl. git data, kit 7.9 MB, reference images 106.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.75 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is about 1.21 GB. `Games/` and `Models/` are yours and add on top.
+**Size on your PC after install: 1.74 GB** (notes clone 204.3 MB incl. git data, kit 7.9 MB, reference images 106.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.75 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.21 GB. `Games/` and `Models/` are yours and add on top.
 
 The numbers are computed by the site build from the real repositories and zip files (also at https://vault-hhmi60uo.netlify.app/stats.json).
 
@@ -133,7 +133,7 @@ if (Test-Path "$V\.git") {
 }
 git -C $V log -1 --format='HEAD %h %cd' --date=short; (git -C $V ls-files '*.md' | Measure-Object -Line).Lines
 ```
-The Markdown note count should be 8,043. The clone is 204.2 MB (including git data) and the first clone can take a few minutes. Never commit or push from the vault.
+The Markdown note count should be 8,043. The clone is 204.3 MB (including git data) and the first clone can take a few minutes. Never commit or push from the vault.
 
 **Do not run the clone's sync scripts (`win-sync-setup.ps1`, `mac-sync-setup.sh`, `linux-sync-setup.sh`) in this setup**: they also register an update task that runs at every logon, which is Step 7 and optional. Steps 4 to 6 below do the rest directly.
 
@@ -291,7 +291,7 @@ Start at `Roblox/roblox-kb/README.md`, `Roblox/roblox-kb/master-playbook.md` and
 
 ## Troubleshooting
 
-- `git clone` slow or stalled: the vault clone is 204.2 MB; wait, or retry once. A proxy that blocks github.com breaks it; report that.
+- `git clone` slow or stalled: the vault clone is 204.3 MB; wait, or retry once. A proxy that blocks github.com breaks it; report that.
 - Windows "filename too long": make sure `core.longpaths=true` is set (Step 3) and the vault path is short.
 - `assets-sync` says "another assets-sync is running": a lock file in `<vault>/Assets` from a live run; wait. A crashed run's lock is taken over automatically.
 - Checksum mismatch: the file is deleted and fetched again once; if it repeats, report the file name.
