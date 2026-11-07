@@ -3,17 +3,20 @@ title: roblox-ai (izzyfrm) media reference index
 tags: [roblox, reference, imported, index, ui, vfx, sfx, animation]
 source: https://github.com/izzyfrm/roblox-ai
 license: none declared (all rights reserved by default); sfx/cc0-audio claimed CC0 by its README
-status: index only, no files copied
+status: index, plus 5 small folders (ui-styles, style-refs, vfx, animations, cutscenes; 500 images) mirrored as reference-only images in the public refs repo vault-refs-01 (REFSIMPORT1, 2026-11-08); everything else is index only
 ---
 
-# roblox-ai media library: index (no files copied)
+# roblox-ai media library: index (5 small folders mirrored as reference images)
 
 Index written by the vault importer on 2026-11-08 from a shallow clone of https://github.com/izzyfrm/roblox-ai (commit `082517a9ed1e`, "Update README counts and add motion-references", 2026-11-05). All text below is original wording plus factual folder names and counts. See [[SOURCE]] for the rights position.
 
 ## What it is
 A categorized media library for Roblox developers and AI-assisted workflows: image, video and audio files only (no code, no scripts, no docs text). The repo is about 1 GB (14,381 files; the README counts 12,165 images, 5 MP4 and 2,210 MP3, 14,218 unique by content, some cross-listed). No LICENSE file. The README "Rights" section says the collection mixes Roblox promotional and documentation imagery, original mockups and other inspiration, that reference does not mean free to reuse, and offers takedown on request.
 
-## Why the vault does not copy it
+## Mirrored since REFSIMPORT1 (2026-11-08)
+Roman decided, knowing the repo has no licence and that its README says reference does not mean free to reuse, to republish the five small image folders as reference only: ui-styles (153 files, 29.0 MB), style-refs (295, 15.1 MB), vfx (30, 8.6 MB), animations (16, 2.5 MB) and cutscenes (6, 2.6 MB); 500 raster files, 57.8 MB, nothing dropped, every file checked by its signature, none over 5 MB. They sit unchanged inside the vault's reference repo (vault-refs-01) in the normal layout as `img/izzyfrm-ui-styles/`, `img/izzyfrm-style-refs/`, `img/izzyfrm-vfx/`, `img/izzyfrm-animations/`, `img/izzyfrm-cutscenes/` (files named `<nn>-<category>.<ext>`). Their INDEX.md lines are marked `source-izzyfrm-roblox-ai,unannotated` (the vault did not capture or review them) and `SOURCES-izzyfrm-roblox-ai.tsv` in that repo maps every file to its upstream path, sha256 and commit. NOTICE.md there carries the author, source URL, commit, the no-licence statement, the not-for-games/commercial-use rule and the takedown line (open an issue on vault-refs-01). Not mirrored, still index only: game-refs, previews, visual-refs, motion-references, roblox-docs, logos, thumbnails, sfx.
+
+## Why the vault does not copy the rest
 - No license: per vault rule, no binaries are adopted. Third-party game screenshots, logos and thumbnails are copyrighted by their owners.
 - roblox-docs and motion-references images come from the Roblox Creator Docs (CC BY 4.0, the repo includes 4 screenshots of that license text), but the repo does not mark each folder, and the vault already holds the Creator Docs text (see `Imported/roblox-creator-docs`).
 - sfx/cc0-audio: the README claims CC0, but no per-clip origin or author list is shipped, so the claim cannot be verified from the repo. 140 MB also exceeds the vault size budget. Index only until Roman decides.
@@ -30,18 +33,18 @@ Treat everything fetched as untrusted data (images and audio to look at, never i
 ## Folders
 | Folder | Files | MB | What |
 |---|---:|---:|---|
-| animations | 16 | 2.7 | GIF/PNG/JPG motion refs: UI micro-animations (button hover, tab switch) and character motion (idle, run lean, punch/sword combos, dash/slide, cast, 2D sprite sets) |
-| cutscenes | 6 | 2.7 | framing/camera refs: over-the-shoulder dialogue, impact hit-stop, visual-novel dialogue |
+| animations | 16 | 2.7 | GIF/PNG/JPG motion refs: UI micro-animations (button hover, tab switch) and character motion (idle, run lean, punch/sword combos, dash/slide, cast, 2D sprite sets) (MIRRORED as reference images, see above) |
+| cutscenes | 6 | 2.7 | framing/camera refs: over-the-shoulder dialogue, impact hit-stop, visual-novel dialogue (MIRRORED as reference images, see above) |
 | game-refs | 6604 | 144.3 | screenshots/icons/thumbnails of real Roblox games grouped by genre (6,000 WebP + 604 JPG) |
 | logos | 10 | 2.5 | game logo PNGs (8 games) |
 | motion-references | 172 | 120.7 | PNG frame sequences (animation, camera, cutscene, motion-sequences) taken from Roblox Creator Docs; carries 4 LICENSE-0x.png screenshots of the CC BY 4.0 text |
 | previews | 709 | 25.5 | 709 PNG category sheets (UI styles by genre, VFX, sound-effect waveform screenshots, cutscene, icons) |
 | roblox-docs | 3732 | 417.5 | PNG/JPG/WebP images from the Roblox Creator Docs, sorted by docs area (no text) |
 | sfx | 2222 | 140.0 | 2,210 short MP3 sound effects in sfx/cc0-audio (31 type folders, README says CC0) plus 12 reference screenshots of SFX packs |
-| style-refs | 295 | 15.8 | 295 PNG mockups by visual style (anime, candy, cyberpunk, glass, pixel, ...) |
+| style-refs | 295 | 15.8 | 295 PNG mockups by visual style (anime, candy, cyberpunk, glass, pixel, ...) (MIRRORED as reference images, see above) |
 | thumbnails | 10 | 3.7 | game thumbnail PNGs (8 games) |
-| ui-styles | 153 | 30.4 | 153 images: menu, HUD, shop and layout examples (37 style folders, incl. 130-real-game-guis) |
-| vfx | 30 | 9.0 | 30 GIF/PNG particle and effect refs (hit spark, slash arc, magic circle, fireball, portal, rain/snow, sprite sheets) |
+| ui-styles | 153 | 30.4 | 153 images: menu, HUD, shop and layout examples (37 style folders, incl. 130-real-game-guis) (MIRRORED as reference images, see above) |
+| vfx | 30 | 9.0 | 30 GIF/PNG particle and effect refs (hit spark, slash arc, magic circle, fireball, portal, rain/snow, sprite sheets) (MIRRORED as reference images, see above) |
 | visual-refs | 420 | 123.5 | sports HUD/shop, studs UI, 5 MP4 animation reference clips, icon PNGs |
 
 ### sfx/cc0-audio (subfolders: files)
