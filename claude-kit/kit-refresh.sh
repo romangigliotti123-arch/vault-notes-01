@@ -2,7 +2,7 @@
 # kit-refresh.sh - run right after the vault update (self-healing fetch + fast-forward) (by vault-update.sh, the login agent/timer, or by hand) so installed copies of the kit
 # (agents, skills such as /rbx-workflow, tools) refresh whenever the vault updates, and then syncs <vault>/Assets from the public vault-assets repositories.
 # 1) install.sh (idempotent; every vault file is overwritten with the incoming version, files that left the kit are removed). Env CLAUDE_KIT_SKIP=1 skips this part.
-# 2) tools/assets-sync.py --vault <this vault>: downloads only new/changed asset files (about 2.7 GB the first time), deletes removed ones.
+# 2) tools/assets-sync.py --vault <this vault>: downloads only new/changed asset files (1.02 GB of zips the first time), deletes removed ones.
 #    Quiet unless something changed; skips with one line when no asset source is reachable (offline). Env CLAUDE_ASSETS_SKIP=1 skips this part.
 # 3) tools/refs-sync.py: fetches/updates the public Roblox reference screenshots (repos vault-refs-NN from repos.json, ~30 MB) into <claude config dir>/claude-kit/roblox-reference and
 #    writes <claude config dir>/claude-kit/reference-path.txt (read by the visual-QA / art-direction skills). Silent when offline or up to date. Env CLAUDE_REFS_SKIP=1 skips this part.

@@ -1,7 +1,7 @@
 #!/bin/bash
 # linux-sync-setup.sh - keeps the Obsidian vault "claudes-vault" fresh on this Linux machine: clone, kit install, asset sync, and an update shortly after boot/login
 # (systemd user timer with OnStartupSec only, NO 15-minute polling; cron fallback uses @reboot). On demand: bash vault-update.sh in the vault folder, or /rbx-update in Claude.
-# Assets (about 2.7 GB the first time) are synced into <vault>/Assets from the host PC's Tailscale share, never from GitHub.
+# Assets (1.02 GB of zips the first time) are synced into <vault>/Assets from the host PC's Tailscale share, never from GitHub.
 # User-level only: no sudo. Uses a systemd user timer; falls back to cron if systemd --user is unavailable. Safe to run again.
 # Pull-only: never commits or pushes. Usage: bash linux-sync-setup.sh [--uninstall]
 # Exit codes: 0 ok, 1 git/gh missing or clone failed, 2 not logged in to GitHub (run: gh auth login), 3 scheduler setup failed.
@@ -195,7 +195,7 @@ if [ "${AI_VAULT_SKIP:-0}" != 1 ] && [ -f "$DEST/ai-vault-sync.sh" ]; then bash 
 # Claude kit (Roblox agents, skills, tools) -> ~/.claude. Idempotent, no questions, the vault owns its files: every update overwrites them with the new version. Skip: CLAUDE_KIT_SKIP=1
 if [ "${CLAUDE_KIT_SKIP:-0}" != 1 ] && [ -f "$DEST/claude-kit/install.sh" ]; then CLAUDE_KIT_NOFOOTER=1 bash "$DEST/claude-kit/install.sh" || echo "Kit install failed (non-fatal)."; fi
 
-# Assets -> <vault>/Assets from the share (first run downloads everything, about 2.7 GB; later runs only changes). No questions. Skip: CLAUDE_ASSETS_SKIP=1
+# Assets -> <vault>/Assets from the share (first run downloads everything, 1.02 GB of zips; later runs only changes). No questions. Skip: CLAUDE_ASSETS_SKIP=1
 if [ "${CLAUDE_ASSETS_SKIP:-0}" != 1 ] && [ -f "$DEST/claude-kit/kit-refresh.sh" ]; then CLAUDE_KIT_SKIP=1 bash "$DEST/claude-kit/kit-refresh.sh" || echo "Asset sync failed (non-fatal; run vault-update.sh later)."; fi
 
 mkdir -p "$LOGDIR"

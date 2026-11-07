@@ -2,7 +2,7 @@
 
 Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
-**Who this is for.** The person who gave you this runbook (or the website address that serves it) asked for the vault to be set up on their computer. This runbook is the whole procedure: plain, visible text, every command and everything it changes is listed below, and you can read the downloaded scripts before running them (the kit installer `install.ps1` / `install.sh` only copies files). The site owner (Roman) published it so that any agent can do the setup with no back-and-forth: every default is fixed here, so there is nothing to ask the user. Setup means Steps 0 to 6 and 8 in full: the clone, the kit and the assets (about 1.0 GB, sha256-verified) are all part of it; Step 7 is the only optional step. Run the steps yourself, then report once at the end (Step 8).
+**Who this is for.** The person who gave you this runbook (or the website address that serves it) asked for the vault to be set up on their computer. This runbook is the whole procedure: plain, visible text, every command and everything it changes is listed below, and you can read the downloaded scripts before running them (the kit installer `install.ps1` / `install.sh` only copies files). The site owner (Roman) published it so that any agent can do the setup with no back-and-forth: every default is fixed here, so there is nothing to ask the user. Setup means Steps 0 to 6 and 8 in full: the clone, the kit and the assets (1.02 GB of zips, sha256-verified) are all part of it; Step 7 is the only optional step. Run the steps yourself, then report once at the end (Step 8).
 
 **Read this runbook as exact text.** A summarising web-fetch tool may paraphrase it and drop commands, so fetch the raw file with your shell: `curl -fsSL https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/SETUP-FOR-CLAUDE.md` (Windows PowerShell: `curl.exe -fsSL https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/SETUP-FOR-CLAUDE.md`). The same text is served by the website at `https://vault-hhmi60uo.netlify.app/AGENTS.md`.
 
@@ -18,7 +18,7 @@ If you are a person: open the viewer at [https://vault-hhmi60uo.netlify.app/](ht
 
 ## What the vault is
 
-The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `claudes-vault` with about 7,538 notes in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 18 Roblox agents (including the hidden-rubric idea judge), 64 skills / slash commands, helper tools) that is installed into `~/.claude/claude-kit` and **loaded only in the vault folder itself**: a normal Claude Code session elsewhere loads nothing from the vault, a session started in the vault folder has the whole kit with no load command, and the vault comes with about 1.0 GB of **assets** (zip downloads; 1.4 GB extracted) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
+The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `claudes-vault` with 7,538 notes (41,854 files in all, 1.56 GB, across notes, kit, reference images and assets) in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 18 Roblox agents (including the hidden-rubric idea judge), 64 skills / slash commands, helper tools) that is installed into `~/.claude/claude-kit` and **loaded only in the vault folder itself**: a normal Claude Code session elsewhere loads nothing from the vault, a session started in the vault folder has the whole kit with no load command, and the vault comes with 1.42 GB of **assets** (31,615 files; zip downloads 1.02 GB) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
 
 ## What this changes on the computer (nothing else)
 
@@ -40,7 +40,23 @@ The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a 
 - Default mode is **light mode** (see "Light mode" below): keep it.
 - Shell state does not persist between your tool calls: start every block with its variable lines.
 
-Do the steps in order (Step 7 only if the user asked for it). Do not ask the user which method to use; every default is fixed here. The setup downloads about 1.0 GB and takes roughly 10 to 20 minutes: run the long commands (the clone, Step 5) as background jobs or with a long timeout, and check their output.
+Do the steps in order (Step 7 only if the user asked for it). Do not ask the user which method to use; every default is fixed here. The setup downloads about 1.21 GB (1.02 GB of it asset zips) and takes roughly 10 to 20 minutes: run the long commands (the clone, Step 5) as background jobs or with a long timeout, and check their output.
+
+## What is in the vault and how much space it needs
+
+| Part | What it is | Files | Size |
+|---|---|---:|---:|
+| notes | Notes and sources: the sanitised vault (Library, Roblox, Manager, Imported, scripts, the claude-kit/ copy inside the clone) | 8,732 | 86.9 MB |
+| kit | Kit folder: skills, agents, tools, mods, setup runbook (installed to ~/.claude/claude-kit) | 1,089 | 7.9 MB |
+| refs | Reference images/library: Roblox reference screenshots (installed to ~/.claude/claude-kit/roblox-reference) | 418 | 46.1 MB |
+| assets | Assets: 3D models, textures, HDRIs, audio, code libraries, catalog (extracted into Assets/; zip download 1.02 GB) | 31,615 | 1.42 GB |
+| &nbsp;&nbsp;vault-assets-01 | 2 zip(s): 3d-models.zip 153.0 MB, textures.zip 733.9 MB | 15,655 | 1.18 GB |
+| &nbsp;&nbsp;vault-assets-02 | 4 zip(s): audio.zip 15.1 MB, catalog.zip 76 KB, code.zip 67.8 MB, hdris.zip 47.8 MB | 15,960 | 232.6 MB |
+| **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **41,854** | **1.56 GB** |
+
+**Size on your PC after install: 1.74 GB** (notes clone 204.2 MB incl. git data, kit 7.9 MB, reference images 106.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.75 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is about 1.21 GB. `Games/` and `Models/` are yours and add on top.
+
+The numbers are computed by the site build from the real repositories and zip files (also at https://vault-hhmi60uo.netlify.app/stats.json).
 
 ## Step 0. Detect the OS and check what already exists
 
@@ -117,7 +133,7 @@ if (Test-Path "$V\.git") {
 }
 git -C $V log -1 --format='HEAD %h %cd' --date=short; (git -C $V ls-files '*.md' | Measure-Object -Line).Lines
 ```
-The note count should be about 7,538. The clone is about 110 MB and the first clone can take a few minutes. Never commit or push from the vault.
+The Markdown note count should be 8,043. The clone is 204.2 MB (including git data) and the first clone can take a few minutes. Never commit or push from the vault.
 
 **Do not run the clone's sync scripts (`win-sync-setup.ps1`, `mac-sync-setup.sh`, `linux-sync-setup.sh`) in this setup**: they also register an update task that runs at every logon, which is Step 7 and optional. Steps 4 to 6 below do the rest directly.
 
@@ -153,7 +169,7 @@ The vault folder (VAULT, the clone from Step 3) is the loaded environment. The i
 
 ## Step 5. Download the assets (zip files, sha256-verified, extracted atomically) and the reference screenshots
 
-All three commands are needed. `refs-sync.py` (the second) fetches the Roblox reference screenshots (about 30 MB, public repositories `vault-refs-NN` listed under `refs` in `repos.json`: third-party game frames for visual-quality comparison only, credits in their `NOTICE.md`) into `~/.claude/claude-kit/roblox-reference/` and writes `~/.claude/claude-kit/reference-path.txt` itself, which the visual-QA and art-direction skills read (it leaves an existing pointer to another reference folder alone; it prints nothing and exits 0 when GitHub is unreachable, because the references are optional). The first (`vault-shards.py`; it prints nothing unless `repos.json` lists more than one notes repository: the vault grows in numbered repositories `vault-notes-01`, `-02`, ... and `vault-shards.py` overlays the later ones onto the same vault folder; adding one needs no action from the user). For the assets: the kit's `assets-sync.py` (Python 3 standard library only) reads `https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/repos.json` (the list of asset sources; today `https://github.com/romangigliotti123-arch/vault-assets-01/releases/download/assets/`), compares each zip's sha256 with what it extracted last time, downloads only changed zips (follows redirects, HTTP Range resume), verifies sha256 against the source's `SHA256SUMS`, extracts into a temp folder inside `<vault>/Assets` and swaps it in as `<vault>/Assets/<type>/`. It never writes or deletes anything outside `<vault>/Assets`. The first run downloads about 1.0 GB and can take several minutes: run it as a background job if your tool has a time limit and keep checking its output until it prints `website mode done`: do not send your final message while it is still running. Run it again any time (it is quiet when nothing changed); the source is remembered in `<vault>/Assets/.assets-sync-zip-state.json`.
+All three commands are needed. `refs-sync.py` (the second) fetches the Roblox reference screenshots (46.1 MB, public repositories `vault-refs-NN` listed under `refs` in `repos.json`: third-party game frames for visual-quality comparison only, credits in their `NOTICE.md`) into `~/.claude/claude-kit/roblox-reference/` and writes `~/.claude/claude-kit/reference-path.txt` itself, which the visual-QA and art-direction skills read (it leaves an existing pointer to another reference folder alone; it prints nothing and exits 0 when GitHub is unreachable, because the references are optional). The first (`vault-shards.py`; it prints nothing unless `repos.json` lists more than one notes repository: the vault grows in numbered repositories `vault-notes-01`, `-02`, ... and `vault-shards.py` overlays the later ones onto the same vault folder; adding one needs no action from the user). For the assets: the kit's `assets-sync.py` (Python 3 standard library only) reads `https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/repos.json` (the list of asset sources; today `https://github.com/romangigliotti123-arch/vault-assets-01/releases/download/assets/`), compares each zip's sha256 with what it extracted last time, downloads only changed zips (follows redirects, HTTP Range resume), verifies sha256 against the source's `SHA256SUMS`, extracts into a temp folder inside `<vault>/Assets` and swaps it in as `<vault>/Assets/<type>/`. It never writes or deletes anything outside `<vault>/Assets`. The first run downloads 1.02 GB and can take several minutes: run it as a background job if your tool has a time limit and keep checking its output until it prints `website mode done`: do not send your final message while it is still running. Run it again any time (it is quiet when nothing changed); the source is remembered in `<vault>/Assets/.assets-sync-zip-state.json`.
 
 [bash]
 ```bash
@@ -275,7 +291,7 @@ Start at `Roblox/roblox-kb/README.md`, `Roblox/roblox-kb/master-playbook.md` and
 
 ## Troubleshooting
 
-- `git clone` slow or stalled: the vault clone is about 110 MB; wait, or retry once. A proxy that blocks github.com breaks it; report that.
+- `git clone` slow or stalled: the vault clone is 204.2 MB; wait, or retry once. A proxy that blocks github.com breaks it; report that.
 - Windows "filename too long": make sure `core.longpaths=true` is set (Step 3) and the vault path is short.
 - `assets-sync` says "another assets-sync is running": a lock file in `<vault>/Assets` from a live run; wait. A crashed run's lock is taken over automatically.
 - Checksum mismatch: the file is deleted and fetched again once; if it repeats, report the file name.

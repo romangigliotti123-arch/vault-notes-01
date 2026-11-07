@@ -2,7 +2,7 @@
 # (NO 15-minute polling). On demand: vault-update.ps1 in the vault folder, or /rbx-update in Claude.
 # User-level only: no admin needed, no window shown. Safe to run again. Pull-only: never commits or pushes.
 # Usage:  powershell -NoProfile -ExecutionPolicy Bypass -File win-sync-setup.ps1 [-Dest <folder>] [-Uninstall] [-SkipKit] [-SkipAssets]
-# Assets (about 2.7 GB the first time) are synced into <vault>\Assets from the host PC's Tailscale share, never from GitHub.
+# Assets (1.02 GB of zips the first time) are synced into <vault>\Assets from the host PC's Tailscale share, never from GitHub.
 # Exit codes: 0 ok, 1 git/gh missing or clone failed, 2 not logged in to GitHub (run: gh auth login), 3 task setup failed.
 param(
   [string]$Dest = (Join-Path $env:USERPROFILE 'Obsidian\claudes-vault'),
@@ -208,7 +208,7 @@ if (-not $SkipKit -and (Test-Path $kitScript)) {
   try { & powershell -NoProfile -ExecutionPolicy Bypass -File $kitScript } catch { Write-Output ('Kit install failed (non-fatal): ' + $_.Exception.Message) }
 }
 
-# Assets -> <vault>\Assets from the share (first run downloads everything, about 2.7 GB; later runs only changes). No questions. Skip with -SkipAssets.
+# Assets -> <vault>\Assets from the share (first run downloads everything, 1.02 GB of zips; later runs only changes). No questions. Skip with -SkipAssets.
 $refreshScript = Join-Path $Dest 'claude-kit\kit-refresh.ps1'
 if (-not $SkipAssets -and (Test-Path $refreshScript)) {
   try { $env:CLAUDE_KIT_SKIP = '1'; & powershell -NoProfile -ExecutionPolicy Bypass -File $refreshScript } catch { Write-Output ('Asset sync failed (non-fatal; run vault-update.ps1 later): ' + $_.Exception.Message) }

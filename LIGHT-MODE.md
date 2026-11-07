@@ -4,7 +4,7 @@ Light mode hides only the big supporting folders (Library, Imported, Assets) fro
 
 The vault holds about 7,300 notes. Indexing all of them makes Obsidian lag, so the synced `.obsidian` config opens it light:
 
-- `Games/` and `Models/` (your own games and saved models; always hidden from Obsidian and git), `Imported/`, `Library/` and `Assets/` (the synced Roblox assets, about 48,000 files) are set under Settings > Files and links > Excluded files. Obsidian does not index, search, or graph them. `Roblox/` and `Manager/` (about 3,700 notes) stay indexed.
+- `Games/` and `Models/` (your own games and saved models; always hidden from Obsidian and git), `Imported/`, `Library/` and `Assets/` (the synced Roblox assets, 31,615 files) are set under Settings > Files and links > Excluded files. Obsidian does not index, search, or graph them. `Roblox/` and `Manager/` (about 3,700 notes) stay indexed.
 - The default graph shows only `Roblox/roblox-kb`, `Manager/` and the Roblox home note (about 620 nodes), with no orphans, tags or attachments.
 - Backlinks, outgoing-links, word-count, Sync and Canvas core plugins are off.
 

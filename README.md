@@ -37,7 +37,7 @@ Who it is for: someone who wants to make or run Roblox games and manage the work
 | Blender for Roblox | `Roblox/blender/` (about 1,250 notes; hidden in light mode) | Research on modelling, rigging, animation and exporting from Blender to Roblox. |
 | The manager method | `Manager/` (about 475 notes) | Research on how to manage AI agents: delegation, model choice, verification, cost control. It powers `/rbx-manager` and the head-manager step of the workflow. |
 | Supporting material | `Library/` (about 850 notes), `Imported/` (about 1,700 notes) | `Library/` is one note per Roblox, game-dev, manager or research skill or agent (plus everything the kit uses) collected from open-source projects; `Imported/` holds other people's vaults and guides about Roblox and game dev (Roblox Creator Docs copy, Luau, game mechanics, awesome lists), licensed as listed under Licence. They are supporting reference, not the core. The general (non-Roblox) library is the companion AI Library Vault. |
-| Assets | `Assets/` (about 2.7 GB, not in git) | Models, audio, textures, HDRIs and code libraries for Roblox, synced from the host PC's Tailscale share. |
+| Assets | `Assets/` (1.02 GB of zips, not in git) | Models, audio, textures, HDRIs and code libraries for Roblox, synced from the host PC's Tailscale share. |
 
 Light mode (the default) hides the big supporting folders (`Library/`, `Imported/`, `Assets/`) from Obsidian so it opens fast, leaving the Roblox knowledge base and the Manager notes visible. The files stay on disk and Claude still searches them. See `LIGHT-MODE.md`; `/rbx-light-off` shows everything.
 
