@@ -41,7 +41,7 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 @media (max-width:900px){#notes.open{position:fixed;inset:auto 0 0 0;max-height:55vh;width:auto;border-top:1px solid #34407a;z-index:5}}
 /* === 3. GAME UI: base, text, art === */
 #ui{position:absolute;inset:0;overflow:hidden;font-family:var(--fb);font-size:calc(var(--u)*3.7*var(--ts,1));color:#fff;background:linear-gradient(180deg,#34308a 0,#1d1b4c 50%,#12103a 100%);user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
-#ui button{font:inherit;color:inherit}
+#ui button{font:inherit}
 .lb{position:relative;display:inline-block;white-space:nowrap;line-height:1.12;font-family:var(--ft);font-weight:900;isolation:isolate;-webkit-text-stroke:.2em var(--lo,#2a1450);paint-order:stroke fill;letter-spacing:.01em}
 .lb::before{content:attr(data-t);position:absolute;left:0;top:.1em;z-index:-1;color:var(--lo,#2a1450);-webkit-text-stroke:.2em var(--lo,#2a1450)}
 .dk{font-family:var(--ft);font-weight:900;color:var(--brown)}
@@ -94,7 +94,7 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 .pill.bump{animation:bump .3s var(--spring)}@keyframes bump{40%{scale:1.14}}
 .panel{position:relative;background:linear-gradient(180deg,#fff8e2,#ffe9b4);color:var(--brown);border-radius:1.1em;padding:.8em;margin-bottom:.35em;box-shadow:0 0 0 .2em #5a3410,0 .35em 0 0 #c98a3a,0 .35em 0 .2em #5a3410,inset 0 .12em 0 #fff,inset 0 -.2em 0 rgba(160,100,30,.16)}
 .panel.dk2{background:linear-gradient(180deg,#3b3694,#26225f);color:#fff;box-shadow:0 0 0 .2em #0d0b2b,0 .35em 0 0 #17143f,0 .35em 0 .2em #0d0b2b,inset 0 .12em 0 rgba(255,255,255,.2)}
-.hdb{margin:-.8em -.8em .7em;padding:.5em 2.8em .5em .8em;border-radius:.9em .9em 0 0;text-align:center;font-size:1.3em;background:linear-gradient(180deg,#ffd45a,#ffa81f);box-shadow:inset 0 -.18em 0 rgba(0,0,0,.14),inset 0 .1em 0 rgba(255,255,255,.65);--lo:#7a3b06}
+.hdb{margin:-.8em -.8em .7em;padding:.5em 2.8em .5em .8em;border-radius:.9em .9em 0 0;text-align:center;font-size:1.3em;color:#fff;background:linear-gradient(180deg,#ffd45a,#ffa81f);box-shadow:inset 0 -.18em 0 rgba(0,0,0,.14),inset 0 .1em 0 rgba(255,255,255,.65);--lo:#7a3b06}
 .x{position:absolute;right:-.5em;top:-.55em;width:2.5em;height:2.5em;border-radius:.8em;border:0;cursor:pointer;display:grid;place-items:center;z-index:3;background:linear-gradient(180deg,#ff8fa0,#f03e5b);box-shadow:0 0 0 .15em #6a1028,0 .22em 0 .0 #a82040,0 .22em 0 .15em #6a1028,inset 0 .1em 0 rgba(255,255,255,.6);transition:scale .08s}.x svg{width:1.2em;height:1.2em;fill:#fff}
 .tabs{position:relative;display:flex;gap:0;padding:.3em;border-radius:1.1em;flex:none;background:rgba(10,8,40,.6);box-shadow:inset 0 .14em 0 rgba(0,0,0,.4),0 0 0 .13em #0d0b2b}
 .tabs .ind{position:absolute;left:.3em;top:.3em;bottom:.3em;width:calc((100% - .6em)/var(--c));translate:calc(var(--n)*100%) 0;border-radius:.85em;background:linear-gradient(180deg,#ffd45a,#ffa81f);box-shadow:0 0 0 .13em #7a3b06,inset 0 .1em 0 rgba(255,255,255,.6);transition:translate .28s var(--spring)}
@@ -182,19 +182,19 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 @keyframes fade{from{opacity:0}}
 .modal{width:min(90%,25em);max-height:92%;display:flex;flex-direction:column;gap:.55em;animation:pop .25s var(--spring);padding-top:.8em}.modal.out{animation:popout .15s ease-in forwards}.dim.out{animation:fadeo .15s ease-in forwards}
 @keyframes pop{from{scale:.8;opacity:0}}@keyframes popout{to{scale:.92;opacity:0}}@keyframes fadeo{to{opacity:0}}
-.mbody{overflow:auto;display:flex;flex-direction:column;gap:.55em;scrollbar-width:none}
+.mbody{overflow:auto;display:flex;flex-direction:column;gap:.55em;scrollbar-width:none;padding:.4em .4em .5em;margin:-.4em -.4em 0}.row>.bw{flex:1}
 #toasts,#fly{font-family:var(--fb);color:#fff;font-size:calc(var(--u)*3.7*var(--ts,1))}#toasts{position:absolute;left:0;right:0;top:calc(var(--st) + .5em);display:flex;flex-direction:column;align-items:center;gap:.4em;z-index:40;pointer-events:none}
 .toast{display:flex;align-items:center;gap:.5em;padding:.45em 1.1em .45em .7em;border-radius:2em;font-size:.9em;background:linear-gradient(180deg,#3b3694,#221f5e);box-shadow:0 0 0 .15em #0d0b2b,0 .22em 0 .15em #0d0b2b,inset 0 .12em 0 rgba(255,255,255,.22);animation:toast .3s var(--spring)}.toast.bad{box-shadow:0 0 0 .15em #6a1028,0 .22em 0 .15em #6a1028,inset 0 .12em 0 rgba(255,120,140,.4)}.toast .ic{width:1.5em;height:1.5em}.toast.out{animation:toastout .25s ease-in forwards}
 @keyframes toast{from{translate:0 -160%;opacity:0}}@keyframes toastout{to{translate:0 -120%;opacity:0}}
 #fx{position:absolute;inset:0;z-index:50;pointer-events:none}#fly{position:absolute;inset:0;z-index:45;pointer-events:none;overflow:hidden}.fl{position:absolute;left:0;top:0;width:1.7em;height:1.7em;margin:-.85em}.fl svg{width:100%;height:100%}.float{position:absolute;z-index:46;pointer-events:none;font-size:1.3em}
 #flash{position:absolute;inset:0;z-index:55;pointer-events:none;background:#fff;opacity:0}
-.stage{position:absolute;inset:0;z-index:25;display:grid;place-items:center;background:rgba(6,4,28,.78);animation:fade .25s;overflow:hidden}.stage .rays{opacity:0;transition:opacity .4s}.stage .rays.on{opacity:.42}
+.stage{position:absolute;inset:0;z-index:25;display:grid;place-items:center;pointer-events:auto;background:rgba(6,4,28,.86);animation:fade .25s;overflow:hidden}.stage .rays{opacity:0;transition:opacity .4s}.stage .rays.on{opacity:.42}
 .stg{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.7em;width:min(90%,22em)}
 .chest{position:relative;width:11em;height:9.5em;animation:drop .6s var(--spring)}.chest svg{width:100%;height:100%;overflow:visible}.chest.idle{animation:bob 2s ease-in-out infinite}.chest .lid{transform-origin:12% 52%;transition:transform .35s var(--spring)}.chest.open .lid{transform:rotate(-38deg)}
 .chest.shk{animation:shk .8s linear}.chest .glo{opacity:0;transition:opacity .2s}.chest.open .glo{opacity:1}
 @keyframes drop{from{translate:0 -14em;scale:.6}}@keyframes bob{50%{translate:0 -.5em}}
 @keyframes shk{0%{rotate:0deg;scale:1}10%{rotate:-3deg}20%{rotate:4deg}30%{rotate:-5deg;scale:1.05}40%{rotate:6deg}50%{rotate:-7deg;scale:1.08}60%{rotate:8deg}70%{rotate:-8deg;scale:1.1}80%{rotate:9deg}90%{rotate:-6deg;scale:1.12}100%{rotate:0deg;scale:1.12}}
-.rcard{--rc:#aab4c8;--rd:#586079;--rl:#e6ebf5;position:relative;width:min(70%,12em);padding:.55em .55em .7em;border-radius:1.1em;background:linear-gradient(180deg,#fffdf4,#fff1cf);color:var(--brown);text-align:center;box-shadow:0 0 0 .22em var(--rd),0 .4em 0 0 var(--rd),inset 0 0 0 .2em var(--rc);animation:slam .5s var(--spring) both}.rcard .well{aspect-ratio:1.05}
+.rcard{position:relative;width:min(70%,12em);padding:.55em .55em .7em;border-radius:1.1em;background:linear-gradient(180deg,#fffdf4,#fff1cf);color:var(--brown);text-align:center;box-shadow:0 0 0 .22em var(--rd),0 .4em 0 0 var(--rd),inset 0 0 0 .2em var(--rc);animation:slam .5s var(--spring) both}.rcard .well{aspect-ratio:1.05}
 @keyframes slam{from{scale:2.3;opacity:0}60%{opacity:1}}
 .rtxt{font-size:1.7em;--lo:var(--rd);animation:slam2 .4s var(--spring) both;color:#fff}.rtxt .lb{color:var(--rc);-webkit-text-stroke:.24em var(--rd)}.rtxt .lb::before{-webkit-text-stroke:.24em var(--rd)}
 @keyframes slam2{from{scale:3;opacity:0}}
@@ -492,7 +492,7 @@ function pickRarity(w){const t=Object.values(w).reduce((a,b)=>a+b,0);let r=Math.
 function openModal(type,data){state.modal=Object.assign({type},data||{});const m=$('#modals');m.innerHTML=`<div class="dim" data-dim>${MODALS[type](state.modal)}</div>`;sfx('pop')}
 function closeModal(){const m=$('#modals'),d=$('.dim',m)||$('.stage',m);state.modal=null;state.seq=null;const done=()=>{if(!state.modal)m.innerHTML='';render(false);if(state.pendingLevel||state.lvlGems){if(state.pendingLevel){state.pendingLevel=false;levelSeq()}}};if(!d)return done();const md=$('.modal',d);if(md)md.classList.add('out');d.classList.add('out');setTimeout(done,RM()?10:160)}
 async function chestSeq(cid){const cr=SHOP.crates.find(c=>c.id===cid),seq=state.seq={skip:false,open:false,cr};state.modal={type:'chest'};
-  $('#modals').innerHTML=`<div class="stage" data-stage>${raysHtml(14)}<div class="stg"><div class="lb" data-t="${cr.name}" style="font-size:1.5em;--lo:#2a1450">${cr.name}</div><div id="czone" style="min-height:11.5em;display:grid;place-items:center;width:100%"><div class="chest idle" id="chest">${chestSVG(cr.tint)}</div></div><div id="cact">${btn({c:'pri',s:'l',cta:1,t:'Open',act:'copen',kh:'Space'})}</div></div></div>`;sfx('pop')}
+  $('#modals').innerHTML=`<div class="stage" data-stage>${raysHtml(14,'on')}<div class="stg"><div class="lb" data-t="${cr.name}" style="font-size:1.5em;--lo:#2a1450">${cr.name}</div><div id="czone" style="min-height:11.5em;display:grid;place-items:center;width:100%"><div class="chest idle" id="chest">${chestSVG(cr.tint)}</div></div><div id="cact">${btn({c:'pri',s:'l',cta:1,t:'Open',act:'copen',kh:'Space'})}</div></div></div>`;sfx('pop')}
 async function chestOpen(){const seq=state.seq;if(!seq||seq.open)return;seq.open=true;const cr=seq.cr,W=ms=>wait(seq.skip?25:ms),ch=$('#chest');
   $('#cact').innerHTML=btn({c:'sec',s:'s',t:'Skip',act:'cskip'});ch.classList.remove('idle');void ch.offsetWidth;ch.classList.add('shk');sfx('rattle');buzz();
   const c=pt(ch);for(let i=0;i<6;i++)setTimeout(()=>{if(state.seq===seq)burst(c.x+(Math.random()-.5)*70,c.y,2,['spark'],{v:200,g:300,life:.5,s:8,cone:2.6})},i*120);
