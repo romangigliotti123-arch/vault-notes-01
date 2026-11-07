@@ -60,7 +60,9 @@ def parse_front(path):
 def skill_dirs():
     home = os.path.expanduser("~")
     c = []
-    for base in (os.getcwd(), os.environ.get("CLAUDES_VAULT") or "", os.path.join(home, "Obsidian", "claudes-vault")):
+    sys.path.insert(0, HERE)      # python -I drops the script folder from sys.path
+    import kit_paths  # ONE FOLDER: own location, env, pointer, cwd, defaults
+    for base in (os.getcwd(), os.environ.get("CLAUDES_VAULT") or "", kit_paths.find_vault(None, os.path.abspath(__file__)) or "", os.path.join(home, "Obsidian", "rbx-dev-vault"), os.path.join(home, "Obsidian", "claudes-vault")):
         if base:
             c.append(os.path.join(base, ".claude", "skills"))
     c.append(os.path.join(os.path.dirname(HERE), "vault-mode", ".claude", "skills"))

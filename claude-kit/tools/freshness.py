@@ -19,10 +19,9 @@ import sys
 
 
 def vault_dir(arg):
-    cands = [arg, os.environ.get("CLAUDES_VAULT"), os.path.expanduser("~/Obsidian/claudes-vault")]
-    up = os.environ.get("USERPROFILE")
-    if up:
-        cands.append(os.path.join(up, "Obsidian", "claudes-vault"))
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # python -I drops the script folder from sys.path
+    import kit_paths  # ONE FOLDER: own location, env, pointer, cwd, defaults
+    cands = [arg, os.environ.get("CLAUDES_VAULT"), os.environ.get("RBX_DEV_VAULT"), kit_paths.find_vault(None, os.path.abspath(__file__))] + kit_paths.defaults()
     for c in cands:
         if c and os.path.isdir(os.path.join(c, "Roblox")):
             return os.path.abspath(c)
@@ -94,7 +93,7 @@ def main():
     a = ap.parse_args()
     vault = vault_dir(a.vault)
     if not vault:
-        print("FRESHNESS: vault NOT FOUND (set CLAUDES_VAULT or clone to ~/Obsidian/claudes-vault); live check REQUIRED; say that nothing came from the vault")
+        print("FRESHNESS: vault NOT FOUND (fix: python \"%s\" --set \"<your vault folder>\" once, or set RBX_DEV_VAULT); live check REQUIRED; say that nothing came from the vault" % os.path.join(os.path.dirname(os.path.abspath(__file__)), "kit_paths.py").replace("\\", "/"))
         return 2
     status = pull(vault) if a.pull else "not-pulled(--pull not given)"
     today = datetime.date.fromisoformat(os.environ["FRESHNESS_TODAY"]) if os.environ.get("FRESHNESS_TODAY") else datetime.date.today()

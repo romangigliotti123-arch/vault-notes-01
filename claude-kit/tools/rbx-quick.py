@@ -19,8 +19,9 @@ def run(args, timeout=300):
 
 
 def find_vault():
-    home = os.path.expanduser("~")
-    for c in (os.environ.get("CLAUDES_VAULT"), os.path.join(home, "Obsidian", "claudes-vault")):
+    sys.path.insert(0, HERE)      # python -I drops the script folder from sys.path
+    import kit_paths  # ONE FOLDER: own location, env, pointer, cwd, defaults
+    for c in (os.environ.get("CLAUDES_VAULT"), kit_paths.find_vault(None, os.path.abspath(__file__))):
         if c and os.path.isdir(c):
             return c
     return None
@@ -38,7 +39,7 @@ def cmd_light(mode):
         return
     v = find_vault()
     if not v:
-        print("rbx-light: no claudes-vault found (set CLAUDES_VAULT or clone it to ~/Obsidian/claudes-vault).")
+        print('rbx-light: no vault found. Fix: python "%s" --set "<your vault folder>" (one time).' % os.path.join(HERE, "kit_paths.py").replace("\\", "/"))
         return
     if os.name == "nt":
         script = os.path.join(v, "vault-update.ps1")

@@ -10,28 +10,67 @@ import sys
 
 
 
+SEARCHED = []   # (label, folder) of every place find_vault looked, for the error text
+
+
+def _has_kb(p):
+    return bool(p) and os.path.isdir(os.path.join(p, "Roblox", "roblox-kb"))
+
+
 def _vault_candidates():
-    """Where the vault may be, in priority order (first existing wins)."""
+    """(label, folder) in priority order: explicit env / --vault, the vault that holds this tool, pointer, cwd, defaults. ONE-FOLDER layout: the tool sits in <vault>/.rbx/claude-kit/tools."""
     here = os.path.dirname(os.path.abspath(__file__))
     c = []
-    if os.environ.get("CLAUDES_VAULT"):
-        c.append(os.environ["CLAUDES_VAULT"])
-    home = os.path.expanduser("~")
-    c.append(os.path.join(home, "Obsidian", "claudes-vault"))
-    up = os.environ.get("USERPROFILE")
-    if up:
-        c.append(os.path.join(up, "Obsidian", "claudes-vault"))
-    # running from <vault>/claude-kit/tools
-    c.append(os.path.dirname(os.path.dirname(here)))
+    for k in ("CLAUDES_VAULT", "RBX_DEV_VAULT"):
+        if os.environ.get(k):
+            c.append(("env " + k, os.environ[k]))
+    kp = None
+    try:
+        if here not in sys.path:
+            sys.path.insert(0, here)        # python -I drops the script folder from sys.path
+        import kit_paths as kp  # noqa: E402
+    except ImportError:
+        kp = None
+    if kp:
+        try:
+            c.append(("this tool's own location", kp.from_script(os.path.abspath(__file__))))
+            c.append(("pointer " + kp.pointer_file(kp.config_dir()), kp.read_pointer(kp.config_dir())))
+            c.append(("current folder and parents (%s)" % os.getcwd(), kp.from_cwd()))
+            for d in kp.defaults():
+                c.append(("default", d))
+        except Exception:
+            pass
+    else:
+        home = os.path.expanduser("~")
+        for n in ("rbx-dev-vault", "claudes-vault"):
+            c.append(("default", os.path.join(home, "Obsidian", n)))
+    # legacy: running from <vault>/claude-kit/tools
+    c.append(("legacy <vault>/claude-kit/tools", os.path.dirname(os.path.dirname(here))))
     return c
 
 
 def find_vault():
-    for p in _vault_candidates():
+    del SEARCHED[:]
+    for label, p in _vault_candidates():
+        if not p:
+            SEARCHED.append((label, "(none)"))
+            continue
         p = os.path.expanduser(os.path.expandvars(p))
-        if os.path.isdir(os.path.join(p, "Roblox", "roblox-kb")):
+        SEARCHED.append((label, p))
+        if _has_kb(p):
             return p
     return None
+
+
+def not_found_text():
+    """Two lines for every 'vault not found' message: where it looked + the exact one-line fix."""
+    find_vault()
+    seen = []
+    for label, p in SEARCHED:
+        seen.append("%s: %s" % (label, str(p).replace("\\", "/")))
+    kp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kit_paths.py").replace("\\", "/")
+    return ("no vault with Roblox/roblox-kb found. Looked in: " + " | ".join(seen) + ".\n"
+            "Fix: python \"" + kp + "\" --set \"<your vault folder>\"   (one time; or pass --vault <folder> to kbq.py, or set RBX_DEV_VAULT=<folder>; /rbx-update also repairs it)")
 
 
 def find_assets():
@@ -52,8 +91,7 @@ def _kb_dir():
         return os.path.join(v, "Roblox", "roblox-kb")
     if os.environ.get("KBQ_WHERE"):
         return ""
-    sys.stderr.write("kbq: vault not found. Set CLAUDES_VAULT, pass --vault <path>, or clone it to ~/Obsidian/claudes-vault "
-                     "(see INSTALL.md).\n")
+    sys.stderr.write("kbq: " + not_found_text() + "\n")
     sys.exit(3)
 
 

@@ -67,7 +67,7 @@ Seeds may be bent or dropped if they make the idea worse, but the idea must stay
    - **Build ease (solo) 1 to 10, with a time estimate in weeks:** 9 to 10 = one place, no custom netcode, CC0 assets, about 2 weeks; 7 to 8 = one risky system, 2 to 4 weeks; 4 to 6 = several bespoke systems or multiplayer sync; 1 to 3 = needs a team, custom physics or heavy art. One-line reason and a one-line first build (what to build first, what to cut).
    - **Category:** the genre label the player would search for plus the lane.
    - **Reasons not to build, biggest risk, cheapest test** (measures 2 numbers; D1/D7 targets from the KB, flagged indie or official).
-   Save the full detail to `research/idea-<slug>.md` (slug = kebab-case title) in the game's project folder; when there is none (for example a session in the vault folder), use `./research/` under the current folder (create it) and say so in one clause. The file must let every tag resolve later: the `## Sources` section lists each KB tag used with its printed source line (topic, flag, date, link) and each [S#] used with its brief line and link, headed `Brief date: <YYYY-MM-DD>`. Then register the idea so it never repeats: `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/spark.py" hist add "<title>" "<one-line pitch>"`. In chat show ONLY the card and the short relative path.
+   Save the full detail to `research/idea-<slug>.md` (slug = kebab-case title) in the game's project folder; when there is none (for example a session in the vault folder), use `./research/` under the current folder (create it) and say so in one clause. The file must let every tag resolve later: the `## Sources` section lists each KB tag used with its printed source line (topic, flag, date, link) and each [S#] used with its brief line and link, headed `Brief date: <YYYY-MM-DD>`. Then register the idea so it never repeats: `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/spark.py" hist add "<title>" "<one-line pitch>"`. In chat show ONLY the card and the short relative path as plain text in backticks (`research/idea-<slug>.md`); never a markdown link, `[text](path)`, file:// or http URL (a relative link renders as a dead claude.ai address).
 
 **"Another":** a different idea: rerun (b) to (e) with a fresh `draw` (different seeds; the earlier title and pitch named as taken; the brief reused by path; `hist check` blocks repeats). No runner-up reuse.
 
@@ -128,7 +128,7 @@ Why it can work
 Reasons not to build this: <one line, the owner decides>
 Biggest risk: <risk>. Cheapest test: <test measuring 2 numbers>; target D1 <x>%, D7 <y>% (<KB tag>, indie or official)
 
-Detail: research/idea-<slug>.md
+Detail: `research/idea-<slug>.md`
 **Done** — <what happened, one line; the detail file lists the sources behind every tag>
 **You** — reply "plan" (full plan), "another" (a different idea) or "build it" (create the game folder + README)
 **Next** — <what happens on your reply>

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """kbq - cheap, cited search over the Roblox knowledge base. For agents (and Roman) to use instead of reading whole topic files.
 
-  python kbq.py [--vault <path>] <command> ...   vault path: --vault, else env CLAUDES_VAULT, else ~/Obsidian/claudes-vault
+  python kbq.py [--vault <path>] <command> ...   vault path: --vault, else env CLAUDES_VAULT/RBX_DEV_VAULT, else the vault holding this tool (<vault>/.rbx/claude-kit), the pointer ~/.claude/rbx-dev-vault.path, the current folder's parents, ~/Obsidian/rbx-dev-vault|claudes-vault
   python kbq.py where                      print the resolved VAULT, KB folder and ASSETS folder (env ROBLOX_ASSETS, else <vault>/Assets, else ~/roblox-assets)
   python kbq.py list                       topic files + one-line scope + coverage status (live from README/_coverage)
   python kbq.py route "<task>"             which topic files to read for a task (README task table + keyword score)
@@ -360,7 +360,7 @@ def cmd_where(a):
     v = K.find_vault()
     s = K.find_assets()
     if not v:
-        sys.stderr.write("kbq: vault NOT FOUND (set CLAUDES_VAULT or clone it to ~/Obsidian/claudes-vault)\n")
+        sys.stderr.write("kbq: vault NOT FOUND: " + K.not_found_text().replace("\n", " ") + "\n")
     if not s:
         sys.stderr.write("kbq: assets NOT FOUND (run /rbx-update or vault-update.ps1/.sh to sync <vault>/Assets, or set ROBLOX_ASSETS)\n")
     print("VAULT=%s" % q(v))
@@ -422,8 +422,9 @@ def _relevant(text, qt):
 
 def cmd_pack(a):
     if not K.KB_DIR or not os.path.isdir(K.KB_DIR) or not K.topic_files():
-        print("KB unavailable: vault/knowledge base not found (looked in CLAUDES_VAULT, ~/Obsidian/claudes-vault).")
-        print("Fix: run /rbx-update, or clone the vault to ~/Obsidian/claudes-vault, or set CLAUDES_VAULT=<vault folder> (see INSTALL.md). Until then evidence is web-only.")
+        _nf = K.not_found_text().split("\n")
+        print("KB unavailable: " + _nf[0])
+        print(_nf[1] + ". Until then evidence is web-only.")
         return
     q = a.query
     qt = set(K.tokens(q)) - GENERIC
@@ -438,7 +439,10 @@ def cmd_pack(a):
             t = _cap(cmd_route, query=x % q, n=4)
             routes = "\n".join(l for l in t.splitlines() if not l.startswith("Next:"))
         elif kind == "section":
-            t = _cap(cmd_section, topic=x, section=y, max_chars=1500)
+            try:
+                t = _cap(cmd_section, topic=x, section=y, max_chars=1500)
+            except OSError:      # a topic file missing from a partial KB is a gap, not a crash
+                t = ""
             if t.startswith("no such section") or not t:
                 gaps.append("section %s/%s" % (x, y))
                 continue

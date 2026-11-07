@@ -466,9 +466,31 @@ def find_vault():
     cands = []
     if os.environ.get("CLAUDES_VAULT"):
         cands.append(Path(os.environ["CLAUDES_VAULT"]).expanduser())
-    cands.append(Path.home() / "Obsidian" / "claudes-vault")
-    if os.environ.get("USERPROFILE"):
-        cands.append(Path(os.environ["USERPROFILE"]) / "Obsidian" / "claudes-vault")
+    if os.environ.get("RBX_DEV_VAULT"):
+        cands.append(Path(os.environ["RBX_DEV_VAULT"]).expanduser())
+    # ONE FOLDER: this script sits in <vault>/.rbx/claude-kit/vault-mode/.claude/skills/rbx-research/scripts (or <vault>/.claude/skills/...); then the pointer, then the current folder's parents
+    for par in Path(__file__).resolve().parents:
+        if par.name == ".rbx":
+            cands.append(par.parent)
+            break
+        if (par / ".git").exists() and (par / "Roblox").is_dir():
+            cands.append(par)
+            break
+    try:
+        ptr = Path(os.environ.get("CLAUDE_CONFIG_DIR") or (Path.home() / ".claude")) / "rbx-dev-vault.path"
+        first = ptr.read_text(encoding="utf-8").splitlines()[0].strip()
+        if first:
+            cands.append(Path(first))
+    except (OSError, IndexError):
+        pass
+    for par in [Path.cwd()] + list(Path.cwd().parents):
+        if (par / ".rbx" / "claude-kit").is_dir() and (par / ".git").exists():
+            cands.append(par)
+            break
+    for nm in ("rbx-dev-vault", "claudes-vault"):
+        cands.append(Path.home() / "Obsidian" / nm)
+        if os.environ.get("USERPROFILE"):
+            cands.append(Path(os.environ["USERPROFILE"]) / "Obsidian" / nm)
     for c in cands:
         try:
             if c.is_dir():
