@@ -198,14 +198,11 @@ def main():
     if state in ("installed", "uptodate"):
         blk = "\n".join([
             "**THE TWO MODS (ALREADY INSTALLED)**",
-            "- Active in the vault folder only (%s): they are Claude Code plugins (an agent sidebar and a graph view) that register hooks, enabled in %s, so they apply only to sessions started in that folder; your other Claude sessions are not affected. Start a new session in the vault folder (or type /reload-plugins in an open one) to activate them." % (vault, os.path.join(vault, ".claude", "settings.json")),
-            "- /rbx-subagent-hud opens the agent sidebar; /rbx-graph shows the link to the vault graph site.",
-            "- To remove them: /plugin in a session started in the vault folder (uninstall rbx-subagent-hud and rbx-graph), or run the installer with --no-mods: %s" % off_cmd])
+            "- Type /reload-plugins once; they run in the vault folder only. Remove: /plugin, or the installer's --no-mods."])
     else:
         blk = "\n".join([
             "**THE TWO MODS (NOT INSTALLED)**",
-            "- Skipped: %s. The vault works without them. To install them run: %s   then start a new session in the vault folder." % (why, on_cmd),
-            "- They are Claude Code plugins that add an agent sidebar (/rbx-subagent-hud) and a graph view (/rbx-graph) and register hooks; they are installed for the vault folder only (project scope), so they apply only to sessions started in that folder. Turn them off any time with /plugin or the installer's --no-mods."])
+            "- Skipped: %s. Install them: %s   then start a new session in the vault folder." % (why, on_cmd)])
     if not a.dry_run:
         try:
             os.makedirs(sd, exist_ok=True)

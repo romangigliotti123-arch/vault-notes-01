@@ -6,7 +6,7 @@ Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
 ## Install
 
-Paste this to Claude: Set up the Roblox Dev Mastery Vault on my computer: fetch https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/SETUP-FOR-CLAUDE.md with curl and follow it exactly. The agent follows SETUP-FOR-CLAUDE.md: clone this repository, install the Claude kit (https://github.com/romangigliotti123-arch/vault-kit-01), assets, light mode. Update later with /rbx-update. Website (viewer): https://vault-hhmi60uo.netlify.app
+Paste this to Claude: Set up the Roblox Dev Mastery Vault on my computer: fetch https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/SETUP-FOR-CLAUDE.md with curl and follow it exactly. Update later with /rbx-update. More details: MANUAL-READ.md in this folder (or https://vault-hhmi60uo.netlify.app/manual). Kit: https://github.com/romangigliotti123-arch/vault-kit-01
 
 ## Start here: making a game
 

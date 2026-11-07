@@ -648,7 +648,7 @@ def cmd_load(a):
     if n_old:
         print("Vault copies removed from %d old project folder%s (your Games/ and Models/ there were left in place). Start sessions in %s instead." % (n_old, "s"[:n_old != 1], proj))
     if getattr(a, "announce", False) and (first or n_old):
-        print("HOW TO START USING: " + 'start a new Claude session in %s (Claude app: New, choose that folder; terminal: cd "%s" then claude; Obsidian: Open folder as vault on the same path). That folder loads the whole vault automatically; no load command.' % (proj, proj))
+        print("HOW TO START USING: " + 'start a new Claude session in %s; that folder has everything loaded.' % proj)
     return 0
 
 

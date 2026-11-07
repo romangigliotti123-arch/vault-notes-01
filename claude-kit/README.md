@@ -5,29 +5,27 @@ Built and maintained by Roman (GitHub: romangigliotti123-arch)
 ## Quick start
 
 **HOW TO START USING**
-- Start a new Claude session in your vault folder (for example `~/Obsidian/claudes-vault`; Windows `%USERPROFILE%\Obsidian\claudes-vault`). Claude app: New, choose that folder. Terminal: `cd` to it, then `claude`. Obsidian: Open folder as vault on the same path. That folder loads the whole vault automatically; no load command.
+- Start a new Claude session in your vault folder (for example `~/Obsidian/claudes-vault`); that folder has everything loaded.
 
 **HOW TO SEE SKILLS AND AGENTS**
-- In that session type `/rbx-list` (skills, agents, mods), or type `/` and start typing `rbx-`. To learn what one skill does, ask "what does /rbx-<name> do".
+- Type `/rbx-list` in that session, or `/` then `rbx-`.
 
 **THE TWO MODS (ALREADY INSTALLED)**
-- Type `/reload-plugins` once (or start a new session) to activate them. They are Claude Code plugins that add an agent sidebar and a graph view and register hooks; they are enabled for the vault folder only (project scope, in `<vault>/.claude/settings.json`), so they apply only to sessions started in the vault folder; your other Claude sessions are not affected.
-- `/rbx-subagent-hud` opens the agent sidebar; `/rbx-graph` shows the link to the vault graph site.
-- To turn them off: `/plugin` (disable or uninstall rbx-subagent-hud and rbx-graph), or run the installer with `--no-mods` (Windows `-NoMods`). If the mods were skipped, the installer prints this section as THE TWO MODS (NOT INSTALLED) with the exact install command instead.
+- Type `/reload-plugins` once; they run in the vault folder only. Remove: `/plugin`, or the installer's `--no-mods`.
 
 **HOW TO MAKE A GAME IDEA**
-- `/rbx-ideas`: finds ONE fresh idea based on what is doing best on the charts (single-player or open world). Reply "another" for a different one, "build it" to create the game folder, "plan" for the full plan.
-- `/rbx-idea-creator`: type it with your own idea to build it up, or on its own and it asks a few quick questions.
+- `/rbx-ideas` finds one fresh idea (reply `another`, `build it` or `plan`); `/rbx-idea-creator` starts from yours.
 
 **HOW TO BUILD A GAME**
-- `/rbx-workflow`: takes a game from idea to launch one stage at a time. Games live in `Games/<game name>/` in your vault folder (each has a README). In any new session say "I want to work on <game name>" and Claude picks it up. Good reusable models are saved to `Models/` in your vault folder automatically.
+- `/rbx-workflow` builds a game stage by stage; resume with "I want to work on <game name>".
 
 **HOW TO UPDATE**
 - Type `/rbx-update` (works from any session).
 
 **NOT SURE WHICH SKILL?**
-- There are skills for almost everything. Just tell Claude what you want to do (for example "I want to make a shop screen" or "find me a game idea") and it will tell you which skill to use.
-- Type `/rbx-list` any time to see them all.
+- Tell Claude what you want to do and it names the skill; `/rbx-list` shows them all.
+
+More details: `MANUAL-READ.md` in the vault folder (or the site's `/manual` page).
 
 Say one sentence on any computer and a Claude agent designs and builds a Roblox game for you, using the vault, the Roblox skills and your downloaded assets. It never asks you questions: if your idea is vague it makes assumptions, writes them down, and carries on.
 
