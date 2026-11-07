@@ -23,7 +23,7 @@ Built and maintained by Roman (GitHub: romangigliotti123-arch)
 - Type `/rbx-update` (works from any session).
 
 **NOT SURE WHICH SKILL?**
-- Tell Claude what you want to do and it names the skill; `/rbx-list` shows them all.
+- Just describe what you want; Claude offers the right skill and you reply yes.
 
 More details: `MANUAL-READ.md` in the vault folder (or the site's `/manual` page).
 

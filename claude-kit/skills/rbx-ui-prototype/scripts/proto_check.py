@@ -87,6 +87,7 @@ def main(argv):
     ck("orientation kept in page state, not localStorage", "localStorage" not in js, "localStorage used", warn=True)
     ck("safe-area overlay toggle", bool(re.search(r"safe", js + html, re.I)) and bool(re.search(r"type=\"checkbox\"|safe-toggle|showsafe", html)))
     ck("hover state in CSS (:hover)", ":hover" in css)
+    ck("prefers-reduced-motion media query present (reduce effects for players who ask)", "prefers-reduced-motion" in css, "no reduced-motion rule", warn=True)
     ck("press handlers (pointerdown + pointerup, or mouse/touch)", bool(re.search(r"pointerdown|mousedown|touchstart", js)) and bool(re.search(r"pointerup|mouseup|touchend", js)))
     ck("disabled state (:disabled, .disabled or aria-disabled)", bool(re.search(r":disabled|\.disabled|aria-disabled", css + js)))
     ck("press 0.08 s and release 0.15 s timings present", bool(re.search(r"\b(0?\.08|80)\b", js + css)) and bool(re.search(r"\b(0?\.15|150)\b", js + css)))

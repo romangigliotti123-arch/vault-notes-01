@@ -90,7 +90,7 @@ Type `/rbx-list` to see what is installed, or `/` then `rbx-`.
 | get the latest vault | `/rbx-update` |
 | see every skill | `/rbx-list` |
 
-Not sure? Tell Claude what you want in plain words ("I want to make a shop screen") and it names the skill. If a skill you expect is missing, you are probably not in the vault folder.
+Not sure? Just describe the task in plain words ("I want to make a shop screen"): Claude checks for a fitting skill, asks "Use /rbx-ui for this? (yes/no)" and starts it when you reply yes. If a skill you expect is missing, you are probably not in the vault folder.
 
 ## 5. Every skill and agent
 
@@ -307,6 +307,7 @@ By default Claude designs every button and screen before building UI (`/rbx-ui-m
 | Does it work on Mac and Linux? | Yes; the installer has a script for each system |
 | Can I use it offline? | Yes after the first install; updates and assets need internet |
 | Can I add my own skill? | Yes: put it in your own `~/.claude/skills`; the vault never overwrites it |
+| What happens when I describe a task? | Claude checks the skills first and asks one line, "Use /rbx-x for this? (yes/no)"; reply yes to start it on your request, no to go on without it. It does not ask for plain questions, small edits or when you name a skill |
 | What do the footers mean? | **Done** - what happened, **You** - what you must do, **Next** - the next step |
 
 ### Glossary
