@@ -333,7 +333,7 @@ def excl_keys(marker):
     return ks
 
 
-HOME_EXTRA = ("Games/", "Models/")
+HOME_EXTRA = ("Games/", "Models/", "START-HERE.md", ".claude/settings.json")
 
 
 def exclude_strip(t):
