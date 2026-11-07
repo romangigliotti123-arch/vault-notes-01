@@ -5,7 +5,7 @@ Prints PASS/FAIL/WARN lines and a summary; exit 1 when any FAIL."""
 import io, json, os, re, shutil, subprocess, sys, tempfile
 
 RISKY = ("backdrop-filter", "filter:", "mix-blend-mode", "clip-path", "mask-image", "conic-gradient", "radial-gradient", "text-shadow")
-DEVICES = ("phone-portrait", "phone-landscape", "tablet", "desktop")
+DEVICES = ("phone", "tablet", "desktop")
 res = []
 
 
@@ -75,7 +75,16 @@ def main(argv):
     ck("screens array with >= 3 screens (const SCREENS = [{id:...}])", bool(m) and len(re.findall(r"\bid\s*:", m.group(1))) >= 3, "SCREENS missing or < 3")
     ck("state object (const/let state)", bool(re.search(r"\b(const|let|var)\s+state\s*=", js)))
     ck("single render function", len(re.findall(r"function\s+render\s*\(", js)) == 1)
-    ck("device switcher: phone portrait, phone landscape, tablet, desktop", all(x in html for x in DEVICES), [x for x in DEVICES if x not in html])
+    miss = [x for x in DEVICES if not re.search(r"\bid\s*:\s*['\"]%s['\"]" % x, js)]
+    ck("device switcher with phone, tablet and desktop", not miss and "devices" in html, miss)
+    rot = [
+        bool(re.search(r"id=[\"']rotate[\"']", html)),
+        "portrait" in js and "landscape" in js,
+        bool(re.search(r"===\s*['\"]r['\"]", js)),
+        bool(re.search(r"rotate\s*:\s*(true|1)\b", js)) and bool(re.search(r"rotate\s*:\s*(false|0)\b", js)),
+    ]
+    ck("rotate control (id=rotate) with portrait and landscape, key R, desktop does not rotate", all(rot), "missing: " + ", ".join(n for n, ok in zip(("id=rotate button", "portrait+landscape", "R key", "rotate flags (phone/tablet true, desktop false)"), rot) if not ok))
+    ck("orientation kept in page state, not localStorage", "localStorage" not in js, "localStorage used", warn=True)
     ck("safe-area overlay toggle", bool(re.search(r"safe", js + html, re.I)) and bool(re.search(r"type=\"checkbox\"|safe-toggle|showsafe", html)))
     ck("hover state in CSS (:hover)", ":hover" in css)
     ck("press handlers (pointerdown + pointerup, or mouse/touch)", bool(re.search(r"pointerdown|mousedown|touchstart", js)) and bool(re.search(r"pointerup|mouseup|touchend", js)))

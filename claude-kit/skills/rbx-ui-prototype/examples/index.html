@@ -12,21 +12,31 @@
 body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-serif;display:flex;flex-direction:column;height:100vh;overflow:hidden}
 #bar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:8px 16px;background:#141a33;border-bottom:1px solid #263056}
 #bar strong{font-size:15px}.tag{background:#3a2a10;color:#ffd27a;border:1px solid #6b4d1a;border-radius:99px;padding:2px 10px;font-size:12px}
-.seg{display:flex;gap:4px}.seg button,#bar .tool{background:#222c55;color:#cfd8ff;border:1px solid #34407a;border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
-.seg button.on{background:#ffc83d;color:#2a1c00;border-color:#ffc83d}.seg button:hover:not(.on),#bar .tool:hover{background:#2e3a70}
+.seg{display:flex;gap:4px}.seg button,#bar .tool{background:#222c55;color:#cfd8ff;border:1px solid #34407a;border-radius:8px;padding:6px 12px;min-height:34px;font:inherit;cursor:pointer;transition:background .15s,border-color .15s,color .15s,transform .1s}
+.seg button.on{background:#ffc83d;color:#2a1c00;border-color:#ffc83d;font-weight:600}.seg button:hover:not(.on),#bar .tool:hover:not(:disabled){background:#2e3a70;border-color:#4a5aa8}
+.seg button:active,#bar .tool:active:not(:disabled){transform:scale(.95)}#bar button:focus-visible,#bar input:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#rotate{display:grid;place-items:center;width:34px;padding:0!important}#rotate svg{width:18px;height:18px;transition:transform .28s cubic-bezier(.3,.9,.3,1.1)}#rotate:disabled{opacity:.35;cursor:not-allowed}
+#devlabel{font-size:12px;font-weight:600;color:#ffd27a;min-width:15ch}
 #bar label{display:flex;gap:6px;align-items:center;font-size:13px;color:#cfd8ff;cursor:pointer}
 #work{flex:1;display:flex;min-height:0}
 #stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:0;padding:10px}
 #info{font-size:12px;color:#8e9bcc}
 #shell{position:relative}
+#shell.turn,#shell.turn #frame{transition:width .28s cubic-bezier(.3,.9,.3,1),height .28s cubic-bezier(.3,.9,.3,1),transform .28s cubic-bezier(.3,.9,.3,1)}
 #frame{position:absolute;left:0;top:0;transform-origin:0 0;border-radius:28px;overflow:hidden;box-shadow:0 0 0 6px #05070f,0 0 0 8px #2a3566;background:#000}
 #safe{position:absolute;inset:0;pointer-events:none;display:none;border-style:solid;border-color:rgba(255,70,70,.28);border-width:var(--st) var(--sr) var(--sb) var(--sl);outline:2px dashed rgba(255,120,120,.9);outline-offset:-2px}
 #frame.showsafe #safe{display:block}
+#safe i{position:absolute;display:none;background:#000;box-shadow:0 0 0 2px rgba(255,120,120,.9)}
+#frame[data-notch="1"][data-orient=tall] .notch{display:block;left:50%;top:0;width:34%;height:calc(var(--st)*.55);transform:translateX(-50%);border-radius:0 0 1em 1em}
+#frame[data-notch="1"][data-orient=wide] .notch{display:block;left:0;top:50%;width:calc(var(--sl)*.55);height:34%;transform:translateY(-50%);border-radius:0 1em 1em 0}
+#frame[data-home="1"] .homebar{display:block;left:50%;bottom:calc(var(--sb)*.3);width:36%;height:5px;margin-left:-18%;border-radius:9px;background:#fff;box-shadow:0 0 0 1px #000}
+#frame[data-home="1"][data-orient=wide] .homebar{width:20%;margin-left:-10%;bottom:calc(var(--sb)*.25)}
 #notes{width:310px;flex:none;overflow:auto;background:#10152b;border-left:1px solid #263056;padding:12px 14px;font-size:13px;display:none}
 #notes.open{display:block}#notes h3{font-size:13px;margin:12px 0 6px;color:#ffd27a;text-transform:uppercase;letter-spacing:.04em}#notes h3:first-child{margin-top:0}
 #notes ul{padding-left:18px;display:grid;gap:4px;margin-top:8px}#notes li{color:#c3cdf5}#notes b{color:#fff}
 .badges{display:flex;flex-wrap:wrap;gap:5px}.badge{background:#1d3a35;color:#7bf0c4;border:1px solid #2a6b5a;border-radius:6px;padding:2px 7px;font-size:12px}
 .kbd{font-family:Consolas,monospace;background:#222c55;border-radius:4px;padding:0 5px}
+@media (prefers-reduced-motion:reduce){#shell.turn,#shell.turn #frame,#rotate svg{transition:none}}
 @media (max-width:900px){#notes.open{position:fixed;inset:auto 0 0 0;max-height:55vh;width:auto;border-top:1px solid #34407a;z-index:5}}
 /* === 3. GAME UI (everything in em: one --u scale like UIScale) === */
 #ui{position:absolute;inset:0;overflow:hidden;font-family:var(--font-body);font-size:calc(var(--u)*3.7);color:var(--text);background:linear-gradient(180deg,#33437a 0,#1b2340 55%,#121830 100%);user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
@@ -36,7 +46,7 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 .row{display:flex;align-items:center;gap:.6em}.grow{flex:1;min-width:0}
 .title{font-family:var(--font-title);font-weight:800;font-size:1.5em;letter-spacing:.02em}
 .muted{color:var(--muted);font-size:.85em}
-.btn{font:inherit;font-family:var(--font-title);font-weight:800;color:#2a1c00;border:0;cursor:pointer;min-height:3em;padding:.4em 1.1em;border-radius:.7em;display:inline-flex;align-items:center;justify-content:center;gap:.4em;background:linear-gradient(180deg,var(--b1,#ffd96b),var(--b2,#ffb81f));box-shadow:0 .25em 0 var(--b3,#b27a00),inset 0 0 0 .12em rgba(255,255,255,.3);transition:transform .12s,background .12s}
+.btn{font:inherit;font-family:var(--font-title);font-weight:800;color:#2a1c00;border:0;cursor:pointer;min-height:3em;padding:.4em 1.1em;border-radius:.7em;display:inline-flex;align-items:center;justify-content:center;gap:.4em;background:linear-gradient(180deg,var(--b1,#ffd96b),var(--b2,#ffb81f));box-shadow:0 .25em 0 var(--b3,#b27a00),inset 0 0 0 .12em rgba(255,255,255,.3);transition:transform .12s,background .12s,box-shadow .12s}
 .btn.green{--b1:#7bf0c4;--b2:#2fbf8c;--b3:#1c7d5c;--h1:#a2ffe0;--h2:#4ee0ad}.btn.blue{--b1:#6f87d6;--b2:#4a62b3;--b3:#2c3b78;--h1:#8aa0ee;--h2:#6179cc;color:#fff}.btn.red{--b1:#ff7a7e;--b2:#e5484d;--b3:#9c2a2f;--h1:#ff9a9d;--h2:#f4606a;color:#fff}
 .btn:hover:not(:disabled){background:linear-gradient(180deg,var(--h1,#ffe9a0),var(--h2,#ffc93d));transform:translateY(-.1em)}
 .btn:active:not(:disabled){transform:translateY(.18em);box-shadow:0 .07em 0 var(--b3,#b27a00),inset 0 0 0 .12em rgba(255,255,255,.3)}
@@ -52,7 +62,7 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 .bar{height:1.05em;border-radius:1em;background:rgba(0,0,0,.4);overflow:hidden;box-shadow:inset 0 0 0 .1em rgba(255,255,255,.15)}
 .bar>i{display:block;height:100%;width:calc(var(--v)*100%);border-radius:1em;background:linear-gradient(180deg,#7bf0c4,#2fbf8c);transition:width .35s cubic-bezier(.34,1.4,.64,1)}
 .tabs{display:flex;gap:.4em}.tab{flex:1;font:inherit;font-family:var(--font-title);font-weight:800;min-height:2.8em;border:0;border-radius:.7em .7em .3em .3em;background:rgba(8,12,30,.45);color:var(--muted);cursor:pointer;transition:transform .12s,background .12s}
-.tab:hover{background:rgba(255,255,255,.14);color:#fff}.tab.on{background:var(--accent);color:#2a1c00;box-shadow:0 .2em 0 #b27a00}
+.tab:hover{background:rgba(255,255,255,.14);color:#fff}.tab:active{transform:translateY(.1em)}.tab.on{background:var(--accent);color:#2a1c00;box-shadow:0 .2em 0 #b27a00}
 .grid{display:grid;gap:.6em;grid-template-columns:repeat(2,1fr);align-content:start}
 #frame[data-orient=wide] .grid{grid-template-columns:repeat(4,1fr)}
 .card{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3em;padding:.55em;border-radius:.9em;background:linear-gradient(180deg,#3a4d85,#2b3a67);box-shadow:inset 0 0 0 .12em rgba(255,255,255,.14)}
@@ -62,11 +72,13 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 .hot{animation:hot .5s}@keyframes hot{30%{box-shadow:inset 0 0 0 .2em var(--warn)}}
 .scroll{overflow:auto;flex:1;min-height:0;padding:.2em .1em .6em}
 .hero{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6em}
-#frame[data-orient=wide] .home .hero{flex-direction:row;gap:2em}
+#frame[data-orient=wide] .home{display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:auto repeat(3,1fr);column-gap:1.4em}
+#frame[data-orient=wide] .home>:first-child{grid-column:1/3}#frame[data-orient=wide] .home .hero{grid-column:1;grid-row:2/5;gap:.5em}
+#frame[data-orient=wide] .home>:nth-child(n+3){grid-column:2;align-self:center}
 .logo{font-family:var(--font-title);font-weight:900;font-size:2.1em;line-height:1;text-align:center;letter-spacing:.04em;color:var(--accent);text-shadow:.07em .07em 0 #8a4b00}
 .rock{position:relative;width:9em;aspect-ratio:1;border:0;border-radius:50%;cursor:pointer;font-size:1em;display:grid;place-items:center;background:linear-gradient(150deg,#ff9ad0,#e0457f 75%);box-shadow:0 .4em 0 #8f2250,inset 0 0 0 .22em rgba(255,255,255,.3);transition:transform .12s}
 .rock:hover{transform:translateY(-.1em) rotate(-2deg)}.rock span{font-size:4em;line-height:1;pointer-events:none}
-#frame[data-orient=wide] .rock{width:6.6em}.float{position:absolute;font-family:var(--font-title);font-weight:900;font-size:1.3em;color:#ffe38a;pointer-events:none;text-shadow:.08em .08em 0 #5a3500;z-index:9}
+#frame[data-orient=wide] .rock{width:6.2em}.float{position:absolute;font-family:var(--font-title);font-weight:900;font-size:1.3em;color:#ffe38a;pointer-events:none;text-shadow:.08em .08em 0 #5a3500;z-index:9}
 .gift{position:relative;overflow:visible}.gift.ready{animation:glow 1.2s infinite}
 @keyframes glow{50%{box-shadow:0 .25em 0 #1c7d5c,0 0 0 .3em rgba(123,240,196,.5)}}
 .ring{width:1.9em;height:1.9em;border-radius:50%;background:conic-gradient(var(--green) calc(var(--p,1)*360deg),rgba(255,255,255,.25) 0);display:grid;place-items:center;flex:none}.ring::after{content:"";width:68%;height:68%;border-radius:50%;background:#2d3e72}
@@ -91,30 +103,31 @@ body{background:#0c1020;color:#e7ecff;font:14px/1.4 system-ui,"Segoe UI",sans-se
 <header id="bar">
   <strong>Candy Quarry</strong><span class="tag">UI PROTOTYPE - not the game</span>
   <div class="seg" id="devices" role="group" aria-label="Device"></div>
+  <button class="tool" id="rotate" title="Rotate device (R)" aria-label="Rotate device between portrait and landscape"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.5-5.8"/><path d="M20 3v5h-5"/></svg></button>
+  <span id="devlabel" aria-live="polite"></span>
   <label><input type="checkbox" id="safe-toggle"> Safe areas</label>
   <button class="tool" id="reset" title="Reset fake game state">Reset state</button>
   <button class="tool" id="notes-btn" aria-expanded="false">Notes</button>
 </header>
 <div id="work">
-  <main id="stage"><div id="shell"><div id="frame" data-orient="tall"><div id="ui"></div><div id="toasts"></div><div id="safe"></div></div></div><div id="info"></div></main>
+  <main id="stage"><div id="shell"><div id="frame" data-orient="tall"><div id="ui"></div><div id="toasts"></div><div id="safe"><i class="notch"></i><i class="homebar"></i></div></div></div><div id="info"></div></main>
   <aside id="notes" aria-label="Prototype notes">
     <section id="constraints"><h3>Roblox constraints (all of this is buildable)</h3>
-      <div class="badges"><span class="badge">UICorner</span><span class="badge">UIStroke</span><span class="badge">UIGradient (linear)</span><span class="badge">UIListLayout</span><span class="badge">UIGridLayout</span><span class="badge">UIPadding</span><span class="badge">UIAspectRatioConstraint</span><span class="badge">UIScale + TweenService</span><span class="badge">ScreenInsets</span><span class="badge">ClipsDescendants</span></div>
+      <div class="badges"><span class="badge">UICorner</span><span class="badge">UIStroke</span><span class="badge">UIGradient (linear)</span><span class="badge">UIListLayout</span><span class="badge">UIGridLayout</span><span class="badge">UIPadding</span><span class="badge">UIAspectRatioConstraint</span><span class="badge">UIScale + TweenService</span><span class="badge">ScreenInsets</span><span class="badge">ScreenOrientation</span><span class="badge">ClipsDescendants</span></div>
       <ul><li>Press 0.08 s to scale 0.92, release 0.15 s overshoot to 1.08 then 1 = Tween Back/Out.</li><li>Button lip = a second Frame under the button; inner outline = UIStroke.</li><li>Sizes are in em from one scale = one UIScale + Scale sizing.</li></ul></section>
     <section id="notbuildable"><h3>Not buildable as-is</h3>
       <ul><li><b>conic-gradient</b> (cooldown ring on the gift button): UIGradient is linear only. Use a ring ImageLabel with two half-circle clips rotated by UIGradient, or a 24-frame ring sprite sheet.</li><li><b>text-shadow</b> (logo): use a duplicate TextLabel offset behind, or TextStrokeTransparency.</li><li><b>emoji art</b>: placeholder only. Replace with ImageLabel assets; emoji in a TextLabel also works in Roblox.</li></ul></section>
     <section id="fidelity"><h3>Fidelity</h3>
-      <ul><li><b>Source:</b> reference example written from a brief, no image was read.</li><li><b>Matched (brief):</b> palette, rounded fonts feel, shop grid (2 columns tall, 4 wide), 8-slot bag, currency chips.</li><li><b>Guessed:</b> item art (emoji), prices, tab names, level curve, safe-area numbers (typical phone).</li></ul></section>
-    <section><h3>Keys</h3><ul><li><span class="kbd">1</span> Home <span class="kbd">2</span> Shop <span class="kbd">3</span> Bag</li><li><span class="kbd">[</span> <span class="kbd">]</span> shop tabs, <span class="kbd">S</span> settings</li><li><span class="kbd">Space</span> mine, <span class="kbd">Esc</span> back / close</li></ul></section>
+      <ul><li><b>Source:</b> reference example written from a brief, no image was read.</li><li><b>Matched (brief):</b> palette, rounded fonts feel, shop grid (2 columns portrait, 4 landscape), 8-slot bag, currency chips, home in two columns in landscape.</li><li><b>Guessed:</b> item art (emoji), prices, tab names, level curve, safe-area numbers (typical phone).</li></ul></section>
+    <section><h3>Keys</h3><ul><li><span class="kbd">1</span> Home <span class="kbd">2</span> Shop <span class="kbd">3</span> Bag</li><li><span class="kbd">[</span> <span class="kbd">]</span> shop tabs, <span class="kbd">S</span> settings</li><li><span class="kbd">Space</span> mine, <span class="kbd">Esc</span> back / close, <span class="kbd">R</span> rotate phone / tablet</li></ul></section>
   </aside>
 </div>
 <script>
 /* === 4. DATA (edit these to change content) === */
 const DEVICES=[
-  {id:'phone-portrait',label:'Phone',w:390,h:844,safe:[47,0,34,0]},
-  {id:'phone-landscape',label:'Phone wide',w:844,h:390,safe:[0,47,21,47]},
-  {id:'tablet',label:'Tablet',w:820,h:1180,safe:[24,0,20,0]},
-  {id:'desktop',label:'Desktop',w:1280,h:720,safe:[36,0,0,0]}];
+  {id:'phone',label:'Phone',rotate:true,notch:1,home:1,portrait:{w:390,h:844,safe:[47,0,34,0]},landscape:{w:844,h:390,safe:[0,47,21,47]}},
+  {id:'tablet',label:'Tablet',rotate:true,notch:0,home:1,portrait:{w:820,h:1180,safe:[24,0,20,0]},landscape:{w:1180,h:820,safe:[24,0,20,0]}},
+  {id:'desktop',label:'Desktop',rotate:false,notch:0,home:0,portrait:{w:1280,h:720,safe:[36,0,0,0]},landscape:{w:1280,h:720,safe:[36,0,0,0]}}];
 const TABS=[{id:'picks',label:'Picks'},{id:'boosts',label:'Boosts'},{id:'gems',label:'Gems'}];
 const ITEMS=[
   {id:'wood',tab:'picks',name:'Wooden Pick',icon:'⛏️',h:30,cur:'coins',price:0,lvl:1,power:1,note:'Starter'},
@@ -128,7 +141,7 @@ const ITEMS=[
   {id:'g50',tab:'gems',name:'Handful',icon:'💎',h:200,cur:'robux',price:49,gives:50,lvl:1,note:'50 gems'},
   {id:'g150',tab:'gems',name:'Pouch',icon:'💎',h:215,cur:'robux',price:129,gives:150,lvl:1,note:'150 gems'}];
 const SLOTS=8, GIFT_MS=15000, START={coins:120,gems:5,xp:0,level:1,owned:{wood:1},equipped:'wood',tab:'picks',sel:'wood',screen:'home',stack:[],modal:null,giftAt:0,music:true,sfx:true,haptics:true};
-const state=JSON.parse(JSON.stringify(START)); state.giftAt=Date.now()+4000;
+const state=JSON.parse(JSON.stringify(START)); state.giftAt=Date.now()+4000; state.device='phone'; state.orient='portrait';
 const shown={coins:state.coins,gems:state.gems};
 /* === 5. VIEWS (one function per screen, all return an HTML string) === */
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -215,6 +228,7 @@ $('#ui').addEventListener('click',e=>{const b=btnOf(e.target);if(!b){if(e.target
 /* === 9. KEYBOARD === */
 document.addEventListener('keydown',e=>{if(e.target.matches('input')||e.ctrlKey||e.metaKey)return;const k=e.key.toLowerCase(),m=state.modal;
   if(k==='escape'||k==='backspace'){e.preventDefault();return ACTIONS.back()}
+  if(k==='r')return rotate();
   if(m)return;
   if(k==='1'||k==='2'||k==='3'){const id=['home','shop','bag'][+k-1];if(id!==state.screen){state.stack=id==='home'?[]:['home'];state.screen=id;render(true)}}
   else if(k==='s')ACTIONS.settings();
@@ -222,18 +236,24 @@ document.addEventListener('keydown',e=>{if(e.target.matches('input')||e.ctrlKey|
   else if((k==='['||k===']')&&state.screen==='shop'){const n=TABS.findIndex(t=>t.id===state.tab)+(k===']'?1:-1);ACTIONS.tab(TABS[(n+TABS.length)%TABS.length].id)}
   else if(k==='?')$('#notes-btn').click()});
 /* === 10. DEVICES, SAFE AREAS, FIT === */
-let dev=DEVICES[0];
-function applyDevice(id){dev=DEVICES.find(d=>d.id===id)||dev;const f=$('#frame'),[t,r,b,l]=dev.safe;
-  f.style.width=dev.w+'px';f.style.height=dev.h+'px';f.dataset.orient=dev.w>=dev.h?'wide':'tall';
+const cap=s=>s[0].toUpperCase()+s.slice(1);
+let dev=DEVICES[0],geo=DEVICES[0].portrait;
+function applyDevice(id,orient,anim){dev=DEVICES.find(d=>d.id===id)||dev;state.device=dev.id;if(orient&&dev.rotate)state.orient=orient;
+  const o=dev.rotate?state.orient:'landscape';geo=dev[o];const f=$('#frame'),sh=$('#shell'),[t,r,b,l]=geo.safe;
+  if(anim){sh.classList.add('turn');clearTimeout(applyDevice.t);applyDevice.t=setTimeout(()=>sh.classList.remove('turn'),340);$('#ui').animate([{opacity:.25},{opacity:1}],{duration:280,easing:'ease-out'})}
+  f.style.width=geo.w+'px';f.style.height=geo.h+'px';f.dataset.orient=geo.w>=geo.h?'wide':'tall';f.dataset.notch=dev.notch;f.dataset.home=dev.home;
   Object.entries({st:t,sr:r,sb:b,sl:l}).forEach(([k,v])=>f.style.setProperty('--'+k,v+'px'));
-  f.style.setProperty('--u',Math.min(6.5,Math.min(dev.w,dev.h)/100)+'px');
-  $$('#devices button').forEach(x=>x.classList.toggle('on',x.dataset.device===dev.id));fit();
-  try{localStorage.setItem('cq-device',dev.id)}catch(_){}}
-function fit(){const st=$('#stage'),s=Math.min(1,(st.clientWidth-24)/dev.w,(st.clientHeight-48)/dev.h),sh=$('#shell');
-  $('#frame').style.transform=`scale(${s})`;sh.style.width=dev.w*s+'px';sh.style.height=dev.h*s+'px';
-  $('#info').textContent=`${dev.label} ${dev.w}x${dev.h} at ${Math.round(s*100)}% | safe T${dev.safe[0]} R${dev.safe[1]} B${dev.safe[2]} L${dev.safe[3]}`}
+  f.style.setProperty('--u',Math.min(6.5,Math.min(geo.w,geo.h)/100)+'px');
+  $$('#devices button').forEach(x=>{const on=x.dataset.device===dev.id;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
+  const rb=$('#rotate');rb.disabled=!dev.rotate;rb.title=dev.rotate?'Rotate device (R)':'Desktop does not rotate';
+  $('#devlabel').textContent=`${dev.label} - ${cap(o)}`;fit()}
+function rotate(){if(!dev.rotate)return;const o=state.orient==='portrait'?'landscape':'portrait';$('#rotate svg').style.transform=`rotate(${o==='landscape'?90:0}deg)`;applyDevice(dev.id,o,true)}
+function fit(){const st=$('#stage'),s=Math.min(1,(st.clientWidth-24)/geo.w,(st.clientHeight-48)/geo.h),sh=$('#shell');
+  $('#frame').style.transform=`scale(${s})`;sh.style.width=geo.w*s+'px';sh.style.height=geo.h*s+'px';
+  $('#info').textContent=`${$('#devlabel').textContent} ${geo.w}x${geo.h} at ${Math.round(s*100)}% | safe T${geo.safe[0]} R${geo.safe[1]} B${geo.safe[2]} L${geo.safe[3]}`}
 $('#devices').innerHTML=DEVICES.map(d=>`<button data-device="${d.id}">${d.label}</button>`).join('');
-$('#devices').addEventListener('click',e=>{const b=e.target.closest('[data-device]');if(b)applyDevice(b.dataset.device)});
+$('#devices').addEventListener('click',e=>{const b=e.target.closest('[data-device]');if(b&&b.dataset.device!==dev.id)applyDevice(b.dataset.device,null,true)});
+$('#rotate').addEventListener('click',rotate);
 $('#safe-toggle').addEventListener('change',e=>$('#frame').classList.toggle('showsafe',e.target.checked));
 $('#reset').addEventListener('click',()=>ACTIONS.reset());
 $('#notes-btn').addEventListener('click',()=>{const o=$('#notes').classList.toggle('open');$('#notes-btn').setAttribute('aria-expanded',o);fit()});
@@ -244,9 +264,8 @@ function tick(){for(const k of ['coins','gems']){const d=state[k]-shown[k];shown
   const left=Math.max(0,state.giftAt-Date.now()),ready=left===0,g=$('[data-gift]');
   if(g){g.disabled=!ready;g.classList.toggle('ready',ready);$('[data-ring]',g).style.setProperty('--p',ready?1:1-left/GIFT_MS);$('[data-cd]',g).textContent=ready?'Claim gift':`0:${String(Math.ceil(left/1000)).padStart(2,'0')}`}
   requestAnimationFrame(tick)}
-let startDev='phone-portrait';try{startDev=localStorage.getItem('cq-device')||startDev}catch(_){}
 if(innerWidth>1100)$('#notes').classList.add('open');
-applyDevice(startDev);render(true);tick();
+applyDevice(state.device,state.orient);render(true);tick();
 </script>
 </body>
 </html>
