@@ -17,3 +17,4 @@ Read-only mirror of public vaults and Roblox asset/code catalogs (1709 notes, sy
 - [[Imported/roblox-creator-docs/SOURCE|roblox-creator-docs]]: 1040 notes (CC-BY-4.0, github.com/Roblox/creator-docs)
 - [[Imported/Imported-Vaults-INDEX|Imported vaults index]]
 - [[Imported/roblox-assets/roblox-assets-INDEX|Roblox assets index]]
+- [[Imported/roblox-ai-index/roblox-ai-INDEX|roblox-ai media library index]] (index only, no license, nothing copied)
