@@ -1,5 +1,3 @@
--- fixture_run.luau: builds the synthetic test game in Lune's Roblox DOM, runs perf_run.luau (or a generated perf_apply/perf_revert) in it, writes the printed lines.
--- lune run fixture_run.luau <runner.luau> <out.txt> [variant=plain|query|touch] [inject] [stage=fresh|applied:<perf_apply.luau>]
 local fs = require("@lune/fs")
 local luau = require("@lune/luau")
 local process = require("@lune/process")
@@ -50,7 +48,6 @@ local function part(name: string, parent: any, o: any?)
 	return p
 end
 
--- decorative, non-colliding: SAFE CanQuery + CanTouch
 local decor = folder("Scenery", ws)
 for i = 1, 6 do
 	part("Pebble" .. i, decor, { cc = false, pos = Vector3.new(i * 5, 1, 40) })
@@ -63,17 +60,14 @@ local lamp = part("LampGlow", decor, { cc = false, pos = Vector3.new(0, 4, 50) }
 local light = Instance.new("PointLight")
 light.Range = 14
 light.Parent = lamp
--- hidden inside a bigger solid block: SAFE CanCollide off (S4)
 local mass = folder("Masonry", ws)
 part("Slab", mass, { size = Vector3.new(30, 30, 30), pos = Vector3.new(100, 15, 0) })
 part("Core", mass, { size = Vector3.new(4, 4, 4), pos = Vector3.new(100, 15, 0) })
-part("Edge", mass, { size = Vector3.new(4, 4, 4), pos = Vector3.new(113, 15, 0) }) -- sticks out: stays solid
--- invisible leftovers: SAFE removal (S5); one is still collidable: kept
+part("Edge", mass, { size = Vector3.new(4, 4, 4), pos = Vector3.new(113, 15, 0) })
 local left = folder("Leftovers", ws)
 part("Stray1", left, { tr = 1, cc = false, cq = false, ct = false })
 part("Stray2", left, { tr = 1, cc = false })
 part("InvisibleWall", left, { tr = 1, cc = true, size = Vector3.new(20, 20, 1), pos = Vector3.new(0, 10, -60) })
--- identical duplicates (S6); the glass pair is not opaque and stays
 local dup = folder("Duplicates", ws)
 for _ = 1, 3 do
 	part("Plank", dup, { pos = Vector3.new(-30, 1, 0), size = Vector3.new(8, 0.5, 2) })
@@ -81,7 +75,6 @@ end
 for _ = 1, 2 do
 	part("Pane", dup, { pos = Vector3.new(-30, 6, 0), tr = 0.5, size = Vector3.new(8, 4, 0.2) })
 end
--- interactive things: must never be touched
 local haz = folder("Hazards", ws)
 part("KillBrick", haz, { cc = false, color = Color3.fromRGB(200, 0, 0), pos = Vector3.new(60, 1, 0) })
 part("Lava", haz, { cc = false, pos = Vector3.new(70, 1, 0) })
@@ -118,10 +111,8 @@ local weld = Instance.new("WeldConstraint")
 weld.Part0 = axle
 weld.Part1 = wheel
 weld.Parent = axle
--- a solid visible wall that is not decorative by any rule
 part("Wall", ws, { size = Vector3.new(30, 12, 1), pos = Vector3.new(0, 6, -20), color = Color3.fromRGB(200, 190, 170) })
 part("Crate", ws, { anchored = false, pos = Vector3.new(0, 1, -10) })
--- scripts
 local sss = dm:GetService("ServerScriptService")
 local s = Instance.new("Script")
 s.Name = "Game"
@@ -134,7 +125,6 @@ elseif variant == "touch" then
 end
 s.Source = src
 s.Parent = sss
--- replay: apply the first stage of a previous run (used to build the "after" state for revert tests)
 local function printTo(buf: { string })
 	return function(...)
 		local parts = { ... }
@@ -210,7 +200,6 @@ for _, p in pre do
 end
 runFile(runnerPath, function(code)
 	if inject then
-		-- a deliberately wrong "optimisation": tint one pebble after the changes
 		code = string.gsub(
 			code,
 			"afterApplyHook = nil,",

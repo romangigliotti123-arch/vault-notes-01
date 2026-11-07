@@ -1,19 +1,11 @@
--- perf_run.luau: Roblox-side runner of rbx-perf-models. Paste into Studio's command bar, or run it with execute_luau (datamodel Edit).
--- scan   : read-only. Prints PERF_* lines (every rendering and physics property of every part). Feed them to perf_gate.py analyze.
--- apply  : perf_gate.py writes a copy of this file with a PLAN (perf_apply.luau). Applies it, re-reads every part, prints a PASS/FAIL per class,
---          and puts everything back (REVERTED) if any rendering property differs from the scan. Undo afterwards: Ctrl+Z in Studio, or perf_revert.luau.
--- revert : perf_gate.py writes perf_revert.luau (restores removed parts and the old property values).
--- Nothing here touches scripts, UI, lighting or terrain. Only the properties in ALLOWED are ever written.
 local CONFIG = {
-	mode = "scan", -- "scan" | "apply" | "revert"
-	root = "Workspace", -- "Workspace" or a dotted path under game, e.g. "Workspace.Map"
-	chunk = 25, -- rows per printed line
+	mode = "scan",
+	root = "Workspace",
+	chunk = 25,
 	maxParts = 80000,
-	afterApplyHook = nil, -- test hook only: called after the changes, before the appearance check
+	afterApplyHook = nil,
 }
--- PLAN-BEGIN
 local PLAN = nil
--- PLAN-END
 
 local ALLOWED = {
 	CanQuery = "bool",
@@ -70,7 +62,6 @@ local function fnv(s: string): number
 	return h
 end
 
--- table key for an instance: its debug id when readable (some hosts hand out a new wrapper per access), else the instance itself
 local function ikey(inst: any): any
 	local ok, k = pcall(function()
 		return inst:GetDebugId()
@@ -228,7 +219,6 @@ local function containerRow(c: any, id: number, pid: number): { any }
 	return { id, pid, c.ClassName, c.Name, kids, #c:GetTags(), n }
 end
 
--- ids: every BasePart (except Terrain) and every instance with children, in GetDescendants order under the root
 local function index(root: any)
 	local list: { any } = {}
 	local idOf: { [any]: number } = {}
@@ -559,7 +549,6 @@ local function scan(phase: string, rootInst: any, list: { any }, idOf: { [any]: 
 	print("PERF_END " .. enc({ phase = phase, nparts = #prow, ncontainers = #crow }))
 end
 
--- ---------------------------------------------------------------- apply / revert
 local function holder(create: boolean): any
 	local ss = svc("ServerStorage")
 	if not ss then
@@ -599,7 +588,6 @@ local function waypoint(name: string)
 end
 
 local function visualTuple(row: { any }): string
-	-- everything that can be seen: row without id, pid, behaviour flags (anch, cc, cq, ct, ml) and collision fidelity
 	local bits = {}
 	for i, v in row do
 		local f = FIELDS_P[i]
@@ -679,7 +667,6 @@ local function runApply(rootInst: any, list: { any }, idOf: { [any]: number })
 	if CONFIG.afterApplyHook then
 		CONFIG.afterApplyHook(list, idOf)
 	end
-	-- appearance check: every surviving part has the same visual tuple; removed parts must be invisible or have an identical twin
 	local visualOK: { [number]: boolean } = {}
 	for _, item in PLAN.items do
 		if VISUAL_PROPS[item.prop] and allowVisual[item.prop] then
@@ -742,7 +729,6 @@ local function runApply(rootInst: any, list: { any }, idOf: { [any]: number })
 end
 
 local function runRevert(rootInst: any)
-	-- 1) put the property values back while the removed parts are still away (a part with scan id k now sits at k minus the removed ids below it)
 	local h = holder(false)
 	local marked = {}
 	if h then
@@ -784,7 +770,6 @@ local function runRevert(rootInst: any)
 			end
 		end
 	end
-	-- 2) bring the removed parts home
 	local back = 0
 	for _, c in marked do
 		local mk = c:FindFirstChild(MARK)
