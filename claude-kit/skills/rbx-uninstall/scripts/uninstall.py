@@ -854,21 +854,23 @@ def print_plan(P, keep_final, keep_note, a, real_run):
     parent = keep_final if a.keep_dir else os.path.dirname(P["vault"])
     say("UNINSTALL %s" % ("- REAL RUN" if real_run else "DRY RUN - nothing was changed"))
     say("vault: %s (%d files, %s)" % (P["vault"], P["vault_files"], hsize(P["vault_bytes"])))
-    say("RESCUED to %s, verified byte for byte BEFORE anything is deleted:" % parent)
-    say("  Games -> %s (%d games, %d files)" % (P["dest"]("Games"), len(P["games"]), P["games_files"]))
+    say("RESCUED into %s (copied and verified byte for byte BEFORE anything is deleted):" % parent)
+    say("  Games (%d games, %d files) -> %s" % (len(P["games"]), P["games_files"], os.path.basename(P["dest"]("Games"))))
     for r in P["research"]:
-        say("  %s -> %s" % (r, P["dest"](r)))
+        say("  %s -> %s" % (r, os.path.basename(P["dest"](r))))
     if P["own"]:
-        say("  %d other file(s) you added/changed in the vault -> %s" % (len(P["own"]), os.path.join(keep_final, "_vault-own-files")))
-    for slug, pp in P["external"]:
+        say("  %d other file(s) you added/changed in the vault -> _vault-own-files in the backups folder" % len(P["own"]))
+    for slug, pp in P["external"][:3]:
         say("  stays in place (outside the vault): project of %s: %s" % (slug, pp))
+    if len(P["external"]) > 3:
+        say("  ... and %d more projects outside the vault stay in place" % (len(P["external"]) - 3))
+    say("BACKUPS (settings.json, edited kit files, CLAUDE.md copy; next to the vault, never inside it): %s" % keep_final)
     say("REMOVED: %d kit files (%s); the kit folder; the 3 stub skills + pointer; %d vault copies; hooks: %s; auto-sync: %s; then the vault folder" % (
         len(P["present"]), ", ".join("%s %d" % (k.split(" (")[0], v) for k, v in sorted(P["areas"].items())) or "none", len(P["mode_projects"]), "found" if P["hooks"] else "none", ", ".join(k for k, v in P["sys"]) or "none"))
     ne = len(P["edited"]) + len(P["extras"])
     say("EDITED BY YOU: %d kit file(s) changed, %d unlisted file(s)%s; %d downloaded kit file(s) (reference clone) are just deleted" % (
-        len(P["edited"]), len(P["extras"]), (" -> %s" % os.path.join(keep_final, "_edited-kit-files")) if ne and not a.keep_edited else (" (left in place, --keep-edited)" if ne else ""), len(P["generated"])))
+        len(P["edited"]), len(P["extras"]), (" -> backed up" if ne and not a.keep_edited else (" (left in place, --keep-edited)" if ne else "")), len(P["generated"])))
     say("CLAUDE.md: kit marker block %s; %d other line(s) mention the kit (listed, never edited)" % ("removed from " + ", ".join(P["claude_blocks"]) if P["claude_blocks"] else "not present", len(P["claude_md"])))
-    say("settings.json is backed up to %s first" % os.path.join(keep_final, "_uninstall-backups"))
     say("NOT TOUCHED: credentials, other skills/agents/settings, MCP servers, projects outside the vault, the folder with your rescued games and backups")
     if keep_note:
         say("(%s)" % keep_note)
