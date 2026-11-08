@@ -1,0 +1,9 @@
+THUMBNAIL SCORE (thumbnail; max 46, pass 32 with no failed gate; weights and pass bar are assumptions)
+rank  id        total   gates  file     result   vs control
+1     A         40/46   ok     ok       PASS      (control)
+2     B         30/46   ok     ok       FAIL     -10
+best A: 40/46, PASS
+  fix first: check 5 Genre legibility scored 1/2 (loses 2 points)
+  fix first: check 7 Curiosity the game answers scored 1/2 (loses 2 points)
+  fix first: check 10 Action or implied motion scored 1/2 (loses 1 points)
+thumbnail: scored 40/46 (variants 2)   (not recorded: add --write Games/<slug>)

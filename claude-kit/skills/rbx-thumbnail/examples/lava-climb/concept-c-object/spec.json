@@ -1,0 +1,46 @@
+{
+ "template": "object-only",
+ "background": {
+  "gradient": [
+   "#6a11cb",
+   "#2a0845"
+  ],
+  "angle": 100
+ },
+ "burst": {
+  "color": "#ffb347",
+  "alpha": 40,
+  "cx": 0.5,
+  "cy": 0.52,
+  "rays": 24
+ },
+ "layers": [
+  {
+   "file": "../layers/drop.png",
+   "role": "prize",
+   "outline": {
+    "px": 16,
+    "color": "#14102a"
+   },
+   "glow": {
+    "px": 70,
+    "color": "#ff9a3c",
+    "strength": 1.8
+   }
+  },
+  {
+   "file": "../layers/hero.png",
+   "role": "hero",
+   "icon": false,
+   "h": 0.5,
+   "cx": 0.13,
+   "cy": 0.72,
+   "outline": {
+    "px": 16,
+    "color": "#14102a"
+   }
+  }
+ ],
+ "texts": [],
+ "name": "concept-c-object"
+}

@@ -1,0 +1,107 @@
+{
+ "name": "concept-a-face-left",
+ "template": "face-left-prize-right",
+ "results": [
+  {
+   "level": "PASS",
+   "message": "thumbnail: 2 subject elements (hero/prize/extra; 1-3 reads best, assumption)"
+  },
+  {
+   "level": "PASS",
+   "message": "thumbnail: main subject (hero, else prize) vs background luminance difference 0.23 (>= 0.18 wanted, assumption; check the greyscale row)"
+  },
+  {
+   "level": "PASS",
+   "message": "thumbnail: biggest subject is 102% of the frame height (>= 35% wanted, assumption)"
+  },
+  {
+   "level": "PASS",
+   "message": "thumbnail: text 'RUN!' has 1 word(s) (max 3, assumption)"
+  },
+  {
+   "level": "PASS",
+   "message": "thumbnail: text 'RUN!' is about 8.9 px tall at 100 px width (>= 8 wanted, assumption)"
+  },
+  {
+   "level": "PASS",
+   "message": "thumbnail: text 'RUN!' contrast 14.6:1 (fill vs outline 14.6, vs background 9.2; >= 3 wanted)"
+  },
+  {
+   "level": "PASS",
+   "message": "thumbnail: text 'RUN!' stays above the bottom 15% player-count area"
+  },
+  {
+   "level": "PASS",
+   "message": "thumbnail: text 'RUN!' keeps a margin from the sides"
+  },
+  {
+   "level": "PASS",
+   "message": "icon: 2 subject elements (hero/prize/extra; 1-3 reads best, assumption)"
+  },
+  {
+   "level": "PASS",
+   "message": "icon: main subject (hero, else prize) vs background luminance difference 0.24 (>= 0.18 wanted, assumption; check the greyscale row)"
+  },
+  {
+   "level": "PASS",
+   "message": "icon: biggest subject is 96% of the frame height (>= 35% wanted, assumption)"
+  },
+  {
+   "level": "PASS",
+   "message": "thumbnail-1920x1080.png is 0.36 MB (Roblox thumbnail limit is under 3 MB; use --jpg or re-export)"
+  }
+ ],
+ "thumbnail": {
+  "kind": "thumbnail",
+  "size": [
+   1920,
+   1080
+  ],
+  "texts": [
+   {
+    "text": "RUN!",
+    "bbox": [
+     1206,
+     48,
+     1852,
+     455
+    ],
+    "size_px": 237,
+    "cap_px": 170.64,
+    "fill": [
+     255,
+     230,
+     0
+    ],
+    "stroke": [
+     20,
+     16,
+     42
+    ],
+    "bg_mean": [
+     67,
+     40,
+     118
+    ],
+    "contrast_fill_stroke": 14.57,
+    "contrast_fill_bg": 9.19,
+    "words": 1
+   }
+  ],
+  "hero_value_contrast": 0.226,
+  "elements": 2
+ },
+ "icon": {
+  "kind": "icon",
+  "size": [
+   512,
+   512
+  ],
+  "texts": [],
+  "hero_value_contrast": 0.244,
+  "elements": 2
+ },
+ "files": {
+  "thumbnail-1920x1080.png": 381835
+ }
+}

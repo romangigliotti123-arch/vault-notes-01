@@ -1,0 +1,67 @@
+{
+ "template": "tiny-hero-huge-scene",
+ "background": {
+  "gradient": [
+   "#2a5bd7",
+   "#162a8a",
+   "#0b1240"
+  ],
+  "angle": 90
+ },
+ "burst": {
+  "color": "#8fd8ff",
+  "alpha": 34,
+  "cx": 0.72,
+  "cy": 0.3,
+  "rays": 14
+ },
+ "layers": [
+  {
+   "file": "../layers/tower.png",
+   "role": "prize",
+   "cx": 0.72,
+   "cy": 0.62,
+   "h": 0.84,
+   "outline": {
+    "px": 16,
+    "color": "#14102a"
+   },
+   "shadow": true
+  },
+  {
+   "file": "../layers/hero.png",
+   "role": "hero",
+   "cx": 0.72,
+   "cy": 0.16,
+   "h": 0.26,
+   "outline": {
+    "px": 16,
+    "color": "#14102a"
+   },
+   "glow": {
+    "px": 36,
+    "color": "#ffffff"
+   }
+  },
+  {
+   "file": "../layers/lava.png",
+   "role": "scene",
+   "glow": {
+    "px": 50,
+    "color": "#ff7a00",
+    "strength": 1.2
+   }
+  }
+ ],
+ "texts": [
+  {
+   "text": "50 FLOORS",
+   "slot": "tl",
+   "size": 0.21,
+   "fill": "#ffffff",
+   "stroke": "#14102a",
+   "max_width": 0.52
+  }
+ ],
+ "name": "concept-b-tiny-hero"
+}

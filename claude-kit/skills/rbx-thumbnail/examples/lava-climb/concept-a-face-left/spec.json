@@ -1,0 +1,65 @@
+{
+ "template": "face-left-prize-right",
+ "background": {
+  "gradient": [
+   "#6a3cc9",
+   "#2b1470",
+   "#120833"
+  ],
+  "angle": 80
+ },
+ "burst": {
+  "color": "#ffffff",
+  "alpha": 30,
+  "cx": 0.27,
+  "cy": 0.45,
+  "rays": 20
+ },
+ "layers": [
+  {
+   "file": "../layers/lava.png",
+   "role": "scene",
+   "glow": {
+    "px": 50,
+    "color": "#ff7a00",
+    "strength": 1.2
+   }
+  },
+  {
+   "file": "../layers/tower.png",
+   "role": "prize",
+   "cx": 0.74,
+   "cy": 0.65,
+   "h": 0.66,
+   "outline": {
+    "px": 16,
+    "color": "#14102a"
+   },
+   "shadow": true
+  },
+  {
+   "file": "../layers/hero.png",
+   "role": "hero",
+   "outline": {
+    "px": 16,
+    "color": "#14102a"
+   },
+   "glow": {
+    "px": 46,
+    "color": "#fff176"
+   },
+   "shadow": true
+  }
+ ],
+ "texts": [
+  {
+   "text": "RUN!",
+   "slot": "tr",
+   "size": 0.22,
+   "fill": "#ffe600",
+   "stroke": "#14102a",
+   "rotate": -4
+  }
+ ],
+ "name": "concept-a-face-left"
+}

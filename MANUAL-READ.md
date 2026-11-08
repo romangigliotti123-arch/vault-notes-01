@@ -146,7 +146,7 @@ Screens, mockups and thumbnails.
 | `/rbx-ui-mockup` | Design-first Roblox UI: design buttons and screens, export the spec, build, compare |
 | `/rbx-mockup` | Toggle manual Nano Banana 2.1 UI mockups: on, off or status |
 | `/rbx-ui-prototype` | Turn a UI mockup image into ONE clickable HTML prototype to open in a browser. |
-| `/rbx-thumbnail` | Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts. |
+| `/rbx-thumbnail` | Make Roblox icons and thumbnails that get clicked: 3 composition concepts. |
 | `/rbx-thumb-brief` | Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts. |
 
 ### Luau and code

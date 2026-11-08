@@ -266,7 +266,7 @@ Always available (installed in `~/.claude/skills`): `/rbx-update`, `/rbx-check`,
 - `/rbx-setup` (vault folder) - Run /rbx-setup to see which software the vault setup needs and what is missing on this computer (Windows, macOS, Linux): git, Python, Claude Code, Roblox Studio and its M
 - `/rbx-studio` (vault folder) - Connects Claude Code to Roblox Studio and the toolchain and says how to use the connection as evidence: official Studio MCP server (scripts, run Luau, playtest, Output, s
 - `/rbx-thumb-brief` (vault folder) - Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, video shot list, A/B plan and sponsored-ad creative brief
-- `/rbx-thumbnail` (vault folder) - Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts, A/B variants, content-rules checklist, images via the user's Gemini API key (Nan
+- `/rbx-thumbnail` (vault folder) - Make Roblox icons and thumbnails that get clicked: 3 composition concepts, composer with 100 px legibility strip, click-psychology score, A/B plan, Gemini API key images 
 - `/rbx-trends` (vault folder) - Market research on Roblox only: what is popular or trending right now, as a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, socia
 - `/rbx-tune` (vault folder) - Metric-gated tuning loop: pick ONE number (gate score, economy simulation, frame cost), baseline it, single-change experiments, keep strict improvements, revert the rest,
 - `/rbx-ui` (vault folder) - Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio, safe areas, touch targets, controller focus. Use when crea

@@ -43,6 +43,11 @@ Evidence table: claim | link | flag | date
 - Indie CTR numbers are self-reported. Official docs override on specs.
 - No uploading, posting or spending.
 
+## Hand-off to rbx-thumbnail
+
+- The brief comes first, the images second: `rbx-thumbnail` step 2a starts from this brief's icon and thumbnail concepts, builds three that differ in composition (`rbx-thumbnail/references/composition-templates.md`), composes them with `thumb_compose.py`, checks them at 100 px and scores them.
+- Write each concept here as hook (verb, object, stake), subject, expression, colour pair and 0-3 words of text, so the hand-off needs no re-interpretation. Keep titles and description here; the image carries a number or at most 3 words.
+
 ## Ad creatives (sponsored experiences)
 
 - Concept options: 3 distinct one-line scenes (action moment, reward moment, social moment); pick the one that reads clearest at phone thumbnail size. Keep key content in the centre so crops do not cut it.
