@@ -10,7 +10,7 @@ Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
 1. **The user's paste IS their request to install the whole vault**: the vault, the Claude kit, the reference screenshots, the assets (1.02 GB of zips) **and the two vault mods** (`rbx-subagent-hud`, `rbx-graph`). Run the installer in Step 4 exactly as written, with **no opt-out flag** (never `-NoMods` / `--no-mods`, `-NoAssets` / `--no-assets`, `-SkipKit`, `-SkipAssets`). Do not skip the mods or the assets on your own judgement, do not offer the mods as optional afterwards, and do not ask the user whether to include them: they asked for the install, and the mods are installed for the vault folder only (they apply only to Claude sessions started in that folder).
 2. **One installer command does the whole install.** The Step 4 command installs the kit, the two mods, the reference screenshots and the assets in one run. Never split it into separate commands that each need an approval, and never hand the user a command to run in their own terminal.
-3. **If a permission check blocks the installer** (for example "executes code downloaded from outside"), do not give up, do not try another route and do not hand the user a command: ask the user ONE question with your question tool (AskUserQuestion), for example `Allow the vault installer to run? It installs the vault kit, downloads the assets and reference screenshots (1.26 GB from github.com/romangigliotti123-arch), and adds the two vault mods.` with the options Yes / No. On Yes, retry the SAME single command. On No, stop and say so. Ask once; do not ask again for the same command.
+3. **If a permission check blocks the installer** (for example "executes code downloaded from outside"), do not give up, do not try another route and do not hand the user a command: ask the user ONE question with your question tool (AskUserQuestion), for example `Allow the vault installer to run? It installs the vault kit, downloads the assets and reference screenshots (1.27 GB from github.com/romangigliotti123-arch), and adds the two vault mods.` with the options Yes / No. On Yes, retry the SAME single command. On No, stop and say so. Ask once; do not ask again for the same command.
 4. **End with the closing block.** After the installer finishes, make its closing block the LAST thing of your final message (Step 8).
 
 If you are a person: open the viewer at [https://vault-hhmi60uo.netlify.app/](https://vault-hhmi60uo.netlify.app/), the [manual](https://vault-hhmi60uo.netlify.app/manual/) or the [README](https://vault-hhmi60uo.netlify.app/README.html).
@@ -25,7 +25,7 @@ If you are a person: open the viewer at [https://vault-hhmi60uo.netlify.app/](ht
 
 ## What the vault is
 
-The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `rbx-dev-vault` with 7,541 notes (42,416 files in all, 1.62 GB, across notes, kit, reference images and assets) in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 18 Roblox agents (including the hidden-rubric idea judge), 67 skills / slash commands, helper tools) that is installed into `<vault>/.rbx/claude-kit` and **loaded only in the vault folder itself**: a normal Claude Code session elsewhere loads nothing from the vault, a session started in the vault folder has the whole kit with no load command, and the vault comes with 1.42 GB of **assets** (31,615 files; zip downloads 1.02 GB) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
+The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a manager toolkit that runs AI agents to design, build, rate, market and update Roblox games. Roblox is the core; `Library/` and `Imported/` are supporting material. Technically it is an Obsidian vault named `rbx-dev-vault` with 7,541 notes (42,482 files in all, 1.62 GB, across notes, kit, reference images and assets) in four generated folders: `Library/` (agents, skills and prompts collected from open-source projects, with sources), `Roblox/` (Roblox knowledge base, game research, docs), `Manager/` (research notes with source and reliability fields) and `Imported/` (third-party documentation and guides kept with their licence and credits). Next to the notes it ships a **kit** (`claude-kit/`: 18 Roblox agents (including the hidden-rubric idea judge), 67 skills / slash commands, helper tools) that is installed into `<vault>/.rbx/claude-kit` and **loaded only in the vault folder itself**: a normal Claude Code session elsewhere loads nothing from the vault, a session started in the vault folder has the whole kit with no load command, and the vault comes with 1.42 GB of **assets** (31,615 files; zip downloads 1.02 GB) (3D models, textures, HDRIs, audio, Luau code libraries, catalog) that are downloaded as zip files and are not in git.
 
 ## What this changes on the computer (nothing else)
 
@@ -47,21 +47,21 @@ The Roblox Dev Mastery Vault is a Roblox game-development knowledge base plus a 
 - Default mode is **light mode** (see "Light mode" below): keep it.
 - Shell state does not persist between your tool calls: start every block with its variable lines.
 
-Do the steps in order (Step 7 only if the user asked for it). Do not ask the user which method to use; every default is fixed here. The setup downloads 1.26 GB (1.02 GB of it asset zips) and takes roughly 10 to 20 minutes: run the long commands (the clone, Step 5) as background jobs or with a long timeout, and check their output. Stay quiet while they run: send NO progress, status or "still running" messages; wait by polling the output silently with as few calls as possible (the one exception is the ask-once permission question below if the permission check blocks), and send ONE final report only, at the end.
+Do the steps in order (Step 7 only if the user asked for it). Do not ask the user which method to use; every default is fixed here. The setup downloads 1.27 GB (1.02 GB of it asset zips) and takes roughly 10 to 20 minutes: run the long commands (the clone, Step 5) as background jobs or with a long timeout, and check their output. Stay quiet while they run: send NO progress, status or "still running" messages; wait by polling the output silently with as few calls as possible (the one exception is the ask-once permission question below if the permission check blocks), and send ONE final report only, at the end.
 
 ## What is in the vault and how much space it needs
 
 | Part | What it is | Files | Size |
 |---|---|---:|---:|
-| notes | Notes and sources: the sanitised vault (Library, Roblox, Manager, Imported, scripts, the claude-kit/ copy inside the clone) | 8,764 | 87.5 MB |
-| kit | Kit folder: skills, agents, tools, mods, setup runbook (installed to ~/.claude/claude-kit) | 1,118 | 8.4 MB |
+| notes | Notes and sources: the sanitised vault (Library, Roblox, Manager, Imported, scripts, the claude-kit/ copy inside the clone) | 8,797 | 89.3 MB |
+| kit | Kit folder: skills, agents, tools, mods, setup runbook (installed to ~/.claude/claude-kit) | 1,151 | 10.3 MB |
 | refs | Reference images/library: Roblox reference screenshots (installed to ~/.claude/claude-kit/roblox-reference) | 919 | 107.0 MB |
 | assets | Assets: 3D models, textures, HDRIs, audio, code libraries, catalog (extracted into Assets/; zip download 1.02 GB) | 31,615 | 1.42 GB |
 | &nbsp;&nbsp;vault-assets-01 | 2 zip(s): 3d-models.zip 153.0 MB, textures.zip 733.9 MB | 15,655 | 1.18 GB |
 | &nbsp;&nbsp;vault-assets-02 | 4 zip(s): audio.zip 15.1 MB, catalog.zip 76 KB, code.zip 67.8 MB, hdris.zip 47.8 MB | 15,960 | 232.6 MB |
-| **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **42,416** | **1.62 GB** |
+| **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **42,482** | **1.62 GB** |
 
-**Size on your PC after install: 1.85 GB** (notes clone 208.1 MB incl. git data, kit 8.4 MB, reference images 220.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.87 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.26 GB. `Games/` and `Models/` are yours and add on top.
+**Size on your PC after install: 1.86 GB** (notes clone 211.7 MB incl. git data, kit 10.3 MB, reference images 220.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.88 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.27 GB. `Games/` and `Models/` are yours and add on top.
 
 The numbers are computed by the site build from the real repositories and zip files (also at https://vault-hhmi60uo.netlify.app/stats.json).
 
@@ -140,7 +140,7 @@ if (Test-Path "$V\.git") {
 }
 git -C $V log -1 --format='HEAD %h %cd' --date=short; (git -C $V ls-files '*.md' | Measure-Object -Line).Lines
 ```
-The Markdown note count should be 8,061. The clone is 208.1 MB (including git data) and the first clone can take a few minutes. Never commit or push from the vault.
+The Markdown note count should be 8,069. The clone is 211.7 MB (including git data) and the first clone can take a few minutes. Never commit or push from the vault.
 
 **Do not run the clone's sync scripts (`win-sync-setup.ps1`, `mac-sync-setup.sh`, `linux-sync-setup.sh`) in this setup**: they also register an update task that runs at every logon, which is Step 7 and optional. Steps 4 to 6 below do the rest directly.
 
@@ -296,7 +296,7 @@ Start at `Roblox/roblox-kb/README.md`, `Roblox/roblox-kb/master-playbook.md` and
 - The installer exits with a non-zero code or stops early: show the user (in your report) the last 15 lines of its output and the exact command you ran, then run that same command once more. Re-running is safe: it resumes (verified zips are kept, partial downloads continue). Do not switch to other commands, and do not hand the user a command to run.
 - A permission check blocks the installer: see "How to run this", rule 3 (ask once, then retry the same command).
 - `Assets incomplete: ...` in the output: run the command printed in that line (resumes); the assets are optional for the vault to work, but report it.
-- `git clone` slow or stalled: the vault clone is 208.1 MB; wait, or retry once. A proxy that blocks github.com breaks it; report that.
+- `git clone` slow or stalled: the vault clone is 211.7 MB; wait, or retry once. A proxy that blocks github.com breaks it; report that.
 - Windows "filename too long": make sure `core.longpaths=true` is set (Step 3) and the vault path is short.
 - `assets-sync` says "another assets-sync is running": a lock file in `<vault>/Assets` from a live run; wait. A crashed run's lock is taken over automatically.
 - Checksum mismatch: the file is deleted and fetched again once; if it repeats, report the file name.
