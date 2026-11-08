@@ -44,7 +44,7 @@ Light mode keeps Obsidian fast by hiding the big folders (Library, Imported, Ass
 | &nbsp;&nbsp;vault-assets-02 | 4 zip(s): audio.zip 15.1 MB, catalog.zip 76 KB, code.zip 67.8 MB, hdris.zip 47.8 MB | 15,960 | 232.6 MB |
 | **TOTAL** | everything the build publishes (notes + kit + refs + extracted assets) | **42,416** | **1.62 GB** |
 
-**Size on your PC after install: 1.85 GB** (notes clone 208.0 MB incl. git data, kit 8.4 MB, reference images 220.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.87 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.26 GB. `Games/` and `Models/` are yours and add on top.
+**Size on your PC after install: 1.85 GB** (notes clone 208.1 MB incl. git data, kit 8.4 MB, reference images 220.6 MB incl. git data, extracted assets 1.42 GB). Peak during the install is 2.87 GB (the asset zips, 1.02 GB, are deleted after extraction). The download is 1.26 GB. `Games/` and `Models/` are yours and add on top.
 
 ## 2. Install and update
 
@@ -213,7 +213,7 @@ Install, update, view mode, uninstall.
 
 | Skill | What it does |
 |---|---|
-| `/rbx-update` | Update the claudes-vault and the AI Library Vault on demand: self-healing git update. |
+| `/rbx-update` | Update the claudes-vault on demand: self-healing git update. |
 | `/rbx-check` | Check whether a newer vault or kit exists, changing nothing: fetches the git remote. |
 | `/rbx-clean` | Make this computer's claudes-vault an EXACT copy of the main vault. |
 | `/rbx-light-on` | Turn Obsidian light mode ON for the claudes-vault on this computer: hides Imported, Library. |

@@ -24,4 +24,3 @@ Your own work is safe: `Games/` (your per-game communities and `Games/_Reusable`
 
 Quick switch (no update, works offline): `/rbx-light-on` and `/rbx-light-off` in Claude, or `vault-update.ps1 -SetView light|full` / `bash vault-update.sh --set-view light|full`. Reopen Obsidian after.
 
-The companion AI Library Vault (`ai-library-vault`) follows the same idea: its `.obsidian` hides `Library/skills`, `Library/agents` and `Imported/`; `-FullView on|off` and `-SetView light|full` of rbx-update also switch it.
