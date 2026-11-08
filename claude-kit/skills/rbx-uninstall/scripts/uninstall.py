@@ -13,7 +13,7 @@ Never touched: credentials, other skills/agents/settings, MCP servers, Rokit/Lua
 ONE FOLDER: the kit lives in <vault>/.rbx, so it goes with the vault folder; outside it only the 3 stub skills and the pointer file rbx-dev-vault.path are removed.
 RESCUE: without --keep-dir, Games/, Models/, My-Skills/, My-Agents/ (and My Research) are copied to the PARENT folder of the vault folder (an existing name is never overwritten: "<name> (<vault folder name>)"), verified byte for byte, before anything is deleted.
 """
-import argparse, datetime, hashlib, json, os, re, shutil, stat, subprocess, sys
+import argparse, datetime, hashlib, json, os, re, shutil, stat, subprocess, sys, tempfile, time
 
 STUB_NAMES = ("rbx-update", "rbx-check", "rbx-uninstall")
 POINTER = "rbx-dev-vault.path"
@@ -130,6 +130,273 @@ def rmfile(p):
 
 def is_vault(d):
     return os.path.isdir(os.path.join(d, "Roblox")) and os.path.isdir(os.path.join(d, "Mentor"))
+
+
+def _norm_text_sha(f, mode):
+    """sha256 of the file with line endings normalised ('lf' or 'crlf'); None for binary files"""
+    with open(f, "rb") as fh:
+        b = fh.read()
+    if b"\0" in b[:8192]:
+        return None
+    b = b.replace(b"\r\n", b"\n")
+    if mode == "crlf":
+        b = b.replace(b"\n", b"\r\n")
+    return hashlib.sha256(b).hexdigest()
+
+
+def same_content(f, want):
+    """True when the installed file is what the manifest recorded. Line endings do not count as an edit (a Windows git/autocrlf checkout turns LF into CRLF and back)."""
+    if not want or sha(f) == want:
+        return True
+    return want in (_norm_text_sha(f, "lf"), _norm_text_sha(f, "crlf"))
+
+
+# kit files that the kit itself downloads after the install (the reference clone) or that have their own copy step (backup/): never counted as "edited by you", never backed up twice (state/ is NOT here: your ledger, local rules and queued notes live there and are backed up)
+GENERATED = ("claude-kit/roblox-reference/", "claude-kit/reference-path.txt", "claude-kit/backup/")
+KIT_MARK_BEGIN = "<!-- >>> roblox-vault-mode rules"
+KIT_MARK_END = "<!-- <<< roblox-vault-mode rules <<< -->"
+
+
+def kit_block_span(txt):
+    """(start, end) of the kit's managed block (begin marker line .. end marker line incl. its newline), or None unless BOTH exact markers are present"""
+    i = txt.find(KIT_MARK_BEGIN)
+    if i < 0:
+        return None
+    ls = txt.rfind("\n", 0, i) + 1
+    if txt[ls:i].strip():
+        return None
+    j = txt.find(KIT_MARK_END, i)
+    if j < 0:
+        return None
+    k = j + len(KIT_MARK_END)
+    if txt[k:k + 2] == "\r\n":
+        k += 2
+    elif txt[k:k + 1] == "\n":
+        k += 1
+    return ls, k
+
+
+def strip_kit_block(path, bdir):
+    """remove ONLY the kit's marker block from a CLAUDE.md; the file is copied to bdir first. Returns a status string."""
+    raw = open(path, "rb").read()
+    txt = raw.decode("utf-8", "surrogateescape")
+    span = kit_block_span(txt)
+    if not span:
+        return "no kit marker block found"
+    os.makedirs(bdir, exist_ok=True)
+    bak = os.path.join(bdir, "CLAUDE.md.before-uninstall")
+    n = 1
+    while os.path.exists(bak):
+        n += 1
+        bak = os.path.join(bdir, "CLAUDE.md.before-uninstall-%d" % n)
+    with open(bak, "wb") as f:
+        f.write(raw)
+    new = txt[:span[0]] + txt[span[1]:]
+    with open(path, "wb") as f:
+        f.write(new.encode("utf-8", "surrogateescape"))
+    return "kit block removed (%d lines), original saved to %s" % (txt[span[0]:span[1]].count("\n"), bak)
+
+
+def unlink_any(p):
+    try:
+        os.remove(p)
+        return True
+    except FileNotFoundError:
+        return True
+    except OSError:
+        pass
+    try:
+        os.chmod(p, stat.S_IWRITE | stat.S_IREAD | stat.S_IEXEC)
+        os.remove(p)
+        return True
+    except OSError:
+        pass
+    try:
+        os.rmdir(p)          # directory symlink / junction
+        return True
+    except OSError:
+        return not os.path.lexists(p)
+
+
+def clear_tree(root, tries=3):
+    """delete everything INSIDE root (files, links, subfolders), retrying locked entries; root itself stays. Returns the number of entries that could not be removed."""
+    bad = 0
+    for d, dirs, files in os.walk(root, topdown=False, followlinks=False):
+        for n in files + [x for x in dirs if os.path.islink(os.path.join(d, x))]:
+            p = os.path.join(d, n)
+            ok = False
+            for i in range(tries):
+                if unlink_any(p):
+                    ok = True
+                    break
+                time.sleep(0.25 * (i + 1))
+            bad += 0 if ok else 1
+        for n in dirs:
+            p = os.path.join(d, n)
+            if os.path.islink(p):
+                continue
+            ok = False
+            for i in range(tries):
+                try:
+                    os.rmdir(p)
+                    ok = True
+                    break
+                except FileNotFoundError:
+                    ok = True
+                    break
+                except OSError:
+                    time.sleep(0.25 * (i + 1))
+            bad += 0 if ok else 1
+    return bad
+
+
+# Detached cleanup helper: written to a temp folder (never inside the vault) and started only after the rescue copy was verified.
+# It re-checks everything itself, waits until the vault folder can be removed (the Claude session that started the uninstall has its working folder in it),
+# deletes ONLY that exact folder, logs to the backups folder and removes itself.
+HELPER_SRC = r'''
+import json, os, shutil, stat, sys, time, datetime
+SENT, TARGET = sys.argv[1], sys.argv[2]
+SELF = os.path.abspath(sys.argv[0])
+try:
+    os.chdir(os.path.dirname(os.path.dirname(SELF)))
+except OSError:
+    pass
+def nz(p):
+    return os.path.normcase(os.path.realpath(os.path.abspath(p)))
+LOG = None
+def log(m):
+    if not LOG:
+        return
+    try:
+        with open(LOG, "a", encoding="utf-8") as f:
+            f.write("%s %s\n" % (datetime.datetime.now().isoformat(timespec="seconds"), m))
+    except OSError:
+        pass
+def inside(c, p):
+    c, p = nz(c), nz(p)
+    return c == p or c.startswith(p.rstrip(os.sep) + os.sep)
+def clear(t):
+    for d, dirs, files in os.walk(t, topdown=False, followlinks=False):
+        for n in files + [x for x in dirs if os.path.islink(os.path.join(d, x))]:
+            p = os.path.join(d, n)
+            try:
+                os.remove(p)
+            except OSError:
+                try:
+                    os.chmod(p, stat.S_IWRITE | stat.S_IREAD)
+                    os.remove(p)
+                except OSError:
+                    try:
+                        os.rmdir(p)
+                    except OSError:
+                        pass
+        for n in dirs:
+            p = os.path.join(d, n)
+            if not os.path.islink(p):
+                try:
+                    os.rmdir(p)
+                except OSError:
+                    pass
+def finish():
+    try:
+        os.remove(SENT)
+    except OSError:
+        pass
+    try:
+        os.remove(SELF)
+    except OSError:
+        pass
+    try:
+        os.rmdir(os.path.dirname(SELF))
+    except OSError:
+        pass
+def main():
+    global LOG
+    try:
+        d = json.load(open(SENT, encoding="utf-8"))
+        LOG = d.get("log")
+        t = d["target"]
+        ok = (d.get("kind") == "rbx-uninstall-cleanup" and d.get("rescue_verified") is True and os.path.isabs(t) and nz(t) == nz(TARGET) and os.path.basename(t.rstrip("\\/")) == d["name"]
+              and time.time() < d["expires"] and os.path.isabs(d["keep"]) and os.path.isabs(d["home"]))
+        if ok:
+            r = nz(t)
+            parts = [x for x in r.replace("\\", "/").split("/") if x and not (len(x) == 2 and x[1] == ":")]
+            ok = len(parts) >= 2 and r != nz(d["home"]) and not inside(d["home"], t) and not inside(d["keep"], t) and not inside(t, d["keep"]) and nz(os.path.dirname(t)) == nz(d["parent"])
+        if not ok:
+            log("REFUSED: sentinel does not match the target %s; nothing deleted" % TARGET)
+            finish()
+            return 3
+    except Exception as e:
+        log("REFUSED: bad sentinel (%s)" % e)
+        finish()
+        return 3
+    allowed = set(d.get("left", []))
+    start = time.time()
+    log("waiting to delete %s" % t)
+    wait = 2.0
+    while time.time() < d["expires"]:
+        if not os.path.lexists(t):
+            log("done: folder already gone")
+            finish()
+            return 0
+        try:
+            now = set(os.listdir(t))
+        except OSError:
+            now = set()
+        if now - allowed:
+            log("ABORTED: new entries appeared in the folder (%s); nothing more deleted" % ", ".join(sorted(now - allowed))[:200])
+            finish()
+            return 4
+        clear(t)
+        try:
+            os.rmdir(t)
+            log("done: deleted %s after %d s" % (t, time.time() - start))
+            finish()
+            return 0
+        except OSError:
+            pass
+        time.sleep(wait)
+        wait = min(60.0, wait * 1.5 if time.time() - start > 120 else wait)
+    log("gave up waiting; delete the folder by hand: %s" % t)
+    finish()
+    return 5
+sys.exit(main())
+'''
+
+
+def start_cleanup(vault, keep_final, home, rescue_ok, hours=12):
+    """start the detached helper that removes the (nearly) empty vault folder once nothing holds it. Returns the log path, or None when it must not run."""
+    if not rescue_ok or not os.path.isdir(vault):
+        return None
+
+    try:
+        left = os.listdir(vault)
+        tdir = tempfile.mkdtemp(prefix="rbx-uninstall-cleanup-")
+        script, sent = os.path.join(tdir, "cleanup.py"), os.path.join(tdir, "target.json")
+        log = os.path.join(keep_final, "_uninstall-cleanup.log")
+        with open(script, "w", encoding="utf-8") as f:
+            f.write(HELPER_SRC)
+        with open(sent, "w", encoding="utf-8") as f:
+            json.dump({"kind": "rbx-uninstall-cleanup", "rescue_verified": True, "target": vault, "name": os.path.basename(vault), "parent": os.path.dirname(vault), "home": home,
+                       "keep": keep_final, "left": left, "log": log, "expires": time.time() + hours * 3600}, f)
+        exe = sys.executable
+        if os.name == "nt":
+            w = os.path.join(os.path.dirname(exe), "pythonw.exe")
+            exe = w if os.path.isfile(w) else exe
+        cmd = [exe, "-I", script, sent, vault]
+        kw = dict(stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, close_fds=True, cwd=tdir)
+        if os.name == "nt":
+            base = 0x00000008 | 0x00000200       # DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP
+            try:
+                subprocess.Popen(cmd, creationflags=base | 0x01000000, **kw)       # | CREATE_BREAKAWAY_FROM_JOB (the Claude shell may run us in a job that is killed on exit)
+            except OSError:
+                subprocess.Popen(cmd, creationflags=base, **kw)
+        else:
+            subprocess.Popen(cmd, start_new_session=True, **kw)
+        return log
+    except Exception as e:
+        say("      could not start the cleanup helper (%s)" % e)
+        return None
 
 
 # ---------------------------------------------------------------- locate
@@ -359,23 +626,26 @@ def plan(a, home, config, vault, keep_final):
             continue
         present.append(rel)
         areas[area_of(rel)] = areas.get(area_of(rel), 0) + 1
-        if want and sha(f) != want:
+        if want and not same_content(f, want):
             edited.append(rel)
     P["ent"], P["present"], P["missing"], P["edited"], P["areas"] = ent, present, missing, edited, areas
     # leftovers
     new_files = [r + ".new" for r in present if os.path.isfile(os.path.join(kit_base(vault, config, r), (r + ".new").replace("/", os.sep)))]
     P["new_files"] = new_files
     kitroot = os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit")
-    extras = []
+    extras, generated = [], []
     if os.path.isdir(kitroot):
         for r, f in walk_files(kitroot):
             rel = "claude-kit/" + r
+            if rel not in ent and ("__pycache__" not in r and not r.endswith(".pyc")) and any(rel == g or rel.startswith(g) for g in GENERATED):
+                generated.append(rel)      # downloaded by the kit itself (reference clone; backup/ has its own copy step): not your edit
+                continue
             if rel in ent or r in ("installed.tsv", "installed.tsv.pre-mode", "ui-mockup-notice.done", "state/ui-mockup-notice.done", "state/mods-choice", "state/mods-block.txt") or "__pycache__" in r or r.endswith(".pyc"):
                 continue
             if r in ("vault-mode/loaded.json", "vault-mode/layout.json", "vault-mode/migration-last.json"):
                 continue            # the mode's own bookkeeping, not user data
             extras.append(rel)
-    P["extras"] = extras
+    P["extras"], P["generated"] = extras, generated
     try:
         P["mode_projects"] = sorted(json.load(open(os.path.join(kitroot, "vault-mode", "loaded.json"), encoding="utf-8")).get("projects", {}).keys())
     except (OSError, ValueError):
@@ -411,13 +681,22 @@ def plan(a, home, config, vault, keep_final):
             P["settings_valid"] = False
     P["hooks"] = hooks
     # CLAUDE.md
-    lines = []
-    for cm in (os.path.join(config, "CLAUDE.md"),):
+    lines, blocks = [], []
+    for cm in (os.path.join(config, "CLAUDE.md"), os.path.join(vault, "CLAUDE.md"), os.path.join(vault, ".claude", "CLAUDE.md")):
         if os.path.isfile(cm):
-            for i, ln in enumerate(open(cm, encoding="utf-8", errors="replace").read().splitlines(), 1):
-                if KIT_RE.search(ln):
+            txt = open(cm, encoding="utf-8", errors="replace").read()
+            b = kit_block_span(txt)
+            if b and not inside(cm, vault):
+                blocks.append(cm)          # the kit's own marker block in a file that outlives the vault: removed (exact markers only), file backed up first
+            if inside(cm, vault):
+                continue                   # inside the vault: deleted with it (your own edits there are copied to _vault-own-files)
+            pos = 0
+            for i, ln in enumerate(txt.splitlines(True), 1):
+                inb = b and b[0] <= pos < b[1]
+                pos += len(ln)
+                if not inb and KIT_RE.search(ln):
                     lines.append((cm, i, ln.strip()[:160]))
-    P["claude_md"] = lines
+    P["claude_md"], P["claude_blocks"] = lines, blocks
     # vault totals
     vc, vs = count(vault)
     P["vault_files"], P["vault_bytes"] = vc, vs
@@ -474,7 +753,9 @@ def sys_items(a, home, vault):
     return items
 
 
-def print_plan(P, keep_final, keep_note, a, real_run):
+def full_plan(P, keep_final, keep_note, a, real_run):
+    L = []
+    say = L.append
     say("=" * 70)
     say("UNINSTALL PLAN (%s)" % ("REAL RUN" if real_run else "DRY RUN - nothing is changed"))
     say("=" * 70)
@@ -538,6 +819,65 @@ def print_plan(P, keep_final, keep_note, a, real_run):
         for f, i, ln in P["claude_md"]:
             say("  %s:%d: %s" % (f, i, ln))
     say("")
+    L.append("")
+    L.append("ALL KIT FILES THAT WILL BE REMOVED (%d):" % len(P["present"]))
+    L.extend("  " + r for r in P["present"])
+    L.append("")
+    L.append("KIT-DOWNLOADED FILES (reference clone, backup/ has its own copy step; deleted, not counted as edits) (%d):" % len(P["generated"]))
+    L.extend("  " + r for r in P["generated"])
+    L.append("")
+    L.append("YOUR OWN FILES ELSEWHERE IN THE VAULT (copied to _vault-own-files) (%d):" % len(P["own"]))
+    L.extend("  " + r for r in P["own"])
+    return L
+
+
+def confirm_cmd(a):
+    py = "python" if shutil.which("python") else sys.executable
+    fl = ""
+    for flag, val in (("--vault", a.vault), ("--keep-dir", a.keep_dir), ("--config", a.config), ("--home", a.home)):
+        if val:
+            fl += ' %s "%s"' % (flag, val)
+    if a.keep_edited:
+        fl += " --keep-edited"
+    return '%s "%s"%s --yes' % (py, os.path.abspath(__file__), fl)
+
+
+def print_plan(P, keep_final, keep_note, a, real_run):
+    """SHORT summary on stdout (< 2 KB, so a model never truncates the key facts); the complete file lists go to a file in the temp folder"""
+    full = full_plan(P, keep_final, keep_note, a, real_run)
+    pf = os.path.join(tempfile.gettempdir(), "rbx-uninstall-plan-%s.txt" % datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
+    try:
+        with open(pf, "w", encoding="utf-8") as f:
+            f.write("\n".join(full) + "\n")
+    except OSError:
+        pf = None
+    parent = keep_final if a.keep_dir else os.path.dirname(P["vault"])
+    say("UNINSTALL %s" % ("- REAL RUN" if real_run else "DRY RUN - nothing was changed"))
+    say("vault: %s (%d files, %s)" % (P["vault"], P["vault_files"], hsize(P["vault_bytes"])))
+    say("RESCUED to %s, verified byte for byte BEFORE anything is deleted:" % parent)
+    say("  Games -> %s (%d games, %d files)" % (P["dest"]("Games"), len(P["games"]), P["games_files"]))
+    for r in P["research"]:
+        say("  %s -> %s" % (r, P["dest"](r)))
+    if P["own"]:
+        say("  %d other file(s) you added/changed in the vault -> %s" % (len(P["own"]), os.path.join(keep_final, "_vault-own-files")))
+    for slug, pp in P["external"]:
+        say("  stays in place (outside the vault): project of %s: %s" % (slug, pp))
+    say("REMOVED: %d kit files (%s); the kit folder; the 3 stub skills + pointer; %d vault copies; hooks: %s; auto-sync: %s; then the vault folder" % (
+        len(P["present"]), ", ".join("%s %d" % (k.split(" (")[0], v) for k, v in sorted(P["areas"].items())) or "none", len(P["mode_projects"]), "found" if P["hooks"] else "none", ", ".join(k for k, v in P["sys"]) or "none"))
+    ne = len(P["edited"]) + len(P["extras"])
+    say("EDITED BY YOU: %d kit file(s) changed, %d unlisted file(s)%s; %d downloaded kit file(s) (reference clone) are just deleted" % (
+        len(P["edited"]), len(P["extras"]), (" -> %s" % os.path.join(keep_final, "_edited-kit-files")) if ne and not a.keep_edited else (" (left in place, --keep-edited)" if ne else ""), len(P["generated"])))
+    say("CLAUDE.md: kit marker block %s; %d other line(s) mention the kit (listed, never edited)" % ("removed from " + ", ".join(P["claude_blocks"]) if P["claude_blocks"] else "not present", len(P["claude_md"])))
+    say("settings.json is backed up to %s first" % os.path.join(keep_final, "_uninstall-backups"))
+    say("NOT TOUCHED: credentials, other skills/agents/settings, MCP servers, projects outside the vault, the folder with your rescued games and backups")
+    if keep_note:
+        say("(%s)" % keep_note)
+    if not P["games"]:
+        say("(no game folders found in %s)" % os.path.join(P["vault"], "Games"))
+    if pf:
+        say("Full file lists: %s" % pf)
+    if not real_run:
+        say("Run from OUTSIDE the vault folder. After the user says yes: %s" % confirm_cmd(a))
 
 
 # ---------------------------------------------------------------- execution
@@ -615,23 +955,72 @@ def mod_cmds():
             + [["claude", "plugin", "marketplace", "remove", MARKET]])
 
 
-def remove_mods(a, config, vault=None):
-    """Kit mods (Claude Code plugins). Runs BEFORE the vault is deleted. Skipped under --home tests (like schtasks)."""
-    if a.home:
-        say("mods: skipped (--home test)")
-        return
+def claude_cli():
+    """the claude CLI as an argv prefix; RBX_UNINSTALL_CLAUDE=<script.py> (tests) runs that script with this python instead"""
+    t = os.environ.get("RBX_UNINSTALL_CLAUDE")
+    if t:
+        return [sys.executable, t]
     exe = shutil.which("claude")
-    if not exe:
+    return [exe] if exe else None
+
+
+NOT_THERE = re.compile(r"not installed|not found|no such|isn't installed|is not installed|unknown plugin|does not exist|not configured|no plugin", re.I)
+
+
+def remove_mods(a, config, vault=None):
+    """Kit mods (Claude Code plugins). Runs BEFORE the vault is deleted. Skipped under --home tests (like schtasks) unless RBX_UNINSTALL_CLAUDE is set.
+    Asks `claude plugin list` first and only touches what is installed; 'not installed' is a quiet success; only real failures are printed."""
+    if a.home and not os.environ.get("RBX_UNINSTALL_CLAUDE"):
+        say("mods: skipped (--home test)")
+        return True
+    cli = claude_cli()
+    if not cli:
         say("mods: claude CLI not found; if the kit mods are installed run /plugin uninstall rbx-subagent-hud@%s, rbx-graph@%s and /plugin marketplace remove %s" % (MARKET, MARKET, MARKET))
-        return
+        return True
     env = dict(os.environ, CLAUDE_CONFIG_DIR=config)
-    for c in mod_cmds():
+    cwd = vault if vault and os.path.isdir(vault) else None
+
+    def call(args):
+        r = subprocess.run(cli + args, capture_output=True, text=True, timeout=120, env=env, stdin=subprocess.DEVNULL, cwd=cwd)
+        return r.returncode, (r.stdout + r.stderr).strip()
+
+    try:
+        lc, listing = call(["plugin", "list"])
+    except Exception as e:
+        lc, listing = 1, ""
+        say("mods: could not list plugins (%s); trying the known names" % e)
+    known = lc == 0
+    done, bad = [], []
+    for m in dict.fromkeys(MODS):
+        if known and m not in listing:
+            continue                      # not installed anywhere: nothing to do, nothing to print
+        for scope in ("project", "user"):
+            try:
+                rc, out = call(["plugin", "uninstall", "%s@%s" % (m, MARKET), "--scope", scope])
+            except Exception as e:
+                bad.append("%s (%s scope): %s" % (m, scope, e))
+                continue
+            if rc == 0:
+                done.append("%s (%s)" % (m, scope))
+            elif not NOT_THERE.search(out):
+                bad.append("%s (%s scope): %s" % (m, scope, (out.splitlines() or ["exit %d" % rc])[-1][:100]))
+    try:
+        mc, ml = call(["plugin", "marketplace", "list"])
+    except Exception:
+        mc, ml = 1, ""
+    if mc != 0 or MARKET in ml:
         try:
-            r = subprocess.run([exe] + c[1:], capture_output=True, text=True, timeout=120, env=env, stdin=subprocess.DEVNULL, cwd=(vault if vault and os.path.isdir(vault) else None))
-            out = (r.stdout + r.stderr).strip().splitlines()
-            say("mods: %s -> %s" % (" ".join(c[1:]), "ok" if r.returncode == 0 else "exit %d (%s)" % (r.returncode, out[-1][:100] if out else "")))
+            rc, out = call(["plugin", "marketplace", "remove", MARKET])
+            if rc == 0:
+                done.append("marketplace " + MARKET)
+            elif not NOT_THERE.search(out):
+                bad.append("marketplace %s: %s" % (MARKET, (out.splitlines() or ["exit %d" % rc])[-1][:100]))
         except Exception as e:
-            say("mods: %s -> could not run (%s)" % (" ".join(c[1:]), e))
+            bad.append("marketplace %s: %s" % (MARKET, e))
+    say("mods: removed %s" % (", ".join(done) if done else "nothing (none installed)"))
+    for b in bad:
+        say("mods: FAILED %s" % b)
+    return not bad
 
 
 def remove_sync(P):
@@ -682,8 +1071,9 @@ def climb(path, stop):
 def run_real(a, P, keep_final, keep_note):
     config, vault = P["config"], P["vault"]
     summary = {}
+    kit_backup_ok = True
     # 1 copy + verify
-    say("[1/6] copying games to %s" % keep_final)
+    say("[1/6] copying your folders to %s" % keep_final)
     os.makedirs(keep_final, exist_ok=True)
     try:
         if os.path.isdir(os.path.join(vault, "Games")):
@@ -726,8 +1116,14 @@ def run_real(a, P, keep_final, keep_note):
         except Exception as e:
             say("      vault copies: could not remove them (%s); the folders are listed in %s" % (e, os.path.join(kit_base(vault, config, "claude-kit/"), "claude-kit", "vault-mode", "loaded.json")))
     hooks_ok = remove_hooks(P, keep_final)
+    claude_md_res = []
+    for cm in P["claude_blocks"]:
+        try:
+            claude_md_res.append((cm, strip_kit_block(cm, os.path.join(keep_final, "_uninstall-backups"))))
+        except OSError as e:
+            claude_md_res.append((cm, "could not edit (%s)" % e))
     remove_sync(P)
-    remove_mods(a, config, vault)
+    mods_ok = remove_mods(a, config, vault)
     # 3 manifest files
     say("[3/6] deleting kit files listed in installed.tsv")
     skip = set(P["edited"] + P["extras"]) if a.keep_edited else set()
@@ -766,7 +1162,8 @@ def run_real(a, P, keep_final, keep_note):
             n, sz = copy_verified(kb, os.path.join(keep_final, "_kit-backups"))
             say("      %d backed-up originals of yours (replaced by installs) copied to %s" % (n, os.path.join(keep_final, "_kit-backups")))
         except Exception as e:
-            say("      WARNING: could not copy %s (%s); it is kept, delete it by hand later" % (kb, e))
+            kit_backup_ok = False
+            say("      WARNING: could not copy %s (%s); the vault folder is NOT deleted so your backed-up originals stay" % (kb, e))
             for ch in os.listdir(kr):
                 if ch != "backup":
                     (rmtree if os.path.isdir(os.path.join(kr, ch)) else rmfile)(os.path.join(kr, ch))
@@ -786,9 +1183,32 @@ def run_real(a, P, keep_final, keep_note):
     # 5 vault
     say("[5/6] deleting vault folder %s" % vault)
     os.chdir(P["home"])
-    rmtree(vault)
-    vault_gone = not os.path.exists(vault)
-    say("      %s" % ("vault folder deleted" if vault_gone else "WARNING: vault folder still exists (some files locked); delete it by hand"))
+    if not kit_backup_ok:
+        say("      skipped (see the warning above)")
+        return 1
+    stuck = clear_tree(vault)
+    gone = False
+    for i in range(3):
+        try:
+            os.rmdir(vault)
+            gone = True
+            break
+        except FileNotFoundError:
+            gone = True
+            break
+        except OSError:
+            time.sleep(0.3 * (i + 1))
+    vault_gone = gone and not os.path.exists(vault)
+    pending = None
+    if vault_gone:
+        say("      vault folder deleted")
+    else:
+        pending = start_cleanup(vault, keep_final, P["home"], True)
+        if pending:
+            say("      The folder is in use by this session; it will be deleted automatically a few seconds after you close this Claude session (or delete it yourself: %s)" % vault)
+            say("      (%d entries were locked; cleanup log: %s)" % (stuck, pending))
+        else:
+            say("      WARNING: the vault folder %s still exists (in use) and the cleanup helper could not start; close this Claude session and delete it by hand" % vault)
     # 6 self
     say("[6/6] removing the /rbx-uninstall skill, the 2 other stub skills and the pointer file")
     for sn in STUB_NAMES:      # ONE FOLDER: thin stubs (SKILL.md + where.py); anything else a user put there stays
@@ -821,7 +1241,7 @@ def run_real(a, P, keep_final, keep_note):
             rmtree(selfdir)
     say("")
     say("=" * 70)
-    say("DONE" if vault_gone and not failed and hooks_ok else "DONE WITH WARNINGS (see above)")
+    say("DONE" if vault_gone and not failed and hooks_ok and mods_ok else ("DONE (the empty vault folder is removed automatically after you close this session)" if pending and not failed and hooks_ok and mods_ok else "DONE WITH WARNINGS (see above)"))
     say("=" * 70)
     say("Your games are now in: %s" % (keep_final if a.keep_dir else os.path.dirname(vault)))
     say("  %s" % P["dest"]("Games"))
@@ -832,11 +1252,13 @@ def run_real(a, P, keep_final, keep_note):
     if not a.keep_edited and (P["edited"] or P["extras"]):
         say("Edited kit files: %s" % os.path.join(keep_final, "_edited-kit-files"))
     say("settings.json backup: %s" % os.path.join(keep_final, "_uninstall-backups", "settings.json"))
+    for cm, st in claude_md_res:
+        say("CLAUDE.md %s: %s" % (cm, st))
     if P["claude_md"]:
         say("CLAUDE.md still mentions the kit/vault on %d line(s) (not edited): %s" % (len(P["claude_md"]), P["claude_md"][0][0]))
     say("Start a new Claude session so the removed skills disappear from the list.")
     say("To reinstall later: follow the website setup (SETUP-FOR-CLAUDE.md at https://raw.githubusercontent.com/romangigliotti123-arch/vault-kit-01/main/SETUP-FOR-CLAUDE.md) or the README of the claudes-vault repo (romangigliotti123-arch/claudes-vault). Your games folder can be copied back into <vault>/Games.")
-    return 0 if vault_gone and not failed and hooks_ok else 1
+    return 0 if (vault_gone or pending) and not failed and hooks_ok and mods_ok else 1
 
 
 def main(argv):
@@ -889,7 +1311,6 @@ def main(argv):
         say("note: other vault-like folders exist and are ignored: " + ", ".join(others))
     print_plan(P, keep_final, keep_note, a, a.yes)
     if not a.yes:
-        say("Dry run only. To do it for real the user must confirm; then run the same command with --yes.")
         return 0
     return run_real(a, P, keep_final, keep_note)
 

@@ -299,7 +299,7 @@ By default Claude designs every button and screen before building UI (`/rbx-ui-m
 
 ## 10. Uninstall
 
-`/rbx-uninstall` shows a plan first and deletes nothing until you say yes. It copies your `Games/` (and `My Research`, `Models/`, `My-Skills/` and `My-Agents/`) to a safe folder and checks the copy byte for byte, removes the kit, hooks, scheduled job and the vault folder, and removes itself last. Not touched: other skills and agents, credentials, other settings, MCP servers. To reinstall, repeat the install prompt.
+`/rbx-uninstall` shows a plan first and deletes nothing until you say yes. It copies your `Games/` (and `My Research`, `Models/`, `My-Skills/` and `My-Agents/`) to a safe folder and checks the copy byte for byte, removes the kit, hooks, scheduled job and the vault folder, and removes itself last. The plan it prints is short (the full list is in a file), only kit files you really edited are backed up, and if your Claude session still has the vault folder open the empty folder is deleted automatically a few seconds after you close that session (your games and backups sit next to the vault folder, so deleting it by hand never touches them). Not touched: other skills and agents, credentials, other settings, MCP servers. To reinstall, repeat the install prompt.
 
 ### Safety and privacy
 
