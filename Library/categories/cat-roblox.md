@@ -21,17 +21,17 @@ tags: [moc]
 - [s] [[S--own--rbx-ad-plan|rbx-ad-plan]] - Plans a Roblox sponsored-experience ad test: readiness gate, budget and duration, day-by-day checkpoints, crea
 - [s] [[S--own--rbx-analytics|rbx-analytics]] - Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetis
 - [s] [[S--own--rbx-arch|rbx-arch]] - Chooses how to structure a Roblox system (plain module, OOP class, CollectionService components, ECS, state st
-- [s] [[S--own--rbx-assets|rbx-assets]] - Given a Roblox dev need (low-poly trees, datastore wrapper, UI framework, SFX, PBR textures, open-source game 
+- [s] [[S--own--rbx-assets|rbx-assets]] - Given a Roblox dev need (low-poly trees, datastore wrapper, UI framework, SFX, PBR textures, example game, Lua
 - [s] [[S--own--rbx-code-rate|rbx-code-rate]] - Reviews, rates Luau/Roblox code ('review my code', pre-delivery) 1.00-10.00 on weighted criteria (server autho
 - [s] [[S--own--rbx-datastore|rbx-datastore]] - Pattern and review checklist for saving player data without loss or duplication: UpdateAsync, retries, session
 - [s] [[S--own--rbx-gdd|rbx-gdd]] - Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for 
-- [s] [[S--own--rbx-ideas|rbx-ideas]] - Generates, scores and plans Roblox game concepts for a solo or small team ('what should I build next'): patter
+- [s] [[S--own--rbx-ideas|rbx-ideas]] - Claude invents ONE fresh, strange Roblox game idea ('what should I build', 'give me a game idea', 'surprise me
 - [s] [[S--own--rbx-kb|rbx-kb]] - Cheap, cited answers to Roblox game-making questions from the local knowledge base (516 sources: official docs
-- [s] [[S--own--rbx-launch-check|rbx-launch-check]] - Builds an interactive, phone-friendly launch checklist (self-contained HTML plus markdown) for one Roblox game
-- [s] [[S--own--rbx-leaderboard|rbx-leaderboard]] - Implement Roblox global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. U
+- [s] [[S--own--rbx-launch-check|rbx-launch-check]] - Builds a phone-friendly launch checklist (HTML plus markdown) for one Roblox game from the knowledge base: rel
+- [s] [[S--own--rbx-leaderboard|rbx-leaderboard]] - Implement global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when
 - [s] [[S--own--rbx-luau|rbx-luau]] - Luau coding standard for Roblox scripts: strict typing, services, modules, task library, cleanup, events, no l
 - [s] [[S--own--rbx-make|rbx-make]] - Use when the user says make/build/create me a Roblox game (with or without an idea) without being asked questi
-- [s] [[S--own--rbx-metrics|rbx-metrics]] - One sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join
+- [s] [[S--own--rbx-metrics|rbx-metrics]] - Sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join tim
 - [s] [[S--own--rbx-monetize|rbx-monetize]] - Set up and review Roblox monetisation: game passes, developer products with a correct ProcessReceipt, premium 
 - [s] [[S--own--rbx-monetize-audit|rbx-monetize-audit]] - Audits a Roblox game's monetisation (gamepasses, developer products, starter pack, prices, store UX, Premium, 
 - [s] [[S--own--rbx-npc|rbx-npc]] - Implement NPCs and enemies with PathfindingService, state machines, network ownership and cheap perception. Us
@@ -42,7 +42,7 @@ tags: [moc]
 - [s] [[S--own--rbx-rojo|rbx-rojo]] - Set up a file-based Roblox project (Rojo, Wally, Selene, StyLua, git) so Luau lives as plain files under versi
 - [s] [[S--own--rbx-rounds|rbx-rounds]] - Architecture for round-based Roblox games (lobby, intermission, round, results) with a server state machine, t
 - [s] [[S--own--rbx-studio|rbx-studio]] - Connects Claude Code to Roblox Studio and the toolchain and says how to use the connection as evidence: offici
-- [s] [[S--own--rbx-thumb-brief|rbx-thumb-brief]] - Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, descrip
-- [s] [[S--own--rbx-trends|rbx-trends]] - Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sou
+- [s] [[S--own--rbx-thumb-brief|rbx-thumb-brief]] - Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draf
+- [s] [[S--own--rbx-trends|rbx-trends]] - Market research on Roblox only: what is popular or trending right now, as a dated, sourced library of transfer
 - [s] [[S--own--rbx-ui|rbx-ui]] - Build Roblox ScreenGui interfaces that scale across phone, tablet, console and PC: Scale sizing, UIAspectRatio
-- [s] [[S--own--rbx-use|rbx-use]] - How any Claude should use the claudes-vault Obsidian vault (about 17,000 generated notes: Roblox knowledge bas
+- [s] [[S--own--rbx-use|rbx-use]] - How any Claude uses the claudes-vault Obsidian vault (~17,000 generated notes: Roblox knowledge base, skill/ag

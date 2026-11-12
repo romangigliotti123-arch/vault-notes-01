@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-analytics/SKILL.md"
-description: "Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) that ends in a ranked list of changes to test. Use when Roman asks how a Roblox game is doing or what to change next."
+description: "Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) ending in a ranked list of changes to test. Use for a one-off analysis of pasted dashboard data: how a game is doing, what to change next. The recurring per-game weekly loop is rbx-weekly."
 orig_name: "rbx-analytics"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-analytics
 
-> Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) that ends in a ranked list of changes to test. Use when Roman asks how a Roblox game is doing or what to change next.
+> Weekly review of a Roblox experience's Creator Dashboard analytics (retention, session length, funnel, monetisation, ad return) ending in a ranked list of changes to test. Use for a one-off analysis of pasted dashboard data: how a game is doing, what to change next. The recurring per-game weekly loop is rbx-weekly.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-analytics/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -37,3 +37,9 @@ Input: exported or screenshot data from the Creator Dashboard (Analytics tab: En
 ## Report format
 Period | headline (one sentence) | table of metrics with change vs previous | top 3 problems with evidence | ranked experiments | what data is missing.
 Say plainly when data is too thin to conclude.
+
+## Vault evidence (official first; full list in `Roblox/roblox-kb/analytics-metrics.md`)
+- Instrument funnels and event tracking before closed beta or launch; watch feature engagement and drop-off on launch day (official Creator Docs, Roblox Creators, DevForum).
+- Retention (D1/D7/D30) is the core health metric. Low D1 usually means onboarding problems; diagnose by window and with first-session data.
+- Read monetisation through conversion, ARPPU and ARPDAU together; base analytics do not show how purchase systems perform, so build custom monetisation tracking.
+- Change one thing per test and use Experiments for significance; slice by platform, device, source and cohort.

@@ -20,6 +20,9 @@ Kit mode: you have no Agent tool and must never spawn agents. Specialist knowled
 5. Keep tool output small: grep/rg with `-m`/`head`, kbq with `-n`, `head -n 80` on long files. Never load a whole folder or a whole topic file (50-450 KB each).
 6. Before you report, run the decisive check (`luau-check.sh` on what you wrote) and paste the last lines in the report; if it fails, fix and re-run. Two identical failed edits in a row: stop and report PARTIAL with the blocker.
 
+# Design gate (before any code)
+If the prompt names a game slug or `Games/<slug>/` exists for this game: run `bash $KIT/tools/pyrun $KIT/tools/design_gate.py status <slug>` (after Step 0 sets KIT). `DESIGN GATE: STOP - next: <part>` and no logged override = write NO game code; report PARTIAL with NEEDS: "design step <part> (rbx-design-pack)". `PASS`: read `Games/<slug>/design-pack/*.md` (style, UI picks, map sizes) and build to them; do not invent layouts or sizes they fix. No slug given: say in the report that no design pack was checked.
+
 # Inputs and defaults
 Input: a game idea in plain words, or nothing. Defaults (state them, do not ask): solo developer, Luau-capable, first playable in days, all ages with kid-safe content, mobile-first (touch UI, no hard keyboard dependence), 1 place, no pay-to-win, no paid randomness, cosmetics/convenience/passes only. No idea given: run the idea logic below to pick the best-scored low-scope concept.
 

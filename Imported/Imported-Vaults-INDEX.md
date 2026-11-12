@@ -27,7 +27,7 @@ Public knowledge bases imported into `~/claude-host/imported-vaults/<slug>/` (ma
 - anthropics/prompt-eng-interactive-tutorial and anthropics/courses: Anthropic tutorials (no/NOASSERTION license); read online.
 - Huerte/Vault-of-Forbidden-Knowledge (MIT): general IT/gaming how-tos, judged off-topic, not imported.
 - jaredrhod/ai-memory-vault (CC-BY-SA) and undefined-ui/second-brain-os (MIT): template/guide style, skipped.
-- izzyfrm/roblox-ai: about 1 GB Roblox media library (game screenshots, UI/VFX/animation refs, 2,210 MP3 sound effects), no license (SFX folder claims CC0 without per-clip origins): index only, except 5 small image folders (ui-styles, style-refs, vfx, animations, cutscenes; 500 images) mirrored as reference-only images in vault-refs-01 (REFSIMPORT1). See Imported/roblox-ai-index/roblox-ai-INDEX.md.
+- izzyfrm/roblox-ai: about 1 GB Roblox media library (game screenshots, UI/VFX/animation refs, 2,210 MP3 sound effects), no license (SFX folder claims CC0 without per-clip origins): index only, nothing copied. See Imported/roblox-ai-index/roblox-ai-INDEX.md.
 - Pointer lists used to find more vaults: github.com/kmaasrud/awesome-obsidian, github.com/obsidian-pkm-vault/awesome-obsidian-vault, github.com/lyz-code/best-of-digital-gardens.
 
 Search order for agents: this INDEX, then Grep inside the slug folder, then `query-vault.ps1 "<need>"` (the graph includes Imported notes).

@@ -5,19 +5,19 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-thumb-brief/SKILL.md"
-description: "Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list, A/B test plan and sponsored-ad creative briefs, using the knowledge base's CTR, PTR, specs and discovery rules. Use for thumbnails, icons, titles, descriptions or ad art. Briefs only; no image generation or upload."
+description: "Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, video shot list, A/B plan and sponsored-ad creative briefs from the knowledge base's CTR, PTR and discovery rules. Written briefs only, no images; to make or score the images use rbx-thumbnail."
 orig_name: "rbx-thumb-brief"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-thumb-brief
 
-> Writes a sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, gameplay-video shot list, A/B test plan and sponsored-ad creative briefs, using the knowledge base's CTR, PTR, specs and discovery rules. Use for thumbnails, icons, titles, descriptions or ad art. Briefs only; no image generation or upload.
+> Sourced packaging brief for a Roblox experience: icon, 3-5 thumbnail concepts, title options, description draft, video shot list, A/B plan and sponsored-ad creative briefs from the knowledge base's CTR, PTR and discovery rules. Written briefs only, no images; to make or score the images use rbx-thumbnail.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-thumb-brief/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--rbx-ad-plan]]
+Related: [[S--own--rbx-thumbnail]]
 
 ---
 # Roblox thumbnail brief
@@ -29,7 +29,7 @@ KB-grounded packaging for the experience page (icon, thumbnails, title, descript
 1. Inputs (assume and state): game name, genre, core fantasy in one line, hook, current CTR/PTR/bounce if known, existing assets, audience, update to promote (if any).
 2. Evidence:
    ```
-   K="python ~/claude-library/tools/roblox-kb/kbq.py"
+   K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
    $K section thumbnails-icons instructions
    $K section titles-descriptions instructions
    $K find "thumbnail personalization active thumbnails specs" -t thumbnails-icons -n 6
@@ -60,10 +60,10 @@ Evidence table: claim | link | flag | date
 - Indie CTR numbers are self-reported. Official docs override on specs.
 - No uploading, posting or spending.
 
+## Hand-off to rbx-thumbnail
 
-## Triggers (moved out of the description)
-
-Use when the user wants thumbnails, an icon, a title or description for a Roblox game, to raise CTR, or to refresh packaging after an update.
+- The brief comes first, the images second: `rbx-thumbnail` step 2a starts from this brief's icon and thumbnail concepts, builds three that differ in composition (`rbx-thumbnail/references/composition-templates.md`), composes them with `thumb_compose.py`, checks them at 100 px and scores them.
+- Write each concept here as hook (verb, object, stake), subject, expression, colour pair and 0-3 words of text, so the hand-off needs no re-interpretation. Keep titles and description here; the image carries a number or at most 3 words.
 
 ## Ad creatives (sponsored experiences)
 
@@ -71,10 +71,5 @@ Use when the user wants thumbnails, an icon, a title or description for a Roblox
 - Ad formats and sizes differ by placement in Ads Manager: check the live requirements, do not trust memory.
 - No fake counters, fake UI buttons, copied logos or "free Robux" text; all assets owned or original; all-ages safe.
 - Test one variable at a time (icon first, it drives most impressions), fixed period or impressions chosen in advance, judge CTR and D1 of the visitors each variant brought, log the winner with its date.
-- Paid ads: a small daily budget cap approved by the user (spending needs the user's yes); pause variants with the worst cost per retained visit. Budget plan: `rbx-ad-plan`.
+- Paid ads: a small daily budget cap approved by the user (spending needs the user's yes); pause variants with the worst cost per retained visit. Budget plan: `rbx-ads`.
 - Deliverable: brief text, prompt/spec sheet per variant, test table (variant | dates | impressions | clicks | CTR | D1).
-
-
-## Triggers (moved out of the description)
-
-Use when the user wants thumbnails, an icon, a title or description for a Roblox game, to raise CTR, or to refresh packaging after an update.

@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-trends/SKILL.md"
-description: "Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation, discovery), never content to copy. Reads the local knowledge base first, then the web for live data. Not for ranking ideas or writing a plan; that is rbx-ideas."
+description: "Market research on Roblox only: what is popular or trending right now, as a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation), never content to copy. Not for ranking ideas or writing a plan; that is rbx-ideas."
 orig_name: "rbx-trends"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-trends
 
-> Market research on Roblox only. Finds which Roblox experiences lead right now and turns them into a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation, discovery), never content to copy. Reads the local knowledge base first, then the web for live data. Not for ranking ideas or writing a plan; that is rbx-ideas.
+> Market research on Roblox only: what is popular or trending right now, as a dated, sourced library of transferable patterns (first 30 seconds, core loop, retention, social, monetisation), never content to copy. Not for ranking ideas or writing a plan; that is rbx-ideas.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-trends/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -63,17 +63,11 @@ Dynamic pages often show no numbers to WebFetch; then write `not visible to fetc
 
 ## Step 0: KB first, web second
 
-The local Roblox knowledge base holds dated, sourced, official/indie-flagged material (516 sources, 90 case studies). Query it before any web search, about 4-6 calls:
+The local Roblox knowledge base holds dated, sourced, official/indie-flagged material (516 sources, 90 case studies). Before any web search, run ONE single-line Bash command (hooks may block multi-line blocks):
 
-```
-K="python ~/claude-library/tools/roblox-kb/kbq.py"
-$K route "trends <genre or question>"
-$K section trend-research-and-validation instructions
-$K section game-ideas-and-genres instructions
-$K case "<genre>" -n 4          # case studies with transferable patterns and numbers
-$K find "<genre> growing saturated demand" -t trend-research-and-validation,game-ideas-and-genres -n 8
-$K section roblox-platform-changes date
-```
+`bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/kbq.py" pack trends "<genre or question>"`
+
+It prints a `[K#]` pack. If its first line is not `KB OK` (or it fails), your reply starts with `KB unavailable: <reason>. Fix: <its Fix line>`; never fall back silently.
 
 Treat KB items as Tier A when flagged official (Creator Docs, Roblox sessions) and as Tier C leads when indie/self-reported; cite them as `[K#]` with the timestamp link. KB patterns count toward "shared patterns" (3+ games). The KB is a snapshot dated by its sources, so use the web only for live facts it cannot hold: current CCU and chart positions, what rose in the last 90 days, and anything the KB reports as a gap. Reduce the search and fetch budget below by the number of KB case studies you used (minimum 3 searches). Add a `K#` block to the Sources table.
 
@@ -135,8 +129,3 @@ Per-game breakdowns from step 2 go in the saved file only, not in the chat reply
 - [ ] Nothing that breaks the all-ages rules is recommended (risky patterns appear only under Avoid).
 - [ ] No claim that a pattern guarantees success.
 - [ ] Budget respected and the gaps listed.
-
-
-## Triggers (moved out of the description)
-
-Use proactively, without being asked for a skill by name, whenever the user asks what is popular, trending or working on Roblox, what top Roblox games do, whether a Roblox genre is saturated, or wants research before building a Roblox game.

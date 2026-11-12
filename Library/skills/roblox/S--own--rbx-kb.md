@@ -17,7 +17,7 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-kb/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--rbx-designer]], [[A--own--rbx-doctor]], [[A--own--rbx-engineer]], [[A--own--rbx-liveops]], [[A--own--rbx-marketer]], [[A--own--rbx-money]], [[S--own--youtube-learn]]
+Related: [[A--own--rbx-designer]], [[A--own--rbx-doctor]], [[A--own--rbx-engineer]], [[A--own--rbx-liveops]], [[A--own--rbx-marketer]], [[A--own--rbx-money]]
 
 ---
 # Roblox KB answer
@@ -29,7 +29,7 @@ Answer from the KB, with timestamped citations and an official/indie flag, in as
 Each Bash call is a fresh shell, so set `K` every time:
 
 ```
-K="python ~/claude-library/tools/roblox-kb/kbq.py"
+K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
 $K route "<question in plain words>"                       # 1 call: which topic files + coverage warning
 $K find "<question keywords>" -n 8                         # cited rules, numbers, checklist, if-then items across topics
 $K find "<keywords>" -t <topic1,topic2> -n 8               # narrow to the topics route suggested
@@ -39,7 +39,7 @@ $K docs "<api, limit or feature>"                          # official Creator Do
 $K case "<genre or game>"                                  # case studies
 ```
 
-Stop as soon as you can answer: normally 2 to 4 calls. Quick references that are cheaper than topic files: `~/claude-host/youtube-learn/out/roblox-kb/_tools/` (BENCHMARKS.md, DECISION-RULES.md, PRICE-LADDER.md, AD-PLAYBOOK.md, CHECKLIST-*.md); Grep them for a keyword.
+Stop as soon as you can answer: normally 2 to 4 calls. Quick references that are cheaper than topic files: `<KB>/_tools/` (BENCHMARKS.md, DECISION-RULES.md, PRICE-LADDER.md, AD-PLAYBOOK.md, CHECKLIST-*.md); Grep them for a keyword.
 
 ## Answer format (phone-sized)
 
@@ -68,7 +68,4 @@ At most 8 bullets. Every number or rule has a link and a flag (official | indie 
 - [ ] Conflicts and age (over 12 months) surfaced.
 - [ ] No more than about 4 kbq calls unless the question is broad.
 
-
-## Triggers (moved out of the description)
-
-Use proactively for any factual or "what do the best creators/Roblox say about X" question about Roblox ideas, retention, monetisation, pricing, ads, thumbnails, live ops, scripting limits, DevEx/tax, platform changes, benchmarks.
+## Learn

@@ -24,6 +24,8 @@ Related: [[S--own--rbx-visual]]
 
 Code comments: none by default (see rbx-luau, Comments).
 
+Step 0: a new or redesigned screen or button starts with `rbx-ui-mockup` (design and spec first, build from the spec, compare); skip only with a recorded reason.
+
 Most Roblox players are on phones. Design for a phone first, then enlarge.
 
 1. Sizing: use `Scale` for size and position (`UDim2.fromScale`), `Offset` only for borders/padding. Add `UIAspectRatioConstraint` to icons and square buttons, `UISizeConstraint` to cap huge sizes on 4K, `UIScale` for global tweaks by `workspace.CurrentCamera.ViewportSize`.
@@ -37,4 +39,12 @@ Most Roblox players are on phones. Design for a phone first, then enlarge.
 
 9. Overlap: stack neighbouring panels in HUD slots with `UIListLayout` instead of hand-placing them; keep bottom-left and bottom-right free for touch controls; one popup, banner or hint at a time through a queue; DisplayOrder per layer (HUD < popups < toasts). Measure instead of guessing: `rbx-visual/scripts/ui_overlap.luau` reports overlaps, hidden elements, off-screen items and small or low-contrast text at phone 844x390, tablet 1180x820 and desktop 1920x1080. The ready component set is the StyleKit of `rbx-art`.
 
+10. Polish: buttons with lip, outline and highlight, motion numbers, reward reveals, palettes, text outline recipes and a mistakes list: [cold:rbx-ui/ui-craft-guide.md] read when designing or polishing any game UI or choosing animation numbers. The working bar example is `rbx-ui-prototype/examples/bar/`.
+
 Output a screenshot checklist: device | screen | overlap/overflow | fix.
+
+## Vault evidence (official Creator Docs and DevForum; full list in `Roblox/roblox-kb/ui-ux-design.md`)
+- Build layouts mainly in Scale; Offset only for pixel-exact needs.
+- Studio layouts often look different on other devices: design for the real device aspect ratio and test beyond Studio.
+- Constraints (aspect ratio, size caps) must be direct children of the GuiObject; layout objects (UIGridLayout, UITableLayout) own positioning, so setting Position or Size on their children has no normal effect.
+- First-session UI matters most: see `Roblox/roblox-kb/first-session-onboarding.md` (teach one mechanic at a time, contextual or skippable tutorials).

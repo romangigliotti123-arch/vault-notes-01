@@ -33,8 +33,8 @@ tags: [moc]
 - [s] [[S--own--plan-then-build|plan-then-build]] - Gate and procedure for big builds: use plan mode for setup and large work (skip it for simple fixes), ask clar
 - [s] [[S--own--publish-now|publish-now]] - Last step of any task that adds or changes a skill, agent, library item, vault note or setup doc: run publish-
 - [s] [[S--own--rbx-low-usage|rbx-low-usage]] - Keep Claude in low usage mode for this session and every later one until turned off: cheapest model that fits,
-- [s] [[S--own--rbx-manager|rbx-manager]] - Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model a
-- [s] [[S--own--rbx-mentor|rbx-mentor]] - Start the vault mentor: a co-pilot with the combined knowledge of every creator in the Roblox Dev Mastery Vaul
+- [s] [[S--own--rbx-manager|rbx-manager]] - Turns this session into a manager that delegates: sizes the job, picks model and effort (haiku/sonnet/opus), b
+- [s] [[S--own--rbx-mentor|rbx-mentor]] - Start the vault mentor: a co-pilot with the combined knowledge of every creator in both vaults; works alongsid
 - [s] [[S--own--remote-claude-run|remote-claude-run]] - Run a headless Claude Code agent on another machine (Roman's Linux PC) over SSH, detached with a log, and coll
 - [s] [[S--own--report-reading-protocol|report-reading-protocol]] - Use when a worker or remote agent reports back: read order, claim extraction, one-command spot checks by claim
 - [s] [[S--own--sequential-agent-pipeline|sequential-agent-pipeline]] - Runs a multi-stage task as separate small agents or sessions in order (for example research, then draft, then 

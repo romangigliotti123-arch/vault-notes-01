@@ -16,7 +16,7 @@ Pitch: <one sentence> · Rating: <x.xx>/10.00 (docs/rating.md) · Project folder
 ## 3. Milestones and acceptance tests
 | # | milestone | est. days | acceptance test (pass/fail, observable) | jobs |
 |---|---|---|---|---|
-M1 is the core loop alone (serial); nothing runs in parallel before its acceptance test passes.
+M0 is the design pack (`rbx-design-pack`: references, style test, UI examples, map layout, one-page plan; acceptance `design_gate.py status` = DESIGN GATE: PASS). M1 is the core loop alone (serial) on the greybox of the approved map; nothing runs in parallel before its acceptance test passes.
 Tuning targets (optional): metric | evaluator | direction | target
 
 ## 4. Assets and libraries

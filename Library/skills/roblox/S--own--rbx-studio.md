@@ -33,13 +33,13 @@ Files in the project folder stay the source of truth in all three modes.
 
 ## Status check (cheap, no installs)
 - MCP: list your tool names for `mcp__Roblox_Studio__`. Present = mode 1 (call `list_roblox_studios` first; every call needs the `studio_id`). Absent = say "Studio not connected: files only".
-- Toolchain: run `rojo --version`, `selene --version`, `stylua --version`, `luau-lsp --version`, `lune --version` (from `~/.claude/claude-kit/systems` so Rokit finds `rokit.toml`). Missing ones are reported, never installed silently.
+- Toolchain: run `rojo --version`, `selene --version`, `stylua --version`, `luau-lsp --version`, `lune --version` (from `.rbx/claude-kit/systems` so Rokit finds `rokit.toml`). Missing ones are reported, never installed silently.
 - Never launch, focus or script Roblox Studio or any GUI app yourself. Never sign in for the user.
 
 ## Setup (opt-in; the user decides, every step asks first)
 Run the script yourself only after the user says yes (use `-Yes`/`--yes` only when they said "do it all"):
-- Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File ~/.claude/claude-kit/tools/studio-setup.ps1 [-DryRun] [-Yes] [-WithWally] [-Scope user|project|local]`
-- macOS/Linux: `bash ~/.claude/claude-kit/tools/studio-setup.sh [--dry-run] [--yes] [--with-wally] [--scope user|project|local]` (Linux: toolchain only, Studio does not run there).
+- Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File .rbx/claude-kit/tools/studio-setup.ps1 [-DryRun] [-Yes] [-WithWally] [-Scope user|project|local]`
+- macOS/Linux: `bash .rbx/claude-kit/tools/studio-setup.sh [--dry-run] [--yes] [--with-wally] [--scope user|project|local]` (Linux: toolchain only, Studio does not run there).
 What it does, in order: (1) Rokit toolchain manager via winget `Rojo.Rokit` / `brew install rokit`; (2) `rokit install` in `claude-kit/systems` (pins rojo 7.7.1, selene 0.29.0, stylua 2.3.1, luau-lsp 1.70.1, lune 0.10.4 from their official GitHub releases; Wally with the flag); (3) `rojo plugin install` (Studio plugin); (4) `claude mcp add --scope user Roblox_Studio -- cmd.exe /c %LOCALAPPDATA%\Roblox\mcp.bat` (macOS: `/Applications/RobloxStudio.app/Contents/MacOS/StudioMCP`); (5) a verification table. Idempotent; `-DryRun` changes nothing; ends with exit 2 and the list of what is missing if something is.
 Use `--scope project` (run inside the game folder) when the user does not want the MCP server available in all their projects.
 **Only the user can do these** (tell them, do not try): install Roblox Studio and sign in with their Roblox account; in Studio open Assistant > ... > Manage MCP Servers > turn on **Enable Studio as MCP server** (Studio then writes `mcp.bat`); restart Studio and Claude Code; keep Studio open with the place loaded. `/mcp` should list `Roblox_Studio` connected.
@@ -60,8 +60,8 @@ Scripts: `script_read`, `multi_edit` (creates the script if missing; needs `data
 Limits: one agent at a time uses the MCP session; never publish or save over the user's place; do not change places the user did not name; if a call errors twice, drop to mode 2 and say so.
 
 ## Mode 2: Rojo (files first)
-Project from `python ~/.claude/claude-kit/tools/games.py init <slug> --rojo` (scaffold in `Games/<slug>/project/`, protected from vault updates) or `--project <your folder> --rojo`. Layout: `src/server` -> ServerScriptService.Server, `src/client` -> StarterPlayer.StarterPlayerScripts.Client, `src/shared` -> ReplicatedStorage.Shared; drop-in systems land in `src/server/Systems/<Name>/` (`games.py system add <Name> --game <slug>`).
-Commands (run in the project folder): `rokit install` once; `rojo serve` then Connect in the Rojo plugin; `rojo build -o game.rbxl` (proves the project assembles); `stylua --check src`; `selene src`; `luau-lsp analyze --definitions=<kit>/tools/roblox-project-template/globalTypes.d.luau --sourcemap=sourcemap.json src` (create the sourcemap with `rojo sourcemap default.project.json -o sourcemap.json`); `bash ~/.claude/claude-kit/tools/roblox-project-template/luau-check.sh src` runs the three static checks together. Pure logic: unit-test with `lune run tests/x.test.luau` using mocks (see `~/.claude/claude-kit/systems/_check/harness.luau`). Packages: `wally init`, `wally install` (needs `-WithWally`).
+Project from `python .rbx/claude-kit/tools/games.py init <slug> --rojo` (scaffold in `Games/<slug>/project/`, protected from vault updates) or `--project <your folder> --rojo`. Layout: `src/server` -> ServerScriptService.Server, `src/client` -> StarterPlayer.StarterPlayerScripts.Client, `src/shared` -> ReplicatedStorage.Shared; drop-in systems land in `src/server/Systems/<Name>/` (`games.py system add <Name> --game <slug>`).
+Commands (run in the project folder): `rokit install` once; `rojo serve` then Connect in the Rojo plugin; `rojo build -o game.rbxl` (proves the project assembles); `stylua --check src`; `selene src`; `luau-lsp analyze --definitions=<kit>/tools/roblox-project-template/globalTypes.d.luau --sourcemap=sourcemap.json src` (create the sourcemap with `rojo sourcemap default.project.json -o sourcemap.json`); `bash .rbx/claude-kit/tools/roblox-project-template/luau-check.sh src` runs the three static checks together. Pure logic: unit-test with `lune run tests/x.test.luau` using mocks (see `.rbx/claude-kit/systems/_check/harness.luau`). Packages: `wally init`, `wally install` (needs `-WithWally`).
 Evidence from this mode is "checked, not run": say so.
 
 ## Troubleshooting

@@ -45,7 +45,7 @@ Without Studio/MCP the run-based prototype items are `untested`, F1/F2 timings `
 - Work: Stages 1-5 of SKILL.md (idea, elaborate from the vault, rate, plan). Do the pushback now: a weak idea is cheapest to fix here.
 - DoD: one-sentence pitch; core loop written as action > reward > repeat with cycle time; first 30 seconds written; monetisation stated and fair; scope that one person can ship a first playable of; `rbx-rate` overall of 6.00 or more with no hard-rule flag; `design.md` filled; plan in `game-plan.md`.
 - Rubric: F2 (critical, min 6), F1 (critical, min 6), F7 (critical, min 6, no violation), F10 (critical, min 6), F5, F6, F8 (as plans, scored on the plan).
-- Gate to prototype: critic GOOD on the idea (the `rbx-rate` table counts as evidence) AND the user said "Ready to build".
+- Gate to prototype: critic GOOD on the idea (the `rbx-rate` table counts as evidence) AND the design gate printed `DESIGN GATE: PASS` (`design_gate.py status <slug>`: references, style test, UI examples, map layout, one-page plan approved in `Games/<slug>/design-pack/APPROVED.md`, or the user's logged skip) AND the user said "Ready to build".
 
 ### prototype
 - Work: build the smallest playable of the core loop plus first 30 seconds (Stage 6, manager). Studio MCP if connected, else files and Rojo. Use `systems.md` rule for each system.

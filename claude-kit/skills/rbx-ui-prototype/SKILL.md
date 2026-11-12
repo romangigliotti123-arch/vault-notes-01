@@ -10,6 +10,8 @@ Code comments: none by default (see rbx-luau, Comments).
 
 A clickable stand-in for the game UI, made from a mockup picture, so the user can feel the buttons before anything is built in Studio. It is NEVER the game and never says so. One self-contained HTML file, no network, no installs, no server, no CDN. Called after `rbx-ui-mockup` mode on (Gemini image) or when the user drops any UI picture in the game folder and says "prototype this mockup".
 
+The no-Figma route of the design pack UI part (`rbx-design-pack`): 3 prototype versions per key screen, the user picks, the pick is recorded in `Games/<slug>/design-pack/ui.md`.
+
 ## Steps
 1. Input: image path(s) of screens of the same game UI (Read shows images), or a pasted screenshot; the game slug. Output folder `Games/<slug>/ui/prototype/`, or `./ui-prototype/` when there is no game. No image = ask once for it (or point to `rbx-ui-mockup` to get one made).
 2. Read every image and write `ui/prototype/spec.json` in the `rbx-ui-mockup` brief schema (`ui_design.py init` shows it): palette, real Roblox font names, corner and stroke, buttons, screens, elements with rects as fractions (type panel, label, button, bar, chip, icon, grid). Add a `prototype` key: `source` (image names), `rect_source`, `placeholder_art`, `not_buildable`. Copy and text come from the image; anything not readable is a guess and goes in the fidelity panel.

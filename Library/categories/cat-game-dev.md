@@ -16,22 +16,22 @@ tags: [moc]
 - [s] [[S--own--level-design-review|level-design-review]] - Review a game level or map for flow, readability, difficulty curve, teaching, pacing and replay value, with co
 - [s] [[S--own--pixel-art-asset-pipeline|pixel-art-asset-pipeline]] - Plan and produce 2D game art (sprites, tilesets, UI icons) with consistent palette, size and export settings, 
 - [s] [[S--own--playtest-feedback-synthesis|playtest-feedback-synthesis]] - Turn raw playtest notes, survey answers, comments and analytics into themes, ranked problems and a next-build 
-- [s] [[S--own--rbx-ads|rbx-ads]] - Ads plan and tutorial for one Roblox game, live-checked: readiness gate, sponsored-experience how-to, budget a
+- [s] [[S--own--rbx-ads|rbx-ads]] - Plans, budgets and explains Roblox sponsored-experience ads for one game, live-checked: readiness gate ('is my
 - [s] [[S--own--rbx-art|rbx-art]] - Art direction BEFORE anything visual is built: palette, one UI StyleKit (Theme, UI, Juice), layout rules (safe
 - [s] [[S--own--rbx-bench|rbx-bench]] - Measures whether vault changes make better Roblox games and what load mode costs: scorecard.py (0-100 card, co
 - [s] [[S--own--rbx-contribute|rbx-contribute]] - Optional, on request only: packages one of your reusable items (Games/_Reusable/<name>/) into a zip so you can
 - [s] [[S--own--rbx-critic|rbx-critic]] - Independent quality gate: a separate critic agent scores 10 factors with evidence and returns GOOD / NOT YET /
-- [s] [[S--own--rbx-game-update|rbx-game-update]] - Plans and writes future updates for a Roblox game: content cadence, live-ops loops, retention levers mapped to
-- [s] [[S--own--rbx-harvest|rbx-harvest]] - Saves anything reusable Claude built or found good while making a Roblox game (a system, module, UI, pattern, 
-- [s] [[S--own--rbx-idea-quick|rbx-idea-quick]] - Run /rbx-idea-quick to get ONE short, evidence-backed Roblox game idea that fits what is working on Roblox rig
+- [s] [[S--own--rbx-game-update|rbx-game-update]] - Plans future updates for a Roblox game: cadence, live-ops loops, retention levers (D1/D7/D30), event and seaso
+- [s] [[S--own--rbx-harvest|rbx-harvest]] - Saves anything reusable built or found good in a game to Games/_Reusable/<name>/ with a README, linked from sy
+- [s] [[S--own--rbx-idea-quick|rbx-idea-quick]] - Run /rbx-idea-quick for a FAST, ~25-line Roblox game idea checked against today's live charts and trackers (ho
 - [s] [[S--own--rbx-launch-kit|rbx-launch-kit]] - Launch kit at the playtest-to-launch gate (or alone): thumbnail/icon brief, title and description, ad budget, 
 - [s] [[S--own--rbx-lighting|rbx-lighting]] - Mandatory lighting gate: apply the genre lighting preset early (LightingKit.apply), scan the place against 12 
 - [s] [[S--own--rbx-placement|rbx-placement]] - Mandatory placement gate: every model created, inserted or moved is measured and fixed (pivot, size, grounded,
 - [s] [[S--own--rbx-plan|rbx-plan]] - Turns a rated Roblox idea into game-plan.md: assumptions, systems (build vs library), milestones with pass/fai
 - [s] [[S--own--rbx-playtest|rbx-playtest]] - Playtests a Roblox game: bug and feel report with severities; fixes bugs ('keeps happening') red-first (reprod
 - [s] [[S--own--rbx-rate|rbx-rate]] - Rates or compares Roblox game ideas 1.00-10.00 on 12 weighted criteria (core loop, retention, hook, feel, vira
-- [s] [[S--own--rbx-thumbnail|rbx-thumbnail]] - Roblox icons and thumbnails built to get clicked: click-psychology rubric score, prompts, A/B variants, conten
+- [s] [[S--own--rbx-thumbnail|rbx-thumbnail]] - Make Roblox icons and thumbnails that get clicked: 3 composition concepts, composer with 100 px legibility str
 - [s] [[S--own--rbx-tune|rbx-tune]] - Metric-gated tuning loop: pick ONE number (gate score, economy simulation, frame cost), baseline it, single-ch
 - [s] [[S--own--rbx-visual|rbx-visual]] - Mandatory visual gate and definition of done: screenshots of the running game (phone and desktop), layout and 
-- [s] [[S--own--rbx-weekly|rbx-weekly]] - Weekly numbers check for a live or launching Roblox game. The user pastes Creator Dashboard numbers (or, later
+- [s] [[S--own--rbx-weekly|rbx-weekly]] - Weekly numbers check for a live Roblox game: the user pastes Creator Dashboard numbers; compared with vault be
 - [s] [[S--own--rbx-workflow|rbx-workflow]] - Flagship Roblox game workflow, the single entry for every game ('where do I start', 'work on <game>'): finds o

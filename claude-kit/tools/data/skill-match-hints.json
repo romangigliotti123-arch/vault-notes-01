@@ -17,6 +17,7 @@
  "rbx-lighting": "lighting looks flat; fix the sky and atmosphere; game too dark; looks like default roblox; grey and boring",
  "rbx-placement": "models floating; models buried; clipping into walls; parts tilted; fix model placement",
  "rbx-visual": "visual check; screenshots on phone and desktop; is the game visually done",
+ "rbx-design-pack": "design pack; plan the design first; style test; map layout; layout options; ui options; redesign the map; redesign the ui; design before code; figma",
  "rbx-art": "art style; color palette; art direction; style guide before building",
  "rbx-playtest": "playtest my game; bug report; fix this bug; keeps happening; checkpoint resets; spawn twice; respawning at the start",
  "rbx-playtest-list": "playtest checklist; qa checklist",

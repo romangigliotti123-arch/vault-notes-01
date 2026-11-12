@@ -8,6 +8,7 @@ Pack skills are opened by a general worker (Agent tool) whose master brief says 
 | design: loop, first minute, progression, rewards | core-loop-designer, first-minute-designer, progression-curve-designer, reward-schedule-designer | rbx-designer | sonnet | parallel, no project edits (each writes only its own `docs/audits/` report file) |
 | economy | (money: `find "economy sink"`) | rbx-economist | sonnet, high | serial |
 | scaffold and loop code | (scripting/systems: `find "<system>"`) | rbx-engineer; systems/PlayerData, Shop, DailyRewards | sonnet | serial per owned folder |
+| design pack (M0: references, style test, UI examples, map layout, one-page plan; any design thing: thumbnails prompts, models, animations, cutscenes) | skill `rbx-design-pack` (Figma-first; hands off to rbx-thumbnail, rbx-ui-prototype, rbx-art) | the main session with the user (picks) | sonnet | serial, before J00 and before any code |
 | art direction (J00, before any UI/world/effect job) | art-bible-writer, palette-picker, font-and-color-picker, lighting-preset-picker, game-feel-polisher | skill rbx-art (StyleKit) | sonnet | serial, first |
 | UI | mobile-ui-audit, shop-ui-planner, hud-layout-planner, ui-kit-consistency-checker | rbx-engineer (StyleKit components only) | sonnet | parallel with non-UI writers |
 | models, world, lighting, effects | model-rebuild, prop-set-planner, part-to-mesh-planner, lighting-preset-picker, particle-effect-planner | rbx-engineer; Studio MCP search_asset / insert_asset / generate_mesh | sonnet | serial (MCP) |

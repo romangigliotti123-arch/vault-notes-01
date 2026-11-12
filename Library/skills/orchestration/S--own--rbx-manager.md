@@ -5,14 +5,14 @@ category: "orchestration"
 source: "own"
 license: "first-party"
 repo_path: "skills/orchestration/rbx-manager/SKILL.md"
-description: "Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model and effort (haiku/sonnet/opus), brief workers, check their reports, and stay inside a usage cap. Use for large multi-step jobs, parallel agents or research with a budget. Also: /rbx-manager install-presets."
+description: "Turns this session into a manager that delegates: sizes the job, picks model and effort (haiku/sonnet/opus), briefs workers, checks reports, stays inside a usage cap. Use for large multi-step jobs, parallel agents or research with a budget. Also: install-presets."
 orig_name: "rbx-manager"
 tags: [lib/skill, cat/orchestration, src/own]
 ---
 
 # rbx-manager
 
-> Turn this session into a manager that delegates instead of doing everything itself: size the job, pick model and effort (haiku/sonnet/opus), brief workers, check their reports, and stay inside a usage cap. Use for large multi-step jobs, parallel agents or research with a budget. Also: /rbx-manager install-presets.
+> Turns this session into a manager that delegates: sizes the job, picks model and effort (haiku/sonnet/opus), briefs workers, checks reports, stays inside a usage cap. Use for large multi-step jobs, parallel agents or research with a budget. Also: install-presets.
 
 Type: skill | Category: [[categories/cat-orchestration|orchestration]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/orchestration/rbx-manager/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -59,9 +59,4 @@ Stop and ask, naming the exact action, before: deleting or overwriting data that
 `references/report-format.md` (RESULT / HEADLINE / CRITERIA / CHANGES / NOT_CHECKED / PROBLEMS / NEEDS / NEXT / ARTIFACTS).
 
 ## `/rbx-manager install-presets`
-Only when the user runs this; never automatically. Copy the three templates in `presets/` to `~/.claude/agents/` (`sonnet-worker.md`, `haiku-scout.md`, `opus-builder.md`). Never overwrite: if a target exists and differs, write `<name>.md.new` beside it and tell the user. Use the helper in this skill folder (`~/.claude/skills/rbx-manager`): `bash ~/.claude/skills/rbx-manager/presets/install-presets.sh` (macOS/Linux/Git Bash) or `powershell -NoProfile -File "$HOME\.claude\skills\rbx-manager\presets\install-presets.ps1"` (Windows). Then tell the user to start a new session or run `/agents` so the presets load.
-
-
-## Triggers (moved out of the description)
-
-Use when the user says /rbx-manager, 'act as a manager', 'delegate this', 'run workers/agents', 'parallel agents', 'research this with a budget', or gives a large multi-step job.
+Only when the user runs this; never automatically. Copy the three templates in `presets/` to `~/.claude/agents/` (`sonnet-worker.md`, `haiku-scout.md`, `opus-builder.md`). Never overwrite: if a target exists and differs, write `<name>.md.new` beside it and tell the user. Use the helper in this skill folder (`.rbx/claude-kit/vault-mode/.claude/skills/rbx-manager`): `bash .rbx/claude-kit/vault-mode/.claude/skills/rbx-manager/presets/install-presets.sh` (macOS/Linux/Git Bash) or `powershell -NoProfile -File "$HOME\.claude\skills\rbx-manager\presets\install-presets.ps1"` (Windows). Then tell the user to start a new session or run `/agents` so the presets load.

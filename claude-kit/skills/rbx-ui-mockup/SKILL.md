@@ -10,6 +10,8 @@ Code comments: none by default (see rbx-luau, Comments).
 
 Design-first UI: no screen or button is built before it exists as a design with exact numbers. Called by `rbx-art` (step 4b) and `rbx-ui` (step 0). It NEVER asks the user anything mid-turn: it reads the stored preference and keeps going. Stdlib tools in `scripts/` (`py` or `python3 -I`), no network, no installs, no local image generation.
 
+If `Games/<slug>/design-pack/ui.md` exists, the picked screens there (Figma frames or HTML versions) are the design: refine them into the spec, never redesign from scratch; new or changed screens go through `rbx-design-pack` (3 versions, pick). The Figma check below is the same one the design pack makes.
+
 ## Steps
 1. Mode: `python -I .rbx/claude-kit/tools/ui_pref.py get` prints `off` (default, also when unset) = AUTOMATIC DESIGN-FIRST, or `on` = MANUAL Nano Banana 2.1 package (step 3b).
 2. Figma check, once per game: look in your tool list (ToolSearch "figma" when tools are deferred) for a connector or MCP tool whose name contains `figma`, then run `python -I .rbx/claude-kit/tools/ui_pref.py figma --tools "<those names, or none>" --game Games/<slug>`. Show the ONE line it prints (nothing is printed on later calls for the same game). Not connected = say so in that line and continue with the local sheet; connected = use it ([cold:rbx-ui-mockup/figma.md] read when Figma is connected or the user asks how to connect it). Never ask for, store or enter a Figma token, never install or log in.

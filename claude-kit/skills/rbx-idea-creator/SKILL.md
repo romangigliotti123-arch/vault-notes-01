@@ -28,7 +28,7 @@ Art and scope default to cartoon low-poly and money to cosmetics plus convenienc
 
 ## After the card
 
-Same as rbx-ideas: "build it" creates `Games/<slug>/` with the seeded README (`games.py init <slug> --from-idea research/idea-<slug>.md`), "another" gives one different idea from the same answers (same lane rule), "plan" runs Phase B of rbx-ideas.
+Same as rbx-ideas: "build it" creates `Games/<slug>/` with the seeded README (`games.py init <slug> --from-idea research/idea-<slug>.md`) and offers `/rbx-workflow`, which starts with the design pack (references, style test, UI examples, map layout, plan) before any code, "another" gives one different idea from the same answers (same lane rule), "plan" runs Phase B of rbx-ideas.
 
 ## Self-check
 

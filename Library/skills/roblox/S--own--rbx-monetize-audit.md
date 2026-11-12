@@ -17,7 +17,7 @@ tags: [lib/skill, cat/roblox, src/own]
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-monetize-audit/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[A--own--rbx-money]], [[S--own--rbx-metrics]], [[S--own--youtube-learn]]
+Related: [[A--own--rbx-money]], [[S--own--rbx-metrics]]
 
 ---
 # Roblox monetisation audit
@@ -27,10 +27,10 @@ Output: scorecard + fixes + experiments, each sourced. For a full redesign use t
 ## Procedure
 
 1. Collect facts (assume and state): genre/loop, audience age, list of current offers with Robux prices and type, how and where each is shown, metrics (payer conversion, ARPPU, transactions per 30 days, D1), whether prices are scripted via MarketplaceService, RNG items, Premium/subscription/rewarded-ads use.
-2. Load the checklist: `~/claude-host/youtube-learn/out/roblox-kb/_tools/CHECKLIST-monetization.md` (read the `Must` lists), plus `PRICE-LADDER.md` (top sections).
+2. Load the checklist: `<KB>/_tools/CHECKLIST-monetization.md` (read the `Must` lists), plus `PRICE-LADDER.md` (top sections).
 3. Add targeted evidence:
    ```
-   K="python ~/claude-library/tools/roblox-kb/kbq.py"
+   K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
    $K section monetisation-devproducts instructions
    $K section monetisation-gamepasses instructions
    $K section pricing instructions

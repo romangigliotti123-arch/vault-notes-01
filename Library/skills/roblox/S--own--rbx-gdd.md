@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-gdd/SKILL.md"
-description: "Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document."
+description: "Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document. For milestones and routing from a rated idea use rbx-plan."
 orig_name: "rbx-gdd"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-gdd
 
-> Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document.
+> Fills in a 1-3 page game design document for a Roblox experience from a concept, using the knowledge base for core-loop, onboarding, economy, retention and scope rules, with an evidence table. Use for a GDD, design doc, one-pager, concept document. For milestones and routing from a rated idea use rbx-plan.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-gdd/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -29,7 +29,7 @@ Output: a filled `GDD-<game>.md` built from `TEMPLATE.md` in this folder. For th
 1. Read `TEMPLATE.md` (same folder). Copy it to `GDD-<game>.md` in the project (or the path given).
 2. Gather KB support (about 5 kbq calls):
    ```
-   K="python ~/claude-library/tools/roblox-kb/kbq.py"
+   K="bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/kbq.py"   # run `$K where` once to see VAULT/KB/ASSETS
    $K section core-loops-and-game-design instructions
    $K section first-session-onboarding instructions
    $K find "<genre> core loop progression economy sinks" -n 8

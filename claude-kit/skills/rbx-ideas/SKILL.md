@@ -140,7 +140,7 @@ Spell Robux in full where first used and avoid jargon (say "first build" not MVP
 
 ### After the card
 
-- **"build it":** run (single line) `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/games.py" init <slug> --from-idea research/idea-<slug>.md`. It creates `Games/<slug>/` and seeds README.md (pitch, loop, hook, week-1 loop, monetisation, risks). Then give the folder path and offer `/rbx-workflow` to continue. Nothing else is built.
+- **"build it":** run (single line) `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/games.py" init <slug> --from-idea research/idea-<slug>.md`. It creates `Games/<slug>/` and seeds README.md (pitch, loop, hook, week-1 loop, monetisation, risks). Then give the folder path and offer `/rbx-workflow` to continue (it starts with the design pack: references, style test, UI examples, map layout, one-page plan, in Figma when connected, before any code). Nothing else is built.
 - **"another":** see the Engine ("Another"): one different idea, the same lane rule and the same single card.
 - **"plan":** Phase B below, on the idea in the file. Phase B is unchanged.
 

@@ -5,30 +5,28 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-metrics/SKILL.md"
-description: "One sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, FPS) with an official/indie flag per row, plus a script that compares a game's numbers to those bands. Use for 'what is a good D1/CTR/conversion' and for benchmark targets."
+description: "Sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, FPS) with an official/indie flag per row and a comparison script. Use for 'what is a good D1/CTR/conversion'."
 orig_name: "rbx-metrics"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-metrics
 
-> One sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, FPS) with an official/indie flag per row, plus a script that compares a game's numbers to those bands. Use for 'what is a good D1/CTR/conversion' and for benchmark targets.
+> Sourced table of Roblox benchmark numbers (D1, D7, session length, PTR, CTR, payer conversion, ARPPU, join time, ad cost per play, FPS) with an official/indie flag per row and a comparison script. Use for 'what is a good D1/CTR/conversion'.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-metrics/SKILL.md` (extra files, if any, sit beside it in the repo)
 
-Related: [[S--own--youtube-learn]]
-
 ---
 # Roblox metrics benchmarks
 
-Two parts: `benchmarks.md` (the table, same folder) and `compare.py` (deterministic comparison). Full tables: `~/claude-host/youtube-learn/out/roblox-kb/_tools/BENCHMARKS.md` (headline numbers first, regenerated daily).
+Two parts: `benchmarks.md` (the table, same folder) and `compare.py` (deterministic comparison). Full tables: `<KB>/_tools/BENCHMARKS.md` (headline numbers first, regenerated daily).
 
 ## Use
 
 - Look up: read `benchmarks.md` (about 15 rows).
-- Compare: `python ~/claude-library/skills/roblox/rbx-metrics/compare.py --d1 8 --d7 1.5 --session 3 --ptr 2.2 --conv 0.8` (keys: d1 d7 d30 session ptr ctr conv arppu join fs5 bounce cpp optin fps). Output: verdict per metric, flag, sources.
-- More detail on one metric: `python ~/claude-library/tools/roblox-kb/kbq.py num "<metric>"`.
+- Compare: `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/vault-mode/.claude/skills/rbx-metrics/compare.py" --d1 8 --d7 1.5 --session 3 --ptr 2.2 --conv 0.8` (keys: d1 d7 d30 session ptr ctr conv arppu join fs5 bounce cpp optin fps). Output: verdict per metric, flag, sources.
+- More detail on one metric: `bash ".rbx/claude-kit/tools/pyrun" ".rbx/claude-kit/tools/kbq.py" num "<metric>"`.
 
 ## Rules for using the numbers
 
@@ -39,9 +37,4 @@ Two parts: `benchmarks.md` (the table, same folder) and `compare.py` (determinis
 
 ## Maintenance
 
-`thresholds.json` is curated from the KB; when `_tools/BENCHMARKS.md` changes materially, re-check bands with `kbq.py num` and update the JSON, then run `python ~/claude-library/tools/roblox-kb/build_tools.py` (rewrites `benchmarks.md`).
-
-
-## Triggers (moved out of the description)
-
-Use when the user asks what a good D1/D7/session/conversion/CTR is, how their numbers compare, or wants benchmark targets for a Roblox game.
+`thresholds.json` is curated from the KB `_tools/BENCHMARKS.md`; re-check bands with `kbq.py num` when the KB changes.

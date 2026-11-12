@@ -5,14 +5,14 @@ category: "roblox"
 source: "own"
 license: "first-party"
 repo_path: "skills/roblox/rbx-leaderboard/SKILL.md"
-description: "Implement Roblox global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when adding competition, badges or recurring events to a Roblox game."
+description: "Implement global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when adding competition, badges or recurring events."
 orig_name: "rbx-leaderboard"
 tags: [lib/skill, cat/roblox, src/own]
 ---
 
 # rbx-leaderboard
 
-> Implement Roblox global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when adding competition, badges or recurring events to a Roblox game.
+> Implement global leaderboards (OrderedDataStore), badges, timed live events and daily rewards safely. Use when adding competition, badges or recurring events.
 
 Type: skill | Category: [[categories/cat-roblox|roblox]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/roblox/rbx-leaderboard/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -30,7 +30,7 @@ Code comments: none by default (see rbx-luau, Comments).
 5. Anti-cheat: score comes only from server-observed events; cap per-minute gain; log outliers.
 
 ## Badges
-`BadgeService:AwardBadge(userId, badgeId)` from the server inside pcall; check `UserHasBadgeAsync` first; create badges in Creator Hub (costs Robux per badge beyond the daily free allowance, so confirm with Roman before creating many). Award for onboarding milestones, not spam.
+`BadgeService:AwardBadge(userId, badgeId)` from the server inside pcall; check `UserHasBadgeAsync` first; create badges in Creator Hub (costs Robux per badge beyond the daily free allowance, so confirm with the user before creating many). Award for onboarding milestones, not spam.
 
 ## Timed and live events
 1. Drive event windows from server time (`os.time()`/`DateTime.now()`), with the schedule in a config module or MessagingService / a remote config table so it can change without an update.

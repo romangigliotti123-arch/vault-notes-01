@@ -5,14 +5,14 @@ category: "research"
 source: "own"
 license: "first-party"
 repo_path: "skills/research/rbx-research/SKILL.md"
-description: "Deep multi-source research (GitHub, YouTube, Reddit, blogs, docs, papers): best creators per source, claims labelled OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE, cited knowledge base, playbook and cheat sheet. Asks for budget and limits first."
+description: "Deep multi-source research (GitHub, YouTube, Reddit, blogs, docs, papers): best creators per source, claims labelled OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE, cited knowledge base, playbook and cheat sheet. Asks for budget and limits first. Roblox market trends only: rbx-trends."
 orig_name: "rbx-research"
 tags: [lib/skill, cat/research, src/own]
 ---
 
 # rbx-research
 
-> Deep multi-source research (GitHub, YouTube, Reddit, blogs, docs, papers): best creators per source, claims labelled OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE, cited knowledge base, playbook and cheat sheet. Asks for budget and limits first.
+> Deep multi-source research (GitHub, YouTube, Reddit, blogs, docs, papers): best creators per source, claims labelled OFFICIAL / CORROBORATED / SINGLE-SOURCE / CONTRADICTED / OUTDATED-UNSURE, cited knowledge base, playbook and cheat sheet. Asks for budget and limits first. Roblox market trends only: rbx-trends.
 
 Type: skill | Category: [[categories/cat-research|research]] | Source: [[sources/src-own|own]] | License: first-party
 Repo file: `skills/research/rbx-research/SKILL.md` (extra files, if any, sit beside it in the repo)
@@ -33,7 +33,7 @@ Run scripts as `PY SKILL_DIR/scripts/<script>.py ...`. PY is the python command 
 6. Public sources only, robots.txt and rate limits respected, no logins, no republishing (`references/safety.md`). Notes are for the user's own use.
 
 ## Where the output goes
-Default `OUT`: `<vault>/My Research/<topic-slug>/` when a `claudes-vault` clone exists (env `CLAUDES_VAULT`, else `~/Obsidian/claudes-vault`), otherwise `./research/<topic-slug>/`. An explicit `--out` always wins, but never into the vault folders Library/, Roblox/, Manager/, Imported/ or Assets/ (refused). Every research folder gets a `PROTECTED-RESEARCH.md` marker ("made on this machine; rbx-update never deletes it; do not delete"), and `My Research/README.md` is created once. Tell the user the folder path at the end.
+Default `OUT`: `<vault>/My Research/<topic-slug>/` when a `claudes-vault` clone exists (env `CLAUDES_VAULT`, else `~/Obsidian/rbx-dev-vault`), otherwise `./research/<topic-slug>/`. An explicit `--out` always wins, but never into the vault folders Library/, Roblox/, Manager/, Imported/ or Assets/ (refused). Every research folder gets a `PROTECTED-RESEARCH.md` marker ("made on this machine; rbx-update never deletes it; do not delete"), and `My Research/README.md` is created once. Tell the user the folder path at the end.
 
 ## 1. Preflight (free, once)
 - Run `doctor` (`scripts/doctor.sh` or `doctor.ps1`). It lists python, yt-dlp, ffmpeg, gh, claude, faster-whisper, the python command to use, and the exact install command per OS. Install nothing unless the user says yes. Missing yt-dlp drops YouTube; missing gh falls back to 60 anonymous GitHub requests/hour; no `claude` command means mode A or C (below).

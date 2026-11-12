@@ -2,7 +2,7 @@
 
 Built and maintained by Roman (GitHub: romangigliotti123-arch)
 
-The short version is in `START-HERE.md`. This is the long one: read only the part you need. Everything below is generated from the real kit (68 skills, 18 agents), so it matches your install.
+The short version is in `START-HERE.md`. This is the long one: read only the part you need. Everything below is generated from the real kit (69 skills, 18 agents), so it matches your install.
 
 | Jump to | |
 |---|---|
@@ -14,7 +14,7 @@ The short version is in `START-HERE.md`. This is the long one: read only the par
 
 ## 1. What the vault is
 
-A folder of Roblox research notes plus a Claude kit. Start a Claude session in the folder and Claude has the notes, 68 skills and 18 agents loaded. It does not ask questions it can answer itself: it writes down its assumptions and carries on.
+A folder of Roblox research notes plus a Claude kit. Start a Claude session in the folder and Claude has the notes, 69 skills and 18 agents loaded. It does not ask questions it can answer itself: it writes down its assumptions and carries on.
 
 ### Where everything lives
 
@@ -81,6 +81,7 @@ Type `/rbx-list` to see what is installed, or `/` then `rbx-`.
 | grow my own idea | `/rbx-idea-creator <your idea>` |
 | build a whole game | `/rbx-workflow` |
 | continue a game I started | say `I want to work on <game name>` |
+| plan the design first (style test, UI options, map layout, thumbnails prompts) | `/rbx-design-pack`, in Figma when it is connected |
 | make a shop or menu screen | `/rbx-ui` (design first with `/rbx-ui-mockup`) |
 | click through a mockup before building | `/rbx-ui-prototype` |
 | make my own skill or agent | `/rbx-new-skill` |
@@ -97,7 +98,7 @@ Not sure? Just describe the task in plain words ("I want to make a shop screen")
 
 ## 5. Every skill and agent
 
-68 skills, grouped. Always available everywhere: `/rbx-update`, `/rbx-check`, `/rbx-uninstall`. The rest work in a session started in the vault folder.
+69 skills, grouped. Always available everywhere: `/rbx-update`, `/rbx-check`, `/rbx-uninstall`. The rest work in a session started in the vault folder.
 
 ### Ideas
 
@@ -124,6 +125,7 @@ Take a game from idea to launch, with the quality gates.
 | `/rbx-workflow` | Flagship Roblox game workflow, the single entry for every game. |
 | `/rbx-make` | Vault research, scored GDD, Rojo/Luau project, checks, how to open it in Studio |
 | `/rbx-plan` | Turns a rated Roblox idea into game-plan.md: assumptions, systems. |
+| `/rbx-design-pack` | Plans the DESIGN of a Roblox game before any code, mostly in Figma: references, style test. |
 | `/rbx-art` | Art direction BEFORE anything visual is built: palette, one UI StyleKit, layout rules. |
 | `/rbx-placement` | Mandatory placement gate: every model created. |
 | `/rbx-lighting` | Mandatory lighting gate: apply the genre lighting preset early, scan the place against 12 checks |
@@ -278,7 +280,9 @@ Claude hands work to these specialists by itself; you rarely call them. Ask for 
 
 **Models library**: good reusable models are saved to `Models/` by `tools/models.py`, only if they pass strict quality rules. Claude looks there first before building a model.
 
-## 8. UI mockups and the prototype
+## 8. Design pack, UI mockups and the prototype
+
+`/rbx-design-pack` plans the design BEFORE any game code, in this order: references from similar top games, a style test (3-8 hero props built and shown), UI examples (3 versions per key screen, phone frames first), a map layout in studs, a one-page plan. It also designs thumbnails and icons (image-generation prompts), models, characters, animations, transitions, cutscenes, VFX, sound, menus, store screens and trailer shots, and any other design thing you name. `/rbx-workflow`, `/rbx-plan`, `/rbx-make` and `/rbx-manager` stop at the design gate until `Games/<slug>/design-pack/APPROVED.md` shows the five steps approved; say "skip the design pack" to override (it is logged). Figma is the preferred canvas: connect it once (`claude plugin install figma@claude-plugins-official`, restart, `/plugin`, sign in; or `claude mcp add --transport http figma https://mcp.figma.com/mcp`, then `/mcp`, figma, Authenticate); Claude offers it once per design stage and otherwise draws with HTML and SVG. Details: `claude-kit/skills/rbx-design-pack/references/figma.md`.
 
 By default Claude designs every button and screen before building UI (`/rbx-ui-mockup`), exports the exact sizes and colours, builds from them and compares. `/rbx-mockup on` switches to a manual package for making mockups yourself with an image generator; `/rbx-mockup off` returns to automatic.
 

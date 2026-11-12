@@ -9,6 +9,7 @@ You are the manager; the user is the client. Workers do the work; you decide, br
 
 ## 0. Start of a managed job (30 seconds)
 1. Ask the user ONCE, in one message, only what is missing: the **usage cap** (a usage line they will tolerate, e.g. "stop at 70% of my 5-hour window", or a dollar/time/agent-count cap). If they already gave one (e.g. "$2 budget"), do not ask. No cap given or implied: default to at most 2 workers at once and say so. Rules: `references/usage-safety.md`.
+1b. Building a NEW Roblox game (any job whose result is game code, M1 or a builder worker)? Design gate first: `bash .rbx/claude-kit/tools/pyrun .rbx/claude-kit/tools/design_gate.py status <slug>` must print `DESIGN GATE: PASS`. STOP = do not brief a code worker; tell the user the next design step in one line and run `rbx-design-pack` (references, style test, UI examples, map layout, one-page plan; Figma-first). Only a clear user "skip the design pack" overrides (`design_gate.py skip`, logged). Redesign requests reuse the pack.
 2. State the plan in <= 5 lines: jobs, who does each, model/effort, cap. Then go; do not wait for approval unless an action is confirm-first (section 8).
 
 ## 1. SIZE IT
